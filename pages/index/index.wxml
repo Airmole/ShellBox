@@ -1,0 +1,49 @@
+<view>
+  <view class="page-body">
+    <view class="page-section">
+      <view class="weui-cells__title">请选择班级</view>
+      <view class="weui-cells weui-cells_after-title">
+        <view class="weui-cell weui-cell_input">
+          <view class="weui-cell__hd">
+            <view class="weui-label">班级：</view>
+          </view>
+          <view class="weui-cell__bd">
+            <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+              <view class="weui-input">{{array[index]}}</view>
+            </picker>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view wx:if="{{index==0}}" class='kbPic'>
+    <image src='http://www.z4a.net/images/2018/02/07/t1601.jpg' mode='widthFix'></image>
+  </view>
+  <view wx:if="{{index==1}}" class='kbPic'>
+    <image src='http://www.z4a.net/images/2018/02/07/t1602.jpg' mode='widthFix'></image>
+  </view>
+  <view wx:if="{{index==2}}" class='kbPic'>
+    <image src='http://www.z4a.net/images/2018/02/07/z1601.jpg' mode='widthFix'></image>
+  </view>
+  <view wx:if="{{index==3}}" class='kbPic'>
+    <image src='http://www.z4a.net/images/2018/02/07/z1602.jpg' mode='widthFix'></image>
+  </view>
+  <view wx:if="{{index==4}}" class='kbPic'>
+    <image src='http://www.z4a.net/images/2018/02/07/j1601.jpg' mode='widthFix'></image>
+  </view>
+  <view wx:if="{{index==5}}" class='kbPic'>
+    <image src='http://www.z4a.net/images/2018/02/07/j1602.jpg' mode='widthFix'></image>
+  </view>
+  <view wx:if="{{index==6}}" class='kbPic'>
+    <image src='http://www.z4a.net/images/2018/02/07/j1603.jpg' mode='widthFix'></image>
+  </view>
+  <view wx:if="{{index==7}}" class='kbPic'>
+    <image src='http://www.z4a.net/images/2018/02/07/j1604.jpg' mode='widthFix'></image>
+  </view>
+  <view wx:if="{{index==8}}" class='kbPic'>
+    <image src='http://www.z4a.net/images/2018/02/07/j1605.jpg' mode='widthFix'></image>
+  </view>
+  <view wx:if="{{index==9}}" class='kbPic'>
+    <image src='/images/tip.jpg'></image>
+  </view>
+</view>

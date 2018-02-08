@@ -1,0 +1,41 @@
+{
+  "pages": [
+    "pages/welcome/welcome",
+    "pages/index/index",
+    "pages/calendar/calendar",
+    "pages/tel/tel"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarTitleText": "信实盒子",
+    "navigationBarTextStyle": "white",
+    "navigationBarBackgroundColor": "#ECC0A8"
+  },
+  "tabBar": {
+    "boderStyle": "white",
+    "selectedColor": "#4A6141",
+    "color": "#333",
+    "backgroundColor": "#fff",
+    "position": "bottom",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "班级课表",
+        "iconPath": "images/icon2.png",
+        "selectedIconPath": "images/icon1.png"
+      },
+      {
+        "pagePath": "pages/calendar/calendar",
+        "text": "校历",
+        "iconPath": "images/calendar2.png",
+        "selectedIconPath": "images/calendar1.png"
+      },
+      {
+        "pagePath": "pages/tel/tel",
+        "text": "联系老师",
+        "iconPath": "images/icon4.png",
+        "selectedIconPath": "images/icon3.png"
+      }
+    ]
+  }
+}

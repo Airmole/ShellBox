@@ -1,0 +1,5 @@
+/* pages/calendar/calendar.wxss */
+@import "../common/weui.wxss";
+.calendarStyle{
+  text-align: center;
+}

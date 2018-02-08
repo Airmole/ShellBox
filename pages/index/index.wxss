@@ -1,0 +1,11 @@
+@import "../common/weui.wxss";
+.picker {
+  padding: 19rpx 26rpx;
+  background-color: #fff;
+}
+.kbPic{
+  text-align: center;
+}
+page{
+  background-color: rgb(248, 247, 245);
+}

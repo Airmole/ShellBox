@@ -1,0 +1,25 @@
+.container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.journey-container{
+  margin-top: 200rpx;
+  border: 1px solid #DA5A3C;
+  width: 300rpx;
+  height: 80rpx;
+  border-radius: 5px;
+  text-align: center;
+}
+.avatar{
+  width: 200px;
+  height: 200px;
+}
+text{
+  font-weight: bold;
+  line-height: 80rpx;
+  color: #EA5A3C;
+}
+page{
+  background-color: #ECC0A8;
+}

@@ -1,0 +1,6 @@
+<view class='container'>
+  <image class="avatar" src="/images/BKIELogo.png"></image>
+  <view class='journey-container' catchtap='onTapJump'>
+    <text>开启小程序之旅</text>
+  </view>
+</view>
