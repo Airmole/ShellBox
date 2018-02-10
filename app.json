@@ -3,6 +3,7 @@
     "pages/welcome/welcome",
     "pages/index/index",
     "pages/calendar/calendar",
+    "pages/score/score",
     "pages/tel/tel"
   ],
   "window": {
@@ -29,6 +30,12 @@
         "text": "校历",
         "iconPath": "images/calendar2.png",
         "selectedIconPath": "images/calendar1.png"
+      },
+      {
+        "pagePath": "pages/score/score",
+        "text": "成绩",
+        "iconPath": "images/score.png",
+        "selectedIconPath": "images/score(selected).png"
       },
       {
         "pagePath": "pages/tel/tel",
