@@ -8,7 +8,7 @@
             <view class="weui-label">学号</view>
           </view>
           <view class="weui-cell__bd">
-            <input name="numberId" maxlength="9" type="number" class="weui-input" placeholder="请输入学号" />
+            <input name="stuId" maxlength="9" type="number" class="weui-input" placeholder="请输入学号" />
           </view>
         </view>
         <view class="weui-cell weui-cell_input">
@@ -16,7 +16,7 @@
             <view class="weui-label">密码</view>
           </view>
           <view class="weui-cell__bd">
-            <input name="Pwd" password type="text" class="weui-input" placeholder="请输入教务网密码" />
+            <input name="password" password type="text" class="weui-input" placeholder="请输入教务网密码" />
           </view>
         </view>
       </view>
