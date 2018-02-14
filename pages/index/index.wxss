@@ -10,9 +10,9 @@
 }
 
 .shareIcon {
-  margin-top: 10px;
   width: 26px;
   height: 26px;
+  vertical-align: text-bottom;
 }
 
 page {
