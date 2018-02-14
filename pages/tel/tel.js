@@ -1,6 +1,7 @@
 var base64 = require("../../images/base64");
 Page({
   data: {
+    //存储老师们的联系电话的数组
     telNumber: [{
       name: '吴思',
       tel: 15922164710
@@ -11,6 +12,7 @@ Page({
       name: '刘卫洁',
       tel: 18722136008
     }],
+    //存储老师们的QQ号码的数组
     QQNumber: [{
       name: '吴思',
       qq: 925396533
