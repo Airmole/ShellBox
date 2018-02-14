@@ -1,5 +1,5 @@
-<view>
-  <view class="page-body">
+<view class='page'>
+  <view class="page__bd page__bd_spacing">
     <view class="page-section">
       <view class="weui-cells__title">请选择班级</view>
       <view class="weui-cells weui-cells_after-title">
@@ -45,5 +45,11 @@
   </view>
   <view wx:if="{{index==9}}" class='kbPic'>
     <image src='/images/tip.jpg'></image>
+  </view>
+  <view class="weui-btn-area" wx:if="{{index!=9}}">
+    <button class="shareButton" plain='true' open-type="share" type="default" hover-class="other-button-hover">
+      <image class="weui-btn shareIcon" src='/images/share.png'></image>
+      分享课表给朋友
+    </button>
   </view>
 </view>

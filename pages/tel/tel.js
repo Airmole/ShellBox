@@ -44,11 +44,27 @@ Page({
       icon: 'none',
       duration: 1000
     });
-    // wx.getClipboardData({
-    //   success: function (res) {
-    //     console.log(res.data)
-    //   }
-    // })
+  },
+
+  /**
+   * 页面相关事件处理函数--监听用户下拉动作
+   */
+  onPullDownRefresh: function () {
+    wx.showNavigationBarLoading() //在标题栏中显示加载
+    //模拟加载
+    setTimeout(function () {
+      // complete
+      wx.hideNavigationBarLoading() //完成停止加载
+      wx.stopPullDownRefresh() //停止下拉刷新
+    }, 1500);
+  },
+  /**
+ * 用户点击右上角分享
+ */
+  onShareAppMessage: function (res) {
+    return {
+      title: '北京科技大学天津学院信息系老师联系方式',
+      path: '/page/tel/tel',
+    }
   }
-}
-)
+})

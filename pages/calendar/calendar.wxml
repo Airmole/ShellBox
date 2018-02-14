@@ -1,5 +1,6 @@
 <view>
-  <view class='calendarStyle'>
+  <view class='setCenter'>
     <image src='http://www.z4a.net/images/2018/02/08/17-18IIcalendar.jpg' mode='widthFix'></image>
   </view>
+  <view class="weui-cells__tips setCenter">{{BottomTip}}</view>
 </view>

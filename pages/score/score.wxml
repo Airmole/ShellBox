@@ -20,7 +20,7 @@
           </view>
         </view>
       </view>
-      <view class="weui-cells__tips">感谢 很奔放 提供的查询接口</view>
+      <view class="weui-cells__tips">感谢 很奔放 提供的查询接口（坐等开教务系统调试！）</view>
       <view class="weui-btn-area">
         <button formType="submit" class="weui-btn" type="primary">查询</button>
       </view>
