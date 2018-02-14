@@ -1,6 +1,8 @@
 Page({
   data: {
+    //班级选择器列表内容
     array: ['通信1601', '通信1602', '自动化1601', '自动化1602', '计算机1601', '计算机1602', '计算机1603', '计算机1604', '计算机1605', "点我选班级"],
+    //选择器对应选项带属性值
     objectArray: [
       {
         id: 0,
@@ -36,10 +38,12 @@ Page({
         name: "点我选班级"
       }
     ],
+    //默认没有选择班级的选择器初始值
     index: 9,
+    //设置等待页面课表完全渲染完成后再显示分享按钮，以确保用户体验
   },
   bindPickerChange: function (e) {
-    console.log('picker发送选择改变，携带值为', e.detail.value)
+    //console.log('picker发送选择改变，携带值为', e.detail.value)
     this.setData({
       index: e.detail.value
     })
@@ -56,5 +60,15 @@ Page({
       title: '北京科技大学天津学院信息系课表',
       path: '/page/index/index',
     }
-  }
+  },
+  onPullDownRefresh: function () {
+    wx.showNavigationBarLoading() //在标题栏中显示加载
+
+    //模拟加载
+    setTimeout(function () {
+      // complete
+      wx.hideNavigationBarLoading() //完成停止加载
+      wx.stopPullDownRefresh() //停止下拉刷新
+    }, 1500);
+  },
 })

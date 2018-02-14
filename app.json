@@ -32,12 +32,6 @@
         "selectedIconPath": "images/calendar1.png"
       },
       {
-        "pagePath": "pages/score/score",
-        "text": "成绩",
-        "iconPath": "images/score.png",
-        "selectedIconPath": "images/score(selected).png"
-      },
-      {
         "pagePath": "pages/tel/tel",
         "text": "联系老师",
         "iconPath": "images/icon4.png",

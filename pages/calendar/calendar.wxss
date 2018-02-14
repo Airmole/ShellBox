@@ -1,5 +1,16 @@
 /* pages/calendar/calendar.wxss */
 @import "../common/weui.wxss";
-.setCenter{
+
+.setCenter {
   text-align: center;
+}
+
+.shareIcon {
+  margin-top: 10px;
+  width: 26px;
+  height: 26px;
+}
+
+.hide {
+  display: none;
 }
