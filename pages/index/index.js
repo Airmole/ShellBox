@@ -40,7 +40,17 @@ Page({
     ],
     //默认没有选择班级的选择器初始值
     index: 9,
-    //设置等待页面课表完全渲染完成后再显示分享按钮，以确保用户体验
+    imgSrc: [
+      "https://airmole.cn/wechat/wxapp/images/t1601.jpg",
+      "https://airmole.cn/wechat/wxapp/images/t1602.jpg",
+      "https://airmole.cn/wechat/wxapp/images/z1601.jpg",
+      "https://airmole.cn/wechat/wxapp/images/z1602.jpg",
+      "https://airmole.cn/wechat/wxapp/images/j1601.jpg",
+      "https://airmole.cn/wechat/wxapp/images/j1602.jpg",
+      "https://airmole.cn/wechat/wxapp/images/j1603.jpg",
+      "https://airmole.cn/wechat/wxapp/images/j1604.jpg",
+      "https://airmole.cn/wechat/wxapp/images/j1605.jpg"
+    ]
   },
   bindPickerChange: function (e) {
     //console.log('picker发送选择改变，携带值为', e.detail.value)

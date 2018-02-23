@@ -17,31 +17,31 @@
     </view>
   </view>
   <view wx:if="{{index==0}}" class='kbPic'>
-    <image src='https://airmole.cn/wechat/wxapp/images/t1601.jpg' mode='widthFix'></image>
+    <image src="{{imgSrc[0]}}" mode='widthFix'></image>
   </view>
   <view wx:if="{{index==1}}" class='kbPic'>
-    <image src='https://airmole.cn/wechat/wxapp/images/t1602.jpg' mode='widthFix'></image>
+    <image src="{{imgSrc[1]}}" mode='widthFix'></image>
   </view>
   <view wx:if="{{index==2}}" class='kbPic'>
-    <image src='https://airmole.cn/wechat/wxapp/images/z1601.jpg' mode='widthFix'></image>
+    <image src="{{imgSrc[2]}}" mode='widthFix'></image>
   </view>
   <view wx:if="{{index==3}}" class='kbPic'>
-    <image src='https://airmole.cn/wechat/wxapp/images/z1602.jpg' mode='widthFix'></image>
+    <image src="{{imgSrc[3]}}" mode='widthFix'></image>
   </view>
   <view wx:if="{{index==4}}" class='kbPic'>
-    <image src='https://airmole.cn/wechat/wxapp/images/j1601.jpg' mode='widthFix'></image>
+    <image src="{{imgSrc[4]}}" mode='widthFix'></image>
   </view>
   <view wx:if="{{index==5}}" class='kbPic'>
-    <image src='https://airmole.cn/wechat/wxapp/images/j1602.jpg' mode='widthFix'></image>
+    <image src="{{imgSrc[5]}}" mode='widthFix'></image>
   </view>
   <view wx:if="{{index==6}}" class='kbPic'>
-    <image src='https://airmole.cn/wechat/wxapp/images/j1603.jpg' mode='widthFix'></image>
+    <image src="{{imgSrc[6]}}" mode='widthFix'></image>
   </view>
   <view wx:if="{{index==7}}" class='kbPic'>
-    <image src='https://airmole.cn/wechat/wxapp/images/j1604.jpg' mode='widthFix'></image>
+    <image src="{{imgSrc[7]}}" mode='widthFix'></image>
   </view>
   <view wx:if="{{index==8}}" class='kbPic'>
-    <image src='https://airmole.cn/wechat/wxapp/images/j1605.jpg' mode='widthFix'></image>
+    <image src="{{imgSrc[8]}}" mode='widthFix'></image>
   </view>
   <view wx:if="{{index==9}}" class='kbPic'>
     <image src='/images/tip.jpg'></image>
