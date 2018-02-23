@@ -17,38 +17,38 @@
     </view>
   </view>
   <view wx:if="{{index==0}}" class='kbPic'>
-    <image src='http://www.z4a.net/images/2018/02/07/t1601.jpg' mode='widthFix'></image>
+    <image src='https://airmole.cn/wechat/wxapp/images/t1601.jpg' mode='widthFix'></image>
   </view>
   <view wx:if="{{index==1}}" class='kbPic'>
-    <image src='http://www.z4a.net/images/2018/02/07/t1602.jpg' mode='widthFix'></image>
+    <image src='https://airmole.cn/wechat/wxapp/images/t1602.jpg' mode='widthFix'></image>
   </view>
   <view wx:if="{{index==2}}" class='kbPic'>
-    <image src='http://www.z4a.net/images/2018/02/07/z1601.jpg' mode='widthFix'></image>
+    <image src='https://airmole.cn/wechat/wxapp/images/z1601.jpg' mode='widthFix'></image>
   </view>
   <view wx:if="{{index==3}}" class='kbPic'>
-    <image src='http://www.z4a.net/images/2018/02/07/z1602.jpg' mode='widthFix'></image>
+    <image src='https://airmole.cn/wechat/wxapp/images/z1602.jpg' mode='widthFix'></image>
   </view>
   <view wx:if="{{index==4}}" class='kbPic'>
-    <image src='http://www.z4a.net/images/2018/02/07/j1601.jpg' mode='widthFix'></image>
+    <image src='https://airmole.cn/wechat/wxapp/images/j1601.jpg' mode='widthFix'></image>
   </view>
   <view wx:if="{{index==5}}" class='kbPic'>
-    <image src='http://www.z4a.net/images/2018/02/07/j1602.jpg' mode='widthFix'></image>
+    <image src='https://airmole.cn/wechat/wxapp/images/j1602.jpg' mode='widthFix'></image>
   </view>
   <view wx:if="{{index==6}}" class='kbPic'>
-    <image src='http://www.z4a.net/images/2018/02/07/j1603.jpg' mode='widthFix'></image>
+    <image src='https://airmole.cn/wechat/wxapp/images/j1603.jpg' mode='widthFix'></image>
   </view>
   <view wx:if="{{index==7}}" class='kbPic'>
-    <image src='http://www.z4a.net/images/2018/02/07/j1604.jpg' mode='widthFix'></image>
+    <image src='https://airmole.cn/wechat/wxapp/images/j1604.jpg' mode='widthFix'></image>
   </view>
   <view wx:if="{{index==8}}" class='kbPic'>
-    <image src='http://www.z4a.net/images/2018/02/07/j1605.jpg' mode='widthFix'></image>
+    <image src='https://airmole.cn/wechat/wxapp/images/j1605.jpg' mode='widthFix'></image>
   </view>
   <view wx:if="{{index==9}}" class='kbPic'>
     <image src='/images/tip.jpg'></image>
   </view>
   <view class="weui-btn-area" wx:if="{{index!=9}}">
     <button plain='true' open-type="share" type="default" hover-class="other-button-hover">
-      <image class="weui-btn shareIcon" src='/images/share.png'></image>
+      <image class="weui-btn btnIcon" src='/images/share.png'></image>
       <text>分享课表给朋友</text>
     </button>
   </view>

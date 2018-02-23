@@ -21,7 +21,8 @@
       </view>
     </view>
   </view>
-  <view class="weui-cells__tips">长按可以快速复制到粘贴版☺</view>
+  <view class="weui-cells__tips">点击电话号码直接拨打，长按复制到粘贴版☺</view>
+  <view class="weui-cells__tips"></view>
   <view class="weui-footer weui-footer_fixed-bottom">
     <view class="weui-footer__links">
       <navigator url="" class="weui-footer__link">Airmole.</navigator>

@@ -9,7 +9,7 @@
   text-align: center;
 }
 
-.shareIcon {
+.btnIcon {
   width: 26px;
   height: 26px;
   vertical-align: text-bottom;

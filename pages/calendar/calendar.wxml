@@ -1,6 +1,6 @@
 <view class='page'>
   <view class='setCenter'>
-    <image src='http://www.z4a.net/images/2018/02/08/17-18IIcalendar.jpg' mode='widthFix'></image>
+    <image src='https://airmole.cn/wechat/wxapp/images/17-18IIcalendar.jpg' mode='widthFix'></image>
   </view>
   <view class="weui-cells__tips setCenter">{{BottomTip}}</view>
   <view class="weui-btn-area" wx:if="{{index!=9}}">
