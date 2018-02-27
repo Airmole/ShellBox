@@ -62,9 +62,11 @@ Page({
  * 用户点击右上角分享
  */
   onShareAppMessage: function (res) {
+    var classId = this.data.index;
+    console.log(classId);
     if (res.from === 'button') {
       // 来自页面内转发按钮
-      console.log(res.target)
+      // console.log(res.target)
     }
     return {
       title: '北京科技大学天津学院信息系课表',

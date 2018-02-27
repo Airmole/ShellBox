@@ -75,7 +75,7 @@ Page({
   onShareAppMessage: function (res) {
     return {
       title: '北京科技大学天津学院校历',
-      path: '/page/calendar/calendar',
+      path: 'pages/calendar/calendar',
     }
   }
 })
