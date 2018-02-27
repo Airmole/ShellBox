@@ -68,9 +68,14 @@ Page({
     //   // 来自页面内转发按钮
     //   // console.log(res.target)
     // }
+    if (res.from === 'button') {
+      // 来自页面内转发按钮
+      console.log(res.target)
+    }
     return {
       title: '北京科技大学天津学院信息系课表',
       path: 'pages/index/index',
+      imageUrl: "/images/QueryClassTable.jpg"
     }
   },
   onPullDownRefresh: function () {

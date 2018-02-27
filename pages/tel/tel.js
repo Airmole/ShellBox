@@ -66,7 +66,7 @@ Page({
   onShareAppMessage: function (res) {
     return {
       title: '北京科技大学天津学院信息系老师联系方式',
-      path: 'pages/tel/tel',
+      path: '/page/tel/tel',
     }
   },
   onPullDownRefresh: function () {
