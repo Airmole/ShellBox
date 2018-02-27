@@ -68,7 +68,7 @@ Page({
     }
     return {
       title: '北京科技大学天津学院信息系课表',
-      path: '/page/index/index',
+      path: 'pages/index/index',
     }
   },
   onPullDownRefresh: function () {
