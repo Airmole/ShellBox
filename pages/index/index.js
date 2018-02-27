@@ -62,12 +62,12 @@ Page({
  * 用户点击右上角分享
  */
   onShareAppMessage: function (res) {
-    var classId = this.data.index;
-    console.log(classId);
-    if (res.from === 'button') {
-      // 来自页面内转发按钮
-      // console.log(res.target)
-    }
+    // var classId = this.data.index;
+    // console.log(classId);
+    // if (res.from === 'button') {
+    //   // 来自页面内转发按钮
+    //   // console.log(res.target)
+    // }
     return {
       title: '北京科技大学天津学院信息系课表',
       path: 'pages/index/index',
@@ -81,5 +81,43 @@ Page({
       wx.hideNavigationBarLoading() //完成停止加载
       wx.stopPullDownRefresh() //停止下拉刷新
     }, 1500);
-  }
+  },
+  previewImg: function () {
+    var picId = this.data.index;
+    switch (picId) {
+      case "0":
+        var picId = this.data.imgSrc[0];
+        break;
+      case "1":
+        var picId = this.data.imgSrc[1];
+        break;
+      case "2":
+        var picId = this.data.imgSrc[2];
+        break;
+      case "3":
+        var picId = this.data.imgSrc[3];
+        break;
+      case "4":
+        var picId = this.data.imgSrc[4];
+        break;
+      case "5":
+        var picId = this.data.imgSrc[5];
+        break;
+      case "6":
+        var picId = this.data.imgSrc[6];
+        break;
+      case "7":
+        var picId = this.data.imgSrc[7];
+        break;
+      case "8":
+        var picId = this.data.imgSrc[8];
+        break;
+      default:
+        console.log("default");
+    }
+    wx.previewImage({
+      current: "picId",
+      urls: [picId],
+    })
+  },
 }) 
