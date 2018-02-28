@@ -73,7 +73,7 @@ Page({
       console.log(res.target)
     }
     return {
-      title: '北京科技大学天津学院信息系课表',
+      title: '贝壳田园信息系课表',
       path: 'pages/index/index',
       imageUrl: "/images/QueryClassTable.jpg"
     }
