@@ -4,6 +4,7 @@
     "pages/index/index",
     "pages/calendar/calendar",
     "pages/score/score",
+    "pages/tel/departmentTel",
     "pages/tel/tel"
   ],
   "window": {
