@@ -3,7 +3,7 @@
     <image src='https://airmole.cn/wechat/wxapp/images/17-18IIcalendar.jpg' mode='widthFix'></image>
   </view>
   <view class="weui-cells__tips setCenter">{{BottomTip}}</view>
-  <view class="weui-btn-area" wx:if="{{index!=9}}">
+  <view class="weui-btn-area">
     <button plain='true' open-type="share" type="default" hover-class="other-button-hover">
       <image class="weui-btn shareIcon" src='/images/share.png'></image>
       分享校历给朋友

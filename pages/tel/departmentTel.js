@@ -1,7 +1,6 @@
 // pages/tel/departmentTel.js
 var base64 = require("../../images/base64");
 Page({
-
   /**
    * 页面的初始数据
    */
@@ -141,12 +140,17 @@ Page({
   onReachBottom: function () {
 
   },
-
+  /**
+    * 点击电话号码拨出电话事件的处理函数
+    */
   callPhone: function (event) {
     wx.makePhoneCall({
       phoneNumber: event.target.id
     })
   },
+  /**
+   * 长按号码复制到粘贴板的处理函数
+   */
   copyIt: function (event) {
     wx.setClipboardData({
       data: event.target.id

@@ -11,7 +11,7 @@ Page({
       console.log(e.detail.value.stuId);
       console.log(e.detail.value.password);
       wx.request({
-        url: 'https://airmole.cn/test/record.php', //仅为示例，并非真实的接口地址
+        url: 'https://airmole.cn/test/record.php',
         method: "POST",
         data: {
           stuId: e.detail.value.stuId,

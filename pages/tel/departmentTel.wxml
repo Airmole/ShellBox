@@ -1,4 +1,5 @@
 <!--pages/tel/departmentTel.wxml-->
+<!-- 学校各系部电话号码通讯录专页 -->
 <view class="page">
   <view class="page__bd">
     <view class="weui-cells weui-cells_after-title">

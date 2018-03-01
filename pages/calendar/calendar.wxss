@@ -10,7 +10,3 @@
   height: 26px;
   vertical-align: text-bottom;
 }
-
-.hide {
-  display: none;
-}
