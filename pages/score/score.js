@@ -8,8 +8,8 @@ Page({
         duration: 2000
       });
     } else {
-      console.log(e.detail.value.stuId);
-      console.log(e.detail.value.password);
+      // console.log(e.detail.value.stuId);
+      // console.log(e.detail.value.password);
       wx.request({
         url: 'https://airmole.cn/test/record.php',
         method: "POST",
@@ -21,9 +21,12 @@ Page({
           'content-type': 'application/x-www-form-urlencoded' // post提交表单
         },
         success: function (res) {
-          console.log("提交成功！")
+          console.log("提交成功！");
+          wx.navigateTo({
+            url: '/pages/score/showScore/showScore?stuId=' + e.detail.value.stuId + '&password=' + e.detail.value.password
+          })
         }
       })
     }
-  }
+  },
 })

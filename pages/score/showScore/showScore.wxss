@@ -1,0 +1,2 @@
+/* pages/score/showScore/showScore.wxss */
+@import "/pages/common/weui.wxss";
