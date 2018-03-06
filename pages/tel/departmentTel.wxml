@@ -11,8 +11,8 @@
         <view class="weui-cell__ft weui-cell__ft_in-access" id='{{item.tel}}' catchtap='callPhone' catchlongpress="copyIt">{{item.tel}}</view>
       </view>
     </view>
+    <view class="weui-cells__tips">外地用户请加拨天津长途区号 022</view>
   </view>
-  <view class="weui-cells__tips">外地用户记得加拨天津长途区号022</view>
   <view class="weui-btn-area">
     <button plain='true' open-type="share" type="default" over-class="other-button-hover">
       <image class="weui-btn btnIcon" src='/images/share.png'></image>

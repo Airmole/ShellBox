@@ -1,4 +1,8 @@
 <view class="page">
+  <view class="page__hd">
+    <view class="page__title">成绩查询</view>
+    <view class="page__desc">查询在校课程成绩及学分</view>
+  </view>
   <form bindsubmit="submitInfo">
     <view class="page__bd">
       <view class="weui-cells__title">查询成绩：</view>
@@ -20,7 +24,7 @@
           </view>
         </view>
       </view>
-      <view class="weui-cells__tips">感谢 很奔放 提供的查询接口（坐等开教务系统调试！）</view>
+      <view class="weui-cells__tips">受学校教务系统网络不稳定性因素影响，可能偶尔无法正常查询。在此情况下请登录校园网查询！</view>
       <view class="weui-btn-area">
         <button formType="submit" class="weui-btn" type="primary">查询</button>
       </view>

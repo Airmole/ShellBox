@@ -1,6 +1,10 @@
 <!--pages/tel/tel.wxml-->
 <!-- 学校信息系老师联系电话页面 -->
 <view class="page">
+  <view class="page__hd">
+    <view class="page__title">贝壳通讯录</view>
+    <view class="page__desc">查询学校老师及学校各系部办公电话</view>
+  </view>
   <view class="page__bd">
     <view class="weui-cells weui-cells_after-title">
       <navigator url="/pages/tel/departmentTel" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
@@ -31,14 +35,13 @@
         </view>
       </view>
     </view>
+    <view class="weui-cells__tips">点击电话号码直接拨打，长按复制到粘贴版☺</view>
   </view>
-  <view class="weui-cells__tips">点击电话号码直接拨打，长按复制到粘贴版☺</view>
-  <view class="weui-cells__tips"></view>
-  <view class="weui-footer weui-footer_fixed-bottom">
+  <view class="weui-footer">
     <view class="weui-footer__links">
       <navigator url="" class="weui-footer__link">Airmole.</navigator>
       <navigator url="" class="weui-footer__link">欢迎补充更多...</navigator>
     </view>
-    <view class="weui-footer__text">Copyright © 2018 Airmole Cheung.</view>
+    <view class="weui-footer__text">Copyright © 2017-2018 Airmole Cheung.</view>
   </view>
 </view>

@@ -1,5 +1,5 @@
 /**app.wxss**/
-@import '/pages/common/weui.wxss';
+@import "/pages/common/weui.wxss";
 
 .container {
   height: 100%;
@@ -18,11 +18,11 @@ page {
 }
 
 .page__hd {
-  padding: 20px;
+  padding: 40px;
 }
 
 .page__bd {
-  padding-bottom: 20px;
+  padding-bottom: 40px;
 }
 
 .page__bd_spacing {
