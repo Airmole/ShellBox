@@ -1,17 +1,17 @@
 <!--pages/score/showScore/showScore.wxml-->
 <view class="page">
   <view class="page__hd">
-    <view class="page__title">加权平均分：79.99</view>
+    <view class="page__title">加权平均分：{{jsonContent[3]}}</view>
     <view class="page__desc">本程序加权平均分计算方法仅供参考，最终准确加权平均分请以导员计算为准</view>
   </view>
   <view class="page__bd">
     <view class="weui-cells__title">您的各科成绩：</view>
     <view class="weui-cells weui-cells_after-title">
-      <view class="weui-cell">
-        <view class="weui-cell__bd">自动化导论
-          <span class="page__desc">学分:2 [公选]</span>
+      <view wx:for="{{jsonContent[0]}}" wx:key="ClassName" class="weui-cell">
+        <view class="weui-cell__bd">{{jsonContent[0]}}
+          <span class="page__desc">{{jsonContent[2]}}</span>
         </view>
-        <view class="weui-cell__ft" style='color:#000000;'>♕90</view>
+        <view class="weui-cell__ft" style='color:#000000;'>{{jsonContent[1]}}</view>
       </view>
     </view>
   </view>
