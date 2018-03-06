@@ -32,6 +32,8 @@ Page({
         that.setData({
           jsonContent: res.data
         })
+        //看了半天php数组的文档，改了一晚上API接口没一点进展，睡觉。明天再说
+        //2018年3月6日 23点48分
       }
     })
   },
