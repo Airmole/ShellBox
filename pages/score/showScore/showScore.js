@@ -7,6 +7,7 @@ Page({
     stuId: " ",
     password: " ",
     jsonContent: {},
+    sumOfClass: "",
   },
   /**
    * 生命周期函数--监听页面加载
@@ -30,11 +31,8 @@ Page({
       },
       success: function (res) {
         that.setData({
-          jsonContent: res.data
+          jsonContent: res.data,
         })
-        //看了半天php数组的文档，改了一晚上API接口没一点进展，睡觉。明天再说
-        //2018年3月6日 23点48分
-        console.log(res.data);
       }
     })
   },

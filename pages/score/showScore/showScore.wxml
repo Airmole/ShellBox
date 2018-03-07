@@ -1,13 +1,13 @@
 <!--pages/score/showScore/showScore.wxml-->
 <view class="page">
   <view class="page__hd">
-    <view class="page__title">加权平均分：{{jsonContent[3]}}</view>
+    <view class="page__title">加权平均分：{{jsonContent[1][0]}}</view>
     <view class="page__desc">本程序首次查询可能较慢，加权平均分计算方法仅供参考，最终准确加权平均分请以导员计算为准</view>
   </view>
   <view class="page__bd">
     <view class="weui-cells__title">您的各科成绩：</view>
     <view class="weui-cells weui-cells_after-title">
-      <view wx:for="{{jsonContent}}" wx:key="ClassName" class="weui-cell">
+      <view wx:for="{{jsonContent[0]}}" wx:key="ClassName" class="weui-cell">
         <view class="weui-cell__bd">{{item.className}}
           <span class="page__desc">{{item.studyScore}}</span>
         </view>
