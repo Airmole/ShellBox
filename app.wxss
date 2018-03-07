@@ -1,5 +1,14 @@
 /**app.wxss**/
 @import "/pages/common/weui.wxss";
+.setCenter {
+  text-align: center;
+}
+
+.shareIcon {
+  width: 26px;
+  height: 26px;
+  vertical-align: text-bottom;
+}
 
 .container {
   height: 100%;

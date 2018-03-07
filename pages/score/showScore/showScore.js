@@ -7,7 +7,6 @@ Page({
     stuId: " ",
     password: " ",
     jsonContent: {},
-    sumOfClass: "",
   },
   /**
    * 生命周期函数--监听页面加载
@@ -33,6 +32,12 @@ Page({
         that.setData({
           jsonContent: res.data,
         })
+        console.log(res.data[0].length);
+        if (res.data[0].length == 0) {
+          wx.redirectTo({
+            url: './error'
+          })
+        }
       }
     })
   },
@@ -41,7 +46,7 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-
+   
   },
 
   /**
