@@ -7,11 +7,11 @@
   <view class="page__bd">
     <view class="weui-cells__title">您的各科成绩：</view>
     <view class="weui-cells weui-cells_after-title">
-      <view wx:for="{{jsonContent[0]}}" wx:key="ClassName" class="weui-cell">
-        <view class="weui-cell__bd">{{jsonContent[0]}}
-          <span class="page__desc">{{jsonContent[2]}}</span>
+      <view wx:for="{{jsonContent}}" wx:key="ClassName" class="weui-cell">
+        <view class="weui-cell__bd">{{jsonContent[0][0]}}
+          <span class="page__desc">{{jsonContent[0][2]}}</span>
         </view>
-        <view class="weui-cell__ft" style='color:#000000;'>{{jsonContent[1]}}</view>
+        <view class="weui-cell__ft" style='color:#000000;'>{{jsonContent[0][1]}}</view>
       </view>
     </view>
   </view>
