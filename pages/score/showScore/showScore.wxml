@@ -2,16 +2,16 @@
 <view class="page">
   <view class="page__hd">
     <view class="page__title">加权平均分：{{jsonContent[3]}}</view>
-    <view class="page__desc">本程序加权平均分计算方法仅供参考，最终准确加权平均分请以导员计算为准</view>
+    <view class="page__desc">本程序首次查询可能较慢，加权平均分计算方法仅供参考，最终准确加权平均分请以导员计算为准</view>
   </view>
   <view class="page__bd">
     <view class="weui-cells__title">您的各科成绩：</view>
     <view class="weui-cells weui-cells_after-title">
       <view wx:for="{{jsonContent}}" wx:key="ClassName" class="weui-cell">
-        <view class="weui-cell__bd">{{jsonContent[0][0]}}
-          <span class="page__desc">{{jsonContent[0][2]}}</span>
+        <view class="weui-cell__bd">{{item.className}}
+          <span class="page__desc">{{item.studyScore}}</span>
         </view>
-        <view class="weui-cell__ft" style='color:#000000;'>{{jsonContent[0][1]}}</view>
+        <view class="weui-cell__ft" style='color:#000000;'>{{item.score}}</view>
       </view>
     </view>
   </view>
