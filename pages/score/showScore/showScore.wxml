@@ -15,11 +15,11 @@
       </view>
     </view>
     <view wx:if="{{jsonContent[0].length>0}}" class="weui-btn-area">
-    <button plain='true' open-type="share" type="default" hover-class="other-button-hover">
-      <image class="weui-btn shareIcon" src='/images/share.png'></image>
-      分享我的成绩给朋友
-    </button>
-  </view>
+      <button plain='true' open-type="share" type="default" hover-class="other-button-hover">
+        <image class="weui-btn shareIcon" src='/images/share.png'></image>
+        分享我的成绩给朋友
+      </button>
+    </view>
   </view>
   <view class="weui-footer">
     <view class="weui-footer__links">

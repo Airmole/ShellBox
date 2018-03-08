@@ -1,4 +1,4 @@
-<view class="page">
+      <view class="page">
   <view class="page__hd">
     <view class="page__title">成绩查询</view>
     <view class="page__desc">查询在校课程成绩及学分</view>
