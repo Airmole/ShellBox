@@ -25,26 +25,26 @@
       {
         "pagePath": "pages/index/index",
         "text": "班级课表",
-        "iconPath": "images/icon2.png",
-        "selectedIconPath": "images/icon1.png"
+        "iconPath": "images/class.png",
+        "selectedIconPath": "images/class_HL.png"
       },
       {
         "pagePath": "pages/calendar/calendar",
         "text": "校历",
-        "iconPath": "images/calendar2.png",
-        "selectedIconPath": "images/calendar1.png"
+        "iconPath": "images/calendar.png",
+        "selectedIconPath": "images/calendar_HL.png"
       },
       {
         "pagePath": "pages/score/score",
         "text": "成绩",
         "iconPath": "images/score.png",
-        "selectedIconPath": "images/score(selected).png"
+        "selectedIconPath": "images/score_HL.png"
       },
       {
         "pagePath": "pages/tel/tel",
         "text": "联系老师",
-        "iconPath": "images/icon4.png",
-        "selectedIconPath": "images/icon3.png"
+        "iconPath": "images/call.png",
+        "selectedIconPath": "images/call_HL.png"
       }
     ]
   }
