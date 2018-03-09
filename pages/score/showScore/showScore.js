@@ -17,7 +17,6 @@ Page({
       stuId: options.stuId,
       password: options.password,
     });
-
     wx.request({
       url: 'https://airmole.cn/test/record.php',
       method: "POST",
