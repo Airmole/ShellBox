@@ -6,7 +6,7 @@ Page({
   submitInfo: function (e) {
     if (e.detail.value.stuId.length == 0 || e.detail.value.password.length == 0) {
       wx.showToast({
-        title: '学号密码有误',
+        title: '学号密码为空',
         image: '/images/info.png',
         icon: 'none',
         duration: 2000

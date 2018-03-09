@@ -1,5 +1,8 @@
 // pages/tel/departmentTel.js
 var base64 = require("../../images/base64");
+/**
+ * 2018年3月9日 12点49分预留各部门的icon后续慢慢加，这个功能不着急
+ */
 Page({
   /**
    * 页面的初始数据
@@ -7,84 +10,110 @@ Page({
   data: {
     //存储存储各部门电话的数组
     telNumber: [{
+      avatar: '/images/tuanwei.png',
       name: '团委',
       tel: 22410730
     }, {
+      avatar: '/images/jiaowu.png',
       name: '教务处',
       tel: 22410732
     }, {
+      avatar: '',
       name: '财务处',
       tel: 22410769
     }, {
+      avatar: '',
       name: '人事处',
       tel: 22410768
     }, {
+      avatar: '',
       name: '宣传部',
       tel: 22410352
     }, {
+      avatar: '',
       name: '基础部',
       tel: 22410502
     }, {
+      avatar: '',
       name: '体育部',
       tel: 22410422
     }, {
+      avatar: '',
       name: '思政部',
       tel: 22410736
     }, {
+      avatar: '',
       name: '图书馆',
       tel: 22410526
     }, {
       name: '土木系',
+      avatar: '',
       tel: 22410703
     }, {
+      avatar: '',
       name: '材料系',
       tel: 22410516
     }, {
       name: '机械系',
       tel: 22410508
     }, {
+      avatar: '',
       name: '信息系',
       tel: 22410704
     }, {
+      avatar: '',
       name: '经济系',
       tel: 22410721
     }, {
+      avatar: '',
       name: '管理系	',
       tel: 22410705
     }, {
+      avatar: '',
       name: '法律系',
       tel: 22410391
     }, {
+      avatar: '',
       name: '艺术系',
       tel: 22410348
     }, {
+      avatar: '',
       name: '外语系',
       tel: 22410523
     }, {
+      avatar: '',
       name: '学院办公室',
       tel: 22410800
     }, {
+      avatar: '',
       name: '学校报警电话	',
       tel: 22411110
     }, {
+      avatar: '',
       name: '心理咨询中心',
       tel: 22410981
     }, {
+      avatar: '',
       name: '学生工作办公室',
       tel: 22410298
     }, {
+      avatar: '',
       name: '国际合作交流部',
       tel: 22410389
     }, {
+      avatar: '',
       name: '招生就业处（就业）',
       tel: 22412672
     }, {
+      avatar: '',
       name: '招办就业处（招生）',
       tel: 22410960
     }, {
+      avatar: '',
       name: '保卫处（户籍/宿管）',
       tel: 22411900
     }, {
+      avatar: '',
       name: '基建后勤处资产管理中心',
       tel: 22410919
     }],
