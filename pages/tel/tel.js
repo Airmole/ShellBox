@@ -67,7 +67,7 @@ Page({
     return {
       title: '贝壳田园信息系老师联系方式',
       path: 'pages/tel/tel',
-      imageUrl: "/images/QueryTel.jpg"
+      imageUrl: "https://airmole.cn/wechat/wxapp/images/QueryTel.jpg"
     }
   }
 })

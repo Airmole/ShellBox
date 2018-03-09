@@ -75,7 +75,7 @@ Page({
     return {
       title: '北京科技大学天津学院校历',
       path: 'pages/calendar/calendar',
-      imageUrl: "/images/QueryCalendar.jpg"
+      imageUrl: "https://airmole.cn/wechat/wxapp/images/QueryCalendar.jpg"
     }
   }
 })

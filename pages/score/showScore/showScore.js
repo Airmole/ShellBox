@@ -95,7 +95,7 @@ Page({
       console.log();
     return {
       title: '成绩查询结果',
-      imageUrl: "/images/QueryScore.jpg"
+      imageUrl: "https://airmole.cn/wechat/wxapp/images/QueryScore.jpg"
     }
   }
 })

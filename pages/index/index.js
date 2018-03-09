@@ -71,7 +71,7 @@ Page({
     return {
       title: '贝壳田园信息系课表',
       path: 'pages/index/index',
-      imageUrl: "/images/QueryClassTable.jpg"
+      imageUrl: "https://airmole.cn/wechat/wxapp/images/QueryClassTable.jpg"
     }
   },
   onPullDownRefresh: function () {

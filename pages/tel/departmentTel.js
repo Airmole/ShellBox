@@ -213,7 +213,7 @@ Page({
     return {
       title: '贝壳田园各系部联系电话',
       path: 'pages/tel/departmentTel',
-      imageUrl: "/images/QueryTel.jpg"
+      imageUrl: "https://airmole.cn/wechat/wxapp/images/QueryTel.jpg"
     }
   }
 })

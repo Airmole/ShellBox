@@ -22,7 +22,7 @@ Page({
     return {
       title: '贝壳田园成绩查询',
       path: 'pages/score/score',
-      imageUrl: "/images/QueryScore.jpg"
+      imageUrl: "https://airmole.cn/wechat/wxapp/images/QueryScore.jpg"
     }
   }
 })
