@@ -47,6 +47,7 @@
     <image src='/images/tip.jpg'></image>
   </view>
   <view class="weui-btn-area" wx:if="{{index!=9}}">
+    <view class="weui-cells__tips  setCenter">{{BottomTip}}</view>
     <button plain='true' bindtap='previewImg' type="default" over-class="other-button-hover">
       <image class="weui-btn btnIcon" src='/images/share.png'></image>
       <text>分享课表给朋友</text>

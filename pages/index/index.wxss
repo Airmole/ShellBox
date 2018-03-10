@@ -5,9 +5,9 @@
   background-color: #fff;
 }
 
-.kbPic {
+ .kbPic {
   text-align: center;
-}
+} 
 
 .btnIcon {
   width: 26px;
