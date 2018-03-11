@@ -23,7 +23,7 @@
   </view>
   <view class="weui-footer">
     <view class="weui-footer__links">
-      <text  class="weui-footer__link">很奔放</text>
+      <text class="weui-footer__link">很奔放</text>
       <text class="weui-footer__link">Airmole.</text>
     </view>
     <view class="weui-footer__text">Copyright © 2017-2018 Airmole BKIEBox.</view>

@@ -1,4 +1,5 @@
 // pages/score/showScore/showScore.js
+var app = getApp()
 Page({
   /**
    * 页面的初始数据
@@ -7,6 +8,7 @@ Page({
     stuId: " ",
     password: " ",
     jsonContent: {},
+    hasUserInfo: false
   },
   /**
    * 生命周期函数--监听页面加载
@@ -51,7 +53,27 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+    var that = this
 
+    if (app.globalData.hasLogin === false) {
+      wx.login({
+        success: _getUserInfo
+      })
+    } else {
+      _getUserInfo()
+    }
+
+    function _getUserInfo() {
+      wx.getUserInfo({
+        success: function (res) {
+          that.setData({
+            hasUserInfo: true,
+            userInfo: res.userInfo
+          })
+          that.update()
+        }
+      })
+    }
   },
 
   /**
@@ -92,9 +114,10 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-      console.log();
+    var uInfo = this.data.userInfo;
+    // console.log();
     return {
-      title: '成绩查询结果',
+      title: uInfo.nickName + '成绩查询结果',
       imageUrl: "https://airmole.cn/wechat/wxapp/images/QueryScore.jpg"
     }
   }
