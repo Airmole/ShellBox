@@ -73,13 +73,7 @@ Page({
     }
   },
   onPullDownRefresh: function () {
-    wx.showNavigationBarLoading() //在标题栏中显示加载
-    //模拟加载
-    setTimeout(function () {
-      // complete
-      wx.hideNavigationBarLoading() //完成停止加载
-      wx.stopPullDownRefresh() //停止下拉刷新
-    }, 1500);
+   
   },
   previewImg: function () {
     var picId = this.data.index;
