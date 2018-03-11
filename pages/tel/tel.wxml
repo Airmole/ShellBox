@@ -39,8 +39,8 @@
   </view>
   <view class="weui-footer">
     <view class="weui-footer__links">
-      <navigator url="" class="weui-footer__link">Airmole.</navigator>
-      <navigator url="" class="weui-footer__link">欢迎补充更多...</navigator>
+      <text class="weui-footer__link">Airmole.</text>
+      <text class="weui-footer__link">欢迎补充更多...</text>
     </view>
     <view class="weui-footer__text">Copyright © 2017-2018 Airmole Cheung.</view>
   </view>

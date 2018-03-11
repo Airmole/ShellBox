@@ -63,12 +63,9 @@ Page({
  * 用户点击右上角分享
  */
   onShareAppMessage: function (res) {
+    //看好了，从函数外面往里面传递参数是这样传的！记不住去撞墙！
     // var classId = this.data.index;
     // console.log(classId);
-    if (res.from === 'button') {
-      // 来自页面内转发按钮
-      console.log(res.target)
-    }
     return {
       title: '贝壳田园信息系课表',
       path: 'pages/index/index',
