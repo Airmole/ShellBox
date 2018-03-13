@@ -101,6 +101,7 @@ Page({
       wx.hideNavigationBarLoading() //完成停止加载
       wx.stopPullDownRefresh() //停止下拉刷新
     }, 1500);
+    //这里不能一直只是假装干活啊，以后要真的干活啊
   },
 
   /**
