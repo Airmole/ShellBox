@@ -1,5 +1,5 @@
 /* pages/tel/departmentTel.wxss */
-@import "../common/weui.wxss";
+@import "../../common/weui.wxss";
 .btnIcon {
   width: 26px;
   height: 26px;

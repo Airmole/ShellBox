@@ -1,0 +1,7 @@
+/* pages/tel/teacherTel/teacherTel.wxss */
+@import "../../common/weui.wxss";
+.btnIcon {
+  width: 26px;
+  height: 26px;
+  vertical-align: text-bottom;
+}

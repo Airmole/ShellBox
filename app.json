@@ -6,8 +6,9 @@
     "pages/score/score",
     "pages/score/showScore/showScore",
     "pages/score/showScore/error",
-    "pages/tel/departmentTel",
-    "pages/tel/tel"
+    "pages/tel/departmentTel/departmentTel",
+    "pages/tel/tel",
+    "pages/tel/teacherTel/teacherTel"
   ],
   "window": {
     "backgroundTextStyle": "light",
