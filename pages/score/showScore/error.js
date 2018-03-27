@@ -7,7 +7,7 @@ Page({
   },
   goIndex: function () {
     wx.switchTab({
-      url: '../../../pages/index/index'
+      url: '../../../pages/bookSearch/index'
     })
   }
 })

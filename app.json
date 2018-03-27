@@ -1,7 +1,8 @@
 {
   "pages": [
+    "pages/login/login",
+    "pages/classQuery/index",
     "pages/welcome/welcome",
-    "pages/index/index",
     "pages/calendar/calendar",
     "pages/score/score",
     "pages/score/showScore/showScore",
@@ -24,12 +25,6 @@
     "backgroundColor": "#fff",
     "position": "bottom",
     "list": [
-      {
-        "pagePath": "pages/index/index",
-        "text": "班级课表",
-        "iconPath": "images/class.png",
-        "selectedIconPath": "images/class_HL.png"
-      },
       {
         "pagePath": "pages/bookSearch/index",
         "text": "图书查询",

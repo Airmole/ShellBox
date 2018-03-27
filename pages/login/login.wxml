@@ -1,0 +1,36 @@
+<!--pages/login/login.wxml-->
+<swiper class="swiper" indicator-dots="true" autoplay="true" interval="5000" duration="1000">
+  <block wx:for="{{swiperPic}}" wx:key="index">
+    <swiper-item>
+      <image src="{{item.url}}" class="slide-image" mode="aspectFill" />
+    </swiper-item>
+  </block>
+</swiper>
+<view class="page">
+  <view class="weui-cells__title">请先登录：</view>
+  <form bindsubmit="submitInfo">
+    <view class="page__bd">
+      <view class="weui-cells weui-cells_after-title">
+        <view class="weui-cell weui-cell_input">
+          <view class="weui-cell__hd">
+            <view class="weui-label">学号</view>
+          </view>
+          <view class="weui-cell__bd">
+            <input name="stuId" maxlength="9" type="number" class="weui-input" placeholder="请输入学号" />
+          </view>
+        </view>
+        <view class="weui-cell weui-cell_input">
+          <view class="weui-cell__hd">
+            <view class="weui-label">密码</view>
+          </view>
+          <view class="weui-cell__bd">
+            <input name="password" password type="text" class="weui-input" placeholder="请输入教务网密码" />
+          </view>
+        </view>
+      </view>
+      <view class="weui-btn-area">
+        <button formType="submit" class="weui-btn" type="primary">登录</button>
+      </view>
+    </view>
+  </form>
+</view>

@@ -1,6 +1,3 @@
-<view class='container'>
-  <image class="avatar" src="/images/BKIELogo.png"></image>
-  <view class='journey-container' catchtap='onTapJump'>
-    <text>开启小程序之旅</text>
-  </view>
-</view>
+<!--pages/welcome/welcome.wxml-->
+<text>pages/welcome/welcome.wxml</text>
+睡觉，睡觉。。。明天写欢迎界面，顺便把学籍信息接口部署上去
