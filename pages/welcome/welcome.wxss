@@ -1,1 +1,145 @@
 /* pages/welcome/welcome.wxss */
+
+.page-body-info {
+  padding-bottom: 0;
+  height: 230px;
+}
+
+.userinfo-avatar {
+  border-radius: 128rpx;
+  width: 128rpx;
+  height: 128rpx;
+}
+
+.userinfo-nickname {
+  margin-top: 20rpx;
+  font-size: 38rpx;
+}
+
+/* page */
+
+.container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  justify-content: space-between;
+  font-size: 32rpx;
+  font-family: -apple-system-font, Helvetica Neue, Helvetica, sans-serif;
+}
+
+.page-head {
+  text-align: center;
+}
+
+.page-head-title {
+  display: inline-block;
+  font-size: 32rpx;
+  color: #bebebe;
+}
+
+.page-head-line {
+  margin: 0 auto;
+  width: 150rpx;
+  height: 2rpx;
+  background-color: #d8d8d8;
+}
+
+.page-head-desc {
+  padding-top: 20rpx;
+  color: #9b9b9b;
+  font-size: 32rpx;
+}
+
+.page-body {
+  width: 100%;
+  flex-grow: 1;
+  overflow-x: hidden;
+}
+
+.page-body-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.page-body-wording {
+  text-align: center;
+  padding: 200rpx 100rpx;
+}
+
+.page-body-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #fff;
+  width: 100%;
+  padding: 50rpx 0 150rpx 0;
+}
+
+.page-body-title {
+  margin-bottom: 100rpx;
+  font-size: 32rpx;
+}
+
+.page-body-text {
+  font-size: 30rpx;
+  line-height: 26px;
+  color: #ccc;
+}
+
+.page-body-text-small {
+  font-size: 24rpx;
+  color: #000;
+  margin-bottom: 100rpx;
+}
+
+.page-foot {
+  margin: 100rpx 0 30rpx 0;
+  text-align: center;
+  color: #1aad19;
+  font-size: 0;
+}
+
+.icon-foot {
+  width: 152rpx;
+  height: 23rpx;
+}
+
+.page-section {
+  width: 100%;
+  margin-bottom: 60rpx;
+}
+
+.page-section_center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.page-section:last-child {
+  margin-bottom: 0;
+}
+
+.page-section-gap {
+  box-sizing: border-box;
+  padding: 0 30rpx;
+}
+
+.page-section-spacing {
+  box-sizing: border-box;
+  padding: 0 80rpx;
+}
+
+.page-section-title {
+  font-size: 28rpx;
+  color: #999;
+  margin-bottom: 10rpx;
+  padding-left: 30rpx;
+  padding-right: 30rpx;
+}
+
+.page-section-gap .page-section-title {
+  padding-left: 0;
+  padding-right: 0;
+}

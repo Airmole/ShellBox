@@ -1,3 +1,21 @@
 <!--pages/welcome/welcome.wxml-->
-<text>pages/welcome/welcome.wxml</text>
-睡觉，睡觉。。。明天写欢迎界面，顺便把学籍信息接口部署上去
+<view class="container">
+  <view class="page-head">
+    <view class="page-head-title">欢迎你，同学：</view>
+  </view>
+  <view class="page-body">
+    <view class="page-section">
+      <view class="page-body-info">
+        <view class="page-body-title">欢迎你，同学：</view>
+        <block wx:if="{{hasUserInfo === false}}">
+          <text class="page-body-text"></text>
+          <text class="page-body-text"></text>
+        </block>
+        <block wx:if="{{hasUserInfo === true}}">
+          <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}"></image>
+          <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+        </block>
+      </view>
+    </view>
+  </view>
+</view>
