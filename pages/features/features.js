@@ -9,6 +9,7 @@ Page({
       { name: '校历查询', navurl: '/pages/calendar/calendar', gridIcon: '/images/calendar_HL.png' },
       { name: '扫码找书', gridIcon: '/images/scanCode.png', event: "scan" },
       { name: '学籍信息', navurl: '/pages/calendar/calendar', gridIcon: '/images/studentInfo.png' },
+      { name: '课表查询', navurl: '/pages/classQuery/index', gridIcon: '/images/class_HL.png' },
       { name: '四六级成绩', navurl: '/pages/calendar/calendar', gridIcon: '/images/cet.png' },
       { name: '校园出行', navurl: '/pages/calendar/calendar', gridIcon: '/images/transport.png' },
       { name: '通讯录', navurl: '/pages/tel/tel', gridIcon: '/images/contacts.png' }],

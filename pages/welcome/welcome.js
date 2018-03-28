@@ -3,7 +3,11 @@ Page({
   data: {
     hasUserInfo: false
   },
-
+  start: function() {
+    wx.switchTab({
+      url: '../bookSearch/index',
+    })
+  },
   onLoad: function () {
     var that = this
 
@@ -26,5 +30,6 @@ Page({
         }
       })
     }
-  },
+  }
+  
 })

@@ -1,59 +1,55 @@
-<!--pages/bookSearch/bookInfo/bookInfo.wxml-->
-<view class="body wrapper share"  wx:if="{{book.bookTitle}}">
-  <view class="content">
-    <text class="title">📖《{{book.bookTitle}}》纸质实体书免费送啦！</text>
-    <image mode="aspectFit" src="{{book.bookImgURL}}" />
-    <view wx:if="{{book.bookAuthor.length > 0}}">
-      <text class="h3">作者</text>
-      <view wx:for="{{book.bookAuthor}}" wx:key="*this">
-         {{item}}
+<page>
+  <view>
+    <view class="cover-container">
+      <image src="https://img1.doubanio.com/mpic/s4293097.jpg">
+      </image>
+    </view>
+    <view class="book-meta">
+      <view class="meta-info">
+        <text class="book-title">
+你好，旧时光（上 下）
+</text>
+        <text class="other-meta">
+作者：八月长安
+</text>
+        <text class="other-meta">
+出版社：新世界出版社
+</text>
+        <text class="other-meta">
+出版日期：2009-12
+</text>
+      </view>
+      <view class="range">
+        <text class="score">
+8.8
+</text>
+        <text class="viewers">
+29576参与
+</text>
       </view>
     </view>
-    <view>
-      {{bool.bookAuthorIntro}}
+    <view class="book-intro">
+      <view class="intro-header">
+        <text>
+简介
+</text>
+      </view>
+      <text class="intro-content">
+最好的青春共鸣文本！盛大的记忆共鸣曲，写给每个女孩的“成长之书”，带你重回“最美的时光”。网络原名《玛丽苏病例报告》，随书附赠精美2010年历卡！1部晋江网6年来唯一不谈情爱而人气爆棚、高居榜首的小说！1部让所有心中有爱的70、80、90后共同追捧的青春奇书！“玛丽苏”是一种“自以为是主角”的病，我们都是患者。感染无须惊慌，它只宣告成长的开始。这是一个小女孩的成长故事，这或许也是你的故事。她是女侠、雅典娜、月野兔、花仙子、希瑞、白娘子……她以为所有人都爱她，世界等着她拯救。却没想到，这世界无人可以拯救，她所能做的，只是长大。彼得潘终于走完了小时候，彼时的少年站在成长的尽头，回首过去，一路崎岖竟已遍地繁花盛开。
+</text>
     </view>
-    <view wx:if="{{book.bookTranslator.length > 0}}">
-      <text class="h3">译者</text>
-      <view wx:for="{{book.bookTranslator}}" wx:key="*this">
-         {{item}}
+    <view class="book-intro">
+      <view class="intro-header">
+        <text>
+作者
+</text>
       </view>
-    </view>
-    <view wx:if="{{book.bookSummary}}">
-      <text class="h3">内容简介</text>
-     <view>{{book.bookSummary}}</view>
-    </view>
-    <view wx:if="{{book.bookCatalog}}">
-      <text class="h3"> 目录</text>
-      <view wx:for="{{book.bookCatalogList}}" wx:key="*this" wx:if="{{item}}">
-        {{item}}
-      </view>
-    </view>
-    <view>
-      <text class="h3">其他</text>
-      <view>
-        出版社：{{book.bookPublisher}}
-      </view>
-      <view wx:if="{{book.bookSeries}}">
-        丛书：{{book.bookSeries}}
-      </view>
-      <view wx:if="{{book.bookSubTitle}}">
-        副标题：{{book.bookSubTitle}}
-      </view>
-      <view wx:if="{{book.bookOriginalTitle}}">
-        原作名：{{book.bookOriginalTitle}}
-      </view>
-      <view>
-        出版年：{{book.bookPublishDate}}
-      </view>
-      <view>
-        总页数：{{book.bookPages}}
-      </view>
-      <view>
-        定　价：{{book.bookPrice}}
-      </view>
-      <view wx:if="{{book.bookBinding}}">
-        装　帧：{{book.bookBinding}}
-      </view>
+      <text class="intro-content">
+八月长安，八十年代末出生，在北方长大，目前在北京求学。生于盛夏八月，但求此生长安。热爱银魂，热爱SD。热爱二维纸片儿人。热爱FC红白机，热爱DQ和FF……热爱的东西太多，于是苟活至今，抓着青春和梦想的尾巴，哭爹喊娘地死活不撒手。希望我的小说能用真诚唤起你的共鸣。
+</text>
     </view>
   </view>
-</view>
+  <loading hidden="true">
+    加载中...
+    </loading>
+</page>

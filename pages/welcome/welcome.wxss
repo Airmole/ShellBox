@@ -1,14 +1,9 @@
 /* pages/welcome/welcome.wxss */
-
-.page-body-info {
-  padding-bottom: 0;
-  height: 230px;
-}
-
+@import "../common/weui.wxss";
 .userinfo-avatar {
   border-radius: 128rpx;
-  width: 128rpx;
-  height: 128rpx;
+  width: 160rpx;
+  height: 160rpx;
 }
 
 .userinfo-nickname {
@@ -72,18 +67,17 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: #fff;
   width: 100%;
-  padding: 50rpx 0 150rpx 0;
+  padding: 10rpx 0 150rpx 0;
 }
 
 .page-body-title {
   margin-bottom: 100rpx;
-  font-size: 32rpx;
+  font-size: 40rpx;
 }
 
 .page-body-text {
-  font-size: 30rpx;
+  font-size: 32rpx;
   line-height: 26px;
   color: #ccc;
 }
@@ -108,7 +102,6 @@
 
 .page-section {
   width: 100%;
-  margin-bottom: 60rpx;
 }
 
 .page-section_center {

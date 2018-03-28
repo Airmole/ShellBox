@@ -13,6 +13,9 @@
           <text class="userinfo-nickname">{{userInfo.nickName}}</text>
         </block>
       </view>
+      <view class="btn-area">
+        <button type="primary" bindtap="start">开始使用</button>
+      </view>
     </view>
   </view>
 </view>

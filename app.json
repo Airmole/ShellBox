@@ -1,11 +1,11 @@
 {
   "pages": [
-    "pages/login/login",
-    "pages/classQuery/index",
+    "pages/index/index",
+    "pages/features/features",
     "pages/welcome/welcome",
+    "pages/classQuery/index",
     "pages/calendar/calendar",
     "pages/score/score",
-    "pages/features/features",
     "pages/score/showScore/showScore",
     "pages/score/showScore/error",
     "pages/bookSearch/index",
@@ -19,5 +19,32 @@
     "navigationBarTitleText": "信实盒子",
     "navigationBarTextStyle": "white",
     "navigationBarBackgroundColor": "#ECC0A8"
+  },
+  "tabBar": {
+    "boderStyle": "white",
+    "selectedColor": "#4A6141",
+    "color": "#333",
+    "backgroundColor": "#fff",
+    "position": "bottom",
+    "list": [
+      {
+        "pagePath": "pages/bookSearch/index",
+        "text": "图书",
+        "iconPath": "images/book.png",
+        "selectedIconPath": "images/book_HL.png"
+      },
+      {
+        "pagePath": "pages/score/score",
+        "text": "成绩",
+        "iconPath": "images/score.png",
+        "selectedIconPath": "images/score_HL.png"
+      },
+      {
+        "pagePath": "pages/features/features",
+        "text": "其他",
+        "iconPath": "images/call.png",
+        "selectedIconPath": "images/tools.png"
+      }
+    ]
   }
 }
