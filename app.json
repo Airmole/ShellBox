@@ -42,8 +42,8 @@
       {
         "pagePath": "pages/features/features",
         "text": "其他",
-        "iconPath": "images/call.png",
-        "selectedIconPath": "images/tools.png"
+        "iconPath": "images/tools.png",
+        "selectedIconPath": "images/tools_HL.png"
       }
     ]
   }
