@@ -1,8 +1,5 @@
 <!--pages/welcome/welcome.wxml-->
 <view class="container">
-  <view class="page-head">
-    <view class="page-head-title">欢迎你，同学：</view>
-  </view>
   <view class="page-body">
     <view class="page-section">
       <view class="page-body-info">

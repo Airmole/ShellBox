@@ -2,13 +2,7 @@ Page({
   data: {
     stuId: '',
     password: '',
-    swiperPic: [
-      { url: 'https://airmole.cn/wechat/wxapp/images/swiper1.jpg' },
-      { url: 'https://airmole.cn/wechat/wxapp/images/swiper2.jpg' },
-      { url: 'https://airmole.cn/wechat/wxapp/images/swiper3.gif' },
-      { url: 'https://airmole.cn/wechat/wxapp/images/swiper4.gif' },
-      { url: 'https://airmole.cn/wechat/wxapp/images/swiper5.gif' }
-    ]
+    
   },
   submitInfo: function (e) {
     if (e.detail.value.stuId.length == 0 || e.detail.value.password.length == 0) {

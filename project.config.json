@@ -21,13 +21,30 @@
 			"current": -1,
 			"list": []
 		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
 		"game": {
 			"currentL": -1,
 			"list": []
 		},
 		"miniprogram": {
-			"current": -1,
-			"list": []
+			"current": 1,
+			"list": [
+				{
+					"id": 0,
+					"name": "feature",
+					"pathName": "pages/features/features",
+					"query": ""
+				},
+				{
+					"id": 1,
+					"name": "feature",
+					"pathName": "pages/bookSearch/bookInfo/bookInfo",
+					"query": "ISBN=9787540784102"
+				}
+			]
 		}
 	}
 }

@@ -5,9 +5,11 @@
     "pages/welcome/welcome",
     "pages/calendar/calendar",
     "pages/score/score",
+    "pages/features/features",
     "pages/score/showScore/showScore",
     "pages/score/showScore/error",
     "pages/bookSearch/index",
+    "pages/bookSearch/bookInfo/bookInfo",
     "pages/tel/departmentTel/departmentTel",
     "pages/tel/tel",
     "pages/tel/teacherTel/teacherTel"
@@ -17,32 +19,5 @@
     "navigationBarTitleText": "信实盒子",
     "navigationBarTextStyle": "white",
     "navigationBarBackgroundColor": "#ECC0A8"
-  },
-  "tabBar": {
-    "boderStyle": "white",
-    "selectedColor": "#4A6141",
-    "color": "#333",
-    "backgroundColor": "#fff",
-    "position": "bottom",
-    "list": [
-      {
-        "pagePath": "pages/bookSearch/index",
-        "text": "图书查询",
-        "iconPath": "images/book.png",
-        "selectedIconPath": "images/book_HL.png"
-      },
-      {
-        "pagePath": "pages/score/score",
-        "text": "成绩",
-        "iconPath": "images/score.png",
-        "selectedIconPath": "images/score_HL.png"
-      },
-      {
-        "pagePath": "pages/tel/tel",
-        "text": "联系老师",
-        "iconPath": "images/call.png",
-        "selectedIconPath": "images/call_HL.png"
-      }
-    ]
   }
 }

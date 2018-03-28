@@ -22,7 +22,7 @@ Page({
             hasUserInfo: true,
             userInfo: res.userInfo
           })
-          that.update()
+          // that.update()
         }
       })
     }

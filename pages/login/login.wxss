@@ -1,10 +1,13 @@
 /* pages/login/login.wxss */
-@import "../common/weui.wxss";
-.swiper {
-  height: 400rpx;
-  width: 100%;
+.logo {
+  width: 254px;
+  height: 183px;
+  margin: 0 auto;
+  display: block;
 }
-.swiper image {
-  height: 100%;
-  width: 100%;
+
+.logo-sub {
+  text-align: center;
+  margin-bottom: 50rpx;
+  color: #666;
 }
