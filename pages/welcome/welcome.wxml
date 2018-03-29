@@ -1,5 +1,5 @@
 <!--pages/welcome/welcome.wxml-->
-<view class="container">
+<view class="page__bd">
   <view class="page-body">
     <view class="page-section">
       <view class="page-body-info">
@@ -13,9 +13,27 @@
           <text class="userinfo-nickname">{{userInfo.nickName}}</text>
         </block>
       </view>
-      <view class="btn-area">
-        <button type="primary" bindtap="start">开始使用</button>
+      <view class="weui-cells weui-cells_after-title">
+        <view class="weui-cell">
+          <view class="weui-cell__bd">姓名：</view>
+          <view class="weui-cell__ft">张三</view>
+        </view>
+      </view>
+      <view class="weui-cells weui-cells_after-title">
+        <view class="weui-cell">
+          <view class="weui-cell__bd">学号：</view>
+          <view class="weui-cell__ft">165150304</view>
+        </view>
+      </view>
+      <view class="weui-cells weui-cells_after-title">
+        <view class="weui-cell">
+          <view class="weui-cell__bd">班级：</view>
+          <view class="weui-cell__ft">计算机1602</view>
+        </view>
       </view>
     </view>
   </view>
+</view>
+<view class="btn-area">
+  <button type="primary" bindtap="start">开始使用</button>
 </view>

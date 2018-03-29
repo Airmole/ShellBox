@@ -68,7 +68,7 @@
   flex-direction: column;
   align-items: center;
   width: 100%;
-  padding: 10rpx 0 150rpx 0;
+  padding: 90rpx 0 50rpx 0;
 }
 
 .page-body-title {
@@ -135,4 +135,8 @@
 .page-section-gap .page-section-title {
   padding-left: 0;
   padding-right: 0;
+}
+.btn-area{
+  margin-left: 14px;
+  margin-right: 14px;
 }
