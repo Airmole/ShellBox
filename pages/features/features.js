@@ -1,6 +1,5 @@
 // pages/features/features.js
 Page({
-
   /**
    * 页面的初始数据
    */
