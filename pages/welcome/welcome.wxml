@@ -14,21 +14,21 @@
         </block>
       </view>
       <view class="weui-cells weui-cells_after-title">
-        <view class="weui-cell">
+        <view wx:for="{{jsonStr[0]}}" wx:key="student" class="weui-cell">
           <view class="weui-cell__bd">姓名：</view>
-          <view class="weui-cell__ft">张三</view>
+          <view class="weui-cell__ft">{{item.stuName}}</view>
         </view>
       </view>
-      <view class="weui-cells weui-cells_after-title">
+      <view wx:for="{{jsonStr[0]}}" wx:key="student" class="weui-cells weui-cells_after-title">
         <view class="weui-cell">
           <view class="weui-cell__bd">学号：</view>
-          <view class="weui-cell__ft">165150304</view>
+          <view class="weui-cell__ft">{{item.stuID}}</view>
         </view>
       </view>
-      <view class="weui-cells weui-cells_after-title">
+      <view wx:for="{{jsonStr[0]}}" wx:key="student" class="weui-cells weui-cells_after-title">
         <view class="weui-cell">
           <view class="weui-cell__bd">班级：</view>
-          <view class="weui-cell__ft">计算机1602</view>
+          <view class="weui-cell__ft">{{item.stuClass}}</view>
         </view>
       </view>
     </view>

@@ -1,3 +1,4 @@
+var app = getApp()
 Page({
   data: {
     inputShowed: false,
@@ -23,5 +24,9 @@ Page({
     this.setData({
       inputVal: e.detail.value
     });
+  },
+  onLoad: function () {
+    console.log(app.globalData.uid);
+    //说明学号和密码已经存储到全局变量里了
   }
 });

@@ -12,7 +12,9 @@ App({
   },
   globalData: {
     hasLogin: false,
-    openid: null
+    openid: null,
+    uid:'',
+    pwd: ''
   },
   // lazy loading openid
   getUserOpenId: function (callback) {

@@ -35,8 +35,8 @@
 				{
 					"id": 0,
 					"name": "feature",
-					"pathName": "pages/stuInfo/stuInfo",
-					"query": ""
+					"pathName": "pages/welcome/welcome",
+					"query": "uid=160130123&pwd=19980721"
 				}
 			]
 		}
