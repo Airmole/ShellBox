@@ -35,14 +35,8 @@
 				{
 					"id": 0,
 					"name": "feature",
-					"pathName": "pages/features/features",
+					"pathName": "pages/stuInfo/stuInfo",
 					"query": ""
-				},
-				{
-					"id": 1,
-					"name": "feature",
-					"pathName": "pages/bookSearch/bookInfo/bookInfo",
-					"query": "ISBN=9787540784102"
 				}
 			]
 		}

@@ -1,0 +1,41 @@
+<!--pages/stuInfo/stuInfo.wxml-->
+<view class="weui-panel weui-panel_access">
+  <view class="weui-panel__hd">学籍信息</view>
+  <view class="weui-panel__bd">
+    <navigator url="" class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active">
+      <view class="weui-media-box__hd weui-media-box__hd_in-appmsg">
+        <image class="weui-media-box__thumb" src="{{userInfo.avatarUrl}}" />
+      </view>
+      <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
+        <view class="weui-media-box__title">张三丰</view>
+        <view class="weui-media-box__desc">学号：165180719</view>
+      </view>
+    </navigator>
+  </view>
+</view>
+<view class="weui-cells weui-cells_after-title">
+  <view class="weui-cell">
+    <view class="weui-cell__bd">性别</view>
+    <view class="weui-cell__ft">男</view>
+  </view>
+  <view class="weui-cell">
+    <view class="weui-cell__bd">出生日期</view>
+    <view class="weui-cell__ft">19980522</view>
+  </view>
+  <view class="weui-cell">
+    <view class="weui-cell__bd">民族</view>
+    <view class="weui-cell__ft">汉族</view>
+  </view>
+  <view class="weui-cell">
+    <view class="weui-cell__bd">入学日期</view>
+    <view class="weui-cell__ft">2017年9月</view>
+  </view>
+  <view class="weui-cell">
+    <view class="weui-cell__bd">专业名称</view>
+    <view class="weui-cell__ft">计算机科学技术</view>
+  </view>
+  <view class="weui-cell">
+    <view class="weui-cell__bd">班级</view>
+    <view class="weui-cell__ft">计1605</view>
+  </view>
+</view>

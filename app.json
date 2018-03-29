@@ -12,6 +12,7 @@
     "pages/bookSearch/bookInfo/bookInfo",
     "pages/tel/departmentTel/departmentTel",
     "pages/tel/tel",
+    "pages/stuInfo/stuInfo",
     "pages/tel/teacherTel/teacherTel"
   ],
   "window": {
