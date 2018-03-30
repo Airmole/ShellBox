@@ -1,0 +1,24 @@
+<!--pages/score/showScore/error.wxml-->
+<view class="page">
+  <view class="page__hd">
+    <view class="page__title"></view>
+  </view>
+  <view class="page__bd">
+    <view class="icon-box">
+      <icon type="info" size="93"></icon>
+      <view class="icon-box__ctn">
+        <view class="icon-box__title">无法登录</view>
+        <view class="icon-box__desc">您的账号无法登录，请确保学号密码正确。也可能是教务系统关闭😞</view>
+      </view>
+    </view>
+    <button bindtap="goBack" class="weui-btn" type="default">返回重试</button>
+    <button bindtap="goIndex" class="weui-btn" type="primary">暂不登录</button>
+  </view>
+  <view class="weui-footer weui-footer_fixed-bottom">
+    <view class="weui-footer__links">
+      <navigator url="" class="weui-footer__link">智慧校园</navigator>
+      <navigator url="" class="weui-footer__link">Airmole.</navigator>
+    </view>
+    <view class="weui-footer__text">Copyright © 2017-2018 Airmole BKIEBox.</view>
+  </view>
+</view>

@@ -7,7 +7,8 @@
     "pages/calendar/calendar",
     "pages/score/score",
     "pages/score/showScore/showScore",
-    "pages/score/showScore/error",
+    "pages/error/loginerror",
+    "pages/error/queryerror",
     "pages/bookSearch/index",
     "pages/bookSearch/bookInfo/bookInfo",
     "pages/tel/departmentTel/departmentTel",
@@ -35,7 +36,7 @@
         "selectedIconPath": "images/book_HL.png"
       },
       {
-        "pagePath": "pages/score/score",
+        "pagePath": "pages/score/showScore/showScore",
         "text": "成绩",
         "iconPath": "images/score.png",
         "selectedIconPath": "images/score_HL.png"

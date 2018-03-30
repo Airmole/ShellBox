@@ -14,17 +14,17 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    let that = this;
+    var that = this;
     that.setData({
-      stuId: options.stuId,
-      password: options.password,
+      stuId: app.globalData.uid,
+      password: app.globalData.pwd,
     });
     wx.request({
       url: 'https://airmole.cn/test/record.php',
       method: "POST",
       data: {
-        stuId: options.stuId,
-        password: options.password
+        stuId: app.globalData.uid,
+        password: app.globalData.pwd
       },
       header: {
         'content-type': 'application/x-www-form-urlencoded' // post提交表单
@@ -35,7 +35,7 @@ Page({
         })
         if (res.data[0].length == 0) {
           wx.redirectTo({
-            url: './error'
+            url: '/pages/error/queryerror'
           })
         }
       }
@@ -94,6 +94,7 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
+    var that = this;
     wx.showNavigationBarLoading() //在标题栏中显示加载
     //模拟加载
     setTimeout(function () {
@@ -102,6 +103,29 @@ Page({
       wx.stopPullDownRefresh() //停止下拉刷新
     }, 1500);
     //这里不能一直只是假装干活啊，以后要真的干活啊
+    //这下干活了，重复劳动而已
+    wx.request({
+      url: 'https://airmole.cn/test/record.php',
+      method: "POST",
+      data: {
+        stuId: app.globalData.uid,
+        password: app.globalData.pwd
+      },
+      header: {
+        'content-type': 'application/x-www-form-urlencoded' // post提交表单
+      },
+      success: function (res) {
+        that.setData({
+          jsonContent: res.data,
+        })
+        console.log("刷新完成");
+        if (res.data[0].length == 0) {
+          wx.redirectTo({
+            url: './error'
+          })
+        }
+      }
+    })
   },
 
   /**

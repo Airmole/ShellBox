@@ -6,7 +6,7 @@ Page({
     jsonStr: "",
     hasUserInfo: false
   },
-  start: function (options) {
+  start: function () {
     wx.switchTab({
       url: '../bookSearch/index',
     })
@@ -49,8 +49,7 @@ Page({
         //账号密码错误以下功能实现跳转错误页面
         if (res.data[0][0].stuName == '') {
           wx.redirectTo({
-            url: '/pages/index/index'
-            //明天单独做个账号密码错误的页面吧，不用新增。用之前成绩查询失败的页面就好。改一改。现在真的睡觉
+            url: '/pages/error/loginerror'
           })
         }
       }
