@@ -1,5 +1,5 @@
 <!--pages/welcome/welcome.wxml-->
-<view class="page__bd">
+<view class="page__bd" wx:for="{{jsonStr[0]}}" wx:key="student">
   <view class="page-body">
     <view class="page-section">
       <view class="page-body-info">
@@ -13,23 +13,17 @@
           <text class="userinfo-nickname">{{userInfo.nickName}}</text>
         </block>
       </view>
-      <view class="weui-cells weui-cells_after-title">
-        <view wx:for="{{jsonStr[0]}}" wx:key="student" class="weui-cell">
-          <view class="weui-cell__bd">姓名：</view>
-          <view class="weui-cell__ft">{{item.stuName}}</view>
-        </view>
+      <view class="weui-cell">
+        <view class="weui-cell__bd">姓名：</view>
+        <view class="weui-cell__ft">{{item.stuName}}</view>
       </view>
-      <view wx:for="{{jsonStr[0]}}" wx:key="student" class="weui-cells weui-cells_after-title">
-        <view class="weui-cell">
-          <view class="weui-cell__bd">学号：</view>
-          <view class="weui-cell__ft">{{item.stuID}}</view>
-        </view>
+      <view class="weui-cell">
+        <view class="weui-cell__bd">学号：</view>
+        <view class="weui-cell__ft">{{item.stuID}}</view>
       </view>
-      <view wx:for="{{jsonStr[0]}}" wx:key="student" class="weui-cells weui-cells_after-title">
-        <view class="weui-cell">
-          <view class="weui-cell__bd">班级：</view>
-          <view class="weui-cell__ft">{{item.stuClass}}</view>
-        </view>
+      <view class="weui-cell">
+        <view class="weui-cell__bd">班级：</view>
+        <view class="weui-cell__ft">{{item.stuClass}}</view>
       </view>
     </view>
   </view>
