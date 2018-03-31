@@ -30,13 +30,13 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": -1,
+			"current": 0,
 			"list": [
 				{
 					"id": 0,
 					"name": "feature",
-					"pathName": "pages/welcome/welcome",
-					"query": "uid=160130123&pwd=19980721"
+					"pathName": "pages/bookSearch/bookInfo/bookInfo",
+					"query": ""
 				}
 			]
 		}

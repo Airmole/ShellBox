@@ -31,6 +31,15 @@
     <view class="book-intro">
       <view class="intro-header">
         <text>
+馆藏状况
+</text>
+      </view>
+      <text class="intro-content">馆藏信息馆藏信息馆藏信息馆藏信息馆藏信息馆藏信息馆藏信息馆藏信息
+</text>
+    </view>
+    <view class="book-intro">
+      <view class="intro-header">
+        <text>
 简介
 </text>
       </view>
@@ -51,5 +60,5 @@
   </view>
   <loading hidden="true">
     加载中...
-    </loading>
+  </loading>
 </page>
