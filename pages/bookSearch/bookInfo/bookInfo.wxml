@@ -50,7 +50,7 @@
     <view class="book-intro">
       <view class="intro-header">
         <text>
-作者
+作者信息
 </text>
       </view>
       <text class="intro-content">

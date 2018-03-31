@@ -26,7 +26,6 @@ Page({
     });
   },
   onLoad: function () {
-    console.log(app.globalData.uid);
-    //说明学号和密码已经存储到全局变量里了
+  
   }
 });
