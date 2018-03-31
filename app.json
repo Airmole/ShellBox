@@ -12,7 +12,6 @@
     "pages/bookSearch/index",
     "pages/bookSearch/bookInfo/bookInfo",
     "pages/tel/departmentTel/departmentTel",
-    "pages/tel/tel",
     "pages/stuInfo/stuInfo"
   ],
   "window": {
