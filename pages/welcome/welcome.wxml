@@ -18,12 +18,12 @@
         <view class="weui-cell__ft">{{item.stuName}}</view>
       </view>
       <view class="weui-cell">
-        <view class="weui-cell__bd">学号：</view>
-        <view class="weui-cell__ft">{{item.stuID}}</view>
-      </view>
-      <view class="weui-cell">
         <view class="weui-cell__bd">班级：</view>
         <view class="weui-cell__ft">{{item.stuClass}}</view>
+      </view>
+      <view class="weui-cell">
+        <view class="weui-cell__bd">学号：</view>
+        <view class="weui-cell__ft">{{item.stuID}}</view>
       </view>
     </view>
   </view>

@@ -20,12 +20,16 @@
       <view class="weui-cell__ft">{{item.stuSex}}</view>
     </view>
     <view class="weui-cell">
-      <view class="weui-cell__bd">出生日期</view>
-      <view class="weui-cell__ft">{{item.stuBirth}}</view>
-    </view>
-    <view class="weui-cell">
       <view class="weui-cell__bd">民族</view>
       <view class="weui-cell__ft">{{item.stuNation}}</view>
+    </view>
+    <view class="weui-cell">
+      <view class="weui-cell__bd">班级</view>
+      <view class="weui-cell__ft">{{item.stuClass}}</view>
+    </view>
+    <view class="weui-cell">
+      <view class="weui-cell__bd">出生日期</view>
+      <view class="weui-cell__ft">{{item.stuBirth}}</view>
     </view>
     <view class="weui-cell">
       <view class="weui-cell__bd">入学日期</view>
@@ -34,10 +38,6 @@
     <view class="weui-cell">
       <view class="weui-cell__bd">专业名称</view>
       <view class="weui-cell__ft">{{item.stuMajor}}</view>
-    </view>
-    <view class="weui-cell">
-      <view class="weui-cell__bd">班级</view>
-      <view class="weui-cell__ft">{{item.stuClass}}</view>
     </view>
   </view>
 </view>
