@@ -1,0 +1,5 @@
+/* pages/bookSearch/bookInfo/bookList.wxss */
+.bookImg {
+  width: 120rpx;
+  height: 160rpx;
+}

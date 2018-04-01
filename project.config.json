@@ -35,7 +35,7 @@
 				{
 					"id": 0,
 					"name": "feature",
-					"pathName": "pages/bookSearch/bookInfo/bookInfo",
+					"pathName": "pages/bookSearch/bookInfo/bookList",
 					"query": ""
 				}
 			]

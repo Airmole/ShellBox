@@ -11,6 +11,7 @@
     "pages/error/queryerror",
     "pages/bookSearch/index",
     "pages/bookSearch/bookInfo/bookInfo",
+    "pages/bookSearch/bookInfo/bookList",
     "pages/tel/departmentTel/departmentTel",
     "pages/stuInfo/stuInfo"
   ],

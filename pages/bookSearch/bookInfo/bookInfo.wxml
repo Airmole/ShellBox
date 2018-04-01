@@ -6,42 +6,40 @@
     </view>
     <view class="book-meta">
       <view class="meta-info">
-        <text class="book-title">
-你好，旧时光（上 下）
-</text>
-        <text class="other-meta">
-作者：八月长安
-</text>
-        <text class="other-meta">
-出版社：新世界出版社
-</text>
-        <text class="other-meta">
-出版日期：2009-12
-</text>
+        <text class="book-title">你好，旧时光（上 下）</text>
+        <text class="other-meta">作者：八月长安</text>
+        <text class="other-meta">出版社：新世界出版社</text>
+        <text class="other-meta">出版日期：2009-12</text>
       </view>
       <view class="range">
-        <text class="score">
-8.8
-</text>
-        <text class="viewers">
-29576参与
-</text>
+        <text class="score">8.8</text>
+        <text class="viewers">29576参与</text>
       </view>
     </view>
     <view class="book-intro">
       <view class="intro-header">
-        <text>
-馆藏状况
-</text>
+        <text>馆藏状况</text>
       </view>
-      <text class="intro-content">馆藏信息馆藏信息馆藏信息馆藏信息馆藏信息馆藏信息馆藏信息馆藏信息
-</text>
+      <view class="weui-cells weui-cells_after-title">
+        <view class="weui-cell">
+          <view class="weui-cell__bd">索书号：I267/915</view>
+          <view class="weui-cell__ft">
+            <view class="weui-badge" style="margin-left: 5px;">可借</view>
+          </view>
+        </view>
+        <view class="weui-cell">
+          <view class="weui-cell__bd">索书号：I267/915</view>
+          <view class="weui-cell__ft">
+            <view class="weui-badge" style="margin-left: 5px;">可借</view>
+          </view>
+        </view>
+      </view>
+      <text class="intro-content">馆藏地:\n</text>
+      <text class="intro-content">天津校区—社科馆中文书库社二-157-B-03</text>
     </view>
     <view class="book-intro">
       <view class="intro-header">
-        <text>
-简介
-</text>
+        <text>简介</text>
       </view>
       <text class="intro-content">
 最好的青春共鸣文本！盛大的记忆共鸣曲，写给每个女孩的“成长之书”，带你重回“最美的时光”。网络原名《玛丽苏病例报告》，随书附赠精美2010年历卡！1部晋江网6年来唯一不谈情爱而人气爆棚、高居榜首的小说！1部让所有心中有爱的70、80、90后共同追捧的青春奇书！“玛丽苏”是一种“自以为是主角”的病，我们都是患者。感染无须惊慌，它只宣告成长的开始。这是一个小女孩的成长故事，这或许也是你的故事。她是女侠、雅典娜、月野兔、花仙子、希瑞、白娘子……她以为所有人都爱她，世界等着她拯救。却没想到，这世界无人可以拯救，她所能做的，只是长大。彼得潘终于走完了小时候，彼时的少年站在成长的尽头，回首过去，一路崎岖竟已遍地繁花盛开。
@@ -49,9 +47,7 @@
     </view>
     <view class="book-intro">
       <view class="intro-header">
-        <text>
-作者信息
-</text>
+        <text>作者信息</text>
       </view>
       <text class="intro-content">
 八月长安，八十年代末出生，在北方长大，目前在北京求学。生于盛夏八月，但求此生长安。热爱银魂，热爱SD。热爱二维纸片儿人。热爱FC红白机，热爱DQ和FF……热爱的东西太多，于是苟活至今，抓着青春和梦想的尾巴，哭爹喊娘地死活不撒手。希望我的小说能用真诚唤起你的共鸣。
