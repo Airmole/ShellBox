@@ -15,7 +15,7 @@
             <view class="weui-media-box__desc">索书号：TP/393/21-5</view>
           </view>
         </navigator>
-        
+
         <navigator url="" class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active">
           <view class="weui-media-box__hd weui-media-box__hd_in-appmsg">
             <image class="bookImg" src="https://img1.doubanio.com/mpic/s4293099.jpg" />

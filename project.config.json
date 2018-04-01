@@ -30,15 +30,8 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 0,
-			"list": [
-				{
-					"id": 0,
-					"name": "feature",
-					"pathName": "pages/bookSearch/bookInfo/bookList",
-					"query": ""
-				}
-			]
+			"current": -1,
+			"list": []
 		}
 	}
 }
