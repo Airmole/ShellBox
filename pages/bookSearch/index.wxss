@@ -17,4 +17,9 @@
 .bookImg {
   width: 120rpx;
   height: 160rpx;
+  padding: -12px 0px 0px 0px;
+}
+
+.weui-panel__bd {
+  margin-top: -80rpx;
 }

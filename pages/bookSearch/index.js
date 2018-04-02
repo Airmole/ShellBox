@@ -2,7 +2,8 @@ var app = getApp()
 Page({
   data: {
     inputShowed: false,
-    inputVal: ""
+    inputVal: "",
+    jsonStr: ""
   },
   showInput: function () {
     this.setData({
@@ -26,6 +27,15 @@ Page({
     });
   },
   onLoad: function () {
-  
+    var that = this;
+    wx.request({
+      url: 'https://airmole.cn/wechat/wxapp/api/hotbook.php',
+      success: function (res) {
+        that.setData({
+          jsonStr: res.data,
+        })
+        console.log(res.data);
+      }
+    })
   }
 });

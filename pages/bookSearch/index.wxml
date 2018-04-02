@@ -17,32 +17,21 @@
       <view class="weui-search-bar__cancel-btn" hidden="{{!inputShowed}}" bindtap="hideInput">取消</view>
     </view>
   </view>
-        <view class="weui-panel__bd">
-        <navigator url="" class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active">
-          <view class="weui-media-box__hd weui-media-box__hd_in-appmsg">
-            <image class="bookImg" src="https://img1.doubanio.com/mpic/s4293097.jpg" />
-          </view>
-          <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
-            <view class="weui-media-box__title">白色的力量：柯文哲</view>
+  <view class="weui-panel__bd">
+    <block wx:for="{{jsonStr}}" wx:key="hotlist">
+      <navigator url="" class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active">
+        <view class="weui-media-box__hd weui-media-box__hd_in-appmsg">
+          <image class="bookImg" src="{{item.images.small}}" />
+        </view>
+        <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
+          <view class="weui-media-box__title">{{item.title}}
             <view class="weui-badge" style="margin-left: 5px;">可借</view>
-            <view class="weui-media-box__desc">作者：柯文哲</view>
-            <view class="weui-media-box__desc">出版社：台湾出版社</view>
-            <view class="weui-media-box__desc">索书号：TP/393/21-5</view>
           </view>
-        </navigator>
-
-        <navigator url="" class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active">
-          <view class="weui-media-box__hd weui-media-box__hd_in-appmsg">
-            <image class="bookImg" src="https://img1.doubanio.com/mpic/s4293099.jpg" />
-          </view>
-          <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
-            <view class="weui-media-box__title">海底捞你学不会</view>
-            <view class="weui-badge" style="margin-left: 5px;">可借</view>
-            <view class="weui-media-box__desc">作者：张三丰</view>
-            <view class="weui-media-box__desc">出版社：三联出版社</view>
-            <view class="weui-media-box__desc">索书号：TP/394221-5</view>
-          </view>
-        </navigator>
-
-      </view>
+          <view class="weui-media-box__desc">{{item.author[0]}}</view>
+          <view class="weui-media-box__desc">{{item.publisher}}</view>
+          <view class='weui-media-box__desc'>索书号：TP/393/21-5</view>
+        </view>
+      </navigator>
+    </block>
+  </view>
 </view>

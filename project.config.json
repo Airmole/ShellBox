@@ -30,8 +30,14 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": -1,
-			"list": []
+			"current": 0,
+			"list": [
+				{
+					"id": -1,
+					"name": "book",
+					"pathName": "pages/bookSearch/index"
+				}
+			]
 		}
 	}
 }
