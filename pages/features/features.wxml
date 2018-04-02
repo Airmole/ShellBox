@@ -10,7 +10,7 @@
   <view class="page__bd">
     <view class="weui-grids">
       <block wx:for="{{grids}}" wx:key="*this">
-        <navigator url="{{item.navurl}}"  bindtap='{{item.event}}' class="weui-grid" hover-class="weui-grid_active">
+        <navigator url="{{item.navurl}}" bindtap='{{item.event}}' class="weui-grid" hover-class="weui-grid_active">
           <image class="weui-grid__icon" src="{{item.gridIcon}}" />
           <view class="weui-grid__label">{{item.name}}</view>
         </navigator>
@@ -18,3 +18,6 @@
     </view>
   </view>
 </view>
+<navigator class="login-btn">
+  <text>注销登录</text>
+</navigator>
