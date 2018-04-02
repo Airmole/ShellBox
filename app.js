@@ -15,6 +15,7 @@ App({
     openid: null,
     uid:'',
     pwd: ''
+    //学号登录是否成功
   },
   // lazy loading openid
   getUserOpenId: function (callback) {

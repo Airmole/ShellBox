@@ -5,12 +5,16 @@ Page({
     pwd: '',
     jsonContent: {},
   },
+  onLoad: function () {
+    app.globalData.uid = '';
+    app.globalData.pwd = '';
+  },
   submitInfo: function (e) {
     let that = this;
-    that.setData({
-      uid: e.detail.value.uid,
-      pwd: e.detail.value.pwd,
-    });
+    // that.setData({
+    //   uid: e.detail.value.uid,
+    //   pwd: e.detail.value.pwd,
+    // });
     app.globalData.uid = e.detail.value.uid;
     app.globalData.pwd = e.detail.value.pwd;
     if (e.detail.value.uid.length == 0 || e.detail.value.pwd.length == 0) {

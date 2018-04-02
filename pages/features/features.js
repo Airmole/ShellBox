@@ -1,4 +1,5 @@
 // pages/features/features.js
+var app = getApp()
 Page({
   /**
    * 页面的初始数据
@@ -20,12 +21,14 @@ Page({
       { url: 'https://airmole.cn/wechat/wxapp/images/swiper5.gif' }
     ]
   },
-
+logout:function(){
+  app.globalData.uid = "";
+  app.globalData.pwd = "";
+},
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
   },
 
   /**

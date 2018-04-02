@@ -18,6 +18,6 @@
     </view>
   </view>
 </view>
-<navigator class="login-btn">
+<navigator bindtap='logout' url='/pages/index/index?uid=0&pwd=0' class="login-btn">
   <text>注销登录</text>
 </navigator>
