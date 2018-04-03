@@ -27,7 +27,7 @@
           <view class="weui-media-box__title">{{item.title}}</view>
           <view class="weui-media-box__desc">{{item.author[0]}}</view>
           <view class="weui-media-box__desc">{{item.publisher}}</view>
-          <view class='weui-media-box__desc'>索书号：TP/393/21-5</view>
+          <view class='weui-media-box__desc'>ISBN：{{item.isbn13}}</view>
         </view>
       </navigator>
     </block>

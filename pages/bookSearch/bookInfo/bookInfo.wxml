@@ -16,20 +16,22 @@
         <text class="viewers">{{doubanStr.rating.numRaters}}参与</text>
       </view>
     </view>
-    <view class="book-intro">
-      <view class="intro-header">
-        <text>馆藏状况</text>
-      </view>
-      <view class="weui-cells weui-cells_after-title" wx:for="{{jsonStr}}" wx:key="LibraryStorage">
-        <view class="weui-cell">
-          <view class="weui-cell__bd">索书号：{{item[0]}}</view>
-          <view class="weui-cell__ft">
-            {{item[4]}}
+    <view class="weui-panel weui-panel_access">
+      <view class="weui-panel__hd">图书馆馆藏</view>
+      <view class="weui-panel__bd" wx:for='{{jsonStr}}' wx:key='LibraryStorage'>
+        <view class="weui-media-box weui-media-box_text">
+          <view class="weui-media-box__title">索书号：{{item[0]}}</view>
+          <view class="weui-media-box__desc">条码号：{{item[1]}}</view>
+          <view class="weui-media-box__title">状态：
+            <view class="weui-badge" style="margin-left: 5px;">{{item[4]}}</view>
           </view>
         </view>
       </view>
-      <text class="intro-content">馆藏地:\n</text>
-      <text class="intro-content">{{jsonStr[0][3]}}</text>
+      <view class="weui-panel__ft">
+        <view class="weui-cell weui-cell_access weui-cell_link">
+          <view class="weui-cell__bd">{{jsonStr[0][3]}}</view>
+        </view>
+      </view>
     </view>
     <view class="book-intro">
       <view class="intro-header">
