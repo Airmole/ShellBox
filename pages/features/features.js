@@ -21,10 +21,10 @@ Page({
       { url: 'https://airmole.cn/wechat/wxapp/images/swiper5.gif' }
     ]
   },
-logout:function(){
-  app.globalData.uid = "";
-  app.globalData.pwd = "";
-},
+  logout: function () {
+    app.globalData.uid = "";
+    app.globalData.pwd = "";
+  },
   /**
    * 生命周期函数--监听页面加载
    */
@@ -103,7 +103,7 @@ logout:function(){
           return false;
         }
         wx.navigateTo({
-          // url: '../book/share/share?ISBN=' + res.result
+          url: '../../pages/bookSearch/bookInfo/bookInfo?ISBN=' + res.result
         })
       }
     })
