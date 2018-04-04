@@ -6,13 +6,13 @@
   <view class="page__bd">
     <view class="weui-panel weui-panel_access">
       <view class="weui-panel__bd">
-        <navigator url="" class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active">
+        <navigator url="" class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active" wx:for='{{keywordStr}}' wx:key='searchResultList'>
           <view class="weui-media-box__hd weui-media-box__hd_in-appmsg">
             <image class="weui-media-box__thumb" src="/images/book2.png" />
           </view>
           <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
-            <view class="weui-media-box__title">标题一</view>
-            <view class="weui-media-box__desc">由各种物质组成的巨型球状天体，叫做星球。星球有一定的形状，有自己的运行轨道。</view>
+            <view class="weui-media-box__title">{{item.title}}</view>
+            <view class="weui-media-box__desc">{{item.actor}}</view>
           </view>
         </navigator>
       </view>

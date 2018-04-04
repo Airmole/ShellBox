@@ -1,4 +1,7 @@
 /* pages/score/showScore/error.wxss */
+.tipPic {
+  text-align: center;
+}
 icon{
     margin-right: 13px;
 }

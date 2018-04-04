@@ -4,7 +4,7 @@
       <view class="weui-search-bar__form">
         <view class="weui-search-bar__box">
           <icon class="weui-icon-search_in-box" type="search" size="14"></icon>
-          <input type="text" class="weui-search-bar__input" placeholder="图书名称" value="{{inputVal}}" focus="{{inputShowed}}" bindinput="inputTyping" />
+          <input type="text" class="weui-search-bar__input" placeholder="图书名称" value="{{inputVal}}" focus="{{inputShowed}}" bindconfirm="searchIt" />
           <view class="weui-icon-clear" wx:if="{{inputVal.length > 0}}" bindtap="clearInput">
             <icon type="clear" size="14"></icon>
           </view>
@@ -19,7 +19,7 @@
   </view>
   <view class="weui-panel__bd">
     <block wx:for="{{jsonStr}}" wx:key="hotlist">
-      <navigator url="" class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active">
+      <navigator url="./bookInfo/bookInfo?ISBN={{item.isbn10}}" class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active">
         <view class="weui-media-box__hd weui-media-box__hd_in-appmsg">
           <image class="bookImg" src="{{item.images.small}}" />
         </view>

@@ -2,8 +2,9 @@ var app = getApp()
 Page({
   data: {
     inputShowed: false,
-    inputVal: "",
-    jsonStr: ""
+    keyword: "",
+    jsonStr: "",
+    keywordStr: '',
   },
   showInput: function () {
     this.setData({
@@ -21,10 +22,42 @@ Page({
       inputVal: ""
     });
   },
-  inputTyping: function (e) {
+  searchIt: function (e) {
     this.setData({
-      inputVal: e.detail.value
+      keyword: e.detail.value
     });
+
+    let that = this;
+    if (e.detail.value.length == 0) {
+      wx.showToast({
+        title: '输入有误',
+        image: '/images/info.png',
+        icon: 'none',
+        duration: 2000
+      });
+    } else {
+      wx.request({
+        url: 'https://airmole.cn/wechat/wxapp/api/bookSearch_api.php?keyword=' + e.detail.value,
+        success: function (res) {
+          that.setData({
+            keywordStr: res.data,
+          })
+          console.log(res.data);
+          if (res.data == '空的，查无此书') {
+            wx.showToast({
+              title: '本馆暂无此书',
+              image: '/images/info.png',
+              icon: 'none',
+              duration: 2000
+            });
+          } else {
+            wx.navigateTo({
+              url: '../bookSearch/bookInfo/bookList?keyword=' + e.detail.value,
+            })
+          }
+        }
+      })
+    }
   },
   onLoad: function () {
     var that = this;

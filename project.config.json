@@ -35,8 +35,8 @@
 				{
 					"id": 0,
 					"name": "book",
-					"pathName": "pages/bookSearch/bookInfo/bookInfo",
-					"query": "ISBN=9780073380902"
+					"pathName": "pages/bookSearch/bookInfo/bookList",
+					"query": "keyword=java"
 				}
 			]
 		}

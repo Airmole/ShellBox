@@ -13,6 +13,11 @@ Page({
           jsonStr: res.data,
         })
         // console.log(res.data);
+        if (res.data == "无") {
+          wx.redirectTo({
+            url: '../../error/notfound',
+          })
+        }
       }
     });
     wx.request({

@@ -1,6 +1,5 @@
 <!--pages/login/login.wxml-->
-<image class="logo" src="../../images/logo.png">
-</image>
+<image class="logo" src="../../images/logo.png"></image>
 <view class="logo-sub">北京科技大学天津学院智慧校园</view>
 <view class="page">
   <view class="weui-cells__title">请先登录：</view>

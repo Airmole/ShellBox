@@ -7,7 +7,7 @@
     "pages/calendar/calendar",
     "pages/score/score",
     "pages/score/showScore/showScore",
-    "pages/error/loginerror",
+    "pages/error/notfound",
     "pages/error/queryerror",
     "pages/bookSearch/index",
     "pages/bookSearch/bookInfo/bookInfo",
