@@ -6,7 +6,7 @@
   <view class="page__bd">
     <view class="weui-panel weui-panel_access">
       <view class="weui-panel__bd">
-        <navigator url="" class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active" wx:for='{{keywordStr}}' wx:key='searchResultList'>
+        <navigator url="./bookDetail?marc_no={{item.url}}" class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active" wx:for='{{keywordStr}}' wx:key='searchResultList'>
           <view class="weui-media-box__hd weui-media-box__hd_in-appmsg">
             <image class="weui-media-box__thumb" src="/images/book2.png" />
           </view>
