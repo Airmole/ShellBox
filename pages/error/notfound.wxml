@@ -6,7 +6,7 @@
     <view class="icon-box">
       <icon type="info" size="93"></icon>
       <view class="icon-box__ctn">
-        <view class="icon-box__title">没有找到</view>
+        <view class="icon-box__title">暂无馆藏</view>
         <view class="icon-box__desc">您要找的这本图书貌似图书馆还没有馆藏😞</view>
       </view>
     </view>
