@@ -36,13 +36,7 @@
 					"id": 0,
 					"name": "book",
 					"pathName": "pages/bookSearch/bookInfo/bookInfo",
-					"query": "ISBN=7-5354-2730-8"
-				},
-				{
-					"id": -1,
-					"name": "book",
-					"pathName": "pages/features/features",
-					"query": ""
+					"query": "ISBN=9780073380902"
 				}
 			]
 		}

@@ -13,7 +13,6 @@ Page({
           jsonStr: res.data,
         })
         // console.log(res.data);
-
       }
     });
     wx.request({
