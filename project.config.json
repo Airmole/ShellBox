@@ -35,8 +35,8 @@
 				{
 					"id": 0,
 					"name": "book",
-					"pathName": "pages/error/notfound",
-					"query": ""
+					"pathName": "pages/bookSearch/bookInfo/bookInfo",
+					"query": "ISBN=7-5354-2730-8"
 				}
 			]
 		}

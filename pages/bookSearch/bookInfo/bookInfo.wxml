@@ -16,7 +16,12 @@
         <text class="viewers">{{doubanStr.rating.numRaters}}参与</text>
       </view>
     </view>
-    <view class="weui-panel weui-panel_access">
+    <view class="book-intro" wx:if='{{jsonStr=="无"}}'>
+      <view class="intro-header">
+        <text>本校图书馆暂无馆藏🙃</text>
+      </view>
+    </view>
+    <view class="weui-panel weui-panel_access" wx:if='{{jsonStr!=="无"}}'>
       <view class="weui-panel__hd">图书馆馆藏</view>
       <view class="weui-panel__bd" wx:for='{{jsonStr}}' wx:key='LibraryStorage'>
         <view class="weui-media-box weui-media-box_text">
@@ -45,8 +50,7 @@
       <view class="intro-header">
         <text>作者信息</text>
       </view>
-      <text class="intro-content">{{doubanStr.author_intro}}
-</text>
+      <text class="intro-content">{{doubanStr.author_intro}}</text>
     </view>
   </view>
 </page>
