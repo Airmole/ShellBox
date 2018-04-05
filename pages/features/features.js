@@ -24,6 +24,11 @@ Page({
   logout: function () {
     app.globalData.uid = "";
     app.globalData.pwd = "";
+    wx.setStorageSync('uid', '');
+    wx.setStorageSync('pwd', '');
+    wx.redirectTo({
+      url: '/pages/index/index'
+    })
   },
   /**
    * 生命周期函数--监听页面加载

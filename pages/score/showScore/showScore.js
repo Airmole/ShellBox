@@ -121,7 +121,7 @@ Page({
         console.log("刷新完成");
         if (res.data[0].length == 0) {
           wx.redirectTo({
-            url: './error'
+            url: '/pages/error/queryerror'
           })
         }
       }

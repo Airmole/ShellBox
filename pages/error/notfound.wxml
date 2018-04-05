@@ -11,7 +11,7 @@
       </view>
     </view>
     <view class='tipPic'>
-      <image style='width:100%;' src="../../images/notfound.png" mode='widthFix'></image>
+      <image class='tipImg' src="../../images/notfound.png" mode='widthFix'></image>
     </view>
     <button bindtap="goBack" class="weui-btn" type="primary">返回上页</button>
   </view>

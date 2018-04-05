@@ -15,7 +15,7 @@ Page({
         that.setData({
           ISBN: res.data,
         })
-        console.log(res.data);
+        // console.log(res.data);
         if (res.data == "") {
           wx.redirectTo({
             url: '../../error/notfound',
@@ -27,7 +27,7 @@ Page({
             that.setData({
               jsonStr: res.data,
             })
-            console.log(res.data);
+            // console.log(res.data);
             if (res.data == "无") {
               wx.redirectTo({
                 url: '../../error/notfound',

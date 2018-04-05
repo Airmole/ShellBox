@@ -35,8 +35,8 @@
 				{
 					"id": 0,
 					"name": "book",
-					"pathName": "pages/bookSearch/bookInfo/bookDetail",
-					"query": "marc_no=0000475990"
+					"pathName": "pages/error/notfound",
+					"query": ""
 				}
 			]
 		}
