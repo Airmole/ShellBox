@@ -5,7 +5,6 @@
     "pages/welcome/welcome",
     "pages/classQuery/index",
     "pages/calendar/calendar",
-    "pages/score/score",
     "pages/score/showScore/showScore",
     "pages/error/notfound",
     "pages/error/queryerror",

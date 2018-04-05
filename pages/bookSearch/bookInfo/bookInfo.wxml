@@ -1,17 +1,17 @@
 <page>
   <view>
-    <view class="cover-container">
+    <view class="cover-container" wx:if="{{doubanStr.images.large}}">
       <image src="{{doubanStr.images.large}}">
       </image>
     </view>
     <view class="book-meta">
-      <view class="meta-info">
+      <view class="meta-info" wx:if="{{doubanStr.title}}">
         <text class="book-title">{{doubanStr.title}}</text>
         <text class="other-meta">作者：{{doubanStr.author[0]}}</text>
         <text class="other-meta">出版社：{{doubanStr.publisher}}</text>
         <text class="other-meta">出版日期：{{doubanStr.pubdate}}</text>
       </view>
-      <view class="range">
+      <view class="range" wx:if="{{doubanStr.rating.average}}">
         <text class="score">{{doubanStr.rating.average}}</text>
         <text class="viewers">{{doubanStr.rating.numRaters}}参与</text>
       </view>
@@ -23,7 +23,8 @@
           <view class="weui-media-box__title">索书号：{{item[0]}}</view>
           <view class="weui-media-box__desc">条码号：{{item[1]}}</view>
           <view class="weui-media-box__title">状态：
-            <view class="weui-badge" style="margin-left: 5px;" wx:if='{{item[4]!==""}}'>{{item[4]}}</view>
+            <view class="weui-badge" style="margin-left: 5px;" wx:if='{{item[4]=="可借"}}'>{{item[4]}}</view>
+            <view class="weui-badge" style="margin-left: 5px;background-color:red;" wx:if='{{item[4]!=="可借"}}'>{{item[4]}}</view>
           </view>
         </view>
       </view>
@@ -33,14 +34,14 @@
         </view>
       </view>
     </view>
-    <view class="book-intro">
+    <view class="book-intro" wx:if="{{doubanStr.summary}}">
       <view class="intro-header">
         <text>简介</text>
       </view>
       <text class="intro-content">{{doubanStr.summary}}
 </text>
     </view>
-    <view class="book-intro">
+    <view class="book-intro" wx:if="{{doubanStr.suthor_intro}}">
       <view class="intro-header">
         <text>作者信息</text>
       </view>

@@ -24,7 +24,8 @@
           <view class="weui-media-box__title">索书号：{{item[0]}}</view>
           <view class="weui-media-box__desc">条码号：{{item[1]}}</view>
           <view class="weui-media-box__title">状态：
-            <view class="weui-badge" style="margin-left: 5px;" wx:if='{{item[4]!==""}}'>{{item[4]}}</view>
+            <view class="weui-badge" style="margin-left: 5px;" wx:if='{{item[4]=="可借"}}'>{{item[4]}}</view>
+            <view class="weui-badge" style="margin-left: 5px;background-color:red;" wx:if='{{item[4]!=="可借"}}'>{{item[4]}}</view>
           </view>
         </view>
       </view>

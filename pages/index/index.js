@@ -7,11 +7,9 @@ Page({
     jsonStr: ""
   },
   onLoad: function () {
-
     var uid = wx.getStorageSync('uid')
     var pwd = wx.getStorageSync('pwd')
     if (pwd != "") {
-      console.log(pwd);
       app.globalData.uid = uid;
       app.globalData.pwd = pwd;
       wx.switchTab({
@@ -50,15 +48,6 @@ Page({
             //设置本地Storage,维持登录态用
             wx.setStorageSync('uid', e.detail.value.uid);
             wx.setStorageSync('pwd', e.detail.value.pwd);
-            // try {
-            //   var test = wx.getStorageSync('pwd')
-            //   if (test) {
-            //     // Do something with return value
-            //     console.log(test)
-            //   }
-            // } catch (e) {
-            //   // Do something when catch error
-            // }
             wx.navigateTo({
               url: '/pages/welcome/welcome?uid=' + e.detail.value.uid + '&pwd=' + e.detail.value.pwd
             })

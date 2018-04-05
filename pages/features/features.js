@@ -101,7 +101,7 @@ Page({
 
         if (res.scanType !== 'EAN_13') {
           wx.showToast({
-            title: '我们需要的是 ISBN 编码',
+            title: '这不是ISBN码',
             icon: 'loading',
             duration: 8000
           })
