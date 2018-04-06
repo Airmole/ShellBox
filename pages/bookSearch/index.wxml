@@ -11,7 +11,7 @@
         </view>
         <label class="weui-search-bar__label" hidden="{{inputShowed}}" bindtap="showInput">
           <icon class="weui-icon-search" type="search" size="14"></icon>
-          <view class="weui-search-bar__text">检索</view>
+          <view class="weui-search-bar__text">图书馆图书检索</view>
         </label>
       </view>
       <view class="weui-search-bar__cancel-btn" hidden="{{!inputShowed}}" bindtap="hideInput">取消</view>
@@ -25,9 +25,9 @@
         </view>
         <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
           <view class="weui-media-box__title">{{item.title}}</view>
-          <view class="weui-media-box__desc">{{item.author[0]}}</view>
+          <view class="weui-media-box__desc">{{item.rating.average}}分</view>
+          <view class="weui-media-box__desc">作者：{{item.author[0]}}</view>
           <view class="weui-media-box__desc">{{item.publisher}}</view>
-          <view class='weui-media-box__desc'>ISBN：{{item.isbn13}}</view>
         </view>
       </navigator>
     </block>

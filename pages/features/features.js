@@ -8,11 +8,12 @@ Page({
     grids: [
       { name: '校历查询', navurl: '/pages/calendar/calendar', gridIcon: '/images/calendar_HL.png' },
       { name: '扫码找书', gridIcon: '/images/scanCode.png', event: "scan" },
-      { name: '学籍信息', navurl: '/pages/stuInfo/stuInfo', gridIcon: '/images/studentInfo.png' },
+      { name: '我的信息', navurl: '/pages/stuInfo/stuInfo', gridIcon: '/images/studentInfo.png' },
       { name: '成绩查询', navurl: '/pages/score/showScore/showScore', gridIcon: '/images/score_HL.png' },
-      // { name: '四六级成绩', navurl: '/pages/calendar/calendar', gridIcon: '/images/cet.png' },
-      // { name: '校园出行', navurl: '/pages/calendar/calendar', gridIcon: '/images/transport.png' },
-      { name: '通讯录', navurl: '/pages/tel/departmentTel/departmentTel', gridIcon: '/images/contacts.png' }, { name: '关于我们', navurl: '/pages/features/about', gridIcon: '/images/about_HL.png' },],
+      { name: '通讯录', navurl: '/pages/tel/departmentTel/departmentTel', gridIcon: '/images/contacts.png' },
+      { name: '四六级成绩', gridIcon: '/images/cet.png', event: "building" },
+      { name: '校园出行', gridIcon: '/images/transport.png', event: "building" },
+      { name: '关于我们', navurl: '/pages/features/about', gridIcon: '/images/about_HL.png' },],
     swiperPic: [
       { url: 'https://airmole.cn/wechat/wxapp/images/swiper1.jpg' },
       { url: 'https://airmole.cn/wechat/wxapp/images/swiper2.jpg' },
@@ -21,6 +22,15 @@ Page({
       { url: 'https://airmole.cn/wechat/wxapp/images/swiper5.gif' }
     ]
   },
+  building: function () {
+    wx.showToast({
+      title: '努力开发中...',
+      image: '/images/info.png',
+      icon: 'none',
+      duration: 1500
+    });
+  },
+  //账户注销登录
   logout: function () {
     app.globalData.uid = "";
     app.globalData.pwd = "";

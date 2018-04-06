@@ -16,8 +16,8 @@
         </navigator>
       </block>
     </view>
+    <navigator bindtap='logout' class="login-btn">
+      <text>注销登录</text>
+    </navigator>
   </view>
 </view>
-<navigator bindtap='logout' class="login-btn">
-  <text>注销登录</text>
-</navigator>
