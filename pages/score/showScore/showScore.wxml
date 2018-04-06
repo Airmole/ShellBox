@@ -14,18 +14,18 @@
         <view class="weui-cell__ft" style='color:#000000;'>{{item.score}}</view>
       </view>
     </view>
-    <view wx:if="{{jsonContent[0].length>0}}" class="weui-btn-area">
+    <!-- <view wx:if="{{jsonContent[0].length>0}}" class="weui-btn-area">
       <button plain='true' open-type="share" type="default" hover-class="other-button-hover">
         <image class="weui-btn shareIcon" src='/images/share.png'></image>
         分享我的成绩给朋友
       </button>
-    </view>
+    </view> -->
   </view>
   <view class="weui-footer">
     <view class="weui-footer__links">
       <text class="weui-footer__link">很奔放</text>
       <text class="weui-footer__link">Airmole.</text>
     </view>
-    <view class="weui-footer__text">Copyright © 2017-2018 Airmole BKIEBox.</view>
+    <view class="weui-footer__text">Copyright © 2017-2018 北科大天津学院智慧校园.</view>
   </view>
 </view>

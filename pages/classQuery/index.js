@@ -1,71 +1,31 @@
+var app = getApp()
 Page({
   data: {
-    BottomTip: '仅供参考，请以教务网为准！',
-    //班级选择器列表内容
-    array: ['通信1601', '通信1602', '自动化1601', '自动化1602', '计算机1601', '计算机1602', '计算机1603', '计算机1604', '计算机1605', "点我选班级"],
-    //选择器对应选项带属性值
-    objectArray: [
-      {
-        id: 0,
-        name: '通信1601'
-      },
-      {
-        id: 1,
-        name: '通信1602'
-      },
-      {
-        id: 2,
-        name: '自动化1601'
-      }, {
-        id: 3,
-        name: "自动化1602"
-      }, {
-        id: 4,
-        name: "计算机1601"
-      }, {
-        id: 5,
-        name: "计算机1602"
-      }, {
-        id: 6,
-        name: "计算机1603"
-      }, {
-        id: 7,
-        name: "计算机1604"
-      }, {
-        id: 8,
-        name: "计算机1605"
-      }, {
-        id: 9,
-        name: "点我选班级"
-      }
-    ],
-    //默认没有选择班级的选择器初始值
-    index: 9,
-    imgSrc: [
-      "https://airmole.cn/wechat/wxapp/images/t1601.jpg",
-      "https://airmole.cn/wechat/wxapp/images/t1602.jpg",
-      "https://airmole.cn/wechat/wxapp/images/z1601.jpg",
-      "https://airmole.cn/wechat/wxapp/images/z1602.jpg",
-      "https://airmole.cn/wechat/wxapp/images/j1601.jpg",
-      "https://airmole.cn/wechat/wxapp/images/j1602.jpg",
-      "https://airmole.cn/wechat/wxapp/images/j1603.jpg",
-      "https://airmole.cn/wechat/wxapp/images/j1604.jpg",
-      "https://airmole.cn/wechat/wxapp/images/j1605.jpg"
-    ]
+    uid: '',
+    pwd: '',
+    classStr: '',
   },
-  bindPickerChange: function (e) {
-    //console.log('picker发送选择改变，携带值为', e.detail.value)
-    this.setData({
-      index: e.detail.value
+  onLoad: function (options) {
+    var that = this;
+    that.setData({
+      uid: app.globalData.uid,
+      pwd: app.globalData.pwd,
+    });
+    wx.request({
+      url: 'https://airmole.cn/wechat/wxapp/api/Airmole_jiaowuClassTable.php?uid=' + app.globalData.uid + '&pwd=' + app.globalData.pwd,
+      success: function (res) {
+        that.setData({
+          classStr: res.data,
+        })
+        // console.log(res.data);
+      }
     })
   },
   /**
  * 用户点击右上角分享
  */
   onShareAppMessage: function (res) {
-    //看好了，从函数外面往里面传递参数是这样传的！记不住去撞墙！
-    // var classId = this.data.index;
-    // console.log(classId);
+
     return {
       title: '贝壳田园信息系课表',
       path: 'pages/index/index',
@@ -73,44 +33,7 @@ Page({
     }
   },
   onPullDownRefresh: function () {
-   
+
   },
-  previewImg: function () {
-    var picId = this.data.index;
-    switch (picId) {
-      case "0":
-        var picId = this.data.imgSrc[0];
-        break;
-      case "1":
-        var picId = this.data.imgSrc[1];
-        break;
-      case "2":
-        var picId = this.data.imgSrc[2];
-        break;
-      case "3":
-        var picId = this.data.imgSrc[3];
-        break;
-      case "4":
-        var picId = this.data.imgSrc[4];
-        break;
-      case "5":
-        var picId = this.data.imgSrc[5];
-        break;
-      case "6":
-        var picId = this.data.imgSrc[6];
-        break;
-      case "7":
-        var picId = this.data.imgSrc[7];
-        break;
-      case "8":
-        var picId = this.data.imgSrc[8];
-        break;
-      default:
-        console.log("default");
-    }
-    wx.previewImage({
-      current: "picId",
-      urls: [picId],
-    })
-  },
+
 }) 

@@ -17,13 +17,17 @@
     </view>
     <view class="weui-cells__tips">外地用户请加拨天津长途区号 022</view>
   </view>
-  <view class="weui-btn-area">
+  <!-- <view class="weui-btn-area">
     <button plain='true' open-type="share" type="default" over-class="other-button-hover">
       <image class="weui-btn btnIcon" src='/images/share.png'></image>
       <text>分享给朋友</text>
     </button>
-  </view>
+  </view> -->
   <view class="weui-footer">
-    <view class="weui-footer__text">Copyright © 2018 Airmole Cheung.</view>
+    <view class="weui-footer__links">
+      <navigator url="/pages/features/about" class="weui-footer__link">Airmole.</navigator>
+      <navigator url="/pages/features/about" class="weui-footer__link">智慧校园</navigator>
+    </view>
+    <view class="weui-footer__text">Copyright © 2018 北京科技大学天津学院.</view>
   </view>
 </view>

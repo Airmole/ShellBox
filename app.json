@@ -2,6 +2,7 @@
   "pages": [
     "pages/index/index",
     "pages/features/features",
+    "pages/features/about",
     "pages/welcome/welcome",
     "pages/classQuery/index",
     "pages/calendar/calendar",
@@ -35,10 +36,10 @@
         "selectedIconPath": "images/book_HL.png"
       },
       {
-        "pagePath": "pages/score/showScore/showScore",
-        "text": "成绩",
-        "iconPath": "images/score.png",
-        "selectedIconPath": "images/score_HL.png"
+        "pagePath": "pages/classQuery/index",
+        "text": "课表",
+        "iconPath": "images/class.png",
+        "selectedIconPath": "images/class_HL.png"
       },
       {
         "pagePath": "pages/features/features",

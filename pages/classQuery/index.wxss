@@ -1,20 +1,46 @@
-@import "../common/weui.wxss";
-
-.picker {
-  padding: 19rpx 26rpx;
-  background-color: #fff;
+.flex-item {
+  width: 130rpx;
+  height: 115px;
 }
 
- .kbPic {
-  text-align: center;
-} 
-
-.btnIcon {
-  width: 26px;
-  height: 26px;
-  vertical-align: text-bottom;
+.kcb-item {
+  position: absolute;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  border-radius: 5px;
 }
 
-page {
-  background-color: rgb(248, 247, 245);
+.smalltext {
+  width: 128rpx;
+  height: 115px;
+  font-size: 8pt;
+  color: #fff;
+  padding-left: 5px;
+}
+
+.top {
+  display: flex;
+  flex-direction: row;
+  margin-left: 35rpx;
+  background-color: #d2e6b3;
+  color: #7cba23;
+}
+
+.top-text {
+  width: 140rpx;
+  height: 35rpx;
+  font-size: 9pt;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+}
+
+.left {
+  width: 35rpx;
+  height: 120rpx;
+  font-size: 9pt;
+  justify-content: center;
+  display: flex;
+  align-items: center;
 }

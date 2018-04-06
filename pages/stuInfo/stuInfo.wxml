@@ -40,4 +40,11 @@
       <view class="weui-cell__ft">{{item.stuMajor}}</view>
     </view>
   </view>
+   <view class="weui-footer">
+    <view class="weui-footer__links">
+      <navigator url="/pages/features/about" class="weui-footer__link">Airmole.</navigator>
+      <navigator url="/pages/features/about" class="weui-footer__link">智慧校园</navigator>
+    </view>
+    <view class="weui-footer__text">Copyright © 2018 北京科技大学天津学院.</view>
+  </view>
 </view>

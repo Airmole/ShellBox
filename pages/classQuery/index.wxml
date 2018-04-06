@@ -1,56 +1,150 @@
-<view class='page'>
-  <view class="page__bd page__bd_spacing">
-    <view class="page-section">
-      <view class="weui-cells__title">请选择班级</view>
-      <view class="weui-cells weui-cells_after-title">
-        <view class="weui-cell weui-cell_input">
-          <view class="weui-cell__hd">
-            <view class="weui-label">班级：</view>
-          </view>
-          <view class="weui-cell__bd">
-            <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
-              <view class="weui-input">{{array[index]}}</view>
-            </picker>
-          </view>
+<page>
+  <view class="top">
+    <view class="top-text">周一</view>
+    <view class="top-text">周二</view>
+    <view class="top-text">周三</view>
+    <view class="top-text">周四</view>
+    <view class="top-text">周五</view>
+  </view>
+  <view>
+    <view style="height:600px;width:360px;display:flex;">
+      <view style="background-color:#D2E6B3;color:#7cba23;">
+        <view class="left"> 1 </view>
+        <view class="left"> 2 </view>
+        <view class="left"> 3 </view>
+        <view class="left"> 4 </view>
+        <view class="left"> 5 </view>
+        <view class="left"> 6 </view>
+        <view class="left"> 7 </view>
+        <view class="left"> 8 </view>
+        <view class="left"> 9 </view>
+        <view class="left"> 10 </view>
+      </view>
+      <view wx:if='{{classStr[1][0][0]!==" "}}'>
+        <view class="flex-item kcb-item" data-index="0" data-statu="open" style="margin-left:0px;margin-top:1px;height:115px;background-color:#85B8CF">
+          <view class="smalltext">{{classStr[1][0][0]}}</view>
+        </view>
+      </view>
+      <view wx:if='{{classStr[2][0][0]!==" "}}'>
+        <view class="flex-item kcb-item" data-index="1" data-statu="open" style="margin-left:0px;margin-top:115px;height:115px;background-color:#90C652">
+          <view class="smalltext">{{classStr[2][0][0]}}</view>
+        </view>
+      </view>
+      <view wx:if='{{classStr[3][0][0]!==" "}}'>
+        <view class="flex-item kcb-item" data-index="2" data-statu="open" style="margin-left:0px;margin-top:230px;height:115px;background-color:#D8AA5A">
+          <view class="smalltext">{{classStr[3][0][0]}}</view>
+        </view>
+      </view>
+      <view wx:if='{{classStr[4][0][0]!==" "}}'>
+        <view class="flex-item kcb-item" data-index="3" data-statu="open" style="margin-left:0px;margin-top:345px;height:115px;background-color:#FC9F9D">
+          <view class="smalltext">{{classStr[4][0][0]}}</view>
+        </view>
+      </view>
+      <view wx:if='{{classStr[5][0][0]!==" "}}'>
+        <view class="flex-item kcb-item" data-index="4" data-statu="open" style="margin-left:0px;margin-top:460px;height:115px;background-color:#0A9A84">
+          <view class="smalltext">{{classStr[5][0][0]}}</view>
+        </view>
+      </view>
+      <view wx:if='{{classStr[1][0][1]!==" "}}'>
+        <view class="flex-item kcb-item" data-index="5" data-statu="open" style="margin-left:70px;margin-top:1px;height:115px;background-color:#61BC69">
+          <view class="smalltext">{{classStr[1][0][1]}}</view>
+        </view>
+      </view>
+      <view wx:if='{{classStr[2][0][1]!==" "}}'>
+        <view class="flex-item kcb-item" data-index="6" data-statu="open" style="margin-left:70px;margin-top:115px;height:115px;background-color:#12AEF3">
+          <view class="smalltext">{{classStr[2][0][1]}}</view>
+        </view>
+      </view>
+      <view wx:if='{{classStr[3][0][1]!==" "}}'>
+        <view class="flex-item kcb-item" data-index="7" data-statu="open" style="margin-left:70px;margin-top:230px;height:115px;background-color:#E29AAD">
+          <view class="smalltext">{{classStr[3][0][1]}}</view>
+        </view>
+      </view>
+      <view wx:if='{{classStr[4][0][1]!==" "}}'>
+        <view class="flex-item kcb-item" data-index="8" data-statu="open" style="margin-left:70px;margin-top:345px;height:115px;background-color:#61BC69">
+          <view class="smalltext">{{classStr[4][0][1]}}</view>
+        </view>
+      </view>
+      <view wx:if='{{classStr[5][0][1]!==" "}}'>
+        <view class="flex-item kcb-item" data-index="9" data-statu="open" style="margin-left:70px;margin-top:460px;height:115px;background-color:#85B8CF">
+          <view class="smalltext">{{classStr[5][0][1]}}</view>
+        </view>
+      </view>
+      <view wx:if='{{classStr[1][0][2]!==" "}}'>
+        <view class="flex-item kcb-item" data-index="10" data-statu="open" style="margin-left:140px;margin-top:1px;height:115px;background-color:#90C652">
+          <view class="smalltext">{{classStr[1][0][2]}}</view>
+        </view>
+      </view>
+      <view wx:if='{{classStr[2][0][2]!==" "}}'>
+        <view class="flex-item kcb-item" data-index="11" data-statu="open" style="margin-left:140px;margin-top:115px;height:115px;background-color:#D8AA5A">
+          <view class="smalltext">{{classStr[2][0][2]}}</view>
+        </view>
+      </view>
+      <view wx:if='{{classStr[3][0][2]!==" "}}'>
+        <view class="flex-item kcb-item" data-index="12" data-statu="open" style="margin-left:140px;margin-top:230px;height:115px;background-color:#FC9F9D">
+          <view class="smalltext">{{classStr[3][0][2]}}</view>
+        </view>
+      </view>
+      <view wx:if='{{classStr[4][0][2]!==" "}}'>
+        <view class="flex-item kcb-item" data-index="13" data-statu="open" style="margin-left:140px;margin-top:345px;height:115px;background-color:#0A9A84">
+          <view class="smalltext">{{classStr[4][0][2]}}</view>
+        </view>
+      </view>
+      <view wx:if='{{classStr[5][0][2]!==" "}}'>
+        <view class="flex-item kcb-item" data-index="14" data-statu="open" style="margin-left:140px;margin-top:460px;height:115px;background-color:#61BC69">
+          <view class="smalltext">{{classStr[5][0][2]}}</view>
+        </view>
+      </view>
+      <view wx:if='{{classStr[1][0][3]!==" "}}'>
+        <view class="flex-item kcb-item" data-index="15" data-statu="open" style="margin-left:210px;margin-top:1px;height:115px;background-color:#12AEF3">
+          <view class="smalltext">{{classStr[1][0][3]}}</view>
+        </view>
+      </view>
+      <view wx:if='{{classStr[2][0][3]!==" "}}'>
+        <view class="flex-item kcb-item" data-index="16" data-statu="open" style="margin-left:210px;margin-top:115px;height:115px;background-color:#E29AAD">
+          <view class="smalltext">{{classStr[2][0][3]}}</view>
+        </view>
+      </view>
+      <view wx:if='{{classStr[3][0][3]!==" "}}'>
+        <view class="flex-item kcb-item" data-index="17" data-statu="open" style="margin-left:210px;margin-top:230px;height:115px;background-color:#61BC69">
+          <view class="smalltext">{{classStr[3][0][3]}}</view>
+        </view>
+      </view>
+      <view wx:if='{{classStr[4][0][3]!==" "}}'>
+        <view class="flex-item kcb-item" data-index="18" data-statu="open" style="margin-left:210px;margin-top:345px;height:115px;background-color:#85B8CF">
+          <view class="smalltext">{{classStr[4][0][3]}}</view>
+        </view>
+      </view>
+      <view wx:if='{{classStr[5][0][3]!==" "}}'>
+        <view class="flex-item kcb-item" data-index="19" data-statu="open" style="margin-left:210px;margin-top:460px;height:115px;background-color:#90C652">
+          <view class="smalltext">{{classStr[5][0][3]}}</view>
+        </view>
+      </view>
+      <view wx:if='{{classStr[1][0][4]!==" "}}'>
+        <view class="flex-item kcb-item" data-index="20" data-statu="open" style="margin-left:280px;margin-top:1px;height:115px;background-color:#D8AA5A">
+          <view class="smalltext">{{classStr[1][0][4]}}</view>
+        </view>
+      </view>
+      <view wx:if='{{classStr[2][0][4]!==" "}}'>
+        <view class="flex-item kcb-item" data-index="21" data-statu="open" style="margin-left:280px;margin-top:115px;height:115px;background-color:#FC9F9D">
+          <view class="smalltext">{{classStr[2][0][4]}}</view>
+        </view>
+      </view>
+      <view wx:if='{{classStr[3][0][4]!==" "}}'>
+        <view class="flex-item kcb-item" data-index="22" data-statu="open" style="margin-left:280px;margin-top:230px;height:115px;background-color:#0A9A84">
+          <view class="smalltext">{{classStr[3][0][4]}}</view>
+        </view>
+      </view>
+      <view wx:if='{{classStr[4][0][4]!==" "}}'>
+        <view class="flex-item kcb-item" data-index="23" data-statu="open" style="margin-left:280px;margin-top:345px;height:115px;background-color:#61BC69">
+          <view class="smalltext">{{classStr[4][0][4]}}</view>
+        </view>
+      </view>
+      <view wx:if='{{classStr[5][0][4]!==" "}}'>
+        <view class="flex-item kcb-item" data-index="24" data-statu="open" style="margin-left:280px;margin-top:460px;height:115px;background-color:#12AEF3">
+          <view class="smalltext">{{classStr[5][0][4]}}</view>
         </view>
       </view>
     </view>
   </view>
-  <view wx:if="{{index==0}}" class='kbPic'>
-    <image src="{{imgSrc[0]}}" mode='widthFix'></image>
-  </view>
-  <view wx:if="{{index==1}}" class='kbPic'>
-    <image src="{{imgSrc[1]}}" mode='widthFix'></image>
-  </view>
-  <view wx:if="{{index==2}}" class='kbPic'>
-    <image src="{{imgSrc[2]}}" mode='widthFix'></image>
-  </view>
-  <view wx:if="{{index==3}}" class='kbPic'>
-    <image src="{{imgSrc[3]}}" mode='widthFix'></image>
-  </view>
-  <view wx:if="{{index==4}}" class='kbPic'>
-    <image src="{{imgSrc[4]}}" mode='widthFix'></image>
-  </view>
-  <view wx:if="{{index==5}}" class='kbPic'>
-    <image src="{{imgSrc[5]}}" mode='widthFix'></image>
-  </view>
-  <view wx:if="{{index==6}}" class='kbPic'>
-    <image src="{{imgSrc[6]}}" mode='widthFix'></image>
-  </view>
-  <view wx:if="{{index==7}}" class='kbPic'>
-    <image src="{{imgSrc[7]}}" mode='widthFix'></image>
-  </view>
-  <view wx:if="{{index==8}}" class='kbPic'>
-    <image src="{{imgSrc[8]}}" mode='widthFix'></image>
-  </view>
-  <view wx:if="{{index==9}}" class='kbPic'>
-    <image src='/images/tip.jpg'></image>
-  </view>
-  <view class="weui-btn-area" wx:if="{{index!=9}}">
-    <view class="weui-cells__tips  setCenter">{{BottomTip}}</view>
-    <button plain='true' bindtap='previewImg' type="default" over-class="other-button-hover">
-      <image class="weui-btn btnIcon" src='/images/share.png'></image>
-      <text>分享课表给朋友</text>
-    </button>
-  </view>
-</view>
+</page>
