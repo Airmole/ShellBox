@@ -15,6 +15,12 @@
           <view class="weui-grid__label">{{item.name}}</view>
         </navigator>
       </block>
+      <view class="weui-grid" hover-class="weui-grid_active" style='height:96.200px;'>
+        <button open-type="contact">
+          <image class="weui-grid__icon" src="/images/service.png"></image>
+          <text>意见留言</text>
+        </button>
+      </view>
     </view>
     <navigator bindtap='logout' class="login-btn">
       <text>注销登录</text>

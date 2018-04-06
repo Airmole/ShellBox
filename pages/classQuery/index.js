@@ -27,7 +27,7 @@ Page({
   onShareAppMessage: function (res) {
 
     return {
-      title: '贝壳田园信息系课表',
+      title: '贝壳盒子课表查询',
       path: 'pages/index/index',
       imageUrl: "https://airmole.cn/wechat/wxapp/images/QueryClassTable.jpg"
     }

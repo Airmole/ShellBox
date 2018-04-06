@@ -1,6 +1,6 @@
 .flex-item {
   width: 130rpx;
-  height: 115px;
+  height: 119px;
 }
 
 .kcb-item {
@@ -13,7 +13,7 @@
 
 .smalltext {
   width: 128rpx;
-  height: 115px;
+  height: 119px;
   font-size: 8pt;
   color: #fff;
   padding-left: 5px;
@@ -38,7 +38,7 @@
 
 .left {
   width: 35rpx;
-  height: 120rpx;
+  height: 120px;
   font-size: 9pt;
   justify-content: center;
   display: flex;

@@ -14,11 +14,6 @@
         <view class="left"> 3 </view>
         <view class="left"> 4 </view>
         <view class="left"> 5 </view>
-        <view class="left"> 6 </view>
-        <view class="left"> 7 </view>
-        <view class="left"> 8 </view>
-        <view class="left"> 9 </view>
-        <view class="left"> 10 </view>
       </view>
       <view wx:if='{{classStr[1][0][0]!==" "}}'>
         <view class="flex-item kcb-item" data-index="0" data-statu="open" style="margin-left:0px;margin-top:1px;height:115px;background-color:#85B8CF">

@@ -1,6 +1,17 @@
 /* pages/features/features.wxss */
 @import "../common/weui.wxss";
 
+button::after {
+  border: none;
+}
+
+
+button {
+  font-size: 14px;
+  widows: 137.8625px;
+    /* height: 74.200px;   */
+}
+
 .swiper {
   height: 400rpx;
   width: 100%;
@@ -10,6 +21,7 @@
   height: 100%;
   width: 100%;
 }
+
 .login-btn {
   font-size: 13pt;
   line-height: 85rpx;
