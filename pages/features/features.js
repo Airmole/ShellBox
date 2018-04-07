@@ -11,7 +11,6 @@ Page({
       { name: '我的信息', navurl: '/pages/stuInfo/stuInfo', gridIcon: '/images/studentInfo.png' },
       { name: '成绩查询', navurl: '/pages/score/showScore/showScore', gridIcon: '/images/score_HL.png' },
       { name: '通讯录', navurl: '/pages/tel/departmentTel/departmentTel', gridIcon: '/images/contacts.png' },
-      // { name: '四六级成绩', gridIcon: '/images/cet.png', event: "building" },
       { name: '校园出行', gridIcon: '/images/transport.png', event: "building" },
       { name: '关于我们', navurl: '/pages/features/about', gridIcon: '/images/about_HL.png' },],
     swiperPic: [
