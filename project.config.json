@@ -31,14 +31,7 @@
 		},
 		"miniprogram": {
 			"current": -1,
-			"list": [
-				{
-					"id": 0,
-					"name": "about",
-					"pathName": "pages/features/features",
-					"query": ""
-				}
-			]
+			"list": []
 		}
 	}
 }

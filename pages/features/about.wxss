@@ -46,7 +46,7 @@
   height: 750rpx;
   border-radius: 10rpx;
   margin-top: -175rpx;
-  filter: blur(15px);
+  filter: blur(5px);
 }
 
 .content {
