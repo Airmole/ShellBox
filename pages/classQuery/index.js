@@ -3,6 +3,7 @@ Page({
   data: {
     uid: '',
     pwd: '',
+    // remind: '加载中',
     classStr: '',
   },
   onLoad: function (options) {
@@ -21,12 +22,12 @@ Page({
         success: function (res) {
           that.setData({
             classStr: res.data,
+            // remind:"完成",
           })
           // console.log(res.data);
         }
       })
     }
-
   },
   /**
  * 用户点击右上角分享
