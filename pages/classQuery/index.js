@@ -3,10 +3,14 @@ Page({
   data: {
     uid: '',
     pwd: '',
-    // remind: '加载中',
     classStr: '',
   },
   onLoad: function (options) {
+    wx.showToast({
+      title: "loading",
+      icon: "loading",
+      duration: 5000
+    })
     var that = this;
     that.setData({
       uid: app.globalData.uid,
@@ -24,7 +28,7 @@ Page({
             classStr: res.data,
             // remind:"完成",
           })
-          // console.log(res.data);
+          wx.hideToast()
         }
       })
     }

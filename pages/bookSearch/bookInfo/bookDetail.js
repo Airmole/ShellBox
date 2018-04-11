@@ -8,6 +8,11 @@ Page({
     doubanStr: '',
   },
   onLoad: function (options) {
+    wx.showToast({
+      title: "loading",
+      icon: "loading",
+      duration: 5000
+    })
     var that = this;
     wx.request({
       url: 'https://airmole.cn/wechat/wxapp/api/mn2ISBN.php?marc_no=' + options.marc_no,
@@ -53,6 +58,7 @@ Page({
                 })
               }
             })
+            wx.hideToast()
           }
         });
       }

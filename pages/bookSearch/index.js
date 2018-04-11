@@ -60,6 +60,11 @@ Page({
     }
   },
   onLoad: function () {
+    wx.showToast({
+      title: "loading",
+      icon: "loading",
+      duration: 5000
+    })
     var that = this;
     wx.request({
       url: 'https://airmole.cn/wechat/wxapp/api/hotbook.php',
@@ -67,6 +72,7 @@ Page({
         that.setData({
           jsonStr: res.data,
         })
+        wx.hideToast()
         // console.log(res.data);
       }
     })

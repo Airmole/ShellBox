@@ -14,13 +14,18 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    wx.showToast({
+      title: "loading",
+      icon: "loading",
+      duration: 5000
+    })
     var that = this;
     that.setData({
       stuId: app.globalData.uid,
       password: app.globalData.pwd,
     });
     wx.request({
-      url: 'https://airmole.cn/test/record.php',
+      url: 'https://airmole.cn/wechat/wxapp/api/Airmole_jiaowuScoreQuery.php',
       method: "POST",
       data: {
         stuId: app.globalData.uid,
@@ -38,6 +43,7 @@ Page({
             url: '/pages/error/queryerror'
           })
         }
+        wx.hideToast()
       }
     })
   },

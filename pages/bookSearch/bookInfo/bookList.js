@@ -13,6 +13,11 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    wx.showToast({
+      title: "loading",
+      icon: "loading",
+      duration: 5000
+    })
     var that = this;
     wx.request({
       url: 'https://airmole.cn/wechat/wxapp/api/bookSearch_api.php?keyword=' + options.keyword,
@@ -21,8 +26,10 @@ Page({
           keywordStr: res.data,
         })
         // console.log(res.data);
+        wx.hideToast()
       }
     })
+
   },
 
   /**

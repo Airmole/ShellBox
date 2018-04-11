@@ -9,6 +9,11 @@ Page({
     });
   },
   onLoad: function () {
+    wx.showToast({
+      title: "loading",
+      icon: "loading",
+      duration: 5000
+    })
     var that = this
 
     if (app.globalData.hasLogin === false) {
@@ -54,6 +59,7 @@ Page({
               url: '/pages/error/queryerror'
             })
           }
+          wx.hideToast()
         }
       })
     }

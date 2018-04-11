@@ -5,6 +5,11 @@ Page({
     doubanStr: '',
   },
   onLoad: function (options) {
+    wx.showToast({
+      title: "loading",
+      icon: "loading",
+      duration: 5000
+    })
     var that = this;
     wx.request({
       url: 'https://airmole.cn/wechat/wxapp/api/isbn2info.php?ISBN=' + options.ISBN,
@@ -12,12 +17,6 @@ Page({
         that.setData({
           jsonStr: res.data,
         })
-        // console.log(res.data);
-        // if (res.data == "无") {
-        //   wx.redirectTo({
-        //     url: '../../error/notfound',
-        //   })
-        // }
       }
     });
     wx.request({
@@ -40,7 +39,7 @@ Page({
         })
       }
     })
-
+    wx.hideToast()
 
   },
   onReady: function () {
