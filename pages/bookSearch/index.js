@@ -50,6 +50,13 @@ Page({
               icon: 'none',
               duration: 2000
             });
+          } else if (res.data[0][0] = '图书馆系统无响应') {
+            wx.showToast({
+              title: '网络繁忙',
+              image: '/images/info.png',
+              icon: 'none',
+              duration: 2000
+            });
           } else {
             wx.navigateTo({
               url: '../bookSearch/bookInfo/bookList?keyword=' + e.detail.value,
