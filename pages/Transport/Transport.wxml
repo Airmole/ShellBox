@@ -70,25 +70,6 @@
           <view class='history-table-wrap'>
             <view class="weui-cells__title" style='text-align:left;margin-top:30px;'>公交出行</view>
             <image bindtap='preview' src='https://airmole.cn/wechat/wxapp/images/Bus413.jpg' mode='widthFix'></image>
-            <view class="weui-cells__title" style='text-align:left'>校园班车</view>
-            <view class="weui-cell weui-cell_access tel" hover-class="weui-cell_active" catchtap='callPhone' catchlongpress="copyIt">
-              <view class="weui-cell__hd">
-                <image src="/images/call.png" style="margin-right: 5px;vertical-align: middle;width:20px; height: 20px;"></image>
-              </view>
-              <view class="weui-cell__bd" style='text-align:left;'>宝坻车站</view>
-              <view class="weui-cell__ft weui-cell__ft_in-access" id='{{bdtel}}'>{{bdtel}}</view>
-            </view>
-            <view class="table">
-              <text class='title'>校园班车时刻表(宝坻)</text>
-              <view class="tr">
-                <view class="th">上午</view>
-                <view class="th">下午</view>
-              </view>
-              <view wx:for='{{baodi}}' class="tr" wx:key='shikebiao'>
-                <view class="td">{{item.mornig}}</view>
-                <view class="td">{{item.afternoon}}</view>
-              </view>
-            </view>
           </view>
         </view>
       </view>
