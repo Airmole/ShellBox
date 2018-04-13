@@ -31,7 +31,14 @@
 		},
 		"miniprogram": {
 			"current": -1,
-			"list": []
+			"list": [
+				{
+					"id": -1,
+					"name": "2",
+					"pathName": "pages/Transport/Transport",
+					"query": ""
+				}
+			]
 		}
 	}
 }

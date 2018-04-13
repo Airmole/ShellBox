@@ -1,0 +1,97 @@
+<view class="page">
+  <view class="page__bd">
+    <view class="weui-tab">
+      <view class="weui-navbar">
+        <block wx:for="{{tabs}}" wx:key="*this">
+          <view id="{{index}}" class="weui-navbar__item {{activeIndex == index ? 'weui-bar__item_on' : ''}}" bindtap="tabClick">
+            <view class="weui-navbar__title">{{item}}</view>
+          </view>
+        </block>
+        <view class="weui-navbar__slider" style="left: {{sliderLeft}}px; transform: translateX({{sliderOffset}}px); -webkit-transform: translateX({{sliderOffset}}px);"></view>
+      </view>
+      <view class="weui-tab__panel">
+        <view class="weui-tab__content" hidden="{{activeIndex != 0}}">
+          <view class='history-table-wrap'>
+            <!-- <view class="weui-cells__title" style='text-align:left;margin-top:30px;'>京津新城至北京国贸商务班车</view> -->
+            <view class="weui-article" style='text-align:left;'>
+              <view class="weui-article__h1">京津新城至北京国贸班车</view>
+              <view class="weui-article__section">
+                <view class="weui-article__section">
+                  <view class="weui-article__p">往返于天津市京津新城公交站与北京市朝阳区国贸立交桥，全程高速公路行驶，中途不设站，票价25元。</view>
+                  <view class="weui-article__p"> 每日于京津新城与北京国贸两地各发车2车次，周五、周日各加车2车次，具体时间如下：</view>
+                  <view class="weui-article__h3">京津新城</view>
+                  <view class="weui-article__p">京津新城发车时间为上午8:00，下午5:30。</view>
+                  <view class="weui-article__p">周五、周日各加车2车次，发车时间为上午10:30，下午1:00。</view>
+                  <view class="weui-article__p">购票、乘车地点：京津新城公交站</view>
+                  <view class="weui-article__p">
+                    <image class="weui-article__img" src="https://airmole.cn/wechat/wxapp/images/jjxcBusStation.jpg" mode="widthFix" style="height: 180px" />
+                    <image class="weui-article__img" src="https://airmole.cn/wechat/wxapp/images/jjxcBus.jpg" mode="widthFix" style="height: 180px" />
+                  </view>
+                </view>
+                <view class="weui-article__section">
+                  <view class="weui-article__h3">北京国贸</view>
+                  <view class="weui-article__p">北京国贸发车时间为上午7:30，下午4:00。</view>
+                  <view class="weui-article__p">周五、周日各加车2车次，发车时间为上午10:30，下午2:00。</view>
+                  <view class="weui-article__p">乘车地点：建国路南三环东国贸桥下艾维克酒店西门路边 （下车购票，不需提前买票）</view>
+                </view>
+                <view class="weui-article__p">
+                  <image class="weui-article__img" src="https://airmole.cn/wechat/wxapp/images/bjgmBusStation.jpg" mode="widthFix" style="height: 180px" />
+                  <image class="weui-article__img" src="https://airmole.cn/wechat/wxapp/images/bjgmBus.jpg" mode="widthFix" style="height: 180px" />
+                </view>
+              </view>
+            </view>
+
+          </view>
+        </view>
+        <view class="weui-tab__content" hidden="{{activeIndex != 1}}">
+          <view class='history-table-wrap'>
+            <view class="weui-cell weui-cell_access" style='margin-top:30px;' hover-class="weui-cell_active" catchtap='callPhone' catchlongpress="copyIt">
+              <view class="weui-cell__hd">
+                <image src="/images/call.png" style="margin-right: 5px;vertical-align: middle;width:20px; height: 20px;"></image>
+              </view>
+              <view class="weui-cell__bd" style='text-align:left;'>北科车站</view>
+              <view class="weui-cell__ft weui-cell__ft_in-access" id='{{bktel}}'>{{bktel}}</view>
+            </view>
+            <view class="table">
+              <text class='title'>校园班车时刻表</text>
+              <view class="tr">
+                <view class="th">上午</view>
+                <view class="th">下午</view>
+              </view>
+              <view wx:for='{{tianjin}}' class="tr" wx:key='shikebiao'>
+                <view class="td">{{item.mornig}}</view>
+                <view class="td">{{item.afternoon}}</view>
+              </view>
+            </view>
+            <view class="page__desc">学校到天津市区白描站，发车日期为周一到周日，周五周六周日二十分钟一班。</view>
+          </view>
+        </view>
+        <view class="weui-tab__content" hidden="{{activeIndex != 2}}">
+          <view class='history-table-wrap'>
+            <view class="weui-cells__title" style='text-align:left;margin-top:30px;'>公交出行</view>
+            <image bindtap='preview' src='https://airmole.cn/wechat/wxapp/images/Bus413.jpg' mode='widthFix'></image>
+            <view class="weui-cells__title" style='text-align:left'>校园班车</view>
+            <view class="weui-cell weui-cell_access tel" hover-class="weui-cell_active" catchtap='callPhone' catchlongpress="copyIt">
+              <view class="weui-cell__hd">
+                <image src="/images/call.png" style="margin-right: 5px;vertical-align: middle;width:20px; height: 20px;"></image>
+              </view>
+              <view class="weui-cell__bd" style='text-align:left;'>宝坻车站</view>
+              <view class="weui-cell__ft weui-cell__ft_in-access" id='{{bdtel}}'>{{bdtel}}</view>
+            </view>
+            <view class="table">
+              <text class='title'>校园班车时刻表(宝坻)</text>
+              <view class="tr">
+                <view class="th">上午</view>
+                <view class="th">下午</view>
+              </view>
+              <view wx:for='{{baodi}}' class="tr" wx:key='shikebiao'>
+                <view class="td">{{item.mornig}}</view>
+                <view class="td">{{item.afternoon}}</view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
