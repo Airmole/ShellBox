@@ -1,3 +1,5 @@
+@import "../common/weui.wxss";
+
 page, .page, .page__bd {
   height: 100%;
   background-color: #fff;
@@ -11,8 +13,8 @@ image {
   padding-bottom: 0;
 }
 
-.weui-tab__content {
-  padding-top: 60px;
+ .weui-tab__content {
+  /* padding-top: 30px;  */
   text-align: center;
 }
 
@@ -27,33 +29,8 @@ image {
   overflow-x: hidden;
 }
 
-/* 表格代码   */
+/* preview代码   */
 
-.table {
-  margin-top: 5px;
-  border: 0px solid darkgray;
-}
-
-.tr {
-  display: flex;
-  width: 100%;
-  justify-content: center;
-  height: 3rem;
-  align-items: center;
-}
-
-.td {
-  width: 40%;
-  justify-content: center;
-  text-align: center;
-}
-
-.th {
-  width: 40%;
-  justify-content: center;
-  background: #b9e8b9;
-  color: white;
-  display: flex;
-  height: 3rem;
-  align-items: center;
+.weui-form-preview {
+  margin-bottom: 25px;
 }

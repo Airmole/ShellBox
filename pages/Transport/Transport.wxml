@@ -44,26 +44,68 @@
           </view>
         </view>
         <view class="weui-tab__content" hidden="{{activeIndex != 1}}">
-          <view class='history-table-wrap'>
-            <view class="weui-cell weui-cell_access" style='margin-top:30px;' hover-class="weui-cell_active" catchtap='callPhone' catchlongpress="copyIt">
-              <view class="weui-cell__hd">
-                <image src="/images/call.png" style="margin-right: 5px;vertical-align: middle;width:20px; height: 20px;"></image>
+          <view class="page__bd">
+            <view class="weui-form-preview">
+              <view class="weui-form-preview__hd">
+                <view class="weui-form-preview__item">
+                  <view class="weui-form-preview__label">大学城→华北集团→天津</view>
+                  <view class="weui-form-preview__value_in-hd"></view>
+                </view>
               </view>
-              <view class="weui-cell__bd" style='text-align:left;'>北科车站</view>
-              <view class="weui-cell__ft weui-cell__ft_in-access" id='{{bktel}}'>{{bktel}}</view>
+              <view class="weui-form-preview__bd">
+                <view class="weui-form-preview__item">
+                  <view class="weui-form-preview__label">周一到周四</view>
+                  <view class="weui-form-preview__value">大学城（校车）</view>
+                </view>
+                <view class="weui-form-preview__item">
+                  <view class="weui-form-preview__label">上午：</view>
+                  <view class="weui-form-preview__value">
+                    <text>6点、6点55分、8点\n9点、10点、11点、12点</text>
+                  </view>
+                </view>
+                <view class="weui-form-preview__item">
+                  <view class="weui-form-preview__label">下午：</view>
+                  <view class="weui-form-preview__value">
+                    <text>13点（人多加班）、14点\n 15点（人多加班）、16点\n17点（人多加班）、18点</text>
+                  </view>
+                </view>
+                <view class="weui-form-preview__item">
+                  <view class="weui-form-preview__label">周五到周日</view>
+                  <view class="weui-form-preview__value">早6:00到晚18:00\n大约每20分钟发一班次</view>
+                </view>
+              </view>
             </view>
-            <view class="table">
-              <text class='title'>校园班车时刻表</text>
-              <view class="tr">
-                <view class="th">上午</view>
-                <view class="th">下午</view>
+          </view>
+          <view class="page__bd">
+            <view class="weui-form-preview">
+              <view class="weui-form-preview__hd">
+                <view class="weui-form-preview__item">
+                  <view class="weui-form-preview__label">白庙客运站→华北集团→大学城</view>
+                  <view class="weui-form-preview__value_in-hd"></view>
+                </view>
               </view>
-              <view wx:for='{{tianjin}}' class="tr" wx:key='shikebiao'>
-                <view class="td">{{item.mornig}}</view>
-                <view class="td">{{item.afternoon}}</view>
+              <view class="weui-form-preview__bd">
+                <view class="weui-form-preview__item">
+                  <view class="weui-form-preview__label">津宇客运站（校车）</view>
+                  <view class="weui-form-preview__value"></view>
+                </view>
+                <view class="weui-form-preview__item">
+                  <view class="weui-form-preview__label">周一到周五：</view>
+                  <view class="weui-form-preview__value">
+                    <text>早7:30到晚18:30\n大约每30分钟发一个班次</text>
+                  </view>
+                </view>
+                <view class="weui-form-preview__item">
+                  <view class="weui-form-preview__label">周六至周日：</view>
+                  <view class="weui-form-preview__value">
+                    <text>早6:00到晚19:30\n大约每20分钟发一个班次</text>
+                  </view>
+                </view>
+                <view class="weui-form-preview__ft">
+                  <text>可能与实际情况稍有不同,仅供参考</text>
+                </view>
               </view>
             </view>
-            <view class="page__desc">学校到天津市区白描站，发车日期为周一到周日，周五周六周日二十分钟一班。</view>
           </view>
         </view>
         <view class="weui-tab__content" hidden="{{activeIndex != 2}}">
