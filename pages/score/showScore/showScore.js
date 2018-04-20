@@ -15,7 +15,7 @@ Page({
    */
   onLoad: function (options) {
     wx.showToast({
-      title: "加载中,请稍候...",
+      title: "加载中...",
       icon: "loading",
       duration: 10000
     })
@@ -112,11 +112,11 @@ Page({
     //这里不能一直只是假装干活啊，以后要真的干活啊
     //这下干活了，重复劳动而已
     wx.request({
-      url: 'https://airmole.cn/test/record.php',
+      url: 'https://airmole.cn/wechat/wxapp/api/Airmole_jiaowuScoreQuery.php',
       method: "POST",
       data: {
-        stuId: app.globalData.uid,
-        password: app.globalData.pwd
+        uid: app.globalData.uid,
+        pwd: app.globalData.pwd
       },
       header: {
         'content-type': 'application/x-www-form-urlencoded' // post提交表单
@@ -125,12 +125,8 @@ Page({
         that.setData({
           jsonContent: res.data,
         })
-        console.log("刷新完成");
-        if (res.data[0].length == 0) {
-          wx.redirectTo({
-            url: '/pages/error/queryerror'
-          })
-        }
+        // console.log(res.data);
+        console.log('刷新完成');
       }
     })
   },
