@@ -19,5 +19,5 @@
  - 其他部分界面参考
  [We重邮](https://github.com/mcc108/wecqupt)
 
-
-下次有空上几张效果截图好了。。。
+体验
+[![miniprogram.th.jpg](http://www.z4a.net/images/2018/05/04/miniprogram.th.jpg)](小程序体验码)
