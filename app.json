@@ -10,6 +10,7 @@
     "pages/error/notfound",
     "pages/error/queryerror",
     "pages/bookSearch/index",
+    "pages/net/netfare",
     "pages/Transport/Transport",
     "pages/bookSearch/bookInfo/bookInfo",
     "pages/bookSearch/bookInfo/bookDetail",

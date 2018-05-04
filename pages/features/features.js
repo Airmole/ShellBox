@@ -12,6 +12,7 @@ Page({
       { name: '成绩查询', navurl: '/pages/score/showScore/showScore', gridIcon: '/images/score_HL.png' },
       { name: '通讯录', navurl: '/pages/tel/departmentTel/departmentTel', gridIcon: '/images/contacts.png' },
       { name: '校园出行', navurl: '/pages/Transport/Transport', gridIcon: '/images/transport.png' },
+      { name: '网费查询', navurl: '/pages/net/netfare', gridIcon: '/images/netfare.png' },
       { name: '关于我们', navurl: '/pages/features/about', gridIcon: '/images/about_HL.png' },],
     swiperPic: [
       { url: 'https://airmole.cn/wechat/wxapp/images/swiper1.jpg' },

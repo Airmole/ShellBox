@@ -30,12 +30,12 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": -1,
+			"current": 0,
 			"list": [
 				{
-					"id": -1,
-					"name": "2",
-					"pathName": "pages/Transport/Transport",
+					"id": 0,
+					"name": "netfare",
+					"pathName": "pages/net/netfare",
 					"query": ""
 				}
 			]
