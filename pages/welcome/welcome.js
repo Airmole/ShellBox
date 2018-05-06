@@ -14,26 +14,27 @@ Page({
   onLoad: function (options) {
     var that = this
 
-    if (app.globalData.hasLogin === false) {
-      wx.login({
-        success: _getUserInfo
-      })
-    } else {
-      _getUserInfo()
-    }
+    // if (app.globalData.hasLogin === false) {
+    //   wx.login({
+    //     success: _getUserInfo
+    //   })
+    // } else {
+    //   // _getUserInfo()
+    // }
 
-    function _getUserInfo() {
-      wx.getUserInfo({
-        success: function (res) {
-          that.setData({
-            hasUserInfo: true,
-            userInfo: res.userInfo
-          })
-          // that.update()
-        }
-      })
-    }
+    // function _getUserInfo() {
+    //   wx.getUserInfo({
+    //     success: function (res) {
+    //       that.setData({
+    //         hasUserInfo: true,
+    //         userInfo: res.userInfo
+    //       })
+    //       // that.update()
+    //     }
+    //   })
+    // }
     //上面的是获取微信用户头像和nickName,微信官方代码
+    //微信小程序获取用户信息接口变更
     //下面开始是自己的代码
     this.setData({
       uid: options.uid,

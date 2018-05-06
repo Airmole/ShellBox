@@ -7,12 +7,12 @@ Page({
   data: {
     grids: [
       { name: '校历查询', navurl: '/pages/calendar/calendar', gridIcon: '/images/calendar_HL.png' },
-      { name: '扫码找书', gridIcon: '/images/scanCode.png', event: "scan" },
+      { name: '扫码找书', navurl: '/pages/bookSearch/bookInfo/isbn/iputIsbn', gridIcon: '/images/scanCode.png' },
       { name: '我的信息', navurl: '/pages/stuInfo/stuInfo', gridIcon: '/images/studentInfo.png' },
       { name: '成绩查询', navurl: '/pages/score/showScore/showScore', gridIcon: '/images/score_HL.png' },
       { name: '通讯录', navurl: '/pages/tel/departmentTel/departmentTel', gridIcon: '/images/contacts.png' },
       { name: '校园出行', navurl: '/pages/Transport/Transport', gridIcon: '/images/transport.png' },
-      { name: '网费查询', navurl: '/pages/net/netfare', gridIcon: '/images/netfare.png' },
+      // { name: '网费查询', navurl: '/pages/net/netfare', gridIcon: '/images/netfare.png' },
       { name: '关于我们', navurl: '/pages/features/about', gridIcon: '/images/about_HL.png' },],
     swiperPic: [
       { url: 'https://airmole.cn/wechat/wxapp/images/swiper1.jpg' },
@@ -94,33 +94,5 @@ Page({
   onShareAppMessage: function () {
 
   },
-  /**
- * 扫码
- */
-  scan: function () {
-    wx.scanCode({
-      success: (res) => {
-        if (res.errMsg !== 'scanCode:ok') {
-          wx.showToast({
-            title: res.errMsg,
-            icon: 'loading',
-            duration: 8000
-          })
-          return false;
-        }
 
-        if (res.scanType !== 'EAN_13') {
-          wx.showToast({
-            title: '这不是ISBN码',
-            icon: 'loading',
-            duration: 8000
-          })
-          return false;
-        }
-        wx.navigateTo({
-          url: '../../pages/bookSearch/bookInfo/bookInfo?ISBN=' + res.result
-        })
-      }
-    })
-  }
 })

@@ -7,6 +7,13 @@ Page({
     jsonStr: "",
     doubanStr: '',
   },
+  // onShareAppMessage: function (res) {
+  //   return {
+  //     title: '我在图书馆找到了一本{{doubanStr.title}},你也来看看吧~',
+  //     path: 'pages/bookSearch/bookinfo/bookDetail',
+  //     imageUrl: '{{doubanStr.images.large}}'
+  //   }
+  // },
   onLoad: function (options) {
     wx.showToast({
       title: "loading",

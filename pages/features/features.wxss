@@ -5,11 +5,16 @@ button::after {
   border: none;
 }
 
+.shareIcon {
+  width: 26px;
+  height: 26px;
+  vertical-align: middle;
+}
 
 button {
   font-size: 14px;
   widows: 137.8625px;
-    /* height: 74.200px;   */
+  /* height: 74.200px;   */
 }
 
 .swiper {

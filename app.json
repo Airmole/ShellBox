@@ -13,6 +13,7 @@
     "pages/net/netfare",
     "pages/Transport/Transport",
     "pages/bookSearch/bookInfo/bookInfo",
+    "pages/bookSearch/bookInfo/isbn/iputIsbn",
     "pages/bookSearch/bookInfo/bookDetail",
     "pages/bookSearch/bookInfo/bookList",
     "pages/tel/departmentTel/departmentTel",

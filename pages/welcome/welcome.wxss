@@ -1,7 +1,9 @@
 /* pages/welcome/welcome.wxss */
 @import "../common/weui.wxss";
+
 .userinfo-avatar {
   border-radius: 128rpx;
+  clip-path: circle(50% at center);
   width: 160rpx;
   height: 160rpx;
 }
@@ -136,7 +138,8 @@
   padding-left: 0;
   padding-right: 0;
 }
-.btn-area{
+
+.btn-area {
   margin-left: 14px;
   margin-right: 14px;
 }

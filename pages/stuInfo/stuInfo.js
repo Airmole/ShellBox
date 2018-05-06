@@ -16,25 +16,25 @@ Page({
     })
     var that = this
 
-    if (app.globalData.hasLogin === false) {
-      wx.login({
-        success: _getUserInfo
-      })
-    } else {
-      _getUserInfo()
-    }
+    // if (app.globalData.hasLogin === false) {
+    //   wx.login({
+    //     success: _getUserInfo
+    //   })
+    // } else {
+    //   _getUserInfo()
+    // }
 
-    function _getUserInfo() {
-      wx.getUserInfo({
-        success: function (res) {
-          that.setData({
-            hasUserInfo: true,
-            userInfo: res.userInfo
-          })
-          // that.update()
-        }
-      })
-    }
+    // function _getUserInfo() {
+    //   wx.getUserInfo({
+    //     success: function (res) {
+    //       that.setData({
+    //         hasUserInfo: true,
+    //         userInfo: res.userInfo
+    //       })
+    //       // that.update()
+    //     }
+    //   })
+    // }
 
     this.setData({
       uid: app.globalData.uid,

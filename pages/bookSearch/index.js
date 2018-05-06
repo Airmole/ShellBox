@@ -22,6 +22,13 @@ Page({
       inputVal: ""
     });
   },
+  onShareAppMessage: function (res) {
+    return {
+      title: '相见恨晚！没想到图书馆还有这样的好书啊~',
+      path: 'pages/bookSearch/index',
+      imageUrl: "https://airmole.cn/wechat/wxapp/images/bookindexShare.jpg"
+    }
+  },
   searchIt: function (e) {
     this.setData({
       keyword: e.detail.value
@@ -77,4 +84,5 @@ Page({
       }
     })
   }
+
 });

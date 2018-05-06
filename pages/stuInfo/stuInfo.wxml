@@ -5,7 +5,9 @@
     <view class="weui-panel__bd">
       <navigator url="" class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active">
         <view class="weui-media-box__hd weui-media-box__hd_in-appmsg">
-          <image class="weui-media-box__thumb" src="{{userInfo.avatarUrl}}" />
+          <view class="weui-media-box__thumb">
+            <open-data type="userAvatarUrl"></open-data>
+          </view>
         </view>
         <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
           <view class="weui-media-box__title">{{item.stuName}}</view>
@@ -14,6 +16,7 @@
       </navigator>
     </view>
   </view>
+  <text>\r\n</text>
   <view class="weui-cells weui-cells_after-title">
     <view class="weui-cell">
       <view class="weui-cell__bd">性别</view>
@@ -40,7 +43,8 @@
       <view class="weui-cell__ft">{{item.stuMajor}}</view>
     </view>
   </view>
-   <view class="weui-footer">
+  <text>\r\n</text>
+  <view class="weui-footer">
     <view class="weui-footer__links">
       <navigator url="/pages/features/about" class="weui-footer__link">Airmole.</navigator>
       <navigator url="/pages/features/about" class="weui-footer__link">智慧校园</navigator>

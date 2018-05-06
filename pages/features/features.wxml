@@ -22,6 +22,12 @@
         </button>
       </view>
     </view>
+    <view class="weui-btn-area">
+      <button plain='true' open-type="share" type="default" hover-class="other-button-hover">
+        <image class="weui-btn shareIcon" src='/images/share.png'></image>
+        好用！分享给同学
+      </button>
+    </view>
     <navigator bindtap='logout' class="login-btn">
       <text>注销登录</text>
     </navigator>

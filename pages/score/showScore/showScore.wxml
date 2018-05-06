@@ -2,7 +2,8 @@
 <view class="page">
   <view class="page__hd">
     <view class="page__title">成绩查询</view>
-    <view class="page__desc">本程序每次查询都会一次性查询您在校以来所有课程成绩记录，且不会保存数据记录。因此查询时间较长，请您耐心等待。查询完成后您的课程将按照最近时间顺序排序显示</view>
+    <!-- <view class="page__desc">本程序每次查询都会一次性查询您在校以来所有课程成绩记录，且不会保存数据记录。因此查询时间较长，请您耐心等待。查询完成后您的课程将按照最近时间顺序排序显示</view> -->
+    <view class="page__desc">加权分数暂时没有计算，需要的同学自己手动掰指头算下。后续会逐步完善加群分计算的功能</view>
   </view>
   <view class="page__bd">
     <view class="weui-cells__title">您的各科成绩：</view>
