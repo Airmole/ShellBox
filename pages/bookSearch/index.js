@@ -83,6 +83,23 @@ Page({
         // console.log(res.data);
       }
     })
-  }
+  },
+
+  /**
+   * 页面相关事件处理函数--监听用户下拉动作
+   */
+  onPullDownRefresh: function () {
+    var that = this;
+    wx.request({
+      url: 'https://airmole.cn/wechat/wxapp/api/hotbook.php',
+      success: function (res) {
+        that.setData({
+          jsonStr: res.data,
+        })
+        console.log('刷新完成');
+      }
+    })
+  },
+
 
 });

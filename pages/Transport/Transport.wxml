@@ -40,7 +40,12 @@
                 </view>
               </view>
             </view>
-
+            <view class="weui-btn-area" style='margin-top:-30px'>
+              <button plain='true' open-type="share" type="default" hover-class="other-button-hover">
+                <image class="weui-btn shareIcon" src='/images/share_green.png'></image>
+                分享给朋友
+              </button>
+            </view>
           </view>
         </view>
         <view class="weui-tab__content" hidden="{{activeIndex != 1}}">
@@ -107,11 +112,23 @@
               </view>
             </view>
           </view>
+          <view class="weui-btn-area" style='margin-top:-20px'>
+            <button plain='true' open-type="share" type="default" hover-class="other-button-hover">
+              <image class="weui-btn shareIcon" src='/images/share_green.png'></image>
+              分享给朋友
+            </button>
+          </view>
         </view>
         <view class="weui-tab__content" hidden="{{activeIndex != 2}}">
           <view class='history-table-wrap'>
             <view class="weui-cells__title" style='text-align:left;margin-top:30px;'>公交出行</view>
             <image bindtap='preview' src='https://airmole.cn/wechat/wxapp/images/Bus413.jpg' mode='widthFix'></image>
+            <view class="weui-btn-area">
+              <button plain='true' open-type="share" type="default" hover-class="other-button-hover">
+                <image class="weui-btn shareIcon" src='/images/share_green.png'></image>
+                分享给朋友
+              </button>
+            </view>
           </view>
         </view>
       </view>

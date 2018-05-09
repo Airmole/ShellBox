@@ -7,7 +7,7 @@
   <!-- <view class="weui-cells__tips setCenter">{{BottomTip}}</view> -->
   <view class="weui-btn-area">
     <button plain='true' open-type="share" type="default" hover-class="other-button-hover">
-      <image class="weui-btn shareIcon" src='/images/share.png'></image>
+      <image class="weui-btn shareIcon" src='/images/share_green.png'></image>
       分享校历给朋友
     </button>
   </view>

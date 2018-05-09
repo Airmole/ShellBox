@@ -8,10 +8,11 @@ Page({
     doubanStr: '',
   },
   onShareAppMessage: function (res) {
+    console.log(this.options.marc_no)
     return {
-      title: '我在图书馆找到了一本{{doubanStr.title}},你也来看看吧~',
-      path: 'pages/bookSearch/bookinfo/bookDetail',
-      imageUrl: '{{doubanStr.images.large}}'
+      title: '我在北科天院图书馆找到本《' + this.data.doubanStr.title +'》,你也来看看吧~',
+      path: 'pages/bookSearch/bookInfo/bookDetail?marc_no='+this.options.marc_no,
+      imageUrl: this.data.doubanStr.images.large
     }
   },
   onLoad: function (options) {
@@ -55,7 +56,7 @@ Page({
                 that.setData({
                   doubanStr: res.data,
                 })
-                // console.log(res.data);
+                // console.log(res.data)
               },
               fail: function (res) {
                 wx.showToast({

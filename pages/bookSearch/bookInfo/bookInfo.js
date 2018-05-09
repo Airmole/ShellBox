@@ -44,5 +44,13 @@ Page({
   },
   onReady: function () {
 
-  }
+  },
+  onShareAppMessage: function (res) {
+    console.log(this)
+    return {
+      title: '我在北科天院图书馆找到本《' + this.data.doubanStr.title + '》,你也来看看吧~',
+      path: 'pages/bookSearch/bookInfo/bookInfo?ISBN=' + this.options.ISBN,
+      imageUrl: this.data.doubanStr.images.large
+    }
+  },
 });

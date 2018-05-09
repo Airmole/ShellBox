@@ -15,6 +15,11 @@
         <text class="score">{{doubanStr.rating.average}}</text>
         <text class="viewers">{{doubanStr.rating.numRaters}}参与</text>
       </view>
+      <view style='float:right;margin-right:4px;margin-top:-25px;' wx:if="{{doubanStr.title}}">
+        <button plain='true' open-type="share" type="primary" hover-class="other-button-hover">
+          <image class="shareIcon" src='/images/share_green.png'></image>分享
+        </button>
+      </view>
     </view>
     <view class="book-intro" wx:if='{{jsonStr=="无"}}'>
       <view class="intro-header">
@@ -53,7 +58,7 @@
       <text class="intro-content">{{doubanStr.author_intro}}</text>
     </view>
   </view>
-   <view class="weui-footer">
+  <view class="weui-footer">
     <view class="weui-footer__links">
       <navigator url="/pages/features/about" class="weui-footer__link">Airmole.</navigator>
       <navigator url="/pages/features/about" class="weui-footer__link">智慧校园</navigator>

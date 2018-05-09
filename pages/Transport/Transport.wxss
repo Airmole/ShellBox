@@ -13,7 +13,7 @@ image {
   padding-bottom: 0;
 }
 
- .weui-tab__content {
+.weui-tab__content {
   /* padding-top: 30px;  */
   text-align: center;
 }
@@ -27,6 +27,12 @@ image {
   top: 70rpx;
   overflow-y: scroll;
   overflow-x: hidden;
+}
+
+.shareIcon {
+  width: 26px;
+  height: 26px;
+  vertical-align: middle;
 }
 
 /* preview代码   */

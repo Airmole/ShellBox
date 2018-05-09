@@ -16,6 +16,11 @@
         <text class="score">{{doubanStr.rating.average}}</text>
         <text class="viewers">{{doubanStr.rating.numRaters}}参与</text>
       </view>
+       <view style='float:right;margin-right:4px;margin-top:-25px;' wx:if="{{doubanStr.title}}">
+        <button plain='true' open-type="share" type="primary" hover-class="other-button-hover">
+          <image class="shareIcon" src='/images/share_green.png'></image>分享
+        </button>
+      </view>
     </view>
     <view class="weui-panel weui-panel_access">
       <view class="weui-panel__hd">图书馆馆藏</view>

@@ -72,3 +72,8 @@ page {
     line-height: 2;
     text-align: justify
 }
+.shareIcon {
+  width: 26px;
+  height: 26px;
+  vertical-align: middle;
+}

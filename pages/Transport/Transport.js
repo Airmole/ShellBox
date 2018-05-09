@@ -69,5 +69,19 @@ Page({
       current: 'https://airmole.cn/wechat/wxapp/images/Bus413.jpg', // 当前显示图片的http链接
       urls: ['https://airmole.cn/wechat/wxapp/images/Bus413.jpg'] // 需要预览的图片http链接列表
     })
+  },
+  /**
+ * 用户点击右上角分享
+ */
+  onShareAppMessage: function (res) {
+    if (res.from === 'button') {
+      // 来自页面内转发按钮
+      // console.log(res.target)
+    }
+    return {
+      title: '贝壳田园校园出行方案',
+      path: 'pages/Transport/Transport',
+      imageUrl: "https://airmole.cn/wechat/wxapp/images/map.png"
+    }
   }
 });
