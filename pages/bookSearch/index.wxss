@@ -1,6 +1,13 @@
 /* pages/bookSearch/index.wxss */
 @import "../common/weui.wxss";
 
+.logo-sub {
+  text-align: center;
+  margin-top: 50rpx;
+  margin-bottom: 50rpx;
+  color: #666;
+}
+
 .searchbar-result {
   margin-top: 0;
   font-size: 14px;

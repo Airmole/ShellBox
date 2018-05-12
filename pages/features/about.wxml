@@ -22,11 +22,12 @@
         <text class="desc-content">贝壳盒子有更好用的课表查询，美观大方，清晰明了。</text>
         <text class="desc-content">贝壳盒子有更方便的校历查询，对比教务网发布的Excel截图校历，界面优雅，清新脱俗。</text>
         <text class="desc-content">贝壳有更强大的图书馆馆藏图书查询，搜书利器，可以通过关键字搜索到图书馆OPAC藏书信息，更可以通过扫面图书条码查询是否可借，我们的图书详情介绍界面比图书馆网站的介绍更加详细。</text>
+        <text class="desc-content">贝壳盒子有详细清晰的校园出行资料，校园大巴几点发车一目了然。</text>
         <text class="desc-content">贝壳盒子更是/更有... （期待您的发现）</text>
       </view>
     </view>
     <view class="footer">
-      <view class="footer-lanshan">
+      <view class="footer-beingshawn">
         <text>Airmole.|冰炫互联</text>
       </view>
       <text>北京科技大学天津学院网络中心</text>

@@ -32,4 +32,7 @@
       </navigator>
     </block>
   </view>
+  <view wx:if="{{showTips}}">
+    <view class="logo-sub">想推荐好书上榜？欢迎发送意见留言</view>
+  </view>
 </view>

@@ -5,6 +5,7 @@ Page({
     keyword: "",
     jsonStr: "",
     keywordStr: '',
+    showTips:false,
   },
   showInput: function () {
     this.setData({
@@ -98,6 +99,12 @@ Page({
         })
         console.log('刷新完成');
       }
+    })
+  },
+  onReachBottom: function () {
+    var that = this;
+    that.setData({
+      showTips: true,
     })
   },
 
