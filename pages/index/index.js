@@ -4,7 +4,11 @@ Page({
     uid: '',
     pwd: '',
     jsonContent: {},
-    jsonStr: ""
+    jsonStr: "",
+    help_status: false,
+    userid_focus: false,
+    passwd_focus: false,
+    angle: 0
   },
   onLoad: function () {
     var uid = wx.getStorageSync('uid')
@@ -55,5 +59,20 @@ Page({
         }
       })
     }
+  },
+  tapHelp: function (e) {
+    if (e.target.id == 'help') {
+      this.hideHelp();
+    }
+  },
+  showHelp: function (e) {
+    this.setData({
+      'help_status': true
+    });
+  },
+  hideHelp: function (e) {
+    this.setData({
+      'help_status': false
+    });
   }
 })

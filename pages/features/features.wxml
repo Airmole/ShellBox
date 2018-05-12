@@ -28,8 +28,8 @@
         好用！分享给同学
       </button>
     </view>
-    <navigator bindtap='logout' class="login-btn">
+    <view bindtap='logout' class="login-btn">
       <text>注销登录</text>
-    </navigator>
+    </view>
   </view>
 </view>

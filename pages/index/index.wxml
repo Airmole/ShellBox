@@ -1,31 +1,51 @@
-<!--pages/login/login.wxml-->
-<image class="logo" src="../../images/logo.png"></image>
-<view class="logo-sub">北京科技大学天津学院智慧校园</view>
-<view class="page">
-  <view class="weui-cells__title">请先登录：</view>
-  <form bindsubmit="submitInfo">
-    <view class="page__bd">
-      <view class="weui-cells weui-cells_after-title">
-        <view class="weui-cell weui-cell_input">
-          <view class="weui-cell__hd">
-            <view class="weui-label">学号</view>
-          </view>
-          <view class="weui-cell__bd">
-            <input name="uid" maxlength="9" type="number" class="weui-input" placeholder="请输入学号" />
-          </view>
-        </view>
-        <view class="weui-cell weui-cell_input">
-          <view class="weui-cell__hd">
-            <view class="weui-label">密码</view>
-          </view>
-          <view class="weui-cell__bd">
-            <input name="pwd" password type="text" class="weui-input" placeholder="请输入教务网密码" />
-          </view>
-        </view>
+<view class="container">
+  <view>
+    <image class="title" src="/images/title.png"></image>
+    <view class="content">
+      <view class="hd" style="transform:rotateZ({{angle}}deg);">
+        <image class="logo" src="/images/schoolLogo.png"></image>
+        <image class="wave" src="/images/wave.png" mode="aspectFill"></image>
+        <image class="wave wave-bg" src="/images/wave.png" mode="aspectFill"></image>
       </view>
-      <view class="weui-btn-area">
-        <button formType="submit" class="weui-btn" type="primary">登录</button>
+      <view class="bd">
+        <form class="login-form" bindsubmit="submitInfo">
+          <view class="input-group {{userid_focus ? 'active' : ''}}">
+            <text class="input-label">学号</text>
+            <input name='uid' type="number" cursor-spacing="30" placeholder="请输入你的学号" />
+          </view>
+          <view class="input-group {{passwd_focus ? 'active' : ''}}">
+            <text class="input-label">密码</text>
+            <input name='pwd' password="true" cursor-spacing="30" placeholder="请输入你的教务密码" />
+          </view>
+          <view class="login-help" bindtap="showHelp">
+            <text>帮助</text>
+            <image class="login-help-img" src="/images/help.png"></image>
+          </view>
+          <view>
+            <button formType="submit" class="confirm-btn">确认登录</button>
+          </view>
+        </form>
+      </view>
+      <view class="help" id="help" wx:if="{{help_status}}" bindtap="tapHelp">
+        <view class="box">
+          <view class="box-hd">
+            <text class="box-title">帮助</text>
+            <image class="box-close" src="/images/close.png" bindtap="hideHelp"></image>
+          </view>
+          <view class="box-bd">
+            <view class="help-q">1、学号和密码是什么？</view>
+            <view class="help-a">
+              <text>学号：学号就是你的教务学号啊。</text>
+              <text>密码：是您登录教务网查询课表、成绩的初始密码或者已更改密码</text>
+              <text>其中初始密码与个人身份证号码相关，通常默认密码是您的身份证号中包含的生日的部分或完整的身份证号码（含有x的大写）</text>
+            </view>
+            <view class="help-q">2、忘记密码？</view>
+            <view class="help-a">
+              <text>请携带学生证和身份证前往行政楼206重置密码</text>
+            </view>
+          </view>
+        </view>
       </view>
     </view>
-  </form>
+  </view>
 </view>
