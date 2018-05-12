@@ -6,7 +6,7 @@
     <view class="result-userInfo result-model">
       <view class="userInfo-dormitory">
         <text class="dormitory-info">张博</text>
-        <navigator open-type="redirect" url="" class="dormitory-resetBtn">更换账号</navigator>
+        <view bindtap='logout' class="dormitory-resetBtn">更换账号</view>
       </view>
       <view class="userInfo-basic">
         <text class="basic-name">Airmole</text>

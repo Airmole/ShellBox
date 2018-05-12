@@ -3,9 +3,18 @@ Page({
 
   ISBNInput: function (e) {
     //console.log(e.detail.value['isbn']);
-    wx.navigateTo({
-      url: '/pages/bookSearch/bookInfo/bookInfo?ISBN=' + e.detail.value['isbn']
-    })
+    if (e.detail.value['isbn'] == '' || e.detail.value['isbn'].length < 10) {
+      wx.showToast({
+        title: '请输入ISBN码',
+        image: '/images/info.png',
+        icon: 'none',
+        duration: 2000
+      });
+    } else {
+      wx.navigateTo({
+        url: '/pages/bookSearch/bookInfo/bookInfo?ISBN=' + e.detail.value['isbn']
+      })
+    }
   },
   /**
 * 扫码

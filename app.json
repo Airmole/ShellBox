@@ -11,6 +11,7 @@
     "pages/error/queryerror",
     "pages/bookSearch/index",
     "pages/net/netfare",
+    "pages/net/netBind",
     "pages/Transport/Transport",
     "pages/bookSearch/bookInfo/bookInfo",
     "pages/bookSearch/bookInfo/isbn/iputIsbn",
