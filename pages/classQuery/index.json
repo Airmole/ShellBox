@@ -1,4 +1,5 @@
 {
+  "enablePullDownRefresh": true,
   "backgroundColor": "#ECC0A8",
   "navigationBarTitleText": "个人课表 - 贝壳盒子"
 }

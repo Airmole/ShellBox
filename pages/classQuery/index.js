@@ -45,7 +45,16 @@ Page({
   //   }
   // },
   onPullDownRefresh: function () {
-
+    var that = this;
+    wx.request({
+      url: 'https://airmole.cn/wechat/wxapp/api/Airmole_jiaowuClassTable.php?uid=' + app.globalData.uid + '&pwd=' + app.globalData.pwd,
+      success: function (res) {
+        that.setData({
+          classStr: res.data,
+        })
+        console.log('刷新完成！')
+      }
+    })
   },
 
 }) 

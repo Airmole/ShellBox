@@ -5,7 +5,7 @@ Page({
     keyword: "",
     jsonStr: "",
     keywordStr: '',
-    showTips:false,
+    showTips: false,
   },
   showInput: function () {
     this.setData({
