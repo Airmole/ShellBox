@@ -24,7 +24,7 @@
     "backgroundTextStyle": "light",
     "navigationBarTitleText": "贝壳盒子",
     "navigationBarTextStyle": "white",
-    "navigationBarBackgroundColor": "#ECC0A8"
+    "navigationBarBackgroundColor": "#7acfa6"
   },
   "tabBar": {
     "boderStyle": "white",
