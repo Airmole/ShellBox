@@ -68,9 +68,9 @@ Page({
   //账户注销登录
   logout: function () {
     app.globalData.uid = "";
-    app.globalData.pwd = "";
+    app.globalData.netpwd = "";
     wx.setStorageSync('uid', '');
-    wx.setStorageSync('pwd', '');
+    wx.setStorageSync('netpwd', '');
     wx.redirectTo({
       url: '/pages/index/index'
     })

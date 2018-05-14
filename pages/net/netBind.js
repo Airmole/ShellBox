@@ -4,7 +4,7 @@ var app = getApp();
 Page({
   data: {
     stuId: " ",
-    password: " ",
+    // password: " ",
     help_status: false,
     userid_focus: false,
     passwd_focus: false,
@@ -14,7 +14,7 @@ Page({
     var that = this;
     that.setData({
       stuId: app.globalData.uid,
-      password: app.globalData.pwd,
+      // password: app.globalData.pwd,
     });
   },
   /**
