@@ -5,7 +5,7 @@ page {
 }
 
 .cover-container {
-  background: #ecc0a8;
+  background: #7acfa6;
   text-align: center;
   padding: 50rpx 0;
 }
