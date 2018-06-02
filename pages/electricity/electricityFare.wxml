@@ -1,0 +1,45 @@
+<!--pages/electricity/electricityFare.wxml-->
+<view class="container">
+  <!--result-page-->
+  <view>
+    <!--result-userInfo-->
+    <view class="result-userInfo result-model">
+      <view class="userInfo-dormitory">
+        <text class="dormitory-info">22斋303寝室</text>
+        <navigator open-type="redirect" url="/pages/more/append" class="dormitory-resetBtn">修改寝室</navigator>
+      </view>
+      <view class="userInfo-basic">
+        <!-- <text class="basic-name">张博</text> -->
+        <text class="basic-time">截至时间：2018年5月14日 21点32分</text>
+      </view>
+    </view>
+    <!--result-chargeInfo-->
+    <view class="result-chargeInfo">
+      <view class="chargeInfo-num chargeInfo-model result-model">
+        <text class="chargeInfo-model-title">剩余电量</text>
+        <view class="chargeInfo-model-info">
+          <text class="model-info">134.21</text>度
+        </view>
+      </view>
+    </view>
+    <!--result-specificInfo-->
+    <view class="result-specificInfo result-model">
+      <view class="specificInfo-item">
+        <text class="specificInfo-item-label">上次充值电费</text>
+        <text class="specificInfo-item-value">1.11</text>
+        <text>元</text>
+      </view>
+      <view class="specificInfo-item">
+        <text class="specificInfo-item-label">昨日插座用电</text>
+        <text class="specificInfo-item-value">3.58</text>
+        <text>度</text>
+      </view>
+      <view class="specificInfo-item">
+        <text class="specificInfo-item-label">昨日空调用电</text>
+        <text class="specificInfo-item-value">5.66</text>
+        <text>度</text>
+      </view>
+    </view>
+    <image class="sdf-bg" src="/images/core/sdf/sdf-bg.png"></image>
+  </view>
+</view>

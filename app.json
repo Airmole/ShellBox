@@ -12,6 +12,8 @@
     "pages/bookSearch/index",
     "pages/net/netfare",
     "pages/net/netBind",
+    "pages/electricity/electricityFare",
+    "pages/electricity/electricityBind",
     "pages/Transport/Transport",
     "pages/bookSearch/bookInfo/bookInfo",
     "pages/bookSearch/bookInfo/isbn/iputIsbn",

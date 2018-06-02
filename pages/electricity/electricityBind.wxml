@@ -1,0 +1,33 @@
+<!--pages/net/netBind.wxml-->
+<view class="container">
+  <view>
+    <image class="title" src="/images/electricity_title.png"></image>
+    <view class="content">
+      <view class="hd" style="transform:rotateZ({{angle}}deg);">
+        <image class="logo" src="/images/electricity.png"></image>
+        <image class="wave" src="/images/wave.png" mode="aspectFill"></image>
+        <image class="wave wave-bg" src="/images/wave.png" mode="aspectFill"></image>
+      </view>
+      <view class="bd">
+        <form class="login-form" bindsubmit="NetQuery">
+
+          <view class="input-group">
+            <text class="input-label">寝室楼栋</text>
+            <view style="width: 105px;margin-top:-20px;">
+              <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+                <view class="weui-select">{{array[index]}}</view>
+              </picker>
+            </view>
+            <view class="weui-cell__bd weui-cell__bd_in-select-before">
+              <input type='number' class="weui-input" placeholder="宿舍号:303" />
+            </view>
+          </view>
+
+          <view>
+            <button formType="submit" class="confirm-btn">确认绑定</button>
+          </view>
+        </form>
+      </view>
+    </view>
+  </view>
+</view>
