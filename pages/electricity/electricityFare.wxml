@@ -1,53 +1,7 @@
 <!--pages/electricity/electricityFare.wxml-->
-<!-- <view class="container">
-  <view class="result-page">
-    <view class="result-userInfo result-model">
-      <view class="userInfo-dormitory">
-        <text class="dormitory-info">{{zhai}}斋{{room}}寝室</text>
-        <view bindtap='changeRoom' class="dormitory-resetBtn">修改寝室</view>
-      </view>
-      <view class="userInfo-basic">
-        <text class="basic-time">截至时间：{{time}}</text>
-      </view>
-    </view>
-    <view class="result-chargeInfo">
-      <view class="chargeInfo-num chargeInfo-model result-model">
-        <text class="chargeInfo-model-title">剩余电量</text>
-        <view class="chargeInfo-model-info">
-          <text class="model-info">{{eleJson.electricity[0].Balance}}</text>度
-        </view>
-      </view>
-    </view>
-    <view class="result-specificInfo result-model">
-      <view class="specificInfo-item">
-        <text class="specificInfo-item-label">上次充值电费</text>
-        <text class="specificInfo-item-value">{{eleJson.electricity[0].LastRecharge}}</text>
-        <text>元</text>
-      </view>
-      <view class="specificInfo-item">
-        <text class="specificInfo-item-label">昨日插座用电</text>
-        <text class="specificInfo-item-value">{{eleJson.electricity[0].yesterdaySocket}}</text>
-        <text>度</text>
-      </view>
-      <view class="specificInfo-item">
-        <text class="specificInfo-item-label">昨日空调用电</text>
-        <text class="specificInfo-item-value">{{eleJson.electricity[0].yesterdayAircon}}</text>
-        <text>度</text>
-      </view>
-    </view>
-    <image class="sdf-bg" src="/images/netfare-bg.png"></image>
-  </view>
-</view> -->
-
-
-
-
-
-<!--sdf.wxml-->
 <view class="container">
   <!--result-page-->
-  <view class="result-page">
-    <!--result-userInfo-->
+  <view class="result-page" style='width:100%'>
     <view class="result-userInfo result-model">
       <view class="userInfo-dormitory">
         <text class="dormitory-info">{{zhai}}斋{{room}}寝室</text>
@@ -57,7 +11,6 @@
         <text class="basic-time">截至时间：{{time}}</text>
       </view>
     </view>
-    <!--result-chargeInfo-->
     <view class="result-chargeInfo">
       <view class="chargeInfo-num chargeInfo-model result-model">
         <text class="chargeInfo-model-title">剩余电量</text>
@@ -66,7 +19,6 @@
         </view>
       </view>
     </view>
-    <!--result-specificInfo-->
     <view class="result-specificInfo result-model">
       <view class="specificInfo-item">
         <text class="specificInfo-item-label">上次充值电费</text>
