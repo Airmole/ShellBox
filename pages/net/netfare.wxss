@@ -1,6 +1,5 @@
 /* pages/net/netfare.wxss */
 
-/**app.wxss**/
 
 page {
   font-family: -apple-system-font, Helvetica Neue, Helvetica, sans-serif;

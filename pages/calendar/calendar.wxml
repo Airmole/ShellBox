@@ -1,7 +1,7 @@
 <view class='page'>
   <view class='setCenter'>
     <text>\n</text>
-    <view class="weui-article__h2">今天是：{{time}}</view>
+    <view class="weui-article__h2">现在是：{{time}}</view>
     <image src='https://airmole.cn/wechat/wxapp/images/17-18IIcalendar.jpg' mode='widthFix'></image>
   </view>
   <!-- <view class="weui-cells__tips setCenter">{{BottomTip}}</view> -->

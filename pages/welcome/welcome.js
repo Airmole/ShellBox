@@ -33,10 +33,6 @@ Page({
         // console.log(res.data);
         //账号密码错误以下功能实现跳转错误页面
         if (res.data[0][0].stuName == '') {
-          // app.globalData.uid = '';
-          // app.globalData.pwd = '';
-          // app.globalData.loginfailed = 0;
-          // console.log(app.globalData.loginsuccess);
           wx.redirectTo({
             url: '/pages/error/loginerror'
           })

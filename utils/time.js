@@ -2,6 +2,9 @@ function formatTime(date) {
   var year = date.getFullYear()
   var month = date.getMonth() + 1
   var day = date.getDate()
+  var hour = date.getHours()
+  var minute = date.getMinutes()
+
   var d = new Date()
   var weekday = new Array(7)
   weekday[0] = "星期日"
@@ -12,7 +15,7 @@ function formatTime(date) {
   weekday[5] = "星期五"
   weekday[6] = "星期六"
 
-  return year + "年" + month + "月" + day + "日" + "  " + weekday[d.getDay()]
+  return year + "年" + month + "月" + day + "日" + "  " + weekday[d.getDay()] + '  ' + hour + "时"
 }
 
 function formatNumber(n) {
@@ -22,5 +25,5 @@ function formatNumber(n) {
 
 module.exports = {
   formatTime: formatTime
-}  
+}
 

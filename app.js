@@ -13,7 +13,9 @@ App({
   globalData: {
     hasLogin: false,
     openid: null,
-    uid:'',
+    building: '',
+    roomNo: '',
+    uid: '',
     pwd: ''
     //学号登录是否成功
   },
