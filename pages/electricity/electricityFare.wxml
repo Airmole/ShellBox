@@ -36,6 +36,11 @@
         <text>度</text>
       </view>
     </view>
+    <view class="result-chargeInfo">
+      <button open-type="share" class="chargeInfo-num chargeInfo-model result-model chargeInfo-model-info" style='line-height:1;'>
+        <text>分享我的宿舍用电信息</text>
+      </button>
+    </view>
     <image class="sdf-bg" src="/images/netfare-bg.png"></image>
   </view>
 </view>

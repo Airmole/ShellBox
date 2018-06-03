@@ -39,9 +39,9 @@
 					"query": ""
 				},
 				{
-					"id": -1,
-					"name": "dfBind",
-					"pathName": "pages/electricity/electricityBind",
+					"id": 1,
+					"name": "eorrorPage",
+					"pathName": "pages/error/notfound",
 					"query": ""
 				}
 			]

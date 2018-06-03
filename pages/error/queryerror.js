@@ -1,7 +1,7 @@
 Page({
   goBack: function () {
-    wx.redirectTo({
-      url: '/pages/index/index',
+    wx.navigateBack({
+      delta: 1
     })
   },
   goIndex: function () {

@@ -42,7 +42,7 @@ Page({
           eleJson: res.data,
         })
         wx.hideToast();
-        console.log(res.data);
+        // console.log(res.data);
         //账号密码错误以下功能实现跳转错误页面
         if (res.data.electricity[0].Balance == '0.00' && res.data.electricity[0].LastRecharge == '0.00' && res.data.electricity[0].yesterdayAircon == '0.00' && res.data.electricity[0].yesterdaySocket == '0.00') {
           wx.redirectTo({
@@ -89,6 +89,15 @@ Page({
 
   },
 
+  /**
+   * 用户点击右上角分享
+   */
+  onShareAppMessage: function (res) {
+    return {
+      title: this.data.zhai + '斋' + this.data.room + '寝室' + '的用电信息',
+      path: 'pages/electricity/electricityFare?zhai=' + this.data.zhai + "&room=" + this.data.room
+    }
+  },
   /**
    * 页面上拉触底事件的处理函数
    */

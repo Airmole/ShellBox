@@ -15,7 +15,7 @@ function formatTime(date) {
   weekday[5] = "星期五"
   weekday[6] = "星期六"
 
-  return year + "年" + month + "月" + day + "日" + "  " + weekday[d.getDay()] + '  ' + hour + "时"
+  return year + "年" + month + "月" + day + "日" + "  " + weekday[d.getDay()] + '  ' + hour + "点"
 }
 
 function formatNumber(n) {
