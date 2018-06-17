@@ -17,6 +17,7 @@
       </block>
       <view class="weui-grid" hover-class="weui-grid_active" style='height:96.200px;'>
         <button open-type="contact">
+          <!--把这里的contact改成feedback效果也不错，现在很纠结啊 -->
           <image class="weui-grid__icon" src="/images/service.png"></image>
           <text>意见留言</text>
         </button>

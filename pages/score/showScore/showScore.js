@@ -13,7 +13,7 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
+  onLoad: function(options) {
     wx.showToast({
       title: "加载中...",
       icon: "loading",
@@ -24,67 +24,73 @@ Page({
       stuId: app.globalData.uid,
       password: app.globalData.pwd,
     });
-    wx.request({
-      url: 'https://airmole.cn/wechat/wxapp/api/Airmole_jiaowuScoreQuery.php',
-      method: "POST",
-      data: {
-        uid: app.globalData.uid,
-        pwd: app.globalData.pwd
-      },
-      header: {
-        'content-type': 'application/x-www-form-urlencoded' // post提交表单
-      },
-      success: function (res) {
-        that.setData({
-          jsonContent: res.data,
-        })
-        // console.log(res.data);
-        if (res.data[0].length <= 7) {
-          wx.redirectTo({
-            url: '/pages/error/queryerror'
+    if (app.globalData.uid == '' || app.globalData.pwd == '') {
+      wx.redirectTo({
+        url: '/pages/index/index'
+      })
+    } else {
+      wx.request({
+        url: 'https://airmole.cn/wechat/wxapp/api/Airmole_jiaowuScoreQuery.php',
+        method: "POST",
+        data: {
+          uid: app.globalData.uid,
+          pwd: app.globalData.pwd
+        },
+        header: {
+          'content-type': 'application/x-www-form-urlencoded' // post提交表单
+        },
+        success: function(res) {
+          that.setData({
+            jsonContent: res.data,
           })
+          // console.log(res.data);
+          if (res.data[0].length <= 7) {
+            wx.redirectTo({
+              url: '/pages/error/queryerror'
+            })
+          }
+          wx.hideToast()
         }
-        wx.hideToast()
-      }
-    })
+      })
+    }
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
-  onReady: function () {
+  onReady: function() {
 
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function () {
+  onShow: function() {
 
   },
 
   /**
    * 生命周期函数--监听页面隐藏
    */
-  onHide: function () {
+  onHide: function() {
 
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
-  onUnload: function () {
+  onUnload: function() {
 
   },
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
-  onPullDownRefresh: function () {
+  onPullDownRefresh: function() {
     var that = this;
     wx.showNavigationBarLoading() //在标题栏中显示加载
     //模拟加载
-    setTimeout(function () {
+    setTimeout(function() {
       // complete
       wx.hideNavigationBarLoading() //完成停止加载
       wx.stopPullDownRefresh() //停止下拉刷新
@@ -101,7 +107,7 @@ Page({
       header: {
         'content-type': 'application/x-www-form-urlencoded' // post提交表单
       },
-      success: function (res) {
+      success: function(res) {
         that.setData({
           jsonContent: res.data,
         })
@@ -114,7 +120,7 @@ Page({
   /**
    * 页面上拉触底事件的处理函数
    */
-  onReachBottom: function () {
+  onReachBottom: function() {
 
   },
 
