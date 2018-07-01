@@ -7,30 +7,30 @@ Page({
     keywordStr: '',
     showTips: false,
   },
-  showInput: function () {
+  showInput: function() {
     this.setData({
       inputShowed: true
     });
   },
-  hideInput: function () {
+  hideInput: function() {
     this.setData({
       inputVal: "",
       inputShowed: false
     });
   },
-  clearInput: function () {
+  clearInput: function() {
     this.setData({
       inputVal: ""
     });
   },
-  onShareAppMessage: function (res) {
+  onShareAppMessage: function(res) {
     return {
       title: '相见恨晚！没想到图书馆还有这样的好书啊~',
       path: 'pages/bookSearch/index',
       imageUrl: "https://airmole.cn/wechat/wxapp/images/bookindexShare.jpg"
     }
   },
-  searchIt: function (e) {
+  searchIt: function(e) {
     this.setData({
       keyword: e.detail.value
     });
@@ -46,7 +46,7 @@ Page({
     } else {
       wx.request({
         url: 'https://airmole.cn/wechat/wxapp/api/bookSearch_api.php?keyword=' + e.detail.value,
-        success: function (res) {
+        success: function(res) {
           that.setData({
             keywordStr: res.data,
           })
@@ -67,7 +67,7 @@ Page({
       })
     }
   },
-  onLoad: function () {
+  onLoad: function() {
     wx.showToast({
       title: "loading",
       icon: "loading",
@@ -76,7 +76,7 @@ Page({
     var that = this;
     wx.request({
       url: 'https://airmole.cn/wechat/wxapp/api/hotbook.php',
-      success: function (res) {
+      success: function(res) {
         that.setData({
           jsonStr: res.data,
         })
@@ -89,11 +89,11 @@ Page({
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
-  onPullDownRefresh: function () {
+  onPullDownRefresh: function() {
     var that = this;
     wx.request({
       url: 'https://airmole.cn/wechat/wxapp/api/hotbook.php',
-      success: function (res) {
+      success: function(res) {
         that.setData({
           jsonStr: res.data,
         })
@@ -101,7 +101,7 @@ Page({
       }
     })
   },
-  onReachBottom: function () {
+  onReachBottom: function() {
     var that = this;
     that.setData({
       showTips: true,
