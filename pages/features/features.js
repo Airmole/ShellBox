@@ -23,14 +23,7 @@ Page({
       { url: 'https://airmole.cn/wechat/wxapp/images/swiper5.gif' }
     ]
   },
-  // building: function () {
-  //   wx.showToast({
-  //     title: '努力开发中...',
-  //     image: '/images/info.png',
-  //     icon: 'none',
-  //     duration: 1500
-  //   });
-  // },
+
   //账户注销登录
   logout: function () {
     app.globalData.uid = "";
