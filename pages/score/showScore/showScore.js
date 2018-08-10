@@ -8,6 +8,8 @@ Page({
     stuId: " ",
     password: " ",
     jsonContent: {},
+    PicURL: "",
+    PicArr: [""],
     hasUserInfo: false
   },
   /**
@@ -25,26 +27,19 @@ Page({
       password: app.globalData.pwd,
     });
     if (app.globalData.uid == '' || app.globalData.pwd == '') {
+      //调试完记得取消注释
       wx.redirectTo({
         url: '/pages/index/index'
       })
     } else {
       wx.request({
-        url: 'https://airmole.cn/wechat/wxapp/api/Airmole_jiaowuScoreQuery.php',
-        method: "POST",
-        data: {
-          uid: app.globalData.uid,
-          pwd: app.globalData.pwd
-        },
-        header: {
-          'content-type': 'application/x-www-form-urlencoded' // post提交表单
-        },
+        url: 'https://api.giiig.cn/tj/?username=' + app.globalData.uid + '&password=' + app.globalData.pwd,
         success: function(res) {
           that.setData({
             jsonContent: res.data,
           })
           // console.log(res.data);
-          if (res.data[0].length <= 7) {
+          if (res.data.data.msg == '密码错误') {
             wx.redirectTo({
               url: '/pages/error/queryerror'
             })
@@ -56,65 +51,10 @@ Page({
   },
 
   /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function() {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function() {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function() {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function() {
-
-  },
-
-  /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function() {
-    var that = this;
-    wx.showNavigationBarLoading() //在标题栏中显示加载
-    //模拟加载
-    setTimeout(function() {
-      // complete
-      wx.hideNavigationBarLoading() //完成停止加载
-      wx.stopPullDownRefresh() //停止下拉刷新
-    }, 1500);
-    //这里不能一直只是假装干活啊，以后要真的干活啊
-    //这下干活了，重复劳动而已
-    wx.request({
-      url: 'https://airmole.cn/wechat/wxapp/api/Airmole_jiaowuScoreQuery.php',
-      method: "POST",
-      data: {
-        uid: app.globalData.uid,
-        pwd: app.globalData.pwd
-      },
-      header: {
-        'content-type': 'application/x-www-form-urlencoded' // post提交表单
-      },
-      success: function(res) {
-        that.setData({
-          jsonContent: res.data,
-        })
-        // console.log(res.data);
-        console.log('刷新完成');
-      }
-    })
+    onLoad();
   },
 
   /**
@@ -124,15 +64,44 @@ Page({
 
   },
 
-  /**
-   * 用户点击右上角分享
-   */
-  // onShareAppMessage: function () {
-  //   var uInfo = this.data.userInfo;
-  //   // console.log();
-  //   return {
-  //     title: uInfo.nickName + '成绩查询结果',
-  //     imageUrl: "https://airmole.cn/wechat/wxapp/images/QueryScore.jpg"
-  //   }
-  // }
+  GetScoreList: function(s) {
+    wx.showToast({
+      title: "加载中...",
+      icon: "loading",
+      duration: 10000
+    })
+    var that = this;
+    // console.log(app.globalData.uid);
+    wx.request({
+      url: 'https://api.giiig.cn/tj/score?uid=' + app.globalData.uid,
+      success: function(res) {
+        that.setData({
+          PicUrl: res.data.data,
+        })
+        // console.log(res.data.data);
+        that.data.PicArr[0] = res.data.data,
+          wx.hideToast()
+        wx.previewImage({
+          current: res.data.data, // 当前显示图片的http链接
+          urls: that.data.PicArr // 需要预览的图片http链接列表
+        })
+        wx.downloadFile({
+          url: res.data.data,
+          success: function(res) {
+            wx.saveImageToPhotosAlbum({
+              filePath: res.tempFilePath,
+              success: function(dres) {
+                console.log(dres);
+                wx.showToast({
+                  title: '已保存到相册，记得分享',
+                  icon: 'none',
+                  duration: 2000
+                })
+              }
+            })
+          }
+        })
+      }
+    })
+  },
 })

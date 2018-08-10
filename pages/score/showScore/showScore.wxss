@@ -1,2 +1,12 @@
 /* pages/score/showScore/showScore.wxss */
 @import "/pages/common/weui.wxss";
+
+Page {
+  background-color: #7acfa6;
+}
+
+.ykt-detail-wraper {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+}
