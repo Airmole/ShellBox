@@ -4,6 +4,9 @@ Page({
     uid: '',
     pwd: '',
     classStr: '',
+    marginleft: '52',
+    help_status: false,
+    ClassDetail: "",
   },
   onLoad: function(options) {
     wx.showToast({
@@ -29,6 +32,7 @@ Page({
             // remind:"完成",
           })
           wx.hideToast()
+          console.log(res.data);
         }
       })
     }
@@ -45,5 +49,20 @@ Page({
   //     }
   //   })
   // },
-
+  tapHelp: function(e) {
+    if (e.target.id == 'help') {
+      this.hideHelp();
+    }
+  },
+  showHelp: function(e) {
+    this.setData({
+      'help_status': true,
+      'ClassDetail': e.currentTarget.dataset.set
+    });
+  },
+  hideHelp: function(e) {
+    this.setData({
+      'help_status': false
+    });
+  }
 })
