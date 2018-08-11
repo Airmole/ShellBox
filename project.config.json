@@ -40,9 +40,9 @@
 				},
 				{
 					"id": 1,
-					"name": "成绩",
-					"pathName": "pages/score/showScore/showScore",
-					"query": "app.globalData.uid=160130123&app.globalData.pwd=19980721"
+					"name": "welcome",
+					"pathName": "pages/welcome/welcome",
+					"query": ""
 				}
 			]
 		}

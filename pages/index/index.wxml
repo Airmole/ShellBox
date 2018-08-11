@@ -11,7 +11,7 @@
         <form class="login-form" bindsubmit="submitInfo">
           <view class="input-group {{userid_focus ? 'active' : ''}}">
             <text class="input-label">学号</text>
-            <input name='uid' type="number" cursor-spacing="30" placeholder="请输入你的学号" />
+            <input name='uid' type="number" cursor-spacing="30" placeholder="请输入你的学号" bindinput='UidInput' />
           </view>
           <view class="input-group {{passwd_focus ? 'active' : ''}}">
             <text class="input-label">密码</text>

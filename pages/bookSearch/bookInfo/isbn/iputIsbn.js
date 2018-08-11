@@ -1,7 +1,6 @@
 // pages/bookSearch/bookInfo/isbn/iputIsbn.js
 Page({
-
-  ISBNInput: function (e) {
+  ISBNInput: function(e) {
     //console.log(e.detail.value['isbn']);
     if (e.detail.value['isbn'] == '' || e.detail.value['isbn'].length < 10) {
       wx.showToast({
@@ -17,9 +16,9 @@ Page({
     }
   },
   /**
-* 扫码
-*/
-  scan: function () {
+   * 扫码
+   */
+  scan: function() {
     wx.scanCode({
       success: (res) => {
         if (res.errMsg !== 'scanCode:ok') {

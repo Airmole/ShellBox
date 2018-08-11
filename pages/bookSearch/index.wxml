@@ -1,5 +1,5 @@
 <view class="page">
-  <view class="page__bd">
+  <view class="page__bd" style='padding-bottom:0px;'>
     <view class="weui-search-bar">
       <view class="weui-search-bar__form">
         <view class="weui-search-bar__box">
@@ -15,6 +15,16 @@
         </label>
       </view>
       <view class="weui-search-bar__cancel-btn" hidden="{{!inputShowed}}" bindtap="hideInput">取消</view>
+    </view>
+  </view>
+  <view class="marquee" wx:if="{{notices}}">
+    <view class="content">
+      <text>{{notices}}</text>
+      <text style="display: inline-block; width: 5em;"></text>
+      <text>{{notices}}</text>
+      <text style="display: inline-block; width: 5em;"></text>
+      <text>{{notices}}</text>
+      <text style="display: inline-block; width: 5em;"></text>
     </view>
   </view>
   <view class="weui-panel__bd">

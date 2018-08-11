@@ -6,12 +6,12 @@ Page({
     jsonStr: "",
     hasUserInfo: 0
   },
-  start: function () {
+  start: function() {
     wx.switchTab({
       url: '../bookSearch/index',
     })
   },
-  onLoad: function (options) {
+  onLoad: function(options) {
     wx.showToast({
       title: "loading",
       icon: "loading",
@@ -25,18 +25,12 @@ Page({
     });
     wx.request({
       url: 'https://airmole.cn/wechat/wxapp/api/Airmole_jiaowuInfoQuery.php?uid=' + options.uid + '&pwd=' + options.pwd,
-      success: function (res) {
+      success: function(res) {
         that.setData({
           jsonStr: res.data,
         })
         wx.hideToast();
-        // console.log(res.data);
-        //账号密码错误以下功能实现跳转错误页面
-        if (res.data[0][0].stuName == '') {
-          wx.redirectTo({
-            url: '/pages/error/loginerror'
-          })
-        }
+        console.log(res.data);
       }
     })
   }

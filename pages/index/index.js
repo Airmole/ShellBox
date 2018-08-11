@@ -10,7 +10,7 @@ Page({
     passwd_focus: false,
     angle: 0
   },
-  onLoad: function () {
+  onLoad: function() {
     var uid = wx.getStorageSync('uid')
     var pwd = wx.getStorageSync('pwd')
     if (pwd != "") {
@@ -21,7 +21,7 @@ Page({
       })
     }
   },
-  submitInfo: function (e) {
+  submitInfo: function(e) {
     let that = this;
     app.globalData.uid = e.detail.value.uid;
     app.globalData.pwd = e.detail.value.pwd;
@@ -35,7 +35,7 @@ Page({
     } else {
       wx.request({
         url: 'https://airmole.cn/wechat/wxapp/api/Airmole_jiaowuInfoQuery.php?uid=' + e.detail.value.uid + '&pwd=' + e.detail.value.pwd,
-        success: function (res) {
+        success: function(res) {
           that.setData({
             jsonStr: res.data,
           })
@@ -60,19 +60,24 @@ Page({
       })
     }
   },
-  tapHelp: function (e) {
+  tapHelp: function(e) {
     if (e.target.id == 'help') {
       this.hideHelp();
     }
   },
-  showHelp: function (e) {
+  showHelp: function(e) {
     this.setData({
       'help_status': true
     });
   },
-  hideHelp: function (e) {
+  hideHelp: function(e) {
     this.setData({
       'help_status': false
     });
-  }
+  },
+  UidInput: function(e) {
+    if (e.detail.value.length >= 9) {
+      wx.hideKeyboard();
+    }
+  },
 })

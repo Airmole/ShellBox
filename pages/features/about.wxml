@@ -11,13 +11,13 @@
     <view class="content">
       <view class="version">
         <view class="version-title">
-          <text class="title-name">贝壳盒子</text>
+          <text class="title-name">贝壳小盒子</text>
           <text class="version-text">公测</text>
         </view>
       </view>
       <view class="describe">
         <text class="desc-title">简介</text>
-        <text class="desc-content">贝壳盒子是一款微信小程序，由北京科技大学天津学院网络中心指导，冰炫互联（学生技术组织/团队）开发，有别于公众号的一种全新的连接用户与服务的方式，无需下载与安装即可在微信内被便捷地获取和传播，同时具有出色的使用体验。</text>
+        <text class="desc-content">贝壳(小)盒子是一款微信小程序，由北京科技大学天津学院网络中心指导，冰炫互联（学生技术组织/团队）开发，有别于公众号的一种全新的连接用户与服务的方式，无需下载与安装即可在微信内被便捷地获取和传播，同时具有出色的使用体验。</text>
         <text class="desc-content">贝壳盒子是碎片化、一站式、一体化校园移动门户，集课表、成绩、学籍信息、资讯等功能于一身.</text>
         <text class="desc-content">贝壳盒子有更好用的课表查询，美观大方，清晰明了。</text>
         <text class="desc-content">贝壳盒子有更方便的校历查询，对比教务网发布的Excel截图校历，界面优雅，清新脱俗。</text>

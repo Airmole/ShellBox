@@ -32,23 +32,21 @@ Page({
             // remind:"完成",
           })
           wx.hideToast()
-          console.log(res.data);
+          // console.log(res.data);
         }
       })
     }
   },
-  // onPullDownRefresh: function () {
-  //   var that = this;
-  //   wx.request({
-  //     url: 'https://airmole.cn/wechat/wxapp/api/Airmole_jiaowuClassTable.php?uid=' + app.globalData.uid + '&pwd=' + app.globalData.pwd,
-  //     success: function (res) {
-  //       that.setData({
-  //         classStr: res.data,
-  //       })
-  //       console.log('刷新完成！')
-  //     }
-  //   })
-  // },
+  onPullDownRefresh: function() {
+    var that = this;
+    that.onLoad();
+    wx.stopPullDownRefresh();
+    wx.showToast({
+      title: "刷新完成",
+      icon: "succeed",
+      duration: 2000
+    })
+  },
   tapHelp: function(e) {
     if (e.target.id == 'help') {
       this.hideHelp();

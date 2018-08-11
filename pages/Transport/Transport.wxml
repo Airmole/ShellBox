@@ -1,7 +1,7 @@
 <view class="page">
   <view class="page__bd">
     <view class="weui-tab">
-      <view class="weui-navbar">
+      <view class="weui-navbar" style='background-color:#7acfa6'>
         <block wx:for="{{tabs}}" wx:key="*this">
           <view id="{{index}}" class="weui-navbar__item {{activeIndex == index ? 'weui-bar__item_on' : ''}}" bindtap="tabClick">
             <view class="weui-navbar__title">{{item}}</view>
@@ -12,7 +12,7 @@
       <view class="weui-tab__panel">
         <view class="weui-tab__content" hidden="{{activeIndex != 0}}">
           <view class='history-table-wrap'>
-            <!-- <view class="weui-cells__title" style='text-align:left;margin-top:30px;'>京津新城至北京国贸商务班车</view> -->
+            <!-- 北京方向部分代码 -->
             <view class="weui-article" style='text-align:left;'>
               <view class="weui-article__h1">京津新城至北京国贸班车</view>
               <view class="weui-article__section">
@@ -40,96 +40,91 @@
                 </view>
               </view>
             </view>
-            <view class="weui-btn-area" style='margin-top:-30px'>
-              <button plain='true' open-type="share" type="default" hover-class="other-button-hover">
-                <image class="weui-btn shareIcon" src='/images/share_green.png'></image>
-                分享给朋友
-              </button>
-            </view>
-          </view>
-        </view>
-        <view class="weui-tab__content" hidden="{{activeIndex != 1}}">
-          <view class="page__bd">
-            <view class="weui-form-preview">
-              <view class="weui-form-preview__hd">
-                <view class="weui-form-preview__item">
-                  <view class="weui-form-preview__label">大学城→华北集团→天津</view>
-                  <view class="weui-form-preview__value_in-hd"></view>
-                </view>
-              </view>
-              <view class="weui-form-preview__bd">
-                <view class="weui-form-preview__item">
-                  <view class="weui-form-preview__label">周一到周四</view>
-                  <view class="weui-form-preview__value">大学城（校车）</view>
-                </view>
-                <view class="weui-form-preview__item">
-                  <view class="weui-form-preview__label">上午：</view>
-                  <view class="weui-form-preview__value">
-                    <text>6点、6点55分、8点\n9点、10点、11点、12点</text>
-                  </view>
-                </view>
-                <view class="weui-form-preview__item">
-                  <view class="weui-form-preview__label">下午：</view>
-                  <view class="weui-form-preview__value">
-                    <text>13点（人多加班）、14点\n 15点（人多加班）、16点\n17点（人多加班）、18点</text>
-                  </view>
-                </view>
-                <view class="weui-form-preview__item">
-                  <view class="weui-form-preview__label">周五到周日</view>
-                  <view class="weui-form-preview__value">早6:00到晚18:00\n大约每20分钟发一班次</view>
-                </view>
-              </view>
-            </view>
-          </view>
-          <view class="page__bd">
-            <view class="weui-form-preview">
-              <view class="weui-form-preview__hd">
-                <view class="weui-form-preview__item">
-                  <view class="weui-form-preview__label">白庙客运站→华北集团→大学城</view>
-                  <view class="weui-form-preview__value_in-hd"></view>
-                </view>
-              </view>
-              <view class="weui-form-preview__bd">
-                <view class="weui-form-preview__item">
-                  <view class="weui-form-preview__label">津宇客运站（校车）</view>
-                  <view class="weui-form-preview__value"></view>
-                </view>
-                <view class="weui-form-preview__item">
-                  <view class="weui-form-preview__label">周一到周五：</view>
-                  <view class="weui-form-preview__value">
-                    <text>早7:30到晚18:30\n大约每30分钟发一个班次</text>
-                  </view>
-                </view>
-                <view class="weui-form-preview__item">
-                  <view class="weui-form-preview__label">周六至周日：</view>
-                  <view class="weui-form-preview__value">
-                    <text>早6:00到晚19:30\n大约每20分钟发一个班次</text>
-                  </view>
-                </view>
-                <view class="weui-form-preview__ft">
-                  <text>可能与实际情况稍有不同,仅供参考</text>
-                </view>
-              </view>
-            </view>
-          </view>
-          <view class="weui-btn-area" style='margin-top:-20px'>
-            <button plain='true' open-type="share" type="default" hover-class="other-button-hover">
-              <image class="weui-btn shareIcon" src='/images/share_green.png'></image>
-              分享给朋友
+            <button open-type="share" class="login-btn">
+              <text>分享给同学</text>
             </button>
           </view>
         </view>
-        <view class="weui-tab__content" hidden="{{activeIndex != 2}}">
-          <view class='history-table-wrap'>
-            <view class="weui-cells__title" style='text-align:left;margin-top:30px;'>公交出行</view>
-            <image bindtap='preview' src='https://airmole.cn/wechat/wxapp/images/Bus413.jpg' mode='widthFix'></image>
-            <view class="weui-btn-area">
-              <button plain='true' open-type="share" type="default" hover-class="other-button-hover">
-                <image class="weui-btn shareIcon" src='/images/share_green.png'></image>
-                分享给朋友
-              </button>
+        <!-- 市区部分代码 -->
+        <view class="weui-tab__content" hidden="{{activeIndex != 1}}" style='background-color:#7acfa6;height:680px;'>
+          <text>\r\n</text>
+          <view class="ykt-detail-wraper">
+            <view class="weui-form-preview__hd">
+              <view class="weui-form-preview__item">
+                <view class="weui-form-preview__label">大学城→华北集团→天津</view>
+                <view class="weui-form-preview__value_in-hd"></view>
+              </view>
+            </view>
+            <view class="weui-form-preview__bd">
+              <view class="weui-form-preview__item">
+                <view class="weui-form-preview__label">周一到周四</view>
+                <view class="weui-form-preview__value">大学城（校车）</view>
+              </view>
+              <view class="weui-form-preview__item">
+                <view class="weui-form-preview__label">上午：</view>
+                <view class="weui-form-preview__value">
+                  <text>6点、6点55分、8点\n9点、10点、11点、12点</text>
+                </view>
+              </view>
+              <view class="weui-form-preview__item">
+                <view class="weui-form-preview__label">下午：</view>
+                <view class="weui-form-preview__value">
+                  <text>13点（人多加班）、14点\n 15点（人多加班）、16点\n17点（人多加班）、18点</text>
+                </view>
+              </view>
+              <view class="weui-form-preview__item">
+                <view class="weui-form-preview__label">周五到周日</view>
+                <view class="weui-form-preview__value">早6:00到晚18:00\n大约每20分钟发一班次</view>
+              </view>
             </view>
           </view>
+
+          <view class="ykt-detail-wraper">
+            <view class="weui-form-preview__hd">
+              <view class="weui-form-preview__item">
+                <view class="weui-form-preview__label">白庙客运站→华北集团→大学城</view>
+                <view class="weui-form-preview__value_in-hd"></view>
+              </view>
+            </view>
+            <view class="weui-form-preview__bd">
+              <view class="weui-form-preview__item">
+                <view class="weui-form-preview__label">津宇客运站（校车）</view>
+                <view class="weui-form-preview__value"></view>
+              </view>
+              <view class="weui-form-preview__item">
+                <view class="weui-form-preview__label">周一到周五：</view>
+                <view class="weui-form-preview__value">
+                  <text>早7:30到晚18:30\n大约每30分钟发一个班次</text>
+                </view>
+              </view>
+              <view class="weui-form-preview__item">
+                <view class="weui-form-preview__label">周六至周日：</view>
+                <view class="weui-form-preview__value">
+                  <text>早6:00到晚19:30\n大约每20分钟发一个班次</text>
+                </view>
+              </view>
+              <view class="weui-form-preview__ft">
+                <text>*可能与实际情况稍有不同,仅供参考</text>
+              </view>
+            </view>
+          </view>
+          <!-- <view class="ykt-detail-wraper" style='text-align:center;' wx:else>
+            <text>北科车站电话：</text>
+          </view> -->
+          <button open-type="share" class="login-btn">
+            <text>分享给同学</text>
+          </button>
+        </view>
+        <view class="weui-tab__content" hidden="{{activeIndex != 2}}" style='background-color:#7acfa6;height:660px'>
+          <text>\r\n</text>
+          <view class="ykt-detail-wraper" style='height:550px;'>
+            <view class='setCenter'>
+              <image bindtap='preview' src='https://airmole.cn/wechat/wxapp/images/Bus413.jpg' mode='widthFix' style='setCenter'></image>
+            </view>
+          </view>
+          <button open-type="share" class="login-btn">
+            <text>分享给同学</text>
+          </button>
         </view>
       </view>
     </view>

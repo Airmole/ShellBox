@@ -1,54 +1,62 @@
-<!--pages/stuInfo/stuInfo.wxml-->
-<view wx:for="{{jsonStr[0]}}" wx:key="stuinfoPage">
-  <view class="weui-panel weui-panel_access">
-    <view class="weui-panel__hd">学籍信息</view>
-    <view class="weui-panel__bd">
-      <navigator url="" class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active">
+<!-- pages/stuInfo/stuInfo.wxml-->
+<view class='GreenBG'>
+  <view class="weui-panel weui-panel_access GreenBG">
+    <view class="weui-panel__bd GreenBG">
+      <view class="weui-media-box weui-media-box_appmsg GreenBG">
         <view class="weui-media-box__hd weui-media-box__hd_in-appmsg">
           <view class="weui-media-box__thumb">
             <open-data type="userAvatarUrl"></open-data>
           </view>
         </view>
         <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
-          <view class="weui-media-box__title">{{item.stuName}}</view>
-          <view class="weui-media-box__desc">学号：{{item.stuID}}</view>
+          <view class="weui-media-box__title">{{jsonStr[0][0].stuName}}</view>
+          <view class="weui-media-box__title">学号：{{jsonStr[0][0].stuID}}</view>
         </view>
-      </navigator>
+      </view>
     </view>
   </view>
-  <text>\r\n</text>
-  <view class="weui-cells weui-cells_after-title">
-    <view class="weui-cell">
-      <view class="weui-cell__bd">性别</view>
-      <view class="weui-cell__ft">{{item.stuSex}}</view>
+</view>
+<view class="ykt-card">
+  <view class="ykt-black-line"></view>
+  <view class="ykt-content">
+    <view class="ykt-ye">
+      <text class="ykt-ye-name">姓名：{{jsonStr[0][0].stuName}}</text>
+      <text class="ykt-ye-name">班级：{{jsonStr[0][0].stuClass}}</text>
+      <text class="ykt-ye-name">学号：{{jsonStr[0][0].stuID}}</text>
+      <text class="ykt-ye-name">专业：{{jsonStr[0][0].stuMajor}}</text>
     </view>
-    <view class="weui-cell">
-      <view class="weui-cell__bd">民族</view>
-      <view class="weui-cell__ft">{{item.stuNation}}</view>
-    </view>
-    <view class="weui-cell">
-      <view class="weui-cell__bd">班级</view>
-      <view class="weui-cell__ft">{{item.stuClass}}</view>
-    </view>
-    <view class="weui-cell">
-      <view class="weui-cell__bd">出生日期</view>
-      <view class="weui-cell__ft">{{item.stuBirth}}</view>
-    </view>
-    <view class="weui-cell">
-      <view class="weui-cell__bd">入学日期</view>
-      <view class="weui-cell__ft">{{item.stuEnterDate}}</view>
-    </view>
-    <view class="weui-cell">
-      <view class="weui-cell__bd">专业名称</view>
-      <view class="weui-cell__ft">{{item.stuMajor}}</view>
+    <view class="ykt-img">
+      <image src="/images/card-bg.png"></image>
     </view>
   </view>
-  <text>\r\n</text>
-  <view class="weui-footer">
-    <view class="weui-footer__links">
-      <navigator url="/pages/features/about" class="weui-footer__link">Airmole.</navigator>
-      <navigator url="/pages/features/about" class="weui-footer__link">智慧校园</navigator>
-    </view>
-    <view class="weui-footer__text">Copyright © 2018 北京科技大学天津学院.</view>
+  <view class="ykt-card-more">
+    <text class="ykt-ye-time"> </text>
+    <text class="ykt-ye-id">{{jsonStr[0][0].stuEnterDate}}入学</text>
   </view>
+</view>
+<view class="ykt-detail-wraper">
+  <view class="ykt-head">
+    <text class="ykt-type-name">其他信息</text>
+  </view>
+  <view class="detail-list">
+    <view class="detail-item">
+      <text class="detail-item-label">性别</text>
+      <text class="detail-item-value">{{jsonStr[0][0].stuSex}}</text>
+    </view>
+    <view class="detail-item">
+      <text class="detail-item-label">民族</text>
+      <text class="detail-item-value">{{jsonStr[0][0].stuNation}}</text>
+    </view>
+    <view class="detail-item">
+      <text class="detail-item-label">出生日期</text>
+      <text class="detail-item-value">{{jsonStr[0][0].stuBirth}}</text>
+    </view>
+  </view>
+</view>
+<view class="weui-footer">
+  <view class="weui-footer__links">
+    <navigator url="/pages/features/about" class="weui-footer__link">Airmole.</navigator>
+    <navigator url="/pages/features/about" class="weui-footer__link">智慧校园</navigator>
+  </view>
+  <view class="weui-footer__text">Copyright © 2018 北京科技大学天津学院.</view>
 </view>

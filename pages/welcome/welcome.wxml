@@ -1,5 +1,4 @@
-<!--pages/welcome/welcome.wxml-->
-<view class="page__bd" wx:for="{{jsonStr[0]}}" wx:key="student">
+<view class="page__bd">
   <view class="page-body">
     <view class="page-section">
       <view class="page-body-info">
@@ -17,21 +16,25 @@
           </view>
         </view>
       </view>
-      <view class="weui-cell">
-        <view class="weui-cell__bd">姓名：</view>
-        <view class="weui-cell__ft">{{item.stuName}}</view>
-      </view>
-      <view class="weui-cell">
-        <view class="weui-cell__bd">班级：</view>
-        <view class="weui-cell__ft">{{item.stuClass}}</view>
-      </view>
-      <view class="weui-cell">
-        <view class="weui-cell__bd">学号：</view>
-        <view class="weui-cell__ft">{{item.stuID}}</view>
+      <view class="ykt-detail-wraper">
+        <view class="detail-list">
+          <view class="detail-item">
+            <text class="detail-item-label">姓名</text>
+            <text class="detail-item-value">{{jsonStr[0][0].stuName}}</text>
+          </view>
+          <view class="detail-item">
+            <text class="detail-item-label">班级</text>
+            <text class="detail-item-value">{{jsonStr[0][0].stuClass}}</text>
+          </view>
+          <view class="detail-item">
+            <text class="detail-item-label">学号</text>
+            <text class="detail-item-value">{{jsonStr[0][0].stuID}}</text>
+          </view>
+        </view>
       </view>
     </view>
   </view>
 </view>
-<view class="btn-area">
-  <button type="primary" bindtap="start">开始使用</button>
+<view bindtap='start' class="login-btn">
+  <text>开始使用</text>
 </view>

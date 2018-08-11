@@ -6,6 +6,7 @@ Page({
     jsonStr: "",
     keywordStr: '',
     showTips: false,
+    notices: " "
   },
   showInput: function() {
     this.setData({
@@ -80,6 +81,15 @@ Page({
         that.setData({
           jsonStr: res.data,
         })
+        // console.log(res.data);
+      }
+    })
+    wx.request({
+      url: 'https://airmole.cn/wechat/wxapp/api/notices.php',
+      success: function(res) {
+        that.setData({
+          notices: res.data.notices,
+        })
         wx.hideToast()
         // console.log(res.data);
       }
@@ -91,14 +101,12 @@ Page({
    */
   onPullDownRefresh: function() {
     var that = this;
-    wx.request({
-      url: 'https://airmole.cn/wechat/wxapp/api/hotbook.php',
-      success: function(res) {
-        that.setData({
-          jsonStr: res.data,
-        })
-        console.log('刷新完成');
-      }
+    that.onLoad();
+    wx.stopPullDownRefresh();
+    wx.showToast({
+      title: "刷新完成",
+      icon: "succeed",
+      duration: 3000
     })
   },
   onReachBottom: function() {

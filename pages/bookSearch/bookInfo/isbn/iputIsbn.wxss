@@ -1,18 +1,26 @@
 /* pages/bookSearch/bookInfo/isbn/iputIsbn.wxss */
 @import "../../../common/weui.wxss";
+
+Page {
+  background-color: #7acfa6;
+}
+
 .shareIcon {
   width: 26px;
   height: 26px;
   vertical-align: middle;
 }
-.button-sp-area{
-    margin: 0 auto;
-    padding-top: 15px;
-    width: 60%;
+
+.button-sp-area {
+  margin: 0 auto;
+  padding-top: 15px;
+  width: 60%;
 }
-.mini-btn{
-    margin-right: 5px;
+
+.mini-btn {
+  margin-right: 5px;
 }
+
 .logo {
   width: 240px;
   height: 153px;
@@ -52,6 +60,15 @@
   opacity: 0;
   transform: translate3d(0, 100%, 0);
   animation: rise 3s cubic-bezier(0.19, 1, 0.22, 1) 0.25s forwards;
+}
+
+.ykt-detail-wraper {
+  display: flex;
+  flex-direction: column;
+  margin: 0 30rpx 30rpx;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 15px;
+  box-shadow: 5rpx 5rpx 15rpx #ccc;
 }
 
 @keyframes rise {
@@ -100,8 +117,6 @@
   height: 200rpx;
   transition: all 0.35s ease;
 }
-
-
 
 @keyframes sway {
   0% {

@@ -1,14 +1,16 @@
 <!--pages/bookSearch/bookInfo/isbn/iputIsbn.wxml-->
-<view class="logo-sub">请扫描或输入书籍背面的的ISBN码</view>
-<image class="logo" src="/images/isbn.png"></image>
-<view class="page__bd page__bd_spacing">
-  <form bindsubmit="ISBNInput" class="login-form ">
-    <view class="input-group {{userid_focus ? 'active' : ''}} ">
-      <text class="input-label">ISBN</text>
-      <input type="number" cursor-spacing="30 " name="isbn" maxlength="13" placeholder="请输入ISBN书号 " />
-    </view>
-    <button class="confirm-btn " type="primary" form-type="submit">查书</button>
-    <button class="confirm-btn " type="primary" plain="true" bindtap='scan'>
-      <image class="weui-btn shareIcon" src='/images/scanCode.png'></image>直接扫描ISBN</button>
-  </form>
+<view class="ykt-detail-wraper" style='margin-top:80rpx;'>
+  <view class="logo-sub">请扫描或输入书籍背面的的ISBN码</view>
+  <image class="logo" src="/images/isbn.png"></image>
+  <view class="page__bd page__bd_spacing" style='padding-bottom:15px;'>
+    <form bindsubmit="ISBNInput" class="login-form ">
+      <view class="input-group {{userid_focus ? 'active' : ''}} ">
+        <text class="input-label">ISBN</text>
+        <input type="number" cursor-spacing="30 " name="isbn" maxlength="13" placeholder="请输入ISBN书号 " />
+      </view>
+      <button class="confirm-btn " type="primary" form-type="submit">查书</button>
+      <button class="confirm-btn " type="primary" plain="true" bindtap='scan'>
+        <image class="weui-btn shareIcon" src='/images/scanCode.png'></image>直接扫描ISBN</button>
+    </form>
+  </view>
 </view>

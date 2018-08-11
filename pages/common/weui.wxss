@@ -276,11 +276,12 @@ icon {
   float: left;
   margin-right: 1em;
   min-width: 4em;
-  color: #999999;
+  color: #000;
   text-align: justify;
   text-align-last: justify;
 }
 .weui-form-preview__value {
+  color: #000;
   display: block;
   overflow: hidden;
   word-break: normal;

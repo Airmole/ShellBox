@@ -38,7 +38,7 @@ Page({
           that.setData({
             jsonContent: res.data,
           })
-          // console.log(res.data);
+          console.log(res.data);
           if (res.data.data.msg == '密码错误') {
             wx.redirectTo({
               url: '/pages/error/queryerror'
@@ -54,7 +54,14 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function() {
-    onLoad();
+    var that = this;
+    that.onLoad();
+    wx.stopPullDownRefresh();
+    wx.showToast({
+      title: "刷新完成",
+      icon: "succeed",
+      duration: 2000
+    })
   },
 
   /**

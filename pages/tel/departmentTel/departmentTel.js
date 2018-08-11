@@ -10,6 +10,10 @@ Page({
   data: {
     //存储存储各部门电话的数组
     telNumber: [{
+      avatar: '',
+      name: '网络中心',
+      tel: 22410719
+    }, {
       avatar: '/images/tuanwei.png',
       name: '团委',
       tel: 22410730
@@ -82,10 +86,6 @@ Page({
       tel: 22410523
     }, {
       avatar: '',
-      name: '网络中心',
-      tel: 22410719
-    }, {
-      avatar: '',
       name: '学院办公室',
       tel: 22410800
     }, {
@@ -126,7 +126,7 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
+  onLoad: function(options) {
     this.setData({
       icon: base64.icon20
     });
@@ -135,48 +135,48 @@ Page({
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
-  onReady: function () {
+  onReady: function() {
 
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function () {
+  onShow: function() {
 
   },
 
   /**
    * 生命周期函数--监听页面隐藏
    */
-  onHide: function () {
+  onHide: function() {
 
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
-  onUnload: function () {
+  onUnload: function() {
 
   },
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
-  onPullDownRefresh: function () {
+  onPullDownRefresh: function() {
 
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
-  onReachBottom: function () {
+  onReachBottom: function() {
 
   },
   /**
-    * 点击电话号码拨出电话事件的处理函数
-    */
-  callPhone: function (event) {
+   * 点击电话号码拨出电话事件的处理函数
+   */
+  callPhone: function(event) {
     wx.makePhoneCall({
       phoneNumber: event.target.id
     })
@@ -184,7 +184,7 @@ Page({
   /**
    * 长按号码复制到粘贴板的处理函数
    */
-  copyIt: function (event) {
+  copyIt: function(event) {
     wx.setClipboardData({
       data: event.target.id
     })
@@ -195,21 +195,15 @@ Page({
     });
   },
   /**
-  * 页面相关事件处理函数--监听用户下拉动作
-  */
-  onPullDownRefresh: function () {
-    wx.showNavigationBarLoading() //在标题栏中显示加载
-    //模拟加载
-    setTimeout(function () {
-      // complete
-      wx.hideNavigationBarLoading() //完成停止加载
-      wx.stopPullDownRefresh() //停止下拉刷新
-    }, 1500);
-  },
+   * 页面相关事件处理函数--监听用户下拉动作
+   */
+  // onPullDownRefresh: function() {
+
+  // },
   /**
- * 用户点击右上角分享
- */
-  onShareAppMessage: function (res) {
+   * 用户点击右上角分享
+   */
+  onShareAppMessage: function(res) {
     if (res.from === 'button') {
       // 来自页面内转发按钮
       // console.log(res.target)
@@ -217,7 +211,7 @@ Page({
     return {
       title: '贝壳田园各系部联系电话',
       path: 'pages/tel/departmentTel',
-      imageUrl: "https://airmole.cn/wechat/wxapp/images/QueryTel.jpg"
+      // imageUrl: "https://airmole.cn/wechat/wxapp/images/QueryTel.jpg"
     }
   }
 })
