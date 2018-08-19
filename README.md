@@ -24,6 +24,15 @@
 [![miniprogram.th.jpg](http://www.z4a.net/images/2018/05/04/miniprogram.th.jpg)](小程序体验码)
 
 
+### 测试账号
+
+- 学号：000000000
+- 密码：test
+- *：测试账号无法查询成绩！！！
+
+
+
+
 ## 下一步flag
 
 - 获取用户OpenID，对已知OpenID的用户免登录
