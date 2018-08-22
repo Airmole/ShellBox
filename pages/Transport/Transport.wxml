@@ -40,6 +40,7 @@
                 </view>
               </view>
             </view>
+
             <button open-type="share" class="login-btn">
               <text>分享给同学</text>
             </button>

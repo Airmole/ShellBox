@@ -85,7 +85,7 @@ Page({
         that.setData({
           PicUrl: res.data.data,
         })
-        // console.log(res.data.data);
+        console.log(res.data.data);
         that.data.PicArr[0] = res.data.data,
           wx.hideToast()
         wx.previewImage({

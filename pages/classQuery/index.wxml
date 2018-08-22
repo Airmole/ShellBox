@@ -183,7 +183,7 @@
         <view wx:if='{{classStr[3][0][6]!==" "}}' bindtap="showHelp" data-set="{{classStr[3][0][6]}}">
           <view class="flex-item kcb-item" data-statu="open" style="margin-left:{{marginleft*6}}px;margin-top:230px;height:115px;background-color:#0A9A84">
             <view class="smalltext">{{classStr[3][0][6]}}</view>
-          </view>a
+          </view>
         </view>
         <view wx:if='{{classStr[4][0][6]!==" "}}' bindtap="showHelp" data-set="{{classStr[4][0][6]}}">
           <view class="flex-item kcb-item" data-statu="open" style="margin-left:{{marginleft*6}}px;margin-top:345px;height:115px;background-color:#61BC69">

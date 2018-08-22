@@ -1,5 +1,6 @@
 /**app.wxss**/
 @import "/pages/common/weui.wxss";
+
 .setCenter {
   text-align: center;
 }

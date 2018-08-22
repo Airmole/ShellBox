@@ -5,6 +5,10 @@ Page {
   background-color: #7acfa6;
 }
 
+.ads {
+  padding: 30rpx 15rpx 30rpx 15rpx;
+}
+
 .btnIcon {
   width: 26px;
   height: 26px;

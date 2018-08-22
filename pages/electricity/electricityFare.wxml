@@ -41,6 +41,7 @@
         <text>分享我的宿舍用电信息</text>
       </button>
     </view>
+
     <image class="sdf-bg" src="/images/netfare-bg.png"></image>
   </view>
 </view>

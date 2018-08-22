@@ -32,5 +32,10 @@
     <view bindtap='logout' class="login-btn">
       <text>注销登录</text>
     </view>
+    <!-- 广告位 -->
+    <view class='ads'>
+      <ad unit-id="adunit-62f52651dd5f4ff6"></ad>
+    </view>
+    <!-- 广告位结束 -->
   </view>
 </view>

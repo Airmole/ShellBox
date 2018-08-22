@@ -10,3 +10,7 @@ Page {
   flex-direction: column;
   margin: 0 auto;
 }
+
+.ads {
+  padding: 30rpx 15rpx 30rpx 15rpx;
+}

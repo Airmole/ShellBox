@@ -17,6 +17,10 @@ image {
   padding-bottom: 0;
 }
 
+.ads {
+  padding: 30rpx 15rpx 30rpx 15rpx;
+}
+
 .weui-tab__content {
   /* padding-top: 30px;  */
   text-align: center;

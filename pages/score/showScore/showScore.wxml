@@ -33,6 +33,11 @@
       注：最终成绩以教务为准，本程序计算结果仅作参考。学分为0或成绩低于60分的课程不纳入计算公式。
     </view>
   </view>
+  <!-- 广告位 -->
+  <view class='ads'>
+    <ad unit-id="adunit-62f52651dd5f4ff6"></ad>
+  </view>
+  <!-- 广告位结束 -->
   <view class="weui-footer">
     <view class="weui-footer__links">
       <text class="weui-footer__link">很奔放</text>

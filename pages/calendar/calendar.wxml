@@ -17,16 +17,6 @@
               <view class="weui-article__h2">现在是：{{time}}</view>
               <image src='https://airmole.cn/wechat/wxapp/images/18-19I.png' mode='widthFix'></image>
             </view>
-            <button open-type="share" class="login-btn">
-              <text>分享校历给同学</text>
-            </button>
-            <view class="weui-footer">
-              <view class="weui-footer__links">
-                <navigator url="/pages/features/about" class="weui-footer__link">Airmole.</navigator>
-                <navigator url="/pages/features/about" class="weui-footer__link">智慧校园</navigator>
-              </view>
-              <view class="weui-footer__text">Copyright © 2018 北京科技大学天津学院.</view>
-            </view>
           </view>
         </view>
         <view class="weui-tab__content" hidden="{{activeIndex != 1}}">
@@ -36,16 +26,25 @@
               <view class="weui-article__h2">建议手机横屏观看</view>
               <image src='https://airmole.cn/wechat/wxapp/images/SchoolMap.png' mode='widthFix'></image>
             </view>
-            <view class="weui-footer">
-              <view class="weui-footer__links">
-                <navigator url="/pages/features/about" class="weui-footer__link">Airmole.</navigator>
-                <navigator url="/pages/features/about" class="weui-footer__link">智慧校园</navigator>
-              </view>
-              <view class="weui-footer__text">Copyright © 2018 北京科技大学天津学院.</view>
-            </view>
+
           </view>
         </view>
       </view>
     </view>
   </view>
+</view>
+<button open-type="share" class="login-btn">
+  <text>分享校历/地图给同学</text>
+</button>
+<!-- 广告位 -->
+<view class='ads'>
+  <ad unit-id="adunit-62f52651dd5f4ff6"></ad>
+</view>
+<!-- 广告位结束 -->
+<view class="weui-footer">
+  <view class="weui-footer__links">
+    <navigator url="/pages/features/about" class="weui-footer__link">Airmole.</navigator>
+    <navigator url="/pages/features/about" class="weui-footer__link">智慧校园</navigator>
+  </view>
+  <view class="weui-footer__text">Copyright © 2018 北京科技大学天津学院.</view>
 </view>

@@ -40,9 +40,9 @@
 				},
 				{
 					"id": 1,
-					"name": "welcome",
-					"pathName": "pages/welcome/welcome",
-					"query": ""
+					"name": "map",
+					"pathName": "pages/calendar/calendar",
+					"query": "activeIndex=1"
 				}
 			]
 		}

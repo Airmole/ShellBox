@@ -5,6 +5,7 @@ Page {
   background-color: #7acfa6;
 }
 
+
 .shareIcon {
   width: 26px;
   height: 26px;

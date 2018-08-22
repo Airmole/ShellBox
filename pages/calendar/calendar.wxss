@@ -1,6 +1,10 @@
 /* pages/calendar/calendar.wxss */
 @import "../common/weui.wxss";
 
+.ads {
+  padding: 30rpx 15rpx 30rpx 15rpx;
+}
+
 .setCenter {
   text-align: center;
 }
