@@ -39,12 +39,18 @@ Page({
             jsonContent: res.data,
           })
           console.log(res.data);
-          if (res.data.data.msg == '密码错误') {
+          if (res.data.code == 200) {
+            if (res.data.data.msg == '密码错误') {
+              wx.redirectTo({
+                url: '/pages/error/queryerror'
+              })
+            }
+            wx.hideToast()
+          } else {
             wx.redirectTo({
               url: '/pages/error/queryerror'
             })
           }
-          wx.hideToast()
         }
       })
     }
