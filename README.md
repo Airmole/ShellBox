@@ -1,6 +1,20 @@
 # ShellBox
 贝壳盒子Wechat小程序
+
+
+![Github All Releases](https://img.shields.io/github/downloads/atom/atom/total.svg)
+![Github file size](https://img.shields.io/github/size/webcaetano/craft/build/phaser-craft.min.js.svg)
+![GitHub last commit](https://img.shields.io/github/last-commit/google/skia.svg)
+![GitHub](https://img.shields.io/github/license/mashape/apistatus.svg)
+[![https://blog.airmole.cn](https://img.shields.io/badge/Blog-Airmole-green.svg)](https://blog.airmole.cn)
+
+
+
+
+
 ## 不想写文档，就是不想写文档。。。
+
+-----
 因为代码蛮简单的，看代码和注释绝对都可以看懂的。。
 
 ```
@@ -57,3 +71,5 @@
 - 优化图书馆系统无响应时的界面
 
 - 增加订阅宿舍电量不足提醒功能（这个要到学校了才能做）
+
+- 用户可以自由在班级课表与个人课表之间自由切换
