@@ -1,5 +1,4 @@
 // pages/bookSearch/bookInfo/bookDetail.js
-//最最最复杂的js应该就是这个关键字查书详细页面的了吧。。。
 Page({
   data: {
     marc_no: "",
@@ -7,15 +6,15 @@ Page({
     jsonStr: "",
     doubanStr: '',
   },
-  onShareAppMessage: function (res) {
+  onShareAppMessage: function(res) {
     console.log(this.options.marc_no)
     return {
-      title: '我在北科天院图书馆找到本《' + this.data.doubanStr.title +'》,你也来看看吧~',
-      path: 'pages/bookSearch/bookInfo/bookDetail?marc_no='+this.options.marc_no,
+      title: '我在北科天院图书馆找到本《' + this.data.doubanStr.title + '》,你也来看看吧~',
+      path: 'pages/bookSearch/bookInfo/bookDetail?marc_no=' + this.options.marc_no,
       imageUrl: this.data.doubanStr.images.large
     }
   },
-  onLoad: function (options) {
+  onLoad: function(options) {
     wx.showToast({
       title: "loading",
       icon: "loading",
@@ -24,7 +23,7 @@ Page({
     var that = this;
     wx.request({
       url: 'https://airmole.cn/wechat/wxapp/api/mn2ISBN.php?marc_no=' + options.marc_no,
-      success: function (res) {
+      success: function(res) {
         that.setData({
           ISBN: res.data,
         })
@@ -36,7 +35,7 @@ Page({
         }
         wx.request({
           url: 'https://airmole.cn/wechat/wxapp/api/isbn2info.php?ISBN=' + res.data,
-          success: function (res) {
+          success: function(res) {
             that.setData({
               jsonStr: res.data,
             })
@@ -52,13 +51,13 @@ Page({
               header: {
                 'content-type': 'application/x-www-form-urlencoded',
               },
-              success: function (res) {
+              success: function(res) {
                 that.setData({
                   doubanStr: res.data,
                 })
                 // console.log(res.data)
               },
-              fail: function (res) {
+              fail: function(res) {
                 wx.showToast({
                   title: res.errMsg,
                   icon: 'loading',

@@ -32,7 +32,7 @@ Page({
             // remind:"完成",
           })
           wx.hideToast()
-          // console.log(res.data);
+          console.log(res.data);
         }
       })
     }
