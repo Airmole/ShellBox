@@ -1,11 +1,10 @@
 # ShellBox
 贝壳盒子Wechat小程序
 
-
-![Github All Releases](https://img.shields.io/github/downloads/atom/atom/total.svg)
-![Github file size](https://img.shields.io/github/size/webcaetano/craft/build/phaser-craft.min.js.svg)
-![GitHub last commit](https://img.shields.io/github/last-commit/google/skia.svg)
-![GitHub](https://img.shields.io/github/license/mashape/apistatus.svg)
+[![Star](https://img.shields.io/badge/Star-Airmole-brightgreen.svg)](/Airmole/ShellBox/stargazers)
+[![Download](https://img.shields.io/badge/download-.zip-brightgreen.svg)](https://github.com/Airmole/ShellBox/archive/master.zip)
+[![size](https://img.shields.io/badge/size-4.27MB-green.svg)]()
+[![last commit](https://img.shields.io/badge/last%20commit-2018--08--28-green.svg)]()
 [![https://blog.airmole.cn](https://img.shields.io/badge/Blog-Airmole-green.svg)](https://blog.airmole.cn)
 
 
