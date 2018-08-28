@@ -1,7 +1,7 @@
 # ShellBox
 贝壳盒子Wechat小程序
 
-[![Star](https://img.shields.io/badge/Star-Airmole-brightgreen.svg)](./Airmole/ShellBox/stargazers)
+[![Star](https://img.shields.io/badge/Star-Airmole-brightgreen.svg)](https://github.com/Airmole/ShellBox/stargazers)
 [![Download](https://img.shields.io/badge/download-.zip-brightgreen.svg)](https://github.com/Airmole/ShellBox/archive/master.zip)
 [![size](https://img.shields.io/badge/size-4.27MB-green.svg)]()
 [![last commit](https://img.shields.io/badge/last%20commit-2018--08--28-green.svg)]()
