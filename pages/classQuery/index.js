@@ -25,7 +25,7 @@ Page({
       })
     } else {
       wx.request({
-        url: 'https://airmole.cn/wechat/wxapp/api/ClassTest.php?uid=' + app.globalData.uid + '&pwd=' + app.globalData.pwd,
+        url: 'https://airmole.cn/wechat/wxapp/api/ClassTest1.php?uid=' + app.globalData.uid + '&pwd=' + app.globalData.pwd,
         success: function(res) {
           that.setData({
             classStr: res.data,

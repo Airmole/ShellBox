@@ -17,6 +17,7 @@
           <view class="left"> 3 </view>
           <view class="left"> 4 </view>
           <view class="left"> 5 </view>
+          <view class="left" style="background-color:#D2E6B3;color:#7cba23;"> 6 </view>
         </view>
         <view wx:if='{{classStr[1][0][0]!==" "}}' bindtap="showHelp" data-set="{{classStr[1][0][0]}}">
           <view class="flex-item kcb-item" data-statu="open" style="margin-left:0px;margin-top:1px;height:115px;background-color:#85B8CF">
@@ -41,6 +42,11 @@
         <view wx:if='{{classStr[5][0][0]!==" "}}' bindtap="showHelp" data-set="{{classStr[5][0][0]}}">
           <view class="flex-item kcb-item" data-statu="open" style="margin-left:0px;margin-top:460px;height:115px;background-color:#0A9A84">
             <view class="smalltext">{{classStr[5][0][0]}}</view>
+          </view>
+        </view>
+        <view wx:if='{{classStr[6][0][0]!==" "}}' bindtap="showHelp" data-set="{{classStr[6][0][0]}}">
+          <view class="flex-item kcb-item" data-statu="open" style="margin-left:0px;margin-top:575px;height:115px;background-color:#0A9A84">
+            <view class="smalltext">{{classStr[6][0][0]}}</view>
           </view>
         </view>
         <view wx:if='{{classStr[1][0][1]!==" "}}' bindtap="showHelp" data-set="{{classStr[1][0][1]}}">
@@ -68,6 +74,11 @@
             <view class="smalltext">{{classStr[5][0][1]}}</view>
           </view>
         </view>
+        <view wx:if='{{classStr[6][0][1]!==" "}}' bindtap="showHelp" data-set="{{classStr[6][0][1]}}">
+          <view class="flex-item kcb-item" data-statu="open" style="margin-left:{{marginleft}}px;margin-top:575px;height:115px;background-color:#85B8CF">
+            <view class="smalltext">{{classStr[6][0][1]}}</view>
+          </view>
+        </view>
         <view wx:if='{{classStr[1][0][2]!==" "}}' bindtap="showHelp" data-set="{{classStr[1][0][2]}}">
           <view class="flex-item kcb-item" data-statu="open" style="margin-left:{{marginleft*2}}px;margin-top:1px;height:115px;background-color:#90C652">
             <view class="smalltext">{{classStr[1][0][2]}}</view>
@@ -91,6 +102,11 @@
         <view wx:if='{{classStr[5][0][2]!==" "}}' bindtap="showHelp" data-set="{{classStr[5][0][2]}}">
           <view class="flex-item kcb-item" data-statu="open" style="margin-left:{{marginleft*2}}px;margin-top:460px;height:115px;background-color:#61BC69">
             <view class="smalltext">{{classStr[5][0][2]}}</view>
+          </view>
+        </view>
+        <view wx:if='{{classStr[6][0][2]!==" "}}' bindtap="showHelp" data-set="{{classStr[6][0][2]}}">
+          <view class="flex-item kcb-item" data-statu="open" style="margin-left:{{marginleft*2}}px;margin-top:575px;height:115px;background-color:#61BC69">
+            <view class="smalltext">{{classStr[6][0][2]}}</view>
           </view>
         </view>
         <view wx:if='{{classStr[1][0][3]!==" "}}' bindtap="showHelp" data-set="{{classStr[1][0][3]}}">
@@ -118,6 +134,11 @@
             <view class="smalltext">{{classStr[5][0][3]}}</view>
           </view>
         </view>
+        <view wx:if='{{classStr[6][0][3]!==" "}}' bindtap="showHelp" data-set="{{classStr[6][0][3]}}">
+          <view class="flex-item kcb-item" data-statu="open" style="margin-left:{{marginleft*3}}px;margin-top:575px;height:115px;background-color:#90C652">
+            <view class="smalltext">{{classStr[6][0][3]}}</view>
+          </view>
+        </view>
         <view wx:if='{{classStr[1][0][4]!==" "}}' bindtap="showHelp" data-set="{{classStr[1][0][4]}}">
           <view class="flex-item kcb-item" data-statu="open" style="margin-left:{{marginleft*4}}px;margin-top:1px;height:115px;background-color:#D8AA5A">
             <view class="smalltext">{{classStr[1][0][4]}}</view>
@@ -143,7 +164,11 @@
             <view class="smalltext">{{classStr[5][0][4]}}</view>
           </view>
         </view>
-
+        <view wx:if='{{classStr[6][0][4]!==" "}}' bindtap="showHelp" data-set="{{classStr[6][0][4]}}">
+          <view class="flex-item kcb-item" data-statu="open" style="margin-left:{{marginleft*4}}px;margin-top:575px;height:115px;background-color:#12AEF3">
+            <view class="smalltext">{{classStr[6][0][4]}}</view>
+          </view>
+        </view>
         <view wx:if='{{classStr[1][0][5]!==" "}}' bindtap="showHelp" data-set="{{classStr[1][0][5]}}">
           <view class="flex-item kcb-item" data-statu="open" style="margin-left:{{marginleft*5}}px;margin-top:1px;height:115px;background-color:#D8AA5A">
             <view class="smalltext">{{classStr[1][0][5]}}</view>
@@ -169,7 +194,11 @@
             <view class="smalltext">{{classStr[5][0][5]}}</view>
           </view>
         </view>
-
+        <view wx:if='{{classStr[6][0][5]!==" "}}' bindtap="showHelp" data-set="{{classStr[6][0][5]}}">
+          <view class="flex-item kcb-item" data-statu="open" style="margin-left:{{marginleft*5}}px;margin-top:575px;height:115px;background-color:#12AEF3">
+            <view class="smalltext">{{classStr[6][0][5]}}</view>
+          </view>
+        </view>
         <view wx:if='{{classStr[1][0][6]!==" "}}' bindtap="showHelp" data-set="{{classStr[1][0][6]}}">
           <view class="flex-item kcb-item" data-statu="open" style="margin-left:{{marginleft*6}}px;margin-top:1px;height:115px;background-color:#D8AA5A">
             <view class="smalltext">{{classStr[1][0][6]}}</view>
@@ -193,6 +222,11 @@
         <view wx:if='{{classStr[5][0][6]!==" "}}' bindtap="showHelp" data-set="{{classStr[5][0][6]}}">
           <view class="flex-item kcb-item" data-statu="open" style="margin-left:{{marginleft*6}}px;margin-top:460px;height:115px;background-color:#12AEF3">
             <view class="smalltext">{{classStr[5][0][6]}}</view>
+          </view>
+        </view>
+        <view wx:if='{{classStr[6][0][6]!==" "}}' bindtap="showHelp" data-set="{{classStr[6][0][6]}}">
+          <view class="flex-item kcb-item" data-statu="open" style="margin-left:{{marginleft*6}}px;margin-top:575px;height:115px;background-color:#12AEF3">
+            <view class="smalltext">{{classStr[6][0][6]}}</view>
           </view>
         </view>
       </view>
