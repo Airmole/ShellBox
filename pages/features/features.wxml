@@ -29,7 +29,10 @@
         好用！分享给同学
       </button>
     </view>
-    <view bindtap='logout' class="login-btn">
+    <view wx:if="{{uid=='' || pwd=='' }}" bindtap='logout' class="login-btn">
+      <text>学号登录</text>
+    </view>
+    <view wx:else bindtap='logout' class="logout-btn">
       <text>注销登录</text>
     </view>
     <!-- 广告位 -->

@@ -5,6 +5,8 @@ Page({
    * 页面的初始数据
    */
   data: {
+    uid: '',
+    pwd: '',
     grids: [{
         name: '校历/地图',
         navurl: '/pages/calendar/calendar',
@@ -78,13 +80,26 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function(options) {},
+  onLoad: function(options) {
+    var that = this;
+    wx.showToast({
+      title: "loading",
+      icon: "loading",
+      duration: 5000
+    })
+    that.setData({
+      uid: app.globalData.uid,
+      pwd: app.globalData.pwd,
+    });
+    wx.hideToast()
+  },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function() {
-
+    var that = this;
+    that.onLoad();
   },
 
   /**

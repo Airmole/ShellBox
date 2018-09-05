@@ -31,11 +31,22 @@ button {
   width: 100%;
 }
 
-.login-btn {
+.logout-btn {
   font-size: 13pt;
   line-height: 85rpx;
   height: 85rpx;
   background: #e55c5c;
+  color: #fff;
+  text-align: center;
+  border-radius: 5px;
+  margin: 40rpx 3%;
+}
+
+.login-btn {
+  font-size: 13pt;
+  line-height: 85rpx;
+  height: 85rpx;
+  background: #7acfa6;
   color: #fff;
   text-align: center;
   border-radius: 5px;
