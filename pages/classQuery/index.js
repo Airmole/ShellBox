@@ -62,5 +62,18 @@ Page({
     this.setData({
       'help_status': false
     });
-  }
+  },
+  /**
+   * 长按复制到粘贴板的处理函数
+   */
+  copyIt: function(event) {
+    wx.setClipboardData({
+      data: event.target.id
+    })
+    wx.showToast({
+      title: '已复制到粘贴版',
+      icon: 'none',
+      duration: 1000
+    });
+  },
 })

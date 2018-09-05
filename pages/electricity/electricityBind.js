@@ -1,7 +1,6 @@
 // pages/electricity/electricityBind.js
 var app = getApp()
 Page({
-
   /**
    * 页面的初始数据
    */
@@ -18,7 +17,7 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
+  onLoad: function(options) {
     var building = wx.getStorageSync('building');
     var roomNo = wx.getStorageSync('roomNo');
     let that = this;
@@ -35,50 +34,50 @@ Page({
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
-  onReady: function () {
+  onReady: function() {
 
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function () {
+  onShow: function() {
 
   },
 
   /**
    * 生命周期函数--监听页面隐藏
    */
-  onHide: function () {
+  onHide: function() {
 
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
-  onUnload: function () {
+  onUnload: function() {
 
   },
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
-  onPullDownRefresh: function () {
+  onPullDownRefresh: function() {
 
   },
 
-  bindPickerChange: function (e) {
+  bindPickerChange: function(e) {
     this.setData({
       index: e.detail.value
     })
   },
-  inputFocus: function (e) {
+  inputFocus: function(e) {
     var id = e.target.id,
       newData = {};
     newData[id + '_focus'] = true;
     this.setData(newData);
   },
-  roomInput: function (e) {
+  roomInput: function(e) {
     this.setData({
       'room': e.detail.value
     });
@@ -87,7 +86,7 @@ Page({
     }
   },
   //提交表单
-  formSubmit: function (e) {
+  formSubmit: function(e) {
     // console.log('form发生了submit事件，携带数据为：' + this.data.zhaiArray[e.detail.value.building]);
     // console.log('form发生了submit事件，携带数据为：' + e.detail.value.roomNo);
     let that = this;
@@ -99,7 +98,7 @@ Page({
         duration: 1000
       });
     } else {
-      var regNum = new RegExp('[1-4][0-4][0-9]', 'g');//判断用户输入的宿舍号是否大致合适
+      var regNum = new RegExp('[1-4][0-4][0-9]', 'g'); //判断用户输入的宿舍号是否大致合适
       var rsNum = regNum.exec(e.detail.value.roomNo);
       if (!rsNum) {
         wx.showToast({
@@ -112,7 +111,7 @@ Page({
         //楼斋和寝室号码大致是对的
         wx.request({
           url: 'https://airmole.cn/wechat/wxapp/api/eleQueryService.php?zhai=' + that.data.zhaiArray[e.detail.value.building] + '&room=' + e.detail.value.roomNo,
-          success: function (res) {
+          success: function(res) {
             that.setData({
               eleJson: res.data,
             })
@@ -137,6 +136,5 @@ Page({
         })
       }
     }
-
   },
 })

@@ -12,7 +12,7 @@
     <view class="detail-list" wx:for="{{telNumber}}" wx:key="telList">
       <view class="detail-item">
         <text class="detail-item-label">{{item.name}}</text>
-        <text class="detail-item-value" id='{{item.tel}}' bindtap='callPhone' bindlongtap="copyIt">{{item.tel}}</text>
+        <text class="detail-item-value" id='{{item.tel}}' bindtap='callPhone' bindlongpress="copyIt">{{item.tel}}</text>
       </view>
     </view>
     <view class="weui-cells__tips">外地用户请加拨天津长途区号 022</view>

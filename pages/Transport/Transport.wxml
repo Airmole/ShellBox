@@ -47,7 +47,7 @@
           </view>
         </view>
         <!-- 市区部分代码 -->
-        <view class="weui-tab__content" hidden="{{activeIndex != 1}}" style='background-color:#7acfa6;height:680px;'>
+        <view class="weui-tab__content" hidden="{{activeIndex != 1}}" style='background-color:#7acfa6;height:820px;'>
           <text>\r\n</text>
           <view class="ykt-detail-wraper">
             <view class="weui-form-preview__hd">
@@ -79,6 +79,11 @@
               </view>
             </view>
           </view>
+          <!-- 广告位 -->
+          <view class='ads'>
+            <ad unit-id="adunit-62f52651dd5f4ff6"></ad>
+          </view>
+          <!-- 广告位结束 -->
 
           <view class="ykt-detail-wraper">
             <view class="weui-form-preview__hd">

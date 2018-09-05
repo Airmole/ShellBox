@@ -11,11 +11,11 @@
         <form class="login-form" bindsubmit="submitInfo">
           <view class="input-group {{userid_focus ? 'active' : ''}}">
             <text class="input-label">学号</text>
-            <input name='uid' type="number" cursor-spacing="30" placeholder="请输入你的学号" bindinput='UidInput' />
+            <input name='uid' id='userid' type="number" cursor-spacing="30" placeholder="请输入你的学号" bindinput='UidInput' bindfocus="inputFocus" bindblur="inputBlur" />
           </view>
           <view class="input-group {{passwd_focus ? 'active' : ''}}">
             <text class="input-label">密码</text>
-            <input name='pwd' password="true" cursor-spacing="30" placeholder="请输入你的教务密码" />
+            <input name='pwd' id='passwd' password="true" cursor-spacing="30" placeholder="请输入你的教务密码" bindfocus="inputFocus" bindblur="inputBlur" />
           </view>
           <view class="login-help" bindtap="showHelp">
             <text>帮助</text>
@@ -35,17 +35,17 @@
           <view class="box-bd">
             <view class="help-q">1、学号和密码是什么？</view>
             <view class="help-a">
-              <text>学号：学号就是你的教务学号啊。</text>
-              <text>密码：是您登录教务网查询课表、成绩的初始密码或者已更改密码</text>
-              <text>其中初始密码与个人身份证号码相关，通常默认密码是您的身份证号中包含的生日的部分或完整的身份证号码（含有X的大写）</text>
+              <text>学号：学号就是你的教务学号。</text>
+              <text>密码：即登录教务网查课表、成绩的初始密码或已更改密码</text>
+              <text>初始密码与个人身份证号码相关,通常默认密码是您的身份证号中包含生日的部分或完整的身份证号码(含X则大写)</text>
             </view>
             <view class="help-q">2、忘记密码？</view>
             <view class="help-a">
               <text>请携带学生证和身份证前往行政楼206重置教务密码</text>
             </view>
-            <view class="help-q">3、大一萌新？暂时还没有学号😥</view>
+            <view class="help-q">3、大一新生？暂时还没有学号😥</view>
             <view class="help-a">
-              <text>请耐心等待学校教务部门注册学籍，办理学生证，然后你就有学号啦。（不要企图用你们的高考考生号登录成功）</text>
+              <text>请耐心等待教务部门注册学籍，办理学生证，然后你就有学号啦。(不要企图用高考考生号登录成功)</text>
             </view>
           </view>
         </view>

@@ -238,7 +238,7 @@
         <text class="box-title">课程信息</text>
         <image class="box-close" src="/images/close.png" bindtap="hideHelp"></image>
       </view>
-      <view class="box-bd">{{ClassDetail}}</view>
+      <view class="box-bd" id='{{ClassDetail}}' bindlongpress='copyIt'>{{ClassDetail}}</view>
     </view>
   </view>
 </page>
