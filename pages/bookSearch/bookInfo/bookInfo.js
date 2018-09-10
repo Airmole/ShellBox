@@ -4,7 +4,7 @@ Page({
     jsonStr: "",
     doubanStr: '',
   },
-  onLoad: function (options) {
+  onLoad: function(options) {
     wx.showToast({
       title: "loading",
       icon: "loading",
@@ -12,11 +12,12 @@ Page({
     })
     var that = this;
     wx.request({
-      url: 'https://airmole.cn/wechat/wxapp/api/isbn2info.php?ISBN=' + options.ISBN,
-      success: function (res) {
+      url: 'https://airmole.cn/wechat/wxapp/api/isbn2info2.php?ISBN=' + options.ISBN,
+      success: function(res) {
         that.setData({
           jsonStr: res.data,
         })
+        console.log(res.data)
       }
     });
     wx.request({
@@ -25,13 +26,13 @@ Page({
       header: {
         'content-type': 'application/x-www-form-urlencoded',
       },
-      success: function (res) {
+      success: function(res) {
         that.setData({
           doubanStr: res.data,
         })
         // console.log(res.data);
       },
-      fail: function (res) {
+      fail: function(res) {
         wx.showToast({
           title: res.errMsg,
           icon: 'loading',
@@ -42,10 +43,10 @@ Page({
     wx.hideToast()
 
   },
-  onReady: function () {
+  onReady: function() {
 
   },
-  onShareAppMessage: function (res) {
+  onShareAppMessage: function(res) {
     console.log(this)
     return {
       title: '我在北科天院图书馆找到本《' + this.data.doubanStr.title + '》,你也来看看吧~',

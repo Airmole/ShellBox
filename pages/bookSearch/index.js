@@ -6,17 +6,56 @@ Page({
     jsonStr: "",
     keywordStr: '',
     showTips: false,
-    notices: " "
+    notices: " ",
+    searchPanelShow: false,
+    SearchType: 'BookName',
+    radioItems: [{
+        name: '书名',
+        value: 'BookName',
+        checked: true
+      },
+      {
+        name: '作者',
+        value: 'Author'
+      },
+      {
+        name: '出版社',
+        value: 'Publisher'
+      }
+    ]
   },
   showInput: function() {
     this.setData({
       inputShowed: true
     });
   },
+  onBindFocus: function(event) {
+    this.setData({
+      searchPanelShow: true
+    })
+  },
+  onBindBlur: function(event) {
+    this.setData({
+      searchPanelShow: false
+    })
+  },
   hideInput: function() {
     this.setData({
       inputVal: "",
       inputShowed: false
+    });
+  },
+  radioChange: function(e) {
+    console.log(e.detail.value);
+    this.setData({
+      SearchType: e.detail.value
+    })
+    var radioItems = this.data.radioItems;
+    for (var i = 0, len = radioItems.length; i < len; ++i) {
+      radioItems[i].checked = radioItems[i].value == e.detail.value;
+    }
+    this.setData({
+      radioItems: radioItems,
     });
   },
   clearInput: function() {
@@ -35,7 +74,6 @@ Page({
     this.setData({
       keyword: e.detail.value
     });
-
     let that = this;
     if (e.detail.value.length == 0) {
       wx.showToast({
@@ -45,13 +83,19 @@ Page({
         duration: 2000
       });
     } else {
+      wx.showToast({
+        title: "正在搜索..",
+        icon: "loading",
+        duration: 8000
+      })
       wx.request({
-        url: 'https://airmole.cn/wechat/wxapp/api/bookSearch_api.php?keyword=' + e.detail.value,
+        url: 'https://airmole.cn/wechat/wxapp/api/' + this.data.SearchType + 'Search.php?keyword=' + e.detail.value,
         success: function(res) {
           that.setData({
             keywordStr: res.data,
           })
           console.log(res.data);
+          wx.hideToast()
           if (res.data == '空的，查无此书') {
             wx.showToast({
               title: '本馆暂无此书',
@@ -61,7 +105,7 @@ Page({
             });
           } else {
             wx.navigateTo({
-              url: '../bookSearch/bookInfo/bookList?keyword=' + e.detail.value,
+              url: '../bookSearch/bookInfo/bookList?keyword=' + e.detail.value + '&SearchType=' + that.data.SearchType,
             })
           }
         }

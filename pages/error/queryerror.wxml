@@ -3,16 +3,15 @@
     <view class="page__title"></view>
   </view>
   <view class="page__bd">
-    <view class="icon-box">
-      <icon type="info" size="93"></icon>
-      <view class="icon-box__ctn">
-        <view class="icon-box__title">无法查询</view>
-        <view class="icon-box__desc">您查询的信息暂时无法查询，您可能没有正确填写信息。也可能是本程序存在问题😞</view>
-      </view>
+    <view class="remind-box">
+      <image class="remind-img" src="/images/nothing.png"></image>
+      <text class="remind-text">{{ErrorTips}}</text>
     </view>
-    <button bindtap="goBack" class="weui-btn" type="default">返回上页</button>
-    <button bindtap="goIndex" class="weui-btn" type="primary">取消查询</button>
+    <button bindtap='goBack' class="login-btn">
+      <text>返回</text>
+    </button>
   </view>
+
   <view class="weui-footer  weui-footer_fixed-bottom">
     <view class="weui-footer__links">
       <navigator url="/pages/features/about" class="weui-footer__link">Airmole.</navigator>

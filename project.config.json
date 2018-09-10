@@ -34,15 +34,15 @@
 			"list": [
 				{
 					"id": 0,
-					"name": "netfare",
-					"pathName": "pages/net/netfare",
+					"name": "error",
+					"pathName": "pages/error/queryerror",
 					"query": ""
 				},
 				{
 					"id": 1,
-					"name": "map",
-					"pathName": "pages/calendar/calendar",
-					"query": "activeIndex=1"
+					"name": "score",
+					"pathName": "pages/score/showScore/showScore",
+					"query": ""
 				}
 			]
 		}

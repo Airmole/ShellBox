@@ -3,8 +3,20 @@
   <view class="page__hd">
     <view class="page__title">成绩查询</view>
   </view>
-  <view class="ykt-detail-wraper" bindtap='GetScoreList' wx:if="{{jsonContent.data}}">
-    <image src='/images/GetScoreList.png' mode="widthFix" style='margin: 0 auto;'></image>
+  <view class="score__hd" wx:if="{{jsonContent.data}}">
+    <button class="clear" bindtap='GetScoreList'>
+      <view class="weui-item border-shadow background-1">
+        <view class="weui-flex">
+          <view class="weui-flex__item">
+            <view class="weui-item__title">分享成绩单</view>
+            <view class="weui-item__desc">My transcript</view>
+          </view>
+          <view class="weui-flex__item">
+            <image class="weui-media-box__thumb" style="width:80rpx;height:80rpx;float:right;" src="/images/score.png" />
+          </view>
+        </view>
+      </view>
+    </button>
   </view>
   <block wx:for="{{jsonContent.data}}" wx:key="scoolYear">
     <view class="page__bd" style='background-color:#fff;border-radius:15px;padding-bottom:20px;'>
@@ -17,7 +29,7 @@
             </view>
           </view>
           <view class="weui-cell__ft" style='color:red;' wx:if="{{item.score<60}}">{{item.score}}</view>
-          <view class="weui-cell__ft" style='color:blue;' wx:elif="{{item.score > 90}}">{{item.score}}</view>
+          <view class="weui-cell__ft" style='color:blue;' wx:elif="{{item.score >= 90}}">{{item.score}}</view>
           <view class="weui-cell__ft" style='color:#000;' wx:else>{{item.score}}</view>
         </view>
       </view>

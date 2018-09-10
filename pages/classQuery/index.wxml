@@ -1,244 +1,244 @@
-<page>
+<!-- <scroll-view scroll-y> -->
+<view>
+  <view class="top">
+    <view class="top-text">周一</view>
+    <view class="top-text">周二</view>
+    <view class="top-text">周三</view>
+    <view class="top-text">周四</view>
+    <view class="top-text">周五</view>
+    <view class="top-text">周六</view>
+    <view class="top-text">周日</view>
+  </view>
   <view>
-    <view class="top">
-      <view class="top-text">周一</view>
-      <view class="top-text">周二</view>
-      <view class="top-text">周三</view>
-      <view class="top-text">周四</view>
-      <view class="top-text">周五</view>
-      <view class="top-text">周六</view>
-      <view class="top-text">周日</view>
-    </view>
-    <view>
-      <view style="height:600px;display:flex;">
-        <view style="background-color:#D2E6B3;color:#7cba23;">
-          <view class="left"> 1 </view>
-          <view class="left"> 2 </view>
-          <view class="left"> 3 </view>
-          <view class="left"> 4 </view>
-          <view class="left"> 5 </view>
-          <view class="left" style="background-color:#D2E6B3;color:#7cba23;"> 6 </view>
+    <view style="height:600px;display:flex;">
+      <view style="background-color:#D2E6B3;color:#7cba23;">
+        <view class="left"> 1 </view>
+        <view class="left"> 2 </view>
+        <view class="left"> 3 </view>
+        <view class="left"> 4 </view>
+        <view class="left"> 5 </view>
+        <view class="left" style="background-color:#D2E6B3;color:#7cba23;"> 6 </view>
+      </view>
+      <view wx:if='{{classStr[1][0][0]!==" "}}' bindtap="showHelp" data-set="{{classStr[1][0][0]}}">
+        <view class="flex-item kcb-item" data-statu="open" style="margin-left:0px;margin-top:1px;height:115px;background-color:#85B8CF">
+          <view class="smalltext">{{classStr[1][0][0]}}</view>
         </view>
-        <view wx:if='{{classStr[1][0][0]!==" "}}' bindtap="showHelp" data-set="{{classStr[1][0][0]}}">
-          <view class="flex-item kcb-item" data-statu="open" style="margin-left:0px;margin-top:1px;height:115px;background-color:#85B8CF">
-            <view class="smalltext">{{classStr[1][0][0]}}</view>
-          </view>
+      </view>
+      <view wx:if='{{classStr[2][0][0]!==" "}}' bindtap="showHelp" data-set="{{classStr[2][0][0]}}">
+        <view class="flex-item kcb-item" data-statu="open" style="margin-left:0px;margin-top:115px;height:115px;background-color:#90C652">
+          <view class="smalltext">{{classStr[2][0][0]}}</view>
         </view>
-        <view wx:if='{{classStr[2][0][0]!==" "}}' bindtap="showHelp" data-set="{{classStr[2][0][0]}}">
-          <view class="flex-item kcb-item" data-statu="open" style="margin-left:0px;margin-top:115px;height:115px;background-color:#90C652">
-            <view class="smalltext">{{classStr[2][0][0]}}</view>
-          </view>
+      </view>
+      <view wx:if='{{classStr[3][0][0]!==" "}}' bindtap="showHelp" data-set="{{classStr[3][0][0]}}">
+        <view class="flex-item kcb-item" data-statu="open" style="margin-left:0px;margin-top:230px;height:115px;background-color:#D8AA5A">
+          <view class="smalltext">{{classStr[3][0][0]}}</view>
         </view>
-        <view wx:if='{{classStr[3][0][0]!==" "}}' bindtap="showHelp" data-set="{{classStr[3][0][0]}}">
-          <view class="flex-item kcb-item" data-statu="open" style="margin-left:0px;margin-top:230px;height:115px;background-color:#D8AA5A">
-            <view class="smalltext">{{classStr[3][0][0]}}</view>
-          </view>
+      </view>
+      <view wx:if='{{classStr[4][0][0]!==" "}}' bindtap="showHelp" data-set="{{classStr[4][0][0]}}">
+        <view class="flex-item kcb-item" data-statu="open" style="margin-left:0px;margin-top:345px;height:115px;background-color:#FC9F9D">
+          <view class="smalltext">{{classStr[4][0][0]}}</view>
         </view>
-        <view wx:if='{{classStr[4][0][0]!==" "}}' bindtap="showHelp" data-set="{{classStr[4][0][0]}}">
-          <view class="flex-item kcb-item" data-statu="open" style="margin-left:0px;margin-top:345px;height:115px;background-color:#FC9F9D">
-            <view class="smalltext">{{classStr[4][0][0]}}</view>
-          </view>
+      </view>
+      <view wx:if='{{classStr[5][0][0]!==" "}}' bindtap="showHelp" data-set="{{classStr[5][0][0]}}">
+        <view class="flex-item kcb-item" data-statu="open" style="margin-left:0px;margin-top:460px;height:115px;background-color:#0A9A84">
+          <view class="smalltext">{{classStr[5][0][0]}}</view>
         </view>
-        <view wx:if='{{classStr[5][0][0]!==" "}}' bindtap="showHelp" data-set="{{classStr[5][0][0]}}">
-          <view class="flex-item kcb-item" data-statu="open" style="margin-left:0px;margin-top:460px;height:115px;background-color:#0A9A84">
-            <view class="smalltext">{{classStr[5][0][0]}}</view>
-          </view>
+      </view>
+      <view wx:if='{{classStr[6][0][0]!==" "}}' bindtap="showHelp" data-set="{{classStr[6][0][0]}}">
+        <view class="flex-item kcb-item" data-statu="open" style="margin-left:0px;margin-top:575px;height:115px;background-color:#0A9A84">
+          <view class="smalltext">{{classStr[6][0][0]}}</view>
         </view>
-        <view wx:if='{{classStr[6][0][0]!==" "}}' bindtap="showHelp" data-set="{{classStr[6][0][0]}}">
-          <view class="flex-item kcb-item" data-statu="open" style="margin-left:0px;margin-top:575px;height:115px;background-color:#0A9A84">
-            <view class="smalltext">{{classStr[6][0][0]}}</view>
-          </view>
+      </view>
+      <view wx:if='{{classStr[1][0][1]!==" "}}' bindtap="showHelp" data-set="{{classStr[1][0][1]}}">
+        <view class="flex-item kcb-item" data-statu="open" style="margin-left:{{marginleft}}px;margin-top:1px;height:115px;background-color:#61BC69">
+          <view class="smalltext">{{classStr[1][0][1]}}</view>
         </view>
-        <view wx:if='{{classStr[1][0][1]!==" "}}' bindtap="showHelp" data-set="{{classStr[1][0][1]}}">
-          <view class="flex-item kcb-item" data-statu="open" style="margin-left:{{marginleft}}px;margin-top:1px;height:115px;background-color:#61BC69">
-            <view class="smalltext">{{classStr[1][0][1]}}</view>
-          </view>
+      </view>
+      <view wx:if='{{classStr[2][0][1]!==" "}}' bindtap="showHelp" data-set="{{classStr[2][0][1]}}">
+        <view class="flex-item kcb-item" data-statu="open" style="margin-left:{{marginleft}}px;margin-top:115px;height:115px;background-color:#12AEF3">
+          <view class="smalltext">{{classStr[2][0][1]}}</view>
         </view>
-        <view wx:if='{{classStr[2][0][1]!==" "}}' bindtap="showHelp" data-set="{{classStr[2][0][1]}}">
-          <view class="flex-item kcb-item" data-statu="open" style="margin-left:{{marginleft}}px;margin-top:115px;height:115px;background-color:#12AEF3">
-            <view class="smalltext">{{classStr[2][0][1]}}</view>
-          </view>
+      </view>
+      <view wx:if='{{classStr[3][0][1]!==" "}}' bindtap="showHelp" data-set="{{classStr[3][0][1]}}">
+        <view class="flex-item kcb-item" data-statu="open" style="margin-left:{{marginleft}}px;margin-top:230px;height:115px;background-color:#E29AAD">
+          <view class="smalltext">{{classStr[3][0][1]}}</view>
         </view>
-        <view wx:if='{{classStr[3][0][1]!==" "}}' bindtap="showHelp" data-set="{{classStr[3][0][1]}}">
-          <view class="flex-item kcb-item" data-statu="open" style="margin-left:{{marginleft}}px;margin-top:230px;height:115px;background-color:#E29AAD">
-            <view class="smalltext">{{classStr[3][0][1]}}</view>
-          </view>
+      </view>
+      <view wx:if='{{classStr[4][0][1]!==" "}}' bindtap="showHelp" data-set="{{classStr[4][0][1]}}">
+        <view class="flex-item kcb-item" data-statu="open" style="margin-left:{{marginleft}}px;margin-top:345px;height:115px;background-color:#61BC69">
+          <view class="smalltext">{{classStr[4][0][1]}}</view>
         </view>
-        <view wx:if='{{classStr[4][0][1]!==" "}}' bindtap="showHelp" data-set="{{classStr[4][0][1]}}">
-          <view class="flex-item kcb-item" data-statu="open" style="margin-left:{{marginleft}}px;margin-top:345px;height:115px;background-color:#61BC69">
-            <view class="smalltext">{{classStr[4][0][1]}}</view>
-          </view>
+      </view>
+      <view wx:if='{{classStr[5][0][1]!==" "}}' bindtap="showHelp" data-set="{{classStr[5][0][1]}}">
+        <view class="flex-item kcb-item" data-statu="open" style="margin-left:{{marginleft}}px;margin-top:460px;height:115px;background-color:#85B8CF">
+          <view class="smalltext">{{classStr[5][0][1]}}</view>
         </view>
-        <view wx:if='{{classStr[5][0][1]!==" "}}' bindtap="showHelp" data-set="{{classStr[5][0][1]}}">
-          <view class="flex-item kcb-item" data-statu="open" style="margin-left:{{marginleft}}px;margin-top:460px;height:115px;background-color:#85B8CF">
-            <view class="smalltext">{{classStr[5][0][1]}}</view>
-          </view>
+      </view>
+      <view wx:if='{{classStr[6][0][1]!==" "}}' bindtap="showHelp" data-set="{{classStr[6][0][1]}}">
+        <view class="flex-item kcb-item" data-statu="open" style="margin-left:{{marginleft}}px;margin-top:575px;height:115px;background-color:#85B8CF">
+          <view class="smalltext">{{classStr[6][0][1]}}</view>
         </view>
-        <view wx:if='{{classStr[6][0][1]!==" "}}' bindtap="showHelp" data-set="{{classStr[6][0][1]}}">
-          <view class="flex-item kcb-item" data-statu="open" style="margin-left:{{marginleft}}px;margin-top:575px;height:115px;background-color:#85B8CF">
-            <view class="smalltext">{{classStr[6][0][1]}}</view>
-          </view>
+      </view>
+      <view wx:if='{{classStr[1][0][2]!==" "}}' bindtap="showHelp" data-set="{{classStr[1][0][2]}}">
+        <view class="flex-item kcb-item" data-statu="open" style="margin-left:{{marginleft*2}}px;margin-top:1px;height:115px;background-color:#90C652">
+          <view class="smalltext">{{classStr[1][0][2]}}</view>
         </view>
-        <view wx:if='{{classStr[1][0][2]!==" "}}' bindtap="showHelp" data-set="{{classStr[1][0][2]}}">
-          <view class="flex-item kcb-item" data-statu="open" style="margin-left:{{marginleft*2}}px;margin-top:1px;height:115px;background-color:#90C652">
-            <view class="smalltext">{{classStr[1][0][2]}}</view>
-          </view>
+      </view>
+      <view wx:if='{{classStr[2][0][2]!==" "}}' bindtap="showHelp" data-set="{{classStr[2][0][2]}}">
+        <view class="flex-item kcb-item" data-statu="open" style="margin-left:{{marginleft*2}}px;margin-top:115px;height:115px;background-color:#D8AA5A">
+          <view class="smalltext">{{classStr[2][0][2]}}</view>
         </view>
-        <view wx:if='{{classStr[2][0][2]!==" "}}' bindtap="showHelp" data-set="{{classStr[2][0][2]}}">
-          <view class="flex-item kcb-item" data-statu="open" style="margin-left:{{marginleft*2}}px;margin-top:115px;height:115px;background-color:#D8AA5A">
-            <view class="smalltext">{{classStr[2][0][2]}}</view>
-          </view>
+      </view>
+      <view wx:if='{{classStr[3][0][2]!==" "}}' bindtap="showHelp" data-set="{{classStr[3][0][2]}}">
+        <view class="flex-item kcb-item" data-statu="open" style="margin-left:{{marginleft*2}}px;margin-top:230px;height:115px;background-color:#FC9F9D">
+          <view class="smalltext">{{classStr[3][0][2]}}</view>
         </view>
-        <view wx:if='{{classStr[3][0][2]!==" "}}' bindtap="showHelp" data-set="{{classStr[3][0][2]}}">
-          <view class="flex-item kcb-item" data-statu="open" style="margin-left:{{marginleft*2}}px;margin-top:230px;height:115px;background-color:#FC9F9D">
-            <view class="smalltext">{{classStr[3][0][2]}}</view>
-          </view>
+      </view>
+      <view wx:if='{{classStr[4][0][2]!==" "}}' bindtap="showHelp" data-set="{{classStr[4][0][2]}}">
+        <view class="flex-item kcb-item" data-statu="open" style="margin-left:{{marginleft*2}}px;margin-top:345px;height:115px;background-color:#0A9A84">
+          <view class="smalltext">{{classStr[4][0][2]}}</view>
         </view>
-        <view wx:if='{{classStr[4][0][2]!==" "}}' bindtap="showHelp" data-set="{{classStr[4][0][2]}}">
-          <view class="flex-item kcb-item" data-statu="open" style="margin-left:{{marginleft*2}}px;margin-top:345px;height:115px;background-color:#0A9A84">
-            <view class="smalltext">{{classStr[4][0][2]}}</view>
-          </view>
+      </view>
+      <view wx:if='{{classStr[5][0][2]!==" "}}' bindtap="showHelp" data-set="{{classStr[5][0][2]}}">
+        <view class="flex-item kcb-item" data-statu="open" style="margin-left:{{marginleft*2}}px;margin-top:460px;height:115px;background-color:#61BC69">
+          <view class="smalltext">{{classStr[5][0][2]}}</view>
         </view>
-        <view wx:if='{{classStr[5][0][2]!==" "}}' bindtap="showHelp" data-set="{{classStr[5][0][2]}}">
-          <view class="flex-item kcb-item" data-statu="open" style="margin-left:{{marginleft*2}}px;margin-top:460px;height:115px;background-color:#61BC69">
-            <view class="smalltext">{{classStr[5][0][2]}}</view>
-          </view>
+      </view>
+      <view wx:if='{{classStr[6][0][2]!==" "}}' bindtap="showHelp" data-set="{{classStr[6][0][2]}}">
+        <view class="flex-item kcb-item" data-statu="open" style="margin-left:{{marginleft*2}}px;margin-top:575px;height:115px;background-color:#61BC69">
+          <view class="smalltext">{{classStr[6][0][2]}}</view>
         </view>
-        <view wx:if='{{classStr[6][0][2]!==" "}}' bindtap="showHelp" data-set="{{classStr[6][0][2]}}">
-          <view class="flex-item kcb-item" data-statu="open" style="margin-left:{{marginleft*2}}px;margin-top:575px;height:115px;background-color:#61BC69">
-            <view class="smalltext">{{classStr[6][0][2]}}</view>
-          </view>
+      </view>
+      <view wx:if='{{classStr[1][0][3]!==" "}}' bindtap="showHelp" data-set="{{classStr[1][0][3]}}">
+        <view class="flex-item kcb-item" data-statu="open" style="margin-left:{{marginleft*3}}px;margin-top:1px;height:115px;background-color:#12AEF3">
+          <view class="smalltext">{{classStr[1][0][3]}}</view>
         </view>
-        <view wx:if='{{classStr[1][0][3]!==" "}}' bindtap="showHelp" data-set="{{classStr[1][0][3]}}">
-          <view class="flex-item kcb-item" data-statu="open" style="margin-left:{{marginleft*3}}px;margin-top:1px;height:115px;background-color:#12AEF3">
-            <view class="smalltext">{{classStr[1][0][3]}}</view>
-          </view>
+      </view>
+      <view wx:if='{{classStr[2][0][3]!==" "}}' bindtap="showHelp" data-set="{{classStr[2][0][3]}}">
+        <view class="flex-item kcb-item" data-statu="open" style="margin-left:{{marginleft*3}}px;margin-top:115px;height:115px;background-color:#E29AAD">
+          <view class="smalltext">{{classStr[2][0][3]}}</view>
         </view>
-        <view wx:if='{{classStr[2][0][3]!==" "}}' bindtap="showHelp" data-set="{{classStr[2][0][3]}}">
-          <view class="flex-item kcb-item" data-statu="open" style="margin-left:{{marginleft*3}}px;margin-top:115px;height:115px;background-color:#E29AAD">
-            <view class="smalltext">{{classStr[2][0][3]}}</view>
-          </view>
+      </view>
+      <view wx:if='{{classStr[3][0][3]!==" "}}' bindtap="showHelp" data-set="{{classStr[3][0][3]}}">
+        <view class="flex-item kcb-item" data-statu="open" style="margin-left:{{marginleft*3}}px;margin-top:230px;height:115px;background-color:#61BC69">
+          <view class="smalltext">{{classStr[3][0][3]}}</view>
         </view>
-        <view wx:if='{{classStr[3][0][3]!==" "}}' bindtap="showHelp" data-set="{{classStr[3][0][3]}}">
-          <view class="flex-item kcb-item" data-statu="open" style="margin-left:{{marginleft*3}}px;margin-top:230px;height:115px;background-color:#61BC69">
-            <view class="smalltext">{{classStr[3][0][3]}}</view>
-          </view>
+      </view>
+      <view wx:if='{{classStr[4][0][3]!==" "}}' bindtap="showHelp" data-set="{{classStr[4][0][3]}}">
+        <view class="flex-item kcb-item" data-statu="open" style="margin-left:{{marginleft*3}}px;margin-top:345px;height:115px;background-color:#85B8CF">
+          <view class="smalltext">{{classStr[4][0][3]}}</view>
         </view>
-        <view wx:if='{{classStr[4][0][3]!==" "}}' bindtap="showHelp" data-set="{{classStr[4][0][3]}}">
-          <view class="flex-item kcb-item" data-statu="open" style="margin-left:{{marginleft*3}}px;margin-top:345px;height:115px;background-color:#85B8CF">
-            <view class="smalltext">{{classStr[4][0][3]}}</view>
-          </view>
+      </view>
+      <view wx:if='{{classStr[5][0][3]!==" "}}' bindtap="showHelp" data-set="{{classStr[5][0][3]}}">
+        <view class="flex-item kcb-item" data-statu="open" style="margin-left:{{marginleft*3}}px;margin-top:460px;height:115px;background-color:#90C652">
+          <view class="smalltext">{{classStr[5][0][3]}}</view>
         </view>
-        <view wx:if='{{classStr[5][0][3]!==" "}}' bindtap="showHelp" data-set="{{classStr[5][0][3]}}">
-          <view class="flex-item kcb-item" data-statu="open" style="margin-left:{{marginleft*3}}px;margin-top:460px;height:115px;background-color:#90C652">
-            <view class="smalltext">{{classStr[5][0][3]}}</view>
-          </view>
+      </view>
+      <view wx:if='{{classStr[6][0][3]!==" "}}' bindtap="showHelp" data-set="{{classStr[6][0][3]}}">
+        <view class="flex-item kcb-item" data-statu="open" style="margin-left:{{marginleft*3}}px;margin-top:575px;height:115px;background-color:#90C652">
+          <view class="smalltext">{{classStr[6][0][3]}}</view>
         </view>
-        <view wx:if='{{classStr[6][0][3]!==" "}}' bindtap="showHelp" data-set="{{classStr[6][0][3]}}">
-          <view class="flex-item kcb-item" data-statu="open" style="margin-left:{{marginleft*3}}px;margin-top:575px;height:115px;background-color:#90C652">
-            <view class="smalltext">{{classStr[6][0][3]}}</view>
-          </view>
+      </view>
+      <view wx:if='{{classStr[1][0][4]!==" "}}' bindtap="showHelp" data-set="{{classStr[1][0][4]}}">
+        <view class="flex-item kcb-item" data-statu="open" style="margin-left:{{marginleft*4}}px;margin-top:1px;height:115px;background-color:#D8AA5A">
+          <view class="smalltext">{{classStr[1][0][4]}}</view>
         </view>
-        <view wx:if='{{classStr[1][0][4]!==" "}}' bindtap="showHelp" data-set="{{classStr[1][0][4]}}">
-          <view class="flex-item kcb-item" data-statu="open" style="margin-left:{{marginleft*4}}px;margin-top:1px;height:115px;background-color:#D8AA5A">
-            <view class="smalltext">{{classStr[1][0][4]}}</view>
-          </view>
+      </view>
+      <view wx:if='{{classStr[2][0][4]!==" "}}' bindtap="showHelp" data-set="{{classStr[2][0][4]}}">
+        <view class="flex-item kcb-item" data-statu="open" style="margin-left:{{marginleft*4}}px;margin-top:115px;height:115px;background-color:#FC9F9D">
+          <view class="smalltext">{{classStr[2][0][4]}}</view>
         </view>
-        <view wx:if='{{classStr[2][0][4]!==" "}}' bindtap="showHelp" data-set="{{classStr[2][0][4]}}">
-          <view class="flex-item kcb-item" data-statu="open" style="margin-left:{{marginleft*4}}px;margin-top:115px;height:115px;background-color:#FC9F9D">
-            <view class="smalltext">{{classStr[2][0][4]}}</view>
-          </view>
+      </view>
+      <view wx:if='{{classStr[3][0][4]!==" "}}' bindtap="showHelp" data-set="{{classStr[3][0][4]}}">
+        <view class="flex-item kcb-item" data-statu="open" style="margin-left:{{marginleft*4}}px;margin-top:230px;height:115px;background-color:#0A9A84">
+          <view class="smalltext">{{classStr[3][0][4]}}</view>
         </view>
-        <view wx:if='{{classStr[3][0][4]!==" "}}' bindtap="showHelp" data-set="{{classStr[3][0][4]}}">
-          <view class="flex-item kcb-item" data-statu="open" style="margin-left:{{marginleft*4}}px;margin-top:230px;height:115px;background-color:#0A9A84">
-            <view class="smalltext">{{classStr[3][0][4]}}</view>
-          </view>
+      </view>
+      <view wx:if='{{classStr[4][0][4]!==" "}}' bindtap="showHelp" data-set="{{classStr[4][0][4]}}">
+        <view class="flex-item kcb-item" data-statu="open" style="margin-left:{{marginleft*4}}px;margin-top:345px;height:115px;background-color:#61BC69">
+          <view class="smalltext">{{classStr[4][0][4]}}</view>
         </view>
-        <view wx:if='{{classStr[4][0][4]!==" "}}' bindtap="showHelp" data-set="{{classStr[4][0][4]}}">
-          <view class="flex-item kcb-item" data-statu="open" style="margin-left:{{marginleft*4}}px;margin-top:345px;height:115px;background-color:#61BC69">
-            <view class="smalltext">{{classStr[4][0][4]}}</view>
-          </view>
+      </view>
+      <view wx:if='{{classStr[5][0][4]!==" "}}' bindtap="showHelp" data-set="{{classStr[5][0][4]}}">
+        <view class="flex-item kcb-item" data-statu="open" style="margin-left:{{marginleft*4}}px;margin-top:460px;height:115px;background-color:#12AEF3">
+          <view class="smalltext">{{classStr[5][0][4]}}</view>
         </view>
-        <view wx:if='{{classStr[5][0][4]!==" "}}' bindtap="showHelp" data-set="{{classStr[5][0][4]}}">
-          <view class="flex-item kcb-item" data-statu="open" style="margin-left:{{marginleft*4}}px;margin-top:460px;height:115px;background-color:#12AEF3">
-            <view class="smalltext">{{classStr[5][0][4]}}</view>
-          </view>
+      </view>
+      <view wx:if='{{classStr[6][0][4]!==" "}}' bindtap="showHelp" data-set="{{classStr[6][0][4]}}">
+        <view class="flex-item kcb-item" data-statu="open" style="margin-left:{{marginleft*4}}px;margin-top:575px;height:115px;background-color:#12AEF3">
+          <view class="smalltext">{{classStr[6][0][4]}}</view>
         </view>
-        <view wx:if='{{classStr[6][0][4]!==" "}}' bindtap="showHelp" data-set="{{classStr[6][0][4]}}">
-          <view class="flex-item kcb-item" data-statu="open" style="margin-left:{{marginleft*4}}px;margin-top:575px;height:115px;background-color:#12AEF3">
-            <view class="smalltext">{{classStr[6][0][4]}}</view>
-          </view>
+      </view>
+      <view wx:if='{{classStr[1][0][5]!==" "}}' bindtap="showHelp" data-set="{{classStr[1][0][5]}}">
+        <view class="flex-item kcb-item" data-statu="open" style="margin-left:{{marginleft*5}}px;margin-top:1px;height:115px;background-color:#D8AA5A">
+          <view class="smalltext">{{classStr[1][0][5]}}</view>
         </view>
-        <view wx:if='{{classStr[1][0][5]!==" "}}' bindtap="showHelp" data-set="{{classStr[1][0][5]}}">
-          <view class="flex-item kcb-item" data-statu="open" style="margin-left:{{marginleft*5}}px;margin-top:1px;height:115px;background-color:#D8AA5A">
-            <view class="smalltext">{{classStr[1][0][5]}}</view>
-          </view>
+      </view>
+      <view wx:if='{{classStr[2][0][5]!==" "}}' bindtap="showHelp" data-set="{{classStr[2][0][5]}}">
+        <view class="flex-item kcb-item" data-statu="open" style="margin-left:{{marginleft*5}}px;margin-top:115px;height:115px;background-color:#FC9F9D">
+          <view class="smalltext">{{classStr[2][0][5]}}</view>
         </view>
-        <view wx:if='{{classStr[2][0][5]!==" "}}' bindtap="showHelp" data-set="{{classStr[2][0][5]}}">
-          <view class="flex-item kcb-item" data-statu="open" style="margin-left:{{marginleft*5}}px;margin-top:115px;height:115px;background-color:#FC9F9D">
-            <view class="smalltext">{{classStr[2][0][5]}}</view>
-          </view>
+      </view>
+      <view wx:if='{{classStr[3][0][5]!==" "}}' bindtap="showHelp" data-set="{{classStr[3][0][5]}}">
+        <view class="flex-item kcb-item" data-statu="open" style="margin-left:{{marginleft*5}}px;margin-top:230px;height:115px;background-color:#0A9A84">
+          <view class="smalltext">{{classStr[3][0][5]}}</view>
         </view>
-        <view wx:if='{{classStr[3][0][5]!==" "}}' bindtap="showHelp" data-set="{{classStr[3][0][5]}}">
-          <view class="flex-item kcb-item" data-statu="open" style="margin-left:{{marginleft*5}}px;margin-top:230px;height:115px;background-color:#0A9A84">
-            <view class="smalltext">{{classStr[3][0][5]}}</view>
-          </view>
+      </view>
+      <view wx:if='{{classStr[4][0][5]!==" "}}' bindtap="showHelp" data-set="{{classStr[4][0][5]}}">
+        <view class="flex-item kcb-item" data-statu="open" style="margin-left:{{marginleft*5}}px;margin-top:345px;height:115px;background-color:#61BC69">
+          <view class="smalltext">{{classStr[4][0][5]}}</view>
         </view>
-        <view wx:if='{{classStr[4][0][5]!==" "}}' bindtap="showHelp" data-set="{{classStr[4][0][5]}}">
-          <view class="flex-item kcb-item" data-statu="open" style="margin-left:{{marginleft*5}}px;margin-top:345px;height:115px;background-color:#61BC69">
-            <view class="smalltext">{{classStr[4][0][5]}}</view>
-          </view>
+      </view>
+      <view wx:if='{{classStr[5][0][5]!==" "}}' bindtap="showHelp" data-set="{{classStr[5][0][5]}}">
+        <view class="flex-item kcb-item" data-statu="open" style="margin-left:{{marginleft*5}}px;margin-top:460px;height:115px;background-color:#12AEF3">
+          <view class="smalltext">{{classStr[5][0][5]}}</view>
         </view>
-        <view wx:if='{{classStr[5][0][5]!==" "}}' bindtap="showHelp" data-set="{{classStr[5][0][5]}}">
-          <view class="flex-item kcb-item" data-statu="open" style="margin-left:{{marginleft*5}}px;margin-top:460px;height:115px;background-color:#12AEF3">
-            <view class="smalltext">{{classStr[5][0][5]}}</view>
-          </view>
+      </view>
+      <view wx:if='{{classStr[6][0][5]!==" "}}' bindtap="showHelp" data-set="{{classStr[6][0][5]}}">
+        <view class="flex-item kcb-item" data-statu="open" style="margin-left:{{marginleft*5}}px;margin-top:575px;height:115px;background-color:#12AEF3">
+          <view class="smalltext">{{classStr[6][0][5]}}</view>
         </view>
-        <view wx:if='{{classStr[6][0][5]!==" "}}' bindtap="showHelp" data-set="{{classStr[6][0][5]}}">
-          <view class="flex-item kcb-item" data-statu="open" style="margin-left:{{marginleft*5}}px;margin-top:575px;height:115px;background-color:#12AEF3">
-            <view class="smalltext">{{classStr[6][0][5]}}</view>
-          </view>
+      </view>
+      <view wx:if='{{classStr[1][0][6]!==" "}}' bindtap="showHelp" data-set="{{classStr[1][0][6]}}">
+        <view class="flex-item kcb-item" data-statu="open" style="margin-left:{{marginleft*6}}px;margin-top:1px;height:115px;background-color:#D8AA5A">
+          <view class="smalltext">{{classStr[1][0][6]}}</view>
         </view>
-        <view wx:if='{{classStr[1][0][6]!==" "}}' bindtap="showHelp" data-set="{{classStr[1][0][6]}}">
-          <view class="flex-item kcb-item" data-statu="open" style="margin-left:{{marginleft*6}}px;margin-top:1px;height:115px;background-color:#D8AA5A">
-            <view class="smalltext">{{classStr[1][0][6]}}</view>
-          </view>
+      </view>
+      <view wx:if='{{classStr[2][0][6]!==" "}}' bindtap="showHelp" data-set="{{classStr[2][0][6]}}">
+        <view class="flex-item kcb-item" data-statu="open" style="margin-left:{{marginleft*6}}px;margin-top:115px;height:115px;background-color:#FC9F9D">
+          <view class="smalltext">{{classStr[2][0][6]}}</view>
         </view>
-        <view wx:if='{{classStr[2][0][6]!==" "}}' bindtap="showHelp" data-set="{{classStr[2][0][6]}}">
-          <view class="flex-item kcb-item" data-statu="open" style="margin-left:{{marginleft*6}}px;margin-top:115px;height:115px;background-color:#FC9F9D">
-            <view class="smalltext">{{classStr[2][0][6]}}</view>
-          </view>
+      </view>
+      <view wx:if='{{classStr[3][0][6]!==" "}}' bindtap="showHelp" data-set="{{classStr[3][0][6]}}">
+        <view class="flex-item kcb-item" data-statu="open" style="margin-left:{{marginleft*6}}px;margin-top:230px;height:115px;background-color:#0A9A84">
+          <view class="smalltext">{{classStr[3][0][6]}}</view>
         </view>
-        <view wx:if='{{classStr[3][0][6]!==" "}}' bindtap="showHelp" data-set="{{classStr[3][0][6]}}">
-          <view class="flex-item kcb-item" data-statu="open" style="margin-left:{{marginleft*6}}px;margin-top:230px;height:115px;background-color:#0A9A84">
-            <view class="smalltext">{{classStr[3][0][6]}}</view>
-          </view>
+      </view>
+      <view wx:if='{{classStr[4][0][6]!==" "}}' bindtap="showHelp" data-set="{{classStr[4][0][6]}}">
+        <view class="flex-item kcb-item" data-statu="open" style="margin-left:{{marginleft*6}}px;margin-top:345px;height:115px;background-color:#61BC69">
+          <view class="smalltext">{{classStr[4][0][6]}}</view>
         </view>
-        <view wx:if='{{classStr[4][0][6]!==" "}}' bindtap="showHelp" data-set="{{classStr[4][0][6]}}">
-          <view class="flex-item kcb-item" data-statu="open" style="margin-left:{{marginleft*6}}px;margin-top:345px;height:115px;background-color:#61BC69">
-            <view class="smalltext">{{classStr[4][0][6]}}</view>
-          </view>
+      </view>
+      <view wx:if='{{classStr[5][0][6]!==" "}}' bindtap="showHelp" data-set="{{classStr[5][0][6]}}">
+        <view class="flex-item kcb-item" data-statu="open" style="margin-left:{{marginleft*6}}px;margin-top:460px;height:115px;background-color:#12AEF3">
+          <view class="smalltext">{{classStr[5][0][6]}}</view>
         </view>
-        <view wx:if='{{classStr[5][0][6]!==" "}}' bindtap="showHelp" data-set="{{classStr[5][0][6]}}">
-          <view class="flex-item kcb-item" data-statu="open" style="margin-left:{{marginleft*6}}px;margin-top:460px;height:115px;background-color:#12AEF3">
-            <view class="smalltext">{{classStr[5][0][6]}}</view>
-          </view>
-        </view>
-        <view wx:if='{{classStr[6][0][6]!==" "}}' bindtap="showHelp" data-set="{{classStr[6][0][6]}}">
-          <view class="flex-item kcb-item" data-statu="open" style="margin-left:{{marginleft*6}}px;margin-top:575px;height:115px;background-color:#12AEF3">
-            <view class="smalltext">{{classStr[6][0][6]}}</view>
-          </view>
+      </view>
+      <view wx:if='{{classStr[6][0][6]!==" "}}' bindtap="showHelp" data-set="{{classStr[6][0][6]}}">
+        <view class="flex-item kcb-item" data-statu="open" style="margin-left:{{marginleft*6}}px;margin-top:575px;height:115px;background-color:#12AEF3">
+          <view class="smalltext">{{classStr[6][0][6]}}</view>
         </view>
       </view>
     </view>
   </view>
-  <view class="help" id="help" wx:if="{{help_status}}" bindtap="tapHelp">
-    <view class="box">
-      <view class="box-hd">
-        <text class="box-title">课程信息</text>
-        <image class="box-close" src="/images/close.png" bindtap="hideHelp"></image>
-      </view>
-      <view class="box-bd" id='{{ClassDetail}}' bindlongpress='copyIt'>{{ClassDetail}}</view>
+</view>
+<view class="help" id="help" wx:if="{{help_status}}" bindtap="tapHelp">
+  <view class="box">
+    <view class="box-hd">
+      <text class="box-title">课程信息</text>
+      <image class="box-close" src="/images/close.png" bindtap="hideHelp"></image>
     </view>
+    <view class="box-bd" id='{{ClassDetail}}' bindlongpress='copyIt'>{{ClassDetail}}</view>
   </view>
-</page>
+</view>
+<!-- </scroll-view> -->

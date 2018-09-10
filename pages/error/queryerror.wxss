@@ -1,28 +1,69 @@
-icon{
-    margin-right: 13px;
+Page {
+  background-color: #7acfa6;
 }
+
+icon {
+  margin-right: 13px;
+}
+
 .page__bd {
-    padding-left: 40px;
-    padding-right: 40px;
-    text-align: left;
+  padding-left: 40px;
+  padding-right: 40px;
+  text-align: left;
 }
-.icon-box{
-    margin-bottom: 25px;
-    display: flex;
-    align-items: center;
+
+.icon-box {
+  margin-bottom: 25px;
+  display: flex;
+  align-items: center;
 }
-.icon-box__ctn{
-    flex-shrink: 100;
+
+.icon-box__ctn {
+  flex-shrink: 100;
 }
-.icon-box__title{
-    font-size: 20px;
+
+.icon-box__title {
+  font-size: 20px;
 }
-.icon-box__desc{
-    margin-top: 6px;
-    font-size: 12px;
-    color: #888888;
+
+.icon-box__desc {
+  margin-top: 6px;
+  font-size: 12px;
+  color: #888;
 }
+
 .icon_sp_area {
-    margin-top: 10px;
-    text-align: left;
+  margin-top: 10px;
+  text-align: left;
+}
+
+.remind-box {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.remind-img {
+  width: 250rpx;
+  height: 250rpx;
+  padding-bottom: 25rpx;
+}
+
+.remind-text {
+  font-size: 12pt;
+  line-height: 150%;
+}
+
+.login-btn {
+  font-size: 13pt;
+  line-height: 85rpx;
+  height: 85rpx;
+  background: #04c065;
+  color: #fff;
+  text-align: center;
+  border-radius: 25px;
+  box-shadow: 5rpx 5rpx 15rpx #ccc;
+  margin: 30rpx 30rpx 30rpx;
 }

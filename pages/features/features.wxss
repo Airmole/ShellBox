@@ -9,6 +9,18 @@ button::after {
   border: none;
 }
 
+.login-btn {
+  font-size: 13pt;
+  line-height: 85rpx;
+  height: 85rpx;
+  background: #04c065;
+  color: #fff;
+  text-align: center;
+  border-radius: 25px;
+  box-shadow: 5rpx 5rpx 15rpx #ccc;
+  margin: 0 30rpx 30rpx;
+}
+
 .shareIcon {
   width: 26px;
   height: 26px;
@@ -38,7 +50,7 @@ button {
   background: #e55c5c;
   color: #fff;
   text-align: center;
-  border-radius: 5px;
+  border-radius: 25px;
   margin: 40rpx 3%;
 }
 
@@ -49,6 +61,6 @@ button {
   background: #7acfa6;
   color: #fff;
   text-align: center;
-  border-radius: 5px;
+  border-radius: 25px;
   margin: 40rpx 3%;
 }

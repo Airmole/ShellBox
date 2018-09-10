@@ -42,14 +42,22 @@ Page({
           if (res.data.code == 200) {
             if (res.data.data.msg == '密码错误') {
               wx.redirectTo({
-                url: '/pages/error/queryerror'
+                url: '/pages/index/index'
               })
             }
             wx.hideToast()
           } else {
-            wx.redirectTo({
-              url: '/pages/error/queryerror'
-            })
+            if (res.data.code == 402) {
+              wx.redirectTo({
+                url: '/pages/error/queryerror?ErrorTips=' + res.data.message
+              })
+            }
+            if (res.data.code == 403) {
+              wx.redirectTo({
+                url: '/pages/error/queryerror?ErrorTips=' + res.data.message
+              })
+            }
+
           }
         }
       })

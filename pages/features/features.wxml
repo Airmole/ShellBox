@@ -23,12 +23,9 @@
         </button>
       </view>
     </view>
-    <view class="weui-btn-area">
-      <button plain='true' open-type="share" type="default" hover-class="other-button-hover">
-        <image class="weui-btn shareIcon" src='/images/share.png'></image>
-        好用！分享给同学
-      </button>
-    </view>
+    <button open-type="share" class="login-btn">
+      <text>好用！分享给同学</text>
+    </button>
     <view wx:if="{{uid=='' || pwd=='' }}" bindtap='logout' class="login-btn">
       <text>学号登录</text>
     </view>

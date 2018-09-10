@@ -11,6 +11,10 @@
   }
 }
 
+.describe {
+  height: 100vw;
+}
+
 .marquee {
   width: 100%;
   height: 30px;

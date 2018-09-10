@@ -31,7 +31,7 @@
         <text>度</text>
       </view>
       <view class="specificInfo-item">
-        <text class="specificInfo-item-label">昨日空调用电</text>
+        <text class="specificInfo-item-label">昨日空调/风扇用电</text>
         <text class="specificInfo-item-value">{{eleJson.electricity[0].yesterdayAircon}}</text>
         <text>度</text>
       </view>

@@ -33,6 +33,11 @@ Page({
           })
           wx.hideToast()
           console.log(res.data);
+          if (res.data == '密码有误') {
+            wx.redirectTo({
+              url: '/pages/index/index'
+            })
+          }
         }
       })
     }

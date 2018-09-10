@@ -133,19 +133,6 @@ Page({
 
   },
 
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function() {
-    var that = this;
-    that.onLoad();
-    wx.stopPullDownRefresh();
-    wx.showToast({
-      title: "刷新完成",
-      icon: "succeed",
-      duration: 2000
-    })
-  },
 
   /**
    * 页面上拉触底事件的处理函数

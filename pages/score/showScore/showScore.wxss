@@ -14,3 +14,83 @@ Page {
 .ads {
   padding: 30rpx 15rpx 30rpx 15rpx;
 }
+
+/* 成绩单按钮 */
+
+.clear {
+  position: inherit;
+  display: inherit;
+  margin-left: inherit;
+  margin-right: inherit;
+  padding-left: 0;
+  padding-right: 0;
+  box-sizing: inherit;
+  font-size: inherit;
+  text-align: inherit;
+  text-decoration: inherit;
+  line-height: inherit;
+  border-radius: inherit;
+  -webkit-tap-highlight-color: inherit;
+  overflow: inherit;
+  color: inherit;
+  background-color: inherit;
+}
+
+button::after {
+  content: inherit;
+  width: inherit;
+  height: inherit;
+  position: inherit;
+  top: inherit;
+  left: inherit;
+  border: inherit;
+  -webkit-transform: inherit;
+  transform: inherit;
+  -webkit-transform-origin: inherit;
+  transform-origin: inherit;
+  box-sizing: inherit;
+  border-radius: inherit;
+}
+
+.page__bd {
+  margin-top: 30rpx;
+}
+
+.score__hd {
+  padding: 20rpx 35rpx 0 35rpx;
+}
+
+.weui-items {
+  margin: 30rpx 20rpx;
+}
+
+.weui-item {
+  margin: 30rpx 5rpx;
+  padding: 20rpx;
+  color: #fff;
+}
+
+.weui-flex {
+  justify-content: space-between;
+  align-items: center;
+}
+
+.background-1 {
+  background-image: linear-gradient(-45deg, #96deda 0%, #8ec5fc 100%);
+}
+
+.background-2 {
+  background-image: linear-gradient(-45deg, #fbc2eb 0%, #a6c1ee 100%);
+}
+
+.weui-item__title {
+  font-size: 42rpx;
+}
+
+.weui-item__desc {
+  font-size: 28rpx;
+}
+
+.border-shadow {
+  border-radius: 15rpx;
+}

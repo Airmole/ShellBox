@@ -37,7 +37,11 @@ Page({
         navurl: '/pages/tel/departmentTel/departmentTel',
         gridIcon: '/images/contacts.png'
       },
-      // { name: '校园地图', navurl: '/pages/map/map', gridIcon: '/images/contacts.png' },
+      // {
+      //   name: '图书欠费',
+      //   navurl: '/pages/tel/departmentTel/departmentTel',
+      //   gridIcon: '/images/contacts.png'
+      // },
       {
         name: '校园出行',
         navurl: '/pages/Transport/Transport',

@@ -7,7 +7,6 @@
     "pages/classQuery/index",
     "pages/calendar/calendar",
     "pages/score/showScore/showScore",
-    "pages/error/notfound",
     "pages/error/queryerror",
     "pages/bookSearch/index",
     "pages/net/netfare",

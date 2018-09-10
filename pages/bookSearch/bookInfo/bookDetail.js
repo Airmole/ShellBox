@@ -30,7 +30,7 @@ Page({
         // console.log(res.data);
         if (res.data == "") {
           wx.redirectTo({
-            url: '../../error/notfound',
+            url: '../../error/queryerror?ErrorTips=' + '奇了怪啦，为啥找不到这本书的任何信息啊',
           })
         }
         wx.request({
@@ -40,34 +40,29 @@ Page({
               jsonStr: res.data,
             })
             // console.log(res.data);
-            if (res.data == "无") {
-              wx.redirectTo({
-                url: '../../error/notfound',
+            if (res.data[0][5]) {
+              wx.request({
+                url: 'https://airmole.cn/doubanapi/v2/book/isbn/' + res.data[0][5],
+                method: 'GET',
+                header: {
+                  'content-type': 'application/x-www-form-urlencoded',
+                },
+                success: function(res) {
+                  that.setData({
+                    doubanStr: res.data,
+                  })
+                  // console.log(res.statusCode)
+                  if (res.statusCode == 404) {
+                    that.setData({
+                      doubanStr: 'null',
+                    })
+                  }
+                }
               })
             }
-            wx.request({
-              url: 'https://airmole.cn/doubanapi/v2/book/isbn/' + res.data[0][5],
-              method: 'GET',
-              header: {
-                'content-type': 'application/x-www-form-urlencoded',
-              },
-              success: function(res) {
-                that.setData({
-                  doubanStr: res.data,
-                })
-                // console.log(res.data)
-              },
-              fail: function(res) {
-                wx.showToast({
-                  title: res.errMsg,
-                  icon: 'loading',
-                  duration: 8000
-                })
-              }
-            })
-            wx.hideToast()
           }
         });
+        wx.hideToast();
       }
     });
   },
