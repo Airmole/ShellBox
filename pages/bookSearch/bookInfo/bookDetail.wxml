@@ -71,6 +71,11 @@
       <text class="intro-content">{{doubanStr.author_intro}}</text>
     </view>
   </view>
+  <!-- 广告位 -->
+  <view class='ads'>
+    <ad unit-id="adunit-62f52651dd5f4ff6"></ad>
+  </view>
+  <!-- 广告位结束 -->
   <view class="weui-footer">
     <view class="weui-footer__links">
       <navigator url="/pages/features/about" class="weui-footer__link">Airmole.</navigator>

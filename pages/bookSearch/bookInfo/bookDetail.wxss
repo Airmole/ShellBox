@@ -8,6 +8,10 @@ page {
   border-radius: 25px;
 }
 
+.ads {
+  padding: 30rpx 15rpx 30rpx 15rpx;
+}
+
 .sharerange {
   position: absolute;
   top: 190rpx;

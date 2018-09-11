@@ -17,6 +17,9 @@ Page({
       {
         name: '作者',
         value: 'Author'
+      }, {
+        name: '主题',
+        value: 'Topic'
       },
       {
         name: '出版社',
