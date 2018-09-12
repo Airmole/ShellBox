@@ -34,6 +34,8 @@ Page({
           wx.hideToast()
           console.log(res.data);
           if (res.data == '密码有误') {
+            wx.setStorageSync('uid', '');
+            wx.setStorageSync('pwd', '');
             wx.redirectTo({
               url: '/pages/index/index'
             })

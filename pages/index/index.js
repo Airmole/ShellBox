@@ -5,19 +5,42 @@ Page({
     pwd: '',
     jsonContent: {},
     jsonStr: "",
+    InfoStr: '',
     help_status: false,
     userid_focus: false,
     passwd_focus: false,
     angle: 0
   },
   onLoad: function() {
+    var that = this;
     var uid = wx.getStorageSync('uid')
     var pwd = wx.getStorageSync('pwd')
-    if (pwd != "") {
-      app.globalData.uid = uid;
-      app.globalData.pwd = pwd;
-      wx.switchTab({
-        url: '../bookSearch/index',
+    // var uid = app.globalData.uid;
+    // var pwd = app.globalData.pwd;
+    if (pwd != "" || uid != "") {
+      wx.request({
+        url: 'https://airmole.cn/wechat/wxapp/api/Airmole_jiaowuInfoQuery.php?uid=' + uid + '&pwd=' + pwd,
+        success: function(res) {
+          that.setData({
+            InfoStr: res.data,
+          })
+          console.log(res.data);
+          //账号密码错误以下功能实现跳转错误页面
+          if (res.data[0][0].stuName == '') {
+            app.globalData.uid = "";
+            app.globalData.pwd = "";
+            wx.redirectTo({
+              url: '/pages/index/index'
+            })
+          } else {
+            app.globalData.uid = uid;
+            app.globalData.pwd = pwd;
+            wx.switchTab({
+              url: '../bookSearch/index',
+            })
+          }
+          wx.hideToast()
+        }
       })
     }
   },
