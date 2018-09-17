@@ -99,6 +99,11 @@ Page({
           })
           console.log(res.data);
           wx.hideToast()
+          if (res.data[0].title == "图书馆系统无响应") {
+            wx.navigateTo({
+              url: '/pages/error/queryerror?ErrorTips=' + 图书馆OPAC系统无响应
+            })
+          }
           if (res.data == '空的，查无此书') {
             wx.showToast({
               title: '本馆暂无此书',

@@ -15,6 +15,7 @@ Page({
     }
   },
   onLoad: function(options) {
+    console.log(options);
     wx.showToast({
       title: "loading",
       icon: "loading",
