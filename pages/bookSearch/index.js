@@ -39,7 +39,9 @@ Page({
   },
   onBindBlur: function(event) {
     this.setData({
-      searchPanelShow: false
+      searchPanelShow: false,
+      inputVal: "",
+      inputShowed: false
     })
   },
   hideInput: function() {
@@ -49,6 +51,9 @@ Page({
     });
   },
   radioChange: function(e) {
+    this.setData({
+      searchPanelShow: true
+    })
     console.log(e.detail.value);
     this.setData({
       SearchType: e.detail.value

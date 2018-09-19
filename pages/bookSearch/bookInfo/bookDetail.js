@@ -28,7 +28,7 @@ Page({
         that.setData({
           ISBN: res.data,
         })
-        // console.log(res.data);
+        console.log(res.data);
         if (res.data == "") {
           wx.redirectTo({
             url: '../../error/queryerror?ErrorTips=' + '奇了怪啦，为啥找不到这本书的任何信息啊',

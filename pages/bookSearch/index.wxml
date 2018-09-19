@@ -4,14 +4,14 @@
       <view class="weui-search-bar__form">
         <view class="weui-search-bar__box">
           <icon class="weui-icon-search_in-box" type="search" size="14"></icon>
-          <input type="text" class="weui-search-bar__input" placeholder="输入您要检索的图书关键字" value="{{inputVal}}" focus="{{inputShowed}}" bindconfirm="searchIt" bindfocus="onBindFocus" bindblur='onBindBlur' />
+          <input type="text" class="weui-search-bar__input" placeholder="输入您要检索的图书关键字" value="{{inputVal}}" focus="{{inputShowed}}" bindconfirm="searchIt" bindfocus="onBindFocus" confirm-type='search' />
         </view>
         <label class="weui-search-bar__label" hidden="{{inputShowed}}" bindtap="showInput">
           <icon class="weui-icon-search" type="search" size="14"></icon>
           <view class="weui-search-bar__text">图书馆图书检索</view>
         </label>
       </view>
-      <view class="weui-search-bar__cancel-btn" hidden="{{!inputShowed}}" bindtap="hideInput">取消</view>
+      <view class="weui-search-bar__cancel-btn" hidden="{{!inputShowed}}" bindtap="onBindBlur">取消</view>
     </view>
   </view>
   <view class="describe" wx:if="{{searchPanelShow}}">
@@ -28,32 +28,34 @@
       </radio-group>
     </view>
   </view>
-  <view class="marquee" wx:if="{{notices}}">
-    <view class="content">
-      <text>{{notices}}</text>
-      <text style="display: inline-block; width: 5em;"></text>
-      <text>{{notices}}</text>
-      <text style="display: inline-block; width: 5em;"></text>
-      <text>{{notices}}</text>
-      <text style="display: inline-block; width: 5em;"></text>
+  <view wx:if="{{searchPanelShow==false}}">
+    <view class="marquee" wx:if="{{notices}}">
+      <view class="content">
+        <text>{{notices}}</text>
+        <text style="display: inline-block; width: 5em;"></text>
+        <text>{{notices}}</text>
+        <text style="display: inline-block; width: 5em;"></text>
+        <text>{{notices}}</text>
+        <text style="display: inline-block; width: 5em;"></text>
+      </view>
     </view>
-  </view>
-  <view class="weui-panel__bd">
-    <block wx:for="{{jsonStr}}" wx:key="hotlist">
-      <navigator url="./bookInfo/bookInfo?ISBN={{item.isbn10}}" class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active">
-        <view class="weui-media-box__hd weui-media-box__hd_in-appmsg">
-          <image class="bookImg" src="{{item.images.small}}" />
-        </view>
-        <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
-          <view class="weui-media-box__title">{{item.title}}</view>
-          <view class="weui-media-box__desc">豆瓣：{{item.rating.average}}分</view>
-          <view class="weui-media-box__desc">作者：{{item.author[0]}}</view>
-          <view class="weui-media-box__desc">{{item.publisher}}</view>
-        </view>
-      </navigator>
-    </block>
-  </view>
-  <view wx:if="{{showTips}}">
-    <view class="logo-sub">想推荐好书上榜？欢迎发送意见留言</view>
+    <view class="weui-panel__bd">
+      <block wx:for="{{jsonStr}}" wx:key="hotlist">
+        <navigator url="./bookInfo/bookInfo?ISBN={{item.isbn10}}" class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active">
+          <view class="weui-media-box__hd weui-media-box__hd_in-appmsg">
+            <image class="bookImg" src="{{item.images.small}}" />
+          </view>
+          <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
+            <view class="weui-media-box__title">{{item.title}}</view>
+            <view class="weui-media-box__desc">豆瓣：{{item.rating.average}}分</view>
+            <view class="weui-media-box__desc">作者：{{item.author[0]}}</view>
+            <view class="weui-media-box__desc">{{item.publisher}}</view>
+          </view>
+        </navigator>
+      </block>
+    </view>
+    <view wx:if="{{showTips}}">
+      <view class="logo-sub">想推荐好书上榜？欢迎发送意见留言</view>
+    </view>
   </view>
 </view>
