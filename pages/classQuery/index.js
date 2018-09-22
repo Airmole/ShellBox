@@ -33,6 +33,11 @@ Page({
           })
           wx.hideToast()
           console.log(res.data);
+          if (res.data.status == '500') {
+            wx.navigateTo({
+              url: '/pages/error/queryerror?ErrorTips=' + "教务异常，暂时无法查询",
+            })
+          }
           if (res.data == '密码有误') {
             wx.setStorageSync('uid', '');
             wx.setStorageSync('pwd', '');

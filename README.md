@@ -3,8 +3,8 @@
 
 [![Star](https://img.shields.io/badge/Star-Airmole-brightgreen.svg)](https://github.com/Airmole/ShellBox/stargazers)
 [![Download](https://img.shields.io/badge/download-.zip-brightgreen.svg)](https://github.com/Airmole/ShellBox/archive/master.zip)
-[![size](https://img.shields.io/badge/size-4.27MB-green.svg)](https://github.com/airmole/ShellBox)
-[![last commit](https://img.shields.io/badge/last%20commit-2018--08--28-green.svg)](https://github.com/Airmole/ShellBox/commits/master)
+[![size](https://img.shields.io/badge/size-5.42MB-green.svg)](https://github.com/airmole/ShellBox)
+[![last commit](https://img.shields.io/badge/last%20commit-2018--09--22-green.svg)](https://github.com/Airmole/ShellBox/commits/master)
 [![https://blog.airmole.cn](https://img.shields.io/badge/Blog-Airmole-green.svg)](https://blog.airmole.cn)
 
 
@@ -63,17 +63,17 @@
 
 - ☑学院平面图
 
+- ☑优化图书馆系统无响应时的界面
+
+- ☑长按可以复制课程
+
 - 获取用户OpenID，对已知OpenID的用户免登录
 
 - 图书下增加评论留言？(这个还在纠结，有空就做，懒了就留给学弟学妹们做😁)
 
-- 优化图书馆系统无响应时的界面
-
 - 增加订阅宿舍电量不足提醒功能（这个要到学校了才能做）
 
 - 用户可以自由在班级课表与个人课表之间自由切换
-
-- 长按可以复制课程
 
 - 用户自己更正课表（纠结......）
 
