@@ -8,6 +8,10 @@ page {
   border-radius: 25px;
 }
 
+.suoshuNO {
+  font-family: 'Times New Roman', Times, serif;
+}
+
 .cover-container {
   background: #7acfa6;
   text-align: center;

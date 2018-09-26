@@ -31,8 +31,8 @@
   width: 100%;
   height: 30px;
   line-height: 30px;
-  background: #f1f368bb;
-  color: rgb(238, 149, 16);
+  background: #7acfa6;
+  color: white;
   border: none;
   display: block;
   margin: 0 auto;

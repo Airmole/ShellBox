@@ -12,6 +12,10 @@ page {
   padding: 30rpx 15rpx 30rpx 15rpx;
 }
 
+.suoshuNO {
+  font-family: 'Times New Roman', Times, serif;
+}
+
 .sharerange {
   position: absolute;
   top: 190rpx;
