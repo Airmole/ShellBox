@@ -26,18 +26,17 @@ Page({
           })
           console.log(res.data);
           //账号密码错误以下功能实现跳转错误页面
-          if (res.data[0][0].stuName == '') {
-            app.globalData.uid = "";
-            app.globalData.pwd = "";
-            wx.redirectTo({
-              url: '/pages/index/index'
-            })
-          } else {
+          if (res.data[0][0].stuName != '') {
             app.globalData.uid = uid;
             app.globalData.pwd = pwd;
             wx.switchTab({
               url: '../bookSearch/index',
             })
+          } else {
+            app.globalData.uid = "";
+            app.globalData.pwd = "";
+            wx.setStorageSync('uid', '');
+            wx.setStorageSync('pwd', '');
           }
           wx.hideToast()
         }

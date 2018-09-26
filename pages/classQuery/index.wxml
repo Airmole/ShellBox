@@ -1,4 +1,4 @@
-<scroll-view scroll-x>
+<scroll-view scroll-x scroll-y>
   <view>
     <view class="top">
       <view class="top-text">周一</view>
@@ -229,6 +229,54 @@
             <view class="smalltext">{{classStr[6][0][6]}}</view>
           </view>
         </view>
+
+        <!-- 上课时间标注 -->
+        <view>
+          <view class="flex-item kcb-item" style="margin-left:{{marginleft*7}}px;margin-top:-36rpx;height:151px;;width:140rpx;background-color:#7acfa6;">
+            <view class="smalltext" style='color:black;width:140rpx;padding-top:50px;text-align:center;'>
+              <text>第一小节\n8:00-8:45\n第二小节\n8:50-9:35</text>
+            </view>
+          </view>
+        </view>
+        <view>
+          <view class="flex-item kcb-item" style="margin-left:{{marginleft*7}}px;margin-top:115px;height:115px;width:140rpx;background-color:#7acfa6;">
+            <view class="smalltext" style='color:black;width:140rpx;padding-top:50px;text-align:center;'>
+              <text>第三小节\n9:55-10:40\n第四小节\n10:45-11:30</text>
+            </view>
+          </view>
+        </view>
+        <view>
+          <view class="flex-item kcb-item" style="margin-left:{{marginleft*7}}px;margin-top:230px;height:115px;width:140rpx;background-color:#7acfa6;">
+            <view class="smalltext" style='color:black;width:140rpx;padding-top:50px;text-align:center;'>
+              <text>第五小节\n13:10-13:55\n第六小节\n14:00-14:45</text>
+            </view>
+          </view>
+        </view>
+        <view>
+          <view class="flex-item kcb-item" style="margin-left:{{marginleft*7}}px;margin-top:345px;height:115px;width:140rpx;background-color:#7acfa6;">
+            <view class="smalltext" style='color:black;width:140rpx;padding-top:50px;text-align:center;'>
+              <text>第七小节\n15:00-15:45\n第八小节\n15:50-16:35</text>
+            </view>
+          </view>
+        </view>
+        <view>
+          <view class="flex-item kcb-item" data-statu="open" style="margin-left:{{marginleft*7}}px;margin-top:460px;height:115px;width:140rpx;background-color:#7acfa6;">
+            <view class="smalltext" style='color:black;width:140rpx;padding-top:50px;text-align:center;'>
+              <text>第九小节\n16:50-17:35\n第十小节\n17:40-18:25</text>
+            </view>
+          </view>
+        </view>
+        <view>
+          <view class="flex-item kcb-item" data-statu="open" style="margin-left:{{marginleft*7}}px;margin-top:575px;height:115px;;width:140rpx;background-color:#7acfa6;">
+            <view class="smalltext" style='color:black;width:140rpx;padding-top:20px;text-align:center;'>
+              <text>第十一小节\n19:10-19:55\n第十二小节\n20:00-20:45\n第十三小节\n20:50-21:35</text>
+            </view>
+          </view>
+        </view>
+
+
+
+
       </view>
     </view>
   </view>

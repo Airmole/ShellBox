@@ -32,7 +32,7 @@
   height: 30px;
   line-height: 30px;
   background: #7acfa6;
-  color: white;
+  color: rgba(0, 0, 0, 0.74);
   border: none;
   display: block;
   margin: 0 auto;

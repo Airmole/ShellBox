@@ -3,8 +3,8 @@
 
 [![Star](https://img.shields.io/badge/Star-Airmole-brightgreen.svg)](https://github.com/Airmole/ShellBox/stargazers)
 [![Download](https://img.shields.io/badge/download-.zip-brightgreen.svg)](https://github.com/Airmole/ShellBox/archive/master.zip)
-[![size](https://img.shields.io/badge/size-5.42MB-green.svg)](https://github.com/airmole/ShellBox)
-[![last commit](https://img.shields.io/badge/last%20commit-2018--09--22-green.svg)](https://github.com/Airmole/ShellBox/commits/master)
+[![size](https://img.shields.io/badge/size-5.45MB-green.svg)](https://github.com/airmole/ShellBox)
+[![last commit](https://img.shields.io/badge/last%20commit-2018--09--26-green.svg)](https://github.com/Airmole/ShellBox/commits/master)
 [![https://blog.airmole.cn](https://img.shields.io/badge/Blog-Airmole-green.svg)](https://blog.airmole.cn)
 
 
@@ -71,12 +71,9 @@
 
 - 图书下增加评论留言？(这个还在纠结，有空就做，懒了就留给学弟学妹们做😁)
 
-- 增加订阅宿舍电量不足提醒功能（这个要到学校了才能做）
-
 - 用户可以自由在班级课表与个人课表之间自由切换
 
 - 用户自己更正课表（纠结......）
 
 - 网费查询
 
-- 图书馆本周放映电影
