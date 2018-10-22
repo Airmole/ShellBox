@@ -12,6 +12,11 @@ Page({
     angle: 0
   },
   onLoad: function() {
+    wx.showToast({
+      title: "加载中...",
+      icon: "loading",
+      duration: 10000
+    })
     var that = this;
     var uid = wx.getStorageSync('uid')
     var pwd = wx.getStorageSync('pwd')
@@ -27,6 +32,7 @@ Page({
           console.log(res.data);
           //账号密码错误以下功能实现跳转错误页面
           if (res.data[0][0].stuName != '') {
+            wx.hideToast()
             app.globalData.uid = uid;
             app.globalData.pwd = pwd;
             wx.switchTab({
@@ -37,8 +43,8 @@ Page({
             app.globalData.pwd = "";
             wx.setStorageSync('uid', '');
             wx.setStorageSync('pwd', '');
+            wx.hideToast()
           }
-          wx.hideToast()
         }
       })
     }
@@ -55,12 +61,18 @@ Page({
         duration: 1000
       });
     } else {
+      wx.showToast({
+        title: "登录中...",
+        icon: "loading",
+        duration: 10000
+      })
       wx.request({
         url: 'https://airmole.cn/wechat/wxapp/api/Airmole_jiaowuInfoQuery.php?uid=' + e.detail.value.uid + '&pwd=' + e.detail.value.pwd,
         success: function(res) {
           that.setData({
             jsonStr: res.data,
           })
+          wx.hideToast()
           // console.log(res.data);
           //账号密码错误以下功能实现密码错误Toast
           if (res.data[0][0].stuName == '') {

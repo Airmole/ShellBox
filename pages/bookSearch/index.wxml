@@ -29,7 +29,7 @@
     </view>
   </view>
   <view wx:if="{{searchPanelShow==false}}">
-    <view class="marquee" wx:if="{{notices}}">
+    <view class="marquee" wx:if="{{notices != ' '}}">
       <view class="content">
         <text>{{notices}}</text>
         <text style="display: inline-block; width: 5em;"></text>

@@ -1,7 +1,10 @@
 <!--pages/score/showScore/showScore.wxml-->
 <view class="page">
-  <view class="page__hd">
+  <view class="page__hd" style='padding-bottom:15px;'>
     <view class="page__title">成绩查询</view>
+    <view class="page__desc" style='color:#000;margin-top:30rpx;'>
+      注：最终成绩以教务为准，本程序计算结果仅作参考,不具有官方权威性。学分为0或成绩低于60分的课程不纳入计算公式。
+    </view>
   </view>
   <view class="score__hd" wx:if="{{jsonContent.data}}">
     <button class="clear" bindtap='GetScoreList'>
@@ -40,11 +43,6 @@
       </view>
     </view>
   </block>
-  <view class="page__hd">
-    <view class="page__desc" style='color:#000'>
-      注：最终成绩以教务为准，本程序计算结果仅作参考。学分为0或成绩低于60分的课程不纳入计算公式。
-    </view>
-  </view>
   <!-- 广告位 -->
   <view class='ads'>
     <ad unit-id="adunit-62f52651dd5f4ff6"></ad>
