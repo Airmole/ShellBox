@@ -12,7 +12,7 @@ Page({
     wx.showToast({
       title: "loading",
       icon: "loading",
-      duration: 5000
+      duration: 15000
     })
     var that = this;
     that.setData({
