@@ -15,24 +15,24 @@
       <view class="chargeInfo-num chargeInfo-model result-model">
         <text class="chargeInfo-model-title">剩余电量</text>
         <view class="chargeInfo-model-info">
-          <text class="model-info">{{eleJson.electricity[0].Balance}}</text>度
+          <text class="model-info">{{eleJson.Balance}}</text>度
         </view>
       </view>
     </view>
     <view class="result-specificInfo result-model">
       <view class="specificInfo-item">
         <text class="specificInfo-item-label">上次充值电费</text>
-        <text class="specificInfo-item-value">{{eleJson.electricity[0].LastRecharge}}</text>
+        <text class="specificInfo-item-value">{{eleJson.LastRecharge}}</text>
         <text>元</text>
       </view>
       <view class="specificInfo-item">
         <text class="specificInfo-item-label">昨日插座用电</text>
-        <text class="specificInfo-item-value">{{eleJson.electricity[0].yesterdaySocket}}</text>
+        <text class="specificInfo-item-value">{{eleJson.yesterdaySocket}}</text>
         <text>度</text>
       </view>
       <view class="specificInfo-item">
         <text class="specificInfo-item-label">昨日空调/风扇用电</text>
-        <text class="specificInfo-item-value">{{eleJson.electricity[0].yesterdayAircon}}</text>
+        <text class="specificInfo-item-value">{{eleJson.yesterdayAircon}}</text>
         <text>度</text>
       </view>
     </view>
@@ -40,6 +40,13 @@
       <button open-type="share" class="chargeInfo-num chargeInfo-model result-model chargeInfo-model-info" style='line-height:1;'>
         <text>分享我的宿舍用电信息</text>
       </button>
+    </view>
+
+
+    <view class="result-chargeInfo">
+      <view class="chargeInfo-num chargeInfo-model result-model">
+        <canvas canvas-id="lineCanvas" disable-scroll="true" class="canvas" bindtouchstart="touchHandler"></canvas>
+      </view>
     </view>
 
     <image class="sdf-bg" src="/images/netfare-bg.png"></image>
