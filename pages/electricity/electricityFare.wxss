@@ -217,7 +217,7 @@ page {
 }
 
 .sdf-bg {
-  position: fixed;
+  position: absolute;
   width: 750rpx;
   height: 90rpx;
   bottom: -2rpx;

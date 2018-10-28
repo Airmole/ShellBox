@@ -54,19 +54,19 @@ Page({
       },
     ],
     swiperPic: [{
-        url: 'https://airmole.cn/wechat/wxapp/images/swiper1.jpg'
+        url: 'https://airmole.cn/wechat/wxapp/images/swiper1.jpg?e=' + Math.random()
       },
       {
-        url: 'https://airmole.cn/wechat/wxapp/images/swiper2.jpg'
+        url: 'https://airmole.cn/wechat/wxapp/images/swiper2.jpg?e=' + Math.random()
       },
       {
-        url: 'https://airmole.cn/wechat/wxapp/images/swiper3.gif'
+        url: 'https://airmole.cn/wechat/wxapp/images/swiper3.gif?e=' + Math.random()
       },
       {
-        url: 'https://airmole.cn/wechat/wxapp/images/swiper4.gif'
+        url: 'https://airmole.cn/wechat/wxapp/images/swiper4.gif?e=' + Math.random()
       },
       {
-        url: 'https://airmole.cn/wechat/wxapp/images/swiper5.gif'
+        url: 'https://airmole.cn/wechat/wxapp/images/swiper5.gif?e=' + Math.random()
       }
     ]
   },

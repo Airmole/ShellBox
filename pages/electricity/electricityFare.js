@@ -1,19 +1,19 @@
 // pages/electricity/electricityFare.js
 var wxCharts = require('../../utils/wxcharts.js');
+var util = require('../../utils/time.js');
 var app = getApp();
 var lineChart = null;
-var util = require('../../utils/time.js');
 Page({
-
   /**
    * 页面的初始数据
    */
   data: {
     zhai: "",
     room: "",
-    eleJson: ''
+    eleJson: '',
+    last7AC: [],
+    last7KT: [],
   },
-
   /**
    * 生命周期函数--监听页面加载
    */
@@ -23,7 +23,6 @@ Page({
       icon: "loading",
       duration: 5000
     })
-
 
     // 调用函数时，传入new Date()参数，返回值是日期和时间  
     var time = util.formatTime(new Date());
@@ -42,6 +41,8 @@ Page({
       success: function(res) {
         that.setData({
           eleJson: res.data,
+          last7AC: res.data.last7dayACused,
+          last7KT: res.data.last7dayKTused
         })
         wx.hideToast();
         // console.log(res.data);
@@ -54,57 +55,11 @@ Page({
       }
     })
 
-
     //图表相关
-
-    var windowWidth = 320;
-    try {
-      var res = wx.getSystemInfoSync();
-      windowWidth = res.windowWidth;
-    } catch (e) {
-      console.error('getSystemInfoSync failed!');
-    }
-
-    var df = this.data.eleJson;
-    // console.log(df)
-    lineChart = new wxCharts({
-      canvasId: 'lineCanvas',
-      type: 'line',
-      categories: [1, 2, 3, 4, 5, 6, 7],
-      animation: true,
-      // background: '#f5f5f5',
-      series: [{
-        name: '插座用电',
-        data: [2, 3, 4, 5, 6, 7, 8],
-        format: function(val, name) {
-          return val.toFixed(2) + '度';
-        }
-      }, {
-        name: '空调用电',
-        data: [0, 0, 0, 0, 0, 0, 0],
-        format: function(val, name) {
-          return val.toFixed(2) + '度';
-        }
-      }],
-      xAxis: {
-        disableGrid: true
-      },
-      yAxis: {
-        title: '最近七天用电',
-        format: function(val) {
-          return val.toFixed(2);
-        },
-        min: 0
-      },
-      width: windowWidth,
-      height: 200,
-      dataLabel: false,
-      dataPointShape: true,
-      extra: {
-        lineStyle: 'curve'
-      }
-    });
-    console.log(df)
+    setTimeout(function() {
+      console.log(that)
+      that.charts()
+    }, 1500);
 
   },
 
@@ -171,7 +126,7 @@ Page({
 
   //图表相关
   touchHandler: function(e) {
-    console.log(lineChart.getCurrentDataIndex(e));
+    // console.log(lineChart.getCurrentDataIndex(e));
     lineChart.showToolTip(e, {
       // background: '#7cb5ec',
       format: function(item, category) {
@@ -179,18 +134,62 @@ Page({
       }
     });
   },
-  createSimulationData: function() {
-    var rt = this.data.eleJson;
-    var categories = [];
-    var data = [];
-    for (var i = 0; i < 10; i++) {
-      categories.push('2016-' + (i + 1));
-      data.push(Math.random() * (20 - 10) + 10);
-    }
-    // data[4] = null;
-    return {
-      categories: categories,
-      data: rt,
-    }
+  touchHandler: function(e) {
+    console.log(lineChart.getCurrentDataIndex(e));
+    lineChart.showToolTip(e, {
+      format: function(item, category) {
+        return item.name + ':' + item.data
+      }
+    });
   },
+  charts: function(e) {
+    var windowWidth = 320;
+    try {
+      var res = wx.getSystemInfoSync();
+      windowWidth = res.windowWidth * 0.80;
+    } catch (e) {
+      console.error('getSystemInfoSync failed!');
+    }
+    var dfACdata = this.data.last7AC;
+    var dfKTdata = this.data.last7KT;
+    lineChart = new wxCharts({
+      canvasId: 'lineCanvas',
+      type: 'line',
+      categories: ["6天前", "5天前", "4天前", "3天前", "前天", "昨天", "当前"],
+      animation: true,
+      background: '#faf9f7',
+      series: [{
+          name: '插座用电',
+          data: dfACdata,
+          format: function(val, name) {
+            return val + '度';
+          }
+        },
+        {
+          name: '空调用电',
+          data: dfKTdata,
+          format: function(val, name) {
+            return val + '度';
+          }
+        }
+      ],
+      xAxis: {
+        disableGrid: true
+      },
+      yAxis: {
+        title: '最近用电曲线图',
+        format: function(val) {
+          return val.toFixed(2);
+        },
+        min: 0
+      },
+      width: windowWidth,
+      height: 200,
+      dataLabel: false,
+      dataPointShape: true,
+      extra: {
+        lineStyle: 'curve'
+      }
+    });
+  }
 })

@@ -1,7 +1,7 @@
 <!--pages/electricity/electricityFare.wxml-->
 <view class="container">
   <!--result-page-->
-  <view class="result-page" style='width:100%'>
+  <view class="result-page" style='width:100%;z-index:9999;'>
     <view class="result-userInfo result-model">
       <view class="userInfo-dormitory">
         <text class="dormitory-info">{{zhai}}斋{{room}}寝室</text>
@@ -26,12 +26,12 @@
         <text>元</text>
       </view>
       <view class="specificInfo-item">
-        <text class="specificInfo-item-label">昨日插座用电</text>
+        <text class="specificInfo-item-label">今日插座用电</text>
         <text class="specificInfo-item-value">{{eleJson.yesterdaySocket}}</text>
         <text>度</text>
       </view>
       <view class="specificInfo-item">
-        <text class="specificInfo-item-label">昨日空调/风扇用电</text>
+        <text class="specificInfo-item-label">今日空调/风扇用电</text>
         <text class="specificInfo-item-value">{{eleJson.yesterdayAircon}}</text>
         <text>度</text>
       </view>
@@ -41,14 +41,11 @@
         <text>分享我的宿舍用电信息</text>
       </button>
     </view>
-
-
-    <view class="result-chargeInfo">
-      <view class="chargeInfo-num chargeInfo-model result-model">
-        <canvas canvas-id="lineCanvas" disable-scroll="true" class="canvas" bindtouchstart="touchHandler"></canvas>
+    <view class="result-chargeInfo" style='margin-bottom:50px;height:200px'>
+      <view class="chargeInfo-num chargeInfo-model result-model" style='height:200px;'>
+        <canvas canvas-id="lineCanvas" disable-scroll="true" bindtouchstart="touchHandler" style='width:100%;height:200px;'></canvas>
       </view>
     </view>
-
-    <image class="sdf-bg" src="/images/netfare-bg.png"></image>
+    <image class="sdf-bg" src="/images/netfare-bg.png" style='z-index: 9999;'></image>
   </view>
 </view>

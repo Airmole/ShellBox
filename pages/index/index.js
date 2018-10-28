@@ -12,11 +12,6 @@ Page({
     angle: 0
   },
   onLoad: function() {
-    wx.showToast({
-      title: "加载中...",
-      icon: "loading",
-      duration: 10000
-    })
     var that = this;
     var uid = wx.getStorageSync('uid')
     var pwd = wx.getStorageSync('pwd')
@@ -32,7 +27,6 @@ Page({
           console.log(res.data);
           //账号密码错误以下功能实现跳转错误页面
           if (res.data[0][0].stuName != '') {
-            wx.hideToast()
             app.globalData.uid = uid;
             app.globalData.pwd = pwd;
             wx.switchTab({
@@ -50,6 +44,11 @@ Page({
     }
   },
   submitInfo: function(e) {
+    wx.showToast({
+      title: "加载中...",
+      icon: "loading",
+      duration: 10000
+    })
     let that = this;
     app.globalData.uid = e.detail.value.uid;
     app.globalData.pwd = e.detail.value.pwd;
