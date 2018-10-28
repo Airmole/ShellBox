@@ -39,28 +39,21 @@ Page({
     wx.request({
       url: 'https://airmole.cn/wechat/wxapp/api/eleQueryServicewith7day.php?zhai=' + options.zhai + '&room=' + options.room,
       success: function(res) {
+        //账号密码错误以下功能实现跳转错误页面
+        if (that.isLogin(res) === false) {
+          wx.redirectTo({
+            url: '/pages/error/loginerror'
+          })
+        }
         that.setData({
           eleJson: res.data,
           last7AC: res.data.last7dayACused,
           last7KT: res.data.last7dayKTused
         })
         wx.hideToast();
-        // console.log(res.data);
-        //账号密码错误以下功能实现跳转错误页面
-        if (res.data.Balance == '0.00' && res.data.LastRecharge == '0.00' && res.data.yesterdayAircon == '0.00' && res.data.yesterdaySocket == '0.00') {
-          wx.redirectTo({
-            url: '/pages/error/loginerror'
-          })
-        }
+        that.charts()
       }
     })
-
-    //图表相关
-    setTimeout(function() {
-      console.log(that)
-      that.charts()
-    }, 1500);
-
   },
 
   /**
@@ -191,5 +184,15 @@ Page({
         lineStyle: 'curve'
       }
     });
+  },
+
+  isLogin: function(res) {
+    if(res.data.Balance == '0.00'
+    && res.data.LastRecharge == '0.00'
+    && res.data.yesterdayAircon == '0.00'
+    && res.data.yesterdaySocket == '0.00'){
+      return false;
+    }
+    return true;
   }
 })
