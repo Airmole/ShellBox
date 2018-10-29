@@ -11,7 +11,8 @@ Page({
     room: '',
     eleJson: "",
     room_focus: false,
-    angle: 0
+    angle: 0,
+    isBind: true
   },
   /**
    * 生命周期函数--监听页面加载
@@ -26,6 +27,10 @@ Page({
       wx.redirectTo({
         url: './electricityFare?zhai=' + that.data.zhaiArray[building] + '&room=' + roomNo,
       })
+    }else{
+      that.setData({
+        isBind: false
+      });
     }
 
   },
