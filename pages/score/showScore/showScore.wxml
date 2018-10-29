@@ -1,5 +1,5 @@
 <!--pages/score/showScore/showScore.wxml-->
-<view class="page">
+<view class="page" wx:if="{{!isLoading}}">
   <view class="page__hd" style='padding-bottom:15px;'>
     <view class="page__title">成绩查询</view>
     <view class="page__desc" style='color:#000;margin-top:30rpx;'>

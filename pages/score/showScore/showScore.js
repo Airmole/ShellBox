@@ -10,7 +10,8 @@ Page({
     jsonContent: {},
     PicURL: "",
     PicArr: [""],
-    hasUserInfo: false
+    hasUserInfo: false,
+    isLoading: true
   },
   /**
    * 生命周期函数--监听页面加载
@@ -45,6 +46,9 @@ Page({
                 url: '/pages/index/index'
               })
             }
+            that.setData({
+              isLoading: false
+            });
             wx.hideToast()
           } else {
             if (res.data.code == 402) {
