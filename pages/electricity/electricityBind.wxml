@@ -1,5 +1,5 @@
 <!--pages/net/netBind.wxml-->
-<view class="container">
+<view class="container" wx:if="{{!isBind}}">
   <image class="title" src="/images/electricity_title.png"></image>
   <view class="content">
     <view class="hd" style="transform:rotateZ({{angle}}deg);">
