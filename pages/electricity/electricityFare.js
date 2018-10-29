@@ -39,6 +39,7 @@ Page({
     wx.request({
       url: 'https://airmole.cn/wechat/wxapp/api/eleQueryServicewith7day.php?zhai=' + options.zhai + '&room=' + options.room,
       success: function(res) {
+        console.log(res.data)
         //账号密码错误以下功能实现跳转错误页面
         if (that.isLogin(res) === false) {
           wx.redirectTo({
@@ -181,10 +182,10 @@ Page({
   },
 
   isLogin: function(res) {
-    if(res.data.Balance === "0.00"
-    && res.data.LastRecharge === "0.00"
-    && res.data.yesterdayAircon === "0.00"
-    && res.data.yesterdaySocket === "0.00"){
+    if (res.data.Balance === "0.00" &&
+      res.data.LastRecharge === "0.00" &&
+      res.data.yesterdayAircon === "0.00" &&
+      res.data.yesterdaySocket === "0.00") {
       return false;
     }
     return true;

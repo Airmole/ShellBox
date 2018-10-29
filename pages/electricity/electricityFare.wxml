@@ -21,6 +21,11 @@
     </view>
     <view class="result-specificInfo result-model">
       <view class="specificInfo-item">
+        <text class="specificInfo-item-label">剩余补助电量</text>
+        <text class="specificInfo-item-value">{{eleJson.Buzhu}}</text>
+        <text>度</text>
+      </view>
+      <view class="specificInfo-item">
         <text class="specificInfo-item-label">上次充值电费</text>
         <text class="specificInfo-item-value">{{eleJson.LastRecharge}}</text>
         <text>元</text>
@@ -36,15 +41,15 @@
         <text>度</text>
       </view>
     </view>
-    <view class="result-chargeInfo">
-      <button open-type="share" class="chargeInfo-num chargeInfo-model result-model chargeInfo-model-info" style='line-height:1;'>
-        <text>分享我的宿舍用电信息</text>
-      </button>
-    </view>
-    <view class="result-chargeInfo" style='margin-bottom:50px;height:200px'>
+    <view wx:if="{{eleJson.Balance !== 'N/A'}}" class="result-chargeInfo" style='height:200px;margin-bottom:50px;'>
       <view class="chargeInfo-num chargeInfo-model result-model" style='height:200px;'>
         <canvas canvas-id="lineCanvas" disable-scroll="true" bindtouchstart="touchHandler" style='width:100%;height:200px;'></canvas>
       </view>
+    </view>
+    <view class="result-chargeInfo" style='margin-bottom:50px;'>
+      <button open-type="share" class="chargeInfo-num chargeInfo-model result-model chargeInfo-model-info" style='line-height:1;'>
+        <text>分享我的宿舍用电信息</text>
+      </button>
     </view>
     <image class="sdf-bg" src="/images/netfare-bg.png" style='z-index: 9999;'></image>
   </view>
