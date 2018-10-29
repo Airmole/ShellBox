@@ -154,16 +154,12 @@ Page({
       series: [{
           name: '插座用电',
           data: dfACdata,
-          format: function(val, name) {
-            return val + '度';
-          }
+          format: (val) => val + "度"
         },
         {
           name: '空调用电',
           data: dfKTdata,
-          format: function(val, name) {
-            return val + '度';
-          }
+          format: (val) => val + "度"
         }
       ],
       xAxis: {
@@ -171,9 +167,7 @@ Page({
       },
       yAxis: {
         title: '最近用电曲线图',
-        format: function(val) {
-          return val.toFixed(2);
-        },
+        format: (val) => val.toFixed(2),
         min: 0
       },
       width: windowWidth,
@@ -187,10 +181,10 @@ Page({
   },
 
   isLogin: function(res) {
-    if(res.data.Balance == '0.00'
-    && res.data.LastRecharge == '0.00'
-    && res.data.yesterdayAircon == '0.00'
-    && res.data.yesterdaySocket == '0.00'){
+    if(res.data.Balance === "0.00"
+    && res.data.LastRecharge === "0.00"
+    && res.data.yesterdayAircon === "0.00"
+    && res.data.yesterdaySocket === "0.00"){
       return false;
     }
     return true;
