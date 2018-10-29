@@ -23,7 +23,7 @@
       <view class="specificInfo-item">
         <text class="specificInfo-item-label">剩余补助电量</text>
         <text class="specificInfo-item-value">{{eleJson.Buzhu}}</text>
-        <text>元</text>
+        <text>度</text>
       </view>
       <view class="specificInfo-item">
         <text class="specificInfo-item-label">上次充值电费</text>
