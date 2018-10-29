@@ -182,17 +182,10 @@ Page({
   },
 
   isLogin: function(res) {
-<<<<<<< HEAD
-    if (res.data.Balance == '0.00' &&
-      res.data.LastRecharge == '0.00' &&
-      res.data.yesterdayAircon == '0.00' &&
-      res.data.yesterdaySocket == '0.00') {
-=======
-    if(res.data.Balance === "0.00"
-    && res.data.LastRecharge === "0.00"
-    && res.data.yesterdayAircon === "0.00"
-    && res.data.yesterdaySocket === "0.00"){
->>>>>>> 36a8bb5c3ef3e233514494eaada49e6f596834d0
+    if (res.data.Balance === "0.00" &&
+      res.data.LastRecharge === "0.00" &&
+      res.data.yesterdayAircon === "0.00" &&
+      res.data.yesterdaySocket === "0.00") {
       return false;
     }
     return true;
