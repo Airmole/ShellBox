@@ -1,6 +1,11 @@
 {
   "pages": [
     "pages/index/index",
+    "pages/bookSearch/index",
+    "pages/bookSearch/bookInfo/bookInfo",
+    "pages/bookSearch/bookInfo/isbn/iputIsbn",
+    "pages/bookSearch/bookInfo/bookDetail",
+    "pages/bookSearch/bookInfo/bookList",
     "pages/features/features",
     "pages/features/about",
     "pages/welcome/welcome",
@@ -8,16 +13,11 @@
     "pages/calendar/calendar",
     "pages/score/showScore/showScore",
     "pages/error/queryerror",
-    "pages/bookSearch/index",
     "pages/net/netfare",
     "pages/net/netBind",
     "pages/electricity/electricityFare",
     "pages/electricity/electricityBind",
     "pages/Transport/Transport",
-    "pages/bookSearch/bookInfo/bookInfo",
-    "pages/bookSearch/bookInfo/isbn/iputIsbn",
-    "pages/bookSearch/bookInfo/bookDetail",
-    "pages/bookSearch/bookInfo/bookList",
     "pages/tel/departmentTel/departmentTel",
     "pages/stuInfo/stuInfo"
   ],

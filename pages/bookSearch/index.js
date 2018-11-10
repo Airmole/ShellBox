@@ -8,22 +8,25 @@ Page({
     showTips: false,
     notices: " ",
     searchPanelShow: false,
-    SearchType: 'BookName',
+    SearchType: '02',
     radioItems: [{
         name: '书名',
-        value: 'BookName',
+        value: '02',
         checked: true
       },
       {
         name: '作者',
-        value: 'Author'
+        value: '03'
       }, {
         name: '主题',
-        value: 'Topic'
+        value: '04'
+      }, {
+        name: '索书号',
+        value: '08'
       },
       {
         name: '出版社',
-        value: 'Publisher'
+        value: '09'
       }
     ]
   },
@@ -79,10 +82,10 @@ Page({
     }
   },
   searchIt: function(e) {
-    this.setData({
+    var that = this;
+    that.setData({
       keyword: e.detail.value
     });
-    let that = this;
     if (e.detail.value.length == 0) {
       wx.showToast({
         title: '输入有误',
@@ -94,22 +97,22 @@ Page({
       wx.showToast({
         title: "正在搜索..",
         icon: "loading",
-        duration: 8000
+        duration: 10000
       })
       wx.request({
-        url: 'https://airmole.cn/wechat/wxapp/api/' + this.data.SearchType + 'Search.php?keyword=' + e.detail.value,
+        url: 'https://zhxy.airmole.cn/book/booksearch_adv.php?type=' + that.data.SearchType + '&keyword=' + that.data.keyword,
         success: function(res) {
           that.setData({
             keywordStr: res.data,
           })
           console.log(res.data);
           wx.hideToast()
-          if (res.data[0].title == "图书馆系统无响应") {
+          if (res.data.total == "图书馆系统无响应") {
             wx.navigateTo({
               url: '/pages/error/queryerror?ErrorTips=' + "图书馆OPAC系统无响应"
             })
           }
-          if (res.data == '空的，查无此书') {
+          if (res.data.total == 0) {
             wx.showToast({
               title: '本馆暂无此书',
               image: '/images/info.png',
@@ -118,7 +121,7 @@ Page({
             });
           } else {
             wx.navigateTo({
-              url: '../bookSearch/bookInfo/bookList?keyword=' + e.detail.value + '&SearchType=' + that.data.SearchType,
+              url: '../bookSearch/bookInfo/bookList?keyword=' + that.data.keyword + '&SearchType=' + that.data.SearchType,
             })
           }
         }

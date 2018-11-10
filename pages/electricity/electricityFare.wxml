@@ -1,6 +1,5 @@
 <!--pages/electricity/electricityFare.wxml-->
 <view class="container">
-  <!--result-page-->
   <view class="result-page" style='width:100%;z-index:9999;'>
     <view class="result-userInfo result-model">
       <view class="userInfo-dormitory">

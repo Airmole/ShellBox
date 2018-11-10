@@ -40,6 +40,7 @@ Page({
         })
       }
     })
+
     wx.hideToast()
 
   },
