@@ -9,7 +9,8 @@ Page({
     help_status: false,
     userid_focus: false,
     passwd_focus: false,
-    angle: 0
+    angle: 0,
+    isLoading: true,
   },
   onLoad: function() {
     var that = this;
@@ -37,6 +38,9 @@ Page({
             app.globalData.pwd = "";
             wx.setStorageSync('uid', '');
             wx.setStorageSync('pwd', '');
+            that.setData({
+              isLoading: false
+            });
             wx.hideToast()
           }
         }

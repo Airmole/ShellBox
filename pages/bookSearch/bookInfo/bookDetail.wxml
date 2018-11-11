@@ -5,7 +5,7 @@
       </image>
     </view>
     <view class="book-meta">
-      <view class="meta-info" wx:if="{{doubanStr.title}}">
+      <view class="meta-info" wx:if="{{doubanStr.title}}" style='height:150px;'>
         <text class="book-title">{{doubanStr.title}}</text>
         <text class="other-meta">作者：{{doubanStr.author[0]}}</text>
         <text class="other-meta">出版社：{{doubanStr.publisher}}</text>
@@ -42,11 +42,11 @@
     </view>
     <view class="weui-panel weui-panel_access raduis" wx:else>
       <view class="weui-panel__hd">图书馆馆藏</view>
-      <view class="weui-panel__bd" wx:for='{{jsonStr}}' wx:key='LibraryStorage'>
-        <view class="weui-media-box weui-media-box_text">
+      <view class="weui-panel__bd">
+        <view class="weui-media-box weui-media-box_text" wx:for='{{jsonStr}}' wx:key='LibraryStorage'>
           <view class="weui-media-box__title suoshuNO">索书号：{{item[0]}}</view>
-          <view class="weui-media-box__desc">条码号：{{item[1]}}</view>
-          <view class="weui-media-box__title">状态：
+          <view class="weui-media-box__title suoshuNO">条码号：{{item[1]}}</view>
+          <view class="weui-media-box__title suoshuNO">图书状态：
             <view class="weui-badge" style="margin-left: 5px;" wx:if='{{item[4]=="可借"}}'>{{item[4]}}</view>
             <view class="weui-badge" style="margin-left: 5px;background-color:red;" wx:if='{{item[4]!=="可借"}}'>{{item[4]}}</view>
           </view>

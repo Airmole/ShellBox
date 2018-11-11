@@ -94,3 +94,68 @@ button::after {
 .border-shadow {
   border-radius: 15rpx;
 }
+
+.result-chargeInfo {
+  display: flex;
+  flex-direction: row;
+  margin: 20rpx 0;
+}
+
+.chargeInfo-model {
+  flex: 1;
+  padding: 35rpx 30rpx;
+}
+
+.chargeInfo-num {
+  margin-right: 10rpx;
+}
+
+.chargeInfo-cost {
+  margin-left: 10rpx;
+}
+
+.chargeInfo-model-title {
+  margin-bottom: 30rpx;
+}
+
+.chargeInfo-model-info {
+  text-align: center;
+}
+
+.model-info {
+  color: #777;
+  font-weight: bold;
+  font-size: 40pt;
+  line-height: 120%;
+  padding: 0 15rpx 0 20rpx;
+}
+
+.result-specificInfo {
+  padding: 35rpx 30rpx;
+}
+
+.specificInfo-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 25rpx 0;
+}
+
+.specificInfo-item-label {
+  flex: 1;
+}
+
+.specificInfo-item-value {
+  color: #888;
+  font-weight: bold;
+  font-size: 12pt;
+  margin-right: 10rpx;
+}
+
+.sdf-bg {
+  position: absolute;
+  width: 750rpx;
+  height: 90rpx;
+  bottom: -2rpx;
+  left: 0;
+  right: 0;
+}

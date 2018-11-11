@@ -106,12 +106,12 @@ Page({
       duration: 1000
     });
   },
-  preview: function() {
-    wx.previewImage({
-      current: 'https://airmole.cn/wechat/wxapp/images/Bus413.jpg', // 当前显示图片的http链接
-      urls: ['https://airmole.cn/wechat/wxapp/images/Bus413.jpg'] // 需要预览的图片http链接列表
-    })
-  },
+  // preview: function() {
+  //   wx.previewImage({
+  //     current: 'https://airmole.cn/wechat/wxapp/images/Bus413.jpg', // 当前显示图片的http链接
+  //     urls: ['https://airmole.cn/wechat/wxapp/images/Bus413.jpg'] // 需要预览的图片http链接列表
+  //   })
+  // },
   /**
    * 用户点击右上角分享
    */

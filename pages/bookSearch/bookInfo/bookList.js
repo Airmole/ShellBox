@@ -21,14 +21,14 @@ Page({
     })
     var that = this;
     wx.request({
-      url: 'https://airmole.cn/wechat/wxapp/api/' + options.SearchType + 'Search.php?keyword=' + options.keyword,
+      url: 'https://zhxy.airmole.cn/book/booksearch_adv.php?type=' + options.SearchType + '&keyword=' + options.keyword,
       success: function(res) {
         that.setData({
           keywordStr: res.data,
         })
         console.log(res.data);
         wx.hideToast()
-        if (res.data == '空的，查无此书') {
+        if (res.data.total == 0) {
           wx.redirectTo({
             url: '/pages/error/queryerror?ErrorTips=' + '您查找的图书暂无馆藏'
           })

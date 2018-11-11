@@ -52,7 +52,7 @@ Page({
           last7KT: res.data.last7dayKTused
         })
         wx.hideToast();
-        that.charts()
+        that.charts();
       }
     })
   },
@@ -125,14 +125,6 @@ Page({
       // background: '#7cb5ec',
       format: function(item, category) {
         return category + ' ' + item.name + ':' + item.data
-      }
-    });
-  },
-  touchHandler: function(e) {
-    console.log(lineChart.getCurrentDataIndex(e));
-    lineChart.showToolTip(e, {
-      format: function(item, category) {
-        return item.name + ':' + item.data
       }
     });
   },

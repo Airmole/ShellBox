@@ -1,4 +1,4 @@
-<view class="container">
+<view class="container" wx:if="{{!isLoading}}">
   <view>
     <image class="title" src="/images/title.png"></image>
     <view class="content">

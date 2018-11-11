@@ -1,18 +1,19 @@
 <view class="page">
   <view class="page__hd">
     <view class="page__title">查询结果</view>
-    <view class="page__desc">我们为您找到了以下内容：</view>
+    <view class="page__desc">在经历{{keywordStr.cost}}秒的折腾后，我们为您找到了以下{{keywordStr.total}}条内容：</view>
   </view>
   <view class="page__bd">
     <view class="weui-panel weui-panel_access">
       <view class="weui-panel__bd">
-        <navigator url="./bookDetail?marc_no={{item.url}}" class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active" wx:for='{{keywordStr}}' wx:key='searchResultList'>
+        <navigator url="./bookDetail?marc_no={{item.marcRecNo}}&title={{item.title}}" class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active" wx:for='{{keywordStr.content}}' wx:key='searchResultList'>
           <view class="weui-media-box__hd weui-media-box__hd_in-appmsg">
             <image class="weui-media-box__thumb" src="/images/BookTag.png" />
           </view>
           <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
             <view class="weui-media-box__title">{{item.title}}</view>
-            <view class="weui-media-box__desc">{{item.actor}}</view>
+            <view class="weui-media-box__desc">作者：{{item.author}}</view>
+            <view class="weui-media-box__desc">索书号：{{item.callNo}}</view>
           </view>
         </navigator>
       </view>

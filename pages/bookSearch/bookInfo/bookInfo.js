@@ -8,11 +8,11 @@ Page({
     wx.showToast({
       title: "loading",
       icon: "loading",
-      duration: 5000
+      duration: 10000
     })
     var that = this;
     wx.request({
-      url: 'https://airmole.cn/wechat/wxapp/api/isbn2info2.php?ISBN=' + options.ISBN,
+      url: 'https://zhxy.airmole.cn/book/isbn2info2.php?ISBN=' + options.ISBN,
       success: function(res) {
         that.setData({
           jsonStr: res.data,
@@ -31,16 +31,10 @@ Page({
           doubanStr: res.data,
         })
         // console.log(res.data);
-      },
-      fail: function(res) {
-        wx.showToast({
-          title: res.errMsg,
-          icon: 'loading',
-          duration: 8000
-        })
+        wx.hideToast()
       }
     })
-    wx.hideToast()
+
 
   },
   onReady: function() {
