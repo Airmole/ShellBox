@@ -121,11 +121,11 @@
             <text>分享给同学</text>
           </button>
         </view>
-        <view class="weui-tab__content" hidden="{{activeIndex != 2}}" style='background-color:#7acfa6;height:660px'>
+        <view class="weui-tab__content" hidden="{{activeIndex != 2}}" style='background-color:#7acfa6;height:850px'>
           <text>\r\n</text>
-          <view class="ykt-detail-wraper" style='height:550px;'>
+          <view class="ykt-detail-wraper" style='height:730px;'>
             <view class='setCenter'>
-              <image bindtap='preview' src='https://airmole.cn/wechat/wxapp/images/Bus413.jpg' mode='widthFix' style='setCenter'></image>
+              <image src='https://airmole.cn/wechat/wxapp/images/busBao13lu.png' mode='widthFix' style='setCenter'></image>
             </view>
           </view>
           <button open-type="share" class="login-btn">

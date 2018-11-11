@@ -24,7 +24,7 @@ Page({
           jsonStr: res.data,
         })
         console.log(res.data);
-        if (res.data[0][5]) {
+        if (res.data[0][5] !== "") {
           wx.request({
             url: 'https://airmole.cn/doubanapi/v2/book/isbn/' + res.data[0][5],
             method: 'GET',
@@ -42,6 +42,10 @@ Page({
                 })
               }
             }
+          })
+        } else {
+          that.setData({
+            doubanStr: 'null',
           })
         }
         wx.hideToast();

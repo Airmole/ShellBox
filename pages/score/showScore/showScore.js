@@ -1,5 +1,8 @@
 // pages/score/showScore/showScore.js
-var app = getApp()
+var wxCharts = require('../../../utils/wxcharts.js');
+var util = require('../../../utils/time.js');
+var app = getApp();
+var lineChart = null;
 Page({
   /**
    * 页面的初始数据
@@ -11,7 +14,8 @@ Page({
     PicURL: "",
     PicArr: [""],
     hasUserInfo: false,
-    isLoading: true
+    isLoading: true,
+    showGraphic: true
   },
   /**
    * 生命周期函数--监听页面加载
@@ -28,7 +32,6 @@ Page({
       password: app.globalData.pwd,
     });
     if (app.globalData.uid == '' || app.globalData.pwd == '') {
-      //调试完记得取消注释
       wx.redirectTo({
         url: '/pages/index/index'
       })
@@ -39,7 +42,8 @@ Page({
           that.setData({
             jsonContent: res.data,
           })
-          console.log(res.data);
+          console.log(res.data.data);
+          that.charts();
           if (res.data.code == 200) {
             if (res.data.data.msg == '密码错误') {
               wx.redirectTo({
@@ -61,7 +65,6 @@ Page({
                 url: '/pages/error/queryerror?ErrorTips=' + res.data.message
               })
             }
-
           }
         }
       })
@@ -128,5 +131,82 @@ Page({
         })
       }
     })
+  },
+  //图表相关
+  createSimulationData: function() {
+    var that = this;
+    var categories = [];
+    var data1 = [];
+    var data2 = [];
+    var scoreJson = this.data.jsonContent.data;
+    if (scoreJson.length == 1) {
+      that.setData({
+        showGraphic: false
+      })
+    }
+    for (var i = 0; i < scoreJson.length; i++) {
+      categories.push(scoreJson[i].time.schoolYear + '年 第' + scoreJson[i].time.semester + '学期');
+      data1.push(scoreJson[i].avg);
+      data2.push(scoreJson[i].gpa);
+    }
+    return {
+      categories: categories,
+      data1: data1,
+      data2: data2,
+    }
+  },
+
+  touchHandler: function(e) {
+    // console.log(lineChart.getCurrentDataIndex(e));
+    lineChart.showToolTip(e, {
+      // background: '#7cb5ec',
+      format: function(item, category) {
+        return category + ' ' + item.name + ':' + item.data
+      }
+    });
+  },
+  charts: function(e) {
+    var windowWidth = 320;
+    try {
+      var res = wx.getSystemInfoSync();
+      windowWidth = res.windowWidth * 0.95;
+    } catch (e) {
+      console.error('getSystemInfoSync failed!');
+    }
+    var simulationData = this.createSimulationData();
+    console.log(simulationData)
+    lineChart = new wxCharts({
+      canvasId: 'lineCanvas',
+      type: 'line',
+      categories: simulationData.categories,
+      animation: true,
+      background: '#7acfa6',
+      series: [{
+          name: '算术平均分',
+          data: simulationData.data1,
+          format: (val) => val + "分"
+        },
+        {
+          name: '加权平均分',
+          data: simulationData.data2,
+          format: (val) => val + "分"
+        }
+      ],
+      xAxis: {
+        disableGrid: true
+      },
+      yAxis: {
+        title: '每学期学分趋势',
+        format: (val) => val.toFixed(2),
+        min: 60
+      },
+      width: windowWidth,
+      height: 200,
+      dataLabel: false,
+      dataPointShape: true,
+      extra: {
+        lineStyle: 'curve'
+      }
+    });
   },
 })
