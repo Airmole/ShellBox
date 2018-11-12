@@ -139,7 +139,7 @@ Page({
     var data1 = [];
     var data2 = [];
     var scoreJson = this.data.jsonContent.data;
-    if (scoreJson.length == 1) {
+    if (scoreJson.length < 2) {
       that.setData({
         showGraphic: false
       })
