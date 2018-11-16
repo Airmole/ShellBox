@@ -18,7 +18,7 @@ Page({
     })
     var that = this;
     wx.request({
-      url: 'https://zhxy.airmole.cn/book/marcno2info.php?marc_no=' + options.marc_no,
+      url: 'https://airmole.cn/api/book/marcno2info.php?marc_no=' + options.marc_no,
       success: function(res) {
         that.setData({
           jsonStr: res.data,

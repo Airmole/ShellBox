@@ -21,7 +21,7 @@ Page({
     })
     var that = this;
     wx.request({
-      url: 'https://zhxy.airmole.cn/book/booksearch_adv.php?type=' + options.SearchType + '&keyword=' + options.keyword,
+      url: 'https://airmole.cn/api/book/booksearch_adv.php?type=' + options.SearchType + '&keyword=' + options.keyword,
       success: function(res) {
         that.setData({
           keywordStr: res.data,

@@ -12,7 +12,7 @@ Page({
     })
     var that = this;
     wx.request({
-      url: 'https://zhxy.airmole.cn/book/isbn2info2.php?ISBN=' + options.ISBN,
+      url: 'https://airmole.cn/api/book/isbn2info2.php?ISBN=' + options.ISBN,
       success: function(res) {
         that.setData({
           jsonStr: res.data,
