@@ -38,13 +38,14 @@ Page({
             app.globalData.pwd = "";
             wx.setStorageSync('uid', '');
             wx.setStorageSync('pwd', '');
-            that.setData({
-              isLoading: false
-            });
             wx.hideToast()
           }
         }
       })
+    } else {
+      that.setData({
+        isLoading: false
+      });
     }
   },
   submitInfo: function(e) {

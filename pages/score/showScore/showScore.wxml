@@ -1,6 +1,6 @@
 <!--pages/score/showScore/showScore.wxml-->
 <view class="page" wx:if="{{!isLoading}}">
-  <view class="page__hd" style='padding-top:10px;'>
+  <view class="page__hd" style='padding-top:10px;padding-bottom:10px;'>
     <view class="page__title">成绩查询</view>
     <view class="page__desc" style='color:#000;'>
       注：最终成绩以教务为准，本程序计算结果仅作参考,不具有官方权威性。学分为0或成绩低于60分的课程不纳入计算公式。

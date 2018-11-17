@@ -20,9 +20,6 @@ Page({
       }, {
         name: '主题',
         value: '04'
-      }, {
-        name: '索书号',
-        value: '08'
       },
       {
         name: '出版社',
@@ -100,7 +97,7 @@ Page({
         duration: 10000
       })
       wx.request({
-        url: 'https://zhxy.airmole.cn/book/booksearch_adv.php?type=' + that.data.SearchType + '&keyword=' + that.data.keyword,
+        url: 'https://airmole.cn/api/book/booksearch_adv.php?type=' + that.data.SearchType + '&keyword=' + that.data.keyword,
         success: function(res) {
           that.setData({
             keywordStr: res.data,
@@ -175,6 +172,4 @@ Page({
       showTips: true,
     })
   },
-
-
 });
