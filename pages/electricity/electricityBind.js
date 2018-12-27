@@ -27,7 +27,7 @@ Page({
       wx.redirectTo({
         url: './electricityFare?zhai=' + that.data.zhaiArray[building] + '&room=' + roomNo,
       })
-    }else{
+    } else {
       that.setData({
         isBind: false
       });
@@ -130,7 +130,7 @@ Page({
               });
             } else {
               //设置本地Storage,维持登录态用
-              wx.setStorageSync('building', e.detail.value.building);
+              wx.setStorageSync('building', that.data.zhaiArray[e.detail.value.building]);
               wx.setStorageSync('roomNo', e.detail.value.roomNo);
               wx.redirectTo({
                 url: '/pages/electricity/electricityFare?zhai=' + that.data.zhaiArray[e.detail.value.building] + '&room=' + e.detail.value.roomNo
