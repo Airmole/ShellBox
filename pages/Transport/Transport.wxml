@@ -28,109 +28,154 @@
                     <image class="weui-article__img" src="https://airmole.cn/wechat/wxapp/images/jjxcBus.jpg" mode="widthFix" style="height: 180px" />
                   </view>
                 </view>
+
                 <view class="weui-article__section">
                   <view class="weui-article__h3">北京国贸</view>
                   <view class="weui-article__p">北京国贸发车时间为上午7:30，下午4:00。</view>
                   <view class="weui-article__p">周五、周日各加车2车次，发车时间为上午10:30，下午2:00。</view>
                   <view class="weui-article__p">乘车地点：建国路南三环东国贸桥下艾维克酒店西门路边 （下车购票，不需提前买票）</view>
                 </view>
+
                 <view class="weui-article__p">
                   <image class="weui-article__img" src="https://airmole.cn/wechat/wxapp/images/bjgmBusStation.jpg" mode="widthFix" style="height: 180px" />
                   <image class="weui-article__img" src="https://airmole.cn/wechat/wxapp/images/bjgmBus.jpg" mode="widthFix" style="height: 180px" />
                 </view>
+
               </view>
             </view>
 
             <button open-type="share" class="login-btn">
               <text>分享给同学</text>
             </button>
+
           </view>
         </view>
         <!-- 市区部分代码 -->
-        <view class="weui-tab__content" hidden="{{activeIndex != 1}}" style='background-color:#7acfa6;height:820px;'>
-          <text>\r\n</text>
-          <view class="ykt-detail-wraper">
-            <view class="weui-form-preview__hd">
-              <view class="weui-form-preview__item">
-                <view class="weui-form-preview__label">大学城→华北集团→天津</view>
-                <view class="weui-form-preview__value_in-hd"></view>
-              </view>
-            </view>
-            <view class="weui-form-preview__bd">
-              <view class="weui-form-preview__item">
-                <view class="weui-form-preview__label">周一到周四</view>
-                <view class="weui-form-preview__value">大学城（校车）</view>
-              </view>
-              <view class="weui-form-preview__item">
-                <view class="weui-form-preview__label">上午：</view>
-                <view class="weui-form-preview__value">
-                  <text>6点、6点55分、8点\n9点、10点、11点、12点</text>
-                </view>
-              </view>
-              <view class="weui-form-preview__item">
-                <view class="weui-form-preview__label">下午：</view>
-                <view class="weui-form-preview__value">
-                  <text>13点（人多加班）、14点\n 15点（人多加班）、16点\n17点（人多加班）、18点</text>
-                </view>
-              </view>
-              <view class="weui-form-preview__item">
-                <view class="weui-form-preview__label">周五到周日</view>
-                <view class="weui-form-preview__value">早6:00到晚18:00\n大约每20分钟发一班次</view>
-              </view>
-            </view>
-          </view>
+        <view class="weui-tab__content" hidden="{{activeIndex != 1}}" style='background-color:#7acfa6;padding-bottom:30px;'>
           <!-- 广告位 -->
           <view class='ads'>
             <ad unit-id="adunit-62f52651dd5f4ff6"></ad>
           </view>
           <!-- 广告位结束 -->
 
-          <view class="ykt-detail-wraper">
-            <view class="weui-form-preview__hd">
-              <view class="weui-form-preview__item">
-                <view class="weui-form-preview__label">白庙客运站→华北集团→大学城</view>
-                <view class="weui-form-preview__value_in-hd"></view>
+          <view class="wraper" style='padding:5px;'>
+            <view class="weui-media-box__title warmtips">温馨提示</view>
+            <view class="weui-panel__bd">
+
+              <view class="weui-media-box weui-media-box_text" style='padding-bottom:0px;'>
+                <view class="weui-media-box__desc" style='color:#000;margin-bottom:8px;'>乘车地点：学院西门</view>
+                <view class="weui-media-box__desc" style='color:#000;margin-bottom:8px;'>票价：全程￥15元(按距离5/10/15元,只收现金)</view>
+                <view class="weui-media-box__desc" style='color:#000;margin-bottom:8px;'>京津新城至白庙站： 6:00~18:00，每30分钟一班</view>
+                <view class="weui-media-box__desc" style='color:#000;margin-bottom:8px;'>白庙站至京津新城： 7:30~19:30，每30分钟一班</view>
+              </view>
+
+              <view class="weui-media-box__info">
+                <view class="weui-media-box__info__meta" style='color:#000;padding-left:10px;'>提示：资料来源于网络搜集整理，仅供参考</view>
               </view>
             </view>
+
+          </view>
+
+          <view class="ykt-detail-wraper" style='padding:20px;'>
+            <view style='padding-bottom:30px;'>
+              <view class="weui-media-box__title warmtips">京津新城 ←_→ 天津(公交160路)</view>
+            </view>
+            <wux-steps direction="vertical">
+              <wux-step status="finish" title="京津新城公交站"></wux-step>
+              <wux-step status="finish" title="宝坻温泉城"></wux-step>
+              <wux-step status="finish" title="桃园四区"></wux-step>
+              <wux-step status="finish" title="桃园八区"></wux-step>
+              <wux-step status="process" title="北京科技大学天津学院"></wux-step>
+              <wux-step status="wait" title="天津财经大学珠江学院"></wux-step>
+              <wux-step status="wait" title="军事交通学院"></wux-step>
+              <wux-step status="wait" title="京津新城管委会"></wux-step>
+              <wux-step status="wait" title="帝景度假村"></wux-step>
+              <wux-step status="wait" title="凯悦大酒店"></wux-step>
+              <wux-step status="wait" title="合生创展"></wux-step>
+              <wux-step status="wait" title="上京顺园"></wux-step>
+              <wux-step status="wait" title="上京康园"></wux-step>
+              <wux-step status="wait" title="上京雍园"></wux-step>
+              <wux-step status="wait" title="消防队"></wux-step>
+              <wux-step status="wait" title="朱家窝"></wux-step>
+              <wux-step status="wait" title="田家桥"></wux-step>
+              <wux-step status="wait" title="大白庄镇"></wux-step>
+              <wux-step status="wait" title="第二小学"></wux-step>
+              <wux-step status="wait" title="鸿坤原乡小镇"></wux-step>
+              <wux-step status="wait" title="锦绣香江"></wux-step>
+              <wux-step status="wait" title="甜水井村"></wux-step>
+              <wux-step status="wait" title="张狼庄"></wux-step>
+              <wux-step status="wait" title="马贵庄"></wux-step>
+              <wux-step status="wait" title="随家庄"></wux-step>
+              <wux-step status="wait" title="京津国际"></wux-step>
+              <wux-step status="wait" title="九园石材城"></wux-step>
+              <wux-step status="wait" title="小淀村口"></wux-step>
+              <wux-step status="wait" title="华北集团地铁站 "></wux-step>
+              <wux-step status="wait" title="万科新城"></wux-step>
+              <wux-step status="wait" title="田园小区"></wux-step>
+              <wux-step status="wait" title="万达新城"></wux-step>
+              <wux-step status="wait" title="白庙(上行)"></wux-step>
+              <wux-step status="wait" title="普济河道立交桥(下行)"></wux-step>
+              <wux-step status="wait" title="津宇客运站"></wux-step>
+            </wux-steps>
+          </view>
+
+          <button open-type="share " class="login-btn" style='margin-top:30px;'>
+            <text>分享给同学</text>
+          </button>
+
+        </view>
+
+        <view class="weui-tab__content" hidden="{{activeIndex != 2}}" style='background-color:#7acfa6;padding-bottom:30px;'>
+          <text>\r\n</text>
+
+          <view class="wraper" style='padding:5px;'>
+            <view class="weui-media-box__title warmtips">温馨提示</view>
             <view class="weui-form-preview__bd">
               <view class="weui-form-preview__item">
-                <view class="weui-form-preview__label">津宇客运站（校车）</view>
-                <view class="weui-form-preview__value"></view>
+                <view class="weui-form-preview__label">运行时间</view>
+                <view class="weui-form-preview__value">6:30 ~ 17:30</view>
               </view>
               <view class="weui-form-preview__item">
-                <view class="weui-form-preview__label">周一到周五：</view>
-                <view class="weui-form-preview__value">
-                  <text>早7:30到晚18:30\n大约每30分钟发一个班次</text>
-                </view>
+                <view class="weui-form-preview__label">票价</view>
+                <view class="weui-form-preview__value">￥ 2 ~ 6元(现金)</view>
               </view>
-              <view class="weui-form-preview__item">
-                <view class="weui-form-preview__label">周六至周日：</view>
-                <view class="weui-form-preview__value">
-                  <text>早6:00到晚19:30\n大约每20分钟发一个班次</text>
-                </view>
-              </view>
-              <view class="weui-form-preview__ft">
-                <text>*可能与实际情况稍有不同,仅供参考</text>
+              <view class="weui-media-box__info">
+                <view class="weui-media-box__info__meta" style='color:#000'>提示：资料来源于网络搜集整理，仅供参考</view>
               </view>
             </view>
           </view>
-          <!-- <view class="ykt-detail-wraper" style='text-align:center;' wx:else>
-            <text>北科车站电话：</text>
-          </view> -->
-          <button open-type="share" class="login-btn">
-            <text>分享给同学</text>
-          </button>
-        </view>
-        <view class="weui-tab__content" hidden="{{activeIndex != 2}}" style='background-color:#7acfa6;height:850px'>
-          <text>\r\n</text>
-          <view class="ykt-detail-wraper" style='height:730px;'>
-            <view class='setCenter'>
-              <image src='https://airmole.cn/wechat/wxapp/images/busBao13lu.png' mode='widthFix' style='setCenter'></image>
+
+          <view class="ykt-detail-wraper" style='padding:20px;'>
+            <view style='padding-bottom:30px;margin-top:10px;'>
+              <view class="weui-media-box__title warmtips">学院 ←_→ 宝坻(公交宝13路)</view>
             </view>
+            <wux-steps direction="vertical">
+              <wux-step status="process" title="北京科技大学天津学院"></wux-step>
+              <wux-step status="wait" title="天津财经大学珠江学院"></wux-step>
+              <wux-step status="wait" title="军事交通学院"></wux-step>
+              <wux-step status="wait" title="周良庄"></wux-step>
+              <wux-step status="wait" title="御马庄"></wux-step>
+              <wux-step status="wait" title="李台"></wux-step>
+              <wux-step status="wait" title="五登"></wux-step>
+              <wux-step status="wait" title="郝各庄"></wux-step>
+              <wux-step status="wait" title="中央公园"></wux-step>
+              <wux-step status="wait" title="泰达金色领地"></wux-step>
+              <wux-step status="wait" title="凯旋家园"></wux-step>
+              <wux-step status="wait" title="潮阳花园"></wux-step>
+              <wux-step status="wait" title="怡购清华园"></wux-step>
+              <wux-step status="wait" title="怡购购物广场"></wux-step>
+              <wux-step status="wait" title="天宝新苑 "></wux-step>
+              <wux-step status="wait" title="华苑东区 "></wux-step>
+              <wux-step status="wait" title="宝坻中医院 "></wux-step>
+              <wux-step status="wait" title="劝宝东门 "></wux-step>
+              <wux-step status="wait" title="宝坻客运站 "></wux-step>
+            </wux-steps>
           </view>
-          <button open-type="share" class="login-btn">
+
+          <button open-type="share " class="login-btn" style='margin-top:30px;'>
             <text>分享给同学</text>
           </button>
+
         </view>
       </view>
     </view>

@@ -30,12 +30,12 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 1,
+			"current": 0,
 			"list": [
 				{
 					"id": 0,
 					"name": "test",
-					"pathName": "pages/features/features",
+					"pathName": "pages/Transport/Transport",
 					"query": ""
 				},
 				{

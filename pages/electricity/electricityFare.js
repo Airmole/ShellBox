@@ -23,38 +23,44 @@ Page({
       icon: "loading",
       duration: 5000
     })
-
-    // 调用函数时，传入new Date()参数，返回值是日期和时间  
-    var time = util.formatTime(new Date());
-    // 再通过setData更改Page()里面的data，动态更新页面的数据  
-    this.setData({
-      time: time
-    });
-
-    var that = this
-    this.setData({
-      zhai: options.zhai,
-      room: options.room,
-    });
-    wx.request({
-      url: 'https://airmole.cn/wechat/wxapp/api/eleQueryServicewith7day.php?zhai=' + options.zhai + '&room=' + options.room,
-      success: function(res) {
-        console.log(res.data)
-        //账号密码错误以下功能实现跳转错误页面
-        if (that.isLogin(res) === false) {
-          wx.redirectTo({
-            url: '/pages/error/loginerror'
+    var building = wx.getStorageSync('building');
+    var roomNo = wx.getStorageSync('roomNo');
+    if (building == "" || roomNo == '') {
+      wx.redirectTo({
+        url: './electricityBind',
+      })
+    } else {
+      // 调用函数时，传入new Date()参数，返回值是日期和时间  
+      var time = util.formatTime(new Date());
+      // 再通过setData更改Page()里面的data，动态更新页面的数据  
+      this.setData({
+        time: time
+      });
+      var that = this
+      this.setData({
+        zhai: building,
+        room: roomNo,
+      });
+      wx.request({
+        url: 'https://airmole.cn/wechat/wxapp/api/eleQueryServicewith7day.php?zhai=' + building + '&room=' + roomNo,
+        success: function(res) {
+          console.log(res.data)
+          //账号密码错误以下功能实现跳转错误页面
+          if (that.isLogin(res) === false) {
+            wx.redirectTo({
+              url: '/pages/error/loginerror'
+            })
+          }
+          that.setData({
+            eleJson: res.data,
+            last7AC: res.data.last7dayACused,
+            last7KT: res.data.last7dayKTused
           })
+          wx.hideToast();
+          that.charts();
         }
-        that.setData({
-          eleJson: res.data,
-          last7AC: res.data.last7dayACused,
-          last7KT: res.data.last7dayKTused
-        })
-        wx.hideToast();
-        that.charts();
-      }
-    })
+      })
+    }
   },
 
   /**

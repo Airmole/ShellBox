@@ -1,8 +1,8 @@
 @import "../common/weui.wxss";
 
-/* Page {
-  background-color: #7acfa6;
-} */
+.ads {
+  padding: 5rpx 30rpx 30rpx 30rpx;
+}
 
 page, .page, .page__bd {
   height: 100%;
@@ -15,10 +15,6 @@ image {
 
 .page__bd {
   padding-bottom: 0;
-}
-
-.ads {
-  padding: 30rpx 15rpx 30rpx 15rpx;
 }
 
 .weui-tab__content {
@@ -71,6 +67,19 @@ image {
   flex-direction: column;
   margin: 0 30rpx 30rpx;
   background: rgba(255, 255, 255, 0.3);
-  border-radius: 25px;
+  border-radius: 15px;
   box-shadow: 5rpx 5rpx 15rpx #ccc;
+}
+
+.wraper {
+  background: rgba(255, 255, 255, 0.3);
+  margin: 0 30rpx 30rpx;
+  border-radius: 15px;
+  box-shadow: 5rpx 5rpx 15rpx #ccc;
+  text-align: left;
+}
+
+.warmtips {
+  text-align: center;
+  color: #000;
 }
