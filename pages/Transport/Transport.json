@@ -1,5 +1,5 @@
 {
-  "navigationBarTitleText": "Steps",
+  "navigationBarTitleText": "校园出行 - 贝壳小盒子",
   "usingComponents": {
     "wux-steps": "../common/steps/index",
     "wux-step": "../common/step/index"
