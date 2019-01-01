@@ -77,12 +77,8 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function() {
-    // var that = this;
-    // console.log(this)
     return {
       title: '相见恨晚！原来图书馆有这么多关于"' + this.options.keyword + '"的书啊~',
-      path: 'pages/bookSearch/bookInfo/bookList?keyword=' + this.options.keyword,
-      imageUrl: "https://airmole.cn/wechat/wxapp/images/bookindexShare.jpg"
     }
   }
 })

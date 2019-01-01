@@ -42,8 +42,7 @@ Page({
           that.setData({
             jsonContent: res.data,
           })
-          console.log(res.data.data);
-          that.charts();
+          console.log(res.data);
           if (res.data.code == 200) {
             if (res.data.data.msg == '密码错误') {
               wx.redirectTo({
@@ -54,6 +53,7 @@ Page({
               isLoading: false
             });
             wx.hideToast()
+            that.charts();
           } else {
             if (res.data.code == 402) {
               wx.redirectTo({
