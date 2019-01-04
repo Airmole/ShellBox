@@ -119,7 +119,7 @@
             </wux-steps>
           </view>
 
-          <button open-type="share " class="login-btn" style='margin-top:30px;'>
+          <button open-type="share" class="login-btn" style='margin-top:30px;'>
             <text>分享给同学</text>
           </button>
 
@@ -172,7 +172,7 @@
             </wux-steps>
           </view>
 
-          <button open-type="share " class="login-btn" style='margin-top:30px;'>
+          <button open-type="share" class="login-btn" style='margin-top:30px;'>
             <text>分享给同学</text>
           </button>
 
