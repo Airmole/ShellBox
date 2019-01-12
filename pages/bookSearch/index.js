@@ -104,7 +104,7 @@ Page({
           })
           console.log(res.data);
           wx.hideToast()
-          if (res.data.total == "图书馆系统无响应") {
+          if (res.data.total == '图书馆系统无响应') {
             wx.navigateTo({
               url: '/pages/error/queryerror?ErrorTips=' + "图书馆OPAC系统无响应"
             })

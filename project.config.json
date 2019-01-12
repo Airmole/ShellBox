@@ -10,7 +10,7 @@
 	"compileType": "miniprogram",
 	"libVersion": "2.4.0",
 	"appid": "wxf0ba93e3faff4eda",
-	"projectname": "%E4%BF%A1%E5%AE%9E%E7%9B%92%E5%AD%90",
+	"projectname": "%E8%B4%9D%E5%A3%B3%E5%B0%8F%E7%9B%92%E5%AD%90",
 	"isGameTourist": false,
 	"condition": {
 		"search": {
@@ -35,13 +35,13 @@
 				{
 					"id": 0,
 					"name": "test",
-					"pathName": "pages/features/features",
+					"pathName": "pages/Transport/Transport",
 					"query": ""
 				},
 				{
 					"id": 1,
 					"name": "score",
-					"pathName": "pages/score/showScore/showScore",
+					"pathName": "pages/classQuery/index",
 					"query": ""
 				}
 			]

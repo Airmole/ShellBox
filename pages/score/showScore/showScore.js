@@ -24,7 +24,7 @@ Page({
     wx.showToast({
       title: "加载中...",
       icon: "loading",
-      duration: 10000
+      duration: 60000
     })
     var that = this;
     that.setData({
@@ -42,18 +42,23 @@ Page({
           that.setData({
             jsonContent: res.data,
           })
-          console.log(res.data.data);
-          that.charts();
+          console.log(res.data.data.msg);
           if (res.data.code == 200) {
             if (res.data.data.msg == '密码错误') {
               wx.redirectTo({
                 url: '/pages/index/index'
               })
             }
+            if (res.data.data.msg == '教务系统外网访问已关闭,需要查询请内网访问') {
+              wx.navigateTo({
+                url: '/pages/error/queryerror?ErrorTips=' + '学校教务系统炸了,晚点再来试试吧'
+              })
+            }
             that.setData({
               isLoading: false
             });
             wx.hideToast()
+            that.charts();
           } else {
             if (res.data.code == 402) {
               wx.redirectTo({
