@@ -3,8 +3,8 @@
 
 [![Star](https://img.shields.io/badge/Star-Airmole-brightgreen.svg)](https://github.com/Airmole/ShellBox/stargazers)
 [![Download](https://img.shields.io/badge/download-.zip-brightgreen.svg)](https://github.com/Airmole/ShellBox/archive/master.zip)
-[![size](https://img.shields.io/badge/size-5.81MB-green.svg)](https://github.com/airmole/ShellBox)
-[![last commit](https://img.shields.io/badge/last%20commit-2019--01--01-green.svg)](https://github.com/Airmole/ShellBox/commits/master)
+[![size](https://img.shields.io/badge/size-5.82MB-green.svg)](https://github.com/airmole/ShellBox)
+[![last commit](https://img.shields.io/badge/last%20commit-2019--01--13-green.svg)](https://github.com/Airmole/ShellBox/commits/master)
 [![https://blog.airmole.cn](https://img.shields.io/badge/Blog-Airmole-green.svg)](https://blog.airmole.cn)
 
 
@@ -31,7 +31,8 @@
 [TimeTable](https://github.com/qq273681448/TimeTable)
  - 其他部分界面参考
  [We重邮](https://github.com/mcc108/wecqupt)
-
+ - 校园出行界面公交站台使用WuxUI
+ [WuxUI](https://github.com/wux-weapp/wux-weapp)
 ## 体验
 
 [![miniprogram.th.jpg](http://www.z4a.net/images/2018/05/04/miniprogram.th.jpg)](小程序体验码)
@@ -67,7 +68,7 @@
 
 - ☑长按可以复制课程
 
-- 获取用户OpenID，对已知OpenID的用户免登录
+- ☑获取用户OpenID
 
 - 图书下增加评论留言？(这个还在纠结，有空就做，懒了就留给学弟学妹们做😁)
 

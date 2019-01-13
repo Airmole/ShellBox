@@ -12,7 +12,7 @@
     </view>
   </view>
   <view class="score__hd" wx:if="{{jsonContent.data}}">
-    <button class="clear" bindtap='GetScoreList'>
+    <button class="clear" open-type='share'>
       <view class="weui-item border-shadow background-1">
         <view class="weui-flex">
           <view class="weui-flex__item">

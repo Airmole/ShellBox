@@ -27,53 +27,60 @@ Page({
       duration: 60000
     })
     var that = this;
-    that.setData({
-      stuId: app.globalData.uid,
-      password: app.globalData.pwd,
-    });
-    if (app.globalData.uid == '' || app.globalData.pwd == '') {
-      wx.redirectTo({
-        url: '/pages/index/index'
-      })
+    if (options.isShareFrom) {
+      if (options.uid != '' || options.pwd != '') {
+        that.setData({
+          stuId: options.uid,
+          password: options.pwd
+        })
+        this.GetScoreData();
+      } else {
+
+      }
+      console.log(options);
     } else {
-      wx.request({
-        url: 'https://api.giiig.cn/tj/?username=' + app.globalData.uid + '&password=' + app.globalData.pwd,
-        success: function(res) {
-          that.setData({
-            jsonContent: res.data,
-          })
-          console.log(res.data.data.msg);
-          if (res.data.code == 200) {
-            if (res.data.data.msg == '密码错误') {
-              wx.redirectTo({
-                url: '/pages/index/index'
-              })
-            }
-            if (res.data.data.msg == '教务系统外网访问已关闭,需要查询请内网访问') {
-              wx.navigateTo({
-                url: '/pages/error/queryerror?ErrorTips=' + '学校教务系统炸了,晚点再来试试吧'
-              })
-            }
-            that.setData({
-              isLoading: false
-            });
-            wx.hideToast()
-            that.charts();
-          } else {
-            if (res.data.code == 402) {
-              wx.redirectTo({
-                url: '/pages/error/queryerror?ErrorTips=' + res.data.message
-              })
-            }
-            if (res.data.code == 403) {
-              wx.redirectTo({
-                url: '/pages/error/queryerror?ErrorTips=' + res.data.message
-              })
-            }
-          }
-        }
-      })
+      that.setData({
+        stuId: app.globalData.uid,
+        password: app.globalData.pwd,
+      });
+      if (that.data.stuId == '' || that.data.pwd == '') {
+        wx.redirectTo({
+          url: '/pages/index/index'
+        })
+      } else {
+        this.GetScoreData();
+      }
     }
+
+  },
+  /**
+   * 查询成绩
+   */
+  GetScoreData: function(score) {
+    var that = this;
+    wx.request({
+      url: 'https://api.giiig.cn/tj/?username=' + that.data.stuId + '&password=' + that.data.password,
+      success: function(res) {
+        that.setData({
+          jsonContent: res.data,
+        })
+        console.log(res.data);
+        if (res.data.code == 200) {
+          if (res.data.data.msg == '密码错误') {
+            that.reLogin();
+          }
+          that.setData({
+            isLoading: false
+          });
+          wx.hideToast()
+          that.charts();
+        } else {
+          wx.redirectTo({
+            url: '/pages/error/queryerror?ErrorTips=' + res.data.message
+          })
+        }
+      }
+    })
   },
 
   /**
@@ -98,6 +105,7 @@ Page({
   },
 
   GetScoreList: function(s) {
+    //console.log(app.globalData.uid)
     wx.showToast({
       title: "加载中...",
       icon: "loading",
@@ -108,32 +116,37 @@ Page({
     wx.request({
       url: 'https://api.giiig.cn/tj/score?uid=' + app.globalData.uid,
       success: function(res) {
-        that.setData({
-          PicUrl: res.data.data,
-        })
-        console.log(res.data.data);
-        that.data.PicArr[0] = res.data.data,
-          wx.hideToast()
-        wx.previewImage({
-          current: res.data.data, // 当前显示图片的http链接
-          urls: that.data.PicArr // 需要预览的图片http链接列表
-        })
-        wx.downloadFile({
-          url: res.data.data,
-          success: function(res) {
-            wx.saveImageToPhotosAlbum({
-              filePath: res.tempFilePath,
-              success: function(dres) {
-                console.log(dres);
-                wx.showToast({
-                  title: '已保存到相册，记得分享',
-                  icon: 'none',
-                  duration: 2000
-                })
-              }
-            })
-          }
-        })
+        if (res.data.code == 200) {
+          that.setData({
+            PicUrl: res.data.data,
+          })
+          console.log(res.data);
+          that.data.PicArr[0] = res.data.data,
+            wx.hideToast()
+          wx.previewImage({
+            current: res.data.data, // 当前显示图片的http链接
+            urls: that.data.PicArr // 需要预览的图片http链接列表
+          })
+          wx.downloadFile({
+            url: res.data.data,
+            success: function(res) {
+              wx.saveImageToPhotosAlbum({
+                filePath: res.tempFilePath,
+                success: function(dres) {
+                  console.log(dres);
+                  // wx.showToast({
+                  //   title: '已保存到相册，记得分享',
+                  //   icon: 'none',
+                  //   duration: 2000
+                  // })
+                  return true;
+                }
+              })
+            }
+          })
+        } else {
+          return false;
+        }
       }
     })
   },
@@ -154,6 +167,9 @@ Page({
       data1.push(scoreJson[i].avg);
       data2.push(scoreJson[i].gpa);
     }
+    categories = categories.reverse();
+    data1 = data1.reverse();
+    data2 = data2.reverse();
     return {
       categories: categories,
       data1: data1,
@@ -214,4 +230,33 @@ Page({
       }
     });
   },
+  /**
+   * 用户点击右上角分享
+   */
+  onShareAppMessage: function(res) {
+    // console.log(res);
+    if (this.GetScoreList() == true) {
+      wx.showToast({
+        title: '已保存到相册，记得分享',
+        icon: 'none',
+        duration: 2000
+      })
+    } else {
+      wx.hideToast()
+      return {
+        title: '诺~给你看看，这是我的成绩单!',
+        path: 'pages/score/showScore/showScore?isShareFrom=true&uid=' + this.data.stuId + '&pwd=' + this.data.password,
+      }
+    }
+  },
+  //注销重登录
+  reLogin: function() {
+    app.globalData.uid = "";
+    app.globalData.pwd = "";
+    wx.setStorageSync('uid', '');
+    wx.setStorageSync('pwd', '');
+    wx.redirectTo({
+      url: '/pages/index/index'
+    })
+  }
 })

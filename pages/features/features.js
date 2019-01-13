@@ -37,11 +37,6 @@ Page({
         navurl: '/pages/tel/departmentTel/departmentTel',
         gridIcon: '/images/contacts.png'
       },
-      // {
-      //   name: '图书欠费',
-      //   navurl: '/pages/tel/departmentTel/departmentTel',
-      //   gridIcon: '/images/contacts.png'
-      // },
       {
         name: '校园出行',
         navurl: '/pages/Transport/Transport',
@@ -70,17 +65,6 @@ Page({
       }
     ]
   },
-
-  //账户注销登录
-  logout: function() {
-    app.globalData.uid = "";
-    app.globalData.pwd = "";
-    wx.setStorageSync('uid', '');
-    wx.setStorageSync('pwd', '');
-    wx.redirectTo({
-      url: '/pages/index/index'
-    })
-  },
   /**
    * 生命周期函数--监听页面加载
    */
@@ -91,10 +75,13 @@ Page({
       icon: "loading",
       duration: 5000
     })
-    that.setData({
-      uid: app.globalData.uid,
-      pwd: app.globalData.pwd,
-    });
+    if (app.globalData.uid != '' && app.globalData.pwd != '') {
+      that.setData({
+        uid: app.globalData.uid,
+        pwd: app.globalData.pwd,
+      });
+      console.log(that.data.uid + '-' + that.data.pwd)
+    }
     wx.hideToast()
   },
 
@@ -158,6 +145,16 @@ Page({
         // 转发失败
       }
     }
-  }
+  },
+  //账户注销登录
+  logout: function() {
+    app.globalData.uid = "";
+    app.globalData.pwd = "";
+    wx.setStorageSync('uid', '');
+    wx.setStorageSync('pwd', '');
+    wx.redirectTo({
+      url: '/pages/index/index'
+    })
+  },
 
 })
