@@ -108,8 +108,7 @@ Page({
             wx.navigateTo({
               url: '/pages/error/queryerror?ErrorTips=' + "图书馆OPAC系统无响应"
             })
-          }
-          if (res.data.total == 0) {
+          } else if (res.data.total == 0) {
             wx.showToast({
               title: '本馆暂无此书',
               image: '/images/info.png',
