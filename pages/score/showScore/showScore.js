@@ -35,7 +35,10 @@ Page({
         })
         this.GetScoreData();
       } else {
-
+        //明明是分享进来的，但是却没有对方的学号和密码，太诡异了
+        wx.redirectTo({
+          url: '/pages/features/features'
+        })
       }
       console.log(options);
     } else {
