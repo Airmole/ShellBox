@@ -2,11 +2,11 @@ var app = getApp()
 Page({
   data: {
     inputShowed: false,
+    isLoading: '加载中',
     keyword: "",
     jsonStr: "",
     keywordStr: '',
     showTips: false,
-    notices: " ",
     searchPanelShow: false,
     SearchType: '02',
     radioItems: [{
@@ -51,9 +51,6 @@ Page({
     });
   },
   radioChange: function(e) {
-    this.setData({
-      searchPanelShow: true
-    })
     console.log(e.detail.value);
     this.setData({
       SearchType: e.detail.value
@@ -66,27 +63,22 @@ Page({
       radioItems: radioItems,
     });
   },
+  inputTyping: function(e) {
+    this.setData({
+      keyword: e.detail.value
+    });
+    // console.log("输入了" + this.data.keyword);
+  },
   clearInput: function() {
     this.setData({
       inputVal: ""
     });
   },
-  onShareAppMessage: function(res) {
-    return {
-      title: '相见恨晚！没想到图书馆还有这样的好书啊~',
-      path: 'pages/bookSearch/index',
-      imageUrl: "https://airmole.cn/wechat/wxapp/images/bookindexShare.jpg"
-    }
-  },
   searchIt: function(e) {
     var that = this;
-    that.setData({
-      keyword: e.detail.value
-    });
-    if (e.detail.value.length == 0) {
+    if (that.data.keyword == 0) {
       wx.showToast({
-        title: '输入有误',
-        image: '/images/info.png',
+        title: '请输入检索关键字',
         icon: 'none',
         duration: 2000
       });
@@ -125,29 +117,19 @@ Page({
     }
   },
   onLoad: function() {
-    wx.showToast({
-      title: "loading",
-      icon: "loading",
-      duration: 5000
-    })
     var that = this;
+    var uid = wx.getStorageSync('uid');
+    var pwd = wx.getStorageSync('pwd');
+
     wx.request({
-      url: 'https://airmole.cn/wechat/wxapp/api/hotbook.php',
+      url: 'https://airmole.cn/test/welcome.php?uid=' + uid + '&pwd=' + pwd,
       success: function(res) {
         that.setData({
-          jsonStr: res.data,
-        })
-        // console.log(res.data);
-      }
-    })
-    wx.request({
-      url: 'https://airmole.cn/wechat/wxapp/api/notices.php',
-      success: function(res) {
-        that.setData({
-          notices: res.data.notices,
+          isLoading: "finished",
+          jsonStr: res.data
         })
         wx.hideToast()
-        // console.log(res.data);
+        console.log(res.data);
       }
     })
   },

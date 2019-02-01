@@ -41,12 +41,6 @@
         "selectedIconPath": "images/book_HL.png"
       },
       {
-        "pagePath": "pages/classQuery/index",
-        "text": "课表",
-        "iconPath": "images/class.png",
-        "selectedIconPath": "images/class_HL.png"
-      },
-      {
         "pagePath": "pages/features/features",
         "text": "其他",
         "iconPath": "images/tools.png",
