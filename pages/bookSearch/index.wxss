@@ -1,6 +1,15 @@
 /* pages/bookSearch/index.wxss */
 @import "../common/weui.wxss";
 
+.ads {
+  padding: 30rpx 15rpx 30rpx 15rpx;
+}
+
+.noDisplay {
+  visibility: hidden;
+  height: 230rpx;
+}
+
 .blockView {
   display: inline-block;
 }
@@ -10,7 +19,8 @@
 }
 
 .radios {
-  margin-top: 40rpx;
+  margin-top: 20rpx;
+  margin-bottom: 70rpx;
   flex-direction: row;
   align-items: baseline;
 }
@@ -101,19 +111,30 @@
   overflow: hidden;
 }
 
+.examWeek-Margin {
+  margin-bottom: 40rpx;
+}
+
 .main-card-item#kb {
-  /*background-image: url('/images/index/kb-bg.png');*//*微信暂不支持静态bgimg文件，改用服务器url*/
+  background-image: url('https://z4a.net/images/2019/02/01/kb-bg.png');
+}
+
+.main-card-item#nextCourse {
   background-image: url('https://z4a.net/images/2019/02/01/kb-bg.png');
 }
 
 .main-card-item#ks {
-  /*background-image: url('/images/index/kb-bg.png');*//*微信暂不支持静态bgimg文件，改用服务器url*/
-  background-image: url('https://z4a.net/images/2019/02/01/kb-bg.png');
+  background-image: url('https://z4a.net/images/2019/02/02/tools.png');
 }
 
 .main-card-item#ykt {
   /*background-image: url('/images/index/ykt-bg.png');*//*微信暂不支持静态bgimg文件，改用服务器url*/
   background-image: url('https://we.cqu.pt/app/images/index/ykt-bg.png');
+}
+
+.main-card-item#chashu {
+  /*background-image: url('/images/index/ykt-bg.png');*//*微信暂不支持静态bgimg文件，改用服务器url*/
+  background-image: url('https://z4a.net/images/2019/02/02/books.png');
 }
 
 .main-card-item#jy {
@@ -124,6 +145,11 @@
 .main-card-item#fj {
   /*background-image: url('/images/index/jy-bg.png');*//*微信暂不支持静态bgimg文件，改用服务器url*/
   background-image: url('https://we.cqu.pt/app/images/index/ykt-bg.png');
+}
+
+.main-card-item#mk {
+  /*background-image: url('/images/index/jy-bg.png');*//*微信暂不支持静态bgimg文件，改用服务器url*/
+  background-image: url('https://z4a.net/images/2019/02/02/profile-joined-github.png');
 }
 
 .main-card-item#sdf {
@@ -252,7 +278,7 @@ page .navigator-hover {
   align-items: center;
   justify-content: center;
   text-align: center;
-  color: #7f848a;
+  color: #0d50a3;
   height: 90rpx;
   border-top: 1rpx solid #e5e5e5;
   margin-top: -1rpx;
@@ -303,7 +329,7 @@ page .navigator-hover {
   align-items: flex-end;
   justify-content: center;
   font-weight: bold;
-  padding: 25rpx 0 30rpx;
+  padding: 0rpx 0 10rpx;
 }
 
 .ykt-balance-text {
@@ -323,7 +349,6 @@ page .navigator-hover {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  padding: 20rpx 0 30rpx;
   font-weight: bold;
   line-height: 200%;
 }
@@ -493,8 +518,8 @@ page .navigator-hover {
 }
 
 .remind-img {
-  width: 250rpx;
-  height: 250rpx;
+  width: 200rpx;
+  height: 200rpx;
   padding-bottom: 25rpx;
 }
 

@@ -7,7 +7,7 @@ Page({
     hasUserInfo: 0
   },
   start: function() {
-    wx.switchTab({
+    wx.reLaunch({
       url: '../bookSearch/index',
     })
   },

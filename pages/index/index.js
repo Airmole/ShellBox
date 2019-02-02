@@ -5,59 +5,78 @@ Page({
     pwd: '',
     jsonContent: {},
     jsonStr: "",
-    InfoStr: '',
     help_status: false,
     userid_focus: false,
     passwd_focus: false,
     angle: 0,
     isLoading: true,
   },
+  login: function(uid, pwd) {
+    var that = this;
+    wx.request({
+      url: 'https://airmole.cn/test/welcome.php?uid=' + uid + '&pwd=' + pwd,
+      success: function(res) {
+        that.setData({
+          jsonStr: res.data,
+        })
+        console.log(res.data);
+        //账号密码错误以下功能实现跳转错误页面
+        if (res.data.todayCourse.getCourseStatus != 403) {
+          app.globalData.uid = uid;
+          app.globalData.pwd = pwd;
+          //设置本地Storage,维持登录态用
+          wx.setStorageSync('uid', uid);
+          wx.setStorageSync('pwd', pwd);
+          wx.switchTab({
+            url: '../bookSearch/index',
+          })
+        } else {
+          app.globalData.uid = "";
+          app.globalData.pwd = "";
+          wx.setStorageSync('uid', '');
+          wx.setStorageSync('pwd', '');
+          console.log(that.data.isLoading, uid, pwd)
+          that.setData({
+            isLoading: false
+          })
+        }
+      }
+    })
+
+  },
   onLoad: function() {
     var that = this;
-    var uid = wx.getStorageSync('uid')
-    var pwd = wx.getStorageSync('pwd')
-    // var uid = app.globalData.uid;
-    // var pwd = app.globalData.pwd;
-    if (pwd != "" || uid != "") {
-      wx.request({
-        url: 'https://airmole.cn/wechat/wxapp/api/Airmole_jiaowuInfoQuery.php?uid=' + uid + '&pwd=' + pwd,
-        success: function(res) {
-          that.setData({
-            InfoStr: res.data,
-          })
-          console.log(res.data);
-          //账号密码错误以下功能实现跳转错误页面
-          if (res.data[0][0].stuName != '') {
-            app.globalData.uid = uid;
-            app.globalData.pwd = pwd;
-            wx.switchTab({
-              url: '../bookSearch/index',
-            })
-          } else {
-            app.globalData.uid = "";
-            app.globalData.pwd = "";
-            wx.setStorageSync('uid', '');
-            wx.setStorageSync('pwd', '');
-            wx.hideToast()
-          }
-        }
-      })
+    var uid = app.globalData.uid;
+    var pwd = app.globalData.pwd;
+    if (this.checkHasLogin()) {
+      //值是true,有登录缓存，登陆一下试试
+      this.login(uid, pwd);
     } else {
       that.setData({
         isLoading: false
-      });
+      })
     }
+  },
+  checkHasLogin: function() {
+    var uid = wx.getStorageSync('uid');
+    var pwd = wx.getStorageSync('pwd');
+    if (uid != '' && pwd != '') {
+      return true;
+    } else {
+      return false;
+    }
+
   },
   submitInfo: function(e) {
     wx.showToast({
-      title: "加载中...",
+      title: "登录中...",
       icon: "loading",
       duration: 10000
     })
-    let that = this;
-    app.globalData.uid = e.detail.value.uid;
-    app.globalData.pwd = e.detail.value.pwd;
-    if (e.detail.value.uid.length == 0 || e.detail.value.pwd.length == 0) {
+    var that = this;
+    var uid = e.detail.value.uid;
+    var pwd = e.detail.value.pwd;
+    if (uid.length == 0 || pwd.length == 0) {
       wx.showToast({
         title: '输入有误',
         image: '/images/info.png',
@@ -65,13 +84,8 @@ Page({
         duration: 1000
       });
     } else {
-      wx.showToast({
-        title: "登录中...",
-        icon: "loading",
-        duration: 10000
-      })
       wx.request({
-        url: 'https://airmole.cn/wechat/wxapp/api/Airmole_jiaowuInfoQuery.php?uid=' + e.detail.value.uid + '&pwd=' + e.detail.value.pwd,
+        url: 'https://airmole.cn/test/welcome.php?uid=' + uid + '&pwd=' + pwd,
         success: function(res) {
           that.setData({
             jsonStr: res.data,
@@ -79,7 +93,7 @@ Page({
           wx.hideToast()
           // console.log(res.data);
           //账号密码错误以下功能实现密码错误Toast
-          if (res.data[0][0].stuName == '') {
+          if (res.data.todayCourse.getCourseStatus == 403) {
             wx.showToast({
               title: '账号密码有误',
               image: '/images/info.png',
@@ -87,11 +101,13 @@ Page({
               duration: 1000
             });
           } else {
+            app.globalData.uid = uid;
+            app.globalData.pwd = pwd;
             //设置本地Storage,维持登录态用
-            wx.setStorageSync('uid', e.detail.value.uid);
-            wx.setStorageSync('pwd', e.detail.value.pwd);
+            wx.setStorageSync('uid', uid);
+            wx.setStorageSync('pwd', pwd);
             wx.navigateTo({
-              url: '/pages/welcome/welcome?uid=' + e.detail.value.uid + '&pwd=' + e.detail.value.pwd
+              url: '/pages/welcome/welcome?uid=' + uid + '&pwd=' + pwd
             })
           }
         }

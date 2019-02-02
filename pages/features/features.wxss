@@ -5,6 +5,10 @@
   padding: 30rpx 15rpx 30rpx 15rpx;
 }
 
+.GreenBG {
+  background-color: #7acfa6;
+}
+
 button::after {
   border: none;
 }

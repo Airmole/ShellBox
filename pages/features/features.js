@@ -70,17 +70,19 @@ Page({
    */
   onLoad: function(options) {
     var that = this;
+    var uid = wx.getStorageSync('uid');
+    var pwd = wx.getStorageSync('pwd');
     wx.showToast({
       title: "loading",
       icon: "loading",
       duration: 5000
     })
-    if (app.globalData.uid != '' && app.globalData.pwd != '') {
+    if (uid != '' && pwd != '') {
       that.setData({
-        uid: app.globalData.uid,
-        pwd: app.globalData.pwd,
+        uid: uid,
+        pwd: pwd,
       });
-      console.log(that.data.uid + '-' + that.data.pwd)
+      // console.log(that.data.uid + '-' + that.data.pwd)
     }
     wx.hideToast()
   },

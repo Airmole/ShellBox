@@ -3,6 +3,8 @@ Page({
   data: {
     inputShowed: false,
     isLoading: '加载中',
+    isShowAllCourse: false,
+    isLogined: false,
     keyword: "",
     jsonStr: "",
     keywordStr: '',
@@ -26,6 +28,31 @@ Page({
         value: '09'
       }
     ]
+  },
+  onLoad: function() {
+    this.checkEffectiveIdAndPasswoed();
+  },
+  onReady: function() {
+
+  },
+  checkEffectiveIdAndPasswoed: function() {
+    var that = this;
+    var uid = wx.getStorageSync('uid');
+    var pwd = wx.getStorageSync('pwd');
+    if (uid != '' && pwd != '') {
+      this.getWelcomeJson(uid, pwd);
+    } else {
+      this.getWelcomeJson(uid, pwd);
+      that.setData({
+        isLoading: "finished",
+        isLogined: false
+      })
+    }
+  },
+  isShowAllCourse: function() {
+    this.setData({
+      isShowAllCourse: !this.data.isShowAllCourse
+    })
   },
   showInput: function() {
     this.setData({
@@ -116,11 +143,8 @@ Page({
       })
     }
   },
-  onLoad: function() {
+  getWelcomeJson: function(uid, pwd) {
     var that = this;
-    var uid = wx.getStorageSync('uid');
-    var pwd = wx.getStorageSync('pwd');
-
     wx.request({
       url: 'https://airmole.cn/test/welcome.php?uid=' + uid + '&pwd=' + pwd,
       success: function(res) {
@@ -128,8 +152,16 @@ Page({
           isLoading: "finished",
           jsonStr: res.data
         })
-        wx.hideToast()
         console.log(res.data);
+        if (res.data.todayCourse.getCourseStatus != 403) {
+          that.setData({
+            isLogined: true
+          })
+        } else {
+          that.setData({
+            isLogined: false
+          })
+        }
       }
     })
   },

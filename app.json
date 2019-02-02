@@ -1,7 +1,7 @@
 {
   "pages": [
-    "pages/index/index",
     "pages/bookSearch/index",
+    "pages/index/index",
     "pages/bookSearch/bookInfo/bookInfo",
     "pages/bookSearch/bookInfo/isbn/iputIsbn",
     "pages/bookSearch/bookInfo/bookDetail",
@@ -36,15 +36,15 @@
     "list": [
       {
         "pagePath": "pages/bookSearch/index",
-        "text": "图书",
-        "iconPath": "images/book.png",
-        "selectedIconPath": "images/book_HL.png"
+        "text": "首页",
+        "iconPath": "images/index.png",
+        "selectedIconPath": "images/index@active.png"
       },
       {
         "pagePath": "pages/features/features",
-        "text": "其他",
-        "iconPath": "images/tools.png",
-        "selectedIconPath": "images/tools_HL.png"
+        "text": "更多",
+        "iconPath": "images/more.png",
+        "selectedIconPath": "images/holiday.png"
       }
     ]
   }
