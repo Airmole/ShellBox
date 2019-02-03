@@ -8,8 +8,6 @@ Page({
     keyword: "",
     jsonStr: "",
     keywordStr: '',
-    showTips: false,
-    searchPanelShow: false,
     SearchType: '02',
     radioItems: [{
         name: '书名',
@@ -44,7 +42,6 @@ Page({
     } else {
       this.getWelcomeJson(uid, pwd);
       that.setData({
-        isLoading: "finished",
         isLogined: false
       })
     }
@@ -60,13 +57,10 @@ Page({
     });
   },
   onBindFocus: function(event) {
-    this.setData({
-      searchPanelShow: true
-    })
+
   },
   onBindBlur: function(event) {
     this.setData({
-      searchPanelShow: false,
       inputVal: "",
       inputShowed: false
     })
@@ -149,16 +143,17 @@ Page({
       url: 'https://airmole.cn/test/welcome.php?uid=' + uid + '&pwd=' + pwd,
       success: function(res) {
         that.setData({
-          isLoading: "finished",
           jsonStr: res.data
         })
         console.log(res.data);
         if (res.data.todayCourse.getCourseStatus != 403) {
           that.setData({
+            isLoading: "finished",
             isLogined: true
           })
         } else {
           that.setData({
+            isLoading: "finished",
             isLogined: false
           })
         }
@@ -180,9 +175,6 @@ Page({
     })
   },
   onReachBottom: function() {
-    var that = this;
-    that.setData({
-      showTips: true,
-    })
+    //拉到底了，做点什么好呢
   },
 });

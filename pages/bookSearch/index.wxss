@@ -123,8 +123,20 @@
   background-image: url('https://z4a.net/images/2019/02/01/kb-bg.png');
 }
 
+.main-card-item#jwClosed {
+  background-image: url('https://z4a.net/images/2019/02/03/profile-first-issue.png');
+}
+
 .main-card-item#ks {
   background-image: url('https://z4a.net/images/2019/02/02/tools.png');
+}
+
+.main-card-item#kaixue {
+  background-image: url('https://z4a.net/images/2019/02/03/f916aa746928d9b32ff09fe82c61f54c.png');
+}
+
+.main-card-item#vocation {
+  background-image: url('https://z4a.net/images/2019/02/03/profile-first-repo.png');
 }
 
 .main-card-item#ykt {

@@ -52,9 +52,7 @@ Page({
       //值是true,有登录缓存，登陆一下试试
       this.login(uid, pwd);
     } else {
-      that.setData({
-        isLoading: false
-      })
+      this.onReady();
     }
   },
   checkHasLogin: function() {
@@ -156,4 +154,25 @@ Page({
       });
     }
   },
+  onReady: function() {
+    var that = this;
+    setTimeout(function() {
+      that.setData({
+        isLoading: false
+      });
+    }, 1000);
+    wx.onAccelerometerChange(function(res) {
+      var angle = -(res.x * 30).toFixed(1);
+      if (angle > 14) {
+        angle = 14;
+      } else if (angle < -14) {
+        angle = -14;
+      }
+      if (that.data.angle !== angle) {
+        that.setData({
+          angle: angle
+        });
+      }
+    });
+  }
 })

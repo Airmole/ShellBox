@@ -33,8 +33,16 @@
     </view>
   </view>
 
+  <!-- loading -->
   <view wx:if="{{isLoading == '加载中'}}" class="remind-box">
     <image class="remind-img" src="/images/loading.gif"></image>
+  </view>
+
+  <!-- 未登录提示 -->
+  <view wx:elif="{{!isLogined}}" class="remind-box" style='margin-top:-260rpx;'>
+    <image class="remind-img" src="/images/nothing.png"></image>
+    <text class="remind-text">您咋还没绑定学号呢？</text>
+    <navigator url="/pages/index/index" class="remind-btn">登录绑定</navigator>
   </view>
 
   <!--卡片列表-->
@@ -46,8 +54,24 @@
       </wux-notice-bar>
     </view>
 
+    <!-- 教务关闭，无法访问 -->
+    <view class="main-card-item" id='jwClosed' wx:if="{{jsonStr.todayCourse.getCourseStatus == 500}}">
+      <view class="card-item-hd">
+        <image class="card-item-icon" src="/images/jw.png"></image>
+        <text class="card-item-name">Error</text>🤕
+      </view>
+      <view class="card-item-bd">
+        <view class="book-intro raduis">
+          <view class="remind-box">
+            <image class="noDisplay" src="/images/holiday.png"></image>
+            <text class="remind-text">教务网关了，我也没办法呀‍</text>
+          </view>
+        </view>
+      </view>
+    </view>
+
     <!--Hi-->
-    <view class="main-card-item" id="ykt">
+    <view class="main-card-item" id="ykt" wx:if='{{jsonStr.teachWeek != "N/A"}}'>
       <view class="card-item-hd">
         <view class="card-item-icon">
           <open-data type="userAvatarUrl"></open-data>
@@ -81,12 +105,47 @@
         </view>
       </view>
     </view>
+    <!-- Hi！寒暑假 -->
+    <view class="main-card-item" id='vocation' wx:else>
+      <view class="card-item-hd">
+        <view class="card-item-icon">
+          <open-data type="userAvatarUrl"></open-data>
+        </view>
+        <text class="card-item-name">Hi! </text>
+        <open-data type="userNickName"></open-data>🎉
+      </view>
+      <view class="card-item-bd">
+        <view class="book-intro raduis">
+          <view class="remind-box">
+            <image class="noDisplay" src="/images/holiday.png"></image>
+            <text class="remind-text">假期就要痛快玩啊🏃‍</text>
+          </view>
+        </view>
+      </view>
+    </view>
 
-    <!-- 未登录提示 -->
-    <view wx:if="{{!isLogined}}" class="remind-box">
-      <image class="remind-img" src="/images/nothing.png"></image>
-      <text class="remind-text">您咋还没绑定学号呢？</text>
-      <navigator url="/pages/index/index" class="remind-btn">前往绑定</navigator>
+    <!--距开学倒计时 "-->
+    <view class="main-card-item" id="kaixue" wx:if="{{jsonStr.gap2StartClass <= 30 && jsonStr.gap2StartClass >0}}">
+      <view class="card-item-hd">
+        <image class="card-item-icon" src="/images/jw.png"></image>
+        <text class="card-item-name">讲个鬼故事</text>
+      </view>
+      <view class="card-item-bd">
+        <view class="card-item-bd">
+          <view class="jy-list">
+            <view class="jy-item">
+              <view class="jy-return-time">
+                <text class="jy-return-time-value">您的 假期余额</text>
+              </view>
+              <view class="jy-timing examWeek-Margin">
+                <text class="jy-timing-text">已不足</text>
+                <text class="ykt-balance-value" style='color:#000'>{{jsonStr.gap2StartClass}}</text>
+                <text class="jy-timing-text">天</text>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
     </view>
 
     <!--下节要上的课-->
@@ -121,7 +180,7 @@
         <view class="book-intro raduis">
           <view class="remind-box">
             <image class="remind-img" src="/images/holiday.png"></image>
-            <text class="remind-text">下节没有课啦，休息一下吧😊</text>
+            <text class="remind-text">没有课啦，休息一下吧😊</text>
           </view>
         </view>
       </view>
@@ -132,8 +191,6 @@
         <text>朕知道了，赶紧收起来吧😂</text>
       </view>
     </view>
-
-
 
     <!-- 今天全天课程 -->
     <view wx:if="{{isShowAllCourse}}">
@@ -159,7 +216,10 @@
             <image class="card-item-icon" src="/images/kb.png"></image>
             <text class="card-item-name">（{{jsonStr['month']}}月{{jsonStr['day']}}日 {{jsonStr['dayOfWeek']}}）课表</text>
           </view>
-          <view class="card-item-bd">
+          <view wx:if='{{jsonStr.todayCourse.getCourseStatus == 500}}' class="card-item-bd kb-nothing">
+            <text>都说了无法连接到教务网</text>
+          </view>
+          <view wx:else class="card-item-bd">
             <view class="kb-item" wx:for="{{jsonStr['todayCourse']['allCourse']}}" wx:key="todayCourse">
               <view class="kb-item-left">
                 <text class="kb-item-what">{{item.courseName}}</text>
@@ -168,7 +228,7 @@
               <text class="kb-item-where">{{item.place}}</text>
             </view>
           </view>
-          <view class="kb-open">
+          <view class="kb-open" wx:if='{{jsonStr.todayCourse.getCourseStatus != 500}}'>
             <text>查看完整个人课表</text>
           </view>
         </navigator>
@@ -182,12 +242,12 @@
     <!-- 广告位结束 -->
 
     <!--节假日信息-->
-    <view class="main-card-item" id="fj" wx:for='{{jsonStr["nextHoliday"]}}' wx:key="jiejiari" wx:if="{{item.gapDays <= 15 }}">
+    <view class="main-card-item" id="fj" wx:for='{{jsonStr["nextHoliday"]}}' wx:key="jiejiari" wx:if="{{item.gapDays <= 15 && item.gapDays >= 0}}">
       <view class="card-item-hd">
         <image class="card-item-icon" src="/images/holiday.png"></image>
         <text class="card-item-name">{{item.holidayName}}</text>
       </view>
-      <view class="card-item-bd">
+      <view class="card-item-bd" wx:if="{{item.gapDays > 0}}">
         <view class="jy-list">
           <view class="jy-item">
             <view class="jy-return-time">
@@ -201,10 +261,21 @@
           </view>
         </view>
       </view>
+      <view class="card-item-bd" wx:if="{{item.gapDays == 0}}">
+        <view class="jy-list">
+          <view class="jy-item">
+            <view class="jy-timing">
+              <text class="jy-timing-text">今天是</text>
+              <text class="ykt-balance-value">{{item.holidayName}}</text>
+              <text class="jy-timing-text">哟~</text>
+            </view>
+          </view>
+        </view>
+      </view>
     </view>
 
     <!--距考试周倒计时 -->
-    <view class="main-card-item" id="ks" wx:if="{{jsonStr.gap2ExamWeek <= 30 }}">
+    <view class="main-card-item" id="ks" wx:if="{{jsonStr.gap2ExamWeek <= 30 && jsonStr.gap2ExamWeek > 0}}">
       <view class="card-item-hd">
         <image class="card-item-icon" src="/images/ks.png"></image>
         <text class="card-item-name">考试</text>
@@ -254,7 +325,6 @@
         </view>
       </view>
     </view> -->
-
 
   </view>
 </view>

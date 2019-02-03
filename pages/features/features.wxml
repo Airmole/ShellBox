@@ -13,7 +13,10 @@
             <view class="weui-media-box__title">
               <open-data type="userNickName"></open-data>
             </view>
-            <view class="weui-media-box__title">{{uid}}</view>
+            <view class="weui-media-box__title" wx:if='{{uid != ""}}'>{{uid}}</view>
+            <view class="weui-media-box__title" wx:else>
+              您还没有登录绑定🙄
+            </view>
           </view>
         </view>
       </view>
