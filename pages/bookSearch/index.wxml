@@ -34,7 +34,7 @@
   </view>
 
   <!-- loading -->
-  <view wx:if="{{isLoading == '加载中'}}" class="remind-box" style='margin-top:-250px;'>
+  <view wx:if="{{isLoading == '加载中'}}" class="remind-box" style='margin-top:-200px;'>
     <image class="remind-img" src="/images/loading.gif"></image>
   </view>
 

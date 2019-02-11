@@ -23,6 +23,8 @@
     </view>
   </view>
   <view class="page__bd">
+
+
     <view class="weui-grids">
       <block wx:for="{{grids}}" wx:key="*this">
         <navigator url="{{item.navurl}}" bindtap='{{item.event}}' class="weui-grid" hover-class="weui-grid_active">
@@ -32,25 +34,44 @@
       </block>
       <view class="weui-grid" hover-class="weui-grid_active" style='height:96.200px;'>
         <button open-type="contact">
-          <!--把这里的contact改成feedback效果也不错，现在很纠结啊 -->
           <image class="weui-grid__icon" src="/images/service.png"></image>
           <text>意见留言</text>
         </button>
       </view>
     </view>
+
+    <!--功能导航-->
+    <!-- <swiper class="main-swpier" indicator-dots="true" indicator-active-color="#73b4ef">
+      <swiper-item class="main-core" wx:for="{{cores}}" wx:for-item="core" wx:key="id">
+        <block wx:for="{{core}}" wx:key="id">
+          <navigator wx:if="{{user.is_bind && !item.disabled && (!user.teacher || !item.teacher_disabled) && (!offline || !item.offline_disabled) }}" class="main-core-item" url="{{'/pages/core/'+item.id+'/'+item.id}}">
+            <image class="core-item-icon" src="/images/service.png"></image>
+            <text class="core-item-name">{{item.name}}</text>
+          </navigator>
+          <view wx:else class="main-core-item disabled" bindtap="disabled_item">
+            <image class="core-item-icon" src="/images/service.png"></image>
+            <text class="core-item-name">{{item.name}}</text>
+          </view>
+        </block>
+      </swiper-item>
+    </swiper> -->
+
+    <!-- 广告位 -->
+    <view class='ads'>
+      <ad unit-id="adunit-62f52651dd5f4ff6"></ad>
+    </view>
+    <!-- 广告位结束 -->
+
     <button open-type="share" class="login-btn">
       <text>好用！分享给同学</text>
     </button>
+
     <view wx:if="{{uid=='' || pwd=='' }}" bindtap='logout' class="login-btn">
       <text>学号登录</text>
     </view>
     <view wx:else bindtap='logout' class="logout-btn">
       <text>注销登录</text>
     </view>
-    <!-- 广告位 -->
-    <view class='ads'>
-      <ad unit-id="adunit-62f52651dd5f4ff6"></ad>
-    </view>
-    <!-- 广告位结束 -->
+
   </view>
 </view>
