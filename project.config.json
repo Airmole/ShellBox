@@ -31,13 +31,14 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 1,
+			"current": 0,
 			"list": [
 				{
 					"id": 0,
 					"name": "test",
-					"pathName": "pages/Transport/Transport",
-					"query": ""
+					"pathName": "pages/features/features",
+					"query": "",
+					"scene": null
 				},
 				{
 					"id": 1,

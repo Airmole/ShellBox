@@ -9,14 +9,16 @@ Page({
     pwd: '',
     cores: [
       [
-        { id: 'kb', name: '课表查询', disabled: false, teacher_disabled: false, offline_disabled: false },
-        { id: 'cj', name: '成绩查询', disabled: false, teacher_disabled: true, offline_disabled: false },
-        { id: 'ks', name: '考试安排', disabled: false, teacher_disabled: false, offline_disabled: false },
-        { id: 'kjs', name: '空教室', disabled: false, teacher_disabled: false, offline_disabled: true },
-        { id: 'xs', name: '学生查询', disabled: false, teacher_disabled: false, offline_disabled: true },
-        { id: 'ykt', name: '一卡通', disabled: false, teacher_disabled: false, offline_disabled: false },
-        { id: 'jy', name: '借阅信息', disabled: false, teacher_disabled: false, offline_disabled: false },
-        { id: 'xf', name: '学费信息', disabled: false, teacher_disabled: true, offline_disabled: false }
+        { id: 'bjkb', name: '班级课表',url:'', needLogin: true},
+        { id: 'grkb', name: '个人课表', url: '',needLogin: true},
+        { id: 'xl', name: '校历', url: '/pages/calendar/calendar',needLogin: false},
+        { id: 'xydh', name: '校园导航', url: '', needLogin: false},
+        { id: 'smcs', name: '扫码查书', url: '/pages/bookSearch/bookInfo/isbn/iputIsbn', needLogin: false},
+        { id: 'cjcx', name: '成绩查询', url: '/pages/score/score', needLogin: true},
+        { id: 'dfcx', name: '电费查询', url: '/pages/electricity/electricityBind', needLogin: true},
+        { id: 'txl', name: '通讯录', url: '/pages/tel/departmentTel/departmentTel', needLogin: false},
+        { id: 'xycx', name: '校园出行', url: '/pages/Transport/Transport', needLogin: false},
+        { id: 'gyhz', name: '关于盒子',url:'/pages/features/about', needLogin: false}
       ]
     ],
     grids: [{
@@ -60,22 +62,6 @@ Page({
         gridIcon: '/images/about_HL.png'
       },
     ],
-    swiperPic: [{
-        url: 'https://airmole.cn/wechat/wxapp/images/swiper1.jpg?e=' + Math.random()
-      },
-      {
-        url: 'https://airmole.cn/wechat/wxapp/images/swiper2.jpg?e=' + Math.random()
-      },
-      {
-        url: 'https://airmole.cn/wechat/wxapp/images/swiper3.gif?e=' + Math.random()
-      },
-      {
-        url: 'https://airmole.cn/wechat/wxapp/images/swiper4.gif?e=' + Math.random()
-      },
-      {
-        url: 'https://airmole.cn/wechat/wxapp/images/swiper5.gif?e=' + Math.random()
-      }
-    ]
   },
   /**
    * 生命周期函数--监听页面加载
@@ -170,5 +156,13 @@ Page({
       url: '/pages/index/index'
     })
   },
+  //未登录点击功能
+  disabled_item:function(ds){
+    console.log(ds)
+    wx.showToast({
+      icon:'none',
+      title: '本功能需要登录',
+    })
+  }
 
 })

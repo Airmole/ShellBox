@@ -1,6 +1,6 @@
 // pages/score/showScore/showScore.js
-var wxCharts = require('../../../utils/wxcharts.js');
-var util = require('../../../utils/time.js');
+var wxCharts = require('../../utils/wxcharts.js');
+var util = require('../../utils/time.js');
 var app = getApp();
 var lineChart = null;
 Page({

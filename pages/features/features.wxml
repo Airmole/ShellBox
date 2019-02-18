@@ -6,7 +6,9 @@
         <view class="weui-media-box weui-media-box_appmsg GreenBG">
           <view class="weui-media-box__hd weui-media-box__hd_in-appmsg">
             <view class="weui-media-box__thumb">
-              <open-data type="userAvatarUrl"></open-data>
+              <view class="userinfo-avatar">
+                <open-data type="userAvatarUrl"></open-data>
+              </view>
             </view>
           </view>
           <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
@@ -22,39 +24,23 @@
       </view>
     </view>
   </view>
-  <view class="page__bd">
-
-
-    <view class="weui-grids">
-      <block wx:for="{{grids}}" wx:key="*this">
-        <navigator url="{{item.navurl}}" bindtap='{{item.event}}' class="weui-grid" hover-class="weui-grid_active">
-          <image class="weui-grid__icon" src="{{item.gridIcon}}" />
-          <view class="weui-grid__label">{{item.name}}</view>
-        </navigator>
-      </block>
-      <view class="weui-grid" hover-class="weui-grid_active" style='height:96.200px;'>
-        <button open-type="contact">
-          <image class="weui-grid__icon" src="/images/service.png"></image>
-          <text>意见留言</text>
-        </button>
-      </view>
-    </view>
+  <view class="page__bd" style='background-color:rgb(240,239,245);'>
 
     <!--功能导航-->
-    <!-- <swiper class="main-swpier" indicator-dots="true" indicator-active-color="#73b4ef">
+    <swiper class="main-swpier radius">
       <swiper-item class="main-core" wx:for="{{cores}}" wx:for-item="core" wx:key="id">
         <block wx:for="{{core}}" wx:key="id">
-          <navigator wx:if="{{user.is_bind && !item.disabled && (!user.teacher || !item.teacher_disabled) && (!offline || !item.offline_disabled) }}" class="main-core-item" url="{{'/pages/core/'+item.id+'/'+item.id}}">
-            <image class="core-item-icon" src="/images/service.png"></image>
+          <navigator wx:if="{{((uid!='' && pwd!='') && item.needLogin) || !item.needLogin}}" class="main-core-item" url="{{item.url}}">
+            <image class="core-item-icon" src="/images/{{item.id}}.png"></image>
             <text class="core-item-name">{{item.name}}</text>
           </navigator>
           <view wx:else class="main-core-item disabled" bindtap="disabled_item">
-            <image class="core-item-icon" src="/images/service.png"></image>
+            <image class="core-item-icon" src="/images/{{item.id}}.png"></image>
             <text class="core-item-name">{{item.name}}</text>
           </view>
         </block>
       </swiper-item>
-    </swiper> -->
+    </swiper>
 
     <!-- 广告位 -->
     <view class='ads'>
