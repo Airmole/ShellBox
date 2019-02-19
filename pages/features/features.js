@@ -9,10 +9,10 @@ Page({
     pwd: '',
     cores: [
       [
-        { id: 'bjkb', name: '班级课表',url:'', needLogin: true},
-        { id: 'grkb', name: '个人课表', url: '',needLogin: true},
+        { id: 'bjkb', name: '班级课表', url:'/pages/classQuery/index', needLogin: true},
+        { id: 'grkb', name: '个人课表', url: '/pages/classQuery/index',needLogin: true},
         { id: 'xl', name: '校历', url: '/pages/calendar/calendar',needLogin: false},
-        { id: 'xydh', name: '校园导航', url: '', needLogin: false},
+        { id: 'xydh', name: '校园导航', url: '/pages/schoolNav/schoolNav', needLogin: false},
         { id: 'smcs', name: '扫码查书', url: '/pages/bookSearch/bookInfo/isbn/iputIsbn', needLogin: false},
         { id: 'cjcx', name: '成绩查询', url: '/pages/score/score', needLogin: true},
         { id: 'dfcx', name: '电费查询', url: '/pages/electricity/electricityBind', needLogin: true},

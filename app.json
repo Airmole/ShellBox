@@ -19,7 +19,8 @@
     "pages/electricity/electricityBind",
     "pages/Transport/Transport",
     "pages/tel/departmentTel/departmentTel",
-    "pages/stuInfo/stuInfo"
+    "pages/stuInfo/stuInfo",
+    "pages/schoolNav/schoolNav"
   ],
   "window": {
     "backgroundTextStyle": "light",

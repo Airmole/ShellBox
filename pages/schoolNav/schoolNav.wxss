@@ -1,0 +1,38 @@
+/* pages/schoolNav/schoolNav.wxss */
+@import "../common/weui.wxss";
+
+.ads {
+  padding: 30rpx 15rpx 30rpx 15rpx;
+}
+
+.setCenter {
+  text-align: center;
+}
+
+.shareIcon {
+  width: 26px;
+  height: 26px;
+  vertical-align: text-bottom;
+}
+
+.button-sp-area {
+  margin: 0 auto;
+  padding-top: 15px;
+  width: 60%;
+}
+
+.mini-btn {
+  margin-right: 5px;
+}
+
+.login-btn {
+  font-size: 13pt;
+  line-height: 85rpx;
+  height: 85rpx;
+  background: #04c065;
+  color: #fff;
+  text-align: center;
+  border-radius: 25px;
+  box-shadow: 5rpx 5rpx 15rpx #ccc;
+  margin: 0 30rpx 30rpx;
+}
