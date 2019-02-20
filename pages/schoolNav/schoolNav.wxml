@@ -1,29 +1,75 @@
 <!--pages/schoolNav/schoolNav.wxml-->
 <view class="page">
   <view class="page__bd">
-    <!-- 广告位 -->
-    <view class='ads'>
-      <ad unit-id="adunit-62f52651dd5f4ff6"></ad>
-    </view>
-    <!-- 广告位结束 -->
-    <view class="weui-tab__content">
-      <view class='page'>
-        <view class='setCenter'>
-          <text>\n</text>
-          <view class="weui-article__h2">建议手机横屏观看</view>
-          <image src='https://airmole.cn/wechat/wxapp/images/SchoolMap.png' mode='widthFix'></image>
+    <view class="weui-tab">
+      <view class="weui-navbar">
+        <block wx:for="{{tabs}}" wx:key="*this">
+          <view id="{{index}}" class="weui-navbar__item {{activeIndex == index ? 'weui-bar__item_on' : ''}}" bindtap="tabClick">
+            <view class="weui-navbar__title">{{item}}</view>
+          </view>
+        </block>
+        <view class="weui-navbar__slider" style="left: {{sliderLeft}}px; transform: translateX({{sliderOffset}}px); -webkit-transform: translateX({{sliderOffset}}px);"></view>
+      </view>
+      <view class="weui-tab__panel">
+        <view class="weui-footer">
+          <!-- 广告位 -->
+          <view class='ads'>
+            <ad unit-id="adunit-62f52651dd5f4ff6"></ad>
+          </view>
+          <!-- 广告位结束 -->
+        </view>
+        <view class="weui-tab__content" hidden="{{activeIndex != 0}}">
+          <view class='page'>
+            <view style='width:100%;height:{{mapHeight}}px;'>
+              <map id="navi_map" longitude="117.396018" latitude="39.545546" scale="16" markers="{{markers}}" polyline="{{polyline}}" style='height:{{mapHeight-80}}px' bindmarkertap="makertap" show-location></map>
+              <view wx:if="{{inSchool}}">
+                <view class="map_text" style='padding-bottom:25rpx;'>
+                  <text class="h1">{{textData.name}}</text>
+                  <text>{{textData.desc}}</text>
+                </view>
+                <view wx:if="{{json.steps.length > 0}}">
+                  <view class="item walk" wx:for="{{json.steps}}" wx:key="{{index}}">
+                    <view class="icon iconfont icon-walk"></view>
+                    <view class="split-line">
+                      <view class="circle start-circle" wx:if="{{index === 0}}"></view>
+                      <view class="circle terminal-circle" wx:if="{{index === json.steps.length-1}}"></view>
+                    </view>
+                    <view class="detail">
+                      <view class="start" wx:if="{{index === 0}}">我的位置</view>
+                      <view class="content">
+                        <view>{{item.instruction}}</view>
+                      </view>
+                      <view class="terminal" wx:if="{{index === json.steps.length - 1}}">{{textData.name}}</view>
+                    </view>
+                  </view>
+                </view>
+              </view>
+              <view class="map_text" wx:else>
+                <text class="h1">北京科技大学天津学院</text>
+                <text>天津市宝坻区京津新城珠江北环东路1号(邮编：301830)</text>
+              </view>
+            </view>
+          </view>
+        </view>
+        <view class="weui-tab__content" hidden="{{activeIndex != 1}}">
+          <view class='page'>
+            <view class='setCenter mapBK'>
+              <view class="weui-article__h2">建议手机横屏观看</view>
+              <image src='https://airmole.cn/wechat/wxapp/images/SchoolMap.png' mode='widthFix'></image>
+            </view>
+            <button open-type="share" class="login-btn">
+              <text>分享给同学</text>
+            </button>
+          </view>
+          <view class="weui-footer">
+            <view class="weui-footer__links">
+              <navigator url="/pages/features/about" class="weui-footer__link">Airmole.</navigator>
+              <navigator url="/pages/features/about" class="weui-footer__link">智慧校园</navigator>
+            </view>
+            <view class="weui-footer__text">Copyright © 2019 北京科技大学天津学院.</view>
+          </view>
         </view>
       </view>
     </view>
   </view>
-</view>
-<button open-type="share" class="login-btn">
-  <text>分享给同学</text>
-</button>
-<view class="weui-footer">
-  <view class="weui-footer__links">
-    <navigator url="/pages/features/about" class="weui-footer__link">Airmole.</navigator>
-    <navigator url="/pages/features/about" class="weui-footer__link">智慧校园</navigator>
-  </view>
-  <view class="weui-footer__text">Copyright © 2018 北京科技大学天津学院.</view>
 </view>

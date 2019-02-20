@@ -104,6 +104,7 @@
   background: #fff;
   border-top: 1rpx solid #e5e5e5;
   border-bottom: 1rpx solid #e5e5e5;
+  border-radius: 25rpx;
   margin-bottom: 20rpx;
   background-repeat: no-repeat;
   background-size: 100% auto;

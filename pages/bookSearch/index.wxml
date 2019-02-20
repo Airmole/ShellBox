@@ -217,7 +217,7 @@
             <text class="card-item-name">（{{jsonStr['month']}}月{{jsonStr['day']}}日 {{jsonStr['dayOfWeek']}}）课表</text>
           </view>
           <view wx:if='{{jsonStr.todayCourse.getCourseStatus == 500}}' class="card-item-bd kb-nothing">
-            <text>都说了无法连接到教务网</text>
+            <text>都说了无法连接到教务网🐸</text>
           </view>
           <view wx:else class="card-item-bd">
             <view class="kb-item" wx:for="{{jsonStr['todayCourse']['allCourse']}}" wx:key="todayCourse">

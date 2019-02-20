@@ -1,8 +1,20 @@
 /* pages/schoolNav/schoolNav.wxss */
 @import "../common/weui.wxss";
+@import "./stepsLine.wxss";
+
+Page {
+  background-color: #7acfa6;
+}
+
+.mapBK {
+  margin: 25rpx;
+  background-color: #fff;
+  padding: 25rpx 0;
+  border-radius: 25rpx;
+}
 
 .ads {
-  padding: 30rpx 15rpx 30rpx 15rpx;
+  margin: 10rpx 15rpx 15rpx 15rpx;
 }
 
 .setCenter {
@@ -27,12 +39,84 @@
 
 .login-btn {
   font-size: 13pt;
-  line-height: 85rpx;
+  /* line-height: 85rpx; */
   height: 85rpx;
   background: #04c065;
   color: #fff;
   text-align: center;
   border-radius: 25px;
   box-shadow: 5rpx 5rpx 15rpx #ccc;
-  margin: 0 30rpx 30rpx;
+  margin: 30rpx 30rpx 30rpx;
+}
+
+.flex-style {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+}
+
+.flex-item {
+  height: 35px;
+  line-height: 35px;
+  text-align: center;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+  flex: 1;
+}
+
+.flex-item.active {
+  color: #0091ff;
+}
+
+#navi_map {
+  width: 100%;
+  height: 100%;
+}
+
+.text_box {
+  /* position: absolute; */
+  height: 90px;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+}
+
+.text_box .text {
+  margin: 15px;
+}
+
+.detail_button {
+  position: absolute;
+  bottom: 30px;
+  right: 10px;
+  padding: 3px 5px;
+  color: #fff;
+  background: #0091ff;
+  width: 50px;
+  text-align: center;
+  border-radius: 5px;
+}
+
+.map_text {
+  /* position: absolute; */
+  left: 0;
+  right: 0;
+  bottom: 0px;
+  height: 80px;
+  background: #fff;
+  padding: 0 15px;
+}
+
+text {
+  margin: 5px 0px;
+  display: block;
+  font-size: 12px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.h1 {
+  padding-top: 10px;
+  font-size: 15px;
 }
