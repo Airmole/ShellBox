@@ -1,0 +1,119 @@
+<view class="container">
+
+  <!-- 主体 -->
+  <view class="main-box {{blur?'main-box-active':''}}">
+    <!-- 左边课数，34节和78节marginBottom为12rpx，其他均为8rpx，课程卡片与这相同 -->
+    <view class="kb-num-ctn blur-area {{blur?'blur kb-num-ctn-hide':''}}">
+      <view class="kb-mon kb-date">
+        <block wx:if="{{week != '*'}}">
+          <text>{{dates[week-1][0].month}}</text>
+          <text></text>
+        </block>
+      </view>
+      <view class="mg-t">1</view>
+      <view class="mg-8">2</view>
+      <view>3</view>
+      <view class="mg-12">4</view>
+      <view>5</view>
+      <view class="mg-8">6</view>
+      <view>7</view>
+      <view class="mg-12">8</view>
+      <view>9</view>
+      <view class="mg-8">10</view>
+      <view>11</view>
+      <view>12</view>
+      <view class="kb-timeline-tri" style="top:{{timelineTop}}rpx"></view>
+    </view>
+    <scroll-view class="kb-ctn" catchscroll="scrollXHandle" scroll-x="true" scroll-left="{{scroll.left}}">
+      <!-- 头部星期数 -->
+      <view class="kb-title blur-area {{blur?'blur':''}}">
+        <block>
+          <view wx:for="{{_days}}" wx:key="*this" class="kb-title-item">
+            <text>周{{item}}</text>
+          </view>
+        </block>
+      </view>
+
+      <!-- 卡片部分 -->
+      <view class="kb-cards-ctn blur-area {{blur?'blur':''}}">
+        <!-- 每一列为一组 -->
+        <view class="kb-cards-column">
+          <!-- today 0周一,1周二 -->
+          <!-- 今天高亮 -->
+          <block wx:if="1">
+            <view class="kb-bg" style="background:-webkit-gradient(linear,left top,left bottom,from(#eff7ff),color-stop({{(timelineTop+4)/1260}}, #8cc4ff),to(#eff7ff));"></view>
+            <view class="kb-timeline" style="display:block;top:{{timelineTop}}rpx"></view>
+          </block>
+          <!-- 循环当天的的6节课 -->
+          <view class="kb-card {{wid%2==0?'mg-8':'mg-12'}}">
+            <!-- 循环重叠课 -->
+
+            <!-- 循环周数，与当前周相同或当前周为*时显示 -->
+            <view style="height:{{cards.number==2?cards.number*100:cards.number*100+9}}rpx" data-day="111" data-wid="222" data-cid="333" bindtap="showDetail" class="mg-8 kb-card-content {{cards.conflictWeeks[iweek] || (week == '*' && cards.klen > 1) ?'k-sec':''}} green">
+              <text class="kb-card-place-words">9教学楼301</text>
+              <view class="kb-card-name">
+                <text class="kb-card-name-text" style="-webkit-line-clamp:{{3*(cards.number-1)}};">么可思主义原理与毛泽东四新歌首发</text>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+
+      <!-- 遮罩层 -->
+      <view bindtap="hideDetail" class="kb-detail" wx:if="{{blur}}">
+        <view class="kb-detaile-card-ctn" style="top:{{targetY}}rpx;left:{{targetX}}rpx;">
+          <view style="height:{{cards.number*100}}rpx;left:{{cards.left}}rpx;" class="kb-card-content kb-detail-card-content green {{targetI == cid ? 'kb-detail-card-content-active':''}}" data-index="{{cid}}" catchtap="infoCardTap">
+            <text class="kb-card-place-words">上课地点</text>
+            <view class="kb-card-name">
+              <text class="kb-card-name-text" style="-webkit-line-clamp:{{3*(cards.number-1)}};">课程名称</text>
+            </view>
+          </view>
+        </view>
+      </view>
+    </scroll-view>
+  </view>
+
+  <!-- 底部 -->
+  <view class="kb-info-ctn {{blur?'kb-info-ctn-open':''}}" catchtouchmove="catchMoveDetail">
+    <view class="kb-info-title">
+      <text class="kb-info-week">3周周三</text>
+      <text class="kb-lesson-time">2016-2018学年第1学期</text>
+      <image class="kb-info-card-close" src="/images/down_w.png" bindtap="hideDetail"></image>
+    </view>
+
+    <view class="kb-info-card-tabs" bindtouchstart="bindStartDetail" bindtouchmove="bindMoveDetail">
+      <view class="kb-info-card {{!cid ? '' : 'kb-info-card-shadow'}} {{targetI == cid ? 'kb-info-card-active' : 'kb-info-card-static'}}" data-index="{{cid}}" bindtap="infoCardTap">
+        <view class="kb-info-card-content">
+          <view class="info-name">
+            <text>课程名</text>
+          </view>
+          <view class="info-bd">
+            <view class="info-type">
+              <text>实验</text>
+            </view>
+            <view class="info-list">
+              <text class="info-text">又不知道</text>
+              <view class="info-item">
+                <text class="info-item-value">任课老师</text>（任课教师）
+              </view>
+              <view class="info-item">
+                <text class="info-item-value">上课地点</text>（上课地点）
+              </view>
+              <view class="info-item">
+                <text class="info-item-value">上课周</text>（课程周数）
+              </view>
+              <view class="info-item">
+                <text class="info-item-value">上课班级</text>（教学班）
+              </view>
+              <view class="info-item">
+                <image class="info-item-icon" src="/images/xs.png"></image>
+                <navigator open-type="redirect" url="/">查看学生名单</navigator>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+</view>

@@ -1,5 +1,5 @@
-<scroll-view scroll-x scroll-y>
-  <view>
+<scroll-view scroll-x scroll-y style='height:{{tableHeight}};'>
+  <view style='height:{{tableHeight}};'>
     <view class="top">
       <view class="top-text">周一</view>
       <view class="top-text">周二</view>

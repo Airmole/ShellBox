@@ -7,6 +7,7 @@ Page({
     marginleft: '52',
     help_status: false,
     ClassDetail: "",
+    tableHeight: '800px',
   },
   onLoad: function(options) {
     wx.showToast({
@@ -15,6 +16,14 @@ Page({
       duration: 15000
     })
     var that = this;
+    //获取屏幕高度，合理设置地图组件高度
+    wx.getSystemInfo({
+      success: function(res) {
+        that.setData({
+          tableHeight: res.windowHeight,
+        });
+      }
+    });
     that.setData({
       uid: app.globalData.uid,
       pwd: app.globalData.pwd,

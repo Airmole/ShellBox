@@ -9,6 +9,7 @@ App({
     uid: '',
     pwd: ''
   },
+  util: require('./utils/util'),
   onLaunch: function() {
     // console.log('App Launch')
     this.getUserOpenId();

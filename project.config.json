@@ -35,8 +35,8 @@
 			"list": [
 				{
 					"id": 0,
-					"name": "test",
-					"pathName": "pages/schoolNav/schoolNav",
+					"name": "课表",
+					"pathName": "pages/classQuery/class",
 					"query": "",
 					"scene": null
 				},

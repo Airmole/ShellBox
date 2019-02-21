@@ -10,6 +10,7 @@
     "pages/features/about",
     "pages/welcome/welcome",
     "pages/classQuery/index",
+    "pages/classQuery/class",
     "pages/score/score",
     "pages/calendar/calendar",
     "pages/error/queryerror",
