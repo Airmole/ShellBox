@@ -92,7 +92,7 @@
               <text>实验</text>
             </view>
             <view class="info-list">
-              <text class="info-text">又不知道</text>
+              <text class="info-text">1</text>
               <view class="info-item">
                 <text class="info-item-value">任课老师</text>（任课教师）
               </view>
