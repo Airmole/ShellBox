@@ -107,13 +107,7 @@ Page({
   },
   //分享
   onShareAppMessage: function () {
-    var name = this.data.name || app._user.we.info.name,
-      id = this.data.id || app._user.we.info.id;
-    return {
-      title: name + '的课表',
-      desc: 'We重邮 - 课表查询',
-      path: '/pages/core/kb/kb?id=' + id + '&name=' + name
-    };
+
   },
   onLoad: function (options) {
     var _this = this;

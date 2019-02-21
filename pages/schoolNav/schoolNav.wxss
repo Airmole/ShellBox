@@ -14,7 +14,7 @@ Page {
 }
 
 .ads {
-  margin: 10rpx 15rpx 15rpx 15rpx;
+  margin: 10rpx 0rpx 0rpx 0rpx;
 }
 
 .setCenter {

@@ -27,11 +27,11 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function(e) {
+  onLoad: function (e) {
     var that = this;
     //获取屏幕高度，合理设置地图组件高度
     wx.getSystemInfo({
-      success: function(res) {
+      success: function (res) {
         that.setData({
           mapHeight: res.windowHeight - 175,
           sliderLeft: (res.windowWidth / that.data.tabs.length - sliderWidth) / 2,
@@ -57,11 +57,11 @@ Page({
           var params = {
             iconPathSelected: '../../images/nav/marker_checked.png',
             iconPath: '../../images/nav/marker.png',
-            success: function(data) {
+            success: function (data) {
               markersData = data.markers;
               var poisData = data.poisData;
               var markers_new = [];
-              markersData.forEach(function(item, index) {
+              markersData.forEach(function (item, index) {
                 markers_new.push({
                   id: item.id,
                   latitude: item.latitude,
@@ -88,7 +88,7 @@ Page({
               } else {
                 wx.getLocation({
                   type: 'gcj02',
-                  success: function(res) {
+                  success: function (res) {
                     that.setData({
                       latitude: res.latitude
                     });
@@ -99,7 +99,7 @@ Page({
                       city: '天津市'
                     });
                   },
-                  fail: function() {
+                  fail: function () {
                     that.setData({
                       latitude: 39.545546
                     });
@@ -119,7 +119,7 @@ Page({
                 });
               }
             },
-            fail: function(info) {
+            fail: function (info) {
               // wx.showModal({title:info.errMsg})
             }
           }
@@ -131,16 +131,16 @@ Page({
     })
   },
   //顶部Tab切换
-  tabClick: function(e) {
+  tabClick: function (e) {
     this.setData({
       sliderOffset: e.currentTarget.offsetLeft,
       activeIndex: e.currentTarget.id
     });
   },
-  isInSchool: function() {
+  isInSchool: function () {
 
   },
-  makertap: function(e) {
+  makertap: function (e) {
     var id = e.markerId;
     var that = this;
     that.showMarkerInfo(markersData, id);
@@ -149,7 +149,7 @@ Page({
     var destination = markersData[id].longitude + ',' + markersData[id].latitude;
     this.planPolyline(userLocation, destination);
   },
-  showMarkerInfo: function(data, i) {
+  showMarkerInfo: function (data, i) {
     var that = this;
     that.setData({
       textData: {
@@ -158,7 +158,7 @@ Page({
       }
     });
   },
-  changeMarkerColor: function(data, i) {
+  changeMarkerColor: function (data, i) {
     var that = this;
     var markers = [];
     for (var j = 0; j < data.length; j++) {
@@ -180,7 +180,7 @@ Page({
       markers: markers
     });
   },
-  planPolyline: function(origin, destination) {
+  planPolyline: function (origin, destination) {
     var that = this;
     //规划步行路线
     var myAmapFun = new amapFile.AMapWX({
@@ -189,7 +189,7 @@ Page({
     myAmapFun.getWalkingRoute({
       origin: origin,
       destination: destination,
-      success: function(data) {
+      success: function (data) {
         var points = [];
         if (data.paths && data.paths[0] && data.paths[0].steps) {
           var steps = data.paths[0].steps;
@@ -243,7 +243,7 @@ Page({
           markers: markers,
         })
       },
-      fail: function(info) {
+      fail: function (info) {
 
       }
     })
@@ -251,21 +251,21 @@ Page({
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
-  onPullDownRefresh: function() {
+  onPullDownRefresh: function () {
 
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
-  onReachBottom: function() {
+  onReachBottom: function () {
 
   },
 
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function() {
+  onShareAppMessage: function () {
 
   },
 
