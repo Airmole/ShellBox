@@ -8,9 +8,9 @@ Page({
    * 页面的初始数据
    */
   data: {
-    stuId: " ",
-    password: " ",
-    jsonContent: {},
+    stuId: "",
+    password: "",
+    jsonContent: '',
     PicURL: "",
     PicArr: [""],
     hasUserInfo: false,
@@ -27,7 +27,8 @@ Page({
       duration: 60000
     })
     var that = this;
-    if (options.isShareFrom) {
+    console.log(options.isShareFrom)
+    if (options.isShareFrom != 'null') {
       if (options.uid != '' || options.pwd != '') {
         that.setData({
           stuId: options.uid,
@@ -42,11 +43,13 @@ Page({
       }
       console.log(options);
     } else {
+      var uid = wx.getStorageSync('uid');
+      var pwd = wx.getStorageSync('pwd');
       that.setData({
-        stuId: app.globalData.uid,
-        password: app.globalData.pwd,
+        stuId: uid,
+        password: pwd,
       });
-      if (that.data.stuId == '' || that.data.pwd == '') {
+      if (that.data.stuId == '' || that.data.password == '') {
         wx.redirectTo({
           url: '/pages/index/index'
         })
@@ -67,7 +70,6 @@ Page({
         that.setData({
           jsonContent: res.data,
         })
-        console.log(res.data);
         if (res.data.code == 200) {
           if (res.data.data.msg == '密码错误') {
             that.reLogin();
@@ -199,39 +201,46 @@ Page({
     }
     var simulationData = this.createSimulationData();
     console.log(simulationData)
-    lineChart = new wxCharts({
-      canvasId: 'lineCanvas',
-      type: 'line',
-      categories: simulationData.categories,
-      animation: true,
-      background: '#7acfa6',
-      series: [{
-          name: '算术平均分',
-          data: simulationData.data1,
-          format: (val) => val + "分"
+    var that = this;
+    if (simulationData.categories.length <= 0) {
+      that.setData({
+        showGraphic: false
+      })
+    } else {
+      lineChart = new wxCharts({
+        canvasId: 'lineCanvas',
+        type: 'line',
+        categories: simulationData.categories,
+        animation: true,
+        background: '#7acfa6',
+        series: [{
+            name: '算术平均分',
+            data: simulationData.data1,
+            format: (val) => val + "分"
+          },
+          {
+            name: '加权平均分',
+            data: simulationData.data2,
+            format: (val) => val + "分"
+          }
+        ],
+        xAxis: {
+          disableGrid: true
         },
-        {
-          name: '加权平均分',
-          data: simulationData.data2,
-          format: (val) => val + "分"
+        yAxis: {
+          title: '每学期学分趋势',
+          format: (val) => val.toFixed(2),
+          min: 60
+        },
+        width: windowWidth,
+        height: 200,
+        dataLabel: false,
+        dataPointShape: true,
+        extra: {
+          lineStyle: 'curve'
         }
-      ],
-      xAxis: {
-        disableGrid: true
-      },
-      yAxis: {
-        title: '每学期学分趋势',
-        format: (val) => val.toFixed(2),
-        min: 60
-      },
-      width: windowWidth,
-      height: 200,
-      dataLabel: false,
-      dataPointShape: true,
-      extra: {
-        lineStyle: 'curve'
-      }
-    });
+      });
+    }
   },
   /**
    * 用户点击右上角分享
@@ -261,5 +270,12 @@ Page({
     wx.redirectTo({
       url: '/pages/index/index'
     })
+  },
+  onReady: function() {
+    if (this.data.jsonContent == "") {
+      wx.redirectTo({
+        url: '/pages/error/queryerror?ErrorTips=' + '大概是教务网关了吧'
+      })
+    }
   }
 })

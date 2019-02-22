@@ -146,11 +146,18 @@ Page({
           jsonStr: res.data
         })
         console.log(res.data);
+        var uid = wx.getStorageSync('uid');
+        var pwd = wx.getStorageSync('pwd');
         if (res.data.todayCourse.getCourseStatus != 403) {
           that.setData({
             isLoading: "finished",
             isLogined: true
           })
+          if (uid == '' || pwd == '') {
+            that.setData({
+              isLogined: false
+            })
+          }
         } else {
           that.setData({
             isLoading: "finished",

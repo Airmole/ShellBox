@@ -8,9 +8,12 @@
         <text class="input-label">ISBN</text>
         <input type="number" cursor-spacing="30 " name="isbn" maxlength="13" placeholder="请输入ISBN书号 " />
       </view>
-      <button class="confirm-btn " type="primary" form-type="submit">查书</button>
-      <button class="confirm-btn " type="primary" plain="true" bindtap='scan'>
-        扫描ISBN</button>
+      <button class="login-btn" type="primary" form-type="submit">
+        <text>查书</text>
+      </button>
+      <button class="login-btn" plain="true" bindtap='scan'>
+        <text>扫描ISBN码</text>
+      </button>
     </form>
   </view>
 </view>

@@ -31,12 +31,12 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 1,
+			"current": 0,
 			"list": [
 				{
 					"id": 0,
-					"name": "课表",
-					"pathName": "pages/classQuery/class",
+					"name": "error",
+					"pathName": "pages/error/queryerror",
 					"query": "",
 					"scene": null
 				},

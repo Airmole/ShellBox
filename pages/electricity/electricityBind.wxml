@@ -21,7 +21,7 @@
           <input name="roomNo" type="number" cursor-spacing="30" value="{{room}}" id="room" placeholder="请输入寝室号，如303" bindinput="roomInput" bindfocus="inputFocus" />
         </view>
         <view>
-          <button formType="submit" class="confirm-btn">保存</button>
+          <button formType="submit" class="login-btn">保存</button>
         </view>
       </form>
     </view>

@@ -1,5 +1,5 @@
 /* pages/tel/departmentTel.wxss */
-@import "../../common/weui.wxss";
+@import "../common/weui.wxss";
 
 Page {
   background-color: #7acfa6;

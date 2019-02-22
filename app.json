@@ -2,8 +2,7 @@
   "pages": [
     "pages/bookSearch/index",
     "pages/index/index",
-    "pages/bookSearch/bookInfo/bookInfo",
-    "pages/bookSearch/bookInfo/isbn/iputIsbn",
+    "pages/bookSearch/isbn/iputIsbn",
     "pages/bookSearch/bookInfo/bookDetail",
     "pages/bookSearch/bookInfo/bookList",
     "pages/features/features",
@@ -19,7 +18,7 @@
     "pages/electricity/electricityFare",
     "pages/electricity/electricityBind",
     "pages/Transport/Transport",
-    "pages/tel/departmentTel/departmentTel",
+    "pages/tel/tel",
     "pages/stuInfo/stuInfo",
     "pages/schoolNav/schoolNav"
   ],

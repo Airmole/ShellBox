@@ -13,10 +13,10 @@ Page({
         { id: 'grkb', name: '个人课表', url: '/pages/classQuery/index',needLogin: true},
         { id: 'xl', name: '校历', url: '/pages/calendar/calendar',needLogin: false},
         { id: 'xydh', name: '校园导航', url: '/pages/schoolNav/schoolNav', needLogin: false},
-        { id: 'smcs', name: '扫码查书', url: '/pages/bookSearch/bookInfo/isbn/iputIsbn', needLogin: false},
-        { id: 'cjcx', name: '成绩查询', url: '/pages/score/score', needLogin: true},
+        { id: 'smcs', name: '扫码查书', url: '/pages/bookSearch/isbn/iputIsbn', needLogin: false},
+        { id: 'cjcx', name: '成绩查询', url: '/pages/score/score?isShareFrom=null', needLogin: true},
         { id: 'dfcx', name: '电费查询', url: '/pages/electricity/electricityBind', needLogin: true},
-        { id: 'txl', name: '通讯录', url: '/pages/tel/departmentTel/departmentTel', needLogin: false},
+        { id: 'txl', name: '通讯录', url: '/pages/tel/tel', needLogin: false},
         { id: 'xycx', name: '校园出行', url: '/pages/Transport/Transport', needLogin: false},
         { id: 'gyhz', name: '关于盒子',url:'/pages/features/about', needLogin: false}
       ]

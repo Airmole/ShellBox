@@ -1,5 +1,5 @@
 // pages/tel/departmentTel.js
-var base64 = require("../../../images/base64");
+var base64 = require("../../images/base64");
 /**
  * 2018年3月9日 12点49分预留各部门的icon后续慢慢加，这个功能不着急
  */
