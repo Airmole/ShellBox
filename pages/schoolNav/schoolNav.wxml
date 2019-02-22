@@ -20,37 +20,37 @@
         </view>
         <view class="weui-tab__content" hidden="{{activeIndex != 0}}">
           <view class='page'>
-            <view style='width:100%;height:{{mapHeight}}px;'>
-              <map id="navi_map" longitude="117.396018" latitude="39.545546" scale="17" markers="{{markers}}" polyline="{{polyline}}" style='height:{{mapHeight-80}}px' bindmarkertap="makertap" show-location>
+            <view style='width:100%;'>
+              <map id="navi_map" longitude="{{maplongitude}}" latitude="{{maplatitude}}" scale="17" markers="{{markers}}" polyline="{{polyline}}" style='height:{{mapHeight-50}}px' bindmarkertap="makertap" show-location>
+                <cover-view class='mapBK coverCard'>
+                  <cover-view class="map_text">
+                    <cover-view class="h1">{{textData.name}}</cover-view>
+                    <cover-view>{{textData.desc}}</cover-view>
+                  </cover-view>
+                  <cover-view wx:if="{{json.steps.length > 0}}" class="map_step">
+                    <cover-view class="item" wx:for="{{json.steps}}" wx:key="{{index}}">
+                      <cover-view class="icon iconfont icon-walk"></cover-view>
+                      <cover-view class="split-line">
+                        <cover-view class="circle start-circle" wx:if="{{index === 0}}"></cover-view>
+                        <cover-view class="circle terminal-circle" wx:if="{{index === json.steps.length-1}}"></cover-view>
+                      </cover-view>
+                      <cover-view class="detail">
+                        <cover-view class="start" wx:if="{{index === 0}}">我的位置</cover-view>
+                        <cover-view class="content">
+                          <cover-view>{{item.instruction}}</cover-view>
+                        </cover-view>
+                        <cover-view class="terminal" wx:if="{{index === json.steps.length - 1}}">{{textData.name}}</cover-view>
+                      </cover-view>
+                    </cover-view>
+                  </cover-view>
+                </cover-view>
               </map>
-              <view class='mapBK'>
-                <view class="map_text">
-                  <text class="h1">{{textData.name}}</text>
-                  <text>{{textData.desc}}</text>
-                </view>
-                <view wx:if="{{json.steps.length > 0}}">
-                  <view class="item walk" wx:for="{{json.steps}}" wx:key="{{index}}">
-                    <view class="icon iconfont icon-walk"></view>
-                    <view class="split-line">
-                      <view class="circle start-circle" wx:if="{{index === 0}}"></view>
-                      <view class="circle terminal-circle" wx:if="{{index === json.steps.length-1}}"></view>
-                    </view>
-                    <view class="detail">
-                      <view class="start" wx:if="{{index === 0}}">我的位置</view>
-                      <view class="content">
-                        <view>{{item.instruction}}</view>
-                      </view>
-                      <view class="terminal" wx:if="{{index === json.steps.length - 1}}">{{textData.name}}</view>
-                    </view>
-                  </view>
-                </view>
-              </view>
             </view>
           </view>
         </view>
         <view class="weui-tab__content" hidden="{{activeIndex != 1}}">
           <view class='page'>
-            <view class='setCenter mapBK'>
+            <view class='setCenter mapBK' style='margin:15rpx 25rpx;background-color:#fff'>
               <view class="weui-article__h2">建议手机横屏观看</view>
               <image src='https://airmole.cn/wechat/wxapp/images/SchoolMap.png' mode='widthFix'></image>
             </view>

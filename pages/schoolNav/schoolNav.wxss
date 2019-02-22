@@ -2,16 +2,27 @@
 @import "../common/weui.wxss";
 @import "./stepsLine.wxss";
 
+cover-view {
+  overflow: visible;
+}
+
 Page {
   background-color: #7acfa6;
 }
-.navImg{
+
+.coverCard {
+  position: absolute;
+  bottom: 0px;
+  width: 100%;
+}
+
+.navImg {
   width: 80px;
   height: 25px;
 }
+
 .mapBK {
-  margin: 25rpx;
-  background-color: #fff;
+  background-color: rgba(255, 255, 255, 0.377);
   padding: 25rpx 0;
   border-radius: 25rpx;
 }
@@ -105,9 +116,11 @@ Page {
   left: 0;
   right: 0;
   bottom: 0px;
-  height: 80px;
-  background: #fff;
+  height: 50px;
   padding: 0 15px;
+}
+.map_step {
+  background: rgba(255, 255, 255, 0.377);
 }
 
 text {

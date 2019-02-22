@@ -9,6 +9,8 @@ Page({
    */
   data: {
     mapHeight: "800",
+    maplongitude: 117.396018,
+    maplatitude: 39.545546,
     BottomTip: " ",
     hideOrNot: 0,
     tabs: ["导航地图", "静态地图"],
@@ -33,7 +35,7 @@ Page({
     wx.getSystemInfo({
       success: function(res) {
         that.setData({
-          mapHeight: res.windowHeight - 175,
+          mapHeight: res.windowHeight - 120,
           sliderLeft: (res.windowWidth / that.data.tabs.length - sliderWidth) / 2,
           sliderOffset: res.windowWidth / that.data.tabs.length * that.data.activeIndex
         });
@@ -156,13 +158,16 @@ Page({
             }
             myAmapFun.getPoiAround(params)
           } else {
+            that.setData({
+              inSchool: false,
+              textData: {
+                name: '北京科技大学天津学院',
+                desc: '天津市宝坻区京津新城珠江北环东路1号(邮编：301830)'
+              }
+            })
             console.log('不在学校', that.data.userLongitude + ',' + that.data.userLatitude)
           }
         }
-
-
-
-
       }
     })
   },
@@ -172,9 +177,6 @@ Page({
       sliderOffset: e.currentTarget.offsetLeft,
       activeIndex: e.currentTarget.id
     });
-  },
-  isInSchool: function() {
-
   },
   makertap: function(e) {
     var id = e.markerId;
@@ -276,6 +278,8 @@ Page({
           height: 34
         })
         that.setData({
+          maplatitude: points[points.length - 1].latitude - 0.005,
+          maplongitude: points[points.length - 1].longitude,
           markers: markers,
         })
       },
