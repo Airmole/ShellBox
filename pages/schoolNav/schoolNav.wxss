@@ -5,7 +5,10 @@
 Page {
   background-color: #7acfa6;
 }
-
+.navImg{
+  width: 80px;
+  height: 25px;
+}
 .mapBK {
   margin: 25rpx;
   background-color: #fff;

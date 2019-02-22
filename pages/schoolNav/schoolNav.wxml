@@ -21,8 +21,9 @@
         <view class="weui-tab__content" hidden="{{activeIndex != 0}}">
           <view class='page'>
             <view style='width:100%;height:{{mapHeight}}px;'>
-              <map id="navi_map" longitude="117.396018" latitude="39.545546" scale="16" markers="{{markers}}" polyline="{{polyline}}" style='height:{{mapHeight-80}}px' bindmarkertap="makertap" show-location></map>
-              <view wx:if="{{inSchool}}" class='mapBK'>
+              <map id="navi_map" longitude="117.396018" latitude="39.545546" scale="17" markers="{{markers}}" polyline="{{polyline}}" style='height:{{mapHeight-80}}px' bindmarkertap="makertap" show-location>
+              </map>
+              <view class='mapBK'>
                 <view class="map_text">
                   <text class="h1">{{textData.name}}</text>
                   <text>{{textData.desc}}</text>
@@ -43,10 +44,6 @@
                     </view>
                   </view>
                 </view>
-              </view>
-              <view class="map_text" wx:else>
-                <text class="h1">北京科技大学天津学院</text>
-                <text>天津市宝坻区京津新城珠江北环东路1号(邮编：301830)</text>
               </view>
             </view>
           </view>

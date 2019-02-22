@@ -27,11 +27,11 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (e) {
+  onLoad: function(e) {
     var that = this;
     //获取屏幕高度，合理设置地图组件高度
     wx.getSystemInfo({
-      success: function (res) {
+      success: function(res) {
         that.setData({
           mapHeight: res.windowHeight - 175,
           sliderLeft: (res.windowWidth / that.data.tabs.length - sliderWidth) / 2,
@@ -47,109 +47,145 @@ Page({
           userLongitude: res.longitude,
           userLatitude: res.latitude
         })
-        if ((that.data.userLongitude >= 117.38 && that.data.userLongitude <= 117.40) && (that.data.userLatitude >= 39.54 && that.data.userLatitude <= 39.55)) {
+        //判断是否已经有目的地,且用户在校内
+        if (e.targetName && ((that.data.userLongitude >= 117.38 && that.data.userLongitude <= 117.40) && (that.data.userLatitude >= 39.54 && that.data.userLatitude <= 39.55))) {
+          var userLocation = res.longitude + ',' + res.latitude;
+          var destination = e.longitude + ',' + e.latitude;
+          that.planPolyline(userLocation, destination);
           that.setData({
             inSchool: true,
-          })
-          var myAmapFun = new amapFile.AMapWX({
-            key: '66a87160f8db2a9a76431c954b4f52a5'
-          });
-          var params = {
-            iconPathSelected: '../../images/nav/marker_checked.png',
-            iconPath: '../../images/nav/marker.png',
-            success: function (data) {
-              markersData = data.markers;
-              var poisData = data.poisData;
-              var markers_new = [];
-              markersData.forEach(function (item, index) {
-                markers_new.push({
-                  id: item.id,
-                  latitude: item.latitude,
-                  longitude: item.longitude,
-                  iconPath: item.iconPath,
-                  width: item.width,
-                  height: item.height
-                })
-              })
-              if (markersData.length > 0) {
-                that.setData({
-                  markers: markers_new
-                });
-                that.setData({
-                  city: poisData[0].cityname || ''
-                });
-                that.setData({
-                  latitude: markersData[0].latitude
-                });
-                that.setData({
-                  longitude: markersData[0].longitude
-                });
-                that.showMarkerInfo(markersData, 0);
-              } else {
-                wx.getLocation({
-                  type: 'gcj02',
-                  success: function (res) {
-                    that.setData({
-                      latitude: res.latitude
-                    });
-                    that.setData({
-                      longitude: res.longitude
-                    });
-                    that.setData({
-                      city: '天津市'
-                    });
-                  },
-                  fail: function () {
-                    that.setData({
-                      latitude: 39.545546
-                    });
-                    that.setData({
-                      longitude: 117.396018
-                    });
-                    that.setData({
-                      city: '天津市'
-                    });
-                  }
-                })
-                that.setData({
-                  textData: {
-                    name: '抱歉，未找到结果',
-                    desc: ''
-                  }
-                });
-              }
-            },
-            fail: function (info) {
-              // wx.showModal({title:info.errMsg})
+            textData: {
+              name: e.targetName,
+              desc: '北京科技大学天津学院'
             }
-          }
-          myAmapFun.getPoiAround(params)
+          })
+        } else if (e.targetName) {
+          //有目标，不在校内
+          var targetMarker = [{
+            iconPath: '../../images/nav/marker_checked.png',
+            id: 0,
+            latitude: e.latitude,
+            longitude: e.longitude,
+            width: 23,
+            height: 34
+          }]
+          that.setData({
+            markers: targetMarker,
+            inSchool: false,
+            textData: {
+              name: e.targetName,
+              desc: '北京科技大学天津学院'
+            }
+          })
         } else {
-          console.log('不在学校', that.data.userLongitude + ',' + that.data.userLatitude)
+          if ((that.data.userLongitude >= 117.38 && that.data.userLongitude <= 117.40) && (that.data.userLatitude >= 39.54 && that.data.userLatitude <= 39.55)) {
+            that.setData({
+              inSchool: true,
+            })
+            var myAmapFun = new amapFile.AMapWX({
+              key: '66a87160f8db2a9a76431c954b4f52a5'
+            });
+            var params = {
+              iconPathSelected: '../../images/nav/marker_checked.png',
+              iconPath: '../../images/nav/marker.png',
+              success: function(data) {
+                markersData = data.markers;
+                var poisData = data.poisData;
+                var markers_new = [];
+                markersData.forEach(function(item, index) {
+                  markers_new.push({
+                    id: item.id,
+                    latitude: item.latitude,
+                    longitude: item.longitude,
+                    iconPath: item.iconPath,
+                    width: item.width,
+                    height: item.height
+                  })
+                })
+                if (markersData.length > 0) {
+                  that.setData({
+                    markers: markers_new
+                  });
+                  that.setData({
+                    city: poisData[0].cityname || ''
+                  });
+                  that.setData({
+                    latitude: markersData[0].latitude
+                  });
+                  that.setData({
+                    longitude: markersData[0].longitude
+                  });
+                  that.showMarkerInfo(markersData, 0);
+                } else {
+                  wx.getLocation({
+                    type: 'gcj02',
+                    success: function(res) {
+                      that.setData({
+                        latitude: res.latitude
+                      });
+                      that.setData({
+                        longitude: res.longitude
+                      });
+                      that.setData({
+                        city: '天津市'
+                      });
+                    },
+                    fail: function() {
+                      that.setData({
+                        latitude: 39.545546
+                      });
+                      that.setData({
+                        longitude: 117.396018
+                      });
+                      that.setData({
+                        city: '天津市'
+                      });
+                    }
+                  })
+                  that.setData({
+                    textData: {
+                      name: '抱歉，未找到结果',
+                      desc: ''
+                    }
+                  });
+                }
+              },
+              fail: function(info) {
+                // wx.showModal({title:info.errMsg})
+              }
+            }
+            myAmapFun.getPoiAround(params)
+          } else {
+            console.log('不在学校', that.data.userLongitude + ',' + that.data.userLatitude)
+          }
         }
+
+
+
+
       }
     })
   },
   //顶部Tab切换
-  tabClick: function (e) {
+  tabClick: function(e) {
     this.setData({
       sliderOffset: e.currentTarget.offsetLeft,
       activeIndex: e.currentTarget.id
     });
   },
-  isInSchool: function () {
+  isInSchool: function() {
 
   },
-  makertap: function (e) {
+  makertap: function(e) {
     var id = e.markerId;
     var that = this;
     that.showMarkerInfo(markersData, id);
     that.changeMarkerColor(markersData, id);
     var userLocation = that.data.userLongitude + ',' + that.data.userLatitude;
     var destination = markersData[id].longitude + ',' + markersData[id].latitude;
-    this.planPolyline(userLocation, destination);
+    that.planPolyline(userLocation, destination);
   },
-  showMarkerInfo: function (data, i) {
+  showMarkerInfo: function(data, i) {
     var that = this;
     that.setData({
       textData: {
@@ -158,7 +194,7 @@ Page({
       }
     });
   },
-  changeMarkerColor: function (data, i) {
+  changeMarkerColor: function(data, i) {
     var that = this;
     var markers = [];
     for (var j = 0; j < data.length; j++) {
@@ -180,7 +216,7 @@ Page({
       markers: markers
     });
   },
-  planPolyline: function (origin, destination) {
+  planPolyline: function(origin, destination) {
     var that = this;
     //规划步行路线
     var myAmapFun = new amapFile.AMapWX({
@@ -189,7 +225,7 @@ Page({
     myAmapFun.getWalkingRoute({
       origin: origin,
       destination: destination,
-      success: function (data) {
+      success: function(data) {
         var points = [];
         if (data.paths && data.paths[0] && data.paths[0].steps) {
           var steps = data.paths[0].steps;
@@ -243,7 +279,7 @@ Page({
           markers: markers,
         })
       },
-      fail: function (info) {
+      fail: function(info) {
 
       }
     })
@@ -251,21 +287,21 @@ Page({
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
-  onPullDownRefresh: function () {
+  onPullDownRefresh: function() {
 
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
-  onReachBottom: function () {
+  onReachBottom: function() {
 
   },
 
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {
+  onShareAppMessage: function() {
 
   },
 
