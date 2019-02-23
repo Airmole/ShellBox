@@ -10,30 +10,30 @@ Page({
     keywordStr: '',
     SearchType: '02',
     radioItems: [{
-        name: '书名',
-        value: '02',
-        checked: true
-      },
-      {
-        name: '作者',
-        value: '03'
-      }, {
-        name: '主题',
-        value: '04'
-      },
-      {
-        name: '出版社',
-        value: '09'
-      }
+      name: '书名',
+      value: '02',
+      checked: true
+    },
+    {
+      name: '作者',
+      value: '03'
+    }, {
+      name: '主题',
+      value: '04'
+    },
+    {
+      name: '出版社',
+      value: '09'
+    }
     ]
   },
-  onLoad: function() {
+  onLoad: function () {
     this.checkEffectiveIdAndPasswoed();
   },
-  onReady: function() {
+  onReady: function () {
 
   },
-  checkEffectiveIdAndPasswoed: function() {
+  checkEffectiveIdAndPasswoed: function () {
     var that = this;
     var uid = wx.getStorageSync('uid');
     var pwd = wx.getStorageSync('pwd');
@@ -46,32 +46,32 @@ Page({
       })
     }
   },
-  isShowAllCourse: function() {
+  isShowAllCourse: function () {
     this.setData({
       isShowAllCourse: !this.data.isShowAllCourse
     })
   },
-  showInput: function() {
+  showInput: function () {
     this.setData({
       inputShowed: true
     });
   },
-  onBindFocus: function(event) {
+  onBindFocus: function (event) {
 
   },
-  onBindBlur: function(event) {
+  onBindBlur: function (event) {
     this.setData({
       inputVal: "",
       inputShowed: false
     })
   },
-  hideInput: function() {
+  hideInput: function () {
     this.setData({
       inputVal: "",
       inputShowed: false
     });
   },
-  radioChange: function(e) {
+  radioChange: function (e) {
     console.log(e.detail.value);
     this.setData({
       SearchType: e.detail.value
@@ -84,18 +84,18 @@ Page({
       radioItems: radioItems,
     });
   },
-  inputTyping: function(e) {
+  inputTyping: function (e) {
     this.setData({
       keyword: e.detail.value
     });
     // console.log("输入了" + this.data.keyword);
   },
-  clearInput: function() {
+  clearInput: function () {
     this.setData({
       inputVal: ""
     });
   },
-  searchIt: function(e) {
+  searchIt: function (e) {
     var that = this;
     if (that.data.keyword == 0) {
       wx.showToast({
@@ -111,7 +111,7 @@ Page({
       })
       wx.request({
         url: 'https://airmole.cn/api/book/booksearch_adv.php?type=' + that.data.SearchType + '&keyword=' + that.data.keyword,
-        success: function(res) {
+        success: function (res) {
           that.setData({
             keywordStr: res.data,
           })
@@ -137,11 +137,11 @@ Page({
       })
     }
   },
-  getWelcomeJson: function(uid, pwd) {
+  getWelcomeJson: function (uid, pwd) {
     var that = this;
     wx.request({
       url: 'https://airmole.cn/test/welcome.php?uid=' + uid + '&pwd=' + pwd,
-      success: function(res) {
+      success: function (res) {
         that.setData({
           jsonStr: res.data
         })
@@ -171,7 +171,7 @@ Page({
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
-  onPullDownRefresh: function() {
+  onPullDownRefresh: function () {
     var that = this;
     that.onLoad();
     wx.stopPullDownRefresh();
@@ -181,7 +181,7 @@ Page({
       duration: 3000
     })
   },
-  onReachBottom: function() {
+  onReachBottom: function () {
     //拉到底了，做点什么好呢
   },
 });

@@ -42,8 +42,8 @@
 				},
 				{
 					"id": 1,
-					"name": "map",
-					"pathName": "pages/schoolNav/schoolNav",
+					"name": "出行",
+					"pathName": "pages/Transport/Transport",
 					"query": "",
 					"scene": 1001
 				}

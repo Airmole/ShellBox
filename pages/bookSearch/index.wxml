@@ -42,7 +42,7 @@
   <view wx:elif="{{!isLogined}}" class="remind-box" style='margin-top:-260rpx;'>
     <image class="remind-img" src="/images/nothing.png"></image>
     <text class="remind-text">您咋还没绑定学号呢？</text>
-    <navigator url="/pages/index/index" class="remind-btn">登录绑定</navigator>
+    <navigator url="/pages/index/index" class="remind-btn">绑定登录</navigator>
   </view>
 
   <!--卡片列表-->
