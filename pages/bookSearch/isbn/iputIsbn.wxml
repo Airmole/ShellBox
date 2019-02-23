@@ -1,5 +1,8 @@
 <!--pages/bookSearch/bookInfo/isbn/iputIsbn.wxml-->
-<view class="ykt-detail-wraper" style='margin-top:80rpx;'>
+<view class="remind-box" wx:if="{{isLoading}}">
+  <image class="remind-img" src="/images/loading.gif"></image>
+</view>
+<view class="ykt-detail-wraper" style='margin-top:80rpx;' wx:else>
   <view class="logo-sub">请扫描或输入书籍背面的的ISBN码</view>
   <image class="logo" src="/images/isbn.png"></image>
   <view class="page__bd page__bd_spacing" style='padding-bottom:15px;'>

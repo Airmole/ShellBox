@@ -1,14 +1,17 @@
 /* pages/calendar/calendar.wxss */
 @import "../common/weui.wxss";
+
 Page {
   background-color: #7acfa6;
 }
+
 .panelBK {
   margin: 25rpx;
   background-color: #fff;
   padding: 25rpx 0;
   border-radius: 25rpx;
 }
+
 .ads {
   padding: 30rpx 15rpx 30rpx 15rpx;
 }

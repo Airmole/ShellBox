@@ -8,6 +8,7 @@ cover-view {
 
 Page {
   background-color: #7acfa6;
+  /* background: linear-gradient(to top, #8360c3, #2ebf91); */
 }
 
 .coverCard {
@@ -119,6 +120,7 @@ Page {
   height: 50px;
   padding: 0 15px;
 }
+
 .map_step {
   background: rgba(255, 255, 255, 0.377);
 }

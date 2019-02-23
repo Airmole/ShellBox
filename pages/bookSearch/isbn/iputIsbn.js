@@ -1,5 +1,16 @@
 // pages/bookSearch/bookInfo/isbn/iputIsbn.js
 Page({
+  data: {
+    isLoading: true,
+  },
+  onReady: function() {
+    var that = this;
+    setTimeout(function() {
+      that.setData({
+        isLoading: false
+      });
+    }, 800);
+  },
   ISBNInput: function(e) {
     //console.log(e.detail.value['isbn']);
     if (e.detail.value['isbn'] == '' || e.detail.value['isbn'].length < 10) {

@@ -2,7 +2,8 @@
 @import "../../common/weui.wxss";
 
 Page {
-  background-color: #7acfa6;
+  /* background-color: #7acfa6; */
+  background: linear-gradient(#7acfa6, #93f9b9, #1d976c);
 }
 
 .login-btn {

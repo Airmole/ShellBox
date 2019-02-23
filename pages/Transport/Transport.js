@@ -6,6 +6,7 @@ Page({
     activeIndex: 1,
     sliderOffset: 0,
     sliderLeft: 0,
+    isLoading: true,
   },
   onLoad: function(r) {
     var that = this;
@@ -24,6 +25,14 @@ Page({
       })
 
     }
+  },
+  onReady: function() {
+    var that = this;
+    setTimeout(function() {
+      that.setData({
+        isLoading: false
+      });
+    }, 800);
   },
   tabClick: function(e) {
     this.setData({
