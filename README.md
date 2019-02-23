@@ -44,6 +44,10 @@
 - 密码：test
 
 
+## 界面截图
+
+
+![](https://s2.ax1x.com/2019/02/23/khjw4K.png)
 
 
 ## 下一步flag
