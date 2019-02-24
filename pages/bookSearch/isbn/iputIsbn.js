@@ -9,7 +9,7 @@ Page({
       that.setData({
         isLoading: false
       });
-    }, 800);
+    }, 500);
   },
   ISBNInput: function(e) {
     //console.log(e.detail.value['isbn']);

@@ -24,6 +24,7 @@ Page({
     userLongitude: '',
     userLatitude: '',
     inSchool: false,
+    isLoading: true,
   },
 
   /**
@@ -177,6 +178,14 @@ Page({
       sliderOffset: e.currentTarget.offsetLeft,
       activeIndex: e.currentTarget.id
     });
+  },
+  onReady: function() {
+    var that = this;
+    setTimeout(function() {
+      that.setData({
+        isLoading: false
+      });
+    }, 800);
   },
   makertap: function(e) {
     var id = e.markerId;

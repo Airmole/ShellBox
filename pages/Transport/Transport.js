@@ -32,7 +32,7 @@ Page({
       that.setData({
         isLoading: false
       });
-    }, 800);
+    }, 400);
   },
   tabClick: function(e) {
     this.setData({

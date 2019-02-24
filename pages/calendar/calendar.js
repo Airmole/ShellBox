@@ -12,7 +12,8 @@ Page({
     tabs: ["校历", "地图"],
     activeIndex: 0,
     sliderOffset: 0,
-    sliderLeft: 0
+    sliderLeft: 0,
+    isLoading: true,
   },
 
   /**
@@ -42,11 +43,16 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function() {
+    var that = this;
     this.setData({
       hideOrNot: 1
     })
+    setTimeout(function() {
+      that.setData({
+        isLoading: false
+      });
+    }, 400);
   },
-
   /**
    * 生命周期函数--监听页面显示
    */

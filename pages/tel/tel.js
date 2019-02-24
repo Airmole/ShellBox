@@ -115,7 +115,7 @@ Page({
       that.setData({
         isLoading: false
       });
-    }, 800);
+    }, 400);
 
   },
 

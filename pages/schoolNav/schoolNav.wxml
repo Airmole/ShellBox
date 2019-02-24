@@ -1,5 +1,8 @@
 <!--pages/schoolNav/schoolNav.wxml-->
-<view class="page">
+<view class="remind-box" wx:if="{{isLoading}}">
+  <image class="remind-img" src="/images/loading.gif"></image>
+</view>
+<view class="page" wx:else>
   <view class="page__bd">
     <view class="weui-tab">
       <view class="weui-navbar">
