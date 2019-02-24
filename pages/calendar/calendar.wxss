@@ -5,15 +5,41 @@ Page {
   background-color: #7acfa6;
 }
 
+.page__hd {
+  padding: 40px;
+}
+
+.page__bd_spacing {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.page__ft {
+  padding-bottom: 10px;
+  text-align: center;
+}
+
+.page__title {
+  color: #fff;
+  margin-left: 30rpx;
+  text-align: left;
+  font-size: 20px;
+  font-weight: 400;
+}
+
+.page__desc {
+  margin-top: 5px;
+  color: #fee;
+  text-align: left;
+  font-size: 30rpx;
+  margin-left: 30rpx;
+}
+
 .panelBK {
   margin: 25rpx;
   background-color: #fff;
   padding: 25rpx 0;
   border-radius: 25rpx;
-}
-
-.ads {
-  padding: 30rpx 15rpx 30rpx 15rpx;
 }
 
 .setCenter {
@@ -24,6 +50,139 @@ Page {
   width: 26px;
   height: 26px;
   vertical-align: text-bottom;
+}
+
+.page__bd {
+  margin-top: 30rpx;
+  padding-bottom: 1rpx;
+}
+
+.page__hd {
+  padding: 20rpx 35rpx 0 35rpx;
+}
+
+.weui-items {
+  margin: 30rpx 20rpx;
+}
+
+.weui-item {
+  margin: 30rpx 5rpx;
+  padding: 20rpx;
+  color: #fff;
+  height: 150rpx;
+}
+
+.weui-flex {
+  justify-content: space-between;
+  align-items: center;
+}
+
+.background-1 {
+  background: linear-gradient(to right, #7f7fd5, #86a8e7, #91eae4);
+}
+
+.background-2 {
+  background: linear-gradient(to right, #654ea3, #eaafc8);
+}
+
+.thisWeek {
+  background: linear-gradient(to right, #7f7fd5, #86a8e7, #91eae4);
+  height: 420rpx;
+}
+
+.nextWeek {
+  background: linear-gradient(to right, #654ea3, #eaafc8);
+  height: 420rpx;
+}
+
+.kaixue {
+  background: linear-gradient(to right, #3494e6, #ec6ead);
+}
+
+.hanshujia {
+  background: linear-gradient(to right, #bc4e9c, #f80759);
+}
+
+.wanzhen {
+  background: linear-gradient(to right, #43cea2, #185a9d);
+}
+
+.kaoshi {
+  background: linear-gradient(to right, #0f0c29, #302b63, #24243e);
+}
+
+.work {
+  color: white;
+  font-size: 32rpx;
+}
+
+.wraper {
+  /* background: linear-gradient(to right, #77a1d3, #79cbca, #e684ae); */
+  color: #d6eceb;
+  height: 150rpx;
+  border-radius: 15px;
+  text-align: left;
+  margin-top: -50rpx;
+}
+
+.tt {
+  color: #e9efef;
+  margin-bottom: 15rpx;
+  font-size: 42rpx;
+  text-align: center;
+}
+
+.warmtips {
+  text-align: center;
+  color: #e5f6f5;
+  font-size: 42rpx;
+}
+
+.weui-item__title {
+  font-size: 42rpx;
+}
+
+.weui-item__desc {
+  font-size: 28rpx;
+}
+
+.border-shadow {
+  border-radius: 15rpx;
+}
+
+.clear {
+  position: inherit;
+  display: inherit;
+  margin-left: inherit;
+  margin-right: inherit;
+  padding-left: 0;
+  padding-right: 0;
+  box-sizing: inherit;
+  font-size: inherit;
+  text-align: inherit;
+  text-decoration: inherit;
+  line-height: inherit;
+  border-radius: inherit;
+  -webkit-tap-highlight-color: inherit;
+  overflow: inherit;
+  color: inherit;
+  background-color: inherit;
+}
+
+button::after {
+  content: inherit;
+  width: inherit;
+  height: inherit;
+  position: inherit;
+  top: inherit;
+  left: inherit;
+  border: inherit;
+  -webkit-transform: inherit;
+  transform: inherit;
+  -webkit-transform-origin: inherit;
+  transform-origin: inherit;
+  box-sizing: inherit;
+  border-radius: inherit;
 }
 
 .button-sp-area {

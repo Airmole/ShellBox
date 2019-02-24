@@ -96,7 +96,6 @@
           <view class="wraper" style='padding:5px;'>
             <view class="weui-media-box__title warmtips">温馨提示</view>
             <view class="weui-panel__bd">
-
               <view class="weui-media-box weui-media-box_text" style='padding-bottom:0px;'>
                 <view class="weui-media-box__desc" style='color:#000;margin-bottom:8px;'>乘车地点：学院西门</view>
                 <view class="weui-media-box__desc" style='color:#000;margin-bottom:8px;'>票价：全程￥15元(按距离5/10/15元,只收现金)</view>
@@ -108,7 +107,6 @@
                 <view class="weui-media-box__info__meta" style='color:#000;padding-left:10px;'>提示：资料来源于网络搜集整理，仅供参考</view>
               </view>
             </view>
-
           </view>
 
           <view class="ykt-detail-wraper" style='padding:20px;'>
