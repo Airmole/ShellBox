@@ -31,12 +31,12 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 1,
+			"current": 0,
 			"list": [
 				{
 					"id": 0,
-					"name": "bg",
-					"pathName": "pages/bookSearch/isbn/iputIsbn",
+					"name": "kb",
+					"pathName": "pages/classQuery/class",
 					"query": "",
 					"scene": null
 				},
