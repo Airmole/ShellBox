@@ -20,7 +20,7 @@
             <view class="weui-item__desc">My transcript</view>
           </view>
           <view class="weui-flex__item">
-            <image class="weui-media-box__thumb" style="width:80rpx;height:80rpx;float:right;" src="/images/score.png" />
+            <image class="weui-media-box__thumb" style="width:80rpx;height:80rpx;float:right;" src="/images/cjcx.png" />
           </view>
         </view>
       </view>

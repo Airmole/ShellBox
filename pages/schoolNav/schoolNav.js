@@ -287,8 +287,8 @@ Page({
           height: 34
         })
         that.setData({
-          maplatitude: points[points.length - 1].latitude - 0.005,
-          maplongitude: points[points.length - 1].longitude,
+          // maplatitude: points[points.length - 1].latitude - 0.005,
+          // maplongitude: points[points.length - 1].longitude,
           markers: markers,
         })
       },

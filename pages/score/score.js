@@ -67,6 +67,7 @@ Page({
     wx.request({
       url: 'https://api.giiig.cn/tj/?username=' + that.data.stuId + '&password=' + that.data.password,
       success: function(res) {
+        console.log(res)
         that.setData({
           jsonContent: res.data,
         })
@@ -272,10 +273,10 @@ Page({
     })
   },
   onReady: function() {
-    if (this.data.jsonContent == "") {
-      wx.redirectTo({
-        url: '/pages/error/queryerror?ErrorTips=' + '大概是教务网关了吧'
-      })
-    }
+    // if (this.data.jsonContent == "") {
+    //   wx.redirectTo({
+    //     url: '/pages/error/queryerror?ErrorTips=' + '大概是教务网关了吧'
+    //   })
+    // }
   }
 })

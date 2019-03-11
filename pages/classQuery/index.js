@@ -15,6 +15,8 @@ Page({
       icon: "loading",
       duration: 15000
     })
+    var uid = wx.getStorageSync('uid');
+    var pwd = wx.getStorageSync('pwd');
     var that = this;
     //获取屏幕高度，合理设置地图组件高度
     wx.getSystemInfo({
@@ -24,17 +26,13 @@ Page({
         });
       }
     });
-    that.setData({
-      uid: app.globalData.uid,
-      pwd: app.globalData.pwd,
-    });
-    if (app.globalData.uid == '' || app.globalData.pwd == '') {
+    if (uid == '' || pwd == '') {
       wx.redirectTo({
         url: '/pages/index/index'
       })
     } else {
       wx.request({
-        url: 'https://airmole.cn/wechat/wxapp/api/ClassTest1.php?uid=' + app.globalData.uid + '&pwd=' + app.globalData.pwd,
+        url: 'https://airmole.cn/wechat/wxapp/api/ClassTest1.php?uid=' + uid + '&pwd=' + pwd,
         success: function(res) {
           that.setData({
             classStr: res.data,

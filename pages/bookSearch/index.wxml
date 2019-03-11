@@ -3,7 +3,7 @@
   <!--图书检索-->
   <view class="main-card-item" id="chashu">
     <view class="card-item-hd">
-      <image class="card-item-icon" src="/images/jy.png"></image>
+      <text class="card-item-icon">📖</text>
       <text class="card-item-name">图书检索查询</text>
     </view>
     <view class="weui-search-bar" style='background-color:#fff;border-top:0rpx;'>
@@ -57,7 +57,7 @@
     <!-- 教务关闭，无法访问 -->
     <view class="main-card-item" id='jwClosed' wx:if="{{jsonStr.todayCourse.getCourseStatus == 500}}">
       <view class="card-item-hd">
-        <image class="card-item-icon" src="/images/jw.png"></image>
+        <text class="card-item-icon">⚠</text>
         <text class="card-item-name">Error</text>🤕
       </view>
       <view class="card-item-bd">
@@ -72,80 +72,87 @@
 
     <!--Hi-->
     <view class="main-card-item" id="ykt" wx:if='{{jsonStr.teachWeek != "N/A"}}'>
-      <view class="card-item-hd">
-        <view class="card-item-icon">
-          <open-data type="userAvatarUrl"></open-data>
-        </view>
-        <text class="card-item-name">Hi! </text>
-        <open-data type="userNickName"></open-data>🎉
-      </view>
-      <view class="card-item-bd">
-        <view class="card-info-hd">
-          <view class="card-info-left">
-            <text class="ykt-title">今天是：</text>
+      <navigator url='/pages/calendar/calendar'>
+        <view class="card-item-hd">
+          <view class="card-item-icon">
+            <open-data type="userAvatarUrl"></open-data>
           </view>
-          <view class="card-info-right">
-            <view>{{jsonStr.year}} 年 {{jsonStr.month}} 月 {{jsonStr.day}} 日 {{jsonStr.dayOfWeek}}</view>
+          <text class="card-item-name">Hi! </text>
+          <open-data type="userNickName"></open-data>🎉
+        </view>
+        <view class="card-item-bd">
+          <view class="card-info-hd">
+            <view class="card-info-left">
+              <text class="ykt-title">今天是：</text>
+            </view>
+            <view class="card-info-right">
+              <view>{{jsonStr.year}} 年 {{jsonStr.month}} 月 {{jsonStr.day}} 日 {{jsonStr.dayOfWeek}}</view>
+            </view>
+          </view>
+          <view class="ykt-balance">
+            <text class="ykt-balance-text">第 </text>
+            <text class="ykt-balance-value">{{jsonStr.teachWeek}}</text>
+            <text class="ykt-balance-text"> 周</text>
+          </view>
+          <view class="ykt-cost" wx:if="{{jsonStr.todayCourse.getCourseStatus != 403 && jsonStr.todayCourse.todayCourseCount == 0}}">
+            <text class="ykt-cost-value">今日：您</text>
+            <text class="ykt-cost-total">没有</text>
+            <text class="ykt-cost-text">任何一节课</text>
+          </view>
+          <view class="ykt-cost" wx:if="{{jsonStr.todayCourse.todayCourseCount > 0}}">
+            <text class="ykt-cost-text">今日：您一共有</text>
+            <text class="ykt-cost-total">{{jsonStr.todayCourse.todayCourseCount}}</text>
+            <text class="ykt-cost-text">节课</text>
           </view>
         </view>
-        <view class="ykt-balance">
-          <text class="ykt-balance-text">第 </text>
-          <text class="ykt-balance-value">{{jsonStr.teachWeek}}</text>
-          <text class="ykt-balance-text"> 周</text>
-        </view>
-        <view class="ykt-cost" wx:if="{{jsonStr.todayCourse.getCourseStatus != 403 && jsonStr.todayCourse.todayCourseCount == 0}}">
-          <text class="ykt-cost-value">今日：您</text>
-          <text class="ykt-cost-total">没有</text>
-          <text class="ykt-cost-text">任何一节课</text>
-        </view>
-        <view class="ykt-cost" wx:if="{{jsonStr.todayCourse.todayCourseCount > 0}}">
-          <text class="ykt-cost-text">今日：您一共有</text>
-          <text class="ykt-cost-total">{{jsonStr.todayCourse.todayCourseCount}}</text>
-          <text class="ykt-cost-text">节课</text>
-        </view>
-      </view>
+      </navigator>
     </view>
+
     <!-- Hi！寒暑假 -->
     <view class="main-card-item" id='vocation' wx:else>
-      <view class="card-item-hd">
-        <view class="card-item-icon">
-          <open-data type="userAvatarUrl"></open-data>
+      <navigator url='/pages/calendar/calendar'>
+        <view class="card-item-hd">
+          <view class="card-item-icon">
+            <open-data type="userAvatarUrl"></open-data>
+          </view>
+          <text class="card-item-name">Hi! </text>
+          <open-data type="userNickName"></open-data>🎉
         </view>
-        <text class="card-item-name">Hi! </text>
-        <open-data type="userNickName"></open-data>🎉
-      </view>
-      <view class="card-item-bd">
-        <view class="book-intro raduis">
-          <view class="remind-box">
-            <image class="noDisplay" src="/images/holiday.png"></image>
-            <text class="remind-text">假期就要痛快玩啊🏃‍</text>
+        <view class="card-item-bd">
+          <view class="book-intro raduis">
+            <view class="remind-box">
+              <image class="noDisplay" src="/images/holiday.png"></image>
+              <text class="remind-text">假期就要痛快玩啊🏃‍</text>
+            </view>
           </view>
         </view>
-      </view>
+      </navigator>
     </view>
 
     <!--距开学倒计时 "-->
     <view class="main-card-item" id="kaixue" wx:if="{{jsonStr.gap2StartClass <= 30 && jsonStr.gap2StartClass >0}}">
-      <view class="card-item-hd">
-        <image class="card-item-icon" src="/images/jw.png"></image>
-        <text class="card-item-name">讲个鬼故事</text>
-      </view>
-      <view class="card-item-bd">
+      <navigator url='/pages/calendar/calendar'>
+        <view class="card-item-hd">
+          <text class="card-item-icon">💀</text>
+          <text class="card-item-name">讲个鬼故事</text>
+        </view>
         <view class="card-item-bd">
-          <view class="jy-list">
-            <view class="jy-item">
-              <view class="jy-return-time">
-                <text class="jy-return-time-value">您的 假期余额</text>
-              </view>
-              <view class="jy-timing examWeek-Margin">
-                <text class="jy-timing-text">已不足</text>
-                <text class="ykt-balance-value" style='color:#000'>{{jsonStr.gap2StartClass}}</text>
-                <text class="jy-timing-text">天</text>
+          <view class="card-item-bd">
+            <view class="jy-list">
+              <view class="jy-item">
+                <view class="jy-return-time">
+                  <text class="jy-return-time-value">您的 假期余额</text>
+                </view>
+                <view class="jy-timing examWeek-Margin">
+                  <text class="jy-timing-text">已不足</text>
+                  <text class="ykt-balance-value" style='color:#000'>{{jsonStr.gap2StartClass}}</text>
+                  <text class="jy-timing-text">天</text>
+                </view>
               </view>
             </view>
           </view>
         </view>
-      </view>
+      </navigator>
     </view>
 
     <!--下节要上的课-->
@@ -158,7 +165,7 @@
         <view class="kb-item">
           <view class="kb-item-left">
             <text class="kb-item-what">{{jsonStr.todayCourse.nextCourse.courseName}}</text>
-            <text class="kb-item-when">{{jsonStr.todayCourse.nextCourse.startTime}} ~ {{jsStr.todayCourse.nextCourse.endTime}}上课</text>
+            <text class="kb-item-when">{{jsonStr.todayCourse.nextCourse.startTime}} ~ {{jsonStr.todayCourse.nextCourse.endTime}}上课</text>
           </view>
           <text class="kb-item-where">{{jsonStr.todayCourse.nextCourse.place}}</text>
         </view>
@@ -173,7 +180,7 @@
     <!--下节课没有课-->
     <view class="main-card-item" id="nextCourse" wx:elif="{{jsonStr.todayCourse.getCourseStatus != 403}}">
       <view class="card-item-hd">
-        <image class="card-item-icon" src="/images/kb.png"></image>
+        <text class="card-item-icon">😁</text>
         <text class="card-item-name">下一节</text>
       </view>
       <view class="card-item-bd">
@@ -197,7 +204,7 @@
       <!--今日全天没课?-->
       <view class="main-card-item" id='mk' wx:if='{{jsonStr.todayCourse.getCourseStatus == 204}}'>
         <view class="card-item-hd">
-          <image class="card-item-icon" src="/images/kb.png"></image>
+          <text class="card-item-icon">😎</text>
           <text class="card-item-name">今日（{{jsonStr['month']}}月{{jsonStr['day']}}日 {{jsonStr['dayOfWeek']}}）</text>
         </view>
         <view class="card-item-bd">
@@ -213,7 +220,7 @@
       <view wx:else class="main-card-item" id="kb">
         <navigator url=" ">
           <view class="card-item-hd">
-            <image class="card-item-icon" src="/images/kb.png"></image>
+            <text class="card-item-icon">😡</text>
             <text class="card-item-name">（{{jsonStr['month']}}月{{jsonStr['day']}}日 {{jsonStr['dayOfWeek']}}）课表</text>
           </view>
           <view wx:if='{{jsonStr.todayCourse.getCourseStatus == 500}}' class="card-item-bd kb-nothing">
@@ -235,65 +242,82 @@
       </view>
     </view>
 
-    <!-- 广告位 -->
-    <view class='ads'>
-      <ad unit-id="adunit-62f52651dd5f4ff6"></ad>
+    <!-- 广告 -->
+    <view class="main-card-item">
+      <view class="card-item-hd">
+        <text class="card-item-icon">🍪</text>
+        <text class="card-item-name">广告赞助</text>
+      </view>
+      <view class="card-item-bd">
+        <view class="book-intro raduis">
+          <view class="remind-box">
+            <!-- 广告位 -->
+            <view style='width:100%;'>
+              <ad unit-id="adunit-62f52651dd5f4ff6"></ad>
+            </view>
+            <!-- 广告位结束 -->
+          </view>
+        </view>
+      </view>
     </view>
-    <!-- 广告位结束 -->
 
     <!--节假日信息-->
     <view class="main-card-item" id="fj" wx:for='{{jsonStr["nextHoliday"]}}' wx:key="jiejiari" wx:if="{{item.gapDays <= 15 && item.gapDays >= 0}}">
-      <view class="card-item-hd">
-        <image class="card-item-icon" src="/images/holiday.png"></image>
-        <text class="card-item-name">{{item.holidayName}}</text>
-      </view>
-      <view class="card-item-bd" wx:if="{{item.gapDays > 0}}">
-        <view class="jy-list">
-          <view class="jy-item">
-            <view class="jy-return-time">
-              <text class="jy-return-time-value">今天距 {{item.holidayName}}</text>
-            </view>
-            <view class="jy-timing">
-              <text class="jy-timing-text">还有</text>
-              <text class="ykt-balance-value">{{item.gapDays}}</text>
-              <text class="jy-timing-text">天</text>
+      <navigator url='/pages/calendar/calendar'>
+        <view class="card-item-hd">
+          <image class="card-item-icon" src="/images/holiday.png"></image>
+          <text class="card-item-name">{{item.holidayName}}</text>
+        </view>
+        <view class="card-item-bd" wx:if="{{item.gapDays > 0}}">
+          <view class="jy-list">
+            <view class="jy-item">
+              <view class="jy-return-time">
+                <text class="jy-return-time-value">今天距 {{item.holidayName}}</text>
+              </view>
+              <view class="jy-timing">
+                <text class="jy-timing-text">还有</text>
+                <text class="ykt-balance-value">{{item.gapDays}}</text>
+                <text class="jy-timing-text">天</text>
+              </view>
             </view>
           </view>
         </view>
-      </view>
-      <view class="card-item-bd" wx:if="{{item.gapDays == 0}}">
-        <view class="jy-list">
-          <view class="jy-item">
-            <view class="jy-timing">
-              <text class="jy-timing-text">今天是</text>
-              <text class="ykt-balance-value">{{item.holidayName}}</text>
-              <text class="jy-timing-text">哟~</text>
+        <view class="card-item-bd" wx:if="{{item.gapDays == 0}}">
+          <view class="jy-list">
+            <view class="jy-item">
+              <view class="jy-timing">
+                <text class="jy-timing-text">今天是</text>
+                <text class="ykt-balance-value">{{item.holidayName}}</text>
+                <text class="jy-timing-text">哟~</text>
+              </view>
             </view>
           </view>
         </view>
-      </view>
+      </navigator>
     </view>
 
     <!--距考试周倒计时 -->
     <view class="main-card-item" id="ks" wx:if="{{jsonStr.gap2ExamWeek <= 30 && jsonStr.gap2ExamWeek > 0}}">
-      <view class="card-item-hd">
-        <image class="card-item-icon" src="/images/ks.png"></image>
-        <text class="card-item-name">考试</text>
-      </view>
-      <view class="card-item-bd">
-        <view class="jy-list">
-          <view class="jy-item">
-            <view class="jy-return-time">
-              <text class="jy-return-time-value">今天距 集中考试周 </text>
-            </view>
-            <view class="jy-timing examWeek-Margin">
-              <text class="jy-timing-text">仅剩</text>
-              <text class="ykt-balance-value">{{jsonStr.gap2ExamWeek}}</text>
-              <text class="jy-timing-text">天</text>
+      <navigator url='/pages/calendar/calendar'>
+        <view class="card-item-hd">
+          <text class="card-item-icon">🖊</text>
+          <text class="card-item-name">考试</text>
+        </view>
+        <view class="card-item-bd">
+          <view class="jy-list">
+            <view class="jy-item">
+              <view class="jy-return-time">
+                <text class="jy-return-time-value">今天距 集中考试周 </text>
+              </view>
+              <view class="jy-timing examWeek-Margin">
+                <text class="jy-timing-text">仅剩</text>
+                <text class="ykt-balance-value">{{jsonStr.gap2ExamWeek}}</text>
+                <text class="jy-timing-text">天</text>
+              </view>
             </view>
           </view>
         </view>
-      </view>
+      </navigator>
     </view>
 
     <!--电费-->

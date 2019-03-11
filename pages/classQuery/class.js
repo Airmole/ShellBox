@@ -5,8 +5,10 @@ Page({
     uid: '',
     pwd: '',
     remind: '加载中',
+    isLoading: true,
     _days: ['一', '二', '三', '四', '五', '六', '日'],
     activeClass: '',
+    activeClassItem: 0,
     whichDayOfWeek: '',
     mondayClass: '',
     tuesdayClass: '',
@@ -34,9 +36,9 @@ Page({
     var uid = wx.getStorageSync('uid');
     var pwd = wx.getStorageSync('pwd');
     const whichDayOfWeek = new Date().getDay();
-    const arr = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'staturday', 'sunday'];
+    const arr = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'staturday'];
     that.setData({
-      whichDayOfWeek: arr[whichDayOfWeek - 1],
+      whichDayOfWeek: arr[whichDayOfWeek],
       uid: uid,
       pwd: pwd,
     })
@@ -46,9 +48,17 @@ Page({
       success: function(res) {
         that.setData({
           classJson: res.data,
+          isLoading: false
         })
         console.log(res.data);
       }
+    })
+  },
+  changeActiveItem: function(e) {
+    var that = this;
+    // console.log(e);
+    that.setData({
+      activeClassItem: e.currentTarget.dataset.num,
     })
   },
   onShow: function() {
@@ -56,7 +66,7 @@ Page({
 
   },
   onReady: function() {
-
+    var that = this;
   },
   showDetail: function(e) {
     console.log(e)
@@ -83,7 +93,8 @@ Page({
       targetDay: 0,
       targetWid: 0,
       targetI: 0,
-      targetLen: 0
+      targetLen: 0,
+      activeClassItem: 0,
     });
   },
   catchMoveDetail: function() { /*阻止滑动穿透*/ },

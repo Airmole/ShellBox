@@ -142,7 +142,7 @@
 
 .main-card-item#ykt {
   /*background-image: url('/images/index/ykt-bg.png');*//*微信暂不支持静态bgimg文件，改用服务器url*/
-  background-image: url('https://we.cqu.pt/app/images/index/ykt-bg.png');
+  background-image: url('https://z4a.net/images/2019/03/10/ykt-bg.png');
 }
 
 .main-card-item#chashu {
