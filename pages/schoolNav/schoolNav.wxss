@@ -1,9 +1,8 @@
 /* pages/schoolNav/schoolNav.wxss */
 @import "../common/weui.wxss";
-@import "./stepsLine.wxss";
 .controls {
   position: relative;
-  top: 85%;
+  top: 80%;
   left: 85%;
   /* display: flex; */
 }

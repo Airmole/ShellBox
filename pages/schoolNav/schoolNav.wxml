@@ -8,6 +8,9 @@
     <map id="navi_map" longitude="{{userLongitude}}" latitude="{{userLatitude}}" scale="18" markers="{{markers}}" polyline="{{polyline}}" bindmarkertap="makertap" style='width:100%' show-location subkey="JLHBZ-JQELU-I7HVD-B2XSN-5VU3Z-BZFDK" enable-3D="true"
       show-compass>
       <cover-view class="controls {{fullscreen ? 'full' : ''}}">
+        <cover-view bindtap="moveSchool">
+          <cover-image class="img" src="/images/nav/moveSchool.png" />
+        </cover-view>
         <cover-view bindtap="location">
           <cover-image class="img" src="/images/nav/location.png" />
         </cover-view>
