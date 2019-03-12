@@ -100,9 +100,9 @@
             <text class="ykt-cost-text">任何一节课</text>
           </view>
           <view class="ykt-cost" wx:if="{{jsonStr.todayCourse.todayCourseCount > 0}}">
-            <text class="ykt-cost-text">今日：您一共有</text>
+            <text class="ykt-cost-text">今日：您可能一共有</text>
             <text class="ykt-cost-total">{{jsonStr.todayCourse.todayCourseCount}}</text>
-            <text class="ykt-cost-text">节课</text>
+            <text class="ykt-cost-text">节课👇</text>
           </view>
         </view>
       </navigator>
@@ -158,7 +158,7 @@
     <!--下节要上的课-->
     <view class="main-card-item" id="nextCourse" wx:if='{{jsonStr.todayCourse.nextCourse !== null}}'>
       <view class="card-item-hd">
-        <image class="card-item-icon" src="/images/kb.png"></image>
+        <text>🎓</text>
         <text class="card-item-name">下节课</text>
       </view>
       <view class="card-item-bd">
@@ -218,7 +218,7 @@
       </view>
       <!--今日全天课表-->
       <view wx:else class="main-card-item" id="kb">
-        <navigator url=" ">
+        <navigator url="/pages/classQuery/index">
           <view class="card-item-hd">
             <text class="card-item-icon">😡</text>
             <text class="card-item-name">（{{jsonStr['month']}}月{{jsonStr['day']}}日 {{jsonStr['dayOfWeek']}}）课表</text>

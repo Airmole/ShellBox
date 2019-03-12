@@ -1,98 +1,106 @@
-var app = getApp()
+//获取应用实例
+var app = getApp();
 Page({
   data: {
     uid: '',
     pwd: '',
-    classStr: '',
-    marginleft: '52',
-    help_status: false,
-    ClassDetail: "",
-    tableHeight: '800px',
+    remind: '加载中',
+    isLoading: true,
+    _days: ['一', '二', '三', '四', '五', '六', '日'],
+    activeClass: '',
+    activeClassItem: 0,
+    whichDayOfWeek: '',
+    mondayClass: '',
+    tuesdayClass: '',
+    wednesdayClass: '',
+    thursdayClass: '',
+    fridayClass: '',
+    staturdayClass: '',
+    sundayClass: '',
+    scroll: {
+      left: 0 //判断今天是不周末，是的话滚一下
+    },
+    classJson: '',
+    targetLessons: [],
+    targetX: 0, //target x轴top距离
+    targetY: 0, //target y轴left距离
+    targetDay: 0, //target day
+    targetWid: 0, //target wid
+    targetI: 0, //target 第几个active
+    targetLen: 0, //target 课程长度
+    blur: false,
+    is_vacation: false, // 是否为假期
   },
   onLoad: function(options) {
-    wx.showToast({
-      title: "loading",
-      icon: "loading",
-      duration: 15000
-    })
+    var that = this;
     var uid = wx.getStorageSync('uid');
     var pwd = wx.getStorageSync('pwd');
-    var that = this;
-    //获取屏幕高度，合理设置地图组件高度
-    wx.getSystemInfo({
+    const whichDayOfWeek = new Date().getDay();
+    const arr = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'staturday'];
+    that.setData({
+      whichDayOfWeek: arr[whichDayOfWeek],
+      uid: uid,
+      pwd: pwd,
+    })
+
+    wx.request({
+      url: 'https://airmole.cn/test/personalTable.php?uid=' + uid + '&pwd=' + pwd,
       success: function(res) {
         that.setData({
-          tableHeight: res.windowHeight,
-        });
-      }
-    });
-    if (uid == '' || pwd == '') {
-      wx.redirectTo({
-        url: '/pages/index/index'
-      })
-    } else {
-      wx.request({
-        url: 'https://airmole.cn/wechat/wxapp/api/ClassTest1.php?uid=' + uid + '&pwd=' + pwd,
-        success: function(res) {
-          that.setData({
-            classStr: res.data,
-            // remind:"完成",
+          classJson: res.data,
+          isLoading: false
+        })
+        console.log(res.data);
+        if (res.data.status == '500') {
+          wx.navigateTo({
+            url: '/pages/error/queryerror?ErrorTips=' + "教务异常，暂时无法查询",
           })
-          wx.hideToast()
-          console.log(res.data);
-          if (res.data.status == '500') {
-            wx.navigateTo({
-              url: '/pages/error/queryerror?ErrorTips=' + "教务异常，暂时无法查询",
-            })
-          }
-          if (res.data == '密码有误') {
-            wx.setStorageSync('uid', '');
-            wx.setStorageSync('pwd', '');
-            wx.redirectTo({
-              url: '/pages/index/index'
-            })
-          }
         }
-      })
-    }
+      }
+    })
   },
-  onPullDownRefresh: function() {
+  changeActiveItem: function(e) {
     var that = this;
-    that.onLoad();
-    wx.stopPullDownRefresh();
-    wx.showToast({
-      title: "刷新完成",
-      icon: "succeed",
-      duration: 2000
+    // console.log(e);
+    that.setData({
+      activeClassItem: e.currentTarget.dataset.num,
     })
   },
-  tapHelp: function(e) {
-    if (e.target.id == 'help') {
-      this.hideHelp();
-    }
+  onShow: function() {
+    var _this = this;
+
   },
-  showHelp: function(e) {
-    this.setData({
-      'help_status': true,
-      'ClassDetail': e.currentTarget.dataset.set
+  onReady: function() {
+    var that = this;
+  },
+  showDetail: function(e) {
+    console.log(e)
+    // 点击课程卡片后执行
+    var that = this;
+    that.setData({
+      targetX: e.detail.x,
+      targetY: e.detail.y,
+      targetDay: 1,
+      targetWid: 2,
+      targetI: 1,
+      blur: true,
+      activeClass: e.currentTarget.dataset
     });
   },
-  hideHelp: function(e) {
-    this.setData({
-      'help_status': false
+  hideDetail: function() {
+    var that = this;
+    // 点击遮罩层时触发，取消主体部分的模糊，清空target
+    that.setData({
+      blur: false,
+      targetLessons: [],
+      targetX: 0,
+      targetY: 0,
+      targetDay: 0,
+      targetWid: 0,
+      targetI: 0,
+      targetLen: 0,
+      activeClassItem: 0,
     });
   },
-  /**
-   * 长按复制到粘贴板的处理函数
-   */
-  copyIt: function(event) {
-    wx.setClipboardData({
-      data: event.target.id
-    })
-    wx.showToast({
-      title: '已复制到粘贴版',
-      icon: 'none',
-      duration: 1000
-    });
-  },
-})
+  catchMoveDetail: function() { /*阻止滑动穿透*/ },
+});

@@ -2,74 +2,26 @@
 <view class="remind-box" wx:if="{{isLoading}}">
   <image class="remind-img" src="/images/loading.gif"></image>
 </view>
-<view class="page" wx:else>
-  <view class="page__bd">
-    <view class="weui-tab">
-      <view class="weui-navbar">
-        <block wx:for="{{tabs}}" wx:key="*this">
-          <view id="{{index}}" class="weui-navbar__item {{activeIndex == index ? 'weui-bar__item_on' : ''}}" bindtap="tabClick">
-            <view class="weui-navbar__title">{{item}}</view>
-          </view>
-        </block>
-        <view class="weui-navbar__slider" style="left: {{sliderLeft}}px; transform: translateX({{sliderOffset}}px); -webkit-transform: translateX({{sliderOffset}}px);"></view>
-      </view>
-      <view class="weui-tab__panel">
-        <view class="weui-footer">
-          <!-- 广告位 -->
-          <view class='ads'>
-            <ad unit-id="adunit-62f52651dd5f4ff6"></ad>
-          </view>
-          <!-- 广告位结束 -->
-        </view>
-        <view class="weui-tab__content" hidden="{{activeIndex != 0}}">
-          <view class='page'>
-            <view style='width:100%;'>
-              <map id="navi_map" longitude="{{maplongitude}}" latitude="{{maplatitude}}" scale="17" markers="{{markers}}" polyline="{{polyline}}" style='height:{{mapHeight-50}}px' bindmarkertap="makertap" show-location>
-                <cover-view class='mapBK coverCard'>
-                  <cover-view class="map_text">
-                    <cover-view class="h1">{{textData.name}}</cover-view>
-                    <cover-view>{{textData.desc}}</cover-view>
-                  </cover-view>
-                  <cover-view wx:if="{{json.steps.length > 0}}" class="map_step">
-                    <cover-view class="item" wx:for="{{json.steps}}" wx:key="{{index}}">
-                      <cover-view class="icon iconfont icon-walk"></cover-view>
-                      <cover-view class="split-line">
-                        <cover-view class="circle start-circle" wx:if="{{index === 0}}"></cover-view>
-                        <cover-view class="circle terminal-circle" wx:if="{{index === json.steps.length-1}}"></cover-view>
-                      </cover-view>
-                      <cover-view class="detail">
-                        <cover-view class="start" wx:if="{{index === 0}}">我的位置</cover-view>
-                        <cover-view class="content">
-                          <cover-view>{{item.instruction}}</cover-view>
-                        </cover-view>
-                        <cover-view class="terminal" wx:if="{{index === json.steps.length - 1}}">{{textData.name}}</cover-view>
-                      </cover-view>
-                    </cover-view>
-                  </cover-view>
-                </cover-view>
-              </map>
-            </view>
-          </view>
-        </view>
-        <view class="weui-tab__content" hidden="{{activeIndex != 1}}">
-          <view class='page'>
-            <view class='setCenter mapBK' style='margin:15rpx 25rpx;background-color:#fff'>
-              <view class="weui-article__h2">建议手机横屏观看</view>
-              <image src='https://airmole.cn/wechat/wxapp/images/SchoolMap.png' mode='widthFix'></image>
-            </view>
-            <button open-type="share" class="login-btn">
-              <text>分享给同学</text>
-            </button>
-          </view>
-          <view class="weui-footer">
-            <view class="weui-footer__links">
-              <navigator url="/pages/features/about" class="weui-footer__link">Airmole.</navigator>
-              <navigator url="/pages/features/about" class="weui-footer__link">智慧校园</navigator>
-            </view>
-            <view class="weui-footer__text">Copyright © 2019 北京科技大学天津学院.</view>
-          </view>
-        </view>
-      </view>
-    </view>
+
+<view wx:else>
+  <view class="map_box">
+    <map id="navi_map" longitude="{{userLongitude}}" latitude="{{userLatitude}}" scale="18" markers="{{markers}}" polyline="{{polyline}}" bindmarkertap="makertap" style='width:100%' show-location subkey="JLHBZ-JQELU-I7HVD-B2XSN-5VU3Z-BZFDK" enable-3D="true"
+      show-compass>
+      <cover-view class="controls {{fullscreen ? 'full' : ''}}">
+        <cover-view bindtap="location">
+          <cover-image class="img" src="/images/nav/location.png" />
+        </cover-view>
+      </cover-view>
+    </map>
+  </view>
+  <view class="text_box" wx:if="{{distance != ''}}">
+    <view class="text">{{placeName}}</view>
+    <view class="text">距离：{{distance}} （{{cost}}）</view>
+    <view class="detail_button" bindtouchstart="goDetail">详情</view>
+  </view>
+  <view class="text_box" wx:else>
+    <view class="text">北京科技大学天津学院</view>
+    <view class="text">天津市宝坻区京津新城珠江北环东路1号(邮编：301830)</view>
+    <view class="detail_button" bindtouchstart="jtt">静态图</view>
   </view>
 </view>

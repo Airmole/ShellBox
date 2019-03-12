@@ -1,69 +1,22 @@
 /* pages/schoolNav/schoolNav.wxss */
 @import "../common/weui.wxss";
 @import "./stepsLine.wxss";
-
-cover-view {
-  overflow: visible;
+.controls {
+  position: relative;
+  top: 85%;
+  left: 85%;
+  /* display: flex; */
 }
 
-Page {
-  background-color: #7acfa6;
-  /* background: linear-gradient(to top, #8360c3, #2ebf91); */
+.controls .img {
+  margin-top: 5px;
+  width: 80rpx;
+  height: 80rpx;
 }
 
-.coverCard {
-  position: absolute;
-  bottom: 0px;
-  width: 100%;
+.full {
+  top: 82%;
 }
-
-.navImg {
-  width: 80px;
-  height: 25px;
-}
-
-.mapBK {
-  background-color: rgba(255, 255, 255, 0.377);
-  padding: 25rpx 0;
-  border-radius: 25rpx;
-}
-
-.ads {
-  margin: 10rpx 0rpx 0rpx 0rpx;
-}
-
-.setCenter {
-  text-align: center;
-}
-
-.shareIcon {
-  width: 26px;
-  height: 26px;
-  vertical-align: text-bottom;
-}
-
-.button-sp-area {
-  margin: 0 auto;
-  padding-top: 15px;
-  width: 60%;
-}
-
-.mini-btn {
-  margin-right: 5px;
-}
-
-.login-btn {
-  font-size: 13pt;
-  /* line-height: 85rpx; */
-  height: 85rpx;
-  background: #04c065;
-  color: #fff;
-  text-align: center;
-  border-radius: 25px;
-  box-shadow: 5rpx 5rpx 15rpx #ccc;
-  margin: 30rpx 30rpx 30rpx;
-}
-
 .flex-style {
   display: -webkit-box;
   display: -webkit-flex;
@@ -83,13 +36,21 @@ Page {
   color: #0091ff;
 }
 
+.map_box {
+  position: absolute;
+  top: 0px;
+  bottom: 90px;
+  left: 0px;
+  right: 0px;
+}
+
 #navi_map {
   width: 100%;
   height: 100%;
 }
 
 .text_box {
-  /* position: absolute; */
+  position: absolute;
   height: 90px;
   bottom: 0px;
   left: 0px;
@@ -102,7 +63,7 @@ Page {
 
 .detail_button {
   position: absolute;
-  bottom: 30px;
+  bottom: 50px;
   right: 10px;
   padding: 3px 5px;
   color: #fff;
@@ -110,31 +71,4 @@ Page {
   width: 50px;
   text-align: center;
   border-radius: 5px;
-}
-
-.map_text {
-  /* position: absolute; */
-  left: 0;
-  right: 0;
-  bottom: 0px;
-  height: 50px;
-  padding: 0 15px;
-}
-
-.map_step {
-  background: rgba(255, 255, 255, 0.377);
-}
-
-text {
-  margin: 5px 0px;
-  display: block;
-  font-size: 12px;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  overflow: hidden;
-}
-
-.h1 {
-  padding-top: 10px;
-  font-size: 15px;
 }

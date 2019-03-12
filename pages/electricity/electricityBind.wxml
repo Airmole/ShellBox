@@ -3,7 +3,7 @@
   <image class="title" src="/images/electricity_title.png"></image>
   <view class="content">
     <view class="hd" style="transform:rotateZ({{angle}}deg);">
-      <image class="logo" src="/images/electricity.png"></image>
+      <image class="logo" src="/images/dfcx.png"></image>
       <image class="wave" src="/images/wave.png" mode="aspectFill"></image>
       <image class="wave wave-bg" src="/images/wave.png" mode="aspectFill"></image>
     </view>

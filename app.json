@@ -4,6 +4,7 @@
     "pages/index/index",
     "pages/bookSearch/isbn/iputIsbn",
     "pages/bookSearch/bookInfo/bookDetail",
+    "pages/bookSearch/bookInfo/bookInfo",
     "pages/bookSearch/bookInfo/bookList",
     "pages/features/features",
     "pages/features/about",

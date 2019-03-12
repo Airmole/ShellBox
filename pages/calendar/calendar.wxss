@@ -87,12 +87,12 @@ Page {
 
 .thisWeek {
   background: linear-gradient(to right, #7f7fd5, #86a8e7, #91eae4);
-  height: 420rpx;
+  height: 450rpx;
 }
 
 .nextWeek {
   background: linear-gradient(to right, #654ea3, #eaafc8);
-  height: 420rpx;
+  height: 450rpx;
 }
 
 .kaixue {

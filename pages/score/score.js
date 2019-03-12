@@ -27,7 +27,7 @@ Page({
       duration: 60000
     })
     var that = this;
-    console.log(options.isShareFrom)
+    // console.log(options.isShareFrom);
     if (options.isShareFrom != 'null') {
       if (options.uid != '' || options.pwd != '') {
         that.setData({
