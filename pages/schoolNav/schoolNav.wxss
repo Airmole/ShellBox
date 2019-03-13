@@ -2,7 +2,7 @@
 @import "../common/weui.wxss";
 .controls {
   position: relative;
-  top: 80%;
+  top: 70%;
   left: 85%;
   /* display: flex; */
 }

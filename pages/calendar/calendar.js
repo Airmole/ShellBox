@@ -1,6 +1,5 @@
 // pages/calendar/calendar.js
 var util = require('../../utils/time.js');
-var sliderWidth = 96; // 需要设置slider的宽度，用于计算中间位置
 Page({
 
   /**
@@ -26,6 +25,11 @@ Page({
         that.setData({
           jsonContent: res.data,
         })
+        setTimeout(function() {
+          that.setData({
+            isLoading: false
+          });
+        }, 800);
       }
     })
   },
@@ -33,23 +37,13 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function() {
-    var that = this;
-    this.setData({
-      hideOrNot: 1
-    })
-    setTimeout(function() {
-      that.setData({
-        isLoading: false
-      });
-    }, 800);
+
   },
   /**
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function() {
-    this.setData({
-      'BottomTip': '到底啦！下学期校历还没出呢，尽请期待！'
-    })
+
   },
 
   /**

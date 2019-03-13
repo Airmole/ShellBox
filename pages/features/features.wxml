@@ -24,6 +24,12 @@
       </view>
     </view>
   </view>
+
+  <view>
+    <button type='default' size="50" class="img-plus-style zindex100 yc" session-from='{"nickName":"{{userInfo.nickName}}", "avatarUrl":"{{userInfo.avatarUrl}}"' open-type='contact'></button>
+    <image src="/images/kefu.png" class="img-plus-style"></image>
+  </view>
+
   <view class="page__bd" style='background-color:rgb(240,239,245);'>
 
     <!--功能导航-->

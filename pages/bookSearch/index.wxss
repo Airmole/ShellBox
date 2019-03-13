@@ -491,6 +491,7 @@ page .navigator-hover {
   display: flex;
   justify-content: space-between;
   padding: 30rpx 0;
+  margin: 0 auto;
 }
 
 .sdf-key {

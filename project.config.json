@@ -31,12 +31,12 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 1,
+			"current": 0,
 			"list": [
 				{
 					"id": 0,
-					"name": "kb",
-					"pathName": "pages/classQuery/class",
+					"name": "xl",
+					"pathName": "pages/calendar/calendar",
 					"query": "",
 					"scene": null
 				},

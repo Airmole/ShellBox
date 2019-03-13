@@ -114,14 +114,14 @@ Page({
       } else {
         //楼斋和寝室号码大致是对的
         wx.request({
-          url: 'https://airmole.cn/wechat/wxapp/api/eleQueryService.php?zhai=' + that.data.zhaiArray[e.detail.value.building] + '&room=' + e.detail.value.roomNo,
+          url: 'https://airmole.cn/wechat/wxapp/api/eleQueryServicewith7day.php?zhai=' + that.data.zhaiArray[e.detail.value.building] + '&room=' + e.detail.value.roomNo,
           success: function(res) {
             that.setData({
               eleJson: res.data,
             })
             console.log(res.data);
             //查询出错
-            if (res.data.electricity[0].Balance == '0.00' && res.data.electricity[0].LastRecharge == '0.00' && res.data.electricity[0].yesterdayAircon == '0.00' && res.data.electricity[0].yesterdaySocket == '0.00') {
+            if (res.data.Balance == '0.00' && res.data.LastRecharge == '0.00' && res.data.yesterdayAircon == '0.00' && res.data.yesterdaySocket == '0.00') {
               wx.showToast({
                 title: '该房间电费有误',
                 image: '/images/info.png',

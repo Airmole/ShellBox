@@ -82,14 +82,15 @@
           <block wx:for="{{jsonContent.nextHoliday}}" wx:key="jjr" wx:index="index">
             <view class="weui-item border-shadow {{index%2==0?'background-1':'background-2'}}" wx:if="{{item.gapDays > 0}}">
               <view class="weui-flex">
-                <view class="weui-flex__item" style='margin-top:20rpx;margin-left:10rpx;color:#C1F9F7;'>
+                <view class="weui-flex__item" style='margin-top:20rpx;margin-left:10rpx;color:#010C10;'>
                   <view class="weui-item__title">
                     {{item.holidayName}}
                   </view>
-                  <view class="weui-item__desc">{{item.holidayDate}}</view>
+                  <view class="weui-item__desc" wx:if="{{item.holidayRestInfo !=''}}">{{item.holidayRestInfo}}</view>
+                  <view class="weui-item__desc" wx:else>{{item.holidayDate}}</view>
                 </view>
                 <view class="weui-flex__item">
-                  <view style='float:right;font-size:60rpx;color:#F3F7F7'>{{item.gapDays}}天</view>
+                  <view style='float:right;font-size:60rpx;color:#010C10'>{{item.gapDays}}天</view>
                 </view>
               </view>
             </view>
@@ -97,40 +98,38 @@
 
           <view class="weui-item border-shadow kaoshi">
             <view class="weui-flex">
-              <view class="weui-flex__item" style='margin-top:20rpx;margin-left:10rpx;color:#C1F9F7;'>
+              <view class="weui-flex__item" style='margin-top:20rpx;margin-left:10rpx;color:#010c10;'>
                 <view class="weui-item__title">
                   考试周
                 </view>
                 <view class="weui-item__desc">{{jsonContent.examWeekDate}}</view>
               </view>
               <view class="weui-flex__item">
-                <view style='float:right;font-size:60rpx;color:#F3F7F7'>{{jsonContent.gap2ExamWeek}}天</view>
+                <view style='float:right;font-size:60rpx;color:#010c10;'>{{jsonContent.gap2ExamWeek}}天</view>
               </view>
             </view>
           </view>
 
           <view class="weui-item border-shadow hanshujia" wx:if="{{jsonContent.gap2StartClass > 0 && jsonContent.gap2StartClass <= 30}}">
             <view class="weui-flex">
-              <view class="weui-flex__item" style='margin-top:20rpx;margin-left:10rpx;color:#C1F9F7;'>
+              <view class="weui-flex__item" style='margin-top:20rpx;margin-left:10rpx;color: #010c10;;'>
                 <view class="weui-item__title">
                   放{{jsonContent.month
                   <8? '暑': '寒'}}假 </view>
                     <view class="weui-item__desc">{{jsonContent.vactionDate}}</view>
                 </view>
                 <view class="weui-flex__item">
-                  <view style='float:right;font-size:60rpx;color:#F3F7F7'>{{jsonContent.gap2Vaction}}天</view>
+                  <view style='float:right;font-size:60rpx;color: #010c10;'>{{jsonContent.gap2Vaction}}天</view>
                 </view>
               </view>
             </view>
 
-            <view class="weui-item border-shadow wanzhen" bindtap='showPic'>
-              <view class="weui-flex">
-                <view class="weui-flex__item" style='margin-top:20rpx;margin-left:10rpx;color:#C1F9F7;'>
-                  <view class="weui-flex__item">
-                    <view style='text-align:center;font-size:60rpx;color:#F3F7F7'>完整版校历图</view>
-                  </view>
-                </view>
-              </view>
+            <button open-type="share" class="login-btn">
+              <text>分享校历给同学</text>
+            </button>
+
+            <view class="round-click" bindtap='showPic'>
+              <text>查看校历</text>
             </view>
 
           </view>
@@ -138,15 +137,12 @@
       </view>
     </view>
 
-
-    <button open-type="share" class="login-btn">
-      <text>分享校历给同学</text>
-    </button>
-    <view class="weui-footer">
+    <view class="weui-footer" style='margin-top:25px;'>
       <view class="weui-footer__links">
         <navigator url="/pages/features/about" class="weui-footer__link">Airmole.</navigator>
         <navigator url="/pages/features/about" class="weui-footer__link">智慧校园</navigator>
       </view>
-      <view class="weui-footer__text">Copyright © 2018 北京科技大学天津学院.</view>
+      <view class="weui-footer__text">Copyright © 2019 北京科技大学天津学院.</view>
     </view>
+
   </view>

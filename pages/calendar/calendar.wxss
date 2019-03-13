@@ -2,7 +2,7 @@
 @import "../common/weui.wxss";
 
 Page {
-  background-color: #7acfa6;
+  background-color: #030c13;
 }
 
 .page__hd {
@@ -78,41 +78,39 @@ Page {
 }
 
 .background-1 {
-  background: linear-gradient(to right, #7f7fd5, #86a8e7, #91eae4);
+  background: #ad8dd6;
 }
 
 .background-2 {
-  background: linear-gradient(to right, #654ea3, #eaafc8);
+  background: #ff9abc;
 }
 
 .thisWeek {
-  background: linear-gradient(to right, #7f7fd5, #86a8e7, #91eae4);
+  color: #010c10;
+  background: #18febd;
   height: 450rpx;
 }
 
 .nextWeek {
-  background: linear-gradient(to right, #654ea3, #eaafc8);
+  color: #010c10;
+  background: #4ac3d6;
   height: 450rpx;
 }
 
 .kaixue {
-  background: linear-gradient(to right, #3494e6, #ec6ead);
+  background: #3494e6;
 }
 
 .hanshujia {
-  background: linear-gradient(to right, #bc4e9c, #f80759);
-}
-
-.wanzhen {
-  background: linear-gradient(to right, #43cea2, #185a9d);
+  background: #f80759;
 }
 
 .kaoshi {
-  background: linear-gradient(to right, #0f0c29, #302b63, #24243e);
+  background: #ff7a5b;
 }
 
 .work {
-  color: white;
+  color: #010c10;
   font-size: 32rpx;
 }
 
@@ -126,7 +124,7 @@ Page {
 }
 
 .tt {
-  color: #e9efef;
+  color: #010c10;
   margin-bottom: 15rpx;
   font-size: 42rpx;
   text-align: center;
@@ -199,10 +197,31 @@ button::after {
   font-size: 13pt;
   line-height: 85rpx;
   height: 85rpx;
-  background: #04c065;
+  background: #18febd;
+ color: #010c10;
+  text-align: center;
+  border-radius: 15rpx;
+}
+
+/* 悬浮按钮的 */
+
+.round-click {
+  height: 120rpx;
+  width: 120rpx;
+  background-color: #bc3e49;
+  border-radius: 100%;
+  position: fixed;
+  bottom: 50rpx;
+  right: 25rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9;
+}
+
+.round-click text {
+  font-size: 32rpx;
+  max-width: 80rpx;
   color: #fff;
   text-align: center;
-  border-radius: 25px;
-  box-shadow: 5rpx 5rpx 15rpx #ccc;
-  margin: 30rpx 30rpx 30rpx;
 }

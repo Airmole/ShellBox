@@ -229,3 +229,22 @@ button {
   text-align: center;
   white-space: nowrap;
 }
+
+/* 客服钮的 */
+
+.img-plus-style {
+  height: 120rpx;
+  width: 120rpx;
+  position: fixed;
+  top: 30rpx;
+  right: 25rpx;
+  opacity: 0.7;
+}
+
+.zindex100 {
+  z-index: 100;
+}
+
+.yc {
+  opacity: 0;
+}

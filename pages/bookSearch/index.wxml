@@ -321,34 +321,31 @@
     </view>
 
     <!--电费-->
-    <!-- <view class="main-card-item" id="sdf">
-      <view class="card-item-hd">
-        <image class="card-item-icon" src="/images/sdf.png"></image>
-        <text class="card-item-name">电费查询</text>
-      </view>
-      <view class="card-item-bd">
-        <view class="card-info-hd">
-          <view class="card-info-left">
-            <text class="card-info-name">22斋303</text>
+    <view class="main-card-item" id="sdf" wx:if="{{jsonStr.eleInfo.Balance > 0 }}">
+      <navigator url='/pages/electricity/electricityBind'>
+        <view class="card-item-hd">
+          <text>⚡</text>
+          <text class="card-item-name">宿舍用电</text>
+        </view>
+        <view class="card-item-bd">
+          <view class="card-info-hd">
+            <view class="card-info-left">
+              <text class="card-info-name">22斋303</text>
+            </view>
+            <view class="card-info-right">
+              <view>截至时间：2019年2月1日 22点31分</view>
+            </view>
           </view>
-          <view class="card-info-right">
-            <view>截至时间：2019年2月1日 22点31分</view>
+          <view class="sdf-bd">
+            <view class="sdf-key">
+              <text class="sdf-text">剩余电量</text>
+              <text class="sdf-value">{{jsonStr.eleInfo.Balance}}</text>
+              <text class="sdf-text">度</text>
+            </view>
           </view>
         </view>
-        <text class="sdf-hd">当月用电：</text>
-        <view class="sdf-bd">
-          <view class="sdf-key">
-            <text class="sdf-value">15</text>
-            <text class="sdf-text">度</text>
-          </view>
-          <view class="sdf-key">
-            <text class="sdf-text">剩余</text>
-            <text class="sdf-value">13.00</text>
-            <text class="sdf-text">元</text>
-          </view>
-        </view>
-      </view>
-    </view> -->
+      </navigator>
+    </view>
 
   </view>
 </view>

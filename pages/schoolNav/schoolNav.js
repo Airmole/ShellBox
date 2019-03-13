@@ -809,7 +809,7 @@ Page({
   onLoad: function(e) {
     var _this = this
     wx.getLocation({
-      type: 'wgs84', // 默认为 wgs84 返回 gps 坐标，gcj02 返回可用于 wx.openLocation 的坐标  
+      type: 'gcj02', // 默认为 wgs84 返回 gps 坐标，gcj02 返回可用于 wx.openLocation 的坐标  
       success: function(res) {
         _this.setData({
           userLongitude: res.longitude,
@@ -821,8 +821,6 @@ Page({
   },
   onReady: function() {
     var that = this;
-    // 使用 wx.createMapContext 获取 map 上下文
-    this.mapCtx = wx.createMapContext('restaurantMap')
     setTimeout(function() {
       that.setData({
         isLoading: false
@@ -836,7 +834,7 @@ Page({
     var that = this;
     const markers = that.data.markers;
     wx.getLocation({
-      type: 'wgs84', // 默认为 wgs84 返回 gps 坐标，gcj02 返回可用于 wx.openLocation 的坐标  
+      type: 'gcj02', // 默认为 wgs84 返回 gps 坐标，gcj02 返回可用于 wx.openLocation 的坐标  
       success: function(res) {
         that.setData({
           userLongitude: res.longitude,
@@ -926,7 +924,7 @@ Page({
   location: function() {
     var _this = this
     wx.getLocation({
-      type: 'wgs84', // 默认为 wgs84 返回 gps 坐标，gcj02 返回可用于 wx.openLocation 的坐标  
+      type: 'gcj02', // 默认为 wgs84 返回 gps 坐标，gcj02 返回可用于 wx.openLocation 的坐标  
       success: function(res) {
         _this.setData({
           userLongitude: res.longitude,
@@ -958,6 +956,7 @@ Page({
       latitude,
       longitude,
       name,
+      address: '北京科技大学天津学院',
       scale: 18
     })
   }
