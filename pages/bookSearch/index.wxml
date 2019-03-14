@@ -64,7 +64,7 @@
         <view class="book-intro raduis">
           <view class="remind-box">
             <image class="noDisplay" src="/images/holiday.png"></image>
-            <text class="remind-text">教务网关了，我也没办法呀‍</text>
+            <text class="remind-text">教务网关了，机智的小盒子帮您缓存了数据到手机</text>
           </view>
         </view>
       </view>
@@ -165,7 +165,7 @@
         <view class="kb-item">
           <view class="kb-item-left">
             <text class="kb-item-what">{{jsonStr.todayCourse.nextCourse.courseName}}</text>
-            <text class="kb-item-when">{{jsonStr.todayCourse.nextCourse.startTime}} ~ {{jsonStr.todayCourse.nextCourse.endTime}}上课</text>
+            <text class="kb-item-when">{{jsonStr.todayCourse.nextCourse.startTime}}上课 ~ {{jsonStr.todayCourse.nextCourse.endTime}}下课</text>
           </view>
           <text class="kb-item-where">{{jsonStr.todayCourse.nextCourse.place}}</text>
         </view>
@@ -178,7 +178,7 @@
       </view>
     </view>
     <!--下节课没有课-->
-    <view class="main-card-item" id="nextCourse" wx:elif="{{jsonStr.todayCourse.getCourseStatus != 403}}">
+    <view class="main-card-item" id="nextCourse" wx:elif="{{jsonStr.todayCourse.getCourseStatus != 403 && jsonStr.todayCourse.getCourseStatus != 500}}">
       <view class="card-item-hd">
         <text class="card-item-icon">😁</text>
         <text class="card-item-name">下一节</text>
@@ -230,7 +230,7 @@
             <view class="kb-item" wx:for="{{jsonStr['todayCourse']['allCourse']}}" wx:key="todayCourse">
               <view class="kb-item-left">
                 <text class="kb-item-what">{{item.courseName}}</text>
-                <text class="kb-item-when">{{item.startTime}} - {{item.endTime}}上课</text>
+                <text class="kb-item-when">{{item.startTime}}上课 - {{item.endTime}}下课</text>
               </view>
               <text class="kb-item-where">{{item.place}}</text>
             </view>
@@ -240,10 +240,33 @@
           </view>
         </navigator>
       </view>
+
     </view>
 
+    <view class="main-card-item" id="kb" wx:if="{{jsonStr.todayCourse.getCourseStatus == 500}}">
+      <navigator url="/pages/classQuery/index">
+        <view class="card-item-hd">
+          <text class="card-item-icon">😡</text>
+          <text class="card-item-name">缓存（ {{jsonStr['dayOfWeek']}}）课表</text>
+        </view>
+        <view class="card-item-bd">
+          <view class="kb-item" wx:for="{{offlinePeronalClass}}" wx:key="todayCourseOffline" wx:if="{{item.courseName != ''}}">
+            <view class="kb-item-left">
+              <text class="kb-item-what">{{item.courseName}}{{item.teachWeek}}</text>
+              <text class="kb-item-when">{{item.startTime}}上课 - {{item.endTime}}下课</text>
+            </view>
+            <text class="kb-item-where">{{item.place}}</text>
+          </view>
+        </view>
+        <view class="kb-open">
+          <text>查看完整个人课表</text>
+        </view>
+      </navigator>
+    </view>
+
+
     <!-- 广告 -->
-    <view class="main-card-item">
+    <view class="main-card-item" wx:if="{{!adsError}}">
       <view class="card-item-hd">
         <text class="card-item-icon">🍪</text>
         <text class="card-item-name">广告赞助</text>
@@ -253,7 +276,7 @@
           <view class="remind-box">
             <!-- 广告位 -->
             <view style='width:100%;'>
-              <ad unit-id="adunit-62f52651dd5f4ff6"></ad>
+              <ad unit-id="adunit-62f52651dd5f4ff6" binderror="adsError"></ad>
             </view>
             <!-- 广告位结束 -->
           </view>
@@ -321,7 +344,7 @@
     </view>
 
     <!--电费-->
-    <view class="main-card-item" id="sdf" wx:if="{{jsonStr.eleInfo.Balance > 0 }}">
+    <view class="main-card-item" id="sdf" wx:if="{{jsonStr.eleInfo.Balance > 0 && jsonStr.eleInfo.status == 200 }}">
       <navigator url='/pages/electricity/electricityBind'>
         <view class="card-item-hd">
           <text>⚡</text>
@@ -330,10 +353,10 @@
         <view class="card-item-bd">
           <view class="card-info-hd">
             <view class="card-info-left">
-              <text class="card-info-name">22斋303</text>
+              <text class="card-info-name">{{jsonStr.eleInfo.zhai}}斋{{jsonStr.eleInfo.room}}</text>
             </view>
             <view class="card-info-right">
-              <view>截至时间：2019年2月1日 22点31分</view>
+              <view>截至时间：{{jsonStr.eleInfo.time}}</view>
             </view>
           </view>
           <view class="sdf-bd">
@@ -342,6 +365,21 @@
               <text class="sdf-value">{{jsonStr.eleInfo.Balance}}</text>
               <text class="sdf-text">度</text>
             </view>
+          </view>
+        </view>
+      </navigator>
+    </view>
+    <view class="main-card-item" style='height:400rpx;' wx:else>
+      <navigator url='/pages/electricity/electricityBind'>
+        <view class="card-item-hd">
+          <text>⚡</text>
+          <text class="card-item-name">宿舍用电</text>
+        </view>
+        <view class="card-item-bd">
+          <view class="remind-box">
+            <image class="remind-img" src="/images/nothing.png"></image>
+            <text class="remind-text">建议您绑定一下宿舍</text>
+            <navigator url='/pages/electricity/electricityBind' class="remind-btn">绑定宿舍</navigator>
           </view>
         </view>
       </navigator>

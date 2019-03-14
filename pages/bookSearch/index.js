@@ -1,12 +1,15 @@
 var app = getApp()
 Page({
   data: {
+    offlinePeronalClass: '',
     inputShowed: false,
+    adsError: false,
     isLoading: '加载中',
     isShowAllCourse: false,
     isLogined: false,
     keyword: "",
     jsonStr: "",
+    dayOfWeek: '',
     keywordStr: '',
     SearchType: '02',
     radioItems: [{
@@ -29,9 +32,38 @@ Page({
   },
   onLoad: function() {
     this.checkEffectiveIdAndPasswoed();
+    this.setTodayOfflineClass();
+
+
   },
   onReady: function() {
 
+  },
+
+  onShow: function() {
+    this.onLoad();
+  },
+  setTodayOfflineClass: function() {
+    var personalClass = wx.getStorageSync('personalClass');
+    var that = this;
+    var date = new Date();
+    let dayOfWeek = date.getDay();
+    let weekArr = ["sunday", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday"];
+    personalClass = personalClass.course[weekArr[dayOfWeek]];
+    var createArr = [];
+    for (let i in personalClass) {
+      if (personalClass[i].length > 1) {
+        for (let j in personalClass[i]) {
+          createArr.push(personalClass[i][j]);
+        }
+      } else {
+        createArr.push(personalClass[i]);
+      }
+    }
+    console.log();
+    that.setData({
+      offlinePeronalClass: createArr,
+    })
   },
   checkEffectiveIdAndPasswoed: function() {
     var that = this;
@@ -41,9 +73,9 @@ Page({
     var zhai = wx.getStorageSync('building');
     var room = wx.getStorageSync('roomNo');
     if (uid != '' && pwd != '') {
-      this.getWelcomeJson(uid, pwd,zhai,room);
+      this.getWelcomeJson(uid, pwd, zhai, room);
     } else {
-      this.getWelcomeJson(uid, pwd,zhai,room);
+      this.getWelcomeJson(uid, pwd, zhai, room);
       that.setData({
         isLogined: false
       })
@@ -187,4 +219,11 @@ Page({
   onReachBottom: function() {
     //拉到底了，做点什么好呢
   },
+  adsError: function(e) {
+    console.log(e)
+    var that = this;
+    that.setData({
+      adsError: true
+    })
+  }
 });

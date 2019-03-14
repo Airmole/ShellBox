@@ -51,10 +51,21 @@ Page({
           isLoading: false
         })
         console.log(res.data);
+        if (res.data.status == 200) {
+          wx.setStorageSync('banjiClass', res.data);
+        }
         if (res.data.status == '500') {
-          wx.navigateTo({
-            url: '/pages/error/queryerror?ErrorTips=' + "教务异常，暂时无法查询",
-          })
+          var banjiClass = wx.getStorageSync('banjiClass');
+          if (banjiClass != "") {
+            that.setData({
+              classJson: banjiClass,
+              isLoading: false
+            })
+          } else {
+            wx.navigateTo({
+              url: '/pages/error/queryerror?ErrorTips=' + "教务异常，暂时无法查询",
+            })
+          }
         }
       }
     })

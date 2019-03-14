@@ -51,10 +51,21 @@ Page({
           isLoading: false
         })
         console.log(res.data);
+        if (res.data.status == 200) {
+          wx.setStorageSync('personalClass', res.data);
+        }
         if (res.data.status == '500') {
-          wx.navigateTo({
-            url: '/pages/error/queryerror?ErrorTips=' + "教务异常，暂时无法查询",
-          })
+          var personalClass = wx.getStorageSync('personalClass');
+          if (personalClass != "") {
+            that.setData({
+              classJson: personalClass,
+              isLoading: false
+            })
+          } else {
+            wx.navigateTo({
+              url: '/pages/error/queryerror?ErrorTips=' + "教务异常，暂时无法查询",
+            })
+          }
         }
       }
     })
