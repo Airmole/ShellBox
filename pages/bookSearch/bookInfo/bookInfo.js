@@ -1,3 +1,4 @@
+var app = getApp();
 Page({
   data: {
     ISBN: "",
@@ -12,7 +13,7 @@ Page({
     })
     var that = this;
     wx.request({
-      url: 'https://airmole.cn/api/book/isbn2info2.php?ISBN=' + options.ISBN,
+      url: app.globalData.apiURL + '/book/isbn2info2.php?ISBN=' + options.ISBN,
       success: function(res) {
         that.setData({
           jsonStr: res.data,
@@ -21,7 +22,7 @@ Page({
       }
     });
     wx.request({
-      url: 'https://airmole.cn/doubanapi/v2/book/isbn/' + options.ISBN,
+      url: app.globalData.doubanApi + '/book/isbn/' + options.ISBN,
       method: 'GET',
       header: {
         'content-type': 'application/x-www-form-urlencoded',

@@ -114,7 +114,7 @@ Page({
       } else {
         //楼斋和寝室号码大致是对的
         wx.request({
-          url: 'https://airmole.cn/wechat/wxapp/api/eleQueryServicewith7day.php?zhai=' + that.data.zhaiArray[e.detail.value.building] + '&room=' + e.detail.value.roomNo,
+          url: app.globalData.apiURL + '/electricityFare/eleQueryServicewith7day.php?zhai=' + that.data.zhaiArray[e.detail.value.building] + '&room=' + e.detail.value.roomNo,
           success: function(res) {
             that.setData({
               eleJson: res.data,

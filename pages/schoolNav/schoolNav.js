@@ -810,9 +810,8 @@ Page({
     console.log(e)
     var _this = this
 
-    if (e.markerId !== '') {
+    if (e.markerId !== '' && Object.keys(e).length !== 0) {
       _this.makertap(e);
-
     }
     wx.getLocation({
       type: 'gcj02', // 默认为 wgs84 返回 gps 坐标，gcj02 返回可用于 wx.openLocation 的坐标  

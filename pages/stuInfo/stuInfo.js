@@ -27,7 +27,7 @@ Page({
       })
     } else {
       wx.request({
-        url: 'https://airmole.cn/wechat/wxapp/api/Airmole_jiaowuInfoQuery.php?uid=' + app.globalData.uid + '&pwd=' + app.globalData.pwd,
+        url: app.globalData.apiURL + 'stuInfoQuery.php?uid=' + app.globalData.uid + '&pwd=' + app.globalData.pwd,
         success: function(res) {
           that.setData({
             jsonStr: res.data,

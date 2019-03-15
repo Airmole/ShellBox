@@ -42,7 +42,7 @@ Page({
       that.getTable(that.data.uid, that.data.pwd, true);
     }
   },
-  goClassPlace: function (ep) {
+  goClassPlace: function(ep) {
     console.log(ep.target.dataset.place);
     var placeArr = ["1教学楼", "2教学楼", "3教学楼", "4教学楼", "5教学楼", "6教学楼", "7教学楼", "8教学楼", "9教学楼", "10教学楼", "11教学楼", "12教学楼", "理工馆", "社科馆"];
     var markerIdArr = [12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 5, 4];
@@ -63,7 +63,7 @@ Page({
   getTable: function(uid, pwd, showCookieClass) {
     var that = this;
     wx.request({
-      url: 'https://airmole.cn/test/classTable.php?uid=' + uid + '&pwd=' + pwd,
+      url: app.globalData.apiURL + '/classTable/classTable.php?uid=' + uid + '&pwd=' + pwd,
       success: function(res) {
         that.setData({
           classJson: res.data,

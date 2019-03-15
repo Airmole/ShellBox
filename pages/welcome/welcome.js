@@ -18,13 +18,12 @@ Page({
       duration: 5000
     })
     var that = this
-
     this.setData({
       uid: options.uid,
       pwd: options.pwd,
     });
     wx.request({
-      url: 'https://airmole.cn/wechat/wxapp/api/Airmole_jiaowuInfoQuery.php?uid=' + options.uid + '&pwd=' + options.pwd,
+      url: app.globalData.apiURL + '/stuInfoQuery.php?uid=' + options.uid + '&pwd=' + options.pwd,
       success: function(res) {
         that.setData({
           jsonStr: res.data,

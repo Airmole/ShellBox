@@ -2,6 +2,8 @@ const openIdUrl = require('./config').openIdUrl
 
 App({
   globalData: {
+    apiURL:"https://api.airmole.cn/ShellBox",
+    doubanApi:"https://airmole.cn/doubanapi/v2",
     hasLogin: false,
     openid: null,
     building: '',

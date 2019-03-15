@@ -146,7 +146,7 @@ Page({
         duration: 10000
       })
       wx.request({
-        url: 'https://airmole.cn/api/book/booksearch_adv.php?type=' + that.data.SearchType + '&keyword=' + that.data.keyword,
+        url: app.globalData.apiURL + '/book/booksearch_adv.php?type=' + that.data.SearchType + '&keyword=' + that.data.keyword,
         success: function(res) {
           that.setData({
             keywordStr: res.data,
@@ -176,7 +176,7 @@ Page({
   getWelcomeJson: function(uid, pwd, zhai, room) {
     var that = this;
     wx.request({
-      url: 'https://airmole.cn/test/welcome.php?uid=' + uid + '&pwd=' + pwd + '&zhai=' + zhai + '&room=' + room,
+      url: app.globalData.apiURL + '/welcome.php?uid=' + uid + '&pwd=' + pwd + '&zhai=' + zhai + '&room=' + room,
       success: function(res) {
         that.setData({
           jsonStr: res.data

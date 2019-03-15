@@ -1,5 +1,6 @@
 // pages/calendar/calendar.js
 var util = require('../../utils/time.js');
+var app = getApp();
 Page({
 
   /**
@@ -19,7 +20,7 @@ Page({
     // 再通过setData更改Page()里面的data，动态更新页面的数据  
     var that = this;
     wx.request({
-      url: 'https://airmole.cn/test/calendar.php',
+      url: app.globalData.apiURL + '/calendar.php',
       success(res) {
         console.log(res.data)
         that.setData({

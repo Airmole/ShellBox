@@ -14,7 +14,7 @@ Page({
   login: function(uid, pwd) {
     var that = this;
     wx.request({
-      url: 'https://airmole.cn/test/welcome.php?uid=' + uid + '&pwd=' + pwd,
+      url: app.globalData.apiURL + '/welcome.php?uid=' + uid + '&pwd=' + pwd,
       success: function(res) {
         that.setData({
           jsonStr: res.data,
@@ -83,7 +83,7 @@ Page({
       });
     } else {
       wx.request({
-        url: 'https://airmole.cn/test/welcome.php?uid=' + uid + '&pwd=' + pwd,
+        url: app.globalData.apiURL + '/welcome.php?uid=' + uid + '&pwd=' + pwd,
         success: function(res) {
           that.setData({
             jsonStr: res.data,

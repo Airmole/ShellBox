@@ -65,7 +65,7 @@ Page({
         that.setData({
           jsonContent: res.data,
         })
-        if (res.data.data.length < 1) {
+        if (Object.keys(res.data.data).length == 0) {
           wx.redirectTo({
             url: '/pages/error/queryerror?ErrorTips=暂时无法查询'
           })
@@ -272,10 +272,6 @@ Page({
     })
   },
   onReady: function() {
-    // if (this.data.jsonContent == "") {
-    //   wx.redirectTo({
-    //     url: '/pages/error/queryerror?ErrorTips=' + '大概是教务网关了吧'
-    //   })
-    // }
+
   }
 })

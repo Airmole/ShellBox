@@ -1,4 +1,5 @@
 // pages/bookSearch/bookInfo/bookDetail.js
+var app = getApp();
 Page({
   data: {
     marc_no: "",
@@ -18,7 +19,7 @@ Page({
     })
     var that = this;
     wx.request({
-      url: 'https://airmole.cn/api/book/marcno2info.php?marc_no=' + options.marc_no,
+      url: app.globalData.apiURL + '/book/marcno2info.php?marc_no=' + options.marc_no,
       success: function(res) {
         that.setData({
           jsonStr: res.data,
@@ -26,7 +27,7 @@ Page({
         console.log(res.data);
         if (res.data[0][5] !== "") {
           wx.request({
-            url: 'https://airmole.cn/doubanapi/v2/book/isbn/' + res.data[0][5],
+            url: app.globalData.doubanApi + '/book/isbn/' + res.data[0][5],
             method: 'GET',
             header: {
               'content-type': 'application/x-www-form-urlencoded',

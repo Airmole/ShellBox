@@ -4,6 +4,9 @@
   overflow: hidden;
 }
 
+.navText{
+  color: #0069d9;
+}
 .bdwz {
   background-color: #7399ff;
   color: #fff;
