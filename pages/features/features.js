@@ -7,80 +7,39 @@ Page({
   data: {
     uid: '',
     pwd: '',
-    grids: [{
-        name: '校历/地图',
-        navurl: '/pages/calendar/calendar',
-        gridIcon: '/images/table.png'
-      },
-      {
-        name: '扫码找书',
-        navurl: '/pages/bookSearch/bookInfo/isbn/iputIsbn',
-        gridIcon: '/images/scanCode.png'
-      },
-      {
-        name: '我的信息',
-        navurl: '/pages/stuInfo/stuInfo',
-        gridIcon: '/images/studentInfo.png'
-      },
-      {
-        name: '成绩查询',
-        navurl: '/pages/score/showScore/showScore',
-        gridIcon: '/images/score_HL.png'
-      },
-      {
-        name: '电费查询',
-        navurl: '/pages/electricity/electricityBind',
-        gridIcon: '/images/electricity.png'
-      },
-      {
-        name: '通讯录',
-        navurl: '/pages/tel/departmentTel/departmentTel',
-        gridIcon: '/images/contacts.png'
-      },
-      {
-        name: '校园出行',
-        navurl: '/pages/Transport/Transport',
-        gridIcon: '/images/transport.png'
-      },
-      {
-        name: '关于我们',
-        navurl: '/pages/features/about',
-        gridIcon: '/images/about_HL.png'
-      },
+    cores: [
+      [
+        { id: 'bjkb', name: '班级课表', url:'/pages/classQuery/class?isShareFrom=null', needLogin: true},
+        { id: 'grkb', name: '个人课表', url: '/pages/classQuery/index?isShareFrom=null',needLogin: true},
+        { id: 'xl', name: '校历', url: '/pages/calendar/calendar',needLogin: false},
+        { id: 'xydh', name: '校园导航', url: '/pages/schoolNav/schoolNav', needLogin: false},
+        { id: 'smcs', name: '扫码查书', url: '/pages/bookSearch/isbn/iputIsbn', needLogin: false},
+        { id: 'cjcx', name: '成绩查询', url: '/pages/score/score?isShareFrom=null', needLogin: true},
+        { id: 'dfcx', name: '电费查询', url: '/pages/electricity/electricityBind', needLogin: true},
+        { id: 'tel', name: '常用电话', url: '/pages/tel/tel', needLogin: false},
+        { id: 'xycx', name: '校园出行', url: '/pages/Transport/Transport', needLogin: false},
+        { id: 'gyhz', name: '关于盒子',url:'/pages/features/about', needLogin: false}
+      ]
     ],
-    swiperPic: [{
-        url: 'https://airmole.cn/wechat/wxapp/images/swiper1.jpg?e=' + Math.random()
-      },
-      {
-        url: 'https://airmole.cn/wechat/wxapp/images/swiper2.jpg?e=' + Math.random()
-      },
-      {
-        url: 'https://airmole.cn/wechat/wxapp/images/swiper3.gif?e=' + Math.random()
-      },
-      {
-        url: 'https://airmole.cn/wechat/wxapp/images/swiper4.gif?e=' + Math.random()
-      },
-      {
-        url: 'https://airmole.cn/wechat/wxapp/images/swiper5.gif?e=' + Math.random()
-      }
-    ]
   },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
     var that = this;
+    var uid = wx.getStorageSync('uid');
+    var pwd = wx.getStorageSync('pwd');
     wx.showToast({
       title: "loading",
       icon: "loading",
       duration: 5000
     })
-    if (app.globalData.uid != '' && app.globalData.pwd != '') {
+    if (uid != '' && pwd != '') {
       that.setData({
-        uid: app.globalData.uid,
-        pwd: app.globalData.pwd,
+        uid: uid,
+        pwd: pwd,
       });
-      console.log(that.data.uid + '-' + that.data.pwd)
+      // console.log(that.data.uid + '-' + that.data.pwd)
     }
     wx.hideToast()
   },
@@ -156,5 +115,13 @@ Page({
       url: '/pages/index/index'
     })
   },
+  //未登录点击功能
+  disabled_item:function(ds){
+    console.log(ds)
+    wx.showToast({
+      icon:'none',
+      title: '本功能需要登录',
+    })
+  }
 
 })

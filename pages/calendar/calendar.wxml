@@ -1,50 +1,148 @@
-<view class="page">
+<view class="remind-box" wx:if="{{isLoading}}">
+  <image class="remind-img" src="/images/loading.gif"></image>
+</view>
+<view class='page' wx:else>
   <view class="page__bd">
-    <view class="weui-tab">
-      <view class="weui-navbar">
-        <block wx:for="{{tabs}}" wx:key="*this">
-          <view id="{{index}}" class="weui-navbar__item {{activeIndex == index ? 'weui-bar__item_on' : ''}}" bindtap="tabClick">
-            <view class="weui-navbar__title">{{item}}</view>
+    <view class="weui-tab__content">
+      <view class='page'>
+        <view class="page__hd">
+
+          <view class="page__title">校历</view>
+          <view class="page__desc">
+            <text>{{jsonContent.schoolYear}}学年 第{{jsonContent.semester}}学期\n</text>
+            <text wx:if="{{jsonContent.teachWeek !=='N/A'}}">{{jsonContent.month}} 月{{jsonContent.day}} 日（第 {{jsonContent.teachWeek}} 周） {{jsonContent.dayOfWeek}}</text>
+            <text wx:else>{{jsonContent.month}} 月 {{jsonContent.day}} 日（假期） {{jsonContent.dayOfWeek}}</text>
           </view>
-        </block>
-        <view class="weui-navbar__slider" style="left: {{sliderLeft}}px; transform: translateX({{sliderOffset}}px); -webkit-transform: translateX({{sliderOffset}}px);"></view>
-      </view>
-      <view class="weui-tab__panel">
-        <view class="weui-tab__content" hidden="{{activeIndex != 0}}">
-          <view class='page'>
-            <view class='setCenter'>
-              <text>\n</text>
-              <view class="weui-article__h2">现在是：{{time}}</view>
-              <image src='https://airmole.cn/wechat/wxapp/images/18-19I.png' mode='widthFix'></image>
+
+
+          <view class="weui-item border-shadow kaixue" wx:if="{{jsonContent.gap2StartClass > 0 && jsonContent.gap2StartClass <= 30}}">
+            <view class="weui-flex">
+              <view class="weui-flex__item" style='margin-top:20rpx;margin-left:10rpx;color:#C1F9F7;'>
+                <view class="weui-item__title">
+                  开学
+                </view>
+                <view class="weui-item__desc">{{jsonContent.startClassDate}}</view>
+              </view>
+              <view class="weui-flex__item">
+                <view style='float:right;font-size:60rpx;color:#F3F7F7'>{{jsonContent.gap2StartClass}}天</view>
+              </view>
             </view>
           </view>
-        </view>
-        <view class="weui-tab__content" hidden="{{activeIndex != 1}}">
-          <view class='page'>
-            <view class='setCenter'>
-              <text>\n</text>
-              <view class="weui-article__h2">建议手机横屏观看</view>
-              <image src='https://airmole.cn/wechat/wxapp/images/SchoolMap.png' mode='widthFix'></image>
+
+          <view class="weui-item border-shadow thisWeek" wx:if="{{jsonContent.teachWeek != 'N/A'}}">
+            <view class='tt'>本周（第{{jsonContent.teachWeek}}周）事项</view>
+            <view class="weui-cells weui-cells_after-title" style='background:transparent;'>
+              <view class="weui-cell">
+                <view class="weui-cell__bd">大一</view>
+                <view class="weui-cell__ft work">{{jsonContent.thisWeekWork.freshmanWork}}</view>
+              </view>
+              <view class="weui-cell">
+                <view class="weui-cell__bd">大二</view>
+                <view class="weui-cell__ft work">{{jsonContent.thisWeekWork.sophomoreWork}}</view>
+              </view>
+              <view class="weui-cell">
+                <view class="weui-cell__bd">大三</view>
+                <view class="weui-cell__ft work">{{jsonContent.thisWeekWork.juniorWork}}</view>
+              </view>
+              <view class="weui-cell">
+                <view class="weui-cell__bd">大四</view>
+                <view class="weui-cell__ft work">{{jsonContent.thisWeekWork.seniorWork}}</view>
+              </view>
+            </view>
+          </view>
+
+          <!-- 广告位 -->
+          <view class='ads'>
+            <ad unit-id="adunit-62f52651dd5f4ff6"></ad>
+          </view>
+          <!-- 广告位结束 -->
+
+          <view class="weui-item border-shadow nextWeek" wx:if="{{jsonContent.teachWeek != 'N/A'}}">
+            <view class='tt'>下周（第{{jsonContent.teachWeek+1}}周）事项</view>
+            <view class="weui-cells weui-cells_after-title" style='background:transparent;'>
+              <view class="weui-cell">
+                <view class="weui-cell__bd">大一</view>
+                <view class="weui-cell__ft work">{{jsonContent.nextWeekWork.freshmanWork}}</view>
+              </view>
+              <view class="weui-cell">
+                <view class="weui-cell__bd">大二</view>
+                <view class="weui-cell__ft work">{{jsonContent.nextWeekWork.sophomoreWork}}</view>
+              </view>
+              <view class="weui-cell">
+                <view class="weui-cell__bd">大三</view>
+                <view class="weui-cell__ft work">{{jsonContent.nextWeekWork.juniorWork}}</view>
+              </view>
+              <view class="weui-cell">
+                <view class="weui-cell__bd">大四</view>
+                <view class="weui-cell__ft work">{{jsonContent.nextWeekWork.seniorWork}}</view>
+              </view>
+            </view>
+          </view>
+
+          <block wx:for="{{jsonContent.nextHoliday}}" wx:key="jjr" wx:index="index">
+            <view class="weui-item border-shadow {{index%2==0?'background-1':'background-2'}}" wx:if="{{item.gapDays > 0}}">
+              <view class="weui-flex">
+                <view class="weui-flex__item" style='margin-top:20rpx;margin-left:10rpx;color:#010C10;'>
+                  <view class="weui-item__title">
+                    {{item.holidayName}}
+                  </view>
+                  <view class="weui-item__desc" wx:if="{{item.holidayRestInfo !=''}}">{{item.holidayRestInfo}}</view>
+                  <view class="weui-item__desc" wx:else>{{item.holidayDate}}</view>
+                </view>
+                <view class="weui-flex__item">
+                  <view style='float:right;font-size:60rpx;color:#010C10'>{{item.gapDays}}天</view>
+                </view>
+              </view>
+            </view>
+          </block>
+
+          <view class="weui-item border-shadow kaoshi">
+            <view class="weui-flex">
+              <view class="weui-flex__item" style='margin-top:20rpx;margin-left:10rpx;color:#010c10;'>
+                <view class="weui-item__title">
+                  考试周
+                </view>
+                <view class="weui-item__desc">{{jsonContent.examWeekDate}}</view>
+              </view>
+              <view class="weui-flex__item">
+                <view style='float:right;font-size:60rpx;color:#010c10;'>{{jsonContent.gap2ExamWeek}}天</view>
+              </view>
+            </view>
+          </view>
+
+          <view class="weui-item border-shadow hanshujia" wx:if="{{jsonContent.gap2StartClass > 0 && jsonContent.gap2StartClass <= 30}}">
+            <view class="weui-flex">
+              <view class="weui-flex__item" style='margin-top:20rpx;margin-left:10rpx;color: #010c10;;'>
+                <view class="weui-item__title">
+                  放{{jsonContent.month
+                  <8? '暑': '寒'}}假 </view>
+                    <view class="weui-item__desc">{{jsonContent.vactionDate}}</view>
+                </view>
+                <view class="weui-flex__item">
+                  <view style='float:right;font-size:60rpx;color: #010c10;'>{{jsonContent.gap2Vaction}}天</view>
+                </view>
+              </view>
+            </view>
+
+            <button open-type="share" class="login-btn">
+              <text>分享校历给同学</text>
+            </button>
+
+            <view class="round-click" bindtap='showPic'>
+              <text>查看校历</text>
             </view>
 
           </view>
         </view>
       </view>
     </view>
+
+    <view class="weui-footer" style='margin-top:25px;'>
+      <view class="weui-footer__links">
+        <navigator url="/pages/features/about" class="weui-footer__link">Airmole.</navigator>
+        <navigator url="/pages/features/about" class="weui-footer__link">智慧校园</navigator>
+      </view>
+      <view class="weui-footer__text">Copyright © 2019 北京科技大学天津学院.</view>
+    </view>
+
   </view>
-</view>
-<button open-type="share" class="login-btn">
-  <text>分享校历/地图给同学</text>
-</button>
-<!-- 广告位 -->
-<view class='ads'>
-  <ad unit-id="adunit-62f52651dd5f4ff6"></ad>
-</view>
-<!-- 广告位结束 -->
-<view class="weui-footer">
-  <view class="weui-footer__links">
-    <navigator url="/pages/features/about" class="weui-footer__link">Airmole.</navigator>
-    <navigator url="/pages/features/about" class="weui-footer__link">智慧校园</navigator>
-  </view>
-  <view class="weui-footer__text">Copyright © 2018 北京科技大学天津学院.</view>
-</view>

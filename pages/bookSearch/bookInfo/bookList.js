@@ -1,4 +1,5 @@
 // pages/bookSearch/bookInfo/bookList.js
+var app = getApp();
 Page({
 
   /**
@@ -21,7 +22,7 @@ Page({
     })
     var that = this;
     wx.request({
-      url: 'https://airmole.cn/api/book/booksearch_adv.php?type=' + options.SearchType + '&keyword=' + options.keyword,
+      url: app.globalData.apiURL + '/book/booksearch_adv.php?type=' + options.SearchType + '&keyword=' + options.keyword,
       success: function(res) {
         that.setData({
           keywordStr: res.data,

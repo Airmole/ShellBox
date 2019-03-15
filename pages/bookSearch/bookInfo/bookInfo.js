@@ -1,3 +1,4 @@
+var app = getApp();
 Page({
   data: {
     ISBN: "",
@@ -12,7 +13,7 @@ Page({
     })
     var that = this;
     wx.request({
-      url: 'https://airmole.cn/api/book/isbn2info2.php?ISBN=' + options.ISBN,
+      url: app.globalData.apiURL + '/book/isbn2info2.php?ISBN=' + options.ISBN,
       success: function(res) {
         that.setData({
           jsonStr: res.data,
@@ -21,7 +22,7 @@ Page({
       }
     });
     wx.request({
-      url: 'https://airmole.cn/doubanapi/v2/book/isbn/' + options.ISBN,
+      url: app.globalData.doubanApi + '/book/isbn/' + options.ISBN,
       method: 'GET',
       header: {
         'content-type': 'application/x-www-form-urlencoded',
@@ -34,11 +35,19 @@ Page({
         wx.hideToast()
       }
     })
-
-
   },
   onReady: function() {
 
+  },
+  goLibrary: function(ep) {
+    console.log(ep.currentTarget.dataset.place);
+    var placeArr = ["理工馆", "社科馆"];
+    var markerIdArr = [5, 4];
+    var result = placeArr.indexOf(ep.currentTarget.dataset.place.substr(0, 3));
+    console.log(result);
+    wx.navigateTo({
+      url: '/pages/schoolNav/schoolNav?markerId=' + markerIdArr[result],
+    })
   },
   onShareAppMessage: function(res) {
     console.log(this)

@@ -1,4 +1,5 @@
 /* pages/bookSearch/bookInfo/bookInfo.wxss */
+@import "../../common/weui.wxss";
 
 page {
   background: #eee;

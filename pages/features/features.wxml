@@ -1,41 +1,69 @@
 <!--pages/features/features.wxml-->
-<swiper class="swiper" indicator-dots="true" autoplay="true" interval="5000" duration="1000">
-  <block wx:for="{{swiperPic}}" wx:key="index">
-    <swiper-item>
-      <image src="{{item.url}}" class="slide-image" mode="aspectFill" />
-    </swiper-item>
-  </block>
-</swiper>
 <view class="page">
-  <view class="page__bd">
-    <view class="weui-grids">
-      <block wx:for="{{grids}}" wx:key="*this">
-        <navigator url="{{item.navurl}}" bindtap='{{item.event}}' class="weui-grid" hover-class="weui-grid_active">
-          <image class="weui-grid__icon" src="{{item.gridIcon}}" />
-          <view class="weui-grid__label">{{item.name}}</view>
-        </navigator>
-      </block>
-      <view class="weui-grid" hover-class="weui-grid_active" style='height:96.200px;'>
-        <button open-type="contact">
-          <!--把这里的contact改成feedback效果也不错，现在很纠结啊 -->
-          <image class="weui-grid__icon" src="/images/service.png"></image>
-          <text>意见留言</text>
-        </button>
+  <view class='GreenBG'>
+    <view class="weui-panel weui-panel_access GreenBG">
+      <view class="weui-panel__bd GreenBG">
+        <view class="weui-media-box weui-media-box_appmsg GreenBG">
+          <view class="weui-media-box__hd weui-media-box__hd_in-appmsg">
+            <view class="weui-media-box__thumb">
+              <view class="userinfo-avatar">
+                <open-data type="userAvatarUrl"></open-data>
+              </view>
+            </view>
+          </view>
+          <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
+            <view class="weui-media-box__title">
+              <open-data type="userNickName"></open-data>
+            </view>
+            <view class="weui-media-box__title" wx:if='{{uid != ""}}'>{{uid}}</view>
+            <view class="weui-media-box__title" wx:else>
+              您还没有登录绑定🙄
+            </view>
+          </view>
+        </view>
       </view>
     </view>
+  </view>
+
+  <view>
+    <button type='default' size="50" class="img-plus-style zindex100 yc" session-from='{"nickName":"{{userInfo.nickName}}", "avatarUrl":"{{userInfo.avatarUrl}}"' open-type='contact'></button>
+    <image src="/images/kefu.png" class="img-plus-style"></image>
+  </view>
+
+  <view class="page__bd" style='background-color:rgb(240,239,245);'>
+
+    <!--功能导航-->
+    <swiper class="main-swpier radius">
+      <swiper-item class="main-core" wx:for="{{cores}}" wx:for-item="core" wx:key="id">
+        <block wx:for="{{core}}" wx:key="id">
+          <navigator wx:if="{{((uid!='' && pwd!='') && item.needLogin) || !item.needLogin}}" class="main-core-item" url="{{item.url}}">
+            <image class="core-item-icon" src="/images/{{item.id}}.png"></image>
+            <text class="core-item-name">{{item.name}}</text>
+          </navigator>
+          <view wx:else class="main-core-item disabled" bindtap="disabled_item">
+            <image class="core-item-icon" src="/images/{{item.id}}.png"></image>
+            <text class="core-item-name">{{item.name}}</text>
+          </view>
+        </block>
+      </swiper-item>
+    </swiper>
+
+    <!-- 广告位 -->
+    <view class='ads'>
+      <ad unit-id="adunit-62f52651dd5f4ff6"></ad>
+    </view>
+    <!-- 广告位结束 -->
+
     <button open-type="share" class="login-btn">
       <text>好用！分享给同学</text>
     </button>
+
     <view wx:if="{{uid=='' || pwd=='' }}" bindtap='logout' class="login-btn">
       <text>学号登录</text>
     </view>
     <view wx:else bindtap='logout' class="logout-btn">
       <text>注销登录</text>
     </view>
-    <!-- 广告位 -->
-    <view class='ads'>
-      <ad unit-id="adunit-62f52651dd5f4ff6"></ad>
-    </view>
-    <!-- 广告位结束 -->
+
   </view>
 </view>

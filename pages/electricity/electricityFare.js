@@ -42,7 +42,7 @@ Page({
         room: roomNo,
       });
       wx.request({
-        url: 'https://airmole.cn/wechat/wxapp/api/eleQueryServicewith7day.php?zhai=' + building + '&room=' + roomNo,
+        url: app.globalData.apiURL + '/electricityFare/eleQueryServicewith7day.php?zhai=' + building + '&room=' + roomNo,
         success: function(res) {
           console.log(res.data)
           //账号密码错误以下功能实现跳转错误页面

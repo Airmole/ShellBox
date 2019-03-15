@@ -1,0 +1,22 @@
+<!--pages/bookSearch/bookInfo/isbn/iputIsbn.wxml-->
+<view class="remind-box" wx:if="{{isLoading}}">
+  <image class="remind-img" src="/images/loading.gif"></image>
+</view>
+<view class="ykt-detail-wraper" style='margin-top:80rpx;' wx:else>
+  <view class="logo-sub">请扫描或输入书籍背面的的ISBN码</view>
+  <image class="logo" src="/images/isbn.png"></image>
+  <view class="page__bd page__bd_spacing" style='padding-bottom:15px;'>
+    <form bindsubmit="ISBNInput" class="login-form ">
+      <view class="input-group {{userid_focus ? 'active' : ''}} ">
+        <text class="input-label">ISBN</text>
+        <input type="number" cursor-spacing="30 " name="isbn" maxlength="13" placeholder="请输入ISBN书号 " />
+      </view>
+      <button class="login-btn" type="primary" form-type="submit">
+        <text>查书</text>
+      </button>
+      <button class="login-btn" plain="true" bindtap='scan'>
+        <text>扫描ISBN码</text>
+      </button>
+    </form>
+  </view>
+</view>
