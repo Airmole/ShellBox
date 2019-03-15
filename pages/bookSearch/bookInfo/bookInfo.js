@@ -4,7 +4,7 @@ Page({
     jsonStr: "",
     doubanStr: '',
   },
-  onLoad: function (options) {
+  onLoad: function(options) {
     wx.showToast({
       title: "loading",
       icon: "loading",
@@ -13,7 +13,7 @@ Page({
     var that = this;
     wx.request({
       url: 'https://airmole.cn/api/book/isbn2info2.php?ISBN=' + options.ISBN,
-      success: function (res) {
+      success: function(res) {
         that.setData({
           jsonStr: res.data,
         })
@@ -26,7 +26,7 @@ Page({
       header: {
         'content-type': 'application/x-www-form-urlencoded',
       },
-      success: function (res) {
+      success: function(res) {
         that.setData({
           doubanStr: res.data,
         })
@@ -34,13 +34,21 @@ Page({
         wx.hideToast()
       }
     })
-
+  },
+  onReady: function() {
 
   },
-  onReady: function () {
-
+  goLibrary: function(ep) {
+    console.log(ep.currentTarget.dataset.place);
+    var placeArr = ["理工馆", "社科馆"];
+    var markerIdArr = [5, 4];
+    var result = placeArr.indexOf(ep.currentTarget.dataset.place.substr(0, 3));
+    console.log(result);
+    wx.navigateTo({
+      url: '/pages/schoolNav/schoolNav?markerId=' + markerIdArr[result],
+    })
   },
-  onShareAppMessage: function (res) {
+  onShareAppMessage: function(res) {
     console.log(this)
     return {
       title: '我在北科天院图书馆找到本《' + this.data.doubanStr.title + '》,你也来看看吧~',

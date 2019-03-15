@@ -35,13 +35,7 @@ Page({
           password: options.pwd
         })
         this.GetScoreData();
-      } else {
-        //明明是分享进来的，但是却没有对方的学号和密码，太诡异了
-        wx.redirectTo({
-          url: '/pages/features/features'
-        })
       }
-      console.log(options);
     } else {
       var uid = wx.getStorageSync('uid');
       var pwd = wx.getStorageSync('pwd');
@@ -71,6 +65,11 @@ Page({
         that.setData({
           jsonContent: res.data,
         })
+        if (res.data.data.length < 1) {
+          wx.redirectTo({
+            url: '/pages/error/queryerror?ErrorTips=暂时无法查询'
+          })
+        }
         if (res.data.code == 200) {
           if (res.data.data.msg == '密码错误') {
             that.reLogin();

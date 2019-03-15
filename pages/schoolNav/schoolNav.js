@@ -807,7 +807,13 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(e) {
+    console.log(e)
     var _this = this
+
+    if (e.markerId !== '') {
+      _this.makertap(e);
+
+    }
     wx.getLocation({
       type: 'gcj02', // 默认为 wgs84 返回 gps 坐标，gcj02 返回可用于 wx.openLocation 的坐标  
       success: function(res) {
@@ -919,8 +925,6 @@ Page({
       },
     })
   },
-
-
   location: function() {
     var _this = this
     wx.getLocation({

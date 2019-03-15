@@ -9,8 +9,8 @@ Page({
     pwd: '',
     cores: [
       [
-        { id: 'bjkb', name: '班级课表', url:'/pages/classQuery/class', needLogin: true},
-        { id: 'grkb', name: '个人课表', url: '/pages/classQuery/index',needLogin: true},
+        { id: 'bjkb', name: '班级课表', url:'/pages/classQuery/class?isShareFrom=null', needLogin: true},
+        { id: 'grkb', name: '个人课表', url: '/pages/classQuery/index?isShareFrom=null',needLogin: true},
         { id: 'xl', name: '校历', url: '/pages/calendar/calendar',needLogin: false},
         { id: 'xydh', name: '校园导航', url: '/pages/schoolNav/schoolNav', needLogin: false},
         { id: 'smcs', name: '扫码查书', url: '/pages/bookSearch/isbn/iputIsbn', needLogin: false},

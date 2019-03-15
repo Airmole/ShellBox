@@ -103,7 +103,7 @@
     </view>
 
     <view class="kb-info-card-tabs">
-      <view class="kb-info-card {{!cid ? '' : 'kb-info-card-shadow'}} {{targetI == cid ? 'kb-info-card-active' : 'kb-info-card-static'}}" data-index="{{cid}}" bindtap="infoCardTap">
+      <view class="kb-info-card {{!cid ? '' : 'kb-info-card-shadow'}} {{targetI == cid ? 'kb-info-card-active' : 'kb-info-card-static'}}" data-index="{{cid}}">
 
         <view class="kb-info-card-content" wx:if="{{activeClass.json.length>1}}">
           <view class="info-name">
@@ -118,8 +118,8 @@
               <view class="info-item">
                 <text class="info-item-value">教师：</text> {{activeClass.json[activeClassItem].teacher}}
               </view>
-              <view class="info-item">
-                <text class="info-item-value">地点：</text> {{activeClass.json[activeClassItem].place}}
+              <view class="info-item" bindtap='goClassPlace' data-place="{{activeClass.json[activeClassItem].place}}">
+                <text class="info-item-value">地点：</text> {{activeClass.json[activeClassItem].place}}（📍前往）
               </view>
               <view class="info-item">
                 <text class="info-item-value">上课周：</text> {{activeClass.json[activeClassItem].teachWeek}}
@@ -147,8 +147,8 @@
               <view class="info-item">
                 <text class="info-item-value">教师：</text> {{activeClass.teacher}}
               </view>
-              <view class="info-item">
-                <text class="info-item-value">地点：</text> {{activeClass.place}}
+              <view class="info-item" bindtap='goClassPlace' data-place="{{activeClass.place}}">
+                <text class="info-item-value">地点：</text> {{activeClass.place}}（📍前往）
               </view>
               <view class="info-item">
                 <text class="info-item-value">上课周：</text> {{activeClass.teachweek}}

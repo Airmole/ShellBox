@@ -53,8 +53,8 @@
         </view>
       </view>
       <view class="weui-panel__ft">
-        <view class="weui-cell weui-cell_access weui-cell_link">
-          <view class="weui-cell__bd">{{jsonStr[0][3]}}</view>
+        <view class="weui-cell weui-cell_access weui-cell_link" bindtap='goLibrary' data-place="{{jsonStr[0][3]}}">
+          <view class="weui-cell__bd">📍{{jsonStr[0][3]}}</view>
         </view>
       </view>
     </view>

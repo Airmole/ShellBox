@@ -35,9 +35,9 @@
 			"list": [
 				{
 					"id": 0,
-					"name": "xl",
-					"pathName": "pages/calendar/calendar",
-					"query": "",
+					"name": "ckb",
+					"pathName": "pages/classQuery/index",
+					"query": "isShareFrom=null",
 					"scene": null
 				},
 				{

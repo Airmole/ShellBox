@@ -15,7 +15,7 @@
 }
 
 .ads {
-  padding: 30rpx 15rpx 30rpx 15rpx;
+  padding: 10rpx 15rpx 0rpx 15rpx;
 }
 
 .GreenBG {
@@ -124,8 +124,8 @@ button {
 
 .main-swpier {
   height: 390rpx;
-  margin: 0rpx 0rpx 20rpx 0rpx;
-  padding-top: 20rpx;
+  margin: 0rpx 0rpx 10rpx 0rpx;
+  padding-top: 0rpx;
 }
 
 .main-swpier .wx-swiper-dots.wx-swiper-dots-horizontal {
@@ -233,10 +233,10 @@ button {
 /* 客服钮的 */
 
 .img-plus-style {
-  height: 120rpx;
-  width: 120rpx;
+  height: 100rpx;
+  width: 100rpx;
   position: fixed;
-  top: 30rpx;
+  top: 40rpx;
   right: 25rpx;
   opacity: 0.7;
 }

@@ -52,6 +52,16 @@ Page({
       }
     });
   },
+  goLibrary: function(ep) {
+    console.log(ep.currentTarget.dataset.place);
+    var placeArr = ["理工馆", "社科馆"];
+    var markerIdArr = [5, 4];
+    var result = placeArr.indexOf(ep.currentTarget.dataset.place.substr(0, 3));
+    console.log(result);
+    wx.navigateTo({
+      url: '/pages/schoolNav/schoolNav?markerId=' + markerIdArr[result],
+    })
+  },
   onShareAppMessage: function(res) {
     console.log(this.options.marc_no)
     return {

@@ -35,6 +35,6 @@
     </view>
   </view>
 </view>
-<view bindtap='start' class="login-btn">
+<button bindtap='start' class="login-btn" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">
   <text>开始使用</text>
-</view>
+</button>

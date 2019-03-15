@@ -32,9 +32,10 @@ Page({
   },
   onLoad: function() {
     this.checkEffectiveIdAndPasswoed();
-    this.setTodayOfflineClass();
-
-
+    var personalClass = wx.getStorageSync('personalClass');
+    if (personalClass != '') {
+      this.setTodayOfflineClass();
+    }
   },
   onReady: function() {
 

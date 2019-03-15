@@ -10,13 +10,6 @@ Page({
     activeClass: '',
     activeClassItem: 0,
     whichDayOfWeek: '',
-    mondayClass: '',
-    tuesdayClass: '',
-    wednesdayClass: '',
-    thursdayClass: '',
-    fridayClass: '',
-    staturdayClass: '',
-    sundayClass: '',
     scroll: {
       left: 0 //判断今天是不周末，是的话滚一下
     },
@@ -33,16 +26,42 @@ Page({
   },
   onLoad: function(options) {
     var that = this;
-    var uid = wx.getStorageSync('uid');
-    var pwd = wx.getStorageSync('pwd');
+    that.setInfo();
+    if (options.isShareFrom != 'null') {
+      if (options.uid != '' || options.pwd != '') {
+        that.getTable(options.uid, options.pwd, false);
+      }
+    } else {
+      var uid = wx.getStorageSync('uid');
+      var pwd = wx.getStorageSync('pwd');
+      console.log(uid)
+      that.setData({
+        uid: uid,
+        pwd: pwd,
+      })
+      that.getTable(that.data.uid, that.data.pwd, true);
+    }
+  },
+  goClassPlace: function (ep) {
+    console.log(ep.target.dataset.place);
+    var placeArr = ["1教学楼", "2教学楼", "3教学楼", "4教学楼", "5教学楼", "6教学楼", "7教学楼", "8教学楼", "9教学楼", "10教学楼", "11教学楼", "12教学楼", "理工馆", "社科馆"];
+    var markerIdArr = [12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 5, 4];
+    var result = placeArr.indexOf(ep.target.dataset.place.slice(0, -3));
+    // console.log(result);
+    wx.navigateTo({
+      url: '/pages/schoolNav/schoolNav?markerId=' + markerIdArr[result],
+    })
+  },
+  setInfo: function() {
+    var that = this;
     const whichDayOfWeek = new Date().getDay();
     const arr = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'staturday'];
     that.setData({
       whichDayOfWeek: arr[whichDayOfWeek],
-      uid: uid,
-      pwd: pwd,
     })
-
+  },
+  getTable: function(uid, pwd, showCookieClass) {
+    var that = this;
     wx.request({
       url: 'https://airmole.cn/test/classTable.php?uid=' + uid + '&pwd=' + pwd,
       success: function(res) {
@@ -54,12 +73,22 @@ Page({
         if (res.data.status == 200) {
           wx.setStorageSync('banjiClass', res.data);
         }
-        if (res.data.status == '500') {
+        if (res.data.status == 403) {
+          wx.navigateTo({
+            url: '/pages/error/queryerror?ErrorTips=' + "学号密码不对，请重新登录",
+          })
+        }
+        if (res.data.status == 500) {
           var banjiClass = wx.getStorageSync('banjiClass');
-          if (banjiClass != "") {
+          if (banjiClass != "" && showCookieClass == true) {
             that.setData({
               classJson: banjiClass,
               isLoading: false
+            })
+            wx.showToast({
+              title: '教务无法访问，当前展示离线缓存课表',
+              icon: 'none',
+              duration: 2000
             })
           } else {
             wx.navigateTo({
@@ -114,4 +143,16 @@ Page({
     });
   },
   catchMoveDetail: function() { /*阻止滑动穿透*/ },
+  /**
+   * 用户点击右上角分享
+   */
+  onShareAppMessage: function(res) {
+    var that = this;
+    // console.log(res);
+    return {
+      title: that.data.classJson.className + '班 班级课表',
+      path: 'pages/classQuery/class?isShareFrom=true&uid=' + that.data.uid + '&pwd=' + that.data.pwd,
+    }
+
+  },
 });

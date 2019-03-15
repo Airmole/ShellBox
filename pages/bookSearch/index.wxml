@@ -64,7 +64,7 @@
         <view class="book-intro raduis">
           <view class="remind-box">
             <image class="noDisplay" src="/images/holiday.png"></image>
-            <text class="remind-text">教务网关了，机智的小盒子帮您缓存了数据到手机</text>
+            <text class="remind-text">教务网关了，机智的小盒子帮您缓存了课表到手机</text>
           </view>
         </view>
       </view>
@@ -218,7 +218,7 @@
       </view>
       <!--今日全天课表-->
       <view wx:else class="main-card-item" id="kb">
-        <navigator url="/pages/classQuery/index">
+        <navigator url="/pages/classQuery/index?isShareFrom=null">
           <view class="card-item-hd">
             <text class="card-item-icon">😡</text>
             <text class="card-item-name">（{{jsonStr['month']}}月{{jsonStr['day']}}日 {{jsonStr['dayOfWeek']}}）课表</text>
@@ -244,7 +244,7 @@
     </view>
 
     <view class="main-card-item" id="kb" wx:if="{{jsonStr.todayCourse.getCourseStatus == 500}}">
-      <navigator url="/pages/classQuery/index">
+      <navigator url="/pages/classQuery/index?isShareFrom=null">
         <view class="card-item-hd">
           <text class="card-item-icon">😡</text>
           <text class="card-item-name">缓存（ {{jsonStr['dayOfWeek']}}）课表</text>
