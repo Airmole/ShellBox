@@ -31,7 +31,7 @@ App({
       wx.login({
         success: function(data) {
           wx.request({
-            url: 'https://airmole.cn/wechat/wxapp/api/code2id.php?',
+            url: 'https://api.airmole.cn/code2id.php?',
             data: {
               code: data.code
             },
