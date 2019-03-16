@@ -22,10 +22,7 @@
 注意：体验账号仅供展示界面效果使用，展示数据与实际情况未必符合且数据保持不变。
 
 ## 截图
-[![calendar.md.jpg](https://z4a.net/images/2019/03/16/calendar.md.jpg)](https://z4a.net/image/7NtSjL)
-[![class.md.jpg](https://z4a.net/images/2019/03/16/class.md.jpg)](https://z4a.net/image/7Nt8FN)
-[![login.md.jpg](https://z4a.net/images/2019/03/16/login.md.jpg)](https://z4a.net/image/7Nto3b)
-[![welcome.md.jpg](https://z4a.net/images/2019/03/16/welcome.md.jpg)](https://z4a.net/image/7NtfXk)
+[![-1.jpg](https://z4a.net/images/2019/03/16/-1.jpg)](https://z4a.net/image/7NtGdH)
 
 ## 页面路径说明
 
