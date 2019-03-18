@@ -34,7 +34,7 @@ Page({
           stuId: options.uid,
           password: options.pwd
         })
-        this.GetScoreData();
+        this.GetScoreData(options.uid, options.pwd);
       }
     } else {
       var uid = wx.getStorageSync('uid');
@@ -48,7 +48,7 @@ Page({
           url: '/pages/index/index'
         })
       } else {
-        this.GetScoreData();
+        this.GetScoreData(uid, pwd);
       }
     }
 
@@ -56,18 +56,23 @@ Page({
   /**
    * 查询成绩
    */
-  GetScoreData: function(score) {
+  GetScoreData: function(uid, pwd) {
     var that = this;
     wx.request({
-      url: 'https://api.giiig.cn/tj/?username=' + that.data.stuId + '&password=' + that.data.password,
+      url: 'https://api.giiig.cn/tj/?username=' + uid + '&password=' + pwd,
       success: function(res) {
         console.log(res)
         that.setData({
           jsonContent: res.data,
         })
-        if (Object.keys(res.data.data).length == 0) {
+        if (Object.keys(res.data).length == 0) {
           wx.redirectTo({
             url: '/pages/error/queryerror?ErrorTips=暂时无法查询'
+          })
+        }
+        if (res.data.code == 403) {
+          wx.redirectTo({
+            url: '/pages/error/queryerror?ErrorTips=' + res.data.message
           })
         }
         if (res.data.code == 200) {
