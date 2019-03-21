@@ -99,7 +99,7 @@
             <text class="ykt-cost-total">没有</text>
             <text class="ykt-cost-text">任何一节课</text>
           </view>
-          <view class="ykt-cost" wx:if="{{jsonStr.todayCourse.todayCourseCount > 0}}">
+          <view class="ykt-cost" wx:if="{{jsonStr.todayCourse.todayCourseCount > 0 && jsonStr.todayCourse.getCourseStatus != 500}}">
             <text class="ykt-cost-text">今日：您可能一共有</text>
             <text class="ykt-cost-total">{{jsonStr.todayCourse.todayCourseCount}}</text>
             <text class="ykt-cost-text">节课👇</text>
@@ -161,15 +161,17 @@
         <text>🎓</text>
         <text class="card-item-name">下节课</text>
       </view>
-      <view class="card-item-bd">
-        <view class="kb-item">
-          <view class="kb-item-left">
-            <text class="kb-item-what">{{jsonStr.todayCourse.nextCourse.courseName}}</text>
-            <text class="kb-item-when">{{jsonStr.todayCourse.nextCourse.startTime}}上课 ~ {{jsonStr.todayCourse.nextCourse.endTime}}下课</text>
+      <navigator url="/pages/classQuery/index?isShareFrom=null">
+        <view class="card-item-bd">
+          <view class="kb-item">
+            <view class="kb-item-left">
+              <text class="kb-item-what">{{jsonStr.todayCourse.nextCourse.courseName}}</text>
+              <text class="kb-item-when">{{jsonStr.todayCourse.nextCourse.startTime}}上课 ~ {{jsonStr.todayCourse.nextCourse.endTime}}下课</text>
+            </view>
+            <text class="kb-item-where">{{jsonStr.todayCourse.nextCourse.place}}</text>
           </view>
-          <text class="kb-item-where">{{jsonStr.todayCourse.nextCourse.place}}</text>
         </view>
-      </view>
+      </navigator>
       <view class="kb-open" bindtap='isShowAllCourse' wx:if="{{!isShowAllCourse}}">
         <text>展示全天课表👇</text>
       </view>
@@ -183,14 +185,16 @@
         <text class="card-item-icon">😁</text>
         <text class="card-item-name">下一节</text>
       </view>
-      <view class="card-item-bd">
-        <view class="book-intro raduis">
-          <view class="remind-box">
-            <image class="remind-img" src="/images/holiday.png"></image>
-            <text class="remind-text">没有课啦，休息一下吧😊</text>
+      <navigator url="/pages/classQuery/index?isShareFrom=null">
+        <view class="card-item-bd">
+          <view class="book-intro raduis">
+            <view class="remind-box">
+              <image class="remind-img" src="/images/holiday.png"></image>
+              <text class="remind-text">没有课啦，休息一下吧😊</text>
+            </view>
           </view>
         </view>
-      </view>
+      </navigator>
       <view class="kb-open" bindtap='isShowAllCourse' wx:if="{{!isShowAllCourse}}">
         <text>展示全天课表👇</text>
       </view>

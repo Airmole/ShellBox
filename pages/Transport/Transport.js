@@ -40,6 +40,34 @@ Page({
       activeIndex: e.currentTarget.id
     });
   },
+  goJJXCStation: function() {
+    wx.getLocation({
+      type: 'gcj02', // 返回可以用于wx.openLocation的经纬度
+      success(res) {
+        wx.openLocation({
+          latitude: 39.548662,
+          longitude: 117.363274,
+          scale: 17,
+          name: '京津新城公交站',
+          address: '京津新城北京国贸商务班车'
+        })
+      }
+    })
+  },
+  goBJGMStation: function() {
+    wx.getLocation({
+      type: 'gcj02', // 返回可以用于wx.openLocation的经纬度
+      success(res) {
+        wx.openLocation({
+          latitude: 39.905531,
+          longitude: 116.461934,
+          scale: 17,
+          name: '艾维克酒店西门',
+          address: '建国路南三环东国贸桥下艾维克酒店西门'
+        })
+      }
+    })
+  },
   /**
    * 用户点击右上角分享
    */
