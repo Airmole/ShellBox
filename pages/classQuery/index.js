@@ -73,7 +73,7 @@ Page({
   getTable: function(uid, pwd, showCookieClass) {
     var that = this;
     wx.request({
-      url: app.globalData.apiURL + '/classTable/classTable.php?uid=' + uid + '&pwd=' + pwd,
+      url: app.globalData.apiURL + '/classTable/personalTable.php?uid=' + uid + '&pwd=' + pwd,
       success: function(res) {
         that.setData({
           classJson: res.data,
