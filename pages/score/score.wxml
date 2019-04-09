@@ -1,0 +1,63 @@
+<!--pages/score/showScore/showScore.wxml-->
+<view class="page" wx:if="{{!isLoading}}">
+  <view class="page__hd" style='padding-top:10px;padding-bottom:10px;'>
+    <view class="page__title">成绩查询</view>
+    <view class="page__desc" style='color:#000;'>
+      注：最终成绩以教务为准，本程序计算结果仅作参考,不具有官方权威性。学分为0或成绩低于60分的课程不纳入计算公式。
+    </view>
+  </view>
+  <view wx:if="{{showGraphic}}" class="result-chargeInfo" style='height:200px;'>
+    <view class="chargeInfo-num chargeInfo-model result-model" style='height:200px;'>
+      <canvas canvas-id="lineCanvas" disable-scroll="true" bindtouchstart="touchHandler" style='width:100%;height:200px;'></canvas>
+    </view>
+  </view>
+  <view class="score__hd" wx:if="{{jsonContent.data}}">
+    <button class="clear" open-type='share'>
+      <view class="weui-item border-shadow background-1">
+        <view class="weui-flex">
+          <view class="weui-flex__item">
+            <view class="weui-item__title">分享成绩单</view>
+            <view class="weui-item__desc">My transcript</view>
+          </view>
+          <view class="weui-flex__item">
+            <image class="weui-media-box__thumb" style="width:80rpx;height:80rpx;float:right;" src="/images/cjcx.png" />
+          </view>
+        </view>
+      </view>
+    </button>
+  </view>
+  <block wx:for="{{jsonContent.data}}" wx:key="scoolYear">
+    <view class="page__bd" style='background-color:#fff;border-radius:15px;padding-bottom:20px;'>
+      <view class="weui-cells__title">{{item.time.schoolYear}}学年 第{{item.time.semester}}学期</view>
+      <view class="weui-cells weui-cells_after-title">
+        <view wx:for="{{item.score}}" wx:key="ClassName" class="weui-cell">
+          <view class="weui-cell__bd">{{item.courseName}}\r\n
+            <view class="page__desc">
+              授课教师：{{item.tearcher}} {{item.period}}学时 {{item.credit}}学分
+            </view>
+          </view>
+          <view class="weui-cell__ft" style='color:red;' wx:if="{{item.score<60}}">{{item.score}}</view>
+          <view class="weui-cell__ft" style='color:blue;' wx:elif="{{item.score >= 90}}">{{item.score}}</view>
+          <view class="weui-cell__ft" style='color:#000;' wx:else>{{item.score}}</view>
+        </view>
+      </view>
+      <view class="weui-media-box__info" style='color:#000;margin-left:10px;'>
+        <view class="weui-media-box__info__meta">学期总结：</view>
+        <view class="weui-media-box__info__meta">算术平均分：{{item.avg}}</view>
+        <view class="weui-media-box__info__meta weui-media-box__info__meta_extra">加权平均分：{{item.gpa}}</view>
+      </view>
+    </view>
+  </block>
+  <!-- 广告位 -->
+  <view class='ads'>
+    <ad unit-id="adunit-62f52651dd5f4ff6"></ad>
+  </view>
+  <!-- 广告位结束 -->
+  <view class="weui-footer">
+    <view class="weui-footer__links">
+      <text class="weui-footer__link">很奔放</text>
+      <text class="weui-footer__link">Airmole.</text>
+    </view>
+    <view class="weui-footer__text">Copyright © 2017-2018 北科大天津学院智慧校园.</view>
+  </view>
+</view>

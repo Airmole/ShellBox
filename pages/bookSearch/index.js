@@ -1,13 +1,16 @@
 var app = getApp()
 Page({
   data: {
+    offlinePeronalClass: '',
     inputShowed: false,
+    adsError: false,
+    isLoading: '加载中',
+    isShowAllCourse: false,
+    isLogined: false,
     keyword: "",
     jsonStr: "",
+    dayOfWeek: '',
     keywordStr: '',
-    showTips: false,
-    notices: " ",
-    searchPanelShow: false,
     SearchType: '02',
     radioItems: [{
         name: '书名',
@@ -27,19 +30,73 @@ Page({
       }
     ]
   },
+  onLoad: function() {
+    this.checkEffectiveIdAndPasswoed();
+    var personalClass = wx.getStorageSync('personalClass');
+    if (personalClass != '') {
+      this.setTodayOfflineClass();
+    }
+  },
+  onReady: function() {
+
+  },
+
+  onShow: function() {
+    this.onLoad();
+  },
+  setTodayOfflineClass: function() {
+    var personalClass = wx.getStorageSync('personalClass');
+    var that = this;
+    var date = new Date();
+    let dayOfWeek = date.getDay();
+    let weekArr = ["sunday", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday"];
+    personalClass = personalClass.course[weekArr[dayOfWeek]];
+    var createArr = [];
+    for (let i in personalClass) {
+      if (personalClass[i].length > 1) {
+        for (let j in personalClass[i]) {
+          createArr.push(personalClass[i][j]);
+        }
+      } else {
+        createArr.push(personalClass[i]);
+      }
+    }
+    console.log();
+    that.setData({
+      offlinePeronalClass: createArr,
+    })
+  },
+  checkEffectiveIdAndPasswoed: function() {
+    var that = this;
+    var uid = wx.getStorageSync('uid');
+    var pwd = wx.getStorageSync('pwd');
+
+    var zhai = wx.getStorageSync('building');
+    var room = wx.getStorageSync('roomNo');
+    if (uid != '' && pwd != '') {
+      this.getWelcomeJson(uid, pwd, zhai, room);
+    } else {
+      this.getWelcomeJson(uid, pwd, zhai, room);
+      that.setData({
+        isLogined: false
+      })
+    }
+  },
+  isShowAllCourse: function() {
+    this.setData({
+      isShowAllCourse: !this.data.isShowAllCourse
+    })
+  },
   showInput: function() {
     this.setData({
       inputShowed: true
     });
   },
   onBindFocus: function(event) {
-    this.setData({
-      searchPanelShow: true
-    })
+
   },
   onBindBlur: function(event) {
     this.setData({
-      searchPanelShow: false,
       inputVal: "",
       inputShowed: false
     })
@@ -51,9 +108,6 @@ Page({
     });
   },
   radioChange: function(e) {
-    this.setData({
-      searchPanelShow: true
-    })
     console.log(e.detail.value);
     this.setData({
       SearchType: e.detail.value
@@ -66,27 +120,22 @@ Page({
       radioItems: radioItems,
     });
   },
+  inputTyping: function(e) {
+    this.setData({
+      keyword: e.detail.value
+    });
+    // console.log("输入了" + this.data.keyword);
+  },
   clearInput: function() {
     this.setData({
       inputVal: ""
     });
   },
-  onShareAppMessage: function(res) {
-    return {
-      title: '相见恨晚！没想到图书馆还有这样的好书啊~',
-      path: 'pages/bookSearch/index',
-      imageUrl: "https://airmole.cn/wechat/wxapp/images/bookindexShare.jpg"
-    }
-  },
   searchIt: function(e) {
     var that = this;
-    that.setData({
-      keyword: e.detail.value
-    });
-    if (e.detail.value.length == 0) {
+    if (that.data.keyword == 0) {
       wx.showToast({
-        title: '输入有误',
-        image: '/images/info.png',
+        title: '请输入检索关键字',
         icon: 'none',
         duration: 2000
       });
@@ -97,7 +146,7 @@ Page({
         duration: 10000
       })
       wx.request({
-        url: 'https://airmole.cn/api/book/booksearch_adv.php?type=' + that.data.SearchType + '&keyword=' + that.data.keyword,
+        url: app.globalData.apiURL + '/book/booksearch_adv.php?type=' + that.data.SearchType + '&keyword=' + that.data.keyword,
         success: function(res) {
           that.setData({
             keywordStr: res.data,
@@ -108,8 +157,7 @@ Page({
             wx.navigateTo({
               url: '/pages/error/queryerror?ErrorTips=' + "图书馆OPAC系统无响应"
             })
-          }
-          if (res.data.total == 0) {
+          } else if (res.data.total == 0) {
             wx.showToast({
               title: '本馆暂无此书',
               image: '/images/info.png',
@@ -125,30 +173,33 @@ Page({
       })
     }
   },
-  onLoad: function() {
-    wx.showToast({
-      title: "loading",
-      icon: "loading",
-      duration: 5000
-    })
+  getWelcomeJson: function(uid, pwd, zhai, room) {
     var that = this;
     wx.request({
-      url: 'https://airmole.cn/wechat/wxapp/api/hotbook.php',
+      url: app.globalData.apiURL + '/welcome.php?uid=' + uid + '&pwd=' + pwd + '&zhai=' + zhai + '&room=' + room,
       success: function(res) {
         that.setData({
-          jsonStr: res.data,
+          jsonStr: res.data
         })
-        // console.log(res.data);
-      }
-    })
-    wx.request({
-      url: 'https://airmole.cn/wechat/wxapp/api/notices.php',
-      success: function(res) {
-        that.setData({
-          notices: res.data.notices,
-        })
-        wx.hideToast()
-        // console.log(res.data);
+        console.log(res.data);
+        var uid = wx.getStorageSync('uid');
+        var pwd = wx.getStorageSync('pwd');
+        if (res.data.todayCourse.getCourseStatus != 403) {
+          that.setData({
+            isLoading: "finished",
+            isLogined: true
+          })
+          if (uid == '' || pwd == '') {
+            that.setData({
+              isLogined: false
+            })
+          }
+        } else {
+          that.setData({
+            isLoading: "finished",
+            isLogined: false
+          })
+        }
       }
     })
   },
@@ -167,9 +218,13 @@ Page({
     })
   },
   onReachBottom: function() {
+    //拉到底了，做点什么好呢
+  },
+  adsError: function(e) {
+    console.log(e)
     var that = this;
     that.setData({
-      showTips: true,
+      adsError: true
     })
-  },
+  }
 });

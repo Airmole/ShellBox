@@ -5,7 +5,8 @@
 		"es6": true,
 		"postcss": true,
 		"minified": true,
-		"newFeature": true
+		"newFeature": true,
+		"autoAudits": false
 	},
 	"compileType": "miniprogram",
 	"libVersion": "2.4.0",
@@ -34,15 +35,17 @@
 			"list": [
 				{
 					"id": 0,
-					"name": "test",
-					"pathName": "pages/Transport/Transport",
-					"query": ""
+					"name": "ckb",
+					"pathName": "pages/classQuery/index",
+					"query": "isShareFrom=null",
+					"scene": null
 				},
 				{
 					"id": 1,
-					"name": "score",
-					"pathName": "pages/classQuery/index",
-					"query": ""
+					"name": "daohang ",
+					"pathName": "pages/schoolNav/schoolNav",
+					"query": "",
+					"scene": 1001
 				}
 			]
 		}

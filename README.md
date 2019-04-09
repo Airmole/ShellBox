@@ -1,79 +1,68 @@
 # ShellBox
-贝壳盒子Wechat小程序
+
+贝壳小盒子 微信小程序
 
 [![Star](https://img.shields.io/badge/Star-Airmole-brightgreen.svg)](https://github.com/Airmole/ShellBox/stargazers)
 [![Download](https://img.shields.io/badge/download-.zip-brightgreen.svg)](https://github.com/Airmole/ShellBox/archive/master.zip)
-[![size](https://img.shields.io/badge/size-5.81MB-green.svg)](https://github.com/airmole/ShellBox)
-[![last commit](https://img.shields.io/badge/last%20commit-2019--01--01-green.svg)](https://github.com/Airmole/ShellBox/commits/master)
+[![size](https://img.shields.io/badge/size-7.21MB-green.svg)](https://github.com/airmole/ShellBox)
+[![last commit](https://img.shields.io/badge/last%20commit-2019--01--13-green.svg)](https://github.com/Airmole/ShellBox/commits/master)
 [![https://blog.airmole.cn](https://img.shields.io/badge/Blog-Airmole-green.svg)](https://blog.airmole.cn)
 
 
+> 本项目2.0版本已经基本完成，近期正在埋头努力补文档中.....
 
-
-
-## 不想写文档，就是不想写文档。。。
-
------
-因为代码蛮简单的，看代码和注释绝对都可以看懂的。。
-
-```
-贝壳盒子(ShellBox)，简称SB。😂
-贝壳盒子是一款微信小程序，由北京科技大学天津学院网络中心指导，冰炫互联（学生技术组织/团队）开发，有别于公众号的一种全新的连接用户与服务的方式，无需下载与安装即可在微信内被便捷地获取和传播，同时具有出色的使用体验。
-贝壳盒子是碎片化、一站式、一体化校园移动门户，集课表、成绩、学籍信息、资讯等功能于一身.
-贝壳盒子有更好用的课表查询，美观大方，清晰明了。
-贝壳盒子有更方便的校历查询，对比教务网发布的Excel截图校历，界面优雅，清新脱俗。
-贝壳有更强大的图书馆馆藏图书查询，搜书利器，可以通过关键字搜索到图书馆OPAC藏书信息，更可以通过扫面图书条码查询是否可借，我们的图书详情介绍界面比图书馆网站的介绍更加详细。
-贝壳盒子更是/更有... （期待您的发现）
-```
-
-## 参考借鉴
- - 课表查询界面参考了
-[TimeTable](https://github.com/qq273681448/TimeTable)
- - 其他部分界面参考
- [We重邮](https://github.com/mcc108/wecqupt)
-
-## 体验
+## 线上版本体验
 
 [![miniprogram.th.jpg](http://www.z4a.net/images/2018/05/04/miniprogram.th.jpg)](小程序体验码)
 
+体验账号：000000000
 
-### 测试账号
+密码：test
 
-- 学号：000000000
-- 密码：test
+注意：体验账号仅供展示界面效果使用，展示数据与实际情况未必符合且数据保持不变。
 
+## 截图
+[![-1.jpg](https://z4a.net/images/2019/03/16/-1.jpg)](https://z4a.net/image/7NtGdH)
 
+## 页面路径说明
 
+```
+"pages": [
+    "pages/bookSearch/index",//通知消息提示首页
+    "pages/index/index",//学号绑定登录
+    "pages/bookSearch/isbn/iputIsbn",//扫码查书
+    "pages/bookSearch/bookInfo/bookDetail",//搜索图书的图书详情
+    "pages/bookSearch/bookInfo/bookInfo",//扫码查书的图书详情
+    "pages/bookSearch/bookInfo/bookList",//图书搜索结果列表
+    "pages/features/features",//“更多”界面
+    "pages/features/about",//关于
+    "pages/welcome/welcome",//欢迎界面
+    "pages/classQuery/index",//个人课表
+    "pages/classQuery/class",//班级课表
+    "pages/score/score",//成绩查询
+    "pages/calendar/calendar",//校历
+    "pages/error/queryerror",//查询失败或错误的异常页面
+    "pages/net/netfare",//网费查询（预留。未实现）
+    "pages/net/netBind",//网费绑定（预留。未实现）
+    "pages/electricity/electricityFare",//电费查询
+    "pages/electricity/electricityBind",//电费绑定
+    "pages/Transport/Transport",//校园出行
+    "pages/tel/tel",//常用电话
+    "pages/stuInfo/stuInfo",//学生信息（已废弃）
+    "pages/schoolNav/schoolNav"//校园导航
+  ],
+```
 
-## 下一步flag
+## 参考借鉴
 
-- ☑学号长度最多9位，输完9位数字在自动收起键盘
+- 通知中心、登录、关于、课表、电费查询界面借鉴使用[We重邮](https://github.com/mcc108/wecqupt)
 
-- ☑Welcome界面风格美化统一
+-  校园出行公交路线、公告通知跑马灯使用[Wux Weapp](https://github.com/wux-weapp/wux-weapp)
 
-- ☑个人信息页面重新设计排版布局以及内容
+- 校园导航路线规划使用[高德导航API](https://lbs.amap.com/)
 
-- ☑成绩查询完善加权计算，以及很奔放生成成绩单
+- 图书信息来自于[豆瓣API](https://github.com/zce/douban-api-proxy)
 
-- ☑课表查询增加周六周日（大二的周六周日居然开始有课了）
+- 电费查询、成绩查询界面统计图表[wx-charts](https://github.com/xiaolin3303/wx-charts)
 
-- ☑课表查询点击每节课可以放大看，解决部分课程名超长显示不完的问题
-
-- ☑首页增加公告跑马灯
-
-- ☑学院平面图
-
-- ☑优化图书馆系统无响应时的界面
-
-- ☑长按可以复制课程
-
-- 获取用户OpenID，对已知OpenID的用户免登录
-
-- 图书下增加评论留言？(这个还在纠结，有空就做，懒了就留给学弟学妹们做😁)
-
-- 用户可以自由在班级课表与个人课表之间自由切换
-
-- 用户自己更正课表（纠结......）
-
-- 网费查询
-
+- [小程序WeUI](https://github.com/Tencent/weui-wxss)

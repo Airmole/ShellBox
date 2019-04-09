@@ -1,25 +1,27 @@
 {
   "pages": [
-    "pages/index/index",
     "pages/bookSearch/index",
-    "pages/bookSearch/bookInfo/bookInfo",
-    "pages/bookSearch/bookInfo/isbn/iputIsbn",
+    "pages/index/index",
+    "pages/bookSearch/isbn/iputIsbn",
     "pages/bookSearch/bookInfo/bookDetail",
+    "pages/bookSearch/bookInfo/bookInfo",
     "pages/bookSearch/bookInfo/bookList",
     "pages/features/features",
     "pages/features/about",
     "pages/welcome/welcome",
     "pages/classQuery/index",
+    "pages/classQuery/class",
+    "pages/score/score",
     "pages/calendar/calendar",
-    "pages/score/showScore/showScore",
     "pages/error/queryerror",
     "pages/net/netfare",
     "pages/net/netBind",
     "pages/electricity/electricityFare",
     "pages/electricity/electricityBind",
     "pages/Transport/Transport",
-    "pages/tel/departmentTel/departmentTel",
-    "pages/stuInfo/stuInfo"
+    "pages/tel/tel",
+    "pages/stuInfo/stuInfo",
+    "pages/schoolNav/schoolNav"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -28,7 +30,6 @@
     "navigationBarBackgroundColor": "#7acfa6"
   },
   "tabBar": {
-    "boderStyle": "white",
     "selectedColor": "#4A6141",
     "color": "#333",
     "backgroundColor": "#fff",
@@ -36,22 +37,21 @@
     "list": [
       {
         "pagePath": "pages/bookSearch/index",
-        "text": "图书",
-        "iconPath": "images/book.png",
-        "selectedIconPath": "images/book_HL.png"
-      },
-      {
-        "pagePath": "pages/classQuery/index",
-        "text": "课表",
-        "iconPath": "images/class.png",
-        "selectedIconPath": "images/class_HL.png"
+        "text": "首页",
+        "iconPath": "images/index.png",
+        "selectedIconPath": "images/index@active.png"
       },
       {
         "pagePath": "pages/features/features",
-        "text": "其他",
-        "iconPath": "images/tools.png",
-        "selectedIconPath": "images/tools_HL.png"
+        "text": "更多",
+        "iconPath": "images/more.png",
+        "selectedIconPath": "images/holiday.png"
       }
     ]
+  },
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于校园导航定位"
+    }
   }
 }

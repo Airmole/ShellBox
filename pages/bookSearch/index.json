@@ -1,5 +1,8 @@
 {
   "enablePullDownRefresh": true,
   "backgroundColor": "#7acfa6",
-  "navigationBarTitleText": "图书查找 - 贝壳小盒子"
+  "navigationBarTitleText": "贝壳小盒子",
+  "usingComponents": {
+    "wux-notice-bar": "../common/notice-bar/index"
+  }
 }

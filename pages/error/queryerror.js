@@ -5,13 +5,16 @@ Page({
   onLoad: function(eri) {
     console.log(eri)
     var that = this;
-    that.setData({
-      ErrorTips: eri.ErrorTips,
-    })
+    if (eri.ErrorTips) {
+      that.setData({
+        ErrorTips: eri.ErrorTips,
+      })
+    }
+
   },
   goBack: function() {
     wx.navigateBack({
-      delta: 1
+      delta: 2
     })
   },
 })

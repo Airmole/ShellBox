@@ -1,8 +1,25 @@
 /* pages/features/features.wxss */
 @import "../common/weui.wxss";
 
+.radius {
+  border-radius: 15px;
+  overflow: hidden;
+}
+
+.userinfo-avatar {
+  border-radius: 50rpx;
+  clip-path: circle(50% at center);
+  width: 120rpx;
+  height: 120rpx;
+  box-shadow: 5rpx 5rpx 15rpx #ccc;
+}
+
 .ads {
-  padding: 30rpx 15rpx 30rpx 15rpx;
+  padding: 10rpx 15rpx 0rpx 15rpx;
+}
+
+.GreenBG {
+  background-color: #7acfa6;
 }
 
 button::after {
@@ -63,4 +80,171 @@ button {
   text-align: center;
   border-radius: 25px;
   margin: 40rpx 3%;
+}
+
+/**功能导航**/
+
+.main-core {
+  display: flex;
+  flex-flow: row wrap;
+  align-content: flex-start;
+  background: #fff;
+  border-bottom: 1rpx solid #e5e5e5;
+  padding: 15rpx 10rpx 10rpx;
+  min-height: 350rpx;
+  overflow: hidden;
+  border-radius: 15rpx;
+}
+
+.main-core-item {
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  width: 20%;
+  height: 170rpx;
+}
+
+.main-core-item.disabled {
+  color: #9c9c9c;
+}
+
+.core-item-icon {
+  display: block;
+  width: 85rpx;
+  height: 85rpx;
+  margin: 15rpx auto;
+}
+
+.core-item-name {
+  display: block;
+  margin: 5rpx;
+}
+
+.main-swpier {
+  height: 390rpx;
+  margin: 0rpx 0rpx 10rpx 0rpx;
+  padding-top: 0rpx;
+}
+
+.main-swpier .wx-swiper-dots.wx-swiper-dots-horizontal {
+  bottom: 0;
+  margin-bottom: -5rpx;
+}
+
+.main-card {
+  padding-bottom: 300rpx;
+}
+
+.main-card-item {
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  border-top: 1rpx solid #e5e5e5;
+  border-bottom: 1rpx solid #e5e5e5;
+  margin-bottom: 20rpx;
+  background-repeat: no-repeat;
+  background-size: 100% auto;
+  background-position: bottom center;
+  overflow: hidden;
+}
+
+.card-item-hd {
+  display: flex;
+  align-items: center;
+  height: 75rpx;
+  border-bottom: 1rpx solid #e5e5e5;
+  margin-left: 30rpx;
+}
+
+.card-item-name {
+  letter-spacing: 2px;
+}
+
+.card-item-more {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-right: 25rpx;
+}
+
+.card-item-open {
+  width: 30rpx;
+  height: 30rpx;
+}
+
+.card-item-bd {
+  padding: 20rpx 25rpx 30rpx 0;
+  margin-left: 30rpx;
+  display: flex;
+  flex-direction: column;
+}
+
+.card-info-hd {
+  display: flex;
+  justify-content: space-between;
+}
+
+.card-info-left {
+  display: flex;
+  flex-direction: column;
+}
+
+.card-info-right {
+  display: flex;
+  color: #acacac;
+  flex-direction: column;
+}
+
+.card-info-name {
+  font-size: 16pt;
+  line-height: 1.2;
+  letter-spacing: 1px;
+  color: #acacac;
+}
+
+.card-info-number {
+  line-height: 175%;
+  text-indent: 1px;
+  color: #aaa;
+}
+
+.main-ending {
+  display: none;
+  /*display: flex;*/
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin-top: 75rpx;
+  overflow: hidden;
+}
+
+.main-ending-text {
+  width: 72pt;
+  color: #ccc;
+  font-size: 8pt;
+  padding: 0 16rpx;
+  text-align: center;
+  white-space: nowrap;
+}
+
+/* 客服钮的 */
+
+.img-plus-style {
+  height: 100rpx;
+  width: 100rpx;
+  position: fixed;
+  top: 40rpx;
+  right: 25rpx;
+  opacity: 0.7;
+}
+
+.zindex100 {
+  z-index: 100;
+}
+
+.yc {
+  opacity: 0;
 }

@@ -1,8 +1,45 @@
 /* pages/calendar/calendar.wxss */
 @import "../common/weui.wxss";
 
-.ads {
-  padding: 30rpx 15rpx 30rpx 15rpx;
+Page {
+  background-color: #030c13;
+}
+
+.page__hd {
+  padding: 40px;
+}
+
+.page__bd_spacing {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.page__ft {
+  padding-bottom: 10px;
+  text-align: center;
+}
+
+.page__title {
+  color: #fff;
+  margin-left: 30rpx;
+  text-align: left;
+  font-size: 20px;
+  font-weight: 400;
+}
+
+.page__desc {
+  margin-top: 5px;
+  color: #fee;
+  text-align: left;
+  font-size: 30rpx;
+  margin-left: 30rpx;
+}
+
+.panelBK {
+  margin: 25rpx;
+  background-color: #fff;
+  padding: 25rpx 0;
+  border-radius: 25rpx;
 }
 
 .setCenter {
@@ -13,6 +50,137 @@
   width: 26px;
   height: 26px;
   vertical-align: text-bottom;
+}
+
+.page__bd {
+  margin-top: 30rpx;
+  padding-bottom: 1rpx;
+}
+
+.page__hd {
+  padding: 20rpx 35rpx 0 35rpx;
+}
+
+.weui-items {
+  margin: 30rpx 20rpx;
+}
+
+.weui-item {
+  margin: 30rpx 5rpx;
+  padding: 20rpx;
+  color: #fff;
+  height: 150rpx;
+}
+
+.weui-flex {
+  justify-content: space-between;
+  align-items: center;
+}
+
+.background-1 {
+  background: #ad8dd6;
+}
+
+.background-2 {
+  background: #ff9abc;
+}
+
+.thisWeek {
+  color: #010c10;
+  background: #18febd;
+  height: 450rpx;
+}
+
+.nextWeek {
+  color: #010c10;
+  background: #4ac3d6;
+  height: 450rpx;
+}
+
+.kaixue {
+  background: #3494e6;
+}
+
+.hanshujia {
+  background: #f80759;
+}
+
+.kaoshi {
+  background: #ff7a5b;
+}
+
+.work {
+  color: #010c10;
+  font-size: 32rpx;
+}
+
+.wraper {
+  /* background: linear-gradient(to right, #77a1d3, #79cbca, #e684ae); */
+  color: #d6eceb;
+  height: 150rpx;
+  border-radius: 15px;
+  text-align: left;
+  margin-top: -50rpx;
+}
+
+.tt {
+  color: #010c10;
+  margin-bottom: 15rpx;
+  font-size: 42rpx;
+  text-align: center;
+}
+
+.warmtips {
+  text-align: center;
+  color: #e5f6f5;
+  font-size: 42rpx;
+}
+
+.weui-item__title {
+  font-size: 42rpx;
+}
+
+.weui-item__desc {
+  font-size: 28rpx;
+}
+
+.border-shadow {
+  border-radius: 15rpx;
+}
+
+.clear {
+  position: inherit;
+  display: inherit;
+  margin-left: inherit;
+  margin-right: inherit;
+  padding-left: 0;
+  padding-right: 0;
+  box-sizing: inherit;
+  font-size: inherit;
+  text-align: inherit;
+  text-decoration: inherit;
+  line-height: inherit;
+  border-radius: inherit;
+  -webkit-tap-highlight-color: inherit;
+  overflow: inherit;
+  color: inherit;
+  background-color: inherit;
+}
+
+button::after {
+  content: inherit;
+  width: inherit;
+  height: inherit;
+  position: inherit;
+  top: inherit;
+  left: inherit;
+  border: inherit;
+  -webkit-transform: inherit;
+  transform: inherit;
+  -webkit-transform-origin: inherit;
+  transform-origin: inherit;
+  box-sizing: inherit;
+  border-radius: inherit;
 }
 
 .button-sp-area {
@@ -29,10 +197,31 @@
   font-size: 13pt;
   line-height: 85rpx;
   height: 85rpx;
-  background: #04c065;
+  background: #18febd;
+ color: #010c10;
+  text-align: center;
+  border-radius: 15rpx;
+}
+
+/* 悬浮按钮的 */
+
+.round-click {
+  height: 120rpx;
+  width: 120rpx;
+  background-color: #bc3e49;
+  border-radius: 100%;
+  position: fixed;
+  bottom: 50rpx;
+  right: 25rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9;
+}
+
+.round-click text {
+  font-size: 32rpx;
+  max-width: 80rpx;
   color: #fff;
   text-align: center;
-  border-radius: 25px;
-  box-shadow: 5rpx 5rpx 15rpx #ccc;
-  margin: 0 30rpx 30rpx;
 }

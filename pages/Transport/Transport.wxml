@@ -1,4 +1,7 @@
-<view class="page">
+<view class="remind-box" wx:if="{{isLoading}}">
+  <image class="remind-img" src="/images/loading.gif"></image>
+</view>
+<view class="page" wx:else>
   <view class="page__bd">
     <view class="weui-tab">
       <view class="weui-navbar" style='background-color:#7acfa6'>
@@ -10,58 +13,89 @@
         <view class="weui-navbar__slider" style="left: {{sliderLeft}}px; transform: translateX({{sliderOffset}}px); -webkit-transform: translateX({{sliderOffset}}px);"></view>
       </view>
       <view class="weui-tab__panel">
-        <view class="weui-tab__content" hidden="{{activeIndex != 0}}">
-          <view class='history-table-wrap'>
-            <!-- 北京方向部分代码 -->
-            <view class="weui-article" style='text-align:left;'>
-              <view class="weui-article__h1">京津新城至北京国贸班车</view>
-              <view class="weui-article__section">
-                <view class="weui-article__section">
-                  <view class="weui-article__p">往返于天津市京津新城公交站与北京市朝阳区国贸立交桥，全程高速公路行驶，中途不设站，票价25元。</view>
-                  <view class="weui-article__p"> 每日于京津新城与北京国贸两地各发车2车次，周五、周日各加车2车次，具体时间如下：</view>
-                  <view class="weui-article__h3">京津新城</view>
-                  <view class="weui-article__p">京津新城发车时间为上午8:00，下午5:30。</view>
-                  <view class="weui-article__p">周五、周日各加车2车次，发车时间为上午10:30，下午1:00。</view>
-                  <view class="weui-article__p">购票、乘车地点：京津新城公交站</view>
-                  <view class="weui-article__p">
-                    <image class="weui-article__img" src="https://airmole.cn/wechat/wxapp/images/jjxcBusStation.jpg" mode="widthFix" style="height: 180px" />
-                    <image class="weui-article__img" src="https://airmole.cn/wechat/wxapp/images/jjxcBus.jpg" mode="widthFix" style="height: 180px" />
-                  </view>
-                </view>
-
-                <view class="weui-article__section">
-                  <view class="weui-article__h3">北京国贸</view>
-                  <view class="weui-article__p">北京国贸发车时间为上午7:30，下午4:00。</view>
-                  <view class="weui-article__p">周五、周日各加车2车次，发车时间为上午10:30，下午2:00。</view>
-                  <view class="weui-article__p">乘车地点：建国路南三环东国贸桥下艾维克酒店西门路边 （下车购票，不需提前买票）</view>
-                </view>
-
-                <view class="weui-article__p">
-                  <image class="weui-article__img" src="https://airmole.cn/wechat/wxapp/images/bjgmBusStation.jpg" mode="widthFix" style="height: 180px" />
-                  <image class="weui-article__img" src="https://airmole.cn/wechat/wxapp/images/bjgmBus.jpg" mode="widthFix" style="height: 180px" />
-                </view>
-
-              </view>
-            </view>
-
-            <button open-type="share" class="login-btn">
-              <text>分享给同学</text>
-            </button>
-
-          </view>
-        </view>
-        <!-- 市区部分代码 -->
-        <view class="weui-tab__content" hidden="{{activeIndex != 1}}" style='background-color:#7acfa6;padding-bottom:30px;'>
+        <view class="weui-footer" style='background-color:#7acfa6;'>
           <!-- 广告位 -->
           <view class='ads'>
             <ad unit-id="adunit-62f52651dd5f4ff6"></ad>
           </view>
           <!-- 广告位结束 -->
+        </view>
+        <view class="weui-tab__content" hidden="{{activeIndex != 0}}" style='background-color:#7acfa6;padding-bottom:30px;'>
+          <view class="wraper" style='padding:5px;'>
+            <view class="weui-media-box__title warmtips">京津新城 ↔ 北京国贸</view>
+            <view class="weui-panel__bd">
+              <view class="weui-media-box weui-media-box_text" style='padding-bottom:0px;'>
+                <view style='color:#000;margin-bottom:8px;text-indent:2em;'> 往返于天津市京津新城公交站与北京市朝阳区国贸立交桥，全程高速公路行驶，中途不设站。每日于京津新城与北京国贸两地各发车2车次，周五、周日各加车2车次。</view>
+                <view style='color:#000;margin-bottom:8px;text-indent:2em;'>提示：资料来源于网络搜集整理，仅供参考。节假日及特殊情况变动以“京津新城北京国贸商务班车”公众号通知为准。</view>
+              </view>
+            </view>
+          </view>
+
+          <view class="wraper" style='padding:5px;'>
+            <view class="weui-media-box__title warmtips">京津新城</view>
+            <view class="weui-form-preview__bd">
+              <view class="weui-form-preview__item">
+                <view class="weui-form-preview__label">发车时间</view>
+                <view class="weui-form-preview__value">8:00,17:30</view>
+              </view>
+              <view class="weui-form-preview__item">
+                <view class="weui-form-preview__label">周五、周日加班车</view>
+                <view class="weui-form-preview__value">10:30,13:00</view>
+              </view>
+              <view class="weui-form-preview__item">
+                <view class="weui-form-preview__label">票价</view>
+                <view class="weui-form-preview__value">￥ 25元(现金)</view>
+              </view>
+              <view class="weui-form-preview__item">
+                <view class="weui-form-preview__label">购票、乘车地点</view>
+                <view class="weui-form-preview__value" bindtap='goJJXCStation'>📍京津新城公交站</view>
+              </view>
+            </view>
+          </view>
+
+          <view class="wraper" style='padding:5px;'>
+            <image class="weui-article__img" src="https://z4a.net/images/2019/02/23/jjxcBus.jpg" mode="widthFix" style="width:100%;border-radius:25rpx;" />
+          </view>
+
+          <view class="wraper" style='padding:5px;'>
+            <view class="weui-media-box__title warmtips">北京国贸</view>
+            <view class="weui-form-preview__bd">
+              <view class="weui-form-preview__item">
+                <view class="weui-form-preview__label">发车时间</view>
+                <view class="weui-form-preview__value">7:30,16:00</view>
+              </view>
+              <view class="weui-form-preview__item">
+                <view class="weui-form-preview__label">周五、周日加班车</view>
+                <view class="weui-form-preview__value">10:30,14:00</view>
+              </view>
+              <view class="weui-form-preview__item">
+                <view class="weui-form-preview__label">票价</view>
+                <view class="weui-form-preview__value">￥ 25元(现金)</view>
+              </view>
+              <view class="weui-form-preview__item">
+                <view class="weui-form-preview__label">乘车地点</view>
+                <view class="weui-form-preview__value" bindtap='goBJGMStation'>📍建国路南三环东国贸桥下艾维克酒店西门路边(到站后买票)</view>
+              </view>
+            </view>
+          </view>
+
+          <view class="wraper" style='padding:5px;'>
+            <image class="weui-article__img" src="https://z4a.net/images/2019/02/23/bjgmBus.jpg" mode="widthFix" style="width:100%;border-radius:25rpx;" />
+          </view>
+
+          <button open-type="share" class="login-btn" style='margin-top:30px;' id='BJ'>
+            <text>分享给同学</text>
+          </button>
+
+
+        </view>
+
+        <!-- 市区部分代码 -->
+        <view class="weui-tab__content" hidden="{{activeIndex != 1}}" style='background-color:#7acfa6;padding-bottom:30px;'>
 
           <view class="wraper" style='padding:5px;'>
             <view class="weui-media-box__title warmtips">温馨提示</view>
             <view class="weui-panel__bd">
-
               <view class="weui-media-box weui-media-box_text" style='padding-bottom:0px;'>
                 <view class="weui-media-box__desc" style='color:#000;margin-bottom:8px;'>乘车地点：学院西门</view>
                 <view class="weui-media-box__desc" style='color:#000;margin-bottom:8px;'>票价：全程￥15元(按距离5/10/15元,只收现金)</view>
@@ -73,7 +107,6 @@
                 <view class="weui-media-box__info__meta" style='color:#000;padding-left:10px;'>提示：资料来源于网络搜集整理，仅供参考</view>
               </view>
             </view>
-
           </view>
 
           <view class="ykt-detail-wraper" style='padding:20px;'>
@@ -119,15 +152,13 @@
             </wux-steps>
           </view>
 
-          <button open-type="share" class="login-btn" style='margin-top:30px;'>
+          <button open-type="share" class="login-btn" style='margin-top:30px;' id='TJ'>
             <text>分享给同学</text>
           </button>
 
         </view>
 
         <view class="weui-tab__content" hidden="{{activeIndex != 2}}" style='background-color:#7acfa6;padding-bottom:30px;'>
-          <text>\r\n</text>
-
           <view class="wraper" style='padding:5px;'>
             <view class="weui-media-box__title warmtips">温馨提示</view>
             <view class="weui-form-preview__bd">
@@ -172,7 +203,7 @@
             </wux-steps>
           </view>
 
-          <button open-type="share" class="login-btn" style='margin-top:30px;'>
+          <button open-type="share" class="login-btn" style='margin-top:30px;' id='BD'>
             <text>分享给同学</text>
           </button>
 

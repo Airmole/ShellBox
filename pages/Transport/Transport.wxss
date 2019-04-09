@@ -1,12 +1,15 @@
 @import "../common/weui.wxss";
 
+Page {
+  background-color: #7acfa6;
+}
+
 .ads {
-  padding: 5rpx 30rpx 30rpx 30rpx;
+  padding: 0rpx 15rpx 15rpx 15rpx;
 }
 
 page, .page, .page__bd {
   height: 100%;
-  background-color: #fff;
 }
 
 image {

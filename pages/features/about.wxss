@@ -1,5 +1,9 @@
 /* pages/features/about.wxss */
 
+.page {
+  background-color: #7acfa6;
+}
+
 .container {
   background: #f4f4f4;
   padding: 0;
@@ -125,6 +129,7 @@
   margin-top: 15rpx;
   border-top: 1px #e5e5e5 solid;
   border-bottom: 1px #e5e5e5 solid;
+  border-radius: 25rpx;
 }
 
 .desc-title {
@@ -163,7 +168,7 @@
   font-size: 9pt;
   line-height: 150%;
   text-align: center;
-  padding: 100rpx 0 15rpx;
+  margin: 50rpx 0 15rpx;
   color: #c2c2c2;
 }
 

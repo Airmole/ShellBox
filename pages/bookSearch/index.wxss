@@ -1,62 +1,513 @@
 /* pages/bookSearch/index.wxss */
 @import "../common/weui.wxss";
 
-@keyframes kf-marque-animation {
-  0% {
-    transform: translateX(0);
-  }
-
-  100% {
-    transform: translateX(-33.3%);
-  }
+.ads {
+  padding: 30rpx 15rpx 30rpx 15rpx;
 }
 
-.login-btn {
-  font-size: 13pt;
-  line-height: 85rpx;
-  height: 85rpx;
-  background: #04c065;
-  color: #fff;
-  text-align: center;
-  border-radius: 25px;
-  box-shadow: 5rpx 5rpx 15rpx #ccc;
-  margin: 0 30rpx 30rpx;
+.noDisplay {
+  visibility: hidden;
+  height: 230rpx;
 }
 
-.describe {
-  height: 100vw;
-}
-
-.marquee {
-  width: 100%;
-  height: 30px;
-  line-height: 30px;
-  background: #7acfa6;
-  color: rgba(0, 0, 0, 0.74);
-  border: none;
-  display: block;
-  margin: 0 auto;
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: clip;
-  position: relative;
-  font-size: 28rpx;
-}
-
-.marquee .content {
+.blockView {
   display: inline-block;
-  position: relative;
-  padding-right: 0px;
-  /* 跑马灯设置 */
-  animation: kf-marque-animation 30s linear infinite;
+}
+
+.radio {
+  margin-right: 10rpx;
+}
+
+.radios {
+  margin-top: 20rpx;
+  margin-bottom: 70rpx;
+  flex-direction: row;
+  align-items: baseline;
+}
+
+.mini-btn {
+  float: right;
+  display: inline-block;
+  margin-top: -8rpx;
+}
+
+/* @import '/utils/weui-searchbar.wxss'; */
+
+.container {
+  padding-bottom: 0;
+  background-color: #f0eff5;
+  background-repeat: no-repeat;
+  background-size: 100% auto;
+  background-position: bottom center;
+  /* background-image: url('/images/index/tri.png'); *//*微信暂不支持静态bgimg文件，改用服务器url*//* background-image: url('https://z4a.net/images/2019/02/01/tri.png'); */
+  background-image: url('https://z4a.net/images/2019/02/01/timmg.png');
+}
+
+/**功能导航**/
+
+.main-core {
+  display: flex;
+  flex-flow: row wrap;
+  align-content: flex-start;
+  background: #fff;
+  border-bottom: 1rpx solid #e5e5e5;
+  padding: 15rpx 10rpx 10rpx;
+  min-height: 350rpx;
+  overflow: hidden;
+}
+
+.main-core-item {
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  width: 20%;
+  height: 170rpx;
+}
+
+.main-core-item.disabled {
+  color: #9c9c9c;
+}
+
+.core-item-icon {
+  display: block;
+  width: 85rpx;
+  height: 85rpx;
+  margin: 15rpx auto;
+}
+
+.core-item-name {
+  display: block;
+  margin: 5rpx;
+}
+
+.main-swpier {
+  height: 390rpx;
+  margin-bottom: 20rpx;
+}
+
+.main-swpier .wx-swiper-dots.wx-swiper-dots-horizontal {
+  bottom: 0;
+  margin-bottom: -5rpx;
+}
+
+/**卡片列表**/
+
+.main-card {
+  padding-bottom: 300rpx;
+}
+
+.main-card-item {
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  border-top: 1rpx solid #e5e5e5;
+  border-bottom: 1rpx solid #e5e5e5;
+  border-radius: 25rpx;
+  margin-bottom: 20rpx;
+  background-repeat: no-repeat;
+  background-size: 100% auto;
+  background-position: bottom center;
+  overflow: hidden;
+}
+
+.examWeek-Margin {
+  margin-bottom: 40rpx;
+}
+
+.main-card-item#kb {
+  background-image: url('https://z4a.net/images/2019/02/01/kb-bg.png');
+}
+
+.main-card-item#nextCourse {
+  background-image: url('https://z4a.net/images/2019/02/01/kb-bg.png');
+}
+
+.main-card-item#jwClosed {
+  background-image: url('https://z4a.net/images/2019/02/03/profile-first-issue.png');
+}
+
+.main-card-item#ks {
+  background-image: url('https://z4a.net/images/2019/02/02/tools.png');
+}
+
+.main-card-item#kaixue {
+  background-image: url('https://z4a.net/images/2019/02/03/f916aa746928d9b32ff09fe82c61f54c.png');
+}
+
+.main-card-item#vocation {
+  background-image: url('https://z4a.net/images/2019/02/03/profile-first-repo.png');
+}
+
+.main-card-item#ykt {
+  /*background-image: url('/images/index/ykt-bg.png');*//*微信暂不支持静态bgimg文件，改用服务器url*/
+  background-image: url('https://z4a.net/images/2019/03/10/ykt-bg.png');
+}
+
+.main-card-item#chashu {
+  /*background-image: url('/images/index/ykt-bg.png');*//*微信暂不支持静态bgimg文件，改用服务器url*/
+  background-image: url('https://z4a.net/images/2019/02/02/books.png');
+}
+
+.main-card-item#jy {
+  /*background-image: url('/images/index/jy-bg.png');*//*微信暂不支持静态bgimg文件，改用服务器url*/
+  background-image: url('https://we.cqu.pt/app/images/index/ykt-bg.png');
+}
+
+.main-card-item#fj {
+  /*background-image: url('/images/index/jy-bg.png');*//*微信暂不支持静态bgimg文件，改用服务器url*/
+  background-image: url('https://we.cqu.pt/app/images/index/ykt-bg.png');
+}
+
+.main-card-item#mk {
+  /*background-image: url('/images/index/jy-bg.png');*//*微信暂不支持静态bgimg文件，改用服务器url*/
+  background-image: url('https://z4a.net/images/2019/02/02/profile-joined-github.png');
+}
+
+.main-card-item#sdf {
+  /*background-image: url('/images/index/sdf-bg.png');*//*微信暂不支持静态bgimg文件，改用服务器url*/
+  background-image: url('https://we.cqu.pt/app/images/index/sdf-bg.png');
+}
+
+.main-card-item navigator {
+  display: flex;
+  flex-direction: column;
+}
+
+page .navigator-hover {
+  background-color: rgba(100, 100, 100, 0.1);
+  opacity: 0.8;
+}
+
+.card-item-hd {
+  display: flex;
+  align-items: center;
+  height: 75rpx;
+  border-bottom: 1rpx solid #e5e5e5;
+  margin-left: 30rpx;
+}
+
+.card-item-icon {
+  width: 40rpx;
+  height: 40rpx;
+  margin-right: 10rpx;
+}
+
+.card-item-name {
+  letter-spacing: 2px;
+}
+
+.card-item-more {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-right: 25rpx;
+}
+
+.card-item-open {
+  width: 30rpx;
+  height: 30rpx;
+}
+
+.card-item-bd {
+  padding: 20rpx 25rpx 30rpx 0;
+  margin-left: 30rpx;
+  display: flex;
+  flex-direction: column;
+}
+
+.card-info-hd {
+  display: flex;
+  justify-content: space-between;
+}
+
+.card-info-left {
+  display: flex;
+  flex-direction: column;
+}
+
+.card-info-right {
+  display: flex;
+  color: #acacac;
+  flex-direction: column;
+}
+
+.card-info-name {
+  font-size: 16pt;
+  line-height: 1.2;
+  letter-spacing: 1px;
+  color: #acacac;
+}
+
+.card-info-number {
+  line-height: 175%;
+  text-indent: 1px;
+  color: #aaa;
+}
+
+.main-ending {
+  display: none;
+  /*display: flex;*/
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin-top: 75rpx;
+  overflow: hidden;
+}
+
+.main-ending-text {
+  width: 72pt;
+  color: #ccc;
+  font-size: 8pt;
+  padding: 0 16rpx;
+  text-align: center;
   white-space: nowrap;
 }
 
-.logo-sub {
+.main-ending-line {
+  width: 100%;
+  height: 0;
+  border-top: 1rpx solid #e5e5e5;
+}
+
+/**今日课表**/
+
+.main-card-item#kb .card-item-bd {
+  padding: 0;
+  margin-right: 25rpx;
+}
+
+.kb-nothing {
+  align-items: center;
+  justify-content: center;
+  font-size: 11pt;
+  min-height: 150rpx;
+}
+
+.kb-open {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   text-align: center;
-  margin-top: 50rpx;
-  margin-bottom: 50rpx;
-  color: #666;
+  color: #0d50a3;
+  height: 90rpx;
+  border-top: 1rpx solid #e5e5e5;
+  margin-top: -1rpx;
+}
+
+.kb-item {
+  display: flex;
+  height: 120rpx;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px dotted #e5e5e5;
+}
+
+.kb-item-left {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  padding-right: 30rpx;
+  overflow: hidden;
+}
+
+.kb-item-what {
+  font-size: 12pt;
+  line-height: 200%;
+  color: #777;
+  white-space: nowrap;
+  word-break: break-all;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.kb-item-when {
+  line-height: 125%;
+  color: #bbb;
+}
+
+.kb-item-where {
+  flex: 0 0 auto;
+  font-size: 14pt;
+  color: #999;
+  letter-spacing: 1px;
+}
+
+/**一卡通**/
+
+.ykt-balance {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  font-weight: bold;
+  padding: 0rpx 0 10rpx;
+}
+
+.ykt-balance-text {
+  font-size: 17pt;
+  line-height: 2;
+  color: #999;
+}
+
+.ykt-balance-value {
+  font-size: 58pt;
+  line-height: 1;
+  padding: 0 20rpx;
+  color: #ffbf92;
+}
+
+.ykt-cost {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  font-weight: bold;
+  line-height: 200%;
+}
+
+.ykt-cost-text {
+  font-size: 10pt;
+  color: #999;
+}
+
+.ykt-cost-value {
+  font-size: 12pt;
+  font-weight: normal;
+  color: #777;
+  padding: 0 10rpx;
+}
+
+.ykt-cost-total {
+  font-size: 16pt;
+  color: #ffbf92;
+  padding: 0 10rpx;
+}
+
+.ykt-title {
+  font-size: 10pt;
+}
+
+.ykt-no-cost {
+  color: #bbb;
+}
+
+/**借阅信息**/
+
+.main-card-item#jy .card-item-bd {
+  padding-bottom: 85rpx;
+}
+
+.jy-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.jy-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 20rpx 15rpx 15rpx;
+}
+
+.jy-book {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  box-sizing: border-box;
+  width: 176rpx;
+  height: 231rpx;
+  background-size: 100% 100%;
+  padding: 5rpx 5rpx 50rpx 30rpx;
+  color: #fff;
+  margin-bottom: 10rpx;
+}
+
+.jy-pickup-time {
+  text-align: right;
+  font-size: 8pt;
+  word-wrap: break-word;
+  white-space: nowrap;
+}
+
+.jy-pickup-time-text {
+  padding-left: 4rpx;
+}
+
+.jy-book-name {
+  height: 126rpx;
+  font-size: 28rpx;
+  font-weight: bold;
+  line-height: 150%;
+  word-wrap: break-word;
+  word-break: break-all;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+}
+
+.jy-timing, jy-return-time {
+  line-height: 200%;
+}
+
+.jy-timing-value {
+  font-size: 13pt;
+  font-weight: bold;
+  color: #729fc3;
+  padding: 0 8rpx;
+}
+
+.jy-timing-text {
+  font-size: 10pt;
+  color: #acacac;
+}
+
+.jy-return-time-value {
+  font-size: 12pt;
+  color: #7f848a;
+}
+
+.jy-return-time-text {
+  font-size: 10pt;
+  color: #acacac;
+  padding-left: 8rpx;
+}
+
+/**水电费**/
+
+.main-card-item#sdf .card-item-bd {
+  padding-bottom: 80rpx;
+}
+
+.sdf-hd {
+  color: #acacac;
+  margin: 40rpx 0 20rpx;
+}
+
+.sdf-bd {
+  display: flex;
+  justify-content: space-between;
+  padding: 30rpx 0;
+  margin: 0 auto;
+}
+
+.sdf-key {
+  padding: 0 10rpx;
+}
+
+.sdf-value {
+  color: #ffbf92;
+  font-size: 46pt;
+  font-weight: bold;
+  padding: 0 15rpx;
+}
+
+.sdf-text {
+  color: #acacac;
+  font-size: 13pt;
 }
 
 .searchbar-result {
@@ -72,12 +523,21 @@
   padding: 12px 15px 12px 35px;
 }
 
-.bookImg {
-  width: 120rpx;
-  height: 160rpx;
-  padding: -12px 0px 0px 0px;
+.remind-box {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
-.weui-panel__bd {
-  padding-top: -80rpx;
+.remind-img {
+  width: 200rpx;
+  height: 200rpx;
+  padding-bottom: 25rpx;
+}
+
+.remind-text {
+  font-size: 12pt;
+  line-height: 150%;
 }
