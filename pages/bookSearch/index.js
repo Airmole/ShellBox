@@ -31,6 +31,10 @@ Page({
     ]
   },
   onLoad: function() {
+
+    app.globalData.pwd = "";
+    wx.setStorageSync('pwd', '');
+
     this.checkEffectiveIdAndPasswoed();
     var personalClass = wx.getStorageSync('personalClass');
     if (personalClass != '') {
@@ -69,7 +73,7 @@ Page({
   checkEffectiveIdAndPasswoed: function() {
     var that = this;
     var uid = wx.getStorageSync('uid');
-    var pwd = wx.getStorageSync('pwd');
+    var pwd = wx.getStorageSync('newpwd');
 
     var zhai = wx.getStorageSync('building');
     var room = wx.getStorageSync('roomNo');
@@ -183,7 +187,7 @@ Page({
         })
         console.log(res.data);
         var uid = wx.getStorageSync('uid');
-        var pwd = wx.getStorageSync('pwd');
+        var pwd = wx.getStorageSync('newpwd');
         if (res.data.todayCourse.getCourseStatus != 403) {
           that.setData({
             isLoading: "finished",

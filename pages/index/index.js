@@ -14,27 +14,27 @@ Page({
   login: function(uid, pwd) {
     var that = this;
     wx.request({
-      url: app.globalData.apiURL + '/welcome.php?uid=' + uid + '&pwd=' + pwd,
+      url: app.globalData.apiURL + '/v2/login.php?username=' + uid + '&password=' + pwd,
       success: function(res) {
         that.setData({
           jsonStr: res.data,
         })
         console.log(res.data);
         //账号密码错误以下功能实现跳转错误页面
-        if (res.data.todayCourse.getCourseStatus != 403) {
+        if (res.data.code != 403) {
           app.globalData.uid = uid;
-          app.globalData.pwd = pwd;
+          app.globalData.newpwd = pwd;
           //设置本地Storage,维持登录态用
           wx.setStorageSync('uid', uid);
-          wx.setStorageSync('pwd', pwd);
+          wx.setStorageSync('newpwd', pwd);
           wx.switchTab({
             url: '../bookSearch/index',
           })
         } else {
           app.globalData.uid = "";
-          app.globalData.pwd = "";
+          app.globalData.newpwd = "";
           wx.setStorageSync('uid', '');
-          wx.setStorageSync('pwd', '');
+          wx.setStorageSync('newpwd', '');
           console.log(that.data.isLoading, uid, pwd)
           that.setData({
             isLoading: false
@@ -47,7 +47,7 @@ Page({
   onLoad: function() {
     var that = this;
     var uid = app.globalData.uid;
-    var pwd = app.globalData.pwd;
+    var pwd = app.globalData.newpwd;
     if (this.checkHasLogin()) {
       //值是true,有登录缓存，登陆一下试试
       this.login(uid, pwd);
@@ -57,7 +57,7 @@ Page({
   },
   checkHasLogin: function() {
     var uid = wx.getStorageSync('uid');
-    var pwd = wx.getStorageSync('pwd');
+    var pwd = wx.getStorageSync('newpwd');
     if (uid != '' && pwd != '') {
       return true;
     } else {
@@ -83,7 +83,7 @@ Page({
       });
     } else {
       wx.request({
-        url: app.globalData.apiURL + '/welcome.php?uid=' + uid + '&pwd=' + pwd,
+        url: app.globalData.apiURL + '/v2/login.php?username=' + uid + '&password=' + pwd,
         success: function(res) {
           that.setData({
             jsonStr: res.data,
@@ -91,7 +91,7 @@ Page({
           wx.hideToast()
           // console.log(res.data);
           //账号密码错误以下功能实现密码错误Toast
-          if (res.data.todayCourse.getCourseStatus == 403) {
+          if (res.data.code == 403) {
             wx.showToast({
               title: '账号密码有误',
               image: '/images/info.png',
@@ -100,10 +100,10 @@ Page({
             });
           } else {
             app.globalData.uid = uid;
-            app.globalData.pwd = pwd;
+            app.globalData.newpwd = pwd;
             //设置本地Storage,维持登录态用
             wx.setStorageSync('uid', uid);
-            wx.setStorageSync('pwd', pwd);
+            wx.setStorageSync('newpwd', pwd);
             wx.navigateTo({
               url: '/pages/welcome/welcome?uid=' + uid + '&pwd=' + pwd
             })

@@ -38,7 +38,7 @@ Page({
       }
     } else {
       var uid = wx.getStorageSync('uid');
-      var pwd = wx.getStorageSync('pwd');
+      var pwd = wx.getStorageSync('newpwd');
       that.setData({
         stuId: uid,
         password: pwd,
@@ -59,9 +59,9 @@ Page({
   GetScoreData: function(uid, pwd) {
     var that = this;
     wx.request({
-      url: 'https://api.giiig.cn/tj/?username=' + uid + '&password=' + pwd,
+      url: 'https://api.airmole.cn/ShellBox/v2/score.php?username=' + uid + '&password=' + pwd,
       success: function(res) {
-        console.log(res)
+        console.log(res.data)
         that.setData({
           jsonContent: res.data,
         })
@@ -70,13 +70,8 @@ Page({
             url: '/pages/error/queryerror?ErrorTips=暂时无法查询'
           })
         }
-        if (res.data.code == 403) {
-          wx.redirectTo({
-            url: '/pages/error/queryerror?ErrorTips=' + res.data.message
-          })
-        }
-        if (res.data.code == 200) {
-          if (res.data.data.msg == '密码错误') {
+        if (Object.keys(res.data).length != 0) {
+          if (res.data.code == "401" && res.data.desc =="学号、密码不正确？") {
             that.reLogin();
           }
           that.setData({
@@ -86,7 +81,7 @@ Page({
           that.charts();
         } else {
           wx.redirectTo({
-            url: '/pages/error/queryerror?ErrorTips=' + res.data.message
+            url: '/pages/error/queryerror?ErrorTips=' + res.data.desc
           })
         }
       }
@@ -166,16 +161,17 @@ Page({
     var categories = [];
     var data1 = [];
     var data2 = [];
-    var scoreJson = this.data.jsonContent.data;
+    var scoreJson = this.data.jsonContent;
     if (scoreJson.length < 2) {
+      console.log("scoreJson.length==" + scoreJson.length);
       that.setData({
         showGraphic: false
       })
     }
-    for (var i = 0; i < scoreJson.length; i++) {
-      categories.push(scoreJson[i].time.schoolYear + '年 第' + scoreJson[i].time.semester + '学期');
-      data1.push(scoreJson[i].avg);
-      data2.push(scoreJson[i].gpa);
+    for (var key in scoreJson) {
+      categories.push(key);
+      data1.push(scoreJson[key].avg);
+      data2.push(scoreJson[key].gpa);
     }
     categories = categories.reverse();
     data1 = data1.reverse();
@@ -270,8 +266,10 @@ Page({
   reLogin: function() {
     app.globalData.uid = "";
     app.globalData.pwd = "";
+    app.globalData.newpwd = "";
     wx.setStorageSync('uid', '');
     wx.setStorageSync('pwd', '');
+    wx.setStorageSync('newpwd', '');
     wx.redirectTo({
       url: '/pages/index/index'
     })

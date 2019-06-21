@@ -28,7 +28,7 @@ Page({
   onLoad: function(options) {
     var that = this;
     var uid = wx.getStorageSync('uid');
-    var pwd = wx.getStorageSync('pwd');
+    var pwd = wx.getStorageSync('newpwd');
     wx.showToast({
       title: "loading",
       icon: "loading",
@@ -109,8 +109,10 @@ Page({
   logout: function() {
     app.globalData.uid = "";
     app.globalData.pwd = "";
+    app.globalData.newpwd = "";
     wx.setStorageSync('uid', '');
     wx.setStorageSync('pwd', '');
+    wx.setStorageSync('newpwd', '');
     wx.redirectTo({
       url: '/pages/index/index'
     })

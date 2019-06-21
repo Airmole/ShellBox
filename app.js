@@ -9,7 +9,8 @@ App({
     building: '',
     roomNo: '',
     uid: '',
-    pwd: ''
+    pwd: '',
+    newpwd:''
   },
   util: require('./utils/util'),
   onLaunch: function() {

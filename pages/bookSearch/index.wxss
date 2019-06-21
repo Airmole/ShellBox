@@ -167,7 +167,7 @@
 
 .main-card-item#sdf {
   /*background-image: url('/images/index/sdf-bg.png');*//*微信暂不支持静态bgimg文件，改用服务器url*/
-  background-image: url('https://we.cqu.pt/app/images/index/sdf-bg.png');
+  background-image: url('https://i.loli.net/2019/06/22/5d0d1dc62946864090.png');
 }
 
 .main-card-item navigator {
