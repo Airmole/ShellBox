@@ -58,8 +58,8 @@ Page({
   },
   showPic: function() {
     wx.previewImage({
-      current: 'https://z4a.net/images/2019/02/24/7290d9cc20d7f5f9f4cae1a9ec42c2d4.png', // 当前显示图片的http链接
-      urls: ["https://z4a.net/images/2019/02/24/7290d9cc20d7f5f9f4cae1a9ec42c2d4.png"] // 需要预览的图片http链接列表
+      current: 'https://z4a.net/images/2019/06/22/19-20II.jpg', // 当前显示图片的http链接
+      urls: ["https://z4a.net/images/2019/06/22/19-20II.jpg"] // 需要预览的图片http链接列表
     })
   }
 })
