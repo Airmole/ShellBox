@@ -2,6 +2,7 @@
   "pages": [
     "pages/bookSearch/index",
     "pages/index/index",
+    "pages/index/reset",
     "pages/bookSearch/isbn/iputIsbn",
     "pages/bookSearch/bookInfo/bookDetail",
     "pages/bookSearch/bookInfo/bookInfo",

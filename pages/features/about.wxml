@@ -11,19 +11,43 @@
     <view class="version">
       <view class="version-title">
         <text class="title-name">贝壳小盒子</text>
-        <text class="version-text">公测2.0.0</text>
+        <text class="version-text">公测2.1.0</text>
       </view>
     </view>
     <view class="describe">
+      <video src="cloud://sb-bbb13a.7362-sb-bbb13a/贝壳小盒子演示.mp4" poster='cloud://sb-bbb13a.7362-sb-bbb13a/ShellBoxheadJPG.jpg' controls style='width:{{width}};height:{{height}};'></video>
       <text class="desc-title">简介</text>
-      <text class="desc-content">贝壳(小)盒子是一款微信小程序，由北京科技大学天津学院网络中心指导，冰炫互联（学生技术组织/团队）开发，有别于公众号的一种全新的连接用户与服务的方式，无需下载与安装即可在微信内被便捷地获取和传播，同时具有出色的使用体验。</text>
-      <text class="desc-content">贝壳盒子是碎片化、一站式、一体化校园移动门户，集课表、成绩、学籍信息、资讯等功能于一身.</text>
-      <text class="desc-content">贝壳盒子有更好用的课表查询，美观大方，清晰明了。</text>
-      <text class="desc-content">贝壳盒子有更方便的校历查询，对比教务网发布的Excel截图校历，界面优雅，清新脱俗。</text>
-      <text class="desc-content">贝壳盒子有更强大的图书馆馆藏图书查询，搜书利器，可以通过关键字搜索到图书馆OPAC藏书信息，更可以通过扫面图书条码查询是否可借，我们的图书详情介绍界面比图书馆网站的介绍更加详细。</text>
-      <text class="desc-content">贝壳盒子有详细清晰的校园出行资料，校园大巴几点发车一目了然。</text>
-      <text class="desc-content">贝壳盒子更是/更有... （期待您的发现）</text>
+      <text class="desc-content" style='text-indent:2em;'>贝壳小盒子（ShellBox）是一款微信小程序，致力于帮助我们北京科技大学天津学院的师生更方便的查询教务、图书、用电等信息，以及浏览学院校历、拨打各系部电话，并提供校园内地理导航等功能。</text>
+      <text class="desc-content" style='text-indent:2em;'>贝壳小盒子目前还处于公测阶段，有一系列新的功能正在我们的开发计划中。“你想要的，都在这里！”</text>
+      <text class="desc-title">数据来源</text>
+      <text class="desc-content">* 课表、成绩等数据来自教务处官网；\r\n* 图书相关信息来自图书馆官网以及豆瓣；\r\n* 校历、各系部联系电话来自于学院官方网站；\r\n* 用电数据来自智慧校园</text>
+      <text class="desc-title">开发贡献</text>
+      <view class='avatarGroup'>
+        <view class='oneAvatar' wx:for="{{coder}}" wx:key="coderkey">
+          <view class="userinfo-avatar">
+            <image src='{{item.avatar}}' style='width:110rpx;height:110rpx;'></image>
+          </view>
+          <view class="coperatorName">{{item.nickName}}</view>
+        </view>
+      </view>
+      <text class="desc-title">咨询客服</text>
+      <view class='avatarGroup'>
+        <view class='oneAvatar' wx:for="{{servicer}}" wx:key="serverkey">
+          <view class="userinfo-avatar">
+            <image src='{{item.avatar}}' style='width:110rpx;height:110rpx;'></image>
+          </view>
+          <view class="coperatorName">{{item.nickName}}</view>
+        </view>
+      </view>
+      <text class="desc-title">关联贝壳小盒子</text>
+      <text class="desc-content" style='text-indent:2em;'>若您或者您的朋友在运营与本校相关的公众号（学生组织/社团/校园自媒体等），「贝壳小盒子」诚挚地欢迎您的公众号关联我们的小程序，并期待合作！\r\n  </text>
+      <text bindtap='copyID'>AppID：wxf0ba93e3faff4eda</text>
     </view>
+
+    <view class="button-sp-area">
+      <button class="weui-btn" type="primary" plain="true" session-from='{"nickName":"{{userInfo.nickName}}", "avatarUrl":"{{userInfo.avatarUrl}}"' open-type='contact'>联系客服</button>
+    </view>
+
   </view>
 
   <view class="footer">

@@ -248,24 +248,24 @@
     </view>
 
     <view class="main-card-item" id="kb" wx:if="{{jsonStr.todayCourse.getCourseStatus == 500}}">
-      <!-- <navigator url="/pages/classQuery/index?isShareFrom=null"> -->
-      <view class="card-item-hd">
-        <text class="card-item-icon">😡</text>
-        <text class="card-item-name">缓存（ {{jsonStr['dayOfWeek']}}）课表</text>
-      </view>
-      <view class="card-item-bd">
-        <view class="kb-item" wx:for="{{offlinePeronalClass}}" wx:key="todayCourseOffline" wx:if="{{item.courseName != ''}}">
-          <view class="kb-item-left">
-            <text class="kb-item-what">{{item.courseName}}{{item.teachWeek}}</text>
-            <text class="kb-item-when">{{item.startTime}}上课 - {{item.endTime}}下课</text>
-          </view>
-          <text class="kb-item-where">{{item.place}}</text>
+      <navigator url="/pages/classQuery/index?isShareFrom=null">
+        <view class="card-item-hd">
+          <text class="card-item-icon">😡</text>
+          <text class="card-item-name">缓存（ {{jsonStr['dayOfWeek']}}）课表</text>
         </view>
-      </view>
-      <view class="kb-open">
-        <text>查看完整个人课表</text>
-      </view>
-      <!-- </navigator> -->
+        <view class="card-item-bd">
+          <view class="kb-item" wx:for="{{offlinePeronalClass}}" wx:key="todayCourseOffline" wx:if="{{item.courseName != ''}}">
+            <view class="kb-item-left">
+              <text class="kb-item-what">{{item.courseName}}{{item.teachWeek}}</text>
+              <text class="kb-item-when">{{item.startTime}}上课 - {{item.endTime}}下课</text>
+            </view>
+            <text class="kb-item-where">{{item.place}}</text>
+          </view>
+        </view>
+        <view class="kb-open">
+          <text>查看完整个人课表</text>
+        </view>
+      </navigator>
     </view>
 
 

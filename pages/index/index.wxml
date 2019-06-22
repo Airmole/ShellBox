@@ -19,11 +19,13 @@
             </view>
             <view class="input-group {{passwd_focus ? 'active' : ''}}">
               <text class="input-label">密码</text>
-              <input name='pwd' id='passwd' password="true" cursor-spacing="30" placeholder="请输入你的教务密码" bindfocus="inputFocus" bindblur="inputBlur" />
+              <input name='pwd' id='passwd' password="true" cursor-spacing="30" placeholder="请输入你的新教务密码" bindfocus="inputFocus" bindblur="inputBlur" />
             </view>
-            <view class="login-help" bindtap="showHelp">
-              <text>帮助</text>
-              <image class="login-help-img" src="/images/help.png"></image>
+            <view class="login-help">
+              <view bindtap="showHelp">
+                <text>帮助</text>
+                <image class="login-help-img" src="/images/help.png"></image>
+              </view>
             </view>
             <view>
               <button formType="submit" class="login-btn">确认绑定</button>
@@ -40,12 +42,11 @@
               <view class="help-q">1、学号和密码是什么？</view>
               <view class="help-a">
                 <text>学号：学号就是你的教务学号。</text>
-                <text>密码：即登录教务网查课表、成绩的初始密码或已更改密码</text>
-                <text>初始密码与个人身份证号码相关,通常默认密码是您的身份证号中包含生日的部分或完整的身份证号码(含X则大写)</text>
+                <text>密码：您设定的新教务系统的登录密码。</text>
               </view>
               <view class="help-q">2、忘记密码？</view>
               <view class="help-a">
-                <text>请携带学生证和身份证前往行政楼206重置教务密码</text>
+               <navigator url='./reset'><text style='color:blue;'>请点击这里进行“重置密码”操作，重置密码成功后，即可登录。</text></navigator>
               </view>
               <view class="help-q">3、大一新生？暂时还没有学号😥</view>
               <view class="help-a">

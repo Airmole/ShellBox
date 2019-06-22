@@ -187,3 +187,50 @@
   height: 10pt;
   margin-right: 5rpx;
 }
+
+.userinfo-avatar {
+  border-radius: 50rpx;
+  clip-path: circle(50% at center);
+  width: 110rpx;
+  height: 110rpx;
+  box-shadow: 5rpx 5rpx 15rpx #ccc;
+}
+
+.oneAvatar {
+  text-align: center;
+  float: left;
+  width: 110rpx;
+  height: 140rpx;
+  font-size: 26rpx;
+  margin-right: 5px;
+  margin-bottom: 15px;
+}
+
+.button-sp-area {
+  padding: 30rpx 35rpx;
+}
+
+button[type="primary"][plain] {
+  color: #fff;
+  border: 1px solid #96deda;
+  background-image: linear-gradient(-45deg, #7acfa6 0%, #7acfa6 50%);
+  border-radius: 50px;
+}
+
+.button-hover[type="primary"][plain] {
+  color: #fff;
+  border-color: #96deda;
+  opacity: 0.6;
+}
+
+button[type="default"][plain] {
+  color: #fff;
+  border: 1px solid #fbc2eb;
+  background-image: linear-gradient(-45deg, #7acfa6 0%, #7acfa6 50%);
+}
+
+.button-hover[type="default"][plain] {
+  color: #fff;
+  border-color: #fbc2eb;
+  opacity: 0.6;
+}
