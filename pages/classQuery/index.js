@@ -27,14 +27,6 @@ Page({
   },
   onLoad: function(options) {
 
-    if (true) {
-      wx.navigateTo({
-        url: '/pages/error/queryerror?ErrorTips=' + "换了新教务系统，暂无课表",
-      })
-      return;
-    }
-
-
     var that = this;
     that.setInfo();
     if (options.isShareFrom != 'null') {
@@ -43,8 +35,8 @@ Page({
       }
     } else {
       var uid = wx.getStorageSync('uid');
-      var pwd = wx.getStorageSync('pwd');
-      console.log(uid)
+      var pwd = wx.getStorageSync('newpwd');
+      console.log(pwd)
       that.setData({
         uid: uid,
         pwd: pwd,
@@ -111,7 +103,7 @@ Page({
             })
           } else {
             wx.navigateTo({
-              url: '/pages/error/queryerror?ErrorTips=' + "教务异常，暂时无法查询",
+              url: '/pages/error/queryerror?ErrorTips=' + "换了新教务系统，暂无课表",
             })
           }
         }
