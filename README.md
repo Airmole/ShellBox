@@ -25,6 +25,7 @@
 "pages": [
     "pages/bookSearch/index",//通知消息提示首页
     "pages/index/index",//学号绑定登录
+    "pages/index/reset",//用户重置密码
     "pages/bookSearch/isbn/iputIsbn",//扫码查书
     "pages/bookSearch/bookInfo/bookDetail",//搜索图书的图书详情
     "pages/bookSearch/bookInfo/bookInfo",//扫码查书的图书详情
