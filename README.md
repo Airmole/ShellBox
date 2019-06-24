@@ -15,11 +15,6 @@
 
 [![miniprogram.th.jpg](http://www.z4a.net/images/2018/05/04/miniprogram.th.jpg)](小程序体验码)
 
-体验账号：000000000
-
-密码：test
-
-注意：体验账号仅供展示界面效果使用，展示数据与实际情况未必符合且数据保持不变。
 
 ## 截图
 [![-1.jpg](https://z4a.net/images/2019/03/16/-1.jpg)](https://z4a.net/image/7NtGdH)
@@ -30,6 +25,7 @@
 "pages": [
     "pages/bookSearch/index",//通知消息提示首页
     "pages/index/index",//学号绑定登录
+    "pages/index/reset",//用户重置密码
     "pages/bookSearch/isbn/iputIsbn",//扫码查书
     "pages/bookSearch/bookInfo/bookDetail",//搜索图书的图书详情
     "pages/bookSearch/bookInfo/bookInfo",//扫码查书的图书详情
