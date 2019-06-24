@@ -20,7 +20,7 @@
         </view>
         <view class="input-group">
           <text class="input-label">提示信息</text>
-          <input name='remindMsg' id='remindMsg' password="true" cursor-spacing="30" placeholder="请输入密码提示" />
+          <input name='remindMsg' id='remindMsg'  cursor-spacing="30" placeholder="请输入密码提示" />
         </view>
         <view>
           <button formType="submit" class="login-btn">重置密码</button>

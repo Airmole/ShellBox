@@ -29,7 +29,7 @@ Page({
     var remindMsg = e.detail.value.remindMsg;
 
 
-    if (password !== repassword) {
+    if (password !== repassword || remindMsg == '') {
       wx.showToast({
         title: '密码不一致',
         image: '/images/info.png',
