@@ -15,6 +15,9 @@ Page({
   onLoad: function(options) {
 
   },
+  isNumber: function(obj) {
+    return typeof obj === 'number' && !isNaN(obj)
+  },
   submitInfo: function(e) {
     wx.showToast({
       title: "重置...",
@@ -29,7 +32,7 @@ Page({
     var remindMsg = e.detail.value.remindMsg;
 
 
-    if (password !== repassword || remindMsg == '') {
+    if (password !== repassword) {
       wx.showToast({
         title: '密码不一致',
         image: '/images/info.png',
@@ -37,7 +40,21 @@ Page({
         duration: 1000
       });
       return;
-    } else {
+    } else if (remindMsg == '') {
+      wx.showToast({
+        title: '请输入提示信息',
+        icon: 'none',
+        duration: 1000
+      });
+      return;
+    } else if (remindMsg.length <= 3) {
+      wx.showToast({
+        title: '请输入3位以上提示信息',
+        icon: 'none',
+        duration: 1000
+      });
+      return;
+    }  else {
       wx.request({
         url: app.globalData.apiURL + '/v2/reset.php?username=' + username + '&idcard=' + idcard + '&newPassword=' + password + '&remindMsg=' + remindMsg,
         success: function(res) {
@@ -68,4 +85,5 @@ Page({
       })
     }
   },
+
 })
