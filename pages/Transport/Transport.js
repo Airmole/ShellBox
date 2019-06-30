@@ -59,11 +59,11 @@ Page({
       type: 'gcj02', // 返回可以用于wx.openLocation的经纬度
       success(res) {
         wx.openLocation({
-          latitude: 39.905531,
-          longitude: 116.461934,
+          latitude: 39.905079,
+          longitude: 116.477743,
           scale: 17,
-          name: '艾维克酒店西门',
-          address: '建国路南三环东国贸桥下艾维克酒店西门'
+          name: '光辉立交桥',
+          address: '朝阳区八王坟长途客运站北光辉立交桥下'
         })
       }
     })
