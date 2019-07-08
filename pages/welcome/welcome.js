@@ -23,7 +23,7 @@ Page({
       pwd: options.pwd,
     });
     wx.request({
-      url: app.globalData.apiURL + '/v2/login.php?username=' + options.uid + '&password=' + options.pwd,
+      url: app.globalData.apiURL + '/v3/profile.php?username=' + options.uid + '&password=' + options.pwd + '&cookie=' + options.cookie + '&vcode=' + options.vcode,
       success: function(res) {
         that.setData({
           jsonStr: res.data,

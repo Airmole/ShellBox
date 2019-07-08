@@ -21,6 +21,13 @@
               <text class="input-label">密码</text>
               <input name='pwd' id='passwd' password="true" cursor-spacing="30" placeholder="请输入你的新教务密码" bindfocus="inputFocus" bindblur="inputBlur" />
             </view>
+            <view class="input-group">
+              <text class="input-label">验证码</text>
+              <input name='vcode' type='text' cursor-spacing="30" placeholder="输入验证码" />
+              <view class="weui-cell__ft">
+                <image class="weui-vcode-img" src="{{PreInfo.vcode}}" style="width: 90px;height:25px;"></image>
+              </view>
+            </view>
             <view class="login-help">
               <view bindtap="showHelp">
                 <text>帮助</text>
@@ -46,7 +53,9 @@
               </view>
               <view class="help-q">2、忘记密码？</view>
               <view class="help-a">
-               <navigator url='./reset'><text style='color:blue;'>请点击这里进行“重置密码”操作，重置密码成功后，即可登录。</text></navigator>
+                <navigator url='./reset'>
+                  <text>去教务系统重新找回，实在不行就去12教找教务处老师,就说你要重置教务系统密码</text>
+                </navigator>
               </view>
               <view class="help-q">3、大一新生？暂时还没有学号😥</view>
               <view class="help-a">

@@ -9,48 +9,24 @@ Page({
     userid_focus: false,
     passwd_focus: false,
     angle: 0,
+    PreInfo: {},
     isLoading: true,
-  },
-  login: function(uid, pwd) {
-    var that = this;
-    wx.request({
-      url: app.globalData.apiURL + '/v2/login.php?username=' + uid + '&password=' + pwd,
-      success: function(res) {
-        that.setData({
-          jsonStr: res.data,
-        })
-        console.log(res.data);
-        //账号密码错误以下功能实现跳转错误页面
-        if (res.data.code != 403) {
-          app.globalData.uid = uid;
-          app.globalData.newpwd = pwd;
-          //设置本地Storage,维持登录态用
-          wx.setStorageSync('uid', uid);
-          wx.setStorageSync('newpwd', pwd);
-          wx.switchTab({
-            url: '../bookSearch/index',
-          })
-        } else {
-          app.globalData.uid = "";
-          app.globalData.newpwd = "";
-          wx.setStorageSync('uid', '');
-          wx.setStorageSync('newpwd', '');
-          console.log(that.data.isLoading, uid, pwd)
-          that.setData({
-            isLoading: false
-          })
-        }
-      }
-    })
-
   },
   onLoad: function() {
     var that = this;
     var uid = app.globalData.uid;
     var pwd = app.globalData.newpwd;
+
+    wx.request({
+      url: app.globalData.apiURL + '/v3/getCookie.php',
+      success: function(res) {
+        console.log(res.data);
+        that.setData({
+          PreInfo: res.data,
+        })
+      }
+    });
     if (this.checkHasLogin()) {
-      //值是true,有登录缓存，登陆一下试试
-      this.login(uid, pwd);
     } else {
       this.onReady();
     }
@@ -74,7 +50,8 @@ Page({
     var that = this;
     var uid = e.detail.value.uid;
     var pwd = e.detail.value.pwd;
-    if (uid.length == 0 || pwd.length == 0) {
+    var vcode = e.detail.value.vcode;
+    if ((uid.length == 0 || pwd.length == 0) || vcode.length != 4) {
       wx.showToast({
         title: '输入有误',
         image: '/images/info.png',
@@ -83,11 +60,12 @@ Page({
       });
     } else {
       wx.request({
-        url: app.globalData.apiURL + '/v2/login.php?username=' + uid + '&password=' + pwd,
+        url: app.globalData.apiURL + '/v3/profile.php?username=' + uid + '&password=' + pwd + '&cookie=' + that.data.PreInfo.cookie + '&vcode=' + vcode,
         success: function(res) {
           that.setData({
             jsonStr: res.data,
           })
+          console.log(res.data)
           wx.hideToast()
           // console.log(res.data);
           //账号密码错误以下功能实现密码错误Toast
@@ -105,7 +83,7 @@ Page({
             wx.setStorageSync('uid', uid);
             wx.setStorageSync('newpwd', pwd);
             wx.navigateTo({
-              url: '/pages/welcome/welcome?uid=' + uid + '&pwd=' + pwd
+              url: '/pages/welcome/welcome?uid=' + uid + '&pwd=' + pwd + '&cookie=' + that.data.PreInfo.cookie + '&vcode=' + vcode,
             })
           }
         }

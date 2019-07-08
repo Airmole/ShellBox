@@ -28,38 +28,30 @@ Page({
     })
     var that = this;
     // console.log(options.isShareFrom);
-    if (options.isShareFrom != 'null') {
-      if (options.uid != '' || options.pwd != '') {
-        that.setData({
-          stuId: options.uid,
-          password: options.pwd
-        })
-        this.GetScoreData(options.uid, options.pwd);
-      }
-    } else {
-      var uid = wx.getStorageSync('uid');
-      var pwd = wx.getStorageSync('newpwd');
-      that.setData({
-        stuId: uid,
-        password: pwd,
-      });
-      if (that.data.stuId == '' || that.data.password == '') {
-        wx.redirectTo({
-          url: '/pages/index/index'
-        })
-      } else {
-        this.GetScoreData(uid, pwd);
-      }
-    }
 
+    var uid = wx.getStorageSync('uid');
+    var pwd = wx.getStorageSync('newpwd');
+    var cookie = options.cookie;
+    var vcode = options.vcode;
+    that.setData({
+      stuId: uid,
+      password: pwd,
+    });
+    if ((that.data.stuId == '' || that.data.password == '') || (vcode == '' || cookie == '')) {
+      wx.redirectTo({
+        url: '/pages/index/index'
+      })
+    } else {
+      this.GetScoreData(uid, pwd, cookie, vcode);
+    }
   },
   /**
    * 查询成绩
    */
-  GetScoreData: function(uid, pwd) {
+  GetScoreData: function(uid, pwd, cookie, vcode) {
     var that = this;
     wx.request({
-      url: 'https://api.airmole.cn/ShellBox/v2/score.php?username=' + uid + '&password=' + pwd,
+      url: 'https://api.airmole.cn/ShellBox/v3/score.php?username=' + uid + '&password=' + pwd + '&cookie=' + cookie + '&vcode=' + vcode,
       success: function(res) {
         console.log(res.data)
         that.setData({
@@ -71,7 +63,7 @@ Page({
           })
         }
         if (Object.keys(res.data).length != 0) {
-          if (res.data.code == "401" && res.data.desc =="学号、密码不正确？") {
+          if (res.data.code == "401" && res.data.desc == "学号、密码不正确？") {
             that.reLogin();
           }
           that.setData({

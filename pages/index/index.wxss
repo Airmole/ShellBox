@@ -27,7 +27,6 @@
   align-items: stretch;
   justify-content: center;
   width: 100%;
-  height: 100%;
   padding-bottom: 450rpx;
   background: -webkit-gradient(linear, left top, left bottom, from(rgba(244, 244, 244, 0)), color-stop(0.1, #f4f4f4), to(#f4f4f4));
   opacity: 0;

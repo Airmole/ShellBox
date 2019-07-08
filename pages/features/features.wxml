@@ -36,11 +36,7 @@
     <swiper class="main-swpier radius">
       <swiper-item class="main-core" wx:for="{{cores}}" wx:for-item="core" wx:key="id">
         <block wx:for="{{core}}" wx:key="id">
-          <navigator wx:if="{{((uid!='' && pwd!='') && item.needLogin) || !item.needLogin}}" class="main-core-item" url="{{item.url}}">
-            <image class="core-item-icon" src="/images/{{item.id}}.png"></image>
-            <text class="core-item-name">{{item.name}}</text>
-          </navigator>
-          <view wx:else class="main-core-item disabled" bindtap="disabled_item">
+          <view class="main-core-item disabled" bindtap="disabled_item" data-item='{{item.id}}' data-sindex='{{index}}'>
             <image class="core-item-icon" src="/images/{{item.id}}.png"></image>
             <text class="core-item-name">{{item.name}}</text>
           </view>

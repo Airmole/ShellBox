@@ -1,0 +1,23 @@
+<view class="container">
+  <view style='background-color:rgb(244,244,244);'>
+    <view class="page__hd" style='padding:26px;'>
+      <view class="page__desc" style='color:#000;font-size:15px;'>
+        对不起，小盒砸是无辜的。都怪那万恶的新教务系统更新验证码影响，成绩查询等教务相关查询操作需要您手动输入验证码。为此，小盒砸也是万般无奈，您还是赏个脸手动输入一下吧。(✿◡‿◡)
+      </view>
+    </view>
+    <view>
+      <form class="login-form" bindsubmit="submitInfo">
+        <view class="input-group">
+          <text class="input-label">验证码</text>
+          <input name='vcode' type='text' cursor-spacing="30" placeholder="输入验证码" />
+          <view class="weui-cell__ft">
+            <image class="weui-vcode-img" src="{{PreInfo.vcode}}" style="width: 90px;height:25px;"></image>
+          </view>
+        </view>
+        <view>
+          <button formType="submit" class="login-btn">继续查询</button>
+        </view>
+      </form>
+    </view>
+  </view>
+</view>

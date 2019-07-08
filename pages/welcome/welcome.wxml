@@ -20,15 +20,15 @@
         <view class="detail-list">
           <view class="detail-item">
             <text class="detail-item-label">姓名</text>
-            <text class="detail-item-value">{{jsonStr[0][0].stuName}}</text>
+            <text class="detail-item-value">{{jsonStr.name}}</text>
           </view>
           <view class="detail-item">
             <text class="detail-item-label">班级</text>
-            <text class="detail-item-value">{{jsonStr[0][0].stuClass}}</text>
+            <text class="detail-item-value">{{jsonStr.classroom}}</text>
           </view>
           <view class="detail-item">
             <text class="detail-item-label">学号</text>
-            <text class="detail-item-value">{{jsonStr[0][0].stuID}}</text>
+            <text class="detail-item-value">{{uid}}</text>
           </view>
         </view>
       </view>

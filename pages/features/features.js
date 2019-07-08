@@ -14,7 +14,7 @@ Page({
         { id: 'xl', name: '校历', url: '/pages/calendar/calendar',needLogin: false},
         { id: 'xydh', name: '校园导航', url: '/pages/schoolNav/schoolNav', needLogin: false},
         { id: 'smcs', name: '扫码查书', url: '/pages/bookSearch/isbn/iputIsbn', needLogin: false},
-        { id: 'cjcx', name: '成绩查询', url: '/pages/score/score?isShareFrom=null', needLogin: true},
+        { id: 'cjcx', name: '成绩查询', url: '/pages/index/vcode', needLogin: true},
         { id: 'dfcx', name: '电费查询', url: '/pages/electricity/electricityBind', needLogin: true},
         { id: 'tel', name: '常用电话', url: '/pages/tel/tel', needLogin: false},
         { id: 'xycx', name: '校园出行', url: '/pages/Transport/Transport', needLogin: false},
@@ -119,11 +119,28 @@ Page({
   },
   //未登录点击功能
   disabled_item:function(ds){
-    console.log(ds)
-    wx.showToast({
-      icon:'none',
-      title: '本功能需要登录',
-    })
+    var uid = wx.getStorageSync('uid');
+    var pwd = wx.getStorageSync('newpwd');
+    console.log(ds.currentTarget.dataset);
+    var that = this;
+    let index = ds.currentTarget.dataset.item;
+    let sindex = ds.currentTarget.dataset.sindex;
+    if (index == 'grkb'||index=='bjkb'){
+      wx.showToast({
+        icon: 'none',
+        title: '新教务暂无课表',
+      })
+    } else if (this.data.cores[0][sindex].needLogin==true&&(uid==""||pwd=="")){
+      wx.showToast({
+        icon: 'none',
+        title: '本功能需要登录',
+      })
+    }else{
+      wx.navigateTo({
+        url: this.data.cores[0][sindex].url,
+      })
+    }
+
   }
 
 })

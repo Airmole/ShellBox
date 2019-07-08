@@ -31,9 +31,7 @@
   margin-top: 0;
 }
 
-.append-form {
-  padding: 150rpx 0 30rpx;
-}
+
 
 .append-form .input-group {
   padding: 20rpx 8rpx;
