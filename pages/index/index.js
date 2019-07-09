@@ -26,8 +26,7 @@ Page({
         })
       }
     });
-    if (this.checkHasLogin()) {
-    } else {
+    if (this.checkHasLogin()) {} else {
       this.onReady();
     }
   },
@@ -60,7 +59,7 @@ Page({
       });
     } else {
       wx.request({
-        url: app.globalData.apiURL + '/v3/profile.php?username=' + uid + '&password=' + pwd + '&cookie=' + that.data.PreInfo.cookie + '&vcode=' + vcode,
+        url: app.globalData.apiURL + '/v3/profile.php?username=' + uid + '&password=' + encodeURIComponent(pwd) + '&cookie=' + that.data.PreInfo.cookie + '&vcode=' + vcode,
         success: function(res) {
           that.setData({
             jsonStr: res.data,
@@ -76,7 +75,7 @@ Page({
               icon: 'none',
               duration: 1000
             });
-          } else {
+          } else if (res.data.name != "") {
             app.globalData.uid = uid;
             app.globalData.newpwd = pwd;
             //设置本地Storage,维持登录态用
@@ -85,6 +84,12 @@ Page({
             wx.navigateTo({
               url: '/pages/welcome/welcome?uid=' + uid + '&pwd=' + pwd + '&cookie=' + that.data.PreInfo.cookie + '&vcode=' + vcode,
             })
+          } else {
+            wx.showToast({
+              title: '用户名密码疑似有误',
+              icon: 'none',
+              duration: 1000
+            });
           }
         }
       })

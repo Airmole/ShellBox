@@ -47,7 +47,7 @@ Page({
       return;
     } else {
       wx.request({
-        url: app.globalData.apiURL + '/v3/profile.php?username=' + username + '&password=' + password + '&cookie=' + that.data.PreInfo.cookie + '&vcode=' + vcode,
+        url: app.globalData.apiURL + '/v3/profile.php?username=' + username + '&password=' + encodeURIComponent(password) + '&cookie=' + that.data.PreInfo.cookie + '&vcode=' + vcode,
         success: function(res) {
           that.setData({
             jsonStr: res.data,

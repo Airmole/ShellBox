@@ -51,7 +51,7 @@ Page({
   GetScoreData: function(uid, pwd, cookie, vcode) {
     var that = this;
     wx.request({
-      url: 'https://api.airmole.cn/ShellBox/v3/score.php?username=' + uid + '&password=' + pwd + '&cookie=' + cookie + '&vcode=' + vcode,
+      url: 'https://api.airmole.cn/ShellBox/v3/score.php?username=' + uid + '&password=' + encodeURIComponent(pwd) + '&cookie=' + cookie + '&vcode=' + vcode,
       success: function(res) {
         console.log(res.data)
         that.setData({

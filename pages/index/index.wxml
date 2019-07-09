@@ -53,9 +53,7 @@
               </view>
               <view class="help-q">2、忘记密码？</view>
               <view class="help-a">
-                <navigator url='./reset'>
                   <text>去教务系统重新找回，实在不行就去12教找教务处老师,就说你要重置教务系统密码</text>
-                </navigator>
               </view>
               <view class="help-q">3、大一新生？暂时还没有学号😥</view>
               <view class="help-a">
