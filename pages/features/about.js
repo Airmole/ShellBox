@@ -8,26 +8,26 @@ Page({
     width: '100%',
     height: '',
     coder: [{
-      avatar: 'https://z4a.net/images/2019/06/22/_20180513195821.jpg',
+      avatar: 'https://z4a.net/images/2019/06/22/_20180513195821.th.jpg',
       nickName: 'Airmole'
     }, {
-      avatar: 'https://z4a.net/images/2019/06/22/henbf.jpg',
+        avatar: 'https://z4a.net/images/2019/07/24/_20190724200849.th.jpg',
       nickName: '很奔放'
     }],
     servicer: [{
-      avatar: 'https://z4a.net/images/2019/06/22/_20180513195821.jpg',
+      avatar: 'https://z4a.net/images/2019/06/22/_20180513195821.th.jpg',
       nickName: 'Airmole'
     }, {
-      avatar: 'https://z4a.net/images/2019/06/22/henbf.jpg',
+        avatar: 'https://z4a.net/images/2019/07/24/_20190724200849.th.jpg',
       nickName: '很奔放'
     }, {
-      avatar: 'https://z4a.net/images/2019/06/22/hzj.jpg',
+        avatar: 'https://z4a.net/images/2019/06/22/hzj.th.jpg',
       nickName: 'hzj'
     }, {
-      avatar: 'https://z4a.net/images/2019/06/22/zhx.jpg',
+      avatar: 'https://z4a.net/images/2019/06/22/zhx.th.jpg',
       nickName: '淡然微笑'
     }, {
-      avatar: 'https://z4a.net/images/2019/06/22/fwj.jpg',
+      avatar: 'https://z4a.net/images/2019/06/22/fwj.th.jpg',
       nickName: '非晚'
       }],
   },

@@ -59,8 +59,8 @@ Page({
       type: 'gcj02', // 返回可以用于wx.openLocation的经纬度
       success(res) {
         wx.openLocation({
-          latitude: 39.905079,
-          longitude: 116.477743,
+          latitude: 39.905074,
+          longitude: 116.478279,
           scale: 17,
           name: '光辉立交桥',
           address: '朝阳区八王坟长途客运站北光辉立交桥下'

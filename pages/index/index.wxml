@@ -21,9 +21,9 @@
               <text class="input-label">密码</text>
               <input name='pwd' id='passwd' password="true" cursor-spacing="30" placeholder="请输入你的新教务密码" bindfocus="inputFocus" bindblur="inputBlur" />
             </view>
-            <view class="input-group">
+            <view class="input-group {{vcode_focus ? 'active' : ''}}">
               <text class="input-label">验证码</text>
-              <input name='vcode' type='text' cursor-spacing="30" placeholder="输入验证码" />
+              <input id='vcode' name='vcode' type='text' cursor-spacing="30" placeholder="输入验证码"  bindfocus="inputFocus" bindblur="inputBlur"/>
               <view class="weui-cell__ft">
                 <image class="weui-vcode-img" src="{{PreInfo.vcode}}" style="width: 90px;height:25px;"></image>
               </view>

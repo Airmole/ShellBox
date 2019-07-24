@@ -28,7 +28,7 @@
           </view>
           <view class="detail-item">
             <text class="detail-item-label">学号</text>
-            <text class="detail-item-value">{{uid}}</text>
+            <text class="detail-item-value">{{jsonStr.number}}</text>
           </view>
         </view>
       </view>

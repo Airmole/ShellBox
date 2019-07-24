@@ -8,6 +8,7 @@ Page({
     help_status: false,
     userid_focus: false,
     passwd_focus: false,
+    vcode_focus: false,
     angle: 0,
     PreInfo: {},
     isLoading: true,
@@ -16,16 +17,7 @@ Page({
     var that = this;
     var uid = app.globalData.uid;
     var pwd = app.globalData.newpwd;
-
-    wx.request({
-      url: app.globalData.apiURL + '/v3/getCookie.php',
-      success: function(res) {
-        console.log(res.data);
-        that.setData({
-          PreInfo: res.data,
-        })
-      }
-    });
+    this.getVcode();
     if (this.checkHasLogin()) {} else {
       this.onReady();
     }
@@ -59,7 +51,17 @@ Page({
       });
     } else {
       wx.request({
-        url: app.globalData.apiURL + '/v3/profile.php?username=' + uid + '&password=' + encodeURIComponent(pwd) + '&cookie=' + that.data.PreInfo.cookie + '&vcode=' + vcode,
+        url: app.globalData.apiURL + '/v2/profile.php',
+        method: "POST",
+        header: {
+          'content-type': 'application/x-www-form-urlencoded',
+        },
+        data: {
+          username: uid,
+          password: pwd,
+          cookie: that.data.PreInfo.cookie,
+          vcode: vcode
+        },
         success: function(res) {
           that.setData({
             jsonStr: res.data,
@@ -68,13 +70,20 @@ Page({
           wx.hideToast()
           // console.log(res.data);
           //账号密码错误以下功能实现密码错误Toast
-          if (res.data.code == 403) {
+          if (res.data.code == 401) {
             wx.showToast({
               title: '账号密码有误',
               image: '/images/info.png',
-              icon: 'none',
-              duration: 1000
+              duration: 3000
             });
+            that.getVcode();
+          } else if (res.data.code == 402) {
+            wx.showToast({
+              title: '验证码错误',
+              image: '/images/info.png',
+              duration: 3000
+            });
+            that.getVcode();
           } else if (res.data.name != "") {
             app.globalData.uid = uid;
             app.globalData.newpwd = pwd;
@@ -86,9 +95,9 @@ Page({
             })
           } else {
             wx.showToast({
-              title: '用户名密码疑似有误',
+              title: '暂时无法登录',
               icon: 'none',
-              duration: 1000
+              duration: 3000
             });
           }
         }
@@ -124,6 +133,10 @@ Page({
       this.setData({
         'passwd_focus': true
       });
+    } else if (e.target.id == 'vcode') {
+      this.setData({
+        'vcode_focus': true
+      });
     }
   },
   inputBlur: function(e) {
@@ -134,6 +147,10 @@ Page({
     } else if (e.target.id == 'passwd') {
       this.setData({
         'passwd_focus': false
+      });
+    } else if (e.target.id == 'vcode') {
+      this.setData({
+        'vcode_focus': false
       });
     }
   },
@@ -155,6 +172,25 @@ Page({
         that.setData({
           angle: angle
         });
+      }
+    });
+  },
+  getVcode: function() {
+    var that = this;
+    wx.request({
+      url: app.globalData.apiURL + '/v2/getCookie.php',
+      success: function(res) {
+        console.log(res.data);
+        that.setData({
+          PreInfo: res.data,
+        })
+        if (res.data.code == 500) {
+          wx.showToast({
+            title: '教务系统异常',
+            icon: 'none',
+            duration: 5000
+          });
+        }
       }
     });
   }

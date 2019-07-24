@@ -64,7 +64,7 @@
         <view class="book-intro raduis">
           <view class="remind-box">
             <image class="noDisplay" src="/images/holiday.png"></image>
-            <text class="remind-text">教务系统更换，暂无课表(可继续看缓存课表)</text>
+            <text class="remind-text">新教务系统暂无课表(可继续看缓存课表)</text>
           </view>
         </view>
       </view>
@@ -348,7 +348,7 @@
     </view>
 
     <!--电费-->
-    <view class="main-card-item" id="sdf" wx:if="{{jsonStr.eleInfo.Balance > 0 && jsonStr.eleInfo.status == 200 }}">
+    <view class="main-card-item" id="sdf" wx:if="{{jsonStr.eleInfo.status == 200 }}">
       <navigator url='/pages/electricity/electricityBind'>
         <view class="card-item-hd">
           <text>⚡</text>

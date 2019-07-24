@@ -10,12 +10,15 @@
     <button bindtap='goBack' class="login-btn">
       <text>返回</text>
     </button>
+    <button open-type='contact' class="login-btn">
+      <text>联系客服</text>
+    </button>
   </view>
 
   <view class="weui-footer  weui-footer_fixed-bottom">
     <view class="weui-footer__links">
       <navigator url="/pages/features/about" class="weui-footer__link">Airmole.</navigator>
     </view>
-     <view class="weui-footer__text">Copyright © 2019 贝壳小盒子(ShellBox)</view>
+    <view class="weui-footer__text">Copyright © 2019 贝壳小盒子(ShellBox)</view>
   </view>
 </view>

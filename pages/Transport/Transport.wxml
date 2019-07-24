@@ -55,7 +55,7 @@
           </view>
 
           <view class="wraper" style='padding:5px;'>
-            <image class="weui-article__img" src="https://z4a.net/images/2019/02/23/jjxcBus.jpg" mode="widthFix" style="width:100%;border-radius:25rpx;" />
+            <image class="weui-article__img" src="https://z4a.net/images/2019/07/24/_201907242008490d063aaf0c7cd48d.jpg" mode="widthFix" style="width:100%;border-radius:25rpx;" />
           </view>
 
           <view class="wraper" style='padding:5px;'>
@@ -75,7 +75,7 @@
               </view>
               <view class="weui-form-preview__item">
                 <view class="weui-form-preview__label">乘车地点</view>
-                <view class="weui-form-preview__value">朝阳区八王坟长途客运站北光辉立交桥下(到站后买票)</view>
+                <view class="weui-form-preview__value" bindtap='goBJGMStation'>📍朝阳区八王坟长途客运站北光辉立交桥下(到站后买票)</view>
               </view>
             </view>
           </view>

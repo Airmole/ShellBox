@@ -119,10 +119,10 @@ Page({
   },
   //未登录点击功能
   disabled_item:function(ds){
+    var that = this;
     var uid = wx.getStorageSync('uid');
     var pwd = wx.getStorageSync('newpwd');
     console.log(ds.currentTarget.dataset);
-    var that = this;
     let index = ds.currentTarget.dataset.item;
     let sindex = ds.currentTarget.dataset.sindex;
     if (index == 'grkb'||index=='bjkb'){

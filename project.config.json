@@ -35,15 +35,15 @@
 			"list": [
 				{
 					"id": 0,
-					"name": "reset",
-					"pathName": "pages/index/reset",
+					"name": "error",
+					"pathName": "pages/error/queryerror",
 					"query": "",
 					"scene": null
 				},
 				{
 					"id": 1,
 					"name": "index",
-					"pathName": "pages/index/index",
+					"pathName": "pages/bookSearch/index",
 					"query": "",
 					"scene": 1001
 				}

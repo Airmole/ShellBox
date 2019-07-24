@@ -4,12 +4,9 @@
 
 [![Star](https://img.shields.io/badge/Star-Airmole-brightgreen.svg)](https://github.com/Airmole/ShellBox/stargazers)
 [![Download](https://img.shields.io/badge/download-.zip-brightgreen.svg)](https://github.com/Airmole/ShellBox/archive/master.zip)
-[![size](https://img.shields.io/badge/size-7.21MB-green.svg)](https://github.com/airmole/ShellBox)
-[![last commit](https://img.shields.io/badge/last%20commit-2019--01--13-green.svg)](https://github.com/Airmole/ShellBox/commits/master)
+[![last commit](https://img.shields.io/badge/last%20commit-2019--7--24-green.svg)](https://github.com/Airmole/ShellBox/commits/master)
 [![https://blog.airmole.cn](https://img.shields.io/badge/Blog-Airmole-green.svg)](https://blog.airmole.cn)
 
-
-> 本项目2.0版本已经基本完成，近期正在埋头努力补文档中.....
 
 ## 线上版本体验
 
@@ -25,7 +22,7 @@
 "pages": [
     "pages/bookSearch/index",//通知消息提示首页
     "pages/index/index",//学号绑定登录
-    "pages/index/reset",//用户重置密码
+    "pages/index/vcode",//成绩查询输入验证码
     "pages/bookSearch/isbn/iputIsbn",//扫码查书
     "pages/bookSearch/bookInfo/bookDetail",//搜索图书的图书详情
     "pages/bookSearch/bookInfo/bookInfo",//扫码查书的图书详情
