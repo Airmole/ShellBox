@@ -4,7 +4,7 @@
 
 [![Star](https://img.shields.io/badge/Star-Airmole-brightgreen.svg)](https://github.com/Airmole/ShellBox/stargazers)
 [![Download](https://img.shields.io/badge/download-.zip-brightgreen.svg)](https://github.com/Airmole/ShellBox/archive/master.zip)
-[![last commit](https://img.shields.io/badge/last%20commit-2019--7--24-green.svg)](https://github.com/Airmole/ShellBox/commits/master)
+[![last commit](https://img.shields.io/badge/last%20commit-2019--7--28-green.svg)](https://github.com/Airmole/ShellBox/commits/master)
 [![https://blog.airmole.cn](https://img.shields.io/badge/Blog-Airmole-green.svg)](https://blog.airmole.cn)
 
 
@@ -35,13 +35,12 @@
     "pages/score/score",//成绩查询
     "pages/calendar/calendar",//校历
     "pages/error/queryerror",//查询失败或错误的异常页面
-    "pages/net/netfare",//网费查询（预留。未实现）
-    "pages/net/netBind",//网费绑定（预留。未实现）
+    "pages/net/netfare",//网费查询
+    "pages/net/netBind",//网费绑定
     "pages/electricity/electricityFare",//电费查询
     "pages/electricity/electricityBind",//电费绑定
     "pages/Transport/Transport",//校园出行
     "pages/tel/tel",//常用电话
-    "pages/stuInfo/stuInfo",//学生信息（已废弃）
     "pages/schoolNav/schoolNav"//校园导航
   ],
 ```
