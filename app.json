@@ -21,7 +21,6 @@
     "pages/electricity/electricityBind",
     "pages/Transport/Transport",
     "pages/tel/tel",
-    "pages/stuInfo/stuInfo",
     "pages/schoolNav/schoolNav"
   ],
   "window": {

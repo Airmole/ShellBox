@@ -5,12 +5,12 @@
     <!--result-userInfo-->
     <view class="result-userInfo result-model">
       <view class="userInfo-dormitory">
-        <text class="dormitory-info">张博</text>
-        <view bindtap='logout' class="dormitory-resetBtn">更换账号</view>
+        <text class="dormitory-info">{{netJson.name}}</text>
+        <view  class="dormitory-resetBtn">{{netJson.number}}</view>
       </view>
       <view class="userInfo-basic">
-        <text class="basic-name">Airmole</text>
-        <text class="basic-time">截至时间：2018年5月4日 14点56分</text>
+        <text class="basic-name">截止</text>
+        <text class="basic-time">{{netJson.time}}</text>
       </view>
     </view>
     <!--result-chargeInfo-->
@@ -18,14 +18,14 @@
       <view class="chargeInfo-num chargeInfo-model result-model">
         <text class="chargeInfo-model-title">余额</text>
         <view class="chargeInfo-model-info">
-          <text class="model-info">12.11</text>元
+          <text class="model-info">{{netJson.balance}}</text>元
         </view>
       </view>
       <view class="chargeInfo-cost chargeInfo-model result-model">
         <block>
-          <text class="chargeInfo-model-title">本月时长</text>
+          <text class="chargeInfo-model-title">本月计费</text>
           <view class="chargeInfo-model-info">
-            <text class="model-info">1273</text> 分钟
+            <text class="model-info">{{netJson.useFare}}</text> 元
           </view>
         </block>
       </view>
@@ -34,12 +34,17 @@
     <view class="result-specificInfo result-model">
       <view class="specificInfo-item">
         <text class="specificInfo-item-label">本月流量</text>
-        <text class="specificInfo-item-value">12176.948</text>MB
+        <text class="specificInfo-item-value">{{netJson.monthUseFlow}}</text>MB
         <text></text>
       </view>
       <view class="specificInfo-item">
-        <text class="specificInfo-item-label">安装地址</text>
-        <text class="specificInfo-item-value">22斋209</text>
+        <text class="specificInfo-item-label">本月在线时长</text>
+        <text class="specificInfo-item-value">{{netJson.monthUseLength}}</text>分钟
+        <text></text>
+      </view>
+      <view class="specificInfo-item">
+        <text class="specificInfo-item-label">使用宿舍</text>
+        <text class="specificInfo-item-value">{{netJson.installedPlace}}</text>
       </view>
     </view>
     <image class="sdf-bg" src="/images/netfare-bg.png"></image>

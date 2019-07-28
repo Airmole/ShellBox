@@ -1,0 +1,20 @@
+{
+  "rules": [
+    {
+      "action": "disallow",
+      "page": "pages/index/vcode"
+    },{
+      "action": "disallow",
+      "page": "pages/welcome/welcome"
+    },{
+      "action": "disallow",
+      "page": "pages/error/queryerror"
+    },{
+      "action": "disallow",
+      "page": "pages/net/netfare"
+    },{
+      "action": "disallow",
+      "page": "pages/net/netBind"
+    },
+  ]
+}

@@ -10,11 +10,16 @@ App({
     roomNo: '',
     uid: '',
     pwd: '',
-    newpwd: ''
+    newpwd: '',
+    netPassword:'',
   },
   util: require('./utils/util'),
   onLaunch: function() {
     // console.log('App Launch')
+    var uid = wx.getStorageSync('uid');
+    var pwd = wx.getStorageSync('newpwd');
+    var newpwd = wx.getStorageSync('newpwd');
+    
     this.getUserOpenId();
 
   },

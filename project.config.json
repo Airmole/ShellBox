@@ -42,8 +42,8 @@
 				},
 				{
 					"id": 1,
-					"name": "index",
-					"pathName": "pages/bookSearch/index",
+					"name": "net",
+					"pathName": "pages/net/netBind",
 					"query": "",
 					"scene": 1001
 				}

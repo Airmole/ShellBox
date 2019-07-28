@@ -1,60 +1,66 @@
 // pages/net/netfare.js
 var app = getApp();
 Page({
-
   /**
    * 页面的初始数据
    */
   data: {
-
+    netJson: "",
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
-
+  onLoad: function(options) {
+    wx.showToast({
+      title: "loading",
+      icon: "loading",
+      duration: 5000
+    })
+    console.log(options);
+    var that = this;
+    that.getJson(options.uid, options.netPassword);
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
-  onReady: function () {
+  onReady: function() {
 
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function () {
+  onShow: function() {
 
   },
 
   /**
    * 生命周期函数--监听页面隐藏
    */
-  onHide: function () {
+  onHide: function() {
 
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
-  onUnload: function () {
+  onUnload: function() {
 
   },
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
-  onPullDownRefresh: function () {
+  onPullDownRefresh: function() {
 
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
-  onReachBottom: function () {
+  onReachBottom: function() {
 
   },
 
@@ -64,15 +70,44 @@ Page({
   // onShareAppMessage: function () {
 
   // }
-
-  //账户注销登录
-  logout: function () {
-    app.globalData.uid = "";
-    app.globalData.netpwd = "";
-    wx.setStorageSync('uid', '');
-    wx.setStorageSync('netpwd', '');
-    wx.redirectTo({
-      url: '/pages/index/index'
+  getJson: function(uid, netPassword) {
+    var that = this;
+    wx.request({
+      url: app.globalData.apiURL + '/netFareExternal.php',
+      method: "POST",
+      header: {
+        'content-type': 'application/x-www-form-urlencoded',
+      },
+      data: {
+        username: uid,
+        netPassword: netPassword
+      },
+      success: function(res) {
+        that.setData({
+          netJson: res.data,
+        })
+        wx.hideToast();
+        console.log(res.data);
+        //查询出错
+        if (res.data.code == "401") {
+          wx.setStorageSync('netPassword', '');
+          wx.showToast({
+            title: res.data.desc,
+            icon: 'none',
+            duration: 5000
+          });
+          wx.redirectTo({
+            url: './netBind'
+          })
+        } else if (res.data.code == "200") {
+          //设置本地Storage,维持登录态用
+          wx.setStorageSync('netPassword', netPassword);
+        } else {
+          wx.redirectTo({
+            url: '/pages/error/queryerror?ErrorTips=无法查询，请联系客服'
+          })
+        }
+      }
     })
-  },
+  }
 })

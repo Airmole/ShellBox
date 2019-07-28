@@ -139,12 +139,10 @@ page {
 }
 
 .dormitory-resetBtn {
-  font-size: 9pt;
+  font-size: 18pt;
   padding: 5rpx 20rpx;
   text-align: center;
-  background-color: #ffcb63;
-  border-radius: 3px;
-  color: #fff;
+  color: #333;
 }
 
 .userInfo-basic {

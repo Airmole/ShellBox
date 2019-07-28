@@ -1,30 +1,26 @@
 <!--pages/net/netBind.wxml-->
 <view class="container">
   <view>
-    <image class="title" src="/images/netBind_title.png"></image>
+    <image class="title" src="https://z4a.net/images/2019/07/28/netBind_titlef8a6752f1fdc3bc7.png"></image>
     <view class="content">
       <view class="hd" style="transform:rotateZ({{angle}}deg);">
-        <image class="logo" src="/images/netfare.png"></image>
+        <image class="logo" src="/images/wfcx.png"></image>
         <image class="wave" src="/images/wave.png" mode="aspectFill"></image>
         <image class="wave wave-bg" src="/images/wave.png" mode="aspectFill"></image>
       </view>
       <view class="bd">
         <form class="login-form" bindsubmit="NetQuery">
-          <view class="input-group {{userid_focus ? 'active' : ''}}">
-            <text class="input-label">帐号</text>
-            <input name='uid' type="number" cursor-spacing="30" value='{{stuId}}' disabled='true' />
-          </view>
-          <view class="input-group {{passwd_focus ? 'active' : ''}}">
+          <view class="input-group {{netPassword_focus ? 'active' : ''}}">
             <text class="input-label">密码</text>
-            <input name='netpwd' password="true" cursor-spacing="30" placeholder="初始密码为身份证后12位" />
+            <input id='netPassword' name='netPassword' password="true" cursor-spacing="30" placeholder="校园网帐号密码" bindfocus="inputFocus" bindblur="inputBlur"/>
           </view>
           <view class="login-help" bindtap="showHelp">
             <text>帮助</text>
             <image class="login-help-img" src="/images/help.png"></image>
           </view>
-          <view>
-            <button formType="submit" class="confirm-btn">确认绑定</button>
-          </view>
+           <view>
+          <button formType="submit" class="login-btn">保存</button>
+        </view>
         </form>
       </view>
       <view class="help" id="help" wx:if="{{help_status}}" bindtap="tapHelp">
@@ -36,13 +32,12 @@
           <view class="box-bd">
             <view class="help-q">1、帐号和密码是什么？</view>
             <view class="help-a">
-              <text>帐号：账号一般就是你的学号啦，我们会为您自动填入，且不可更改。如需更改，请在功能界面注销账号重新登录</text>
-              <text>密码：上网账号的初始密码或者已更改密码</text>
-              <text>其中初始密码与个人身份证号码相关，采用以下规则：①身份证号码：取最后12位作为密码；②身份证号码最后一位是x的默认大写</text>
+              <text>密码：您的校园网账号上网密码</text>
+              <text>初始密码请查看微信公众号“北京科技大学天津学院智慧校园”，上网方法帮助文章仔细寻找获取默认初始密码方法。</text>
             </view>
             <view class="help-q">2、忘记密码？</view>
             <view class="help-a">
-              <text>请携带学生证和身份证前往3教309网络中心重置密码</text>
+              <text>请携带学生证和身份证，前往3号教学楼309网络中心重置密码</text>
             </view>
           </view>
         </view>
