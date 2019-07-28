@@ -58,3 +58,7 @@
 - 电费查询、成绩查询界面统计图表[wx-charts](https://github.com/xiaolin3303/wx-charts)
 
 - [小程序WeUI](https://github.com/Tencent/weui-wxss)
+
+## 参赛获奖
+
+- 2019 高校微信小程序开发大赛 华北赛区二等奖 （2019年7月25日）
