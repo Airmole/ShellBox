@@ -74,13 +74,13 @@ Page({
     var that = this;
     var uid = wx.getStorageSync('uid');
     var pwd = wx.getStorageSync('newpwd');
-
+    var netPassword = wx.getStorageSync('netPassword');
     var zhai = wx.getStorageSync('building');
     var room = wx.getStorageSync('roomNo');
     if (uid != '' && pwd != '') {
-      this.getWelcomeJson(uid, pwd, zhai, room);
+      this.getWelcomeJson(uid, pwd, zhai, room, netPassword);
     } else {
-      this.getWelcomeJson(uid, pwd, zhai, room);
+      this.getWelcomeJson(uid, pwd, zhai, room, netPassword);
       that.setData({
         isLogined: false
       })
@@ -177,10 +177,21 @@ Page({
       })
     }
   },
-  getWelcomeJson: function(uid, pwd, zhai, room) {
+  getWelcomeJson: function(uid, pwd, zhai, room, netPassword) {
     var that = this;
     wx.request({
-      url: app.globalData.apiURL + '/welcome.php?uid=' + uid + '&pwd=' + pwd + '&zhai=' + zhai + '&room=' + room,
+      url: app.globalData.apiURL + '/v2/welcome.php',
+      method: "POST",
+      header: {
+        'content-type': 'application/x-www-form-urlencoded',
+      },
+      data: {
+        uid: uid,
+        pwd: pwd,
+        netPassword: netPassword,
+        zhai: zhai,
+        room: room,
+      },
       success: function(res) {
         that.setData({
           jsonStr: res.data
@@ -229,6 +240,15 @@ Page({
     var that = this;
     that.setData({
       adsError: true
+    })
+  },
+  bindGetUserInfo: function (e) {
+    console.log(e);
+    this.toLogin();
+  },
+  toLogin:function(){
+    wx.navigateTo({
+      url: '/pages/index/index',
     })
   }
 });

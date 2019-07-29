@@ -42,5 +42,9 @@ Page({
         console.log(res.data);
       }
     })
+  },
+  bindGetUserInfo:function(e){
+    console.log(e);
+    this.start();
   }
 })

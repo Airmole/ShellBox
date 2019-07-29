@@ -26,7 +26,6 @@ Page({
     is_vacation: false, // 是否为假期
   },
   onLoad: function(options) {
-
     var that = this;
     that.setInfo();
     if (options.isShareFrom != 'null') {

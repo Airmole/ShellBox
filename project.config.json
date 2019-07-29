@@ -31,21 +31,14 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 1,
+			"current": 0,
 			"list": [
 				{
 					"id": 0,
-					"name": "error",
-					"pathName": "pages/error/queryerror",
+					"name": "index",
+					"pathName": "pages/bookSearch/index",
 					"query": "",
 					"scene": null
-				},
-				{
-					"id": 1,
-					"name": "net",
-					"pathName": "pages/net/netBind",
-					"query": "",
-					"scene": 1001
 				}
 			]
 		}

@@ -42,7 +42,7 @@
   <view wx:elif="{{!isLogined}}" class="remind-box" style='margin-top:-260rpx;'>
     <image class="remind-img" src="/images/nothing.png"></image>
     <text class="remind-text">您咋还没绑定学号呢？</text>
-    <navigator url="/pages/index/index" class="remind-btn">绑定登录</navigator>
+    <button class="login-btn" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">绑定登录</button>
   </view>
 
   <!--卡片列表-->
@@ -347,6 +347,62 @@
       </navigator>
     </view>
 
+    <!--网费-->
+    <view class="main-card-item" id="swf" wx:if="{{jsonStr.netInfo.code == '200'}}">
+      <navigator url='/pages/net/netBind'>
+        <view class="card-item-hd">
+          <text>🌐</text>
+          <text class="card-item-name">网费余额</text>
+        </view>
+        <view class="card-item-bd">
+          <view class="card-info-hd">
+            <view class="card-info-left">
+              <text class="card-info-name">{{jsonStr.netInfo.name}}</text>
+            </view>
+            <view class="card-info-right">
+              <view>截至时间：{{jsonStr.netInfo.time}}</view>
+            </view>
+          </view>
+          <view class="sdf-bd">
+            <view class="sdf-key">
+              <text class="sdf-text">账户余额</text>
+              <text class="swf-value">{{jsonStr.netInfo.balance}}</text>
+              <text class="sdf-text">元</text>
+            </view>
+          </view>
+        </view>
+      </navigator>
+    </view>
+    <view class="main-card-item" style='height:400rpx;' wx:elif="{{jsonStr.netInfo.code == '500'}}">
+      <navigator url='/pages/net/netBind'>
+        <view class="card-item-hd">
+          <text>🌐</text>
+          <text class="card-item-name">网费余额</text>
+        </view>
+        <view class="card-item-bd">
+          <view class="remind-box">
+            <image class="remind-img" src="/images/nothing.png"></image>
+            <text class="remind-text">系统关闭，暂时无法查询(；′⌒`)</text>
+          </view>
+        </view>
+      </navigator>
+    </view>
+    <view class="main-card-item" style='height:400rpx;' wx:else>
+      <navigator url='/pages/net/netBind'>
+        <view class="card-item-hd">
+          <text>🌐</text>
+          <text class="card-item-name">网费余额</text>
+        </view>
+        <view class="card-item-bd">
+          <view class="remind-box">
+            <image class="remind-img" src="/images/nothing.png"></image>
+            <text class="remind-text">绑定一下校园网账号嘛(ಥ _ ಥ)</text>
+            <navigator url='/pages/net/netBind' class="remind-btn">绑定校园网</navigator>
+          </view>
+        </view>
+      </navigator>
+    </view>
+
     <!--电费-->
     <view class="main-card-item" id="sdf" wx:if="{{jsonStr.eleInfo.status == 200 }}">
       <navigator url='/pages/electricity/electricityBind'>
@@ -373,7 +429,7 @@
         </view>
       </navigator>
     </view>
-    <view class="main-card-item" style='height:400rpx;' wx:else>
+    <view class="main-card-item" style='height:400rpx;' wx:elif="{{jsonStr.eleInfo.status == 401}}">
       <navigator url='/pages/electricity/electricityBind'>
         <view class="card-item-hd">
           <text>⚡</text>
@@ -384,6 +440,20 @@
             <image class="remind-img" src="/images/nothing.png"></image>
             <text class="remind-text">建议您绑定一下宿舍</text>
             <navigator url='/pages/electricity/electricityBind' class="remind-btn">绑定宿舍</navigator>
+          </view>
+        </view>
+      </navigator>
+    </view>
+    <view class="main-card-item" style='height:400rpx;' wx:else>
+      <navigator url='/pages/electricity/electricityBind'>
+        <view class="card-item-hd">
+          <text>⚡</text>
+          <text class="card-item-name">宿舍用电</text>
+        </view>
+        <view class="card-item-bd">
+          <view class="remind-box">
+            <image class="remind-img" src="/images/nothing.png"></image>
+            <text class="remind-text">系统维护，暂时无法查询(ಥ _ ಥ)</text>
           </view>
         </view>
       </navigator>
