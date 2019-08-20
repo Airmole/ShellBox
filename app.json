@@ -53,5 +53,6 @@
     "scope.userLocation": {
       "desc": "你的位置信息将用于校园导航定位"
     }
-  }
+  },
+  "sitemapLocation": "sitemap33.json"
 }
