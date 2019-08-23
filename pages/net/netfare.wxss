@@ -220,7 +220,7 @@ page {
 .sdf-bg {
   position: fixed;
   width: 750rpx;
-  height: 90rpx;
+  height: 200rpx;
   bottom: -2rpx;
   left: 0;
   right: 0;
