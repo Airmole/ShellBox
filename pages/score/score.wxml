@@ -11,8 +11,9 @@
       <canvas canvas-id="lineCanvas" disable-scroll="true" bindtouchstart="touchHandler" style='width:100%;height:200px;'></canvas>
     </view>
   </view>
-  <!-- <view class="score__hd" wx:if="{{jsonContent}}">
-    <button class="clear" open-type='share'>
+
+  <view class="score__hd" wx:if="{{jsonContent}}">
+    <button class="clear" bindtap="fullScreenPreview">
       <view class="weui-item border-shadow background-1">
         <view class="weui-flex">
           <view class="weui-flex__item">
@@ -25,7 +26,10 @@
         </view>
       </view>
     </button>
-  </view> -->
+  </view>
+  
+  <canvasdrawer painting="{{painting}}" class="canvasdrawer" bind:getImage="eventGetImage"/>
+
   <block wx:for="{{jsonContent}}" wx:key="scoolYear" wx:for-index="semester">
     <view class="page__bd" style='background-color:#fff;border-radius:15px;padding-bottom:20px;'>
       <view class="weui-cells__title">{{semester}}学期</view>
