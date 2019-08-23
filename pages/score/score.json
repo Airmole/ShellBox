@@ -1,5 +1,8 @@
 {
   "enablePullDownRefresh": true,
   "backgroundColor": "#7acfa6",
-  "navigationBarTitleText": "成绩查询 - 贝壳盒子"
+  "navigationBarTitleText": "成绩查询 - 贝壳盒子",
+  "usingComponents": {
+    "canvasdrawer": "/utils/canvasdrawer/canvasdrawer"
+  }
 }
