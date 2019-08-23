@@ -47,6 +47,6 @@
         <text class="specificInfo-item-value">{{netJson.installedPlace}}</text>
       </view>
     </view>
-    <image class="sdf-bg" src="https://z4a.net/images/2019/07/29/netFareBk9b1a72dabcc8947f.png"></image>
+    <image class="sdf-bg" src="/images/netfare-bg.png"></image>
   </view>
 </view>
