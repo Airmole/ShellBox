@@ -1,6 +1,6 @@
 {
-  "navigationBarBackgroundColor": "#229BD8",
+  "navigationBarBackgroundColor": "#ffcb63",
   "navigationBarTitleText": "网费查询",
-  "backgroundColor": "#229BD8",
+  "backgroundColor": "#ffcb63",
   "enablePullDownRefresh": false
 }
