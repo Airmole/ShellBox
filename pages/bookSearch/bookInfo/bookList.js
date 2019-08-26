@@ -14,7 +14,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-    // console.log(options)
+    console.log(options)
     wx.showToast({
       title: "loading",
       icon: "loading",
@@ -79,6 +79,7 @@ Page({
    */
   onShareAppMessage: function() {
     return {
+      path: 'pages/bookSearch/bookInfo/bookList?keyword=' + this.options.keyword + '&SearchType=' + this.options.SearchType,
       title: '相见恨晚！原来图书馆有这么多关于"' + this.options.keyword + '"的书啊~',
     }
   }

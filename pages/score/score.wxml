@@ -12,7 +12,13 @@
     </view>
   </view>
 
-  <view class="score__hd" wx:if="{{jsonContent}}">
+
+
+  <!-- <view class="score__hd" wx:if="{{jsonContent}}">
+    <view style="display:none;">
+      <image src="{{shareImage}}" class="share-image"></image>
+      <canvasdrawer painting="{{painting}}" class="canvasdrawer" bind:getImage="eventGetImage" />
+    </view>
     <button class="clear" bindtap="fullScreenPreview">
       <view class="weui-item border-shadow background-1">
         <view class="weui-flex">
@@ -26,9 +32,9 @@
         </view>
       </view>
     </button>
-  </view>
-  
-  <canvasdrawer painting="{{painting}}" class="canvasdrawer" bind:getImage="eventGetImage"/>
+  </view> -->
+
+
 
   <block wx:for="{{jsonContent}}" wx:key="scoolYear" wx:for-index="semester">
     <view class="page__bd" style='background-color:#fff;border-radius:15px;padding-bottom:20px;'>

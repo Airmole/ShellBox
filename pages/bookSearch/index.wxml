@@ -64,7 +64,7 @@
         <view class="book-intro raduis">
           <view class="remind-box">
             <image class="noDisplay" src="/images/holiday.png"></image>
-            <text class="remind-text">新教务系统暂无课表(可继续看缓存课表)</text>
+            <text class="remind-text">教务不公布课表,小盒子哪儿敢瞎编啊</text>
           </view>
         </view>
       </view>

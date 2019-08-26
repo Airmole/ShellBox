@@ -1,7 +1,7 @@
 {
 	"description": "项目配置文件。",
 	"setting": {
-		"urlCheck": false,
+		"urlCheck": true,
 		"es6": true,
 		"postcss": true,
 		"minified": true,
@@ -45,9 +45,9 @@
 			"list": [
 				{
 					"id": 0,
-					"name": "index",
-					"pathName": "pages/bookSearch/index",
-					"query": "",
+					"name": "bookSearch",
+					"pathName": "pages/bookSearch/bookInfo/bookList",
+					"query": "keyword=量子&SearchType=02",
 					"scene": null
 				}
 			]

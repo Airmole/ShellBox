@@ -132,7 +132,7 @@ Page({
     if (index == 'grkb' || index == 'bjkb') {
       wx.showToast({
         icon: 'none',
-        title: '新教务暂无课表',
+        title: '教务系统都没课表，小盒子不敢瞎编课表啊',
       })
     } else if (this.data.cores[0][sindex].needLogin == true && (uid == "" || pwd == "")) {
       wx.showToast({

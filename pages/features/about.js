@@ -29,6 +29,9 @@ Page({
     }, {
       avatar: 'https://z4a.net/images/2019/06/22/fwj.th.jpg',
       nickName: '非晚'
+      }, {
+        avatar: 'https://z4a.net/images/2019/08/26/TIM20190826143957.th.jpg',
+        nickName: 'PastWind'
       }],
   },
 

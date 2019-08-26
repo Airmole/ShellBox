@@ -55,6 +55,7 @@ Page({
     wx.request({
       url: 'https://api.airmole.cn/ShellBox/v3/score.php?username=' + uid + '&password=' + encodeURIComponent(pwd) + '&cookie=' + cookie + '&vcode=' + vcode,
       success: function(res) {
+        that.eventDraw(res.data);
         console.log(res.data)
         that.setData({
           jsonContent: res.data,
@@ -103,52 +104,6 @@ Page({
 
   },
 
-  GetScoreList: function(s) {
-    //console.log(app.globalData.uid)
-    wx.showToast({
-      title: "加载中...",
-      icon: "loading",
-      duration: 10000
-    })
-    var that = this;
-    // console.log(app.globalData.uid);
-    wx.request({
-      url: 'https://api.giiig.cn/tj/score?uid=' + app.globalData.uid,
-      success: function(res) {
-        if (res.data.code == 200) {
-          that.setData({
-            PicUrl: res.data.data,
-          })
-          console.log(res.data);
-          that.data.PicArr[0] = res.data.data,
-            wx.hideToast()
-          wx.previewImage({
-            current: res.data.data, // 当前显示图片的http链接
-            urls: that.data.PicArr // 需要预览的图片http链接列表
-          })
-          wx.downloadFile({
-            url: res.data.data,
-            success: function(res) {
-              wx.saveImageToPhotosAlbum({
-                filePath: res.tempFilePath,
-                success: function(dres) {
-                  console.log(dres);
-                  // wx.showToast({
-                  //   title: '已保存到相册，记得分享',
-                  //   icon: 'none',
-                  //   duration: 2000
-                  // })
-                  return true;
-                }
-              })
-            }
-          })
-        } else {
-          return false;
-        }
-      }
-    })
-  },
   //图表相关
   createSimulationData: function() {
     var that = this;
@@ -187,6 +142,7 @@ Page({
     });
   },
   charts: function(e) {
+    var that = this;
     var windowWidth = 320;
     try {
       var res = wx.getSystemInfoSync();
@@ -235,6 +191,7 @@ Page({
           lineStyle: 'curve'
         }
       });
+
     }
   },
   /**
@@ -268,19 +225,18 @@ Page({
       url: '/pages/index/index'
     })
   },
-  onReady: function() {
-
-  }, eventDraw() {
+  eventDraw(mockData) {
+    console.log(mockData);
     var that = this;
 
-    wx.showLoading({
-      title: '绘制分享图片中',
-      mask: true
-    })
+    // wx.showLoading({
+    //   title: '绘制分享图片中',
+    //   mask: true
+    // })
 
     var pushArr = [{
       type: 'image',
-      url: 'https://z4a.net/images/2019/08/08/BG.png',
+      url: 'https://upload-images.jianshu.io/upload_images/4697920-ad8b768ca83c5aa8.png',
       top: 0,
       left: 0,
       width: 600,
@@ -398,7 +354,6 @@ Page({
     pushArr.push(nickName);
     var newArr = [];
     let countNum = 0;
-    var mockData = that.data.jsonContent;
     for (let p in mockData) {
       for (let q in mockData[p].score) {
         if (mockData[p].score[q].score >= 60) {
@@ -544,14 +499,14 @@ Page({
       pushArr.push(tempScore);
     }
     console.log(newArr);
-    this.setData({
+    that.setData({
       painting: {
         width: 600,
         height: 1500,
         clear: false,
         views: pushArr
       }
-    })
+    });
   },
   eventSave() {
     wx.saveImageToPhotosAlbum({
@@ -566,23 +521,25 @@ Page({
     })
   },
   eventGetImage(event) {
-    console.log(event)
-    wx.hideLoading()
+    var that = this;
+    console.log(event);
+    wx.hideLoading();
     const {
       tempFilePath,
       errMsg
     } = event.detail
     if (errMsg === 'canvasdrawer:ok') {
-      this.setData({
+      that.setData({
         shareImage: tempFilePath
       })
+      return tempFilePath;
     }
   },
-  fullScreenPreview: function () {
-    this.eventDraw();
+  fullScreenPreview: function() {
     var shareImageURL = this.data.shareImage;
+    this.eventDraw(this.data.jsonContent);
     wx.previewImage({
-      current: 'shareImageURL', // 当前显示图片的http链接
+      current: shareImageURL, // 当前显示图片的http链接
       urls: [shareImageURL] // 需要预览的图片http链接列表
     })
     this.eventSave();

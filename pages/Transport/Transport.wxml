@@ -22,11 +22,11 @@
         </view>
         <view class="weui-tab__content" hidden="{{activeIndex != 0}}" style='background-color:#7acfa6;padding-bottom:30px;'>
           <view class="wraper" style='padding:5px;'>
-            <view class="weui-media-box__title warmtips">京津新城 ↔ 北京</view>
+            <view class="weui-media-box__title warmtips">京津新城 ↔ 北京国贸</view>
             <view class="weui-panel__bd">
               <view class="weui-media-box weui-media-box_text" style='padding-bottom:0px;'>
-                <view style='color:#000;margin-bottom:8px;text-indent:2em;'> 由于合作公司变更，自2019年7月1日（星期一）起，商务班车按新的行车路线、站点、时间运行。商务班车往返于天津市京津新城公交站与北京市朝阳区八王坟长途客运站北光辉立交桥，每日于京津新城与北京两地各发车2车次，每周五有加车。</view>
-                <view style='color:#000;margin-bottom:8px;text-indent:2em;'> 北京站点暂不设立站牌，请同学们牢记两辆红色车的车牌号（津C20676、津C20666）</view>
+                <view style='color:#000;margin-bottom:8px;text-indent:2em;'>班车往返于天津市京津新城公交站与北京国贸桥南艾维克酒店西门三环辅路，每日于京津新城与北京两地各发车2车次，每周五有加车。</view>
+                <view style='color:#000;margin-bottom:8px;text-indent:2em;'> 新的运营车辆车牌号为：京B15506  ，白色大巴车。车辆风挡玻璃内有京津新城标识牌，请乘客注意。</view>
                 <view style='color:#000;margin-bottom:8px;text-indent:2em;'>提示：资料来源于网络搜集整理，仅供参考。节假日及特殊情况变动以“京津新城北京国贸商务班车”公众号通知为准。班车具体情况咨询站点服务人员.</view>
               </view>
             </view>
@@ -55,11 +55,11 @@
           </view>
 
           <view class="wraper" style='padding:5px;'>
-            <image class="weui-article__img" src="https://z4a.net/images/2019/07/24/_201907242008490d063aaf0c7cd48d.jpg" mode="widthFix" style="width:100%;border-radius:25rpx;" />
+            <image class="weui-article__img" src="https://z4a.net/images/2019/08/26/_20190826143211.jpg" mode="widthFix" style="width:100%;border-radius:25rpx;" />
           </view>
 
           <view class="wraper" style='padding:5px;'>
-            <view class="weui-media-box__title warmtips">北京</view>
+            <view class="weui-media-box__title warmtips">北京国贸</view>
             <view class="weui-form-preview__bd">
               <view class="weui-form-preview__item">
                 <view class="weui-form-preview__label">发车时间</view>
@@ -75,7 +75,7 @@
               </view>
               <view class="weui-form-preview__item">
                 <view class="weui-form-preview__label">乘车地点</view>
-                <view class="weui-form-preview__value" bindtap='goBJGMStation'>📍朝阳区八王坟长途客运站北光辉立交桥下(到站后买票)</view>
+                <view class="weui-form-preview__value" bindtap='goBJGMStation'>📍北京国贸桥南艾维克酒店西门三环辅路(到站后买票)</view>
               </view>
             </view>
           </view>
