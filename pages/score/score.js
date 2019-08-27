@@ -198,18 +198,9 @@ Page({
    */
   onShareAppMessage: function(res) {
     // console.log(res);
-    if (this.GetScoreList() == true) {
-      wx.showToast({
-        title: '已保存到相册，记得分享',
-        icon: 'none',
-        duration: 2000
-      })
-    } else {
-      wx.hideToast()
-      return {
-        title: '诺~给你看看，这是我的成绩单!',
-        path: 'pages/score/score?isShareFrom=true&uid=' + this.data.stuId + '&pwd=' + this.data.password,
-      }
+    return {
+      title: '诺~给你看看，这是我的成绩单!',
+      path: 'pages/score/score?isShareFrom=true&uid=' + this.data.stuId + '&pwd=' + this.data.password,
     }
   },
   //注销重登录
@@ -226,23 +217,102 @@ Page({
   },
   eventDraw() {
     var that = this;
+    if (that.data.shareImage != '') {
+      wx.previewImage({
+        urls: [that.data.shareImage],
+      })
+      wx.showToast({
+        title: '图片已保存至相册，记得分享给朋友们哟',
+        icon: 'none',
+        duration: 3000
+      })
+      return
+    }
     wx.showLoading({
       title: '绘制分享图片中',
       mask: true
     })
 
-    wx.showLoading({
-      title: '绘制分享图片中',
-      mask: true
-    })
+    let userNickName = app.globalData.nickName;
+    if (userNickName == '') {
+      userNickName = that.data.stuId;
+    }
 
+    let nickName = {
+      type: 'text',
+      content: userNickName,
+      fontSize: 30,
+      color: '#000',
+      textAlign: 'center',
+      top: 350,
+      left: 300,
+      lineHeight: 20,
+      MaxLineNumber: 1,
+      breakWord: true,
+      width: 160
+    };
+    var newArr = [];
+    let countNum = 0;
+    const mockData = that.data.jsonContent;
+    for (let p in mockData) {
+      for (let q in mockData[p].score) {
+        if (mockData[p].score[q].score >= 60) {
+          countNum++;
+          let newTempArr = {
+            SerialNo: countNum,
+            className: mockData[p].score[q].className,
+            period: mockData[p].score[q].period,
+            credit: mockData[p].score[q].credit,
+            score: mockData[p].score[q].score
+          };
+          newArr.push(newTempArr);
+        }
+      }
+    }
+    let midNum = 0;
+    if (newArr.length % 2 == 0 && newArr.length > 0) {
+      midNum = newArr.length / 2;
+    } else {
+      midNum = (newArr.length + 1) / 2;
+    }
+    var whitePaperHeight = (midNum * 20) + 35;
     var pushArr = [{
       type: 'image',
-      url: 'https://upload-images.jianshu.io/upload_images/4697920-ad8b768ca83c5aa8.png',
+      url: 'https://upload-images.jianshu.io/upload_images/4697920-b926d6f7b128a808.png',
       top: 0,
       left: 0,
       width: 600,
-      height: 1500
+      height: 390
+    }, {
+      type: 'image',
+      url: 'https://upload-images.jianshu.io/upload_images/4697920-d0909159d03389c5.png',
+      top: 390 + whitePaperHeight,
+      left: 0,
+      width: 600,
+      height: 275
+    }];
+
+    let makeupFullPicArr = [{
+      type: 'rect',
+      background: '#ffffff',
+      top: 390,
+      left: 11,
+      width: 576,
+      height: whitePaperHeight
+    }, {
+      type: 'rect',
+      background: '#EF835F',
+      top: 390,
+      left: 0,
+      width: 11,
+      height: whitePaperHeight
+    }, {
+      type: 'rect',
+      background: '#EF835F',
+      top: 390,
+      left: 587,
+      width: 13,
+      height: whitePaperHeight
     }, {
       type: 'text',
       content: '序号',
@@ -340,50 +410,9 @@ Page({
       breakWord: true,
       width: 30
     }];
-
-    let userNickName = app.globalData.nickName;
-    if (userNickName == '') {
-      userNickName = that.data.stuId;
-    }
-
-    let nickName = {
-      type: 'text',
-      content: userNickName,
-      fontSize: 30,
-      color: '#000',
-      textAlign: 'center',
-      top: 350,
-      left: 300,
-      lineHeight: 20,
-      MaxLineNumber: 1,
-      breakWord: true,
-      width: 160
-    };
     pushArr.push(nickName);
-    var newArr = [];
-    let countNum = 0;
-    const mockData = that.data.jsonContent;
-    for (let p in mockData) {
-      for (let q in mockData[p].score) {
-        if (mockData[p].score[q].score >= 60) {
-          countNum++;
-          let newTempArr = {
-            SerialNo: countNum,
-            className: mockData[p].score[q].className,
-            period: mockData[p].score[q].period,
-            credit: mockData[p].score[q].credit,
-            score: mockData[p].score[q].score
-          };
-          newArr.push(newTempArr);
-        }
-      }
-    }
-    let midNum = 0;
-    if (newArr.length % 2 == 0 && newArr.length > 0) {
-      midNum = newArr.length / 2;
-    } else {
-      midNum = (newArr.length + 1) / 2;
-    }
+    pushArr = pushArr.concat(makeupFullPicArr);
+
     var topX = 400;
     var leftY = 20;
     for (let i = 0; i < midNum; i++) {
@@ -508,19 +537,16 @@ Page({
       pushArr.push(tempScore);
     }
     console.log(newArr);
-    this.setData({
+    that.setData({
       painting: {
         width: 600,
-        height: 1500,
+        height: 390 + whitePaperHeight + 275,
         clear: false,
         views: pushArr
       }
     })
   },
   eventSave() {
-    wx.previewImage({
-      urls: [this.data.shareImage],
-    })
     wx.saveImageToPhotosAlbum({
       filePath: this.data.shareImage,
       success(res) {
@@ -543,6 +569,9 @@ Page({
     if (errMsg === 'canvasdrawer:ok') {
       this.setData({
         shareImage: tempFilePath
+      })
+      wx.previewImage({
+        urls: [tempFilePath],
       })
       that.eventSave();
     }
