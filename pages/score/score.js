@@ -55,7 +55,6 @@ Page({
     wx.request({
       url: 'https://api.airmole.cn/ShellBox/v3/score.php?username=' + uid + '&password=' + encodeURIComponent(pwd) + '&cookie=' + cookie + '&vcode=' + vcode,
       success: function(res) {
-        that.eventDraw(res.data);
         console.log(res.data)
         that.setData({
           jsonContent: res.data,
@@ -225,14 +224,17 @@ Page({
       url: '/pages/index/index'
     })
   },
-  eventDraw(mockData) {
-    console.log(mockData);
+  eventDraw() {
     var that = this;
+    wx.showLoading({
+      title: '绘制分享图片中',
+      mask: true
+    })
 
-    // wx.showLoading({
-    //   title: '绘制分享图片中',
-    //   mask: true
-    // })
+    wx.showLoading({
+      title: '绘制分享图片中',
+      mask: true
+    })
 
     var pushArr = [{
       type: 'image',
@@ -338,9 +340,15 @@ Page({
       breakWord: true,
       width: 30
     }];
+
+    let userNickName = app.globalData.nickName;
+    if (userNickName == '') {
+      userNickName = that.data.stuId;
+    }
+
     let nickName = {
       type: 'text',
-      content: 'Airmole',
+      content: userNickName,
       fontSize: 30,
       color: '#000',
       textAlign: 'center',
@@ -354,6 +362,7 @@ Page({
     pushArr.push(nickName);
     var newArr = [];
     let countNum = 0;
+    const mockData = that.data.jsonContent;
     for (let p in mockData) {
       for (let q in mockData[p].score) {
         if (mockData[p].score[q].score >= 60) {
@@ -499,49 +508,43 @@ Page({
       pushArr.push(tempScore);
     }
     console.log(newArr);
-    that.setData({
+    this.setData({
       painting: {
         width: 600,
         height: 1500,
         clear: false,
         views: pushArr
       }
-    });
+    })
   },
   eventSave() {
+    wx.previewImage({
+      urls: [this.data.shareImage],
+    })
     wx.saveImageToPhotosAlbum({
       filePath: this.data.shareImage,
       success(res) {
         wx.showToast({
-          title: '保存图片成功',
-          icon: 'success',
-          duration: 2000
+          title: '图片已保存至相册，记得分享给朋友们哟',
+          icon: 'none',
+          duration: 3000
         })
       }
     })
   },
   eventGetImage(event) {
     var that = this;
-    console.log(event);
-    wx.hideLoading();
+    console.log(event)
+    wx.hideLoading()
     const {
       tempFilePath,
       errMsg
     } = event.detail
     if (errMsg === 'canvasdrawer:ok') {
-      that.setData({
+      this.setData({
         shareImage: tempFilePath
       })
-      return tempFilePath;
+      that.eventSave();
     }
-  },
-  fullScreenPreview: function() {
-    var shareImageURL = this.data.shareImage;
-    this.eventDraw(this.data.jsonContent);
-    wx.previewImage({
-      current: shareImageURL, // 当前显示图片的http链接
-      urls: [shareImageURL] // 需要预览的图片http链接列表
-    })
-    this.eventSave();
   }
 })

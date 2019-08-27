@@ -14,12 +14,9 @@
 
 
 
-  <!-- <view class="score__hd" wx:if="{{jsonContent}}">
-    <view style="display:none;">
-      <image src="{{shareImage}}" class="share-image"></image>
-      <canvasdrawer painting="{{painting}}" class="canvasdrawer" bind:getImage="eventGetImage" />
-    </view>
-    <button class="clear" bindtap="fullScreenPreview">
+  <view class="score__hd" wx:if="{{jsonContent}}">
+    <canvasdrawer painting="{{painting}}" class="canvasdrawer" bind:getImage="eventGetImage"/>
+    <button class="clear" bind:tap="eventDraw">
       <view class="weui-item border-shadow background-1">
         <view class="weui-flex">
           <view class="weui-flex__item">
@@ -32,7 +29,7 @@
         </view>
       </view>
     </button>
-  </view> -->
+  </view>
 
 
 

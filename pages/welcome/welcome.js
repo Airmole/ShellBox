@@ -45,6 +45,7 @@ Page({
   },
   bindGetUserInfo:function(e){
     console.log(e);
+    app.globalData.nickName = e.detail.userInfo.nickName;
     this.start();
   }
 })

@@ -4,6 +4,7 @@ App({
   globalData: {
     apiURL: "https://api.airmole.cn/ShellBox",
     doubanApi: "https://airmole.cn/doubanapi/v2",
+    nickName:'',
     hasLogin: false,
     openid: null,
     building: '',
@@ -43,7 +44,7 @@ App({
               code: data.code
             },
             success: function(res) {
-              console.log('拉取openid成功', res.data.openid)
+              console.log('拉取openid成功', res.data)
               self.globalData.openid = res.data.openid
             },
             fail: function(res) {

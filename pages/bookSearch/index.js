@@ -242,11 +242,12 @@ Page({
       adsError: true
     })
   },
-  bindGetUserInfo: function (e) {
+  bindGetUserInfo: function(e) {
     console.log(e);
+    app.globalData.nickName = e.detail.userInfo.nickName;
     this.toLogin();
   },
-  toLogin:function(){
+  toLogin: function() {
     wx.navigateTo({
       url: '/pages/index/index',
     })
