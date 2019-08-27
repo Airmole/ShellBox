@@ -20,6 +20,8 @@ App({
     var uid = wx.getStorageSync('uid');
     var pwd = wx.getStorageSync('newpwd');
     var newpwd = wx.getStorageSync('newpwd');
+
+    this.appUpdate();
     
     this.getUserOpenId();
 

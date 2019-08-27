@@ -45,9 +45,9 @@
 			"list": [
 				{
 					"id": 0,
-					"name": "bookSearch",
-					"pathName": "pages/bookSearch/bookInfo/bookList",
-					"query": "keyword=量子&SearchType=02",
+					"name": "update",
+					"pathName": "pages/bookSearch/index",
+					"query": "",
 					"scene": null
 				}
 			]
