@@ -51,7 +51,7 @@ Page({
       });
     } else {
       wx.request({
-        url: app.globalData.apiURL + '/v2/profile.php',
+        url: app.globalData.apiURL + '/v4/profile.php',
         method: "POST",
         header: {
           'content-type': 'application/x-www-form-urlencoded',

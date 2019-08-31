@@ -32,11 +32,8 @@ Page({
   },
   onLoad: function() {
 
-    app.globalData.pwd = "";
-    wx.setStorageSync('pwd', '');
-
     this.checkEffectiveIdAndPasswoed();
-    var personalClass = wx.getStorageSync('personalClass');
+    var personalClass = wx.getStorageSync('personal19Class');
     if (personalClass != '') {
       this.setTodayOfflineClass();
     }
@@ -49,7 +46,7 @@ Page({
     this.onLoad();
   },
   setTodayOfflineClass: function() {
-    var personalClass = wx.getStorageSync('personalClass');
+    var personalClass = wx.getStorageSync('personal19Class');
     var that = this;
     var date = new Date();
     let dayOfWeek = date.getDay();

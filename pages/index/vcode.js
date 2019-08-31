@@ -13,13 +13,50 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
+    console.log(options)
     var that = this;
+    if (Object.keys(options.to) == 0) {
+      wx.redirectTo({
+        url: '/pages/bookSearch/index'
+      })
+      return;
+    }
+    var courseCache = wx.getStorageSync('personal19Class');
+    var scoreCache = wx.getStorageSync('p19Score');
+    if (options.to == 'grkb') {
+      that.setData({
+        toPage: '/pages/classQuery/index'
+      })
+      if (courseCache != '' && options.update == '1') {
+
+      } else if (courseCache != '' && options.update == '0') {
+        wx.redirectTo({
+          url: '/pages/classQuery/index',
+        })
+      }
+    } else if (options.to == 'score') {
+      that.setData({
+        toPage: '/pages/score/score'
+      })
+      if (scoreCache != '' && options.update == '1') {
+
+      } else if (scoreCache != '' && options.update == '0') {
+        wx.redirectTo({
+          url: '/pages/score/score',
+        })
+      }
+    } else {
+      wx.redirectTo({
+        url: '/pages/bookSearch/index'
+      })
+    }
+
     that.getVcode();
   },
   getVcode: function() {
     var that = this;
     wx.request({
-      url: app.globalData.apiURL + '/v2/getCookie.php',
+      url: app.globalData.apiURL + '/v4/getCookie.php',
       success: function(res) {
         console.log(res.data);
         that.setData({
@@ -55,7 +92,7 @@ Page({
       return;
     } else {
       wx.request({
-        url: app.globalData.apiURL + '/v2/profile.php',
+        url: app.globalData.apiURL + '/v4/profile.php',
         method: "POST",
         header: {
           'content-type': 'application/x-www-form-urlencoded',
@@ -89,7 +126,7 @@ Page({
             that.getVcode();
           } else if (res.data.name != "" || res.data.number != "") {
             wx.redirectTo({
-              url: '/pages/score/score?cookie=' + that.data.PreInfo.cookie + '&vcode=' + vcode,
+              url: that.data.toPage + '?cookie=' + that.data.PreInfo.cookie + '&vcode=' + vcode + '&update=1',
             })
           } else {
             wx.redirectTo({

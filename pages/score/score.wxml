@@ -15,7 +15,7 @@
 
 
   <view class="score__hd" wx:if="{{jsonContent}}">
-    <canvasdrawer painting="{{painting}}" class="canvasdrawer" bind:getImage="eventGetImage"/>
+    <canvasdrawer painting="{{painting}}" class="canvasdrawer" bind:getImage="eventGetImage" />
     <button class="clear" bind:tap="eventDraw">
       <view class="weui-item border-shadow background-1">
         <view class="weui-flex">
@@ -60,6 +60,11 @@
     <ad unit-id="adunit-62f52651dd5f4ff6"></ad>
   </view>
   <!-- 广告位结束 -->
+
+  <view class="round-click" bindtap='refreshData'>
+    <text>更新成绩</text>
+  </view>
+
   <view class="weui-footer">
     <view class="weui-footer__links">
       <text class="weui-footer__link">很奔放</text>

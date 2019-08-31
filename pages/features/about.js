@@ -11,17 +11,17 @@ Page({
       avatar: 'https://z4a.net/images/2019/06/22/_20180513195821.th.jpg',
       nickName: 'Airmole'
     }, {
-        avatar: 'https://z4a.net/images/2019/07/24/_20190724200849.th.jpg',
+      avatar: 'https://z4a.net/images/2019/07/24/_20190724200849.th.jpg',
       nickName: '很奔放'
     }],
     servicer: [{
       avatar: 'https://z4a.net/images/2019/06/22/_20180513195821.th.jpg',
       nickName: 'Airmole'
     }, {
-        avatar: 'https://z4a.net/images/2019/07/24/_20190724200849.th.jpg',
+      avatar: 'https://z4a.net/images/2019/07/24/_20190724200849.th.jpg',
       nickName: '很奔放'
     }, {
-        avatar: 'https://z4a.net/images/2019/06/22/hzj.th.jpg',
+      avatar: 'https://z4a.net/images/2019/06/22/hzj.th.jpg',
       nickName: 'hzj'
     }, {
       avatar: 'https://z4a.net/images/2019/06/22/zhx.th.jpg',
@@ -29,10 +29,10 @@ Page({
     }, {
       avatar: 'https://z4a.net/images/2019/06/22/fwj.th.jpg',
       nickName: '非晚'
-      }, {
-        avatar: 'https://z4a.net/images/2019/08/26/TIM20190826143957.th.jpg',
-        nickName: 'PastWind'
-      }],
+    }, {
+      avatar: 'https://z4a.net/images/2019/08/26/TIM20190826143957.th.jpg',
+      nickName: 'PastWind'
+    }],
   },
 
   /**
@@ -44,7 +44,16 @@ Page({
       width: wx.getSystemInfoSync().windowWidth * 0.9 + 'px',
       height: wx.getSystemInfoSync().windowWidth * 0.9 * 0.5625 + 'px'
     })
-
+    wx.pageScrollTo({
+      scrollTop: 1600,
+      duration: 4000,
+    })
+    setTimeout(function() {
+      wx.pageScrollTo({
+        scrollTop: 0,
+        duration: 300,
+      })
+    }, 4000);
   },
   copyID: function() {
     wx.setClipboardData({

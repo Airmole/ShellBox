@@ -55,7 +55,7 @@
     </view>
 
     <!-- 教务关闭，无法访问 -->
-    <view class="main-card-item" id='jwClosed' wx:if="{{jsonStr.todayCourse.getCourseStatus == 500}}">
+    <!-- <view class="main-card-item" id='jwClosed' wx:if="{{jsonStr.todayCourse.getCourseStatus == 500}}">
       <view class="card-item-hd">
         <text class="card-item-icon">⚠</text>
         <text class="card-item-name">Error</text>🤕
@@ -68,7 +68,7 @@
           </view>
         </view>
       </view>
-    </view>
+    </view> -->
 
     <!--Hi-->
     <view class="main-card-item" id="ykt" wx:if='{{jsonStr.teachWeek != "N/A"}}'>

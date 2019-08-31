@@ -23,37 +23,59 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-    wx.showToast({
-      title: "加载中...",
-      icon: "loading",
-      duration: 60000
-    })
+
     var that = this;
-    // console.log(options.isShareFrom);
+    console.log(options);
 
     var uid = wx.getStorageSync('uid');
     var pwd = wx.getStorageSync('newpwd');
     var cookie = options.cookie;
     var vcode = options.vcode;
-    that.setData({
-      stuId: uid,
-      password: pwd,
-    });
-    if ((that.data.stuId == '' || that.data.password == '') || (vcode == '' || cookie == '')) {
-      wx.redirectTo({
+    var scoreCache = wx.getStorageSync('p19Score');
+    let showCache = true;
+    if(options.update=='1'){
+      showCache = false;
+      that.GetScoreData(uid, pwd, cookie, vcode);
+    }
+
+    if (scoreCache != "" && showCache) {
+      that.setData({
+        stuId: uid,
+        password: pwd,
+        jsonContent: scoreCache,
+        isLoading: false
+      })
+      that.charts();
+    } else if ((uid == '' || pwd == '') || (vcode == '' || cookie == '')) {
+      wx.navigateTo({
         url: '/pages/index/index'
       })
     } else {
-      this.GetScoreData(uid, pwd, cookie, vcode);
+      that.GetScoreData(uid, pwd, cookie, vcode);
     }
   },
   /**
    * 查询成绩
    */
   GetScoreData: function(uid, pwd, cookie, vcode) {
+    wx.showToast({
+      title: "加载中...",
+      icon: "loading",
+      duration: 60000
+    })
     var that = this;
     wx.request({
-      url: 'https://api.airmole.cn/ShellBox/v3/score.php?username=' + uid + '&password=' + encodeURIComponent(pwd) + '&cookie=' + cookie + '&vcode=' + vcode,
+      url: 'https://api.airmole.cn/ShellBox/v4/score.php',
+      method: "POST",
+      header: {
+        'content-type': 'application/x-www-form-urlencoded',
+      },
+      data: {
+        username: uid,
+        password: pwd,
+        cookie: cookie,
+        vcode: vcode
+      },
       success: function(res) {
         console.log(res.data)
         that.setData({
@@ -71,8 +93,14 @@ Page({
           that.setData({
             isLoading: false
           });
-          wx.hideToast()
+          wx.hideToast();
+          wx.setStorageSync('p19Score', res.data);
           that.charts();
+          wx.showToast({
+            title: "更新完成",
+            icon: "succeed",
+            duration: 2000
+          })
         } else {
           wx.redirectTo({
             url: '/pages/error/queryerror?ErrorTips=' + res.data.desc
@@ -90,7 +118,7 @@ Page({
     that.onLoad();
     wx.stopPullDownRefresh();
     wx.showToast({
-      title: "刷新完成",
+      title: "更新完成",
       icon: "succeed",
       duration: 2000
     })
@@ -196,13 +224,13 @@ Page({
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function(res) {
-    // console.log(res);
-    return {
-      title: '诺~给你看看，这是我的成绩单!',
-      path: 'pages/score/score?isShareFrom=true&uid=' + this.data.stuId + '&pwd=' + this.data.password,
-    }
-  },
+  // onShareAppMessage: function(res) {
+  //   // console.log(res);
+  //   return {
+  //     title: '诺~给你看看，这是我的成绩单!',
+  //     path: 'pages/score/score?isShareFrom=true&uid=' + this.data.stuId + '&pwd=' + this.data.password,
+  //   }
+  // },
   //注销重登录
   reLogin: function() {
     app.globalData.uid = "";
@@ -575,5 +603,10 @@ Page({
       })
       that.eventSave();
     }
+  },
+  refreshData: function() {
+    wx.redirectTo({
+      url: '/pages/index/vcode?to=score&update=1',
+    })
   }
 })

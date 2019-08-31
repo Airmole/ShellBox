@@ -26,37 +26,49 @@ Page({
     is_vacation: false, // 是否为假期
   },
   onLoad: function(options) {
+
+    var uid = wx.getStorageSync('uid');
+    var pwd = wx.getStorageSync('newpwd');
+    var courseCache = wx.getStorageSync('personal19Class');
+    var cookie = options.cookie;
+    var vcode = options.vcode;
     var that = this;
     that.setInfo();
-    if (options.isShareFrom != 'null') {
-      if (options.uid != '' || options.pwd != '') {
-        that.getTable(options.uid, options.pwd, false);
-      }
-    } else {
-      var uid = wx.getStorageSync('uid');
-      var pwd = wx.getStorageSync('newpwd');
-      console.log(pwd)
+    console.log(pwd)
+    that.setData({
+      uid: uid,
+      pwd: pwd,
+    })
+
+
+
+
+
+
+    let showCache = true;
+    if (options.update == '1') {
+      showCache = false;
+      that.getTable(uid, pwd, false, cookie, vcode);
+    }
+
+    if (courseCache != "" && showCache) {
       that.setData({
         uid: uid,
         pwd: pwd,
+        classJson: courseCache,
+        isLoading: false
       })
-      that.getTable(that.data.uid, that.data.pwd, true);
+    } else if ((uid == '' || pwd == '') || (vcode == '' || cookie == '')) {
+      wx.navigateTo({
+        url: '/pages/index/index'
+      })
+
+    } else {
+      that.getTable(uid, pwd, false, cookie, vcode);
     }
-    // 获取用户昵称，查看是否授权
-    wx.getSetting({
-      success(res) {
-        if (res.authSetting['scope.userInfo']) {
-          // 已经授权，可以直接调用 getUserInfo 获取头像昵称
-          wx.getUserInfo({
-            success(res) {
-              console.log(res.userInfo)
-              that.setData({
-                nickName: res.userInfo.nickName
-              })
-            }
-          })
-        }
-      }
+
+    that.setData({
+      nickName: app.globalData.nickName
     })
   },
   bindGetUserInfo(e) {
@@ -70,10 +82,20 @@ Page({
       whichDayOfWeek: arr[whichDayOfWeek],
     })
   },
-  getTable: function(uid, pwd, showCookieClass) {
+  getTable: function(uid, pwd, showCookieClass, cookie, vcode) {
     var that = this;
     wx.request({
-      url: app.globalData.apiURL + '/classTable/personalTable.php?uid=' + uid + '&pwd=' + pwd,
+      url: app.globalData.apiURL + '/v4/courseTable.php',
+      method: "POST",
+      header: {
+        'content-type': 'application/x-www-form-urlencoded',
+      },
+      data: {
+        username: uid,
+        password: pwd,
+        cookie: cookie,
+        vcode: vcode
+      },
       success: function(res) {
         that.setData({
           classJson: res.data,
@@ -81,15 +103,20 @@ Page({
         })
         console.log(res.data);
         if (res.data.status == 200) {
-          wx.setStorageSync('personalClass', res.data);
+          wx.setStorageSync('personal19Class', res.data);
+          wx.showToast({
+            title: "刷新完成",
+            icon: "succeed",
+            duration: 2000
+          })
         }
-        if (res.data.status == 403) {
+        if (res.data.status == 401) {
           wx.navigateTo({
             url: '/pages/error/queryerror?ErrorTips=' + "学号密码不对，请重新登录",
           })
         }
         if (res.data.status == 500) {
-          var personalClass = wx.getStorageSync('personalClass');
+          var personalClass = wx.getStorageSync('personal19Class');
           if (personalClass != "" && showCookieClass == true) {
             that.setData({
               classJson: personalClass,
@@ -101,9 +128,6 @@ Page({
               duration: 2000
             })
           } else {
-            wx.navigateTo({
-              url: '/pages/error/queryerror?ErrorTips=' + "换了新教务系统，暂无课表",
-            })
           }
         }
       }
@@ -166,12 +190,17 @@ Page({
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function(res) {
-    var that = this;
-    // console.log(res);
-    return {
-      title: that.data.nickName + '的个人课表',
-      path: 'pages/classQuery/index?isShareFrom=true&uid=' + that.data.uid + '&pwd=' + that.data.pwd,
-    }
-  },
+  // onShareAppMessage: function(res) {
+  //   var that = this;
+  //   // console.log(res);
+  //   return {
+  //     title: that.data.nickName + '的个人课表',
+  //     path: 'pages/classQuery/index?isShareFrom=true&uid=' + that.data.uid + '&pwd=' + that.data.pwd,
+  //   }
+  // },
+  refreshData: function () {
+    wx.redirectTo({
+      url: '/pages/index/vcode?to=grkb&update=1',
+    })
+  }
 });
