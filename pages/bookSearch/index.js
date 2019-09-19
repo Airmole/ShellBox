@@ -74,7 +74,7 @@ Page({
     var nextCourseArr = [];
     for (let i = 0; i < createArr.length; i++) {
       if (createArr[i]['startTime'] != '') {
-        if (timeJs.CompareDate(nowTime, createArr[i]['startTime']) && utilsJs.needThisWeekGo(3, createArr[i]['teachWeek'])) {
+        if (timeJs.CompareDate(nowTime, createArr[i]['startTime']) && utilsJs.needThisWeekGo(that.data.jsonStr.teachWeek, createArr[i]['teachWeek'])) {
           nextCourseArr = createArr[i];
           break;
         }
