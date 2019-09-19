@@ -94,16 +94,6 @@
             <text class="ykt-balance-value">{{jsonStr.teachWeek}}</text>
             <text class="ykt-balance-text"> 周</text>
           </view>
-          <view class="ykt-cost" wx:if="{{jsonStr.todayCourse.getCourseStatus != 403 && jsonStr.todayCourse.todayCourseCount == 0}}">
-            <text class="ykt-cost-value">今日：您</text>
-            <text class="ykt-cost-total">没有</text>
-            <text class="ykt-cost-text">任何一节课</text>
-          </view>
-          <view class="ykt-cost" wx:if="{{jsonStr.todayCourse.todayCourseCount > 0 && jsonStr.todayCourse.getCourseStatus != 500}}">
-            <text class="ykt-cost-text">今日：您可能一共有</text>
-            <text class="ykt-cost-total">{{jsonStr.todayCourse.todayCourseCount}}</text>
-            <text class="ykt-cost-text">节课👇</text>
-          </view>
         </view>
       </navigator>
     </view>
@@ -156,19 +146,42 @@
     </view>
 
     <!--下节要上的课-->
-    <view class="main-card-item" id="nextCourse" wx:if='{{jsonStr.todayCourse.nextCourse !== null}}'>
+    <view class="main-card-item" id="nextCourse" wx:if='{{nextCourse != "" && nextCourse != "null"}}'>
       <view class="card-item-hd">
         <text>🎓</text>
         <text class="card-item-name">下节课</text>
       </view>
-      <navigator url="/pages/classQuery/index?isShareFrom=null">
+      <navigator url="/pages/classQuery/index">
         <view class="card-item-bd">
           <view class="kb-item">
             <view class="kb-item-left">
-              <text class="kb-item-what">{{jsonStr.todayCourse.nextCourse.courseName}}</text>
-              <text class="kb-item-when">{{jsonStr.todayCourse.nextCourse.startTime}}上课 ~ {{jsonStr.todayCourse.nextCourse.endTime}}下课</text>
+              <text class="kb-item-what">{{nextCourse.courseName}}</text>
+              <text class="kb-item-when">{{nextCourse.startTime}}上课 ~ {{nextCourse.endTime}}下课</text>
             </view>
-            <text class="kb-item-where">{{jsonStr.todayCourse.nextCourse.place}}</text>
+            <text class="kb-item-where">{{nextCourse.place}}</text>
+          </view>
+        </view>
+      </navigator>
+      <view class="kb-open" bindtap='isShowAllCourse' wx:if="{{!isShowAllCourse}}">
+        <text>展示全天课表👇</text>
+      </view>
+      <view class="kb-open" bindtap='isShowAllCourse' wx:else>
+        <text>朕知道了，赶紧收起来吧😂</text>
+      </view>
+    </view>
+    <!--下节课没有缓存-->
+    <view class="main-card-item" id="nextCourse" wx:elif="{{nextCourse=='null'}}">
+      <view class="card-item-hd">
+        <text class="card-item-icon">😭</text>
+        <text class="card-item-name">下一节</text>
+      </view>
+      <navigator url="/pages/classQuery/index">
+        <view class="card-item-bd">
+          <view class="book-intro raduis">
+            <view class="remind-box">
+              <image class="remind-img" src="/images/nothing.png"></image>
+              <text class="remind-text">你还没有查询过课表，点我查下😁</text>
+            </view>
           </view>
         </view>
       </navigator>
@@ -180,12 +193,12 @@
       </view>
     </view>
     <!--下节课没有课-->
-    <view class="main-card-item" id="nextCourse" wx:elif="{{jsonStr.todayCourse.getCourseStatus != 403 && jsonStr.todayCourse.getCourseStatus != 500}}">
+    <view class="main-card-item" id="nextCourse" wx:elif="{{nextCourse==''}}">
       <view class="card-item-hd">
         <text class="card-item-icon">😁</text>
         <text class="card-item-name">下一节</text>
       </view>
-      <navigator url="/pages/classQuery/index?isShareFrom=null">
+      <navigator url="/pages/classQuery/index">
         <view class="card-item-bd">
           <view class="book-intro raduis">
             <view class="remind-box">
@@ -203,10 +216,11 @@
       </view>
     </view>
 
+
     <!-- 今天全天课程 -->
     <view wx:if="{{isShowAllCourse}}">
       <!--今日全天没课?-->
-      <view class="main-card-item" id='mk' wx:if='{{jsonStr.todayCourse.getCourseStatus == 204}}'>
+      <view class="main-card-item" id='mk' wx:if='{{offlinePeronalClass == ""}}'>
         <view class="card-item-hd">
           <text class="card-item-icon">😎</text>
           <text class="card-item-name">今日（{{jsonStr['month']}}月{{jsonStr['day']}}日 {{jsonStr['dayOfWeek']}}）</text>
@@ -220,35 +234,49 @@
           </view>
         </view>
       </view>
+      <!--没有缓存-->
+      <view class="main-card-item" id='mk' wx:if='{{offlinePeronalClass == "null"}}'>
+        <navigator url="/pages/classQuery/index">
+          <view class="card-item-hd">
+            <text class="card-item-icon">😭</text>
+            <text class="card-item-name">无数据</text>
+          </view>
+          <view class="card-item-bd">
+            <view class="book-intro raduis">
+              <view class="remind-box">
+                <image class="noDisplay" src="/images/nothing.png"></image>
+                <text class="remind-text">你还没有查询过课表，点我查下</text>
+              </view>
+            </view>
+          </view>
+        </navigator>
+      </view>
       <!--今日全天课表-->
       <view wx:else class="main-card-item" id="kb">
-        <navigator url="/pages/classQuery/index?isShareFrom=null">
+        <navigator url="/pages/classQuery/index">
           <view class="card-item-hd">
             <text class="card-item-icon">😡</text>
             <text class="card-item-name">（{{jsonStr['month']}}月{{jsonStr['day']}}日 {{jsonStr['dayOfWeek']}}）课表</text>
           </view>
-          <view wx:if='{{jsonStr.todayCourse.getCourseStatus == 500}}' class="card-item-bd kb-nothing">
-            <text>都说了无法连接到教务网🐸</text>
-          </view>
-          <view wx:else class="card-item-bd">
-            <view class="kb-item" wx:for="{{jsonStr['todayCourse']['allCourse']}}" wx:key="todayCourse">
+          <view class="card-item-bd">
+            <view class="kb-item" wx:for="{{offlinePeronalClass}}" wx:key="todayCourse" wx:if="{{item.courseName != ''}}">
               <view class="kb-item-left">
-                <text class="kb-item-what">{{item.courseName}}</text>
+                <text class="kb-item-what">{{item.courseName}}【{{item.teachWeek}}】</text>
                 <text class="kb-item-when">{{item.startTime}}上课 - {{item.endTime}}下课</text>
               </view>
               <text class="kb-item-where">{{item.place}}</text>
             </view>
           </view>
-          <view class="kb-open" wx:if='{{jsonStr.todayCourse.getCourseStatus != 500}}'>
+          <view class="kb-open">
             <text>查看完整个人课表</text>
           </view>
         </navigator>
       </view>
-
     </view>
 
-    <view class="main-card-item" id="kb" wx:if="{{jsonStr.todayCourse.getCourseStatus == 500}}">
-      <navigator url="/pages/classQuery/index?isShareFrom=null">
+    <!-- 缓存课表 -->
+    <!-- <view class="main-card-item" id="kb" wx:if="{{jsonStr.todayCourse.getCourseStatus == 500}}">
+      <navigator url="/pages/classQuery/index">
         <view class="card-item-hd">
           <text class="card-item-icon">😡</text>
           <text class="card-item-name">缓存（ {{jsonStr['dayOfWeek']}}）课表</text>
@@ -266,8 +294,7 @@
           <text>查看完整个人课表</text>
         </view>
       </navigator>
-    </view>
-
+    </view> -->
 
     <!-- 广告 -->
     <view class="main-card-item" wx:if="{{!adsError}}">

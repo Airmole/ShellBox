@@ -91,7 +91,7 @@ Page({
             wx.setStorageSync('uid', uid);
             wx.setStorageSync('newpwd', pwd);
             wx.navigateTo({
-              url: '/pages/welcome/welcome?uid=' + uid + '&pwd=' + pwd + '&cookie=' + that.data.PreInfo.cookie + '&vcode=' + vcode,
+              url: '/pages/welcome/welcome?uid=' + uid + '&name=' + res.data.name + '&classroom=' + res.data.classroom,
             })
           } else {
             wx.showToast({

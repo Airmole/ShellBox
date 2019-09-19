@@ -1,7 +1,10 @@
-var app = getApp()
+var app = getApp();
+var timeJs = require('../../utils/time.js');
+var utilsJs = require('../../utils/util.js');
 Page({
   data: {
-    offlinePeronalClass: '',
+    offlinePeronalClass: 'null', //缓存的今天全天的课表数组
+    nextCourse: "null",
     inputShowed: false,
     adsError: false,
     isLoading: '加载中',
@@ -62,9 +65,26 @@ Page({
         createArr.push(personalClass[i]);
       }
     }
-    console.log();
+    let nowMintues = date.getMinutes();
+    if (nowMintues < 10) {
+      nowMintues = "0" + nowMintues;
+    }
+    const nowTime = date.getHours() + ':' + nowMintues;
+    // console.log(createArr);
+    var nextCourseArr = [];
+    for (let i = 0; i < createArr.length; i++) {
+      if (createArr[i]['startTime'] != '') {
+        if (timeJs.CompareDate(nowTime, createArr[i]['startTime']) && utilsJs.needThisWeekGo(3, createArr[i]['teachWeek'])) {
+          nextCourseArr = createArr[i];
+          break;
+        }
+      }
+    }
+
+
     that.setData({
       offlinePeronalClass: createArr,
+      nextCourse: nextCourseArr
     })
   },
   checkEffectiveIdAndPasswoed: function() {

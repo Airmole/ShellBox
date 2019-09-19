@@ -23,7 +23,20 @@ function formatNumber(n) {
   return n[1] ? n : '0' + n
 }
 
-module.exports = {
-  formatTime: formatTime
+function CompareDate(t1, t2) {
+  var date = new Date();
+  var t1Arr = t1.split(':');
+  var t2Arr = t2.split(':');
+  if (t1Arr[0] - t2Arr[0] < 0) {
+    return true;
+  } else if (t1Arr[0] == t2Arr[0]) {
+    if (t1Arr[1] - t2Arr[1] < 0)
+    return true;
+  } else {
+    return false;
+  }
 }
-
+module.exports = {
+  formatTime: formatTime,
+  CompareDate: CompareDate
+}

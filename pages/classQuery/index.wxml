@@ -69,6 +69,23 @@
             </view>
           </block>
         </view>
+
+
+
+        <!-- 
+        <view class="kb-card mg-12">
+          <view class="mg-8 kb-card-content">8:00~9:00
+            <text class="kb-card-place-words"></text>
+            <view class="kb-card-name">
+              <text class="kb-card-name-text" style="-webkit-line-clamp:{{3*(cards.number-1)}};">12:00~13:00</text>
+            </view>
+          </view>
+        </view> -->
+
+
+
+
+
       </view>
 
 

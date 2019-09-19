@@ -32,6 +32,12 @@ Page({
     var courseCache = wx.getStorageSync('personal19Class');
     var cookie = options.cookie;
     var vcode = options.vcode;
+
+    if ((typeof(options.cookie) == 'undefined' || typeof(options.vcode) == 'undefined') && courseCache.length==0) {
+      wx.redirectTo({
+        url: '/pages/index/vcode?to=grkb&update=0',
+      })
+    }
     var that = this;
     that.setInfo();
     console.log(pwd)
@@ -39,10 +45,6 @@ Page({
       uid: uid,
       pwd: pwd,
     })
-
-
-
-
 
 
     let showCache = true;
@@ -127,8 +129,7 @@ Page({
               icon: 'none',
               duration: 2000
             })
-          } else {
-          }
+          } else {}
         }
       }
     })
@@ -198,7 +199,7 @@ Page({
   //     path: 'pages/classQuery/index?isShareFrom=true&uid=' + that.data.uid + '&pwd=' + that.data.pwd,
   //   }
   // },
-  refreshData: function () {
+  refreshData: function() {
     wx.redirectTo({
       url: '/pages/index/vcode?to=grkb&update=1',
     })
