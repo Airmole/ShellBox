@@ -12,6 +12,14 @@
 
 [![miniprogram.th.jpg](http://www.z4a.net/images/2018/05/04/miniprogram.th.jpg)](小程序体验码)
 
+```
+测试体验账号
+
+学号：000000000
+
+密码：test
+```
+
 
 ## 截图
 [![-1.jpg](https://z4a.net/images/2019/03/16/-1.jpg)](https://z4a.net/image/7NtGdH)
