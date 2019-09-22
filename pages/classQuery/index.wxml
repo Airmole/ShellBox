@@ -32,6 +32,9 @@
           <view wx:for="{{_days}}" wx:key="*this" class="kb-title-item">
             <text>周{{item}}</text>
           </view>
+          <view class="kb-title-itemTime">
+            <text>时间</text>
+          </view>
         </block>
       </view>
 
@@ -70,22 +73,29 @@
           </block>
         </view>
 
-
-
-        <!-- 
-        <view class="kb-card mg-12">
-          <view class="mg-8 kb-card-content">8:00~9:00
-            <text class="kb-card-place-words"></text>
-            <view class="kb-card-name">
-              <text class="kb-card-name-text" style="-webkit-line-clamp:{{3*(cards.number-1)}};">12:00~13:00</text>
+        <!-- 时间列 -->
+        <view class="kb-cards-columnTime">
+          <block wx:for="{{timeRow}}" wx:key="timeRowK">
+            <view class="kb-cardTime mg-12">
+              <view class="mg-8 kb-card-contentTime">
+                <text class="kb-card-place-wordsTime">{{item.l1}}</text>
+                <text class="kb-card-place-wordsTime">{{item.t1}}</text>
+                <text class="kb-card-place-wordsTime">{{item.l2}}</text>
+                <text class="kb-card-place-wordsTime">{{item.t2}}</text>
+              </view>
+            </view>
+          </block>
+          <view class="kb-cardTime mg-12">
+            <view class="mg-8 kb-card-contentTime">
+              <text class="kb-card-place-wordsTime2">第十一节课</text>
+              <text class="kb-card-place-wordsTime2">19:10-19:55</text>
+              <text class="kb-card-place-wordsTime2">第十二节课</text>
+              <text class="kb-card-place-wordsTime2">20:00-20:45</text>
+              <text class="kb-card-place-wordsTime2">第十三节课</text>
+              <text class="kb-card-place-wordsTime2">20:50-21:35</text>
             </view>
           </view>
-        </view> -->
-
-
-
-
-
+        </view>
       </view>
 
 

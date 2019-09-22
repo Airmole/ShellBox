@@ -4,9 +4,10 @@
   overflow: hidden;
 }
 
-.navText{
+.navText {
   color: #0069d9;
 }
+
 .bdwz {
   background-color: #7399ff;
   color: #fff;
@@ -123,7 +124,7 @@
   top: 0;
   left: 0;
   display: flex;
-  width: 910rpx;
+  width: 1055rpx;
   height: 60rpx;
   padding-left: 10rpx;
   border-bottom: 1rpx solid #eee;
@@ -147,13 +148,25 @@
   font-size: 9pt;
   line-height: 120%;
 }
+.kb-title-itemTime {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: center;
+  text-align: center;
+  width: 180rpx;
+  margin-left: 10rpx;
+  font-size: 9pt;
+  line-height: 120%;
+}
 
 .kb-cards-ctn {
   position: absolute;
   top: 0;
   left: 0;
   flex: 1;
-  width: 910rpx;
+  width: 1100rpx;
   height: 1248rpx;
   display: flex;
   align-items: stretch;
@@ -174,6 +187,18 @@
   height: 100%;
   background: transparent;
   margin-right: 10rpx;
+}
+
+.kb-cards-columnTime {
+  position: relative;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  width: 180rpx;
+  height: 100%;
+  background: #eee;
+  margin-left: 10rpx;
 }
 
 .kb-bg {
@@ -228,6 +253,14 @@
   border-radius: 5rpx;
 }
 
+.kb-cardTime {
+  position: relative;
+  z-index: 10;
+  width: 180rpx;
+  min-height: 200rpx;
+  border-radius: 5rpx;
+}
+
 .kb-card-content {
   position: absolute;
   z-index: 11;
@@ -245,6 +278,23 @@
   box-shadow: 0 0 6rpx 2rpx rgba(255, 255, 255, 0.45);
 }
 
+.kb-card-contentTime {
+  position: absolute;
+  z-index: 11;
+  /* background: #eee; */
+  width: 180rpx;
+  min-height: 200rpx;
+  padding: 0 10rpx;
+  text-align: center;
+  box-sizing: border-box;
+  border-radius: 5rpx;
+  display: flex;
+  flex-flow: column nowrap;
+  overflow: hidden;
+  color: #000;
+  box-shadow: 0 0 6rpx 2rpx rgba(255, 255, 255, 0.45);
+}
+
 .kb-card-place-num {
   font-size: 13pt;
   padding: 15rpx 0;
@@ -254,6 +304,18 @@
   font-size: 10pt;
   padding: 15rpx 0;
   line-height: 120%;
+}
+
+.kb-card-place-wordsTime {
+  font-size: 10pt;
+  padding: 15rpx 0;
+  line-height: 80%;
+}
+
+.kb-card-place-wordsTime2 {
+  font-size: 10pt;
+  padding: 15rpx 0;
+  line-height: 25%;
 }
 
 .kb-card-name {
@@ -715,6 +777,7 @@ page .wx-swiper-dot {
 page .wx-swiper-dot-active {
   color: #fff;
 }
+
 /* 悬浮按钮的 */
 
 .round-click {

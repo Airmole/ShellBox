@@ -14,6 +14,37 @@ Page({
     scroll: {
       left: 0 //判断今天是不周末，是的话滚一下
     },
+    timeRow: [{
+        l1: '第一小节',
+        l2: '第二小节',
+        t1: '8:00-8:45',
+        t2: '8:80-9:35'
+      },
+      {
+        l1: '第三小节',
+        l2: '第四小节',
+        t1: '9:55-10:40',
+        t2: '10:45-11:30'
+      },
+      {
+        l1: '第五小节',
+        l2: '第六小节',
+        t1: '13:10-13:55',
+        t2: '14:00-14:45'
+      },
+      {
+        l1: '第七小节',
+        l2: '第八小节',
+        t1: '15:00-15:45',
+        t2: '15:50-16:35'
+      },
+      {
+        l1: '第九小节',
+        l2: '第十小节',
+        t1: '16:50-17:35',
+        t2: '17:40-18:25'
+      },
+    ],
     classJson: '',
     targetLessons: [],
     targetX: 0, //target x轴top距离
@@ -33,7 +64,7 @@ Page({
     var cookie = options.cookie;
     var vcode = options.vcode;
 
-    if ((typeof(options.cookie) == 'undefined' || typeof(options.vcode) == 'undefined') && courseCache.length==0) {
+    if ((typeof(options.cookie) == 'undefined' || typeof(options.vcode) == 'undefined') && courseCache.length == 0) {
       wx.redirectTo({
         url: '/pages/index/vcode?to=grkb&update=0',
       })

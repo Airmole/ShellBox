@@ -50,8 +50,8 @@ function needThisWeekGo(thisweek, weekStr) {
   const pattern1 = /\d{1,2}\-\d{1,2},\d{1,2}\-\d{1,2}\(周\)/;
   const pattern2 = /\d{1,2}\-\d{1,2}\(周\)/;
   const pattern3 = /\d{1,2}\(周\)/;
+  var p1Arr = weekStr.match(/\d{1,2}-\d{1,2}/g);
   if (weekStr.search(pattern1)>-1){
-    let p1Arr = weekStr.match(/\d{1,2}-\d{1,2}/g);
     // console.log('weekStr.search(pattern1)======' + weekStr.search(pattern1));
     let p1Arr1 = p1Arr[0].split('-');
     let p1Arr2 = p1Arr[1].split('-');
@@ -66,15 +66,15 @@ function needThisWeekGo(thisweek, weekStr) {
       return false;
     }
   } else if (weekStr.search(pattern2) > -1){
-    // console.log('weekStr.search(pattern2)======' + weekStr.search(pattern2))
-    let p2Arr1 = p1Arr[1].split('-');
+    // console.log(p1Arr);
+    let p2Arr1 = p1Arr[0].split('-');
     if (thisweek >= p2Arr1[0] && thisweek <= p2Arr1[1]) {
       return true;
     } else {
       return false;
     }
   } else if (weekStr.search(3) > -1){
-    console.log('weekStr.search(3)=====' + weekStr.search(3))
+    // console.log('weekStr.search(3)=====' + weekStr.search(3));
     let p3Arr1 = p3Arr[1].split('(');
     if (thisweek == p3Arr1[0]) {
       return true;
