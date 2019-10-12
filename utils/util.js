@@ -47,35 +47,34 @@ function formatTimes(date, t) {
 }
 
 function needThisWeekGo(thisweek, weekStr) {
+  console.log(thisweek)
+  var thisweek = thisweek;
   const pattern1 = /\d{1,2}\-\d{1,2},\d{1,2}\-\d{1,2}\(周\)/;
   const pattern2 = /\d{1,2}\-\d{1,2}\(周\)/;
   const pattern3 = /\d{1,2}\(周\)/;
   var p1Arr = weekStr.match(/\d{1,2}-\d{1,2}/g);
-  if (weekStr.search(pattern1)>-1){
-    // console.log('weekStr.search(pattern1)======' + weekStr.search(pattern1));
+  var p2Arr = weekStr.match(pattern2);
+  var p3Arr = weekStr.match(pattern3);
+  console.log(p2Arr)
+
+  // console.log(weekStr.match(pattern3))
+  if (weekStr.search(pattern1) > -1) {
     let p1Arr1 = p1Arr[0].split('-');
     let p1Arr2 = p1Arr[1].split('-');
-    if (thisweek >= p1Arr1[0] && thisweek <= p1Arr1[1]){
+    if ((thisweek >= p1Arr1[0] && thisweek <= p1Arr1[1]) || (thisweek >= p1Arr2[0] && thisweek <= p1Arr2[1])) {
       return true;
     } else {
       return false;
     }
-    if (thisweek >= p1Arr2[0] && thisweek <= p1Arr2[1]) {
-      return true;
-    } else {
-      return false;
-    }
-  } else if (weekStr.search(pattern2) > -1){
-    // console.log(p1Arr);
-    let p2Arr1 = p1Arr[0].split('-');
+  } else if (weekStr.search(pattern2) > -1) {
+    let p2Arr1 = p2Arr[0].split('-');
     if (thisweek >= p2Arr1[0] && thisweek <= p2Arr1[1]) {
       return true;
     } else {
       return false;
     }
-  } else if (weekStr.search(3) > -1){
-    // console.log('weekStr.search(3)=====' + weekStr.search(3));
-    let p3Arr1 = p3Arr[1].split('(');
+  } else if (weekStr.search(pattern3) > -1) {
+    let p3Arr1 = p3Arr[0].split('(');
     if (thisweek == p3Arr1[0]) {
       return true;
     } else {

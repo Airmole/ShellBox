@@ -11,6 +11,8 @@
     "pages/features/about",
     "pages/welcome/welcome",
     "pages/classQuery/index",
+    "pages/classQuery/jskb",
+    "pages/classQuery/showJskb",
     "pages/score/score",
     "pages/calendar/calendar",
     "pages/error/queryerror",

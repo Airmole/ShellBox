@@ -4,7 +4,7 @@
 
 [![Star](https://img.shields.io/badge/Star-Airmole-brightgreen.svg)](https://github.com/Airmole/ShellBox/stargazers)
 [![Download](https://img.shields.io/badge/download-.zip-brightgreen.svg)](https://github.com/Airmole/ShellBox/archive/master.zip)
-[![last commit](https://img.shields.io/badge/last%20commit-2019--7--28-green.svg)](https://github.com/Airmole/ShellBox/commits/master)
+[![last commit](https://img.shields.io/badge/last%20commit-2019--10--12-green.svg)](https://github.com/Airmole/ShellBox/commits/master)
 [![https://blog.airmole.cn](https://img.shields.io/badge/Blog-Airmole-green.svg)](https://blog.airmole.cn)
 
 
@@ -40,6 +40,8 @@
     "pages/welcome/welcome",//欢迎界面
     "pages/classQuery/index",//个人课表
     "pages/classQuery/class",//班级课表
+    "pages/classQuery/jskb",//教师课表查询界面
+    "pages/classQuery/showJskb",//教师课表展示界面
     "pages/score/score",//成绩查询
     "pages/calendar/calendar",//校历
     "pages/error/queryerror",//查询失败或错误的异常页面

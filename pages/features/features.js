@@ -13,6 +13,11 @@ Page({
           name: '个人课表',
         url: '/pages/index/vcode?to=grkb&update=0',
           needLogin: true
+      }, {
+          id: 'jskb',
+          name: '教师课表',
+          url: '/pages/classQuery/jskb',
+          needLogin: true
         },
         {
           id: 'wfcx',
@@ -61,7 +66,7 @@ Page({
           name: '校园出行',
           url: '/pages/Transport/Transport',
           needLogin: false
-        },
+        }],[
         {
           id: 'gyhz',
           name: '关于盒子',

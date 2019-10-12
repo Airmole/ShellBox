@@ -36,10 +36,7 @@ Page({
   onLoad: function() {
 
     this.checkEffectiveIdAndPasswoed();
-    var personalClass = wx.getStorageSync('personal19Class');
-    if (personalClass != '') {
-      this.setTodayOfflineClass();
-    }
+
   },
   onReady: function() {
 
@@ -48,14 +45,15 @@ Page({
   onShow: function() {
     this.onLoad();
   },
-  setTodayOfflineClass: function() {
-    var personalClass = wx.getStorageSync('personal19Class');
+  setTodayOfflineClass: function(personalClass) {
     var that = this;
     var date = new Date();
-    let dayOfWeek = date.getDay();
-    let weekArr = ["sunday", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday"];
-    personalClass = personalClass.course[weekArr[dayOfWeek]];
+    var dayOfWeek = date.getDay();
+    var weekArr = ["sunday", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday"];
     var createArr = [];
+    var nextCourseArr = [];
+
+    personalClass = personalClass.course[weekArr[dayOfWeek]];
     for (let i in personalClass) {
       if (personalClass[i].length > 1) {
         for (let j in personalClass[i]) {
@@ -69,23 +67,26 @@ Page({
     if (nowMintues < 10) {
       nowMintues = "0" + nowMintues;
     }
-    const nowTime = date.getHours() + ':' + nowMintues;
+    var nowTime = date.getHours() + ':' + nowMintues;
     // console.log(createArr);
-    var nextCourseArr = [];
     for (let i = 0; i < createArr.length; i++) {
       if (createArr[i]['startTime'] != '') {
-        if (timeJs.CompareDate(nowTime, createArr[i]['startTime']) && utilsJs.needThisWeekGo(that.data.jsonStr.teachWeek, createArr[i]['teachWeek'])) {
+        // if (timeJs.CompareDate(nowTime, createArr[i]['startTime']) && utilsJs.needThisWeekGo(that.data.jsonStr.teachWeek, createArr[i]['teachWeek'])) {
+        //   nextCourseArr = createArr[i];
+        // }
+        if (timeJs.CompareDate(nowTime, createArr[i]['startTime'])) {
           nextCourseArr = createArr[i];
           break;
         }
       }
     }
-
-
+    console.log(nextCourseArr)
     that.setData({
       offlinePeronalClass: createArr,
       nextCourse: nextCourseArr
     })
+
+
   },
   checkEffectiveIdAndPasswoed: function() {
     var that = this;
@@ -216,6 +217,7 @@ Page({
         console.log(res.data);
         var uid = wx.getStorageSync('uid');
         var pwd = wx.getStorageSync('newpwd');
+        var personalClass = wx.getStorageSync('personal19Class');
         if (res.data.todayCourse.getCourseStatus != 403) {
           that.setData({
             isLoading: "finished",
@@ -225,7 +227,13 @@ Page({
             that.setData({
               isLogined: false
             })
+          } else {
+            if (personalClass != '') {
+              console.log(personalClass)
+              that.setTodayOfflineClass(personalClass);
+            }
           }
+
         } else {
           that.setData({
             isLoading: "finished",
@@ -268,5 +276,5 @@ Page({
     wx.navigateTo({
       url: '/pages/index/index',
     })
-  }
+  },
 });
