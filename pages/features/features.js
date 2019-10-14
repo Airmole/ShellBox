@@ -185,7 +185,7 @@ Page({
     var uid = wx.getStorageSync('uid');
     var pwd = wx.getStorageSync('newpwd');
     console.log(ds.currentTarget.dataset);
-    let index = ds.currentTarget.dataset.item;
+    let index = ds.currentTarget.dataset.id;
     let sindex = ds.currentTarget.dataset.sindex;
     if (this.data.cores[0][sindex].needLogin == true && (uid == "" || pwd == "")) {
       wx.showToast({
@@ -193,8 +193,9 @@ Page({
         title: '本功能需要登录',
       })
     } else {
+      // console.log(this.data.cores)
       wx.navigateTo({
-        url: this.data.cores[0][sindex].url,
+        url: this.data.cores[index][sindex].url,
       })
     }
 
