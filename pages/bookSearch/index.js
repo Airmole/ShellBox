@@ -11,6 +11,7 @@ Page({
     isShowAllCourse: false,
     isLogined: false,
     keyword: "",
+    isRuleTrue: false,
     jsonStr: "",
     dayOfWeek: '',
     keywordStr: '',
@@ -36,6 +37,20 @@ Page({
   onLoad: function() {
 
     this.checkEffectiveIdAndPasswoed();
+
+    var sawBirthTips = wx.getStorageSync('zlxBirth');
+    if (sawBirthTips == 'saw') {
+      sawBirthTips = false;
+    } else {
+      sawBirthTips = true;
+    }
+    console.log(sawBirthTips);
+    var nowTimestamp = new Date().getTime();
+    if ((nowTimestamp < '1571932799000' && nowTimestamp > '1571865600000') && sawBirthTips) {
+      this.setData({
+        isRuleTrue: true,
+      })
+    }
 
   },
   onReady: function() {
@@ -276,5 +291,16 @@ Page({
     wx.navigateTo({
       url: '/pages/index/index',
     })
+  },
+  showRule: function() {
+    this.setData({
+      isRuleTrue: true
+    })
+  },
+  hideRule: function() {
+    this.setData({
+      isRuleTrue: false
+    })
+    wx.setStorageSync('zlxBirth', 'saw');
   },
 });

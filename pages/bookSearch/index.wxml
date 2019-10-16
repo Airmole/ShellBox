@@ -33,6 +33,16 @@
     </view>
   </view>
 
+  <!-- 生日 -->
+  <view class="ruleZhezhao {{isRuleTrue?'isRuleShow':'isRuleHide'}}">
+    <view class='ruleZhezhaoContent'>
+      <view class='ruleZhezhaoText'>
+        <image src='https://z4a.net/images/2019/10/16/72797c15ac21d438cec3e8167036e4cd.jpg' style='width:360px;height:550px;'></image>
+      </view>
+      <image src='/images/close.png' class='ruleHide' bindtap='hideRule'></image>
+    </view>
+  </view>
+
   <!-- loading -->
   <view wx:if="{{isLoading == '加载中'}}" class="remind-box" style='margin-top:-200px;'>
     <image class="remind-img" src="/images/loading.gif"></image>
@@ -54,21 +64,8 @@
       </wux-notice-bar>
     </view>
 
-    <!-- 教务关闭，无法访问 -->
-    <!-- <view class="main-card-item" id='jwClosed' wx:if="{{jsonStr.todayCourse.getCourseStatus == 500}}">
-      <view class="card-item-hd">
-        <text class="card-item-icon">⚠</text>
-        <text class="card-item-name">Error</text>🤕
-      </view>
-      <view class="card-item-bd">
-        <view class="book-intro raduis">
-          <view class="remind-box">
-            <image class="noDisplay" src="/images/holiday.png"></image>
-            <text class="remind-text">教务不公布课表,小盒子哪儿敢瞎编啊</text>
-          </view>
-        </view>
-      </view>
-    </view> -->
+
+
 
     <!--Hi-->
     <view class="main-card-item" id="ykt" wx:if='{{jsonStr.teachWeek != "N/A"}}'>
