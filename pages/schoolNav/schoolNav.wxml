@@ -5,7 +5,7 @@
 
 <view wx:else>
   <view class="map_box">
-    <map id="navi_map" longitude="{{userLongitude}}" latitude="{{userLatitude}}" scale="18" markers="{{markers}}" polyline="{{polyline}}" bindmarkertap="makertap" style='width:100%' show-location subkey="JLHBZ-JQELU-I7HVD-B2XSN-5VU3Z-BZFDK" enable-3D="true"
+    <map id="navi_map" longitude="{{userLongitude}}" latitude="{{userLatitude}}" scale="18" markers="{{markers}}" polyline="{{polyline}}" bindmarkertap="makertap" style='width:100%' show-location subkey="5F6BZ-7PSL4-GLFU4-XXI6B-43C66-N2BFV" enable-3D="true"
       show-compass>
       <cover-view class="controls {{fullscreen ? 'full' : ''}}">
         <cover-view bindtap="jtt">
@@ -26,7 +26,7 @@
     <view class="detail_button" bindtouchstart="goDetail">详情</view>
   </view>
   <view class="text_box" wx:else>
-    <view class="text">北京科技大学天津学院</view>
+    <view class="text" bindtap="moveSchool">北京科技大学天津学院（📍前往）</view>
     <view class="text">天津市宝坻区京津新城珠江北环东路1号(邮编：301830)</view>
   </view>
 </view>
