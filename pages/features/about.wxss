@@ -189,11 +189,21 @@
 }
 
 .userinfo-avatar {
+  margin: 0 auto;
   border-radius: 50rpx;
   clip-path: circle(50% at center);
   width: 110rpx;
   height: 110rpx;
   box-shadow: 5rpx 5rpx 15rpx #ccc;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+}
+
+.coperatorName {
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
 }
 
 .oneAvatar {
@@ -204,6 +214,19 @@
   font-size: 26rpx;
   margin-right: 5px;
   margin-bottom: 15px;
+}
+
+.oneApp {
+  text-align: center;
+  float: left;
+  width: 180rpx;
+  height: 140rpx;
+  font-size: 26rpx;
+  margin-right: 5px;
+  margin-bottom: 15px;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
 }
 
 .button-sp-area {

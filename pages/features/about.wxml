@@ -19,6 +19,7 @@
       <text class="desc-title">简介</text>
       <text class="desc-content" style='text-indent:2em;'>贝壳小盒子（ShellBox）是一款微信小程序，致力于帮助我们北京科技大学天津学院的师生更方便的查询教务、图书、用电等信息，以及浏览学院校历、拨打各系部电话，并提供校园内地理导航等功能。</text>
       <text class="desc-content" style='text-indent:2em;'>贝壳小盒子目前还处于公测阶段，有一系列新的功能正在我们的开发计划中。“你想要的，都在这里！”</text>
+      <image bindtap="showAppCode" class="weui-article__img" src="https://z4a.net/images/2019/10/16/777b9dd8ed1f6f82e24795fbab8ddb1c.png" mode="widthFix" style="width:100%;border-radius:25rpx;" />
       <text class="desc-title">数据来源</text>
       <text class="desc-content">* 课表、成绩等数据来自教务处官网；\r\n* 图书相关信息来自图书馆官网以及豆瓣；\r\n* 校历、各系部联系电话来自于学院官方网站；\r\n* 用电数据、网费信息来自智慧校园</text>
       <text class="desc-title">开发贡献</text>
@@ -31,7 +32,7 @@
         </view>
       </view>
       <text class="desc-title">咨询客服</text>
-      <view class='avatarGroup'>
+      <view>
         <view class='oneAvatar' wx:for="{{servicer}}" wx:key="serverkey">
           <view class="userinfo-avatar">
             <image src='{{item.avatar}}' style='width:110rpx;height:110rpx;'></image>
@@ -42,6 +43,15 @@
       <text class="desc-title">关联贝壳小盒子</text>
       <text class="desc-content" style='text-indent:2em;'>若您或者您的朋友在运营与本校相关的公众号（学生组织/社团/校园自媒体等），「贝壳小盒子」诚挚地欢迎您的公众号关联我们的小程序，并期待合作！\r\n  </text>
       <text bindtap='copyID'>AppID：wxf0ba93e3faff4eda</text>
+      <text class="desc-title">其他小程序</text>
+      <view>
+        <view bindtap="goOtherApps" class='oneApp' wx:for="{{otherApps}}" wx:key="appsV" data-appid="{{item.appid}}">
+          <view class="userinfo-avatar">
+            <image src='{{item.icon}}' style='width:110rpx;height:110rpx;'></image>
+          </view>
+          <view class="coperatorName">{{item.name}}</view>
+        </view>
+      </view>
     </view>
 
     <view class="button-sp-area">

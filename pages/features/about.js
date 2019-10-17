@@ -13,6 +13,9 @@ Page({
     }, {
       avatar: 'https://z4a.net/images/2019/07/24/_20190724200849.th.jpg',
       nickName: '很奔放'
+    }, {
+      avatar: 'https://z4a.net/images/2019/06/22/hzj.th.jpg',
+      nickName: 'hzj'
     }],
     servicer: [{
       avatar: 'https://z4a.net/images/2019/06/22/_20180513195821.th.jpg',
@@ -33,6 +36,15 @@ Page({
       avatar: 'https://z4a.net/images/2019/08/26/TIM20190826143957.th.jpg',
       nickName: 'PastWind'
     }],
+    otherApps: [{
+      appid: 'wx183616af30e5723d',
+      icon: 'https://z4a.net/images/2019/10/17/basicprofile.th.png',
+      name: '贝壳班车订票'
+    }, {
+      appid: 'wx9551f8196258f706',
+      icon: 'https://z4a.net/images/2019/10/17/1f4934ff45c2510c249666a909acf02c.png',
+      name: '珠江小盒子'
+    }]
   },
 
   /**
@@ -70,5 +82,20 @@ Page({
    */
   onShareAppMessage: function() {
 
+  },
+  showAppCode: function() {
+    wx.previewImage({
+      current: 'https://z4a.net/images/2019/10/16/777b9dd8ed1f6f82e24795fbab8ddb1c.png', // 当前显示图片的http链接
+      urls: ['https://z4a.net/images/2019/10/16/777b9dd8ed1f6f82e24795fbab8ddb1c.png'] // 需要预览的图片http链接列表
+    })
+  },
+  goOtherApps: function(e) {
+    var appid = e.currentTarget.dataset.appid;
+    wx.navigateToMiniProgram({
+      appId: appid,
+      success(res) {
+        // 打开成功
+      }
+    })
   }
 })
