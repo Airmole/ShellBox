@@ -44,7 +44,7 @@ Page({
     } else {
       sawBirthTips = true;
     }
-    console.log(sawBirthTips);
+    // console.log(sawBirthTips);
     var nowTimestamp = new Date().getTime();
     if ((nowTimestamp < '1571932799000' && nowTimestamp > '1571865600000') && sawBirthTips) {
       this.setData({
@@ -95,7 +95,7 @@ Page({
         }
       }
     }
-    console.log(nextCourseArr)
+    // console.log(nextCourseArr)
     that.setData({
       offlinePeronalClass: createArr,
       nextCourse: nextCourseArr
@@ -145,7 +145,7 @@ Page({
     });
   },
   radioChange: function(e) {
-    console.log(e.detail.value);
+    // console.log(e.detail.value);
     this.setData({
       SearchType: e.detail.value
     })
@@ -188,7 +188,7 @@ Page({
           that.setData({
             keywordStr: res.data,
           })
-          console.log(res.data);
+          // console.log(res.data);
           wx.hideToast()
           if (res.data.total == '图书馆系统无响应') {
             wx.navigateTo({
@@ -229,7 +229,7 @@ Page({
         that.setData({
           jsonStr: res.data
         })
-        console.log(res.data);
+        // console.log(res.data);
         var uid = wx.getStorageSync('uid');
         var pwd = wx.getStorageSync('newpwd');
         var personalClass = wx.getStorageSync('personal19Class');
@@ -244,7 +244,7 @@ Page({
             })
           } else {
             if (personalClass != '') {
-              console.log(personalClass)
+              // console.log(personalClass)
               that.setTodayOfflineClass(personalClass);
             }
           }
@@ -276,7 +276,7 @@ Page({
     //拉到底了，做点什么好呢
   },
   adsError: function(e) {
-    console.log(e)
+    // console.log(e)
     var that = this;
     that.setData({
       adsError: true

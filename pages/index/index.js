@@ -6,9 +6,12 @@ Page({
     jsonContent: {},
     jsonStr: "",
     help_status: false,
+    reset_status: false,
     userid_focus: false,
     passwd_focus: false,
     vcode_focus: false,
+    resetUid_focus: false,
+    idCardNO_focus: false,
     angle: 0,
     PreInfo: {},
     isLoading: true,
@@ -66,7 +69,7 @@ Page({
           that.setData({
             jsonStr: res.data,
           })
-          console.log(res.data)
+          // console.log(res.data)
           wx.hideToast()
           // console.log(res.data);
           //账号密码错误以下功能实现密码错误Toast
@@ -137,6 +140,14 @@ Page({
       this.setData({
         'vcode_focus': true
       });
+    } else if (e.target.id == 'resetUid') {
+      this.setData({
+        'resetUid_focus': true
+      });
+    } else if (e.target.id == 'idCardNO') {
+      this.setData({
+        'idCardNO_focus': true
+      });
     }
   },
   inputBlur: function(e) {
@@ -151,6 +162,14 @@ Page({
     } else if (e.target.id == 'vcode') {
       this.setData({
         'vcode_focus': false
+      });
+    } else if (e.target.id == 'resetUid') {
+      this.setData({
+        'resetUid_focus': false
+      });
+    } else if (e.target.id == 'idCardNO') {
+      this.setData({
+        'idCardNO_focus': false
       });
     }
   },
@@ -180,7 +199,7 @@ Page({
     wx.request({
       url: app.globalData.apiURL + '/v2/getCookie.php',
       success: function(res) {
-        console.log(res.data);
+        // console.log(res.data);
         that.setData({
           PreInfo: res.data,
         })
@@ -193,5 +212,58 @@ Page({
         }
       }
     });
+  },
+  resetPassword: function() {
+    this.setData({
+      help_status: false,
+      reset_status: true,
+    })
+  },
+  hideReset: function() {
+    this.setData({
+      help_status: false,
+      reset_status: false,
+    })
+  },
+  resetPasswordForm: function(e) {
+    var that = this;
+    if (e.detail.value.resetUid.length < 8 || e.detail.value.idCardNO.length < 15) {
+      wx.showToast({
+        title: '输入有误',
+        icon: 'none',
+        image: '/images/info.png'
+      })
+    } else {
+      wx.request({
+        url: app.globalData.apiURL + '/v4/reset.php',
+        method: "POST",
+        header: {
+          'content-type': 'application/x-www-form-urlencoded',
+        },
+        data: {
+          username: e.detail.value.resetUid,
+          idcard: e.detail.value.idCardNO
+        },
+        success: function(res) {
+          // console.log(res.data);
+          if (res.data.code == '200' && res.data.desc == '密码已重置为身份证号的后六位') {
+            wx.showToast({
+              icon:'none',
+              title: '密码已重置为身份证号的后六位',
+              duration: 5000,
+            })
+            that.setData({
+              reset_status: false,
+            })
+          } else {
+            wx.showToast({
+              image: '/images/info.png',
+              title: res.data.desc,
+              duration: 5000
+            })
+          }
+        }
+      })
+    }
   }
 })
