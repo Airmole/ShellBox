@@ -33,11 +33,11 @@
     </view>
   </view>
 
-  <!-- 生日 -->
+  <!-- 维护 -->
   <view class="ruleZhezhao {{isRuleTrue?'isRuleShow':'isRuleHide'}}">
     <view class='ruleZhezhaoContent'>
-      <view class='ruleZhezhaoText'>
-        <image src='https://z4a.net/images/2019/10/16/72797c15ac21d438cec3e8167036e4cd.jpg' style='width:360px;height:550px;'></image>
+      <view class='ruleZhezhaoText' bindtap="showBigWH">
+        <image src='https://z4a.net/images/2019/10/28/lite.jpg' style='width:330px;height:553px;'></image>
       </view>
       <image src='/images/close.png' class='ruleHide' bindtap='hideRule'></image>
     </view>

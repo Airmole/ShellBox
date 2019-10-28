@@ -5,13 +5,19 @@
   <view class="header">
     <view class="xs-logo"></view>
     <view class="header-more">
-      <view class="login-help" bindtap="showHelp">
+      <view class="login-help" bindtap="showHelp" wx:if="{{pageType == 'teacher'}}">
+        <text>帮助</text>
+        <image class="login-help-img" src="/images/help.png"></image>
+      </view>
+      <view class="login-help" bindtap="showHelpClass" wx:if="{{pageType == 'class'}}">
         <text>帮助</text>
         <image class="login-help-img" src="/images/help.png"></image>
       </view>
     </view>
+
+
     <!--搜索框-->
-    <view class="search-input">
+    <view class="search-input" wx:if="{{pageType == 'teacher'}}">
       <view class="search-icon-box">
         <image class="search-icon" src="/images/search-sign.png"></image>
       </view>
@@ -25,26 +31,48 @@
         </button>
       </form>
     </view>
+
+    <view class="search-input" wx:if="{{pageType == 'class'}}">
+      <view class="search-icon-box">
+        <image class="search-icon" src="/images/search-sign.png"></image>
+      </view>
+      <form class="input-form" bindreset="bindClearSearchTap" bindsubmit="bindConfirmSearchTapClass">
+        <input class="input-text" bindinput="bindSearchInputClass" focus="{{!header.defaultValue}}" type="text" name="keyword" placeholder="输入班级查询课表" bindconfirm="bindConfirmSearchTapClass" />
+        <button class="input-clear-button" formType="reset" hover-class="none" wx:if="{{header.inputValue}}">
+          <image class="clear-icon" src="/images/clear.png"></image>
+        </button>
+        <button class="input-confirm-button" formType="submit" hover-class="none">
+          <text>搜索</text>
+        </button>
+      </form>
+    </view>
+
   </view>
 
 
-  <view class="help" id="help" wx:if="{{header.help_status}}" bindtap="tapHelp">
+  <view class="help" id="help" wx:if="{{header.help_status || header.help_class_status}}" bindtap="tapHelp">
     <view class="box">
       <view class="box-hd">
         <text class="box-title">帮助</text>
         <image class="box-close" src="/images/close.png" bindtap="hideHelp"></image>
       </view>
-      <view class="box-bd">
+      <view class="box-bd" wx:if="{{pageType == 'teacher'}}">
         <view class="help-q">1、输入老师的姓名查老师的课表</view>
         <view class="help-a">
           <text>您可以通过输入姓名的完整关键词进行精确搜索，也可以输入老师姓名的前一部分进行模糊搜索。例如搜索 “张” ，将会搜索到所有姓‘张’的老师课表。宁可少字漏字，也不要错字。</text>
         </view>
       </view>
+      <view class="box-bd" wx:if="{{pageType == 'class'}}">
+        <view class="help-q">1、输入班级的名称查询班级课表</view>
+        <view class="help-a">
+          <text>您可以通过输入班级名称的完整关键词进行精确搜索，也可以输入班级名称的一部分进行模糊搜索。例如搜索 “计” ，将会搜索到所有“计算机”和“会计”专业班级的课表。完整的精确搜索宁可少字漏字，也不要错字。</text>
+        </view>
+      </view>
     </view>
   </view>
 
-  <!--页面主体部分-->
-  <view class="main" wx:if="{{!main.mainDisplay}}">
+  <!--页面主体教师课表部分-->
+  <view class="main" wx:if="{{!main.mainDisplay && pageType == 'teacher'}}">
     <!--主体部分标题-->
     <view class="main-title">
       <text class="title-text">教师名单</text>
@@ -53,7 +81,7 @@
     <view class="main-list">
       <!--列表的一个元素的模板结构-->
       <view class="list-item" wx:for='{{main.list}}' wx:key="teacherK">
-        <navigator url="/pages/classQuery/showJskb?teacherName={{item.teacherName}}">
+        <navigator url="/pages/classQuery/showJskb?name={{item.teacherName}}&type=teacher">
           <!--信息直接显示部分-->
           <view class="item">
             <view class="item-content">
@@ -68,7 +96,34 @@
         </navigator>
       </view>
     </view>
-
-
   </view>
+
+  <!--页面主体班级课表部分-->
+  <view class="main" wx:if="{{!main.mainDisplay && pageType == 'class'}}">
+    <!--主体部分标题-->
+    <view class="main-title">
+      <text class="title-text">班级名单</text>
+    </view>
+    <!--主体部分内容列表-->
+    <view class="main-list">
+      <!--列表的一个元素的模板结构-->
+      <view class="list-item" wx:for='{{main.list}}' wx:key="teacherK">
+        <navigator url="/pages/classQuery/showJskb?name={{item.className}}&type=class">
+          <!--信息直接显示部分-->
+          <view class="item">
+            <view class="item-content">
+              <image class="item-content-image" src="/images/classBoard.png"></image>
+              <view class="item-content-state">
+                <view class="content-state-name">
+                  <text class="state-name-active">{{item.className}}</text>
+                </view>
+              </view>
+            </view>
+          </view>
+        </navigator>
+      </view>
+    </view>
+  </view>
+
+
 </view>

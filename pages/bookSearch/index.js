@@ -38,7 +38,7 @@ Page({
 
     this.checkEffectiveIdAndPasswoed();
 
-    var sawBirthTips = wx.getStorageSync('zlxBirth');
+    var sawBirthTips = wx.getStorageSync('whShowStatus');
     if (sawBirthTips == 'saw') {
       sawBirthTips = false;
     } else {
@@ -46,7 +46,7 @@ Page({
     }
     // console.log(sawBirthTips);
     var nowTimestamp = new Date().getTime();
-    if ((nowTimestamp < '1571932799000' && nowTimestamp > '1571865600000') && sawBirthTips) {
+    if (sawBirthTips) {
       this.setData({
         isRuleTrue: true,
       })
@@ -301,6 +301,16 @@ Page({
     this.setData({
       isRuleTrue: false
     })
-    wx.setStorageSync('zlxBirth', 'saw');
+    wx.setStorageSync('whShowStatus', 'saw');
   },
+  showBigWH: function() {
+    wx.previewImage({
+      urls: ["https://z4a.net/images/2019/10/28/lite.jpg"],
+    })
+    wx.showToast({
+      title: '长按保存后，打开QQ扫一扫识别',
+      icon: 'none',
+      duration: 3000
+    })
+  }
 });

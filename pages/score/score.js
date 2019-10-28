@@ -77,17 +77,17 @@ Page({
         vcode: vcode
       },
       success: function(res) {
-        console.log(res.data)
+        console.log(res)
         that.setData({
           jsonContent: res.data,
         })
-        if (Object.keys(res.data).length == 0) {
+        if (res.data == 'null') {
           wx.redirectTo({
             url: '/pages/error/queryerror?ErrorTips=暂时无法查询'
           })
         }
-        if (Object.keys(res.data).length != 0) {
-          if (res.data.code == "401" && res.data.desc == "学号、密码不正确？") {
+        if (res.statusCode == 200) {
+          if (res.data.code == "401" || res.data.desc == "学号、密码不正确？") {
             that.reLogin();
           }
           that.setData({

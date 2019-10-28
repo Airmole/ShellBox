@@ -12,6 +12,7 @@ Page({
     activeClass: '',
     activeClassItem: 0,
     whichDayOfWeek: '',
+    pageType:'teacher',
     scroll: {
       left: 0 //判断今天是不周末，是的话滚一下
     },
@@ -58,17 +59,23 @@ Page({
     is_vacation: false, // 是否为假期
   },
   onLoad: function(options) {
-
+    var that = this;
     var uid = wx.getStorageSync('uid');
     var pwd = wx.getStorageSync('newpwd');
-    var keyword = options.teacherName;
-    var that = this;
+    var keyword = options.name;
+    var pageType = options.type;
     console.log(options)
     that.setData({
       uid: uid,
       pwd: pwd,
+      pageType: pageType
     })
-    that.getTable(uid, pwd, keyword);
+    if (pageType == 'teacher') {
+      that.getTable(uid, pwd, keyword);
+    }
+    if (pageType == 'class') {
+      that.getClassTable(uid, pwd, keyword);
+    }
   },
   bindGetUserInfo(e) {
     console.log(e.detail.userInfo)
@@ -92,6 +99,33 @@ Page({
         console.log(res.data)
         wx.setNavigationBarTitle({
           title: res.data[0].teacherName + '老师的课表'
+        })
+        that.setData({
+          classJson: res.data[0],
+          isLoading: false,
+          classJsonArr: classJsonArr
+        })
+      }
+    })
+  },
+  getClassTable: function(uid, pwd, keyword) {
+    var that = this;
+    var classJsonArr = [];
+    wx.request({
+      url: app.globalData.apiURL + '/v4/classTable/classCourseTable.php',
+      method: "POST",
+      header: {
+        'content-type': 'application/x-www-form-urlencoded',
+      },
+      data: {
+        username: uid,
+        password: pwd,
+        keyword: keyword
+      },
+      success: function(res) {
+        console.log(res.data)
+        wx.setNavigationBarTitle({
+          title: res.data[0].className + '班的课表'
         })
         that.setData({
           classJson: res.data[0],

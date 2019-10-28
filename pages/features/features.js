@@ -11,12 +11,17 @@ Page({
       [{
           id: 'grkb',
           name: '个人课表',
-        url: '/pages/index/vcode?to=grkb&update=0',
+          url: '/pages/index/vcode?to=grkb&update=0',
           needLogin: true
-      }, {
+        }, {
           id: 'jskb',
           name: '教师课表',
-          url: '/pages/classQuery/jskb',
+          url: '/pages/classQuery/jskb?type=teacher',
+          needLogin: true
+        }, {
+          id: 'bjkb',
+          name: '班级课表',
+          url: '/pages/classQuery/jskb?type=class',
           needLogin: true
         },
         {
@@ -56,24 +61,23 @@ Page({
           needLogin: true
         },
         {
-          id: 'tel',
-          name: '常用电话',
-          url: '/pages/tel/tel',
-          needLogin: false
-        },
-        {
           id: 'xycx',
           name: '校园出行',
           url: '/pages/Transport/Transport',
           needLogin: false
-        }],[
-        {
-          id: 'gyhz',
-          name: '关于盒子',
-          url: '/pages/features/about',
-          needLogin: false
         }
-      ]
+      ],
+      [{
+        id: 'tel',
+        name: '常用电话',
+        url: '/pages/tel/tel',
+        needLogin: false
+      }, {
+        id: 'gyhz',
+        name: '关于盒子',
+        url: '/pages/features/about',
+        needLogin: false
+      }]
     ],
   },
   /**

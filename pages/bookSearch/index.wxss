@@ -585,7 +585,7 @@ page .navigator-hover {
 }
 
 .ruleZhezhaoContent {
-  width: 360px;
+  width: 330px;
   background: rgba(255, 255, 255, 0.377);
   margin: 10% auto;
   border-radius: 20rpx;

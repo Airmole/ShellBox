@@ -47,7 +47,7 @@
 					"id": 0,
 					"name": "pages/classQuery/showJskb",
 					"pathName": "pages/classQuery/showJskb",
-					"query": "keyword=马波",
+					"query": "name=计1702&type=class",
 					"scene": null
 				}
 			]
