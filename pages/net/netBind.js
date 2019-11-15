@@ -1,6 +1,7 @@
 // pages/net/netBind.js
 //获取应用实例
 var app = getApp();
+var base64 = require('../../utils/base64.min.js');
 Page({
   data: {
     uid: "",
@@ -25,7 +26,7 @@ Page({
     if (uid != "" && netPassword != '') {
       app.globalData.netPassword = netPassword;
       wx.redirectTo({
-        url: './netfare?uid=' + uid + '&netPassword=' + netPassword,
+        url: './netfare?uid=' + uid + '&netPassword=' + base64.encode(netPassword),
       })
       wx.hideToast();
     } else {
@@ -72,9 +73,9 @@ Page({
             });
           } else if (res.data.code == "200") {
             //设置本地Storage,维持登录态用
-            wx.setStorageSync('netPassword', e.detail.value.netPassword);
+            wx.setStorageSync('netPassword', base64.encode(e.detail.value.netPassword));
             wx.redirectTo({
-              url: './netfare?uid=' + that.data.uid + '&netPassword=' + e.detail.value.netPassword
+              url: './netfare?uid=' + that.data.uid + '&netPassword=' + base64.encode(e.detail.value.netPassword)
             })
           } else {
             wx.showToast({

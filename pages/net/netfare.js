@@ -1,5 +1,6 @@
 // pages/net/netfare.js
 var app = getApp();
+var base64 = require('../../utils/base64.min.js');
 Page({
   /**
    * 页面的初始数据
@@ -19,7 +20,7 @@ Page({
     })
     console.log(options);
     var that = this;
-    that.getJson(options.uid, options.netPassword);
+    that.getJson(options.uid, base64.decode(options.netPassword));
   },
 
   /**
@@ -101,7 +102,7 @@ Page({
           })
         } else if (res.data.code == "200") {
           //设置本地Storage,维持登录态用
-          wx.setStorageSync('netPassword', netPassword);
+          wx.setStorageSync('netPassword', base64.encode(netPassword));
         } else {
           wx.redirectTo({
             url: '/pages/error/queryerror?ErrorTips=无法查询，请联系客服'

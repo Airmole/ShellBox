@@ -77,13 +77,13 @@ Page({
         vcode: vcode
       },
       success: function(res) {
-        console.log(res)
+        console.log(res.data)
         that.setData({
           jsonContent: res.data,
         })
-        if (res.data == 'null') {
+        if (res.data == null) {
           wx.redirectTo({
-            url: '/pages/error/queryerror?ErrorTips=暂时无法查询'
+            url: '/pages/error/queryerror?ErrorTips=暂无成绩'
           })
         }
         if (res.statusCode == 200) {
