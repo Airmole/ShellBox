@@ -22,7 +22,9 @@
     "pages/electricity/electricityBind",
     "pages/Transport/Transport",
     "pages/tel/tel",
-    "pages/schoolNav/schoolNav"
+    "pages/schoolNav/schoolNav",
+    "pages/opac/index",
+    "pages/opac/bind"
   ],
   "window": {
     "backgroundTextStyle": "light",

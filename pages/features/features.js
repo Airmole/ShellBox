@@ -36,10 +36,10 @@ Page({
           url: '/pages/calendar/calendar',
           needLogin: false
         },
-        {
-          id: 'xydh',
-          name: '校园导航',
-          url: '/pages/schoolNav/schoolNav',
+         {
+          id: 'jyxx',
+          name: '我的借阅',
+          url: '/pages/opac/index',
           needLogin: false
         },
         {
@@ -68,6 +68,11 @@ Page({
         }
       ],
       [{
+        id: 'xydh',
+        name: '校园导航',
+        url: '/pages/schoolNav/schoolNav',
+        needLogin: false
+      },{
         id: 'tel',
         name: '常用电话',
         url: '/pages/tel/tel',

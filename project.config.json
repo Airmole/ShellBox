@@ -40,14 +40,25 @@
 			"currentL": -1,
 			"list": []
 		},
+		"gamePlugin": {
+			"current": -1,
+			"list": []
+		},
 		"miniprogram": {
 			"current": 0,
 			"list": [
 				{
 					"id": 0,
-					"name": "pages/classQuery/showJskb",
-					"pathName": "pages/classQuery/showJskb",
-					"query": "name=计1702&type=class",
+					"name": "opac/bind",
+					"pathName": "pages/opac/bind",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "index",
+					"pathName": "pages/index/index",
+					"query": "",
 					"scene": null
 				}
 			]

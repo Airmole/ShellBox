@@ -1,0 +1,69 @@
+<view class="container">
+  <view class="remind-box" wx:if="{{isLoading}}">
+    <image class="remind-img" src="/images/loading.gif"></image>
+  </view>
+  <block wx:else>
+    <view>
+      <image class="title" src="https://z4a.net/images/2019/12/05/jytitle.png"></image>
+      <view class="content">
+        <view class="hd" style="transform:rotateZ({{angle}}deg);">
+          <image class="logo" src="/images/jy.png"></image>
+          <image class="wave" src="/images/wave.png" mode="aspectFill"></image>
+          <image class="wave wave-bg" src="/images/wave.png" mode="aspectFill"></image>
+        </view>
+        <view class="bd">
+          <form class="login-form" bindsubmit="submitInfo">
+            <view class="input-group {{userid_focus ? 'active' : ''}}">
+              <text class="input-label">证件号</text>
+              <input name='username' id='userid' type="number" cursor-spacing="30" placeholder="请输入图书馆证件号" bindinput='UidInput' bindfocus="inputFocus" bindblur="inputBlur" value="{{defaultUid}}" />
+            </view>
+            <view class="input-group {{passwd_focus ? 'active' : ''}}">
+              <text class="input-label">密码</text>
+              <input name='password' id='passwd' password="true" cursor-spacing="30" placeholder="“我的图书馆”系统密码" bindfocus="inputFocus" bindblur="inputBlur" value="{{storageOpacPassword}}" />
+            </view>
+            <view class="input-group {{vcode_focus ? 'active' : ''}}">
+              <text class="input-label">验证码</text>
+              <input id='vcode' name='vcode' type='text' cursor-spacing="30" placeholder="输入验证码" bindfocus="inputFocus" bindblur="inputBlur" />
+              <view class="weui-cell__ft">
+                <image class="weui-vcode-img" src="{{PreInfo.vcode}}" style="width: 90px;height:25px;"></image>
+              </view>
+            </view>
+            <view class="login-help">
+              <view bindtap="showHelp">
+                <text>帮助</text>
+                <image class="login-help-img" src="/images/help.png"></image>
+              </view>
+            </view>
+            <view>
+              <button formType="submit" class="login-btn">确认绑定</button>
+            </view>
+          </form>
+        </view>
+        <view class="help" id="help" wx:if="{{help_status}}" bindtap="tapHelp">
+          <view class="box">
+            <view class="box-hd">
+              <text class="box-title">帮助</text>
+              <image class="box-close" src="/images/close.png" bindtap="hideHelp"></image>
+            </view>
+            <view class="box-bd">
+              <view class="help-q">1、证件号和密码是什么？</view>
+              <view class="help-a">
+                <text>证件号：学生默认证件号为学号，教职工默认证件号为身份证号。</text>
+                <text>密码：图书馆OPAC系统（“我的图书馆”）系统密码</text>
+              </view>
+              <view class="help-q">2、忘记密码？</view>
+              <view class="help-a">
+                <text>忘记密码请携带学生证、身份证等证件前往图书馆（社科、理工两馆均可）借还处联系工作人员查询自己的OPAC系统密码</text>
+              </view>
+              <view class="help-q">3、为什么“我的借阅”每次都要绑定？</view>
+              <view class="help-a">
+                <text>这个锅得由图书馆的OPAC系统来背。由于该系统每次登录都必须用户手动输入验证码。因此必须每次手动输入验证码</text>
+              </view>
+            </view>
+          </view>
+        </view>
+
+      </view>
+    </view>
+  </block>
+</view>

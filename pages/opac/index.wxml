@@ -1,0 +1,81 @@
+<view class="container">
+  <view wx:if="{{remind}}" class="remind-box">
+    <image wx:if="{{remind == '加载中'}}" class="remind-img" src="/images/loading.gif"></image>
+    <block wx:else>
+      <image class="remind-img" src="/images/nothing.png"></image>
+      <text class="remind-text">{{remind}}</text>
+    </block>
+  </view>
+  <block wx:else>
+    <view class="ykt-card">
+      <view class="ykt-black-line"></view>
+      <view class="ykt-content">
+        <view class="ykt-ye">
+          <text class="ykt-ye-name">姓名：{{jsonStr.readerInfo.name}}</text>
+          <text class="ykt-ye-name">读者类型：{{jsonStr.readerInfo.readerType}}</text>
+          <text class="ykt-ye-name">证件号：{{jsonStr.readerInfo.cardNO}}</text>
+          <text class="ykt-ye-name">条码号：{{jsonStr.readerInfo.barCodeNO}}</text>
+        </view>
+        <view class="ykt-img">
+          <image src="/images/card-bg.png"></image>
+        </view>
+      </view>
+      <view class="ykt-card-more">
+        <text class="ykt-ye-time"></text>
+        <text class="ykt-ye-id">{{jsonStr.readerInfo.expirationDate}}到期</text>
+      </view>
+    </view>
+    <view class="user-jy">
+      <view class="user-jy-item user-jy-num">
+        <text class="user-jy-hd">最多可借</text>
+        <view class="user-jy-bd">
+          <text class="user-jy-value">{{jsonStr.readerInfo.maxBorrowableBookNum}}</text>
+          <text class="user-jy-text">本</text>
+        </view>
+      </view>
+      <view class="user-jy-item user-jy-num" bindtap="boNowReadingRecord">
+        <text class="user-jy-hd">当前借阅</text>
+        <view class="user-jy-bd">
+          <text class="user-jy-value">{{jsonStr.reading.length}}</text>
+          <text class="user-jy-text">本</text>
+        </view>
+      </view>
+      <view class="user-jy-item user-jy-history" bindtap="jyHistory">
+        <text class="user-jy-hd">历史借阅</text>
+        <view class="user-jy-bd">
+          <text class="user-jy-value">{{jsonStr.readerInfo.borrowedBooksSum}}</text>
+          <text class="user-jy-text">本</text>
+        </view>
+      </view>
+    </view>
+    <view wx:if="{{jsonStr.reading.length == 0}}" class="remind-box">
+      <image class="remind-img" src="/images/nothing.png"></image>
+      <text class="remind-text">当前无借阅</text>
+    </view>
+    <view wx:else class="book-list">
+      <text class="current-type" id="nowReadingRecord">当前借阅记录</text>
+      <block wx:for="{{jsonStr.reading}}" wx:key="name" wx:for-item="itemName">
+        <navigator url="../bookSearch/bookInfo/bookDetail?marc_no={{itemName.marcNO}}&title={{itemName.bookName}}">
+          <view class="book-wraper">
+            <view class="book-name">
+              <image class="book-img" src="/images/BookTag.png"></image>{{itemName.bookName}}
+              <view style="float:right;">
+                <button class="weui-btn mini-btn xujie-btn" size="mini">续借</button>
+              </view>
+            </view>
+            <view class="book-date">
+              <view>
+                <text>借阅日期：</text>
+                <text>{{itemName.borrowDate}}</text>
+              </view>
+              <view>
+                <text>应还日期：</text>
+                <text class="yhrq-value">{{itemName.needReturnDate}}</text>
+              </view>
+            </view>
+          </view>
+        </navigator>
+      </block>
+    </view>
+  </block>
+</view>

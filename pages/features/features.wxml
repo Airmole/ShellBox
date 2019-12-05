@@ -34,8 +34,8 @@
 
     <!--功能导航-->
     <swiper class="main-swpier radius" indicator-dots="true">
-      <swiper-item class="main-core" wx:for="{{cores}}" wx:for-index="idx" wx:for-item="core" wx:key="{{id}}">
-        <block wx:for="{{core}}" wx:key="{{id}}">
+      <swiper-item class="main-core" wx:for="{{cores}}" wx:for-index="idx" wx:for-item="core" wx:key="id">
+        <block wx:for="{{core}}" wx:key="id">
           <view class="main-core-item disabled" bindtap="disabled_item" data-item='{{item.id}}' data-sindex='{{index}}' data-id='{{idx}}'>
             <image class="core-item-icon" src="/images/{{item.id}}.png"></image>
             <text class="core-item-name">{{item.name}}</text>

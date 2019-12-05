@@ -1,0 +1,7 @@
+{
+  "navigationBarBackgroundColor": "#7acfa6",
+  "backgroundColor": "#7acfa6",
+  "navigationBarTitleText": "绑定借阅证",
+  "enablePullDownRefresh": false,
+  "disableScroll": true
+}
