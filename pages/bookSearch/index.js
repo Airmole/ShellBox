@@ -11,10 +11,10 @@ Page({
     isShowAllCourse: false,
     isLogined: false,
     keyword: "",
-    isRuleTrue: false,
     jsonStr: "",
     dayOfWeek: '',
     keywordStr: '',
+    shouldReturnBook:[],
     SearchType: '02',
     radioItems: [{
         name: '书名',
@@ -37,20 +37,7 @@ Page({
   onLoad: function() {
 
     this.checkEffectiveIdAndPasswoed();
-
-    var sawBirthTips = wx.getStorageSync('whShowStatus');
-    if (sawBirthTips == 'saw') {
-      sawBirthTips = false;
-    } else {
-      sawBirthTips = true;
-    }
-    // console.log(sawBirthTips);
-    var nowTimestamp = new Date().getTime();
-    if (sawBirthTips) {
-      this.setData({
-        isRuleTrue: true,
-      })
-    }
+    this.showReadingBooks();
 
   },
   onReady: function() {
@@ -311,6 +298,25 @@ Page({
       title: '长按保存后，打开QQ扫一扫识别',
       icon: 'none',
       duration: 3000
+    })
+  },
+  showReadingBooks: function() {
+    var that = this;
+    var readingBook = wx.getStorageSync('readingBook');
+    var nowTimestamp = new Date().getTime();
+    var bookReturnDate = new Date();
+    var shouldReturnBook = [];
+
+    for (let i in readingBook) {
+      let formatedNeedReturnDate = readingBook[i].needReturnDate;
+      var needReturnDateArr = formatedNeedReturnDate.split("-");
+      bookReturnDate.setFullYear(needReturnDateArr[0], needReturnDateArr[1] - 1, needReturnDateArr[2]);
+      if (nowTimestamp < bookReturnDate.getTime()) {
+        shouldReturnBook.push(readingBook[i]);
+      }
+    }
+    that.setData({
+      shouldReturnBook: shouldReturnBook
     })
   }
 });

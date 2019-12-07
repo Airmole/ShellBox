@@ -33,7 +33,7 @@
           <text class="user-jy-text">本</text>
         </view>
       </view>
-      <view class="user-jy-item user-jy-num" bindtap="boNowReadingRecord">
+      <view class="user-jy-item user-jy-num" bindtap="goNowReadingRecord">
         <text class="user-jy-hd">当前借阅</text>
         <view class="user-jy-bd">
           <text class="user-jy-value">{{jsonStr.reading.length}}</text>
@@ -44,24 +44,26 @@
         <text class="user-jy-hd">历史借阅</text>
         <view class="user-jy-bd">
           <text class="user-jy-value">{{jsonStr.readerInfo.borrowedBooksSum}}</text>
-          <text class="user-jy-text">本</text>
+          <text class="user-jy-text">次</text>
         </view>
       </view>
     </view>
-    <view wx:if="{{jsonStr.reading.length == 0}}" class="remind-box">
-      <image class="remind-img" src="/images/nothing.png"></image>
-      <text class="remind-text">当前无借阅</text>
-    </view>
-    <view wx:else class="book-list">
-      <text class="current-type" id="nowReadingRecord">当前借阅记录</text>
-      <block wx:for="{{jsonStr.reading}}" wx:key="name" wx:for-item="itemName">
-        <navigator url="../bookSearch/bookInfo/bookDetail?marc_no={{itemName.marcNO}}&title={{itemName.bookName}}">
+    <block wx:if="{{showReadingList}}">
+      <view wx:if="{{jsonStr.reading.length == 0}}" class="remind-box">
+        <image class="remind-img" src="/images/nothing.png"></image>
+        <text class="remind-text">当前无借阅</text>
+      </view>
+      <view wx:else class="book-list">
+        <text class="current-type" id="nowReadingRecord">当前借阅记录</text>
+        <block wx:for="{{jsonStr.reading}}" wx:key="name" wx:for-item="itemName">
           <view class="book-wraper">
             <view class="book-name">
-              <image class="book-img" src="/images/BookTag.png"></image>{{itemName.bookName}}
-              <view style="float:right;">
-                <button class="weui-btn mini-btn xujie-btn" size="mini">续借</button>
-              </view>
+              <navigator url="../bookSearch/bookInfo/bookDetail?marc_no={{itemName.marcNO}}&title={{itemName.bookName}}">
+                <view class="bookeNameTxt">
+                  <image class="book-img" src="/images/BookTag.png"></image>{{itemName.bookName}}
+                </view>
+              </navigator>
+              <button class="weui-btn mini-btn xujie-btn" size="mini" bindtap="renewBook" data-barcode="{{itemName.barcodeNO}}" data-checkcode="{{itemName.checkCode}}">续借</button>
             </view>
             <view class="book-date">
               <view>
@@ -74,8 +76,63 @@
               </view>
             </view>
           </view>
-        </navigator>
-      </block>
-    </view>
+        </block>
+      </view>
+    </block>
+    <block wx:else>
+      <view wx:if="{{historyList.data.length == 0}}" class="remind-box">
+        <image class="remind-img" src="/images/nothing.png"></image>
+        <text class="remind-text">你这个家伙一本书都没借过</text>
+      </view>
+      <view wx:else class="book-list">
+        <text class="current-type" id="historyRecord">历史借阅记录</text>
+        <block wx:for="{{historyList.data}}" wx:key="name" wx:for-item="itemName">
+          <navigator url="../bookSearch/bookInfo/bookDetail?marc_no={{itemName.marcNO}}&title={{itemName.bookName}}">
+            <view class="book-wraper">
+              <view class="book-name">
+                <view class="historyBookeNameTxt">
+                  <image class="book-img" src="/images/BookTag.png"></image>{{itemName.bookName}}
+                </view>
+              </view>
+              <view class="book-date">
+                <view>
+                  <text>借阅日期：</text>
+                  <text>{{itemName.borrowDate}}</text>
+                </view>
+                <view>
+                  <text>归还日期：</text>
+                  <text class="returnDate">{{itemName.returnDate}}</text>
+                </view>
+              </view>
+            </view>
+          </navigator>
+        </block>
+      </view>
+    </block>
   </block>
+
+
+  <view class="help" id="renew" wx:if="{{renew_status}}">
+    <view class="box" style="top:{{renewBoxTop-400}}px;">
+      <view class="box-hd">
+        <text class="box-title">续借</text>
+        <image class="box-close" src="/images/close.png" bindtap="hideRenew"></image>
+      </view>
+      <view class="box-bd">
+        <form class="login-form" bindsubmit="renewBookAction">
+          <view class="input-group {{vcode_focus ? 'active' : ''}}">
+            <text class="input-label">验证码</text>
+            <input id='vcode' name='vcode' type='text' cursor-spacing="30" bindfocus="inputFocus" bindblur="inputBlur" />
+            <view class="weui-cell__ft">
+              <image class="weui-vcode-img" src="{{vcodeURL}}" style="width: 90px;height:25px;"></image>
+            </view>
+          </view>
+          <view class="centerBtn">
+            <button formType="submit" class="weui-btn mini-btn xujieAction-btn" size="mini">续借</button>
+          </view>
+        </form>
+      </view>
+    </view>
+  </view>
+
 </view>

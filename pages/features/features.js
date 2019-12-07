@@ -39,7 +39,7 @@ Page({
          {
           id: 'jyxx',
           name: '我的借阅',
-          url: '/pages/opac/index',
+          url: '/pages/opac/bind',
           needLogin: false
         },
         {

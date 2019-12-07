@@ -57,6 +57,7 @@ Page({
     is_vacation: false, // 是否为假期
   },
   onLoad: function(options) {
+    console.log('openID:' + app.globalData.openid)
 
     var uid = wx.getStorageSync('uid');
     var pwd = wx.getStorageSync('newpwd');
@@ -131,7 +132,8 @@ Page({
         username: uid,
         password: pwd,
         cookie: cookie,
-        vcode: vcode
+        vcode: vcode,
+        openid: app.globalData.openid,
       },
       success: function(res) {
         that.setData({

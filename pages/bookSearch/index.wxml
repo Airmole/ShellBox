@@ -293,6 +293,37 @@
       </navigator>
     </view> -->
 
+    <view class="main-card-item">
+      <view class="card-item-hd">
+        <text class="card-item-icon">📚</text>
+        <text class="card-item-name">借阅图书</text>
+      </view>
+      <block wx:for="{{shouldReturnBook}}" wx:key="shouldReturnBook">
+        <navigator url="./bookInfo/bookDetail?marc_no={{item.marcNO}}&title={{item.bookName}}">
+          <view class="book-wraper">
+            <view class="book-name">
+              <view class="historyBookeNameTxt">
+                <image class="book-img" src="/images/BookTag.png"></image>{{item.bookName}}
+              </view>
+            </view>
+            <view class="book-date">
+              <view>
+                <text>借阅日期：</text>
+                <text>{{item.brrowDate}}</text>
+              </view>
+              <view>
+                <text>归还日期：</text>
+                <text class="yhrq-value">{{item.needReturnDate}}</text>
+              </view>
+            </view>
+          </view>
+        </navigator>
+      </block>
+      <view class="kb-open">
+        <text>不想交罚款就按时归还图书📕</text>
+      </view>
+    </view>
+
     <!-- 广告 -->
     <view class="main-card-item" wx:if="{{!adsError}}">
       <view class="card-item-hd">

@@ -1,7 +1,6 @@
 /* pages/bookSearch/index.wxss */
 @import "../common/weui.wxss";
 
-
 .login-btn {
   margin-top: 20rpx;
   font-size: 9pt;
@@ -564,6 +563,7 @@ page .navigator-hover {
   font-size: 12pt;
   line-height: 150%;
 }
+
 /* showrule */
 
 .isRuleShow {
@@ -646,3 +646,54 @@ page .navigator-hover {
 }
 
 /*  end  */
+
+.book-wraper {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: space-between;
+  overflow: hidden;
+  padding: 35rpx 30rpx 10rpx;
+  background: #fff;
+  border-radius: 3px;
+}
+
+.book-name {
+  font-size: 15pt;
+  line-height: 135%;
+  word-break: break-all;
+}
+
+.bookeNameTxt {
+  float: left;
+  width: 240px;
+  white-space: nowrap; /*强制在一行显示*/
+  text-overflow: ellipsis; /*设置超出内容显示...*/
+  overflow: hidden; /*一定不能少 超出的内容进行隐藏*/
+}
+
+.historyBookeNameTxt {
+  float: left;
+  width: 100%;
+  white-space: nowrap; /*强制在一行显示*/
+  text-overflow: ellipsis; /*设置超出内容显示...*/
+  overflow: hidden; /*一定不能少 超出的内容进行隐藏*/
+}
+
+.book-date {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  font-size: 9pt;
+  color: #888;
+}
+
+.book-img {
+  height: 13pt;
+  width: 13pt;
+  margin-top: 2pt;
+  margin-right: 10rpx;
+}
+.yhrq-value {
+  font-size: 13pt;
+}

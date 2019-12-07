@@ -15,7 +15,7 @@
           <form class="login-form" bindsubmit="submitInfo">
             <view class="input-group {{userid_focus ? 'active' : ''}}">
               <text class="input-label">证件号</text>
-              <input name='username' id='userid' type="number" cursor-spacing="30" placeholder="请输入图书馆证件号" bindinput='UidInput' bindfocus="inputFocus" bindblur="inputBlur" value="{{defaultUid}}" />
+              <input name='username' id='userid' type="text" cursor-spacing="30" placeholder="请输入图书馆证件号" bindinput='UidInput' bindfocus="inputFocus" bindblur="inputBlur" value="{{defaultUid}}" />
             </view>
             <view class="input-group {{passwd_focus ? 'active' : ''}}">
               <text class="input-label">密码</text>
@@ -57,7 +57,7 @@
               </view>
               <view class="help-q">3、为什么“我的借阅”每次都要绑定？</view>
               <view class="help-a">
-                <text>这个锅得由图书馆的OPAC系统来背。由于该系统每次登录都必须用户手动输入验证码。因此必须每次手动输入验证码</text>
+                <text>这个锅得由图书馆的OPAC系统来背。由于该系统每次登录都必须用户手动输入验证码。所以麻烦小可爱花点时间输一下(●'◡'●)</text>
               </view>
             </view>
           </view>
