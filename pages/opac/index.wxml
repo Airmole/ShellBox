@@ -51,7 +51,7 @@
     <block wx:if="{{showReadingList}}">
       <view wx:if="{{jsonStr.reading.length == 0}}" class="remind-box">
         <image class="remind-img" src="/images/nothing.png"></image>
-        <text class="remind-text">当前无借阅</text>
+        <text class="remind-text">走！去图书馆借几本书</text>
       </view>
       <view wx:else class="book-list">
         <text class="current-type" id="nowReadingRecord">当前借阅记录</text>

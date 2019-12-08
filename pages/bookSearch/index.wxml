@@ -293,7 +293,7 @@
       </navigator>
     </view> -->
 
-    <view class="main-card-item">
+    <view class="main-card-item" wx:if="{{shouldReturnBook.length >0}}">
       <view class="card-item-hd">
         <text class="card-item-icon">📚</text>
         <text class="card-item-name">借阅图书</text>

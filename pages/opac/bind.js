@@ -131,7 +131,7 @@ Page({
     });
   },
   UidInput: function(e) {
-    if (e.detail.value.length >= 9) {
+    if (e.detail.value.length >= 18) {
       wx.hideKeyboard();
     }
   },
