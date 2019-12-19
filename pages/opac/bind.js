@@ -99,7 +99,6 @@ Page({
             app.globalData.uid = uid;
             app.globalData.opacPassword = pwd;
             //设置本地Storage,维持登录态用
-            wx.setStorageSync('uid', uid);
             wx.setStorageSync('opacPassword', pwd);
             wx.redirectTo({
               url: '/pages/opac/index?uid=' + uid + '&pwd=' + base64.encode(pwd) + '&cookie=' + that.data.PreInfo.cookie + '&vcode=' + vcode + '&token=' + base64.encode(that.data.PreInfo.token),
