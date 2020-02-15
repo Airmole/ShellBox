@@ -24,7 +24,8 @@
     "pages/tel/tel",
     "pages/schoolNav/schoolNav",
     "pages/opac/index",
-    "pages/opac/bind"
+    "pages/opac/bind",
+    "pages/cet/find"
   ],
   "window": {
     "backgroundTextStyle": "light",

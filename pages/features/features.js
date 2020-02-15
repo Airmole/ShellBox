@@ -36,7 +36,7 @@ Page({
           url: '/pages/calendar/calendar',
           needLogin: false
         },
-         {
+        {
           id: 'jyxx',
           name: '我的借阅',
           url: '/pages/opac/bind',
@@ -61,18 +61,23 @@ Page({
           needLogin: true
         },
         {
-          id: 'xycx',
-          name: '校园出行',
-          url: '/pages/Transport/Transport',
+          id: 'findCET',
+          name: 'CET准考号',
+          url: '/pages/cet/find',
           needLogin: false
         }
       ],
       [{
+        id: 'xycx',
+        name: '校园出行',
+        url: '/pages/Transport/Transport',
+        needLogin: false
+      }, {
         id: 'xydh',
         name: '校园导航',
         url: '/pages/schoolNav/schoolNav',
         needLogin: false
-      },{
+      }, {
         id: 'tel',
         name: '常用电话',
         url: '/pages/tel/tel',
@@ -196,12 +201,13 @@ Page({
     console.log(ds.currentTarget.dataset);
     let index = ds.currentTarget.dataset.id;
     let sindex = ds.currentTarget.dataset.sindex;
+
     if (this.data.cores[0][sindex].needLogin == true && (uid == "" || pwd == "")) {
       wx.showToast({
         icon: 'none',
         title: '本功能需要登录',
       })
-    } else {
+    }  else {
       // console.log(this.data.cores)
       wx.navigateTo({
         url: this.data.cores[index][sindex].url,

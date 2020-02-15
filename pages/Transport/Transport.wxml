@@ -45,7 +45,7 @@
               </view>
               <view class="weui-form-preview__item">
                 <view class="weui-form-preview__label">票价</view>
-                <view class="weui-form-preview__value">￥ 36元(现金)</view>
+                <view class="weui-form-preview__value">￥ 36元(支持微信/支付宝)</view>
               </view>
               <view class="weui-form-preview__item">
                 <view class="weui-form-preview__label">购票、乘车地点</view>
@@ -71,7 +71,7 @@
               </view>
               <view class="weui-form-preview__item">
                 <view class="weui-form-preview__label">票价</view>
-                <view class="weui-form-preview__value">￥ 36元(现金)</view>
+                <view class="weui-form-preview__value">￥ 36元((支持微信/支付宝))</view>
               </view>
               <view class="weui-form-preview__item">
                 <view class="weui-form-preview__label">乘车地点</view>

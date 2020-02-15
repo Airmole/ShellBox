@@ -4,7 +4,7 @@ App({
   globalData: {
     apiURL: "https://api.airmole.cn/ShellBox",
     doubanApi: "https://airmole.cn/doubanapi/v2",
-    nickName:'',
+    nickName: '',
     hasLogin: false,
     openid: null,
     building: '',
@@ -12,7 +12,7 @@ App({
     uid: '',
     pwd: '',
     newpwd: '',
-    netPassword:'',
+    netPassword: '',
   },
   util: require('./utils/util'),
   onLaunch: function() {
@@ -22,7 +22,7 @@ App({
     var newpwd = wx.getStorageSync('newpwd');
 
     this.appUpdate();
-    
+
     this.getUserOpenId();
 
   },
@@ -60,12 +60,18 @@ App({
       })
     }
   },
-  appUpdate: function() {
+  appUpdate: function(where) {
     const updateManager = wx.getUpdateManager()
 
     updateManager.onCheckForUpdate(function(res) {
       // 请求完新版本信息的回调
-      console.log(res.hasUpdate)
+      console.log(res)
+      if (where == 'userclick') {
+        wx.showToast({
+          title: '已是最新版',
+          icon: 'none'
+        })
+      }
     })
 
     updateManager.onUpdateReady(function() {

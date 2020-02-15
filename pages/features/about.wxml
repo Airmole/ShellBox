@@ -11,7 +11,10 @@
     <view class="version">
       <view class="version-title">
         <text class="title-name">贝壳小盒子</text>
-        <text class="version-text">公测2.2.6</text>
+        <text class="version-text">公测2.3.2</text>
+      </view>
+      <view class="weui-cell__ft">
+        <text class="version-text" bindtap="checkUpdate">版本更新</text>
       </view>
     </view>
     <view class="describe">
@@ -21,7 +24,7 @@
       <text class="desc-content" style='text-indent:2em;'>贝壳小盒子目前还处于公测阶段，有一系列新的功能正在我们的开发计划中。“你想要的，都在这里！”</text>
       <image bindtap="showAppCode" class="weui-article__img" src="https://z4a.net/images/2019/10/16/777b9dd8ed1f6f82e24795fbab8ddb1c.png" mode="widthFix" style="width:100%;border-radius:25rpx;" />
       <text class="desc-title">数据来源</text>
-      <text class="desc-content">* 课表、成绩等数据来自教务处官网；\r\n* 图书相关信息来自图书馆官网以及豆瓣；\r\n* 校历、各系部联系电话来自于学院官方网站；\r\n* 用电数据、网费信息来自智慧校园</text>
+      <text class="desc-content">* 课表、成绩等数据来自教务处官网；\r\n* 图书相关信息来自图书馆官网以及豆瓣；\r\n* 校历、各系部联系电话来自于学院官方网站；\r\n* 用电数据、网费信息来自智慧校园\r\n* 四六级准考证信息来自教育部考试中心</text>
       <text class="desc-title">开发贡献</text>
       <view class='avatarGroup'>
         <view class='oneAvatar' wx:for="{{coder}}" wx:key="coderkey">

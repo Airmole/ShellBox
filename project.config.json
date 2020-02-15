@@ -46,7 +46,15 @@
 		},
 		"miniprogram": {
 			"current": -1,
-			"list": []
+			"list": [
+				{
+					"id": 0,
+					"name": "pages/features/features",
+					"pathName": "pages/features/features",
+					"query": "",
+					"scene": null
+				}
+			]
 		}
 	}
 }

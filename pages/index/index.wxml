@@ -53,7 +53,8 @@
               </view>
               <view class="help-q">2、忘记密码？</view>
               <view class="help-a">
-                <text bindtap="resetPassword" style="color:#8E54EC;">点击这里，重置教务系统密码。重置后密码为身份证号码后6位，请及时修改</text>
+                <!-- <text bindtap="resetPassword" style="color:#8E54EC;">点击这里，重置教务系统密码。重置后密码为身份证号码后6位，请及时修改</text> -->
+                <text bindtap="copyResetURL" style="color:#8E54EC;">点击这里，复制粘贴到浏览器打开，输入学号点击下一步并按照提示完成密码重置</text>
               </view>
               <view class="help-q">3、大一新生？暂时还没有学号😥</view>
               <view class="help-a">

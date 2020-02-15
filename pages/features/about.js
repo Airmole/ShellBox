@@ -1,4 +1,5 @@
 // pages/features/about.js
+var app = getApp();
 Page({
 
   /**
@@ -97,5 +98,8 @@ Page({
         // 打开成功
       }
     })
+  },
+  checkUpdate:function(){
+    app.appUpdate('userclick');
   }
 })

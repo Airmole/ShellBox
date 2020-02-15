@@ -1,0 +1,41 @@
+<!--pages/cet/find.wxml-->
+<view class="bd" style="display:block;">
+  <view style="color: white;text-align: center;font-size: 12px;margin-top:20rpx;">
+    <text>为避免(2月21日)当天服务器压力过大，请务必提前几天查询\n 查询成功后建议截图保存或记录好自己的准考证号</text>
+  </view>
+  <form class="login-form" bindsubmit="submitInfo">
+    <view class="input-group">
+      <text class="input-label">学号</text>
+      <input name='username' type="text" cursor-spacing="30" placeholder="学号" bindinput='UidInput' value="{{defaultUid}}" />
+    </view>
+    <view class="input-group">
+      <text class="input-label">姓名</text>
+      <input name='name' id='name' cursor-spacing="30" placeholder="报名姓名" />
+    </view>
+    <view class="input-group">
+      <text class="input-label">身份证</text>
+      <input name='idcard' id='idcard' type="text" cursor-spacing="30" placeholder="身份证号码（X大写）" bindinput='idcardInput' />
+    </view>
+    <view class="input-group">
+      <text class="input-label">验证码</text>
+      <input id='vcode' name='vcode' type='text' cursor-spacing="30" placeholder="输入验证码" />
+      <view class="weui-cell__ft">
+        <image class="weui-vcode-img" src="{{PreInfo.vcode}}" style="width: 90px;height:25px;"></image>
+      </view>
+    </view>
+    <view class="weui-flex">
+      <view class="weui-flex__item">
+        <button open-type="share" class="login-btn bg-white transparent">分享本功能</button>
+      </view>
+      <view class="weui-flex__item">
+        <button formType="submit" class="login-btn bg-white transparent">查询准考证号</button>
+      </view>
+    </view>
+    <view style="color: gray;text-align: center;font-size: 12px;">若无验证码或无法查询,请加Q群719700279联系管理</view>
+  </form>
+  <!-- 广告位 -->
+  <view class='ads'>
+    <ad unit-id="adunit-62f52651dd5f4ff6"></ad>
+  </view>
+  <!-- 广告位结束 -->
+</view>

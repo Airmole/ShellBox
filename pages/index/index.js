@@ -33,7 +33,17 @@ Page({
     } else {
       return false;
     }
-
+  },
+  copyResetURL:function(){
+    wx.setClipboardData({
+      data: 'http://61.181.145.1:88/jsxsd/view/findpwd/enteraccount.jsp',
+      success(res) {
+        wx.showToast({
+          title: '内容已复制，请粘贴到浏览器访问',
+          icon:'none'
+        })
+      }
+    })
   },
   submitInfo: function(e) {
     wx.showToast({

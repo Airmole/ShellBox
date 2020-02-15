@@ -34,13 +34,6 @@ Page {
   margin-right: 5px;
 }
 
-.logo {
-  width: 240px;
-  height: 153px;
-  margin: 0 auto;
-  display: block;
-}
-
 .logo-sub {
   text-align: center;
   margin-top: 50rpx;
