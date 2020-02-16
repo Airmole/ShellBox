@@ -49,8 +49,8 @@
 			"list": [
 				{
 					"id": 0,
-					"name": "pages/features/features",
-					"pathName": "pages/features/features",
+					"name": "cet",
+					"pathName": "pages/cet/find",
 					"query": "",
 					"scene": null
 				}

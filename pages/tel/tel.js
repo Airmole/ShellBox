@@ -178,8 +178,8 @@ Page({
       // console.log(res.target)
     }
     return {
-      title: '贝壳田园各系部联系电话',
-      path: 'pages/tel/departmentTel',
+      title: '北科天院各系部联系电话',
+      path: 'pages/tel/tel',
       // imageUrl: "https://airmole.cn/wechat/wxapp/images/QueryTel.jpg"
     }
   }

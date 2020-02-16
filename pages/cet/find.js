@@ -11,13 +11,13 @@ Page({
 
     var nowTimestamp = new Date().getTime();
     var stopCanQueryTime = '1582300800000';
-    
+
 
     if (nowTimestamp > stopCanQueryTime) {
       wx.showToast({
         title: '已超过准考证查询时间,可能查询不到',
         icon: 'none',
-        duration:10000
+        duration: 10000
       })
       return;
     }
@@ -66,28 +66,38 @@ Page({
           console.log(res.data)
           wx.hideToast()
           // console.log(res.data);
-          wx.downloadFile({
-            url: res.data.pdfurl,
-            success: function(res) {
-              const filePath = res.tempFilePath
-              wx.openDocument({
-                filePath: filePath,
-                success: function(res) {
-                  console.log('打开文档成功');
-                  wx.showToast({
-                    title: '查询成功,建议截图保存以免高峰时期无法查询',
-                    icon:'none'
-                  })
+          try {
+            if (res.data[0].TestTicket.length == 15) {
+              var modalText = res.data[0].SubjectName + '：' + res.data[0].TestTicket;
+              if (res.data.length > 1) {
+                modalText = res.data[0].SubjectName + '：' + res.data[0].TestTicket + '\r\n' + res.data[1].SubjectName + '：' + res.data[1].TestTicket
+              }
+              wx.showModal({
+                title: '查询成功',
+                content: modalText,
+                showCancel: false,
+                confirmText: '复制',
+                success(ress) {
+                  if (ress.confirm) {
+                    wx.setClipboardData({
+                      data: modalText,
+                      success(ress) {
+                        wx.showToast({
+                          icon: 'success',
+                          title: '已复制到粘贴板',
+                        })
+                      }
+                    })
+                  }
                 }
               })
-            },
-            fail: function() {
-              wx.showToast({
-                title: res.data.desc,
-                icon: 'none'
-              })
             }
-          })
+          } catch (error) {
+            wx.showToast({
+              icon: 'none',
+              title: res.data.desc,
+            })
+          }
         },
         complete: function() {
           that.getVcode();
