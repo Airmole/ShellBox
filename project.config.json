@@ -49,8 +49,8 @@
 			"list": [
 				{
 					"id": 0,
-					"name": "cet",
-					"pathName": "pages/cet/find",
+					"name": "kb",
+					"pathName": "pages/classQuery/index",
 					"query": "",
 					"scene": null
 				}

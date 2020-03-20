@@ -59,20 +59,14 @@ Page({
           name: '电费查询',
           url: '/pages/electricity/electricityBind',
           needLogin: true
-        },
-        {
-          id: 'findCET',
-          name: 'CET准考号',
-          url: '/pages/cet/find',
+        }, {
+          id: 'xycx',
+          name: '校园出行',
+          url: '/pages/Transport/Transport',
           needLogin: false
         }
       ],
       [{
-        id: 'xycx',
-        name: '校园出行',
-        url: '/pages/Transport/Transport',
-        needLogin: false
-      }, {
         id: 'xydh',
         name: '校园导航',
         url: '/pages/schoolNav/schoolNav',
@@ -207,7 +201,7 @@ Page({
         icon: 'none',
         title: '本功能需要登录',
       })
-    }  else {
+    } else {
       // console.log(this.data.cores)
       wx.navigateTo({
         url: this.data.cores[index][sindex].url,

@@ -25,7 +25,7 @@
               <text class="input-label">验证码</text>
               <input id='vcode' name='vcode' type='text' cursor-spacing="30" placeholder="输入验证码" bindfocus="inputFocus" bindblur="inputBlur" />
               <view class="weui-cell__ft">
-                <image class="weui-vcode-img" src="{{PreInfo.vcode}}" style="width: 90px;height:25px;"></image>
+                <image class="weui-vcode-img" src="{{PreInfo.vcode}}" style="width: 90px;height:25px;" bindtap="getVcode"></image>
               </view>
             </view>
             <view class="login-help">

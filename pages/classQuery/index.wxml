@@ -127,7 +127,8 @@
     <view class="kb-info-title" wx:else>
       <text class="kb-info-week">{{classJson.teachWeek}}周{{classJson.dayOfWeek}}</text>
       <text class="kb-lesson-time">{{classJson.schoolYear}}学年第{{classJson.semester}}学期</text>
-      <text class="version-text" bindtap='refreshData'>更新课表</text>
+      <text class="version-text" bindtap='refreshData'>更新</text>
+      <text class="version-text" bindtap='eventDraw'>存图</text>
       <image class="kb-info-card-close" src="/images/down_w.png" bindtap="hideDetail"></image>
     </view>
 
@@ -199,3 +200,4 @@
     </view>
   </view>
 </view>
+<canvasdrawer painting="{{painting}}" class="canvasdrawer" bind:getImage="eventGetImage" />

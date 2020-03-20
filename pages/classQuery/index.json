@@ -2,5 +2,8 @@
   "navigationBarBackgroundColor": "#73b4ef",
   "navigationBarTitleText": "个人课表 - 贝壳小盒子",
   "backgroundColor": "#73b4ef",
-  "enablePullDownRefresh": false
+  "enablePullDownRefresh": false,
+  "usingComponents": {
+    "canvasdrawer": "/utils/canvasdrawer/canvasdrawer"
+  }
 }
