@@ -4,8 +4,8 @@
 
 [![Star](https://img.shields.io/badge/Star-Airmole-brightgreen.svg)](https://github.com/Airmole/ShellBox/stargazers)
 [![Download](https://img.shields.io/badge/download-.zip-brightgreen.svg)](https://github.com/Airmole/ShellBox/archive/master.zip)
-[![last commit](https://img.shields.io/badge/last%20commit-2019--10--12-green.svg)](https://github.com/Airmole/ShellBox/commits/master)
-[![https://blog.airmole.cn](https://img.shields.io/badge/Blog-Airmole-green.svg)](https://blog.airmole.cn)
+[![last commit](https://img.shields.io/badge/last%20commit-2020--04--01-green.svg)](https://github.com/Airmole/ShellBox/commits/master)
+
 
 
 ## 线上版本体验
@@ -51,7 +51,10 @@
     "pages/electricity/electricityBind",//电费绑定
     "pages/Transport/Transport",//校园出行
     "pages/tel/tel",//常用电话
-    "pages/schoolNav/schoolNav"//校园导航
+    "pages/schoolNav/schoolNav",//校园导航
+    "pages/opac/index",//在线图书馆图书借阅列表
+    "pages/opac/bind",//在线图书馆账号绑定
+    "pages/cet/find"//四六级准考证号找回
   ],
 ```
 
@@ -59,7 +62,7 @@
 
 - 通知中心、登录、关于、课表、电费查询界面借鉴使用[We重邮](https://github.com/mcc108/wecqupt)
 
--  校园出行公交路线、公告通知跑马灯使用[Wux Weapp](https://github.com/wux-weapp/wux-weapp)
+- 校园出行公交路线、公告通知跑马灯使用[Wux Weapp](https://github.com/wux-weapp/wux-weapp)
 
 - 校园导航路线规划使用[高德导航API](https://lbs.amap.com/)
 
