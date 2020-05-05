@@ -25,7 +25,9 @@
     "pages/schoolNav/schoolNav",
     "pages/opac/index",
     "pages/opac/bind",
-    "pages/cet/find"
+    "pages/cet/find",
+    "pages/graduatePhoto/sample",
+    "pages/graduatePhoto/result"
   ],
   "window": {
     "backgroundTextStyle": "light",

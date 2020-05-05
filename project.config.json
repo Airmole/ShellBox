@@ -6,7 +6,10 @@
 		"postcss": true,
 		"minified": true,
 		"newFeature": true,
+		"coverView": true,
 		"autoAudits": false,
+		"showShadowRootInWxmlPanel": true,
+		"scopeDataCheck": false,
 		"checkInvalidKey": true,
 		"checkSiteMap": true,
 		"uploadWithSourceMap": true,
@@ -49,8 +52,8 @@
 			"list": [
 				{
 					"id": 0,
-					"name": "kb",
-					"pathName": "pages/classQuery/index",
+					"name": "pages/graduatePhoto/sample",
+					"pathName": "pages/graduatePhoto/sample",
 					"query": "",
 					"scene": null
 				}

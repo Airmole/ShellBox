@@ -1,0 +1,14 @@
+<!--pages/graduatePhoto/result.wxml-->
+<view class="flex">
+  <view class="flex-item photoBorder" bindtap="previewPhoto">
+    <image mode="widthFix" src="{{photoUrl}}"></image>
+  </view>
+</view>
+<view class="btnLine">
+  <view class="btnItem">
+    <button class="weui-btn weui-btn_mini weui-btn_primary" open-type="share">分享毕业照</button>
+  </view>
+  <view class="btnItem">
+    <button class="weui-btn weui-btn_mini weui-btn_primary" bindtap="save2Dev">保存图片</button>
+  </view>
+</view>

@@ -60,13 +60,18 @@ Page({
           url: '/pages/electricity/electricityBind',
           needLogin: true
         }, {
-          id: 'xycx',
-          name: '校园出行',
-          url: '/pages/Transport/Transport',
+          id: 'byzp',
+          name: '毕业照',
+          url: '/pages/graduatePhoto/sample',
           needLogin: false
         }
       ],
       [{
+        id: 'xycx',
+        name: '校园出行',
+        url: '/pages/Transport/Transport',
+        needLogin: false
+      },{
         id: 'xydh',
         name: '校园导航',
         url: '/pages/schoolNav/schoolNav',
@@ -158,7 +163,7 @@ Page({
     }
     return {
       title: '还没用过 “贝壳小盒子”😱还不快来试试？',
-      path: 'pages/features/features',
+      path: '/pages/features/features',
       success: function(res) {
         // 转发成功
       },

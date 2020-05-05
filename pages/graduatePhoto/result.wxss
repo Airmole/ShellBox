@@ -1,0 +1,23 @@
+/* pages/graduatePhoto/result.wxss */
+@import "/pages/common/weui.wxss";
+
+.flex{
+  display: flex;
+  justify-content: center;
+}
+
+.photoBorder{
+  margin-top: 50rpx;
+  border: 1px solid black;
+}
+
+.btnLine{
+  margin-top: 30rpx;
+  display: flex;
+  justify-content: center;
+}
+
+.btnItem{
+  padding-left: 20rpx;
+  padding-right: 20rpx;
+}

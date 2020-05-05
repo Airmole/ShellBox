@@ -1,0 +1,19 @@
+<!--pages/graduatePhoto/sample.wxml-->
+<view class="page">
+  <view class="page__hd">
+    <view class="page__desc" style='color:#000;'>选一张你喜欢的风格吧📷</view>
+  </view>
+</view>
+<view class="flexContainer">
+  <view class="picView" wx:key='key' wx:for="{{sampleId}}" data-sampleid='{{item}}' bindtap="chooseSample">
+    <image class="pic" src="https://z4a.net/images/2020/05/01/{{item}}.th.jpg"></image>
+  </view>
+</view>
+<view class="page">
+  <view class="page__hd">
+    <view class="page__desc" style='color:#000;'>注意：</view>
+    <view class="page__desc" style='color:#000;'>(1).上传照片质量越高，则合成效果越好。影响合成效果的因素包括：对人脸五官的遮挡、不当的光照（强光、暗光、逆光）、面部角度等。</view>
+    <view class="page__desc" style='color:#000;'>(2).不支持上传黑白照片进行合成。照片不得大于2M,大于2M照片请适度裁剪。</view>
+    <view class="page__desc" style='color:#000;'>(3).欢迎投稿添加更多毕业照模板，其他问题也可入群交流QQ群 717900279。</view>
+  </view>
+</view>
