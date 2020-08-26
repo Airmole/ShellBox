@@ -33,7 +33,7 @@ Page({
     var vcode = options.vcode;
     var scoreCache = wx.getStorageSync('p19Score');
     let showCache = true;
-    if(options.update=='1'){
+    if (options.update == '1') {
       showCache = false;
       that.GetScoreData(uid, pwd, cookie, vcode);
     }
@@ -81,13 +81,13 @@ Page({
         that.setData({
           jsonContent: res.data,
         })
-        if (res.data == null) {
-          wx.redirectTo({
-            url: '/pages/error/queryerror?ErrorTips=暂无成绩'
-          })
-        }
+        // if (res.data == null) {
+        //   wx.redirectTo({
+        //     url: '/pages/error/queryerror?ErrorTips=暂无成绩'
+        //   })
+        // }
         if (res.statusCode == 200) {
-          if (res.data.code == "401" || res.data.desc == "学号、密码不正确？") {
+          if ((typeof(res.data.code) != 'undefine' && res.data.code == "401") || res.data.desc == "学号、密码不正确？") {
             that.reLogin();
           }
           that.setData({

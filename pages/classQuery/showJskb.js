@@ -12,7 +12,7 @@ Page({
     activeClass: '',
     activeClassItem: 0,
     whichDayOfWeek: '',
-    pageType:'teacher',
+    pageType: 'teacher',
     scroll: {
       left: 0 //判断今天是不周末，是的话滚一下
     },
@@ -97,6 +97,11 @@ Page({
       },
       success: function(res) {
         console.log(res.data)
+        if (res.data.code == 500) {
+          wx.navigateTo({
+            url: '/pages/error/queryerror?ErrorTips=' + "垃圾教务系统不稳定"
+          })
+        }
         wx.setNavigationBarTitle({
           title: res.data[0].teacherName + '老师的课表'
         })
@@ -124,6 +129,11 @@ Page({
       },
       success: function(res) {
         console.log(res.data)
+        if ((res.data.code == 500 || res.data.desc =='垃圾教务,再试一次？') || res.data=='') {
+          wx.navigateTo({
+            url: '/pages/error/queryerror?ErrorTips=' + "垃圾教务,再试一次？"
+          })
+        }
         wx.setNavigationBarTitle({
           title: res.data[0].className + '班的课表'
         })

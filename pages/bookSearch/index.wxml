@@ -93,11 +93,11 @@
           </view>
         </view>
       </navigator>
-      <navigator url="/pages/graduatePhoto/sample">
+      <!-- <navigator url="/pages/graduatePhoto/sample">
         <view class="kb-open" style="color:red;">
           <text>生成毕业照，让毕业季不留遗憾🎓</text>
         </view>
-      </navigator>
+      </navigator> -->
     </view>
 
     <!-- Hi！寒暑假 -->

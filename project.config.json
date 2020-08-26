@@ -52,8 +52,8 @@
 			"list": [
 				{
 					"id": 0,
-					"name": "pages/graduatePhoto/sample",
-					"pathName": "pages/graduatePhoto/sample",
+					"name": "pages/calendar/calendar",
+					"pathName": "pages/calendar/calendar",
 					"query": "",
 					"scene": null
 				}

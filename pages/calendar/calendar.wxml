@@ -12,6 +12,7 @@
             <text>{{jsonContent.schoolYear}}学年 第{{jsonContent.semester}}学期\n</text>
             <text wx:if="{{jsonContent.teachWeek !=='N/A'}}">{{jsonContent.month}} 月{{jsonContent.day}} 日（第 {{jsonContent.teachWeek}} 周） {{jsonContent.dayOfWeek}}</text>
             <text wx:else>{{jsonContent.month}} 月 {{jsonContent.day}} 日（假期） {{jsonContent.dayOfWeek}}</text>
+            <text> \r\n受疫情等外部不可抗力因素印象，目前校历为暂行版，学校随时可能更新或根据实际情况变更，本校历仅供参考。 </text>
           </view>
 
 

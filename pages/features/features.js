@@ -60,18 +60,13 @@ Page({
           url: '/pages/electricity/electricityBind',
           needLogin: true
         }, {
-          id: 'byzp',
-          name: '毕业照',
-          url: '/pages/graduatePhoto/sample',
+          id: 'xycx',
+          name: '校园出行',
+          url: '/pages/Transport/Transport',
           needLogin: false
-        }
+        },
       ],
       [{
-        id: 'xycx',
-        name: '校园出行',
-        url: '/pages/Transport/Transport',
-        needLogin: false
-      },{
         id: 'xydh',
         name: '校园导航',
         url: '/pages/schoolNav/schoolNav',
