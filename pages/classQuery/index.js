@@ -59,7 +59,7 @@ Page({
     is_vacation: false, // 是否为假期
   },
   onLoad: function(options) {
-    console.log('openID:' + app.globalData.openid)
+    console.log('options:', options)
 
     var uid = wx.getStorageSync('uid');
     var pwd = wx.getStorageSync('newpwd');
@@ -125,7 +125,7 @@ Page({
   getTable: function(uid, pwd, showCookieClass, cookie, vcode) {
     var that = this;
     wx.request({
-      url: app.globalData.apiURL + '/v4/courseTable.php',
+      url: app.globalData.apiURL + '/v5/courseTable.php',
       method: "POST",
       header: {
         'content-type': 'application/x-www-form-urlencoded',

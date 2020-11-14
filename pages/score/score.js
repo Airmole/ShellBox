@@ -65,7 +65,7 @@ Page({
     })
     var that = this;
     wx.request({
-      url: 'https://api.airmole.cn/ShellBox/v4/score.php',
+      url: 'https://api.airmole.cn/ShellBox/v5/score.php',
       method: "POST",
       header: {
         'content-type': 'application/x-www-form-urlencoded',

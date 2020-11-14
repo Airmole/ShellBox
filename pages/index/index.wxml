@@ -19,7 +19,7 @@
             </view>
             <view class="input-group {{passwd_focus ? 'active' : ''}}">
               <text class="input-label">密码</text>
-              <input name='pwd' id='passwd' password="true" cursor-spacing="30" placeholder="请输入你的新教务密码" bindfocus="inputFocus" bindblur="inputBlur" />
+              <input name='pwd' id='passwd' password="true" cursor-spacing="30" placeholder="请输入你的教务密码" bindfocus="inputFocus" bindblur="inputBlur" />
             </view>
             <view class="input-group {{vcode_focus ? 'active' : ''}}">
               <text class="input-label">验证码</text>

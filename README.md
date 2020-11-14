@@ -54,7 +54,9 @@
     "pages/schoolNav/schoolNav",//校园导航
     "pages/opac/index",//在线图书馆图书借阅列表
     "pages/opac/bind",//在线图书馆账号绑定
-    "pages/cet/find"//四六级准考证号找回
+    "pages/cet/find",//四六级准考证号找回
+    "pages/graduatePhoto/sample", //毕业照合成模板选择界面
+    "pages/graduatePhoto/result"  // 毕业证合成结果界面
   ],
 ```
 

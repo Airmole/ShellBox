@@ -212,7 +212,7 @@ Page({
         })
         if (res.data.code == 500) {
           wx.showToast({
-            title: '教务系统异常',
+            title: '图书馆系统异常',
             icon: 'none',
             duration: 5000
           });

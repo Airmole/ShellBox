@@ -56,7 +56,7 @@ Page({
   getVcode: function() {
     var that = this;
     wx.request({
-      url: app.globalData.apiURL + '/v4/getCookie.php',
+      url: app.globalData.apiURL + '/v5/getCookie.php',
       success: function(res) {
         console.log(res.data);
         that.setData({
@@ -92,7 +92,7 @@ Page({
       return;
     } else {
       wx.request({
-        url: app.globalData.apiURL + '/v4/profile.php',
+        url: app.globalData.apiURL + '/v5/profile.php',
         method: "POST",
         header: {
           'content-type': 'application/x-www-form-urlencoded',

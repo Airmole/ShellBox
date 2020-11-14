@@ -36,7 +36,7 @@ Page({
   },
   copyResetURL:function(){
     wx.setClipboardData({
-      data: 'http://61.181.145.1:89/jsxsd/view/findpwd/enteraccount.jsp',
+      data: 'http://61.181.145.1:88/jsxsd/view/findpwd/enteraccount.jsp',
       success(res) {
         wx.showToast({
           title: '内容已复制，请粘贴到浏览器访问',
@@ -64,7 +64,7 @@ Page({
       });
     } else {
       wx.request({
-        url: app.globalData.apiURL + '/v4/profile.php',
+        url: app.globalData.apiURL + '/v5/profile.php',
         method: "POST",
         header: {
           'content-type': 'application/x-www-form-urlencoded',
@@ -207,7 +207,7 @@ Page({
   getVcode: function() {
     var that = this;
     wx.request({
-      url: app.globalData.apiURL + '/v2/getCookie.php',
+      url: app.globalData.apiURL + '/v5/getCookie.php',
       success: function(res) {
         // console.log(res.data);
         that.setData({
