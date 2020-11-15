@@ -1,0 +1,47 @@
+<!-- 考证助手 -->
+<view class="remind-box" wx:if="{{isLoading}}">
+  <image class="remind-img" src="/images/loading.gif"></image>
+</view>
+<view class="page" wx:else>
+  <view class="page__hd" style="padding-bottom:0px;">
+    <view class="page__title">考证助手</view>
+    <view class="page__desc" style='color:#000;'>
+      <text>大学期间可考的资格证书考证咨询，为同学们提供报考、成绩查询、准考证打印等资源信息。若相应网址链接变更可以咨询提醒客服学长修改。</text>
+    </view>
+  </view>
+
+
+  <view class="card-wraper index-container">
+    <block wx:for="{{certList}}">
+      <view>
+        <view class="index-text" data-target="{{item.hookId}}" bindtap="goToHook"> <text> - {{item.title}} \r\n </text></view>
+      </view>
+    </block>
+  </view>
+
+  <view class="card-wraper">
+    <block wx:for="{{certList}}">
+      <view class="card-item" style="background:{{item.bgColor}};">
+        <view id="{{item.hookId}}" class="card-title">{{item.title}}</view>
+        <view class="card-content" wx:for="{{item.content}}" wx:for-index="subIndex" wx:for-item="subItem">
+          <view class="desc-title">{{subItem.subtitle}}：</view>
+          <view class="desc-content" data-url="{{subItem.url}}" bindtap="copyUrl"> - {{subItem.url}}</view>
+        </view>
+      </view>
+    </block>
+  </view>
+  <button open-type="share" class="login-btn">
+    <text>分享给同学</text>
+  </button>
+  <!-- 广告位 -->
+  <view class='ads'>
+    <ad unit-id="adunit-62f52651dd5f4ff6"></ad>
+  </view>
+  <!-- 广告位结束 -->
+  <view class="weui-footer">
+    <view class="weui-footer__links">
+      <navigator url="/pages/features/about" class="weui-footer__link">Airmole.</navigator>
+    </view>
+    <view class="weui-footer__text">Copyright © 2020 贝壳小盒子(ShellBox)</view>
+  </view>
+</view>

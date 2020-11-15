@@ -1,0 +1,66 @@
+/* pages/article/certificate.wxss */
+@import "../tel/tel.wxss";
+
+Page {
+  background-color: #eee;
+}
+
+.index-text {
+  font-size: 14pt;
+  color: rgb(86, 15, 219);
+  text-align: left;
+  padding: 10rpx;
+  text-decoration: underline;
+  margin-left: 30rpx;
+}
+
+.fast-index {
+  /* white-space: nowrap;
+  overflow: hidden; */
+  text-overflow: ellipsis;
+  margin-right: 20rpx;
+  margin-bottom: 20rpx;
+  width: 115px;
+  height: 70px;
+}
+
+.index-container {
+  align-items: left;
+}
+
+.card-wraper {
+  padding: 30rpx;
+}
+
+.card-item {
+  padding: 30rpx;
+  color: #fff;
+  margin-bottom: 30rpx;
+  overflow-x: scroll;
+}
+
+.card-title {
+  font-size: 15pt;
+  border-bottom: 1px solid #eee;
+}
+
+.card-content {
+  margin-top: 15rpx;
+}
+
+.desc-title {
+  display: flex;
+  font-size: 13pt;
+  line-height: 200%;
+}
+
+.desc-content {
+  padding-bottom: 15rpx;
+  font-size: 12pt;
+  text-decoration: underline;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  /* color: rgb(83, 143, 233);
+  text-shadow:-1px 0 white,0 1px white,1px 0 white,0 -1px white; */
+}

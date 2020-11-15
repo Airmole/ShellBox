@@ -77,6 +77,16 @@ Page({
         url: '/pages/tel/tel',
         needLogin: false
       }, {
+        id: 'cert',
+        name: '考证助手',
+        url: '/pages/article/certificate',
+        needLogin: false
+      }, {
+        id: 'miai',
+        name: '小爱课表',
+        url: '/pages/article/miai',
+        needLogin: false
+      }, {
         id: 'gyhz',
         name: '关于盒子',
         url: '/pages/features/about',
@@ -196,7 +206,7 @@ Page({
     let index = ds.currentTarget.dataset.id;
     let sindex = ds.currentTarget.dataset.sindex;
 
-    if (this.data.cores[0][sindex].needLogin == true && (uid == "" || pwd == "")) {
+    if (this.data.cores[index][sindex].needLogin == true && (uid == "" || pwd == "")) {
       wx.showToast({
         icon: 'none',
         title: '本功能需要登录',

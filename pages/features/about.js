@@ -17,6 +17,9 @@ Page({
     }, {
       avatar: 'https://z4a.net/images/2019/06/22/hzj.th.jpg',
       nickName: 'hzj'
+    }, {
+      avatar: 'https://z4a.net/images/2020/11/15/QQ20201115144854.th.jpg',
+      nickName: '不改需求的程序员'
     }],
     servicer: [{
       avatar: 'https://z4a.net/images/2019/06/22/_20180513195821.th.jpg',

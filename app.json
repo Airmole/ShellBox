@@ -27,7 +27,9 @@
     "pages/opac/bind",
     "pages/cet/find",
     "pages/graduatePhoto/sample",
-    "pages/graduatePhoto/result"
+    "pages/graduatePhoto/result",
+    "pages/article/miai",
+    "pages/article/certificate"
   ],
   "window": {
     "backgroundTextStyle": "light",

@@ -1,0 +1,32 @@
+<!-- 小爱课表介绍 -->
+<view class="remind-box" wx:if="{{isLoading}}">
+  <image class="remind-img" src="/images/loading.gif"></image>
+</view>
+<view class="page" wx:else>
+  <view class="page__hd">
+    <view class="page__title">小爱课程表</view>
+    <view class="page__desc" style='color:#000;'>
+      <text>小米MIUI手机用户可以通过小爱同学查询学校课表\r\n本功能由“不改需求的程序猿”同学开发</text>
+    </view>
+  </view>
+
+  <view class="ykt-detail-wraper">
+    <view class="weui-article__p" style="padding:20rpx;">
+      <image class="weui-article__img" wx:for="{{guideImages}}" src="{{item}}" mode="widthFix" bindtap="fullScreenPreview" style="width:100%;"/>
+    </view>
+  </view>
+  <button open-type="share" class="login-btn">
+    <text>分享这个技能给同学</text>
+  </button>
+  <!-- 广告位 -->
+  <view class='ads'>
+    <ad unit-id="adunit-62f52651dd5f4ff6"></ad>
+  </view>
+  <!-- 广告位结束 -->
+  <view class="weui-footer">
+    <view class="weui-footer__links">
+      <navigator url="/pages/features/about" class="weui-footer__link">Airmole.</navigator>
+    </view>
+    <view class="weui-footer__text">Copyright © 2020 贝壳小盒子(ShellBox)</view>
+  </view>
+</view>
