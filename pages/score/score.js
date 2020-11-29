@@ -237,7 +237,6 @@ Page({
     app.globalData.pwd = "";
     app.globalData.newpwd = "";
     wx.setStorageSync('uid', '');
-    wx.setStorageSync('pwd', '');
     wx.setStorageSync('newpwd', '');
     wx.redirectTo({
       url: '/pages/index/index'

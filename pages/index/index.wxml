@@ -14,8 +14,8 @@
         <view class="bd">
           <form class="login-form" bindsubmit="submitInfo">
             <view class="input-group {{userid_focus ? 'active' : ''}}">
-              <text class="input-label">学号</text>
-              <input name='uid' id='userid' type="number" cursor-spacing="30" placeholder="请输入你的学号" bindinput='UidInput' bindfocus="inputFocus" bindblur="inputBlur" />
+              <text class="input-label">学工号</text>
+              <input name='uid' id='userid' type="number" cursor-spacing="30" placeholder="请输入你的学(工)号" bindinput='UidInput' bindfocus="inputFocus" bindblur="inputBlur" />
             </view>
             <view class="input-group {{passwd_focus ? 'active' : ''}}">
               <text class="input-label">密码</text>
@@ -23,7 +23,7 @@
             </view>
             <view class="input-group {{vcode_focus ? 'active' : ''}}">
               <text class="input-label">验证码</text>
-              <input id='vcode' name='vcode' type='text' cursor-spacing="30" placeholder="输入验证码" bindfocus="inputFocus" bindblur="inputBlur" />
+              <input id='vcode' name='vcode' type='text' cursor-spacing="30" placeholder="输入验证码" bindfocus="inputFocus" bindblur="inputBlur" maxlength="4"/>
               <view class="weui-cell__ft">
                 <image class="weui-vcode-img" src="{{PreInfo.vcode}}" style="width: 90px;height:25px;" bindtap="getVcode"></image>
               </view>
@@ -46,9 +46,9 @@
               <image class="box-close" src="/images/close.png" bindtap="hideHelp"></image>
             </view>
             <view class="box-bd">
-              <view class="help-q">1、学号和密码是什么？</view>
+              <view class="help-q">1、学工号和密码是什么？</view>
               <view class="help-a">
-                <text>学号：学号就是你的教务学号。</text>
+                <text>学工号：学号就是你的教务学号。老师请输入工号</text>
                 <text>密码：您设定的教务系统的登录密码。</text>
               </view>
               <view class="help-q">2、忘记密码？</view>

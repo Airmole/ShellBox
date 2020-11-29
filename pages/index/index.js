@@ -63,8 +63,12 @@ Page({
         duration: 1000
       });
     } else {
+      let url = app.globalData.apiURL + '/v5/profile.php'
+      if(uid.length >= 2 && uid.length < 8){
+        url = app.globalData.apiURL + '/teacher/profile.php'
+      }
       wx.request({
-        url: app.globalData.apiURL + '/v5/profile.php',
+        url: url,
         method: "POST",
         header: {
           'content-type': 'application/x-www-form-urlencoded',

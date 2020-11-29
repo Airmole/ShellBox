@@ -23,11 +23,11 @@
             <text class="detail-item-value">{{name}}</text>
           </view>
           <view class="detail-item">
-            <text class="detail-item-label">班级</text>
+            <text class="detail-item-label">单位</text>
             <text class="detail-item-value">{{classroom}}</text>
           </view>
           <view class="detail-item">
-            <text class="detail-item-label">学号</text>
+            <text class="detail-item-label">学工号</text>
             <text class="detail-item-value">{{uid}}</text>
           </view>
         </view>

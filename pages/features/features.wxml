@@ -33,6 +33,8 @@
   <view class="page__bd" style='background-color:rgb(240,239,245);'>
 
     <!--功能导航-->
+    <!-- 学生版功能菜单 -->
+    <block wx:if="{{!isTeacher}}">
     <swiper class="main-swpier radius" indicator-dots="true">
       <swiper-item class="main-core" wx:for="{{cores}}" wx:for-index="idx" wx:for-item="core" wx:key="id">
         <block wx:for="{{core}}" wx:key="id">
@@ -43,6 +45,20 @@
         </block>
       </swiper-item>
     </swiper>
+  </block>
+  <!-- 教师版功能菜单 -->
+  <block wx:else>
+    <swiper class="main-swpier radius" indicator-dots="true">
+      <swiper-item class="main-core" wx:for="{{coresTeacher}}" wx:for-index="idx" wx:for-item="coresTeacher" wx:key="id">
+        <block wx:for="{{coresTeacher}}" wx:key="id">
+          <view class="main-core-item disabled" bindtap="appMenuGoTo" data-item='{{item.id}}' data-sindex='{{index}}' data-id='{{idx}}'>
+            <image class="core-item-icon" src="/images/{{item.id}}.png"></image>
+            <text class="core-item-name">{{item.name}}</text>
+          </view>
+        </block>
+      </swiper-item>
+    </swiper>
+  </block>
 
     <!-- 广告位 -->
     <view class='ads'>
@@ -51,7 +67,7 @@
     <!-- 广告位结束 -->
 
     <button open-type="share" class="login-btn">
-      <text>好用！分享给同学</text>
+      <text>好用！分享给{{isTeacher?'其他老师':'同学'}}</text>
     </button>
 
     <view wx:if="{{uid=='' || pwd=='' }}" bindtap='logout' class="login-btn">

@@ -47,8 +47,8 @@
     "miniprogram": {
       "list": [
         {
-          "name": "pages/article/certificate",
-          "pathName": "pages/article/certificate",
+          "name": "pages/index/index",
+          "pathName": "pages/index/index",
           "query": "",
           "scene": null
         }

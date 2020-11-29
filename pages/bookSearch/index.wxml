@@ -10,7 +10,9 @@
       <view class="weui-search-bar__form">
         <view class="weui-search-bar__box">
           <icon class="weui-icon-search_in-box" type="search" size="14"></icon>
-          <input type="text" class="weui-search-bar__input" placeholder="输入您要检索的图书关键字" value="{{inputVal}}" focus="{{inputShowed}}" bindconfirm="searchIt" bindfocus="onBindFocus" confirm-type='search' bindinput="inputTyping" />
+          <input type="text" class="weui-search-bar__input" placeholder="输入您要检索的图书关键字" value="{{inputVal}}"
+            focus="{{inputShowed}}" bindconfirm="searchIt" bindfocus="onBindFocus" confirm-type='search'
+            bindinput="inputTyping" />
         </view>
         <label class="weui-search-bar__label" hidden="{{inputShowed}}" bindtap="showInput">
           <icon class="weui-icon-search" type="search" size="14"></icon>
@@ -153,7 +155,7 @@
         <text>🎓</text>
         <text class="card-item-name">下节课</text>
       </view>
-      <navigator url="/pages/classQuery/index">
+      <navigator url="{{isTeacher?'/pages/classQuery/teacher':'/pages/classQuery/index'}}">
         <view class="card-item-bd">
           <view class="kb-item">
             <view class="kb-item-left">
@@ -177,7 +179,7 @@
         <text class="card-item-icon">😭</text>
         <text class="card-item-name">下一节</text>
       </view>
-      <navigator url="/pages/classQuery/index">
+      <navigator url="{{isTeacher?'/pages/classQuery/teacher':'/pages/classQuery/index'}}">
         <view class="card-item-bd">
           <view class="book-intro raduis">
             <view class="remind-box">
@@ -200,7 +202,7 @@
         <text class="card-item-icon">😁</text>
         <text class="card-item-name">下一节</text>
       </view>
-      <navigator url="/pages/classQuery/index">
+      <navigator url="{{isTeacher?'/pages/classQuery/teacher':'/pages/classQuery/index'}}">
         <view class="card-item-bd">
           <view class="book-intro raduis">
             <view class="remind-box">
@@ -238,7 +240,7 @@
       </view>
       <!--没有缓存-->
       <view class="main-card-item" id='mk' wx:if='{{offlinePeronalClass == "null"}}'>
-        <navigator url="/pages/classQuery/index">
+        <navigator url="{{isTeacher?'/pages/classQuery/teacher':'/pages/classQuery/index'}}">
           <view class="card-item-hd">
             <text class="card-item-icon">😭</text>
             <text class="card-item-name">无数据</text>
@@ -255,13 +257,14 @@
       </view>
       <!--今日全天课表-->
       <view wx:else class="main-card-item" id="kb">
-        <navigator url="/pages/classQuery/index">
+        <navigator url="{{isTeacher?'/pages/classQuery/teacher':'/pages/classQuery/index'}}">
           <view class="card-item-hd">
             <text class="card-item-icon">😡</text>
             <text class="card-item-name">（{{jsonStr['month']}}月{{jsonStr['day']}}日 {{jsonStr['dayOfWeek']}}）课表</text>
           </view>
           <view class="card-item-bd">
-            <view class="kb-item" wx:for="{{offlinePeronalClass}}" wx:key="todayCourse" wx:if="{{item.courseName != ''}}">
+            <view class="kb-item" wx:for="{{offlinePeronalClass}}" wx:key="todayCourse"
+              wx:if="{{item.courseName != ''}}">
               <view class="kb-item-left">
                 <text class="kb-item-what">{{item.courseName}}【{{item.teachWeek}}】</text>
                 <text class="kb-item-when">{{item.startTime}}上课 - {{item.endTime}}下课</text>
@@ -349,7 +352,8 @@
     </view>
 
     <!--节假日信息-->
-    <view class="main-card-item" id="fj" wx:for='{{jsonStr["nextHoliday"]}}' wx:key="jiejiari" wx:if="{{item.gapDays <= 15 && item.gapDays >= 0}}">
+    <view class="main-card-item" id="fj" wx:for='{{jsonStr["nextHoliday"]}}' wx:key="jiejiari"
+      wx:if="{{item.gapDays <= 15 && item.gapDays >= 0}}">
       <navigator url='/pages/calendar/calendar'>
         <view class="card-item-hd">
           <image class="card-item-icon" src="/images/holiday.png"></image>
@@ -384,7 +388,8 @@
     </view>
 
     <!--距考试周倒计时 -->
-    <view class="main-card-item" id="ks" wx:if="{{jsonStr.gap2ExamWeek <= 30 && jsonStr.gap2ExamWeek > 0}}">
+    <!-- 临时停用，今年疫情的原因考试计划全乱了 -->
+    <!-- <view class="main-card-item" id="ks" wx:if="{{jsonStr.gap2ExamWeek <= 30 && jsonStr.gap2ExamWeek > 0}}">
       <navigator url='/pages/calendar/calendar'>
         <view class="card-item-hd">
           <text class="card-item-icon">🖊</text>
@@ -405,63 +410,65 @@
           </view>
         </view>
       </navigator>
-    </view>
+    </view> -->
 
     <!--网费-->
-    <view class="main-card-item" id="swf" wx:if="{{jsonStr.netInfo.code == '200'}}">
-      <navigator url='/pages/net/netBind'>
-        <view class="card-item-hd">
-          <text>🌐</text>
-          <text class="card-item-name">网费余额</text>
-        </view>
-        <view class="card-item-bd">
-          <view class="card-info-hd">
-            <view class="card-info-left">
-              <text class="card-info-name">{{jsonStr.netInfo.name}}</text>
+    <block wx:if="{{!isTeacher}}">
+      <view class="main-card-item" id="swf" wx:if="{{jsonStr.netInfo.code == '200'}}">
+        <navigator url='/pages/net/netBind'>
+          <view class="card-item-hd">
+            <text>🌐</text>
+            <text class="card-item-name">网费余额</text>
+          </view>
+          <view class="card-item-bd">
+            <view class="card-info-hd">
+              <view class="card-info-left">
+                <text class="card-info-name">{{jsonStr.netInfo.name}}</text>
+              </view>
+              <view class="card-info-right">
+                <view>截至时间：{{jsonStr.netInfo.time}}</view>
+              </view>
             </view>
-            <view class="card-info-right">
-              <view>截至时间：{{jsonStr.netInfo.time}}</view>
+            <view class="sdf-bd">
+              <view class="sdf-key">
+                <text class="sdf-text">账户余额</text>
+                <text class="swf-value">{{jsonStr.netInfo.balance}}</text>
+                <text class="sdf-text">元</text>
+              </view>
             </view>
           </view>
-          <view class="sdf-bd">
-            <view class="sdf-key">
-              <text class="sdf-text">账户余额</text>
-              <text class="swf-value">{{jsonStr.netInfo.balance}}</text>
-              <text class="sdf-text">元</text>
+        </navigator>
+      </view>
+      <view class="main-card-item" style='height:400rpx;' wx:elif="{{jsonStr.netInfo.code == '500'}}">
+        <navigator url='/pages/net/netBind'>
+          <view class="card-item-hd">
+            <text>🌐</text>
+            <text class="card-item-name">网费余额</text>
+          </view>
+          <view class="card-item-bd">
+            <view class="remind-box">
+              <image class="remind-img" src="/images/nothing.png"></image>
+              <text class="remind-text">系统关闭，暂时无法查询(；′⌒`)</text>
             </view>
           </view>
-        </view>
-      </navigator>
-    </view>
-    <view class="main-card-item" style='height:400rpx;' wx:elif="{{jsonStr.netInfo.code == '500'}}">
-      <navigator url='/pages/net/netBind'>
-        <view class="card-item-hd">
-          <text>🌐</text>
-          <text class="card-item-name">网费余额</text>
-        </view>
-        <view class="card-item-bd">
-          <view class="remind-box">
-            <image class="remind-img" src="/images/nothing.png"></image>
-            <text class="remind-text">系统关闭，暂时无法查询(；′⌒`)</text>
+        </navigator>
+      </view>
+      <view class="main-card-item" style='height:450rpx;' wx:else>
+        <navigator url='/pages/net/netBind'>
+          <view class="card-item-hd">
+            <text>🌐</text>
+            <text class="card-item-name">网费余额</text>
           </view>
-        </view>
-      </navigator>
-    </view>
-    <view class="main-card-item" style='height:400rpx;' wx:else>
-      <navigator url='/pages/net/netBind'>
-        <view class="card-item-hd">
-          <text>🌐</text>
-          <text class="card-item-name">网费余额</text>
-        </view>
-        <view class="card-item-bd">
-          <view class="remind-box">
-            <image class="remind-img" src="/images/nothing.png"></image>
-            <text class="remind-text">绑定一下校园网账号嘛(ಥ _ ಥ)</text>
-            <navigator url='/pages/net/netBind' class="remind-btn">绑定校园网</navigator>
+          <view class="card-item-bd">
+            <view class="remind-box">
+              <image class="remind-img" src="/images/nothing.png"></image>
+              <text class="remind-text">绑定一下校园网账号嘛(ಥ _ ಥ)</text>
+              <navigator url='/pages/net/netBind' class="remind-btn">绑定校园网</navigator>
+            </view>
           </view>
-        </view>
-      </navigator>
-    </view>
+        </navigator>
+      </view>
+    </block>
 
     <!--电费-->
     <view class="main-card-item" id="sdf" wx:if="{{jsonStr.eleInfo.status == 200 }}">

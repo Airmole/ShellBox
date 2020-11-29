@@ -3,6 +3,7 @@ var timeJs = require('../../utils/time.js');
 var utilsJs = require('../../utils/util.js');
 Page({
   data: {
+    isTeacher: false,
     offlinePeronalClass: 'null', //缓存的今天全天的课表数组
     nextCourse: "null",
     inputShowed: false,
@@ -98,6 +99,12 @@ Page({
     var zhai = wx.getStorageSync('building');
     var room = wx.getStorageSync('roomNo');
     if (uid != '' && pwd != '') {
+      if(uid.length>=2 && uid.length<8){
+        // 是老师
+        that.setData({
+          isTeacher: true
+        })
+      }
       this.getWelcomeJson(uid, pwd, zhai, room, netPassword);
     } else {
       this.getWelcomeJson(uid, pwd, zhai, room, netPassword);
@@ -132,7 +139,6 @@ Page({
     });
   },
   radioChange: function(e) {
-    // console.log(e.detail.value);
     this.setData({
       SearchType: e.detail.value
     })
@@ -148,7 +154,6 @@ Page({
     this.setData({
       keyword: e.detail.value
     });
-    // console.log("输入了" + this.data.keyword);
   },
   clearInput: function() {
     this.setData({

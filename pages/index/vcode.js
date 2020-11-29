@@ -45,6 +45,17 @@ Page({
           url: '/pages/score/score',
         })
       }
+    } else if (options.to == 'teacherKb') {
+      that.setData({
+        toPage: '/pages/classQuery/teacher'
+      })
+      if (courseCache != '' && options.update == '1') {
+
+      } else if (courseCache != '' && options.update == '0') {
+        wx.redirectTo({
+          url: '/pages/classQuery/teacher',
+        })
+      }
     } else {
       wx.redirectTo({
         url: '/pages/bookSearch/index'
@@ -91,8 +102,12 @@ Page({
       });
       return;
     } else {
+      let url = app.globalData.apiURL + '/v5/profile.php'
+      if(username.length >=2 && username.length <8){
+        url = app.globalData.apiURL + '/teacher/profile.php'
+      }
       wx.request({
-        url: app.globalData.apiURL + '/v5/profile.php',
+        url: url,
         method: "POST",
         header: {
           'content-type': 'application/x-www-form-urlencoded',
@@ -143,7 +158,6 @@ Page({
     app.globalData.pwd = "";
     app.globalData.newpwd = "";
     wx.setStorageSync('uid', '');
-    wx.setStorageSync('pwd', '');
     wx.setStorageSync('newpwd', '');
     wx.redirectTo({
       url: '/pages/index/index'

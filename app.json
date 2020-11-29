@@ -11,6 +11,7 @@
     "pages/features/about",
     "pages/welcome/welcome",
     "pages/classQuery/index",
+    "pages/classQuery/teacher",
     "pages/classQuery/jskb",
     "pages/classQuery/showJskb",
     "pages/score/score",
@@ -61,9 +62,5 @@
       "desc": "你的位置信息将用于校园导航定位"
     }
   },
-  "navigateToMiniProgramAppIdList": [
-    "wx183616af30e5723d",
-    "wx9551f8196258f706"
-  ],
   "sitemapLocation": "sitemap33.json"
 }
