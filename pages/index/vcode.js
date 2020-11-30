@@ -56,6 +56,18 @@ Page({
           url: '/pages/classQuery/teacher',
         })
       }
+    } else if (options.to == 'stuList') {
+      that.setData({
+        queryCode: options.queryCode,
+        toPage: '/pages/classQuery/courseStulist'
+      })
+      if (options.update == '1') {
+
+      } else if (options.update == '0') {
+        wx.redirectTo({
+          url: '/pages/classQuery/courseStulist?queryCode='+options.queryCode
+        })
+      }
     } else {
       wx.redirectTo({
         url: '/pages/bookSearch/index'
@@ -141,7 +153,7 @@ Page({
             that.getVcode();
           } else if (res.data.name != "" || res.data.number != "") {
             wx.redirectTo({
-              url: that.data.toPage + '?cookie=' + that.data.PreInfo.cookie + '&vcode=' + vcode + '&update=1',
+              url: that.data.toPage + '?cookie=' + that.data.PreInfo.cookie + '&vcode=' + vcode + '&update=1'+'&queryCode='+that.data.queryCode,
             })
           } else {
             wx.redirectTo({

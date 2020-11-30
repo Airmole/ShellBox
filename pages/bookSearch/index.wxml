@@ -301,6 +301,25 @@
       </navigator>
     </view> -->
 
+    <!-- 教师授课花名册列表 -->
+    <block wx:if="{{isTeacher}}">
+      <view class="main-card-item" id="teachersCourses" wx:if="{{teachersCourses.length>0}}">
+        <view class="card-item-hd">
+          <text class="card-item-icon">☀</text>
+          <text class="card-item-name">我的课程</text>
+        </view>
+        <view class="card-item-bd">
+          <view class="kb-item" wx:for="{{teachersCourses}}" wx:key="courseItem" wx:if="{{item.courseName != ''}}" data-index="{{index}}" bindtap="goToQueryStudentList">
+            <view class="kb-item-left">
+              <text class="kb-item-what">{{item.courseName}}</text>
+              <text class="kb-item-when">{{item.className}}</text>
+            </view>
+            <text class="kb-item-where" style="color:#0d50a3;">查看花名册</text>
+          </view>
+        </view>
+      </view>
+    </block>
+
     <view class="main-card-item" wx:if="{{shouldReturnBook.length >0}}">
       <view class="card-item-hd">
         <text class="card-item-icon">📚</text>

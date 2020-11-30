@@ -107,6 +107,7 @@ Page({
             //设置本地Storage,维持登录态用
             wx.setStorageSync('uid', uid);
             wx.setStorageSync('newpwd', pwd);
+            wx.setStorageSync('profileCache', res.data);
             wx.navigateTo({
               url: '/pages/welcome/welcome?uid=' + uid + '&name=' + res.data.name + '&classroom=' + res.data.classroom,
             })

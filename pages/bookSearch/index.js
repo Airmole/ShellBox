@@ -15,7 +15,8 @@ Page({
     jsonStr: "",
     dayOfWeek: '',
     keywordStr: '',
-    shouldReturnBook:[],
+    shouldReturnBook:'null',
+    teachersCourses:[],
     SearchType: '02',
     radioItems: [{
         name: '书名',
@@ -101,7 +102,10 @@ Page({
     if (uid != '' && pwd != '') {
       if(uid.length>=2 && uid.length<8){
         // 是老师
+        let profileCache = wx.getStorageSync('profileCache')
+        let teachersCourses = profileCache.allCourses
         that.setData({
+          teachersCourses: teachersCourses,
           isTeacher: true
         })
       }
@@ -322,6 +326,14 @@ Page({
     }
     that.setData({
       shouldReturnBook: shouldReturnBook
+    })
+  },
+  goToQueryStudentList (e){
+    const index = e.currentTarget.dataset.index
+    const queryCode = this.data.teachersCourses[index].queryCode
+    // console.log(queryCode)
+    wx.navigateTo({
+      url: '/pages/classQuery/courseStulist?queryCode='+queryCode,
     })
   }
 });

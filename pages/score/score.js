@@ -221,16 +221,6 @@ Page({
 
     }
   },
-  /**
-   * 用户点击右上角分享
-   */
-  // onShareAppMessage: function(res) {
-  //   // console.log(res);
-  //   return {
-  //     title: '诺~给你看看，这是我的成绩单!',
-  //     path: 'pages/score/score?isShareFrom=true&uid=' + this.data.stuId + '&pwd=' + this.data.password,
-  //   }
-  // },
   //注销重登录
   reLogin: function() {
     app.globalData.uid = "";

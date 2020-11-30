@@ -100,6 +100,11 @@ Page({
           name: '个人课表',
           url: '/pages/index/vcode?to=teacherKb&update=0',
           needLogin: true
+        },{
+          id: 'stulist',
+          name: '花名册',
+          url: '/pages/classQuery/courseList',
+          needLogin: true
         }, {
           id: 'jskb',
           name: '教师课表',
@@ -145,20 +150,20 @@ Page({
           name: '校园导航',
           url: '/pages/schoolNav/schoolNav',
           needLogin: false
-        }, {
-          id: 'tel',
-          name: '常用电话',
-          url: '/pages/tel/tel',
-          needLogin: false
-        },
+        }
       ],
       [{
+        id: 'tel',
+        name: '常用电话',
+        url: '/pages/tel/tel',
+        needLogin: false
+      },{
         id: 'gyhz',
         name: '关于盒子',
         url: '/pages/features/about',
         needLogin: false
       }]
-    ],
+    ]
   },
   /**
    * 生命周期函数--监听页面加载

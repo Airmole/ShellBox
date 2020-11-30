@@ -12,6 +12,8 @@
     "pages/welcome/welcome",
     "pages/classQuery/index",
     "pages/classQuery/teacher",
+    "pages/classQuery/courseStulist",
+    "pages/classQuery/courseList",
     "pages/classQuery/jskb",
     "pages/classQuery/showJskb",
     "pages/score/score",

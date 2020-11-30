@@ -1,0 +1,6 @@
+/* pages/classQuery/courseList.wxss */
+@import "../bookSearch/index.wxss";
+
+page {
+  background-color: #eee;
+}
