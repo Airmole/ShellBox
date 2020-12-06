@@ -1,0 +1,56 @@
+/* pages/article/websties.wxss */
+@import "../tel/tel.wxss";
+
+.padding-sm {
+  padding: 20rpx 8rpx 0rpx 18rpx;
+}
+
+.board-padding {
+  padding: 20rpx 20rpx 20rpx 20rpx;
+}
+
+.sites-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.webview-container {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.webview-item {
+  width: 178px;
+  height: 110px;
+  border-radius: 15rpx;
+  margin: 0rpx 2rpx 8rpx 2rpx;
+}
+
+.webview-item-content {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(51, 51, 51, 0.685);
+  color: #eee;
+  border-radius: 15rpx;
+}
+
+.webview-webtitle {
+  font-size: 18px;
+  /* margin-left: 13rpx; */
+  padding-top: 60rpx;
+  font-weight: 400;
+  color: #fff;
+  text-align: center;
+}
+
+.webview-content {
+  font-size: 12px;
+  /* margin-left: 5rpx; */
+  text-decoration: underline;
+  text-align: center;
+}

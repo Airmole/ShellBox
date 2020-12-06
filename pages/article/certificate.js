@@ -6,6 +6,7 @@ Page({
    */
   data: {
     isLoading:true,
+    hasWeappMethod: ['http://cet.neea.edu.cn/cet/'],
     certList:[
       {
         title:'英语四六级(CET-4/6)',
@@ -331,6 +332,14 @@ Page({
       fail: function(res) {
         // 转发失败
       }
+    }
+  },
+  goToOtherWeapp (e) {
+    if(e.currentTarget.dataset.url == 'http://cet.neea.edu.cn/cet/') {
+      wx.navigateToMiniProgram({
+        appId: 'wx2eec5fb00157a603',
+        path: 'jiaoyubu/pages/business/cet/fillInfo/fillInfo',
+      })
     }
   }
 })

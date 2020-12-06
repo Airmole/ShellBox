@@ -65,9 +65,14 @@ Page({
           name: '校园出行',
           url: '/pages/Transport/Transport',
           needLogin: false
-        },
+        }
       ],
       [{
+          id: 'cet',
+          name: '查四六级',
+          url: 'jiaoyubu/pages/business/cet/fillInfo/fillInfo',
+          needLogin: false
+        },{
         id: 'xydh',
         name: '校园导航',
         url: '/pages/schoolNav/schoolNav',
@@ -86,6 +91,11 @@ Page({
         id: 'miai',
         name: '小爱课表',
         url: '/pages/article/miai',
+        needLogin: false
+      },{
+        id: 'websites',
+        name: '校园站点',
+        url: '/pages/article/websites',
         needLogin: false
       }, {
         id: 'gyhz',
@@ -146,13 +156,19 @@ Page({
           needLogin: false
         },
         {
+          id: 'websites',
+          name: '校园站点',
+          url: '/pages/article/websites',
+          needLogin: false
+        }
+      ],
+      [ 
+        {
           id: 'xydh',
           name: '校园导航',
           url: '/pages/schoolNav/schoolNav',
           needLogin: false
-        }
-      ],
-      [{
+        },{
         id: 'tel',
         name: '常用电话',
         url: '/pages/tel/tel',
@@ -289,6 +305,13 @@ Page({
       })
     } else {
       // console.log(this.data.cores)
+      if(this.data.cores[index][sindex].id == 'cet'){
+        wx.navigateToMiniProgram({
+          appId: 'wx2eec5fb00157a603',
+          path: this.data.cores[index][sindex].url,
+        })
+        return
+      }
       wx.navigateTo({
         url: this.data.cores[index][sindex].url,
       })

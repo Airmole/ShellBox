@@ -31,7 +31,8 @@
     "pages/graduatePhoto/sample",
     "pages/graduatePhoto/result",
     "pages/article/miai",
-    "pages/article/certificate"
+    "pages/article/certificate",
+    "pages/article/websites"
   ],
   "window": {
     "backgroundTextStyle": "light",

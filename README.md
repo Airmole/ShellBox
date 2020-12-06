@@ -4,7 +4,7 @@
 
 [![Star](https://img.shields.io/badge/Star-Airmole-brightgreen.svg)](https://github.com/Airmole/ShellBox/stargazers)
 [![Download](https://img.shields.io/badge/download-.zip-brightgreen.svg)](https://github.com/Airmole/ShellBox/archive/master.zip)
-[![last commit](https://img.shields.io/badge/last%20commit-2020--04--01-green.svg)](https://github.com/Airmole/ShellBox/commits/master)
+[![last commit](https://img.shields.io/badge/last%20commit-2020--12--06-green.svg)](https://github.com/Airmole/ShellBox/commits/master)
 
 
 
@@ -54,9 +54,14 @@
     "pages/schoolNav/schoolNav",//校园导航
     "pages/opac/index",//在线图书馆图书借阅列表
     "pages/opac/bind",//在线图书馆账号绑定
-    "pages/cet/find",//四六级准考证号找回
     "pages/graduatePhoto/sample", //毕业照合成模板选择界面
     "pages/graduatePhoto/result"  // 毕业证合成结果界面
+    "pages/article/miai", //小可课程表说明页面
+    "pages/article/certificate"  //考证助手页面
+    "pages/article/websites"    // 校园站点页面
+    "pages/classQuery/teacher",  // 教师用户的个人课表
+    "pages/classQuery/courseStulist",  // 教师用户的授课课堂学生花名册
+    "pages/classQuery/courseList",    // 教师用户的授课课程列表
   ],
 ```
 
@@ -80,4 +85,4 @@
 
 ## 其他版本
 
-- [贝壳小盒子QQ小程序版](https://github.com/Airmole/ShellBox_QApp)
+- [贝壳小盒子QQ小程序版](https://github.com/Airmole/ShellBox_QApp) (没精力同步维护了【懒】)

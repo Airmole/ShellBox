@@ -20,6 +20,9 @@
     </view>
     <view class="weui-cells__tips">外地用户请加拨天津长途区号 022</view>
   </view>
+  <button open-type="contact" class="login-btn">
+    <text>我要补充</text>
+  </button>
   <button open-type="share" class="login-btn">
     <text>分享学校通讯录给同学</text>
   </button>

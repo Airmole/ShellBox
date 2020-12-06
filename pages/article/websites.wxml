@@ -1,0 +1,55 @@
+<!-- 考证助手 -->
+<view class="remind-box" wx:if="{{isLoading}}">
+  <image class="remind-img" src="/images/loading.gif"></image>
+</view>
+<view class="page" wx:else>
+  <view class="page__hd" style="padding-bottom:0px;">
+    <view class="page__title">🌏校园站点</view>
+    <view class="page__desc" style='color:#000;'>
+      <text>学校相关的一些网站，打开新世界的大门。点击链接可以复制到粘贴板，然后可打开浏览器访问。校园网站点必须连接校园网方可访问(不是移动CMCC的那个，是学校的校园网)。</text>
+    </view>
+  </view>
+
+  <view class="padding-sm sites-content">
+    <view class="page__title board-padding"> - 公共外网 - </view>
+    <view class="webview-container">
+      <view wx:for="{{wan}}" class="webview-item" style="background:url('{{item.background}}');background-size:cover;">
+        <view class="webview-item-content">
+          <view class="webview-webtitle"> {{item.title}} </view>
+          <view class="webview-content" wx:for="{{item.url}}" data-url="{{item}}" bindtap="copyUrl"> {{item}}</view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class="padding-sm sites-content">
+    <view class="page__title board-padding"> - 校园网 - </view>
+    <view class="webview-container">
+      <view wx:for="{{lan}}" class="webview-item" style="background:url('{{item.background}}');background-size:cover;">
+        <view class="webview-item-content">
+          <view class="webview-webtitle"> {{item.title}} </view>
+          <view class="webview-content" wx:for="{{item.url}}" data-url="{{item}}" bindtap="copyUrl"> {{item}}</view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+
+  <button open-type="contact" class="login-btn">
+    <text>我要补充</text>
+  </button>
+  <button open-type="share" class="login-btn">
+    <text>分享给同学</text>
+  </button>
+  <!-- 广告位 -->
+  <view class='ads'>
+    <ad unit-id="adunit-62f52651dd5f4ff6"></ad>
+  </view>
+  <!-- 广告位结束 -->
+  <view class="weui-footer">
+    <view class="weui-footer__links">
+      <navigator url="/pages/features/about" class="weui-footer__link">Airmole.</navigator>
+    </view>
+    <view class="weui-footer__text">Copyright © 2020 贝壳小盒子(ShellBox)</view>
+  </view>
+</view>
