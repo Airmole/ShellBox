@@ -49,8 +49,8 @@
     "miniprogram": {
       "list": [
         {
-          "name": "pages/article/websties",
-          "pathName": "pages/article/websties",
+          "name": "pages/index/index",
+          "pathName": "pages/index/index",
           "query": "",
           "scene": null
         }

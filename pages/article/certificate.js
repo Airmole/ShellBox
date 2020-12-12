@@ -85,7 +85,7 @@ Page({
           url:'http://kzp.mof.gov.cn/index.jsp'
         },{
           subtitle:'报名',
-          url:'http://60.29.204.105:8080/index.jsp'
+          url:'http://kjbm.mof.gov.cn/index-sf_cg.jsp'
         },{
           subtitle:'成绩查询',
           url:'http://kzp.mof.gov.cn/cjcx/cjcx.jsp'
