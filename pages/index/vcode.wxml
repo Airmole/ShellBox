@@ -14,6 +14,17 @@
             <image class="weui-vcode-img" src="{{PreInfo.vcode}}" style="width: 90px;height:25px;"></image>
           </view>
         </view>
+        <view class="input-group" wx:if="!isTeacher">
+          <checkbox-group bindchange="checkNeedJudge">
+            <label class="weui-cell weui-check__label">
+              <view class="weui-cell__hd">
+                <checkbox name="needJudge" value="needJudge" checked="{{!isTeacher}}"/>
+              </view>
+              <view class="weui-cell__bd">自动评教(否则部分成绩可能显示为"请评教")</view>
+            </label>
+          </checkbox-group>
+        </view>
+        
         <view>
           <button formType="submit" class="login-btn">继续查询</button>
         </view>

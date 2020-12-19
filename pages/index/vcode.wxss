@@ -1,3 +1,4 @@
+@import "../common/weui.wxss";
 
 .login-btn {
   font-size: 13pt;

@@ -7,6 +7,8 @@ Page({
   data: {
     jsonStr: '',
     PreInfo: {},
+    isTeacher: false,
+    needJudge: true
   },
 
   /**
@@ -14,6 +16,13 @@ Page({
    */
   onLoad: function(options) {
     console.log(options)
+    var username = wx.getStorageSync('uid');
+    if(username.length >=2 && username.length <8){
+      this.setData({
+        isTeacher: true,
+        needJudge: false
+      })
+    }
     var that = this;
     if (Object.keys(options.to) == 0) {
       wx.redirectTo({
@@ -105,6 +114,7 @@ Page({
     var username = wx.getStorageSync('uid');
     var password = wx.getStorageSync('newpwd');
     var vcode = e.detail.value.vcode;
+    var needJudge = this.data.needJudge
     if (vcode == '' || vcode.length != 4) {
       wx.showToast({
         title: '验证码有误',
@@ -114,7 +124,7 @@ Page({
       });
       return;
     } else {
-      let url = app.globalData.apiURL + '/v5/profile.php'
+      let url = app.globalData.apiURL + '/v5/profile1.php'
       if(username.length >=2 && username.length <8){
         url = app.globalData.apiURL + '/teacher/profile.php'
       }
@@ -128,7 +138,8 @@ Page({
           username: username,
           password: password,
           cookie: that.data.PreInfo.cookie,
-          vcode: vcode
+          vcode: vcode,
+          judge: needJudge
         },
         success: function(res) {
           that.setData({
@@ -163,6 +174,12 @@ Page({
         }
       })
     }
+  },
+  checkNeedJudge(e){
+    // console.log(e)
+    this.setData({
+      needJudge: e.detail.value.indexOf("needJudge") ? false :true
+    })
   },
   //注销重登录
   reLogin: function() {

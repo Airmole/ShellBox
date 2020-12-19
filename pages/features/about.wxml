@@ -11,7 +11,7 @@
     <view class="version">
       <view class="version-title">
         <text class="title-name">贝壳小盒子</text>
-        <text class="version-text">公测2.6.3</text>
+        <text class="version-text">公测2.6.4</text>
       </view>
       <view class="weui-cell__ft">
         <text class="version-text" bindtap="checkUpdate">版本更新</text>
