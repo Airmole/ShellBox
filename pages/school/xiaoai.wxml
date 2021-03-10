@@ -1,0 +1,41 @@
+<!--pages/school/xiaoai.wxml-->
+<cu-custom bgColor="bg-cyan" isCustom="{{true}}">
+  <view slot="content">小爱课程表 - 贝壳小盒子</view>
+</cu-custom>
+
+<view class="remind-box bg-cyan" wx:if="{{isLoading}}" style="height:{{screenHeight}}px;">
+  <image class="remind-img" src="/images/loading.gif"></image>
+</view>
+<view class="page" wx:else>
+
+  <view class="padding bg-cyan">
+    <view class="cu-bar bg-cyan">
+      <view class="action">
+        <text class="cuIcon-titles text-white"></text>
+        <text class="text-xl text-bold">小爱课程表</text>
+      </view>
+    </view>
+    <view class="text-left padding">
+      <text>小米或MIUI手机用户可以通过小爱同学快速查询学校课表，方法如下：\r\n <text
+          class="cuIcon-titles tect-white"></text>本功能由“不改需求的程序猿”同学开发</text>
+    </view>
+  </view>
+
+  <!-- 广告位 -->
+  <view class='margin'>
+    <ad unit-id="adunit-62f52651dd5f4ff6"></ad>
+  </view>
+  <!-- 广告位结束 -->
+
+  <!-- content -->
+  <view class="margin">
+    <view class="radius light text-center">
+      <image class="radius" wx:for="{{guideImages}}" src="{{item}}" mode="widthFix" bindtap="fullScreenPreview" style="width:100%;" wx:key="imgKey" />
+    </view>
+  </view>
+
+  <view class="padding bg-cyan flex flex-direction margin-bottom-xl">
+    <button open-type="share" class="cu-btn bg-green lg shadow-blur"><text class="cuIcon-share"></text> 分享</button>
+  </view>
+
+</view>

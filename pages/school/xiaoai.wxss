@@ -1,0 +1,6 @@
+/* pages/school/xiaoai.wxss */
+@import "./cert.wxss";
+
+page{
+  background-color: var(--cyan);
+}

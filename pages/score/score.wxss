@@ -1,0 +1,2 @@
+/* pages/score/score.wxss */
+@import "../school/calendar.wxss";

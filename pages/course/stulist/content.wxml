@@ -1,0 +1,36 @@
+<!--pages/course/stulist/content.wxml-->
+<cu-custom bgColor="bg-cyan" isCustom="{{true}}">
+  <view slot="content">课堂花名册</view>
+</cu-custom>
+<view class="remind-box" wx:if="{{isLoading}}">
+  <image class="remind-img" src="/images/loading.gif"></image>
+</view>
+<view class="page" wx:else>
+  <view class="padding bg-cyan">
+    <view class="cu-bar bg-cyan">
+      <view class="action">
+        <text class="cuIcon-titles text-white"></text>
+        <text class="text-xl text-bold">{{title}}</text>
+      </view>
+    </view>
+    <view class="text-left padding">
+      <text>Tips：老师老师，长按可选择复制文字内容哟(＾Ｕ＾)</text>
+    </view>
+  </view>
+
+  <view class="cu-list menu sm-border card-menu margin-top margin-bottom">
+    <view class="cu-item" wx:for="{{students}}" wx:key="studentKey">
+      <view class="content padding-tb-sm">
+        <view>
+          {{item.serialNo}}. <text user-select="true">{{item.studentName}}</text></view>
+        <view class="text-gray text-sm">
+          <text class="cuIcon-edit"></text><text user-select="true">({{item.gender}}) {{item.major}} {{item.className}}</text></view>
+      </view>
+      <view class="action">
+        <text class="text-xl" user-select="true">{{item.studentID}}</text>
+      </view>
+    </view>
+  </view>
+
+
+</view>

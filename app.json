@@ -1,0 +1,57 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/index/login",
+    "pages/index/feature",
+    "pages/course/my",
+    "pages/course/search",
+    "pages/course/content",
+    "pages/course/stulist/index",
+    "pages/course/stulist/content",
+    "pages/traffic/navi",
+    "pages/traffic/bus",
+    "pages/score/score",
+    "pages/school/calendar",
+    "pages/school/tel",
+    "pages/school/cert",
+    "pages/school/web",
+    "pages/school/aboutus",
+    "pages/school/xiaoai"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "贝壳小盒子",
+    "navigationStyle": "custom",
+    "navigationBarTextStyle": "white"
+  },
+  "usingComponents": {
+    "cu-custom": "/colorui/components/cu-custom"
+  },
+  "tabBar": {
+    "selectedColor": "#84BD54",
+    "color": "#333",
+    "backgroundColor": "#fff",
+    "position": "bottom",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "images/index.png",
+        "selectedIconPath": "images/index@active.png"
+      },
+      {
+        "pagePath": "pages/index/feature",
+        "text": "更多",
+        "iconPath": "images/more.png",
+        "selectedIconPath": "images/holiday.png"
+      }
+    ]
+  },
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于校园导航定位"
+    }
+  },
+  "sitemapLocation": "sitemap.json"
+}

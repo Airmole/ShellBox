@@ -1,0 +1,271 @@
+<!--pages/course/my.wxml-->
+<view class="container">
+    <view wx:if="{{remind}}" class="remind-box">
+        <image wx:if="{{remind == '加载中'}}" class="remind-img" src="/images/loading.gif"></image>
+        <block wx:else>
+            <image class="remind-img" src="/images/nothing.png"></image>
+            <text class="remind-text">{{remind}}</text>
+        </block>
+    </view>
+    <block wx:else>
+
+        <!-- 主体 -->
+        <view class="main-box {{blur?'main-box-active':''}}">
+            <!-- 左边课数，34节和78节marginBottom为12rpx，其他均为8rpx，课程卡片与这相同 -->
+            <view class="kb-num-ctn blur-area {{blur?'blur kb-num-ctn-hide':''}}">
+                <view class="kb-mon kb-date"> </view>
+                <view class="mg-t">1</view>
+                <view class="mg-8">2</view>
+                <view>3</view>
+                <view class="mg-12">4</view>
+                <view>5</view>
+                <view class="mg-8">6</view>
+                <view>7</view>
+                <view class="mg-12">8</view>
+                <view>9</view>
+                <view class="mg-8">10</view>
+                <view>11</view>
+                <view>12</view>
+                <view class="kb-timeline-tri" style="top:{{timelineTop}}rpx"></view>
+            </view>
+            <scroll-view enable-flex="true" class="kb-ctn" catchscroll="scrollXHandle" scroll-x="true"
+                scroll-left="{{scroll.left}}">
+                <!-- 头部星期数 -->
+                <view class="kb-title blur-area {{blur?'blur':''}}">
+                    <view wx:for="{{_days}}" wx:key="*this" class="kb-title-item">
+                        <text>周{{item}}</text>
+                    </view>
+                    <view class="kb-title-itemTime">
+                        <text>时间</text>
+                    </view>
+                </view>
+                <view class="kb-num-ctn kb-num-ctn-inner blur-area blur" wx:if="{{blur}}">
+                    <view class="kb-mon kb-date"></view>
+                    <view class="mg-t">1</view>
+                    <view class="mg-8">2</view>
+                    <view>3</view>
+                    <view class="mg-12">4</view>
+                    <view>5</view>
+                    <view class="mg-8">6</view>
+                    <view>7</view>
+                    <view class="mg-12">8</view>
+                    <view>9</view>
+                    <view class="mg-8">10</view>
+                    <view>11</view>
+                    <view>12</view>
+                    <view class="kb-timeline-tri" style="top:{{timelineTop}}rpx"></view>
+                </view>
+
+                <!-- 卡片部分 -->
+                <view class="kb-cards-ctn blur-area {{blur?'blur':''}}">
+                    <!-- 每一列为一组 -->
+                    <view class="kb-cards-column" wx:for="{{lessons}}" wx:key="daykey" wx:for-item="{{day_lesson}}"
+                        wx:for-index="day">
+                        <!-- 当前时间节点定位高亮 -->
+                        <block wx:if="{{today===day}}">
+                            <view class="kb-bg"
+                                style="background:-webkit-gradient(linear,left top,left bottom,from(#eff7ff),color-stop({{(timelineTop+4)/1260}}, #8cc4ff),to(#eff7ff));">
+                            </view>
+                            <view class="kb-timeline" style="display:block;top:{{timelineTop}}rpx"></view>
+                        </block>
+                        <!-- 循环当天的的6节课 -->
+                        <view class="kb-card {{wid%2==0?'mg-8':'mg-12'}}" wx:for="{{lessons[day]}}" wx:key="wid"
+                            wx:for-index="wid" wx:for-item="widItem">
+                            <!-- 循环重叠课 -->
+                            <block wx:if="{{(widItem.length<5&&widItem.length>1)?false:true}}">
+                                <view bindtap="showDetail"
+                                    class="mg-8 kb-card-content {{widItem.length<5&&widItem.length>1?'k-sec':''}} {{classColors[widItem.courseName.length%3]}}"
+                                    data-day="{{day}}" data-color="{{classColors[widItem.courseName.length%3]}}"
+                                    data-wid="{{wid}}" wx:if="{{widItem.courseName.length>0}}">
+                                    <text class="kb-card-place-words">{{widItem.place}}</text>
+                                    <view class="kb-card-name">
+                                        <text class="kb-card-name-text"
+                                            style="-webkit-line-clamp:{{3*(cards.length-1)}};">{{widItem.courseName}}</text>
+                                    </view>
+                                </view>
+                            </block>
+                            <block wx:else>
+                                <view bindtap="showDetail" data-day="{{day}}" data-color="green" data-wid="{{wid}}"
+                                    class="mg-8 kb-card-content k-sec green"><text
+                                        class="line-black">{{widItem.length}}项课程</text>
+                                    <block wx:for="{{widItem}}" wx:key="widK">
+                                        <view class="kb-card-name-text">{{item.place}}-<view class="text-cut"
+                                                style="width:120rpx;">{{item.courseName}}</view>
+                                        </view>
+                                    </block>
+                                </view>
+                            </block>
+                        </view>
+                    </view>
+
+                    <view class="kb-cards-columnTime">
+                        <view class="kb-card-time mg-12" wx:for="{{timeRow}}" wx:key="trowid" wx:for-item="timeRowItem">
+                            <view class="mg-8 kb-card-contentTime">
+                                <text class="kb-card-place-wordsTime">{{timeRowItem.l1}}</text>
+                                <text class="kb-card-place-wordsTime">{{timeRowItem.t1}}</text>
+                                <text class="kb-card-place-wordsTime">{{timeRowItem.l2}}</text>
+                                <text class="kb-card-place-wordsTime">{{timeRowItem.t1}}</text>
+                            </view>
+                        </view>
+                        <view class="kb-cardTime mg-12">
+                            <view class="mg-8 kb-card-contentTime">
+                                <text class="kb-card-place-wordsTime2">第十一节课</text>
+                                <text class="kb-card-place-wordsTime2">19:10-19:55</text>
+                                <text class="kb-card-place-wordsTime2">第十二节课</text>
+                                <text class="kb-card-place-wordsTime2">20:00-20:45</text>
+                                <text class="kb-card-place-wordsTime2">第十三节课</text>
+                                <text class="kb-card-place-wordsTime2">20:50-21:35</text>
+                            </view>
+                        </view>
+                    </view>
+
+                </view>
+
+
+
+
+
+                <!-- 遮罩层 -->
+                <view bindtap="hideDetail" class="kb-detail" wx:if="{{blur}}">
+                    <view class="kb-detaile-card-ctn" style="top:{{targetY}}rpx;left:{{targetX}}rpx;">
+                        <block wx:for="{{targetLessons}}" wx:key="cid" wx:for-index="cid" wx:for-item="cards">
+                            <view style="height:{{cards.length*100}}rpx;left:{{cards.left}}rpx;"
+                                class="kb-card-content kb-detail-card-content {{targetColor}} {{targetI == cid ? 'kb-detail-card-content-active':''}}"
+                                data-index="{{cid}}" catchtap="infoCardTap">
+                                <text class="kb-card-place-words">{{cards.place}}</text>
+                                <view class="kb-card-name">
+                                    <text class="kb-card-name-text"
+                                        style="-webkit-line-clamp:{{3*(cards.length-1)}};">{{cards.courseName}}</text>
+                                </view>
+                            </view>
+                        </block>
+                    </view>
+                </view>
+
+            </scroll-view>
+        </view>
+
+        <!-- 底部 -->
+        <view class="kb-info-ctn {{blur?'kb-info-ctn-open':''}}" catchtouchmove="catchMoveDetail">
+            <view class="kb-info-title" wx:if="{{!blur}}">
+                <text class="kb-term">2020-2021 第2学期</text>
+                <!--更多功能-->
+                <view class="kb-choose-view-box">
+                    <view bindtap="drawToPic" class="cu-tag bg-white line-blue radius">存图</view>
+                    <!-- <view class="cu-tag bg-white line-blue radius">分享</view>
+                    <view class="cu-tag bg-white line-blue radius">下载</view> -->
+                </view>
+            </view>
+            <block wx:else>
+                <view class="kb-info-title">
+                    <block>
+                        <text class="kb-info-week">星期{{_days[targetDayIndex]}}</text>
+                        <text class="kb-lesson-time"> </text>
+                        <text class="kb-info-card-close cuIcon-rounddown" bindtap="hideDetail"></text>
+                    </block>
+                </view>
+            </block>
+
+            <view class="kb-info-card-tabs" wx:if="{{targetLen<=2}}" bindtouchstart="bindStartDetail"
+                bindtouchmove="bindMoveDetail">
+                <block wx:for="{{targetLessons}}" wx:key="cid" wx:for-index="cid" style="z-index:{{cid}};">
+                    <view
+                        class="kb-info-card {{!cid ? '' : 'kb-info-card-shadow'}} {{targetI == cid ? 'kb-info-card-active' : 'kb-info-card-static'}}"
+                        data-index="{{cid}}" bindtap="infoCardTap">
+                        <view class="kb-info-card-content">
+                            <view class="info-name">
+                                <text>{{item.courseName}}</text>
+                            </view>
+                            <view class="info-bd">
+                                <view class="info-type">
+                                    <text>课程</text>
+                                </view>
+                                <view class="info-list">
+                                    <text class="info-text">{{targetWid}}</text>
+                                    <view class="info-item" wx:if="{{!teacher}}">
+                                        <text class="info-item-value">教师：{{item.teacher}}</text>
+                                    </view>
+                                    <view class="info-item">
+                                        <text class="info-item-value">地点：{{item.place}} </text>
+                                        <view wx:if="{{item.place.length > 0}}" class="margin-left-sm cu-tag line-purple" bindtap='goClassPlace' data-place="{{item.place}}">导航前往</view>
+                                    </view>
+                                    <view class="info-item" wx:if="{{teacher}}">
+                                        <text class="info-item-value">班级 | 人数：{{item.className}}</text>
+                                    </view>
+                                    <view class="info-item">
+                                        <view class="info-item">
+                                            <text class="info-item-value">课程时间：{{item.startTime}}上课 | {{item.endTime}}下课</text>
+                                        </view>
+                                    </view>
+                                    <view class="info-item">
+                                        <view class="info-item">
+                                            <text class="info-item-value">上课周：{{item.teachWeek}} <text wx:if="{{teacher}}">总学时：{{item.timeSum}}</text>
+                                            </text>
+                                        </view>
+                                    </view>
+                                    <view class="info-item">
+                                        <view class="info-item">
+                                            <text class="info-item-value">注：O表示整体调课，P表示部分调课 </text>
+                                        </view>
+                                    </view>
+                                </view>
+                            </view>
+                        </view>
+                    </view>
+                </block>
+            </view>
+            <view class="kb-info-card-swipers" wx:else>
+                <view class="kb-info-swiper-mask-left" data-target="targetI" data-direction="left"
+                    bindtap="swiperChangeBtn">
+                    <text class="cuIcon-roundleftfill-copy"></text>
+                </view>
+                <swiper circular="{{true}}" indicator-dots="true" current="{{targetI}}" bindchange="infoCardChange"
+                    duration="250">
+                    <block wx:for="{{targetLessons}}" wx:key="{{cid}}" wx:for-index="cid" style="z-index:{{cid}};">
+                        <swiper-item class="kb-info-card">
+                            <view class="kb-info-card-content">
+                                <view class="info-name">
+                                    <text>{{item.courseName}}</text>
+                                </view>
+                                <view class="info-bd">
+                                    <view class="info-type">
+                                        <text>课程</text>
+                                    </view>
+                                    <view class="info-list">
+                                        <text class="info-text">{{targetWid}}</text>
+                                        <view class="info-item" wx:if="{{!teacher}}">
+                                            <text class="info-item-value">教师：{{item.teacher}}</text>
+                                        </view>
+                                        <view class="info-item">
+                                            <text class="info-item-value" decode="{{true}}">地点：{{item.place}}</text>
+                                            <view wx:if="{{item.place.length > 0}}" class="margin-left-sm cu-tag line-purple" bindtap='goClassPlace' data-place="{{item.place}}">导航前往</view>
+                                        </view>
+                                        <view class="info-item" wx:if="{{teacher}}">
+                                            <text class="info-item-value">课程 | 人数：{{item.className}}</text>
+                                        </view>
+                                        <view class="info-item">
+                                            <text class="info-item-value">课程时间：{{item.startTime}}上课 | {{item.endTime}}下课</text>
+                                        </view>
+                                        <view class="info-item">
+                                            <text class="info-item-value">上课周：{{item.teachWeek}} <text wx:if="{{teacher}}">总学时：{{item.timeSum}}</text> </text>
+                                        </view>
+                                        <view class="info-item">
+                                            <text class="info-item-value">注：O表示整体调课，P表示部分调课</text>
+                                        </view>
+                                    </view>
+                                </view>
+                            </view>
+                        </swiper-item>
+                    </block>
+                </swiper>
+                <view class="kb-info-swiper-mask-right" data-target="targetI" data-direction="right"
+                    bindtap="swiperChangeBtn">
+                    <text class="right"></text>
+                </view>
+            </view>
+
+        </view>
+    </block>
+</view>
+
+<canvasdrawer painting="{{painting}}" class="canvasdrawer" bind:getImage="eventGetImage" />

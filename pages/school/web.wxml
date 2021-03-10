@@ -1,0 +1,59 @@
+<!--pages/school/web.wxml-->
+<cu-custom bgColor="bg-cyan" isCustom="{{true}}">
+  <view slot="content">校园站点 - 贝壳小盒子</view>
+</cu-custom>
+
+<view class="remind-box bg-cyan" wx:if="{{isLoading}}" style="height:{{screenHeight}}px;">
+  <image class="remind-img" src="/images/loading.gif"></image>
+</view>
+<view class="page" wx:else>
+
+  <view class="padding bg-cyan">
+    <view class="cu-bar bg-cyan">
+      <view class="action">
+        <text class="cuIcon-titles text-white"></text>
+        <text class="text-xl text-bold">校园站点</text>
+      </view>
+    </view>
+    <view class="text-left padding">
+      <text>学校相关的一些网站，打开新世界的大门。点击链接可以复制到粘贴板，然后可打开浏览器访问。校园网站点必须连接校园网方可访问(不是移动CMCC的那个，是学校的校园网)。</text>
+    </view>
+  </view>
+
+  <view class="margin text-white">
+    <view class="text-center text-xl">- 公共外网 -</view>
+    <view class="flex" wx:for="{{wan}}" wx:key="wanKey">
+      <view style="background:url('{{item.background}}');background-size:cover;height: 200rpx;"
+        class="flex-sub bg-black margin-xs radius bg-img bg-mask text-center text-cut text-white" wx:for="{{item}}"
+        wx:key="lineKey">
+        <view class="padding-top-lg text-xl">{{item.title}}</view>
+        <view wx:for="{{item.url}}" data-url="{{url}}" bindtap="copyUrl" wx:for-item="url"
+          class="margin-top-xs text-sm text-cut underline" wx:key="urlKey">{{url}}</view>
+      </view>
+    </view>
+  </view>
+
+  <view class="margin text-white">
+    <view class="text-center text-xl">- 校园网 -</view>
+    <view class="flex" wx:for="{{lan}}" wx:key="lanKey">
+      <view style="background:url('{{item.background}}');background-size:cover;height: 200rpx;"
+        class="flex-sub bg-black margin-xs radius bg-img bg-mask text-center text-cut text-white" wx:for="{{item}}"
+        wx:key="lineKey">
+        <view class="padding-top-lg text-xl">{{item.title}}</view>
+        <view wx:for="{{item.url}}" data-url="{{url}}" bindtap="copyUrl" wx:for-item="url"
+          class="margin-top-xs text-sm text-cut underline" wx:key="urlKey">{{url}}</view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 广告位 -->
+  <view class='padding'>
+    <ad unit-id="adunit-62f52651dd5f4ff6"></ad>
+  </view>
+  <!-- 广告位结束 -->
+
+  <view class="padding bg-cyan flex flex-direction margin-bottom-xl">
+    <button open-type="share" class="cu-btn bg-green lg shadow-blur"><text class="cuIcon-share"></text>分享</button>
+  </view>
+
+</view>

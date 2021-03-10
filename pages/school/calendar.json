@@ -1,0 +1,8 @@
+{
+  "navigationBarTitleText": "校历 - 贝壳小盒子",
+  "navigationBarBackgroundColor": "#030c13",
+  "enablePullDownRefresh": false,
+  "usingComponents": {
+    "calendar-item": "./component/calendarItem"
+  }
+}

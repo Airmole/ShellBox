@@ -1,0 +1,7 @@
+{
+  "navigationBarBackgroundColor": "#9f8bea",
+  "navigationBarTitleText": "教师课表查询",
+  "backgroundColor": "#9f8bea",
+  "enablePullDownRefresh": false,
+  "navigationStyle": "default"
+}

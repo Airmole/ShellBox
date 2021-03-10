@@ -1,0 +1,6 @@
+/* pages/school/component/calendarItem.wxss */
+@import "../../../app.wxss";
+
+.item-height{
+  height: 200rpx;
+}

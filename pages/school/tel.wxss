@@ -1,0 +1,72 @@
+/* pages/school/tel.wxss */
+page {
+  padding-top: 100rpx;
+}
+
+.indexes {
+  position: relative;
+}
+
+.indexBar {
+  position: fixed;
+  right: 0px;
+  bottom: 0px;
+  padding: 20rpx 20rpx 20rpx 60rpx;
+  display: flex;
+  align-items: center;
+}
+
+.indexBar .indexBar-box {
+  width: 40rpx;
+  height: auto;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 0 20rpx rgba(0, 0, 0, 0.1);
+  border-radius: 10rpx;
+}
+
+.indexBar-item {
+  flex: 1;
+  width: 40rpx;
+  height: 40rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24rpx;
+  color: #888;
+}
+
+movable-view.indexBar-item {
+  width: 40rpx;
+  height: 40rpx;
+  z-index: 9;
+  position: relative;
+}
+
+movable-view.indexBar-item::before {
+  content: "";
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 10rpx;
+  height: 20rpx;
+  width: 4rpx;
+  background-color: #f37b1d;
+}
+
+.indexToast {
+  position: fixed;
+  top: 0;
+  right: 80rpx;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 10rpx;
+  margin: auto;
+  color: #fff;
+  line-height: 100rpx;
+  text-align: center;
+  font-size: 48rpx;
+}

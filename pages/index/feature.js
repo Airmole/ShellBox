@@ -1,0 +1,248 @@
+const app = getApp();
+Page({
+  data: {
+    StatusBar: app.globalData.StatusBar,
+    CustomBar: app.globalData.CustomBar,
+    hasEdusysStorage: false,
+    edusysUserInfo: {},
+    isTeacher: false,
+    QGroupModal: false,
+    iconList: [{
+      id: 'myCourse',
+      icon: 'wodekebiao',
+      teacher: true,
+      student: true,
+      name: '我的课表',
+      url: '../course/my',
+      login: true,
+    }, {
+      id: 'stulist',
+      icon: 'gongrenhuamingce',
+      teacher: true,
+      student: false,
+      name: '花名册',
+      url: '../course/stulist/index',
+      login: true,
+    }, {
+      id: 'teacherCourse',
+      icon: 'jiaoshikebiao',
+      teacher: true,
+      student: true,
+      name: '教师课表',
+      url: '../course/search?type=teacher',
+      login: true,
+    }, {
+      id: 'classCourse',
+      icon: 'banjikebiao',
+      teacher: true,
+      student: true,
+      name: '班级课表',
+      url: '../course/search?type=class',
+      login: true,
+    }, {
+    //   id: 'netfare',
+    //   icon: 'wangluo',
+    //   teacher: true,
+    //   student: true,
+    //   name: '网费查询',
+    //   url: '',
+    //   login: true,
+    // }, {
+      id: 'calendar',
+      icon: 'xiaoli',
+      teacher: true,
+      student: true,
+      name: '校历',
+      url: '../school/calendar',
+      login: false,
+    }, {
+    //   id: 'mybooks',
+    //   icon: 'tushuguan',
+    //   teacher: true,
+    //   student: true,
+    //   name: '我的借阅',
+    //   url: '',
+    //   login: true,
+    // }, {
+    //   id: 'scanBookCode',
+    //   icon: 'dushuma',
+    //   teacher: true,
+    //   student: true,
+    //   name: '扫码查书',
+    //   url: '',
+    //   login: true,
+    // }, {
+      id: 'score',
+      icon: 'chengji',
+      teacher: false,
+      student: true,
+      name: '成绩查询',
+      url: '../score/score',
+      login: true,
+    }, {
+    //   id: 'electricity',
+    //   icon: 'dianfei',
+    //   teacher: false,
+    //   student: true,
+    //   name: '寝室用电',
+    //   url: '',
+    //   login: true,
+    // }, {
+      id: 'schoolTrans',
+      icon: 'daba',
+      teacher: true,
+      student: true,
+      name: '校园出行',
+      url: '../traffic/bus',
+      login: false,
+    }, {
+      id: 'teacherBus',
+      icon: 'daba',
+      teacher: true,
+      student: false,
+      name: '班车订票',
+      url: '',
+      login: true,
+    }, {
+      id: 'cet',
+      icon: 'CET',
+      teacher: true,
+      student: true,
+      name: '查四六级',
+      url: 'jiaoyubu/pages/business/cet/fillInfo/fillInfo',
+      login: false,
+    }, {
+      id: 'map',
+      icon: 'tubiao_ditu',
+      teacher: true,
+      student: true,
+      name: '校园导航',
+      url: '../traffic/navi',
+      login: false,
+    }, {
+      id: 'tel',
+      icon: 'tel',
+      teacher: true,
+      student: true,
+      name: '常用电话',
+      url: '../school/tel',
+      login: false,
+    }, {
+      id: 'certificate',
+      icon: 'zhengjian',
+      teacher: true,
+      student: true,
+      name: '考证助手',
+      url: '../school/cert',
+      login: false,
+    }, {
+      id: 'websites',
+      icon: 'diqiu',
+      teacher: true,
+      student: true,
+      name: '校园站点',
+      url: '../school/web',
+      login: false,
+    }, {
+      id: 'xiaoai',
+      icon: 'xiaoai',
+      teacher: true,
+      student: true,
+      name: '小爱课表',
+      url: '../school/xiaoai',
+      login: false,
+    }, {
+      id: 'about',
+      icon: 'plane',
+      teacher: true,
+      student: true,
+      name: '关于盒子',
+      url: '../school/aboutus',
+      login: false,
+    }]
+  },
+  onLoad: function () {
+    this.inital();
+  },
+  onShow: function () {
+    this.inital();
+  },
+  inital: function () {
+    var edusysUserInfo = wx.getStorageSync('edusysUserInfo');
+    try {
+      if(edusysUserInfo.uid.length > 0 && edusysUserInfo.password.length > 0){
+        var isTeacher = false;
+        if(edusysUserInfo.uid.length<8){
+          isTeacher = true
+        }
+        this.setData({
+          hasEdusysStorage: true,
+          isTeacher: isTeacher,
+          edusysUserInfo: edusysUserInfo
+        })
+      }
+    } catch (error) {
+      // console.log(error)
+      this.setData({
+        hasEdusysStorage: false,
+        edusysUserInfo: {}
+      })
+    }
+  },
+  goToPage: function (e) {
+    const id = e.currentTarget.id;
+    const url = e.currentTarget.dataset.url;
+    const needLogin = e.currentTarget.dataset.login;
+    const hasEdusysStorage = this.data.hasEdusysStorage;
+    // console.log('target：', hasEdusysStorage);
+
+    if(id == 'cet'){
+      wx.navigateToMiniProgram({ appId: 'wx2eec5fb00157a603', path: url });
+      return;
+    }
+
+    if(id == 'teacherBus'){
+      wx.navigateToMiniProgram({ appId: 'wx183616af30e5723d' });
+      return;
+    }
+
+    if(needLogin && !hasEdusysStorage){
+      wx.showToast({ title: '不登录，这个功能没法用哟~', icon: 'none' })
+      return
+    }
+    
+    wx.navigateTo({ url: url });
+  },
+  goLogin: function (e) {
+    wx.navigateTo({
+      url: './login',
+    })
+  },
+  showQQGroupCode: function () {
+    this.setData({ QGroupModal: true })
+  },
+  hideQQGroupCode: function () {
+    this.setData({ QGroupModal: false })
+  },
+  logout: function (e) {
+    var anmiaton = e.currentTarget.dataset.class;
+    var _this = this;
+    _this.setData({
+      animation: anmiaton
+    })
+    setTimeout(function() {
+      wx.clearStorage({
+        success: (res) => {
+          _this.setData({
+            animation: ''
+          });
+          app.globalData.edusysUserInfo = {};
+          app.globalData.hasEdusysStorage = false;
+          wx.navigateTo({
+            url: './login',
+          });
+        },
+      })
+    }, 1000);
+  }
+})

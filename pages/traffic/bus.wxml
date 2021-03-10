@@ -1,0 +1,177 @@
+<!--pages/traffic/bus.wxml-->
+<cu-custom bgColor="bg-wegreen" isCustom="{{true}}">
+  <view slot="content">出行 - 贝壳小盒子</view>
+</cu-custom>
+
+<view class="remind-box" wx:if="{{isLoading}}">
+  <image class="remind-img" src="/images/loading.gif"></image>
+</view>
+<view wx:else>
+
+  <scroll-view scroll-x class="bg-white nav">
+    <view class="flex bg-wegreen text-center">
+      <view class="cu-item flex-sub bg-wegreen {{index==activeIndex?'text-white cur':''}}" wx:for="{{tabs}}"
+        wx:key="tanKey" bindtap="tabClick" data-id="{{index}}">{{item}}</view>
+    </view>
+  </scroll-view>
+
+  <!-- 广告位 -->
+  <view class='padding'>
+    <ad unit-id="adunit-62f52651dd5f4ff6"></ad>
+  </view>
+  <!-- 广告位结束 -->
+
+  <block wx:if="{{activeIndex == 0}}">
+    <view class="padding-sm">
+      <view class="bg-green light padding radius shadow-blur">
+        <view class="text-lg text-center text-black">京津新城 ←_→ 北京国贸</view>
+        <view class="margin-top-sm text-Abc text-black">
+          <view class="text-indent margin-bottom">班车往返于天津市京津新城公交站与北京国贸桥南艾维克酒店西门三环辅路，每日于京津新城与北京两地各发车2车次，每周五有加车。</view>
+          <view class="text-indent margin-bottom">新的运营车辆车牌号为：京B15506 ，白色大巴车。车辆风挡玻璃内有京津新城标识牌，请乘客注意。</view>
+          <view class="text-indent margin-bottom"><text class="text-red">提示：</text>
+            资料来源于网络搜集整理，仅供参考。节假日及特殊情况(比如如今疫情形势下)变动以“ <text class="text-blue"
+              bindtap="showBjBusQrcode">京津新城北京国贸商务班车</text> ”公众号通知为准。班车具体情况咨询站点服务人员。</view>
+        </view>
+      </view>
+
+      <view class="bg-green light padding radius shadow-blur margin-top">
+        <view class="text-lg text-center text-black">京津新城 出发</view>
+        <view class="flex text-center text-black margin-top">
+          <view class="flex-sub text-left">发车时间</view>
+          <view class="flex-sub text-right">8:00,17:30</view>
+        </view>
+        <view class="flex text-center text-black margin-top">
+          <view class="flex-sub text-left">周五加班车</view>
+          <view class="flex-sub text-right">10:30,13:00</view>
+        </view>
+        <view class="flex text-center text-black margin-top">
+          <view class="flex-sub text-left">票价</view>
+          <view class="flex-sub text-right">￥36(支持微信/支付宝)</view>
+        </view>
+        <view class="flex text-center text-black margin-top">
+          <view class="flex-sub text-left">购票、乘车地点</view>
+          <view class="flex-sub text-right">京津新城公交站 <view bindtap="goJJXCStation" class="cu-tag line-blue">导航前往</view>
+          </view>
+        </view>
+      </view>
+
+      <view class="bg-img bg-mask padding-tb-xl radius margin-top"
+        style="background-image: url('https://upload-images.jianshu.io/upload_images/4697920-5d31ea20ae03c177.png');height: 350rpx;">
+      </view>
+
+      <view class="bg-green light padding radius shadow-blur margin-top">
+        <view class="text-lg text-center text-black">北京国贸 出发</view>
+        <view class="flex text-center text-black margin-top">
+          <view class="flex-sub text-left">发车时间</view>
+          <view class="flex-sub text-right">7:30,16:00</view>
+        </view>
+        <view class="flex text-center text-black margin-top">
+          <view class="flex-sub text-left">周五加班车</view>
+          <view class="flex-sub text-right">10:30,14:00</view>
+        </view>
+        <view class="flex text-center text-black margin-top">
+          <view class="flex-sub text-left">票价</view>
+          <view class="flex-sub text-right">￥36(支持微信/支付宝)</view>
+        </view>
+        <view class="flex text-center text-black margin-top">
+          <view class="flex-sub text-left">乘车地点</view>
+          <view class="flex-sub text-right"><text>北京国贸桥南艾维克酒店\r\n西门三环辅路</text>
+            <view bindtap="goBJGMStation" class="cu-tag line-blue">导航前往</view>
+          </view>
+        </view>
+        <view class="flex text-center text-black margin-top">
+          <view class="flex-sub text-left">购票</view>
+          <view class="flex-sub text-right"><text>来不及解释了，快上车。\r\n下车前会让你购票。</text></view>
+        </view>
+      </view>
+      <view class="padding flex flex-direction margin-bottom-xl">
+        <button class="cu-btn bg-green lg" open-type="share" id='BJ'>分享转发给好友</button>
+      </view>
+    </view>
+  </block>
+
+  <block wx:if="{{activeIndex == 1}}">
+    <view class="padding-sm">
+      <view class="bg-green light padding radius shadow-blur">
+        <view class="text-lg text-center text-black">京津新城 ←_→ 天津市区</view>
+        <view class="margin-top-sm text-Abc text-black">
+          <view class="text-df">乘车地点：学院西门</view>
+          <view class="text-df">票价：全程￥15元(按距离分￥5/￥10/￥15,仅收现金)</view>
+          <view class="text-df">京津新城至白庙站： 5:10~17:00，约每30分钟一班</view>
+          <view class="text-df">白庙站至京津新城： 7:30~19:00，约每30分钟一班</view>
+          <view class="text-df margin-top-xs">提示：资料来源于网络搜集整理，仅供参考</view>
+        </view>
+      </view>
+    </view>
+
+    <view class="bg-wegreen padding">
+      <view bindtap="chelaile160" class="flex radius bg-gradual-green align-center justify-center">
+        <view class="text-xxl text-blod text-white margin-top justify-center" style="height:100rpx;">
+          <text class="cuIcon-locationfill"></text>查看公交实时运行状况
+        </view>
+      </view>
+    </view>
+
+    <view class="margin-sm radius shadow-blur bg-green light">
+      <view class="radius bg-green light padding">
+        <view class="radius">
+          <view class="text-lg text-center text-black">天津公交 160路</view>
+        </view>
+        <view class="cu-timeline bg-green light">
+          <view class="cu-time">部分站点</view>
+          <view class="cu-item cur cuIcon-refresharrow text-green" wx:for="{{bus160}}" wx:key="busKey">
+            <view class="content bg-green shadow-blur radius">
+              <text>{{index+1 > 3 ? '...': index+1}}.</text> {{item}}
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="padding flex flex-direction margin-bottom-xl">
+      <button class="cu-btn bg-green lg" open-type="share" id='TJ'>分享转发给好友</button>
+    </view>
+  </block>
+
+  <block wx:if="{{activeIndex == 2}}">
+    <view class="padding-sm">
+      <view class="bg-green light padding radius shadow-blur">
+        <view class="text-lg text-center text-black">学院 ←_→ 宝坻 (公交：宝13路)</view>
+        <view class="margin-top-sm text-Abc text-black">
+          <view class="text-df">运行时间：6:30~17:30</view>
+          <view class="text-df">票价：￥2~￥6元(仅收现金)</view>
+          <view class="text-df margin-top-xs">提示：资料来源于网络搜集整理，仅供参考</view>
+        </view>
+      </view>
+    </view>
+
+    <view class="bg-wegreen padding">
+      <view bindtap="chelaileBao13" class="flex radius bg-gradual-green align-center justify-center">
+        <view class="text-xxl text-blod text-white margin-top justify-center" style="height:100rpx;">
+          <text class="cuIcon-locationfill"></text>查看公交实时运行状况
+        </view>
+      </view>
+    </view>
+
+    <view class="margin-sm radius shadow-blur bg-green light">
+      <view class="radius bg-green light padding">
+        <view class="radius">
+          <view class="text-lg text-center text-black">天津公交 宝13路</view>
+        </view>
+        <view class="cu-timeline bg-green light">
+          <view class="cu-time">部分站点</view>
+          <view class="cu-item cur cuIcon-refresharrow text-green" wx:for="{{busBao13}}">
+            <view class="content bg-green shadow-blur radius">
+              <text>{{index+1 > 3 ? '...': index+1}}.</text> {{item}}
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="padding flex flex-direction margin-bottom-xl">
+      <button class="cu-btn bg-green lg" open-type="share" id='BD'>分享转发给好友</button>
+    </view>
+  </block>
+
+
+
+</view>

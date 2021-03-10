@@ -1,0 +1,104 @@
+<!--login.wxml-->
+<view class="container">
+  <view class="remind-box" wx:if="{{remind}}">
+    <image class="remind-img" src="/images/loading.gif"></image>
+  </view>
+  <block wx:else>
+    <image class="title-login" src="/images/title.png"></image>
+    <view class="content-login">
+      <view class="hd" style="transform:rotateZ({{angle}}deg);">
+        <image class="logo" src="/images/schoolLogo.png"></image>
+        <image class="wave" src="/images/wave.png" mode="aspectFill"></image>
+        <image class="wave wave-bg" src="/images/wave.png" mode="aspectFill"></image>
+      </view>
+      <view class="bd">
+        <form class="login-form">
+          <view class="input-group {{userid_focus ? 'active' : ''}}">
+            <text class="input-label">帐号</text>
+            <input type="number" cursor-spacing="30" id="userid" maxlength="9" placeholder="学号或教务网账号"
+              bindinput="useridInput" bindfocus="inputFocus" bindblur="inputBlur" confirm-type="next" />
+          </view>
+          <view class="input-group {{passwd_focus ? 'active' : ''}}">
+            <text class="input-label">密码</text>
+            <input password="true" cursor-spacing="30" id="passwd" placeholder="教务网密码" bindinput="passwdInput"
+              bindfocus="inputFocus" bindblur="inputBlur" confirm-type="next" />
+          </view>
+          <!-- <view class="input-group {{vcode_focus ? 'active' : ''}}">
+            <text class="input-label">验证码</text>
+            <input value="{{vcode}}" cursor-spacing="30" id="vcode" bindinput="vcodeInput" bindfocus="inputFocus"
+              bindblur="inputBlur" placeholder="输入右侧验证码" maxlength="4" confirm-type="done" />
+            <image src="{{vcodeUrl}}" alt="教务关闭" style="width:90px;height:25px;" bindtap="getCookie" />
+          </view> -->
+          <view class="login-help">
+            <text class="line-blue light" bindtap="showResetModal">重置密码</text>
+            <text class="line-blue light" bindtap="showHelp"> | 帮助</text>
+            <text class="cuIcon-questionfill line-blue light"></text>
+          </view>
+        </form>
+        <view class="confirm-btn" bindtap="bind">
+          <text>确认绑定</text>
+        </view>
+      </view>
+
+      <view class="help" id="help" wx:if="{{help_status}}" bindtap="tapHelp">
+        <view class="box">
+          <view class="box-hd">
+            <text class="box-title">帮助</text>
+            <image class="box-close" src="/images/close.png" bindtap="hideHelp"></image>
+          </view>
+          <view class="box-bd">
+            <view class="help-q">1、账号和密码是什么？</view>
+            <view class="help-a">
+              <text>账号：账号就是你的学号，老师请输入教务系统账号。</text>
+              <text>密码：您设定的教务系统的登录密码。</text>
+            </view>
+            <view class="help-q">2、忘记密码？</view>
+            <view class="help-a">
+              <text bindtap="showResetModal" style="color:#8E54EC;">点击这里，重置教务系统密码。重置后教务系统密码也同步被修改。</text>
+            </view>
+            <view class="help-q">3、大一新生？暂时还没有学号😥</view>
+            <view class="help-a">
+              <text>请耐心等待教务部门注册学籍，办理学生证，然后你就有学号啦。(不要企图用高考考生号登录成功)</text>
+            </view>
+          </view>
+        </view>
+      </view>
+
+    </view>
+  </block>
+
+  <view class="cu-modal {{reset_status?'show':''}}" wx:if="{{reset_status}}">
+    <view class="cu-dialog">
+      <view class="cu-bar bg-white justify-end">
+        <view class="content">重置密码</view>
+        <view class="action" bindtap="closeResetModal">
+          <text class="cuIcon-close text-red"></text>
+        </view>
+      </view>
+      <view class="padding-xl text-left">
+        <view class="cu-form-group margin-top {{userid_focus ? 'active' : ''}}">
+          <view class="title">账号</view>
+          <input id="userid" placeholder="教务系统账号" type="number" value="{{userid}}" maxlength="9" confirm-type="next" bindinput="useridInput"
+            bindfocus="inputFocus" bindblur="inputBlur"></input>
+        </view>
+        <view class="cu-form-group margin-top" style="{{idcard_focus ? 'border: 2px solid #7acfa6;' : ''}}">
+          <view class="title">身份证号</view>
+          <input id="idcard" placeholder="身份证号码" type="idcard" maxlength="18" bindinput="idcardInput"
+            confirm-type="next" bindfocus="inputFocus" bindblur="inputBlur"></input>
+        </view>
+        <view class="cu-form-group margin-top" style="{{passwd_focus ? 'border: 2px solid #7acfa6;' : ''}}">
+          <view class="title">新密码</view>
+          <input id="passwd" placeholder="重置后的新密码" type="text"  maxlength="20" bindinput="passwdInput"
+            confirm-type="next" bindfocus="inputFocus" bindblur="inputBlur"></input>
+        </view>
+      </view>
+      <view class="cu-bar bg-white justify-end">
+        <view class="action">
+          <button class="cu-btn line-green text-green" bindtap="closeResetModal">取消</button>
+          <button class="cu-btn bg-green margin-left" bindtap="resetPassword">确定重置</button>
+        </view>
+      </view>
+    </view>
+  </view>
+
+</view>

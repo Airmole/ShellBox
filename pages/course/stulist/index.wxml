@@ -1,0 +1,31 @@
+<!--pages/course/stulist/index.wxml-->
+<cu-custom bgColor="bg-cyan" isCustom="{{true}}">
+  <view slot="content">花名册 - 贝壳小盒子</view>
+</cu-custom>
+<view class="remind-box" wx:if="{{isLoading}}">
+  <image class="remind-img" src="/images/loading.gif"></image>
+</view>
+<view class="page" wx:else>
+  <view class="padding bg-cyan">
+    <view class="cu-bar bg-cyan">
+      <view class="action">
+        <text class="cuIcon-titles text-white"></text>
+        <text class="text-xl text-bold">上课学生花名册列表</text>
+      </view>
+    </view>
+    <view class="text-left padding">
+      <text>老师老师，您想看哪门课程的花名册？</text>
+    </view>
+  </view>
+
+  <view class="cu-list menu sm-border card-menu margin-top" wx:for="{{courseIndex}}" wx:key="courseKey">
+    <navigator url="./content?course={{item.courseName}}&code={{item.queryCode}}" class="cu-item arrow">
+      <view class="content padding-tb-sm">
+        <view><text class="cuIcon-skin text-orange"></text>{{item.courseName}}</view>
+        <view class="text-gray text-sm"> <text class="cuIcon-friend"></text> {{item.className}}</view>
+      </view>
+    </navigator>
+  </view>
+
+
+</view>

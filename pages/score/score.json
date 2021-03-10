@@ -1,0 +1,8 @@
+{
+  "navigationBarBackgroundColor": "#030c13",
+  "enablePullDownRefresh": false,
+  "usingComponents": {
+    "calendar-item": "../school/component/calendarItem",
+    "canvasdrawer": "/utils/canvasdrawer/canvasdrawer"
+  }
+}

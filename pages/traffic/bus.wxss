@@ -1,0 +1,10 @@
+/* pages/traffic/bus.wxss */
+@import "../school/calendar.wxss";
+
+page{
+  background-color: #7acfa6;
+}
+
+.text-indent{
+  text-indent: 2em;
+}

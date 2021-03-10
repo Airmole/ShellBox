@@ -1,0 +1,24 @@
+{
+  "setting": {},
+  "condition": {
+    "plugin": {
+      "list": []
+    },
+    "game": {
+      "list": []
+    },
+    "gamePlugin": {
+      "list": []
+    },
+    "miniprogram": {
+      "list": [
+        {
+          "name": "pages/course/stulist/index",
+          "pathName": "pages/course/stulist/index",
+          "query": "",
+          "scene": null
+        }
+      ]
+    }
+  }
+}

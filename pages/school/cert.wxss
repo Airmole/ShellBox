@@ -1,0 +1,50 @@
+/* pages/school/cert.wxss */
+
+page{
+  background-color: var(--cyan);
+}
+.remind-box {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 300rpx;
+}
+.remind-img {
+  width: 250rpx;
+  height: 250rpx;
+  padding-bottom: 25rpx;
+}
+.card-item {
+  padding: 30rpx;
+  color: #fff;
+  margin-bottom: 30rpx;
+  overflow-x: scroll;
+}
+
+.card-title {
+  font-size: 15pt;
+  border-bottom: 1px solid #eee;
+}
+
+.card-content {
+  margin-top: 15rpx;
+}
+
+.desc-title {
+  display: flex;
+  font-size: 13pt;
+  line-height: 200%;
+}
+
+.desc-content {
+  padding-bottom: 15rpx;
+  font-size: 12pt;
+  text-decoration: underline;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  /* color: rgb(83, 143, 233);
+  text-shadow:-1px 0 white,0 1px white,1px 0 white,0 -1px white; */
+}

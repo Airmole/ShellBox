@@ -1,0 +1,56 @@
+<!--pages/school/cert.wxml-->
+<!-- 考证助手 -->
+<view class="remind-box" wx:if="{{isLoading}}">
+  <image class="remind-img" src="/images/loading.gif"></image>
+</view>
+<view class="page" wx:else>
+  <view class="padding bg-cyan">
+    <view class="cu-bar bg-cyan">
+      <view class="action">
+        <text class="cuIcon-titles text-white"></text>
+        <text class="text-xl text-bold">考证助手</text>
+      </view>
+    </view>
+    <view class="text-left padding">
+      <text>大学期间可考的资格证书考证咨询，为同学们提供报考、成绩查询、准考证打印等资源信息。若相应网址链接变更可以咨询提醒客服学长修改。</text>
+    </view>
+  </view>
+
+  <view class="bg-cyan">
+    <view class="radius cu-list menu sm-border card-menu margin-left margin-right">
+      <block wx:for="{{certList}}" wx:key="cataKey">
+        <view class="cu-item arrow" data-target="{{item.hookId}}" bindtap="goToHook">
+          <view class="content">
+            <text class="text-grey">{{item.title}}</text>
+          </view>
+        </view>
+      </block>
+    </view>
+  </view>
+
+  <!-- 广告位 -->
+  <view class='padding'>
+    <ad unit-id="adunit-62f52651dd5f4ff6"></ad>
+  </view>
+  <!-- 广告位结束 -->
+
+  <view class="bg-cyan padding">
+    <block wx:for="{{certList}}" wx:key="detailKey">
+      <view class="padding-xl margin-bottom radius light shadow bg-{{cardColor[index%9]}}">
+        <view id="{{item.hookId}}" class="card-title">{{item.title}}</view>
+        <view class="card-content" wx:for="{{item.content}}" wx:for-index="subIndex" wx:for-item="subItem"
+          wx:key="contentKey">
+          <view class="desc-title">{{subItem.subtitle}}：</view>
+          <view class="desc-content" data-url="{{subItem.url}}" bindtap="copyUrl"> - {{subItem.url}}</view>
+          <view wx:if="{{subItem.url=='http://cet.neea.edu.cn/cet/'}}" class="desc-content" data-url="{{subItem.url}}"
+            bindtap="goToOtherWeapp"> - 直接前往查询</view>
+        </view>
+      </view>
+    </block>
+  </view>
+
+  <view class="padding bg-cyan flex flex-direction margin-bottom-xl">
+    <button open-type="share" class="cu-btn bg-green lg shadow-blur"><text class="cuIcon-share"></text>分享</button>
+  </view>
+
+</view>

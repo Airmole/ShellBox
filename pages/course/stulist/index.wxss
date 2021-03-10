@@ -1,0 +1,6 @@
+/* pages/course/stulist/index.wxss */
+@import "../../school/calendar.wxss";
+
+page{
+  background-color: var(--cyan);
+}

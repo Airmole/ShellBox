@@ -1,0 +1,10 @@
+<!--pages/school/component/calendarItem.wxml-->
+<view class="bg-{{outcolor}}  padding">
+  <view class="flex radius bg-{{bgcolor}} item-height align-center justify-center">
+  <view class="flex-sub padding-sm margin-xs">
+    <view class="text-xxl text-blod text-white">{{title}}</view>
+    <view class="text-xl text-white">{{subtitle}}</view>
+  </view>
+  <view class="flex-sub padding-sm margin-xs text-xxl text-right text-white">{{value}}</view>
+  </view>
+</view>

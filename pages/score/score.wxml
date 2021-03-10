@@ -1,0 +1,76 @@
+<!--pages/score/score.wxml-->
+<cu-custom bgColor="bg-wegreen" isCustom="{{true}}">
+  <view slot="content">成绩 - 贝壳小盒子</view>
+</cu-custom>
+
+<view class="remind-box bg-wegreen" wx:if="{{isLoading}}" style="height:{{screenHeight}}px;">
+  <image class="remind-img" src="/images/loading.gif"></image>
+</view>
+<view class="bg-wegreen" wx:if="{{!isLoading}}">
+
+  <view class="padding bg-wegreen">
+    <view class="cu-bar bg-wegreen">
+      <view class="action">
+        <text class="cuIcon-titles text-green"></text>
+        <text class="text-xl text-bold">成绩查询</text>
+      </view>
+    </view>
+    <view class="text-left padding">
+      <text>注：最终成绩以教务为准，本程序计算结果仅作参考,不具有官方权威性。学分为0或成绩低于60分的课程不纳入计算公式。</text>
+    </view>
+  </view>
+
+  <view wx:if="{{showGraphic}}" class="bg-wegreen padding-left" style='height:200px;'>
+    <view class="" style='height:200px;'>
+      <canvas canvas-id="lineCanvas" disable-scroll="true" bindtouchstart="touchHandler"
+        style='width:100%;height:200px;'></canvas>
+    </view>
+  </view>
+
+  <view class="bg-wegreen padding">
+    <canvasdrawer painting="{{painting}}" class="canvasdrawer" bind:getImage="eventGetImage" />
+    <view class="flex radius bg-gradual-blue item-height align-center justify-center" bindtap="eventDraw">
+      <view class="flex-sub padding-sm margin-xs">
+        <view class="text-xxl text-blod text-white">分享成绩单</view>
+        <view class="text-xl text-white">My Transcript</view>
+      </view>
+      <view class="flex-sub padding-sm margin text-sl text-right text-white"><text class="cuIcon-selectionfill"></text>
+      </view>
+    </view>
+  </view>
+
+  <block wx:for="{{jsonContent}}" wx:key="scoolYear" wx:for-index="semester">
+  <view class="cu-list menu sm-border card-menu bg-wegreen margin">
+    <view class="cu-bar bg-white solid-bottom">
+      <view class="action">
+        <text class="cuIcon-title text-green"></text>{{semester}}学期
+      </view>
+      <view class="action padding-right">
+        <text class="cuIcon-medalfill text-blue"></text>
+      </view>
+    </view>
+    <view class="cu-item" wx:for="{{item.score}}" wx:key="ClassName">
+      <view class="content padding-tb-sm text-cut">
+        <view class="text-black text-cut">{{item.className}}({{item.classType}})</view>
+        <view class="text-gray text-sm">{{item.examType}} {{item.period}}学时 {{item.credit}}学分</view>
+      </view>
+      <view class="action padding-right">
+        <text class="text-xl text-red" wx:if="{{item.score < 60}}">{{item.score}}</text> 
+        <text class="text-xl text-blue" wx:elif="{{item.score >= 90}}">{{item.score}}</text>
+        <text class="text-xl text-black" wx:else>{{item.score}}</text> 
+      </view>
+    </view>
+    <view class="cu-item text-black">
+      <view class="content padding-tb-sm">算术平均分：{{item.avg}}</view>
+      <view class="action padding-right">加权平均分: {{item.gpa}}</view>
+    </view>
+  </view>
+</block>
+
+  <!-- 广告位 -->
+  <view class='ads padding bg-wegreen'>
+    <ad unit-id="adunit-62f52651dd5f4ff6"></ad>
+  </view>
+  <!-- 广告位结束 -->
+
+</view>

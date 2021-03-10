@@ -1,0 +1,115 @@
+<!--pages/school/aboutus.wxml-->
+<cu-custom bgColor="bg-wegreen" isCustom="{{true}}">
+  <view slot="content">关于 - 贝壳小盒子</view>
+</cu-custom>
+<view class="container page">
+  <view class="header">
+    <view class="black-cover">
+    </view>
+    <image class="logo" src="https://upload-images.jianshu.io/upload_images/4697920-281236da966f6122.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+    </image>
+    <image class="title" src="/images/title.png">
+    </image>
+  </view>
+  <view class="bg-wegreen padding">
+    <view class="bg-white radius">
+      <view class="radius">
+        <view class="version radius">
+          <view class="version-title">
+            <text class="title-name"> <text class="cuIcon-titles text-wegreen"></text> 贝壳小盒子</text>
+            <view class="cu-tag line-wegreen">公测 3.0.0</view>
+          </view>
+          <view class="weui-cell__ft">
+            <view bindtap="checkUpdate" class="cu-tag bg-wegreen"><text class="cuIcon-down"></text> 检测更新</view>
+          </view>
+        </view>
+
+        <view class="padding">
+
+          <view class="desc-title">
+            <text class="cuIcon-titles text-wegreen"></text>更新说明
+          </view>
+          <view class="desc-content margin-left" style="text-indent:2em;"><text>如您所见，小盒子3.0版本着力于解决万恶恼人的验证码识别问题，并对原有的界面功能增强改进加以润色，限于时间仓促，事务繁琐，3.0新版至今仍是半成品，诸多功能尚未实现，设计交互考虑欠周，请各位同学海涵。同时欢迎有志向一起学习开发小程序的小伙伴们 <text class="text-blue" bindtap="showQQGroupCode">加入我们</text> ，一同并肩作战贡献力量。</text></view>
+
+          <view class="desc-title"> <text class="cuIcon-titles text-wegreen"></text> 简介</view>
+          <view class="desc-content" style='text-indent:2em;'>
+            贝壳小盒子（ShellBox）是一款微信小程序，致力于帮助我们北京科技大学天津学院的师生更方便的查询教务、图书、用电等信息，以及浏览学院校历、拨打各系部电话，并提供校园内地理导航等功能。</view>
+          <view class="desc-content" style='text-indent:2em;'>贝壳小盒子目前还处于公测阶段，有一系列新的功能正在我们的开发计划中。“你想要的，都在这里！”</view>
+          <image bindtap="showAppCode" class="weui-article__img"
+            src="https://upload-images.jianshu.io/upload_images/4697920-90f7baa960c88b89.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" mode="widthFix"
+            style="width:100%;border-radius:25rpx;" />
+          <view class="desc-content text-red">*: 微信小程序版本开发维护优先于QQ版本小程序，强烈建议优先使用微信小程序版贝壳小盒子</view>
+
+          <view class="desc-title">
+            <text class="cuIcon-titles text-wegreen"></text>数据来源
+          </view>
+          <view class="desc-content margin-left">
+            <text decode="true">
+              * 课表、成绩等数据来自教务处官网 \r\n
+              * 图书相关信息来自图书馆官网以及豆瓣 \r\n
+              * 校历、各系部联系电话来自于学院官方网站 \r\n
+              * 用电数据、网费信息来自智慧校园 \r\n
+              * 四六级成绩由 “国家政务服务平台” 小程序提供 \r\n
+              * 实时公交数据由 “车来了” 小程序提供
+            </text>
+          </view>
+
+          <view class="desc-title">
+            <text class="cuIcon-titles text-wegreen"></text>开发贡献
+          </view>
+          <view class="flex">
+            <view bindtap="goWeibo" data-weibo="{{item.weibo}}" class="flex flex-direction text-center margin-left" wx:for="{{coder}}" wx:key="coderkey">
+              <view class="text-center cu-avatar lg round avatar-border" style="background-image:url({{item.avatar}});">
+              </view>
+              <view class="text-center text-cut" style="width:60px;">{{item.nickName}}</view>
+            </view>
+          </view>
+
+          <view class="desc-title">
+            <text class="cuIcon-titles text-wegreen"></text>关联贝壳小盒子
+          </view>
+          <view class="desc-content" style='text-indent:2em;'>
+            <text>若您或者您的朋友在运营与本校相关的公众号（学生组织/社团/校园自媒体等），「贝壳小盒子」诚挚地欢迎您的公众号关联我们的小程序，并期待合作！\r\n </text>
+          </view>
+          <view bindtap='copyID' class="text-blue text-xl">AppID：wxf0ba93e3faff4eda</view>
+
+          <text class="desc-title"> <text class="cuIcon-titles text-wegreen"></text>其他小程序</text>
+          <view class="flex">
+            <view bindtap="goOtherApps" class="flex flex-direction text-center margin-left" wx:for="{{otherApps}}"
+              wx:key="appsKey" data-appid="{{item.appid}}">
+              <view class="text-center cu-avatar lg round avatar-border" style="background-image:url({{item.icon}});">
+              </view>
+              <view class="text-center text-cut" style="width:60px;">{{item.name}}</view>
+            </view>
+          </view>
+
+        </view>
+      </view>
+    </view>
+
+    <view class="flex margin-top-xl margin-bottom-xl">
+      <button bindtap="showQQGroupCode" class="margin flex-sub cu-btn bg-green lg shadow-blur"><text
+          class="cuIcon-service"></text>联系客服</button>
+      <button open-type="share" class="margin flex-sub cu-btn bg-green lg shadow-blur"><text
+          class="cuIcon-share"></text>分享</button>
+    </view>
+
+    <view class="cu-modal {{QGroupModal?'show':''}}">
+      <view class="cu-dialog">
+        <view class="bg-img"
+          style="background-image: url('https://upload-images.jianshu.io/upload_images/4697920-0dbd4660106ba0ec.png');height:550px;">
+          <view class="cu-bar justify-end text-white">
+            <view class="action" bindtap="hideModal">
+              <text class="cuIcon-close "></text>
+            </view>
+          </view>
+        </view>
+        <view class="cu-bar bg-white">
+          <view class="action margin-0 flex-sub  solid-left" bindtap="hideQQGroupCode">我知道了</view>
+        </view>
+      </view>
+    </view>
+
+  </view>
+
+</view>

@@ -1,0 +1,2 @@
+/* pages/course/content.wxss */
+@import "./my.wxss";

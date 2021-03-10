@@ -1,0 +1,10 @@
+/* pages/school/web.wxss */
+@import "./cert.wxss";
+
+page{
+  background-color: var(--cyan);
+}
+
+.underline{
+  text-decoration: underline;
+}

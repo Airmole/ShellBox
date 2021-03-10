@@ -1,0 +1,36 @@
+<!--pages/traffic/navi.wxml-->
+<view class="container">
+  <view class="remind-box" wx:if="{{isLoading}}">
+    <image class="remind-img" src="/images/loading.gif"></image>
+  </view>
+  <view wx:else>
+    <view class="map_box">
+      <map id="navi_map" longitude="{{userLongitude}}" latitude="{{userLatitude}}" scale="18" markers="{{markers}}"
+        polyline="{{polyline}}" bindmarkertap="makertap" style='width:100%' show-location
+        subkey="5F6BZ-7PSL4-GLFU4-XXI6B-43C66-N2BFV" enable-3D="true" show-compass>
+        <cover-view class="controls {{fullscreen ? 'full' : ''}}">
+          <cover-view bindtap="showStaticMapImage">
+            <cover-image class="img" src="/images/nav/staticMap.png" />
+          </cover-view>
+          <cover-view bindtap="moveToSchool">
+            <cover-image class="img" src="/images/nav/moveSchool.png" />
+          </cover-view>
+          <cover-view bindtap="myLocation">
+            <cover-image class="img" src="/images/nav/location.png" />
+          </cover-view>
+        </cover-view>
+      </map>
+    </view>
+    <view class="text_box" wx:if="{{distance != ''}}">
+      <view class="text">{{placeName}}</view>
+      <view class="text">距离：{{distance}} （{{cost}}）</view>
+      <view class="detail_button" bindtouchstart="goDetail">详情</view>
+    </view>
+    <view class="text_box" wx:else>
+      <view class="text" bindtap="moveSchool">北京科技大学天津学院
+        <view class="cu-tag bg-blue" bindtap="moveToSchool">前往</view>
+      </view>
+      <view class="text" bindtap="copyText" data-text="{{schoolAddressText}}">{{schoolAddressText}}(邮编：{{postcode}})</view>
+    </view>
+  </view>
+</view>

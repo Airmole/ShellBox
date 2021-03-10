@@ -1,0 +1,123 @@
+<cu-custom bgColor="bg-wegreen">
+  <view slot="content">贝壳小盒子</view>
+</cu-custom>
+<view class="remind-box" wx:if="{{isLoading}}">
+  <image class="remind-img" src="/images/loading.gif"></image>
+</view>
+<view wx:if="{{!isLoading}}">
+
+  <block wx:if="{{hasLogin}}">
+
+    <view class="padding-lr bg-white margin shadow radius">
+      <view class="solid-bottom padding-top">
+        <text class="cuIcon-titles text-green"></text>Q: laji小盒子，怎么越优化功能越少了？
+      </view>
+      <view class="padding">A：<text>别急嘛，给点时间，慢工出细活，原有的功能最终会一个不少的重新回归，争取全体返校后所有功能正常使用不受影响... </text><text
+          class="text-blue" bindtap="learnMore">了解更多</text> </view>
+    </view>
+
+    <!-- 下节课卡片 -->
+    <block wx:if="{{nextCourseArray.courseName}}">
+      <view class="cu-list menu sm-border card-menu margin">
+        <view class="cu-bar bg-white solid-bottom">
+          <view class="action">
+            <text class="cuIcon-title text-green"></text>下节课
+          </view>
+          <view class="action padding-right">
+            <text class="cuIcon-creative line-wegreen"></text>
+          </view>
+        </view>
+        <navigator url="../course/my" class="cu-item">
+          <view class="content padding-tb-sm text-cut">
+            <view class="text-black text-cut">{{nextCourseArray.courseName}}</view>
+            <view class="text-gray text-sm">{{nextCourseArray.teachWeek}} <text
+                class="text-green">{{nextCourseArray.startTime}}</text>上课 ~
+              {{nextCourseArray.endTime}}下课</view>
+          </view>
+          <view class="action padding-right">
+            <text class="text-xl text-black">{{nextCourseArray.place}}</text>
+          </view>
+        </navigator>
+        <view class="padding bg-white text-center" bindtap="showTodayCourseCard" wx:if="{{!todayCourseCard}}">
+          <text class="text-center">展示全天课表👇</text>
+        </view>
+        <view class="padding bg-white text-center" bindtap="hideTodayCourseCard" wx:else>
+          <text class="text-center">朕知道了，赶紧收起来吧😂</text>
+        </view>
+      </view>
+    </block>
+
+    <!-- 今日全天课程卡片 -->
+    <block wx:if="{{todayCourseCard}}">
+      <view class="cu-list menu sm-border card-menu margin">
+        <view class="cu-bar bg-white solid-bottom">
+          <view class="action">
+            <text class="cuIcon-title text-green"></text>今日课程
+          </view>
+          <view class="action padding-right">
+            <text class="cuIcon-activity line-wegreen"></text>
+          </view>
+        </view>
+        <navigator url="../course/my" class="cu-item" wx:for="{{todayCourses}}" wx:if="{{item.courseName!=''}}"
+          wx:key="todayCourseKey">
+          <view class="content padding-tb-sm text-cut">
+            <view class="text-black text-cut">{{item.courseName}}</view>
+            <view class="text-gray text-sm">{{item.teachWeek}} {{item.startTime}}上课 ~ {{nextCourseArray.endTime}}下课
+            </view>
+          </view>
+          <view class="action padding-right">
+            <text class="text-xl text-black">{{item.place}}</text>
+          </view>
+        </navigator>
+      </view>
+    </block>
+
+    <block wx:if="{{isTeacher}}">
+      <view class="cu-list menu sm-border card-menu margin-top">
+        <view class="cu-bar bg-white solid-bottom">
+          <view class="action">
+            <text class="cuIcon-title text-green"></text> 课堂花名册
+          </view>
+          <view class="action padding-right">
+            <text class="cuIcon-friend line-wegreen"></text>
+          </view>
+        </view>
+        <navigator url="../course/stulist/content?course={{item.courseName}}&code={{item.queryCode}}" class="cu-item arrow" wx:for="{{edusysUserInfo.allCourses}}" wx:key="courseKey">
+          <view class="content padding-tb-sm">
+            <view><text class="cuIcon-skin text-orange"></text>{{item.courseName}}</view>
+            <view class="text-gray text-sm"> <text class="cuIcon-friend"></text> {{item.className}}</view>
+          </view>
+        </navigator>
+      </view>
+
+
+
+
+    </block>
+
+    <!-- 登录了，但没查过课表没缓存 -->
+    <block wx:if="{{!hasCourseCache}}">
+      <navigator url="../course/my">
+        <view class="remind-box margin-xl bg-white">
+          <image class="remind-img" src="/images/nothing.png"></image>
+          <text class="remind-text text-xl">您刚登陆吧？来查一次课表吧</text>
+          <view class="margin-tb-sm text-center">
+            <view class="cu-btn round bg-green shadow">查询课表</view>
+          </view>
+        </view>
+      </navigator>
+    </block>
+
+  </block>
+  <block wx:else>
+    <view class="remind-box margin-xl">
+      <image class="remind-img" src="/images/nothing.png"></image>
+      <text class="remind-text">您咋还没绑定账号呢？</text>
+      <view class="margin-tb-sm text-center">
+        <button class="cu-btn round bg-green shadow" bindtap="goLogin">绑定登录</button>
+      </view>
+    </view>
+  </block>
+
+
+</view>
