@@ -13,8 +13,8 @@
     "miniprogram": {
       "list": [
         {
-          "name": "pages/course/stulist/index",
-          "pathName": "pages/course/stulist/index",
+          "name": "pages/school/tel",
+          "pathName": "pages/school/tel",
           "query": "",
           "scene": null
         }

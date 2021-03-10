@@ -2,6 +2,7 @@
 App({
   globalData: {
     domain: 'https://dev.shellbox.airmole.cn/api',
+    // domain: 'http://shellbox.cn/api',
     _amap_key: '66a87160f8db2a9a76431c954b4f52a5',
     openid: '',
     userInfo: {},

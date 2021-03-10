@@ -29,7 +29,7 @@
           <view class="desc-title">
             <text class="cuIcon-titles text-wegreen"></text>更新说明
           </view>
-          <view class="desc-content margin-left" style="text-indent:2em;"><text>如您所见，小盒子3.0版本着力于解决万恶恼人的验证码识别问题，并对原有的界面功能增强改进加以润色，限于时间仓促，事务繁琐，3.0新版至今仍是半成品，诸多功能尚未实现，设计交互考虑欠周，请各位同学海涵。同时欢迎有志向一起学习开发小程序的小伙伴们 <text class="text-blue" bindtap="showQQGroupCode">加入我们</text> ，一同并肩作战贡献力量。</text></view>
+          <view class="desc-content margin-left" style="text-indent:2em;"><text>如您所见，小盒子3.0版本着力于解决万恶恼人的验证码识别问题，并对原有的界面功能增强改进加以润色，限于时间仓促，事务繁琐，3.0新版至今仍是半成品，诸多功能尚未实现，设计交互考虑欠周，请各位同学海涵。同时欢迎有志向一起学习开发小程序的小伙伴们</text><text class="text-blue" bindtap="showQQGroupCode">加入我们</text> ，一同并肩作战贡献力量。</view>
 
           <view class="desc-title"> <text class="cuIcon-titles text-wegreen"></text> 简介</view>
           <view class="desc-content" style='text-indent:2em;'>

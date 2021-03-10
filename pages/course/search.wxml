@@ -18,7 +18,7 @@
     <!--搜索框-->
     <view class="search-input" wx:if="{{pageType == 'teacher'}}">
       <view class="search-icon-box">
-        <image class="search-icon" src="/images/search-sign.png"></image>
+        <text class="cuIcon-search text-purple"></text>
       </view>
       <form class="input-form" bindreset="bindClearSearchTap" bindsubmit="bindConfirmSearchTap">
         <input class="input-text" bindinput="bindSearchInput" focus="{{!header.defaultValue}}" type="text"
@@ -34,7 +34,7 @@
 
     <view class="search-input" wx:if="{{pageType == 'class'}}">
       <view class="search-icon-box">
-        <image class="search-icon" src="/images/search-sign.png"></image>
+        <text class="cuIcon-search text-purple"></text>
       </view>
       <form class="input-form" bindreset="bindClearSearchTap" bindsubmit="bindConfirmSearchTapClass">
         <input class="input-text" bindinput="bindSearchInputClass" focus="{{!header.defaultValue}}" type="text"

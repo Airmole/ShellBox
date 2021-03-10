@@ -159,7 +159,7 @@
         </view>
         <view class="cu-timeline bg-green light">
           <view class="cu-time">部分站点</view>
-          <view class="cu-item cur cuIcon-refresharrow text-green" wx:for="{{busBao13}}">
+          <view class="cu-item cur cuIcon-refresharrow text-green" wx:for="{{busBao13}}" wx:key="bao13Key">
             <view class="content bg-green shadow-blur radius">
               <text>{{index+1 > 3 ? '...': index+1}}.</text> {{item}}
             </view>

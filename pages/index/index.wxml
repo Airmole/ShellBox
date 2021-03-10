@@ -50,14 +50,15 @@
     <!-- 今日全天课程卡片 -->
     <block wx:if="{{todayCourseCard}}">
       <view class="cu-list menu sm-border card-menu margin">
-        <view class="cu-bar bg-white solid-bottom">
+
+        <navigator url="../course/my" class="cu-bar bg-white solid-bottom">
           <view class="action">
             <text class="cuIcon-title text-green"></text>今日课程
           </view>
           <view class="action padding-right">
             <text class="cuIcon-activity line-wegreen"></text>
           </view>
-        </view>
+        </navigator>
         <navigator url="../course/my" class="cu-item" wx:for="{{todayCourses}}" wx:if="{{item.courseName!=''}}"
           wx:key="todayCourseKey">
           <view class="content padding-tb-sm text-cut">
@@ -82,7 +83,8 @@
             <text class="cuIcon-friend line-wegreen"></text>
           </view>
         </view>
-        <navigator url="../course/stulist/content?course={{item.courseName}}&code={{item.queryCode}}" class="cu-item arrow" wx:for="{{edusysUserInfo.allCourses}}" wx:key="courseKey">
+        <navigator url="../course/stulist/content?course={{item.courseName}}&code={{item.queryCode}}"
+          class="cu-item arrow" wx:for="{{edusysUserInfo.allCourses}}" wx:key="courseKey">
           <view class="content padding-tb-sm">
             <view><text class="cuIcon-skin text-orange"></text>{{item.courseName}}</view>
             <view class="text-gray text-sm"> <text class="cuIcon-friend"></text> {{item.className}}</view>

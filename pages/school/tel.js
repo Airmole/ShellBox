@@ -206,7 +206,21 @@ Page({
     var _this = this;
     this.setData({ telLists: _this.data.backLists, keyword: ''});
   },
-
+  callPhone: function (e) {
+    var tel = '022' + e.currentTarget.dataset.tel;
+    wx.makePhoneCall({ phoneNumber: tel });
+  },
+  copyTel: function(e) {
+    var tel = '022' + e.currentTarget.dataset.tel;
+    wx.setClipboardData({
+      data: tel
+    })
+    wx.showToast({
+      title: '已复制到粘贴版',
+      icon: 'none',
+      duration: 1000
+    });
+  },
   /**
    * 用户点击右上角分享
    */

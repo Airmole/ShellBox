@@ -11,12 +11,17 @@
     <button bindtap="clearSearch" class="cu-btn bg-gradual-green shadow-blur round">清空筛选</button>
   </view>
 </view>
-<scroll-view scroll-y class="indexes" scroll-into-view="indexes-{{listCurID}}" style="height:calc(100vh - {{CustomBar}}px - 50px)" scroll-with-animation="true" enable-back-to-top="true">
+<scroll-view scroll-y class="indexes" scroll-into-view="indexes-{{listCurID}}"
+  style="height:calc(100vh - {{CustomBar}}px - 50px)" scroll-with-animation="true" enable-back-to-top="true">
   <block wx:for="{{telLists}}" wx:key="alphaIndex">
-    <view wx:if="{{telLists[index].length>0}}" class="padding indexItem-{{list[index]}}" id="indexes-{{index}}" data-index="{{index}}">{{index}}</view>
+    <view wx:if="{{telLists[index].length>0}}" class="padding indexItem-{{list[index]}}" id="indexes-{{index}}"
+      data-index="{{index}}">{{index}}</view>
     <view class="cu-list menu-avatar no-padding" wx:if="{{telLists[index].length>0}}">
-      <view class="cu-item" wx:for="{{item}}" wx:key="itemKey" wx:for-index="sub" wx:for-item="tel">
-        <view class="cu-avatar round lg">{{index}}</view>
+      <view class="cu-item" wx:for="{{item}}" wx:key="itemKey" wx:for-index="sub" wx:for-item="tel"
+        data-tel="{{tel.tel}}" bindlongtap="copyTel">
+        <view class="cu-avatar lg round bg-green">
+          <text class="avatar-text">{{tel.name}}</text>
+        </view>
         <view class="content">
           <view class="text-grey">
             <text class="text-abc">{{tel.name}}</text></view>
@@ -24,13 +29,16 @@
             022-{{tel.tel}}
           </view>
         </view>
+        <view data-tel='{{tel.tel}}' bindtap='callPhone' class="action text-xxl margin-right-xl padding-right-xl"><text
+            class="cuIcon-phone text-green"></text></view>
       </view>
     </view>
   </block>
 </scroll-view>
 <view class="indexBar" style="height:calc(100vh - {{CustomBar}}px - 50px)">
   <view class="indexBar-box" bindtouchstart="tStart" bindtouchend="tEnd" catchtouchmove="tMove">
-    <view class="indexBar-item" wx:for="{{list}}" wx:key="indexKey" id="{{index}}" bindtouchstart="getCur" bindtouchend="setCur">{{list[index]}}</view>
+    <view class="indexBar-item" wx:for="{{list}}" wx:key="indexKey" id="{{index}}" bindtouchstart="getCur"
+      bindtouchend="setCur">{{list[index]}}</view>
   </view>
 </view>
 <!--选择显示-->
