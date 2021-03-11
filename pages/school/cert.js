@@ -313,19 +313,9 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-    wx.showShareMenu({
-      withShareTicket: true,
-      menus: ['shareAppMessage', 'shareTimeline']
-    })
     return {
       title: '“贝壳小盒子” - 考证助手',
-      path: '/pages/article/certificate',
-      success: function (res) {
-        // 转发成功
-      },
-      fail: function (res) {
-        // 转发失败
-      }
+      path: 'pages/school/cert'
     }
   },
   goToOtherWeapp(e) {

@@ -11,14 +11,7 @@
       "list": []
     },
     "miniprogram": {
-      "list": [
-        {
-          "name": "pages/school/tel",
-          "pathName": "pages/school/tel",
-          "query": "",
-          "scene": null
-        }
-      ]
+      "list": []
     }
   }
 }

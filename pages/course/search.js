@@ -102,6 +102,12 @@ Page({
     } else {
       that.setData({ pageType: 'teacher' });
     }
+
+    // 支持朋友圈分享
+    wx.showShareMenu({
+      withShareTicket: true,
+      menus: ['shareAppMessage', 'shareTimeline']
+    })
   },
 
   tapHelp: function (e) {
@@ -121,5 +127,13 @@ Page({
   },
   hideHelp: function (e) {
     this.setData({ 'header.help_status': false, 'header.help_class_status': false });
-  }
+  },
+  onShareAppMessage: function (res) {
+    var pageType = this.data.pageType;
+    var pageTypeText = pageType == 'teacher' ? '教师' : '班级';
+    return {
+      title: `${pageTypeText}课表查询 - 贝壳小盒子`,
+      path: `pages/course/search?type=${pageType}`,
+    }
+  },
 });

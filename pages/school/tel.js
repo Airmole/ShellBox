@@ -226,14 +226,8 @@ Page({
    */
   onShareAppMessage: function () {
     return {
-      title: '“贝壳小盒子” - 校园站点',
-      path: '/pages/article/websites',
-      success: function (res) {
-        // 转发成功
-      },
-      fail: function (res) {
-        // 转发失败
-      }
+      title: '“贝壳小盒子” - 部门电话',
+      path: 'pages/school/tel'
     }
   }
 });

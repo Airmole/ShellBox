@@ -103,6 +103,11 @@ Page({
       todayCourseCard: todayCourseCard,
       isLoading: false
     })
+
+    wx.showShareMenu({
+      withShareTicket: true,
+      menus: ['shareAppMessage', 'shareTimeline']
+    })
   },
   showTodayCourseCard: function () {
     this.setData({ todayCourseCard: true });
@@ -117,5 +122,11 @@ Page({
   },
   learnMore: function () {
     wx.navigateTo({ url: '../school/aboutus' });
+  },
+  onShareAppMessage: function (res) {
+    return {
+      title: '贝壳小盒子',
+      path: 'pages/index/index',
+    }
   }
 })

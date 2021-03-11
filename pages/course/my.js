@@ -436,5 +436,40 @@ Page({
     that.setData({
       painting: canvasJson
     })
+  },
+  addCalendarNotice: function (e) {
+    var d = new Date();
+    var nowHours = d.getHours();
+    nowHours = nowHours > 9 ? nowHours : '0' + nowHours;
+    var nowMinutes = d.getMinutes();
+    nowMinutes = nowMinutes > 9 ? nowMinutes : '0' + nowMinutes;
+    const nowTimestamp = util.getCourseNoticeTimestamp(this.data.today, `${nowHours}:${nowMinutes}`);
+    
+    const targetI = this.data.targetI;
+    const subacribeCourse = this.data.targetLessons[targetI];
+    const courseName = subacribeCourse.courseName;
+    const startTimeStr = subacribeCourse.startTime;
+    const endTimeStr = subacribeCourse.endTime == '你猜?' ? startTimeStr : subacribeCourse.endTime;
+    const place = subacribeCourse.place;
+    let teacher = subacribeCourse.teacher;
+    const teachWeek = subacribeCourse.teachWeek;
+
+    var setNoticeStart = util.getCourseNoticeTimestamp(this.data.targetDay, startTimeStr);
+    var setNoticeEnd = util.getCourseNoticeTimestamp(this.data.targetDay, endTimeStr);
+
+    setNoticeStart = setNoticeStart <= nowTimestamp ? parseInt(setNoticeStart) + 60*60*24*7 : setNoticeStart;
+
+    teacher = this.data.teacher ? subacribeCourse.className : teacher;
+    let type = this.data.teacher ? '人' : '老师';
+
+    const description = `【贝壳小盒子】提醒你${teachWeek}您有一节${teacher}${type}的${courseName}课程，${startTimeStr}开始上课，到${endTimeStr}下课，记得按时去上课哦(#^.^#)`;
+    wx.addPhoneCalendar({
+      title: courseName,
+      startTime: setNoticeStart,
+      description: description,
+      location: place,
+      endTime: setNoticeEnd,
+      alarmOffset: 60*10
+    });
   }
 });

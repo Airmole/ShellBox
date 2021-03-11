@@ -36,7 +36,7 @@
   <view class="padding flex flex-direction">
     <ad unit-id="adunit-62f52651dd5f4ff6"></ad>
     <view class="flex">
-      <button class="flex-sub padding-sm margin-sm bg-green cu-btn margin-tb-sm lg round shadow">分享</button>
+      <button open-type="share" class="flex-sub padding-sm margin-sm bg-green cu-btn margin-tb-sm lg round shadow">分享</button>
       <button wx:if="{{hasEdusysStorage}}"
         class="flex-sub padding-sm margin-sm bg-red cu-btn margin-tb-sm lg round shadow animation-{{animation=='shake'?'shake':''}}"
         data-class="shake" bindtap="logout">注销</button>

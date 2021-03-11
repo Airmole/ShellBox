@@ -188,6 +188,11 @@ Page({
         edusysUserInfo: {}
       })
     }
+    // 允许分享到朋友圈
+    wx.showShareMenu({
+      withShareTicket: true,
+      menus: ['shareAppMessage', 'shareTimeline']
+    })
   },
   goToPage: function (e) {
     const id = e.currentTarget.id;
@@ -244,5 +249,11 @@ Page({
         },
       })
     }, 1000);
-  }
+  },
+  onShareAppMessage: function (res) {
+    return {
+      title: '贝壳小盒子',
+      path: 'pages/index/feature',
+    }
+  },
 })

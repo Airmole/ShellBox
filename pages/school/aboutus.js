@@ -46,6 +46,12 @@ Page({
       scrollTop: 1600,
       duration: 4000,
     })
+
+    wx.showShareMenu({
+      withShareTicket: true,
+      menus: ['shareAppMessage', 'shareTimeline']
+    })
+
     setTimeout(function () {
       wx.pageScrollTo({
         scrollTop: 0,
@@ -67,8 +73,11 @@ Page({
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {
-
+  onShareAppMessage: function (res) {
+    return {
+      title: '关于 - 【贝壳小盒子】 ',
+      path: 'pages/school/aboutus',
+    }
   },
   showAppCode: function () {
     var weappCode = this.data.weappCodeImage;

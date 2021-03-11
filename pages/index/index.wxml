@@ -63,7 +63,7 @@
           wx:key="todayCourseKey">
           <view class="content padding-tb-sm text-cut">
             <view class="text-black text-cut">{{item.courseName}}</view>
-            <view class="text-gray text-sm">{{item.teachWeek}} {{item.startTime}}上课 ~ {{nextCourseArray.endTime}}下课
+            <view class="text-gray text-sm">{{item.teachWeek}} {{item.startTime}}上课 ~ {{item.endTime}}下课
             </view>
           </view>
           <view class="action padding-right">

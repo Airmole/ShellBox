@@ -94,14 +94,8 @@ Page({
   onShareAppMessage: function () {
     return {
       title: '“贝壳小盒子” - 小爱课程表使用指南',
-      path: '/pages/article/miai',
-      imageUrl:'https://i.loli.net/2020/11/15/an5MiS9Ixtqe76P.png',
-      success: function(res) {
-        // 转发成功
-      },
-      fail: function(res) {
-        // 转发失败
-      }
+      path: 'pages/school/xiaoai',
+      imageUrl:'https://upload-images.jianshu.io/upload_images/4697920-54d96e5c39485080.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240'
     }
   }
 })

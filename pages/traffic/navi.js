@@ -810,11 +810,12 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(e) {
-    // console.log(e)
+    console.log(e)
     var _this = this
     _this.inital();
     if (e.markerId !== '' && Object.keys(e).length !== 0) { 
-      _this.makertap(e);
+      const para = { detail: e };
+      _this.makertap(para);
     }
     wx.getLocation({
       type: 'gcj02', // 默认为 wgs84 返回 gps 坐标，gcj02 返回可用于 wx.openLocation 的坐标  
@@ -959,5 +960,11 @@ Page({
     const text = e.currentTarget.dataset.text;
     wx.setClipboardData({ data: text });
     wx.showToast({ title: '已复制到粘贴到', icon: 'none' });
-  }
+  },
+  onShareAppMessage: function (res) {
+    return {
+      title: '校园地图&导航 - 贝壳小盒子',
+      path: 'pages/traffic/navi',
+    }
+  },
 })

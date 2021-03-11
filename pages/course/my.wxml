@@ -104,7 +104,7 @@
                                 <text class="kb-card-place-wordsTime">{{timeRowItem.l1}}</text>
                                 <text class="kb-card-place-wordsTime">{{timeRowItem.t1}}</text>
                                 <text class="kb-card-place-wordsTime">{{timeRowItem.l2}}</text>
-                                <text class="kb-card-place-wordsTime">{{timeRowItem.t1}}</text>
+                                <text class="kb-card-place-wordsTime">{{timeRowItem.t2}}</text>
                             </view>
                         </view>
                         <view class="kb-cardTime mg-12">
@@ -151,7 +151,7 @@
                 <text class="kb-term">2020-2021 第2学期</text>
                 <!--更多功能-->
                 <view class="kb-choose-view-box">
-                    <view bindtap="drawToPic" class="cu-tag bg-white line-blue radius">存图</view>
+                    <view bindtap="drawToPic" class="cu-tag bg-white line-blue radius" data-cid="{{cid}}">存图</view>
                     <!-- <view class="cu-tag bg-white line-blue radius">分享</view>
                     <view class="cu-tag bg-white line-blue radius">下载</view> -->
                 </view>
@@ -160,7 +160,8 @@
                 <view class="kb-info-title">
                     <block>
                         <text class="kb-info-week">星期{{_days[targetDayIndex]}}</text>
-                        <text class="kb-lesson-time"> </text>
+                        <text class="kb-lesson-time"></text>
+                        <view class="margin-right-sm cu-tag bg-white radius" bindtap='addCalendarNotice'>日历提醒</view>
                         <text class="kb-info-card-close cuIcon-rounddown" bindtap="hideDetail"></text>
                     </block>
                 </view>
@@ -184,10 +185,11 @@
                                     <text class="info-text">{{targetWid}}</text>
                                     <view class="info-item" wx:if="{{!teacher}}">
                                         <text class="info-item-value">教师：{{item.teacher}}</text>
+                                        <navigator url="../course/content?type=teacher&name={{item.teacher}}" wx:if="{{item.teacher.length > 0}}" class="margin-left-sm cu-tag line-purple radius">其他课程</navigator>
                                     </view>
                                     <view class="info-item">
                                         <text class="info-item-value">地点：{{item.place}} </text>
-                                        <view wx:if="{{item.place.length > 0}}" class="margin-left-sm cu-tag line-purple" bindtap='goClassPlace' data-place="{{item.place}}">导航前往</view>
+                                        <view wx:if="{{item.place.length > 0}}" class="margin-left-sm cu-tag line-purple radius" bindtap='goClassPlace' data-place="{{item.place}}">导航前往</view>
                                     </view>
                                     <view class="info-item" wx:if="{{teacher}}">
                                         <text class="info-item-value">班级 | 人数：{{item.className}}</text>
@@ -235,10 +237,11 @@
                                         <text class="info-text">{{targetWid}}</text>
                                         <view class="info-item" wx:if="{{!teacher}}">
                                             <text class="info-item-value">教师：{{item.teacher}}</text>
+                                            <navigator url="../course/content?type=teacher&name={{item.teacher}}" wx:if="{{item.teacher.length > 0}}" class="margin-left-sm cu-tag line-purple radius">其他课程</navigator>
                                         </view>
                                         <view class="info-item">
                                             <text class="info-item-value" decode="{{true}}">地点：{{item.place}}</text>
-                                            <view wx:if="{{item.place.length > 0}}" class="margin-left-sm cu-tag line-purple" bindtap='goClassPlace' data-place="{{item.place}}">导航前往</view>
+                                            <view wx:if="{{item.place.length > 0}}" class="margin-left-sm cu-tag line-purple redius" bindtap='goClassPlace' data-place="{{item.place}}">导航前往</view>
                                         </view>
                                         <view class="info-item" wx:if="{{teacher}}">
                                             <text class="info-item-value">课程 | 人数：{{item.className}}</text>
