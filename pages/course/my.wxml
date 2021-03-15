@@ -148,7 +148,7 @@
         <!-- 底部 -->
         <view class="kb-info-ctn {{blur?'kb-info-ctn-open':''}}" catchtouchmove="catchMoveDetail">
             <view class="kb-info-title" wx:if="{{!blur}}">
-                <text class="kb-term">2020-2021 第2学期</text>
+                <text class="kb-term">{{myCourseJson.schoolYear}} 第{{myCourseJson.semester}}学期 {{myCourseJson.dayOfWeek}}</text>
                 <!--更多功能-->
                 <view class="kb-choose-view-box">
                     <view bindtap="drawToPic" class="cu-tag bg-white line-blue radius" data-cid="{{cid}}">存图</view>
@@ -161,6 +161,7 @@
                     <block>
                         <text class="kb-info-week">星期{{_days[targetDayIndex]}}</text>
                         <text class="kb-lesson-time"></text>
+                        <view class="margin-right-sm cu-tag bg-white radius" bindtap='subscribleMessage'>订阅消息</view>
                         <view class="margin-right-sm cu-tag bg-white radius" bindtap='addCalendarNotice'>日历提醒</view>
                         <text class="kb-info-card-close cuIcon-rounddown" bindtap="hideDetail"></text>
                     </block>

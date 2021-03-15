@@ -100,5 +100,6 @@ module.exports = {
   formatTime: formatTime,
   wecquFormatTime: wecquFormatTime,
   CompareDate: CompareDate,
-  getCourseNoticeTimestamp: getCourseNoticeTimestamp
+  getCourseNoticeTimestamp: getCourseNoticeTimestamp,
+  formatDate: formatDate
 }

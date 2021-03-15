@@ -1,8 +1,8 @@
 //app.js
 App({
   globalData: {
-    domain: 'https://shellbox.airmole.cn/api',
-    // domain: 'http://shellbox.cn/api',
+    // domain: 'https://shellbox.airmole.cn/api',
+    domain: 'http://shellbox.cn/api',
     _amap_key: '66a87160f8db2a9a76431c954b4f52a5',
     openid: '',
     userInfo: {},

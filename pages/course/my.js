@@ -167,7 +167,7 @@ Page({
     lessons.target = false;
     if(!lessons.length){ return false; }
     var targetDayIndex = this.data.weekArray.indexOf(dataset.day) - 1;
-    var targetX = e.detail.x >= 80 ? e.detail.x : e.detail.x + 50;
+    var targetX = e.detail.x >= 80 ? e.detail.x : e.detail.x + 120;
     _this.setData({
       targetX: targetX,
       targetY: e.detail.y,
@@ -471,5 +471,59 @@ Page({
       endTime: setNoticeEnd,
       alarmOffset: 60*10
     });
+  },
+  subscribleMessage: function (e) {
+    var tmplIds = this.data.teacher ? 'SgteUpl9O6g5Re6TY3FvaHQeZ0RA67cznhOEZ72B11E' : 'SgteUpl9O6g5Re6TY3FvaBQZgsJwU55WuTk0YisjHm8';
+    var d = new Date();
+    var nowHours = d.getHours();
+    nowHours = nowHours > 9 ? nowHours : '0' + nowHours;
+    var nowMinutes = d.getMinutes();
+    nowMinutes = nowMinutes > 9 ? nowMinutes : '0' + nowMinutes;
+    const nowTimestamp = util.getCourseNoticeTimestamp(this.data.today, `${nowHours}:${nowMinutes}`);
+
+    const targetI = this.data.targetI;
+    const subacribeCourse = this.data.targetLessons[targetI];
+    const courseName = subacribeCourse.courseName;
+    var startTimeStr = subacribeCourse.startTime;
+    const endTimeStr = subacribeCourse.endTime == '你猜?' ? startTimeStr : subacribeCourse.endTime;
+    const place = subacribeCourse.place;
+    let teacher = subacribeCourse.teacher;
+    const teachWeek = subacribeCourse.teachWeek;
+    teacher = this.data.teacher ? subacribeCourse.className : teacher;
+    let type = this.data.teacher ? '人' : '老师';
+    var setNoticeStart = util.getCourseNoticeTimestamp(this.data.targetDay, startTimeStr);
+    setNoticeStart = setNoticeStart <= nowTimestamp ? parseInt(setNoticeStart) + 60*60*24*7 : setNoticeStart;
+    const description = `${teachWeek}按时上课`;
+    const openid = app.globalData.openid;
+    const isTeacher = this.data.teacher;
+    startTimeStr = util.formatDate(d) + ` ${startTimeStr}`;
+
+    var _this = this;
+    wx.requestSubscribeMessage({
+      tmplIds: [tmplIds],
+      success (res) {
+       _this.sendSubMessage(courseName, place,teacher,startTimeStr, description,setNoticeStart,openid,tmplIds,isTeacher,isTeacher);
+      }
+    })
+  },
+  sendSubMessage: function (courseName, place,teacher,startTimeStr, description,setNoticeStart,openid,template_id,isTeacher) {
+    wx.request({
+      url: `${app.globalData.domain}/wechat/course/subscrible`,
+      method: 'POST',
+      data: {
+        courseName: courseName,
+        place: place,
+        teacher: teacher,
+        startTime: startTimeStr,
+        description: description,
+        setNoticeStart: setNoticeStart,
+        openid: openid,
+        template_id: template_id,
+        isTeacher: isTeacher
+      },
+      success: function(res){
+        wx.showToast({ title: res.data.message, icon: 'success' });
+      }
+    })
   }
 });

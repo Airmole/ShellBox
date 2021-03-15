@@ -2,6 +2,7 @@
 var wxCharts = require('../../utils/wxcharts.js');
 var app = getApp();
 var lineChart = null;
+let interstitialAd = null;  // 插屏广告初始化
 Page({
   /**
    * 页面的初始数据
@@ -26,6 +27,16 @@ Page({
     // console.log(device.screenHeight);
     this.setData({screenHeight: device.screenHeight});
     this.getScoreData();
+    if (wx.createInterstitialAd) {
+      interstitialAd = wx.createInterstitialAd({ adUnitId: 'adunit-5a3621a7eb4da121' });
+      if (interstitialAd) {
+        interstitialAd.show().catch((err) => {
+          console.error(err)
+        })
+      }
+    }
+    
+    
   },
   /**
    * 查询成绩
@@ -328,7 +339,7 @@ Page({
       topX = topX + 20;
       let tempNo = {
         type: 'text',
-        content: newArr[i].SerialNo + '',
+        content: newArr[i].SerialNo ? newArr[i].SerialNo : '',
         fontSize: 14,
         color: '#000',
         textAlign: 'left',

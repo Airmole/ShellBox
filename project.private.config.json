@@ -11,7 +11,13 @@
       "list": []
     },
     "miniprogram": {
-      "list": []
+      "list": [
+        {
+          "name": "pages/course/my",
+          "pathName": "pages/course/my",
+          "scene": null
+        }
+      ]
     }
   }
 }
