@@ -502,7 +502,9 @@ Page({
     wx.requestSubscribeMessage({
       tmplIds: [tmplIds],
       success (res) {
-       _this.sendSubMessage(courseName, place,teacher,startTimeStr, description,setNoticeStart,openid,tmplIds,isTeacher,isTeacher);
+        if(res[tmplIds]=='accept'){
+          _this.sendSubMessage(courseName, place,teacher,startTimeStr, description,setNoticeStart,openid,tmplIds,isTeacher,isTeacher);
+        }
       }
     })
   },
