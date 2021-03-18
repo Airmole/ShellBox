@@ -1,5 +1,5 @@
 /* pages/books/bind.wxss */
-@import "../index//login.wxss";
+@import "../index/login.wxss";
 .container {
   background: #7acfa6;
   align-items: stretch;
