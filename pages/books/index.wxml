@@ -1,0 +1,34 @@
+<!--pages/books/index.wxml-->
+<cu-custom bgColor="bg-cyan" isCustom="{{true}}">
+  <view slot="content">图书查询</view>
+</cu-custom>
+<view class="remind-box" wx:if="{{isLoading}}">
+  <image class="remind-img" src="/images/loading.gif"></image>
+</view>
+<view class="page" wx:else>
+  <view class="padding bg-cyan">
+    <view class="cu-bar bg-cyan">
+      <view class="action">
+        <text class="cuIcon-titles text-white"></text>
+        <text class="text-xl text-bold">【{{keyword}}】相关的图书</text>
+      </view>
+    </view>
+    <view class="text-left padding">
+      <text>在经历{{searchResult.cost}}秒的折腾后，我们为您找到了以下{{searchResult.total}}条内容</text>
+    </view>
+  </view>
+
+  <view class="cu-list menu sm-border card-menu margin-top margin-bottom">
+    <navigator url="./detail?marc={{item.marcRecNo}}&title={{item.title}}" class="cu-item arrow" wx:for='{{searchResult.content}}' wx:key='searchResultList'>
+      <view class="content padding-tb-sm">
+        <view><text user-select="true">{{item.title}}</text></view>
+        <view class="text-gray text-sm">
+          <text user-select="true">{{item.author}}</text></view>
+      </view>
+      <view class="action">
+        <text class="text-lg" user-select="true">{{item.callNo}}</text>
+      </view>
+    </navigator>
+  </view>
+
+</view>

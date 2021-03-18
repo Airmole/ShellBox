@@ -11,3 +11,7 @@
   height: 250rpx;
   padding-bottom: 25rpx;
 }
+
+.cu-form-group .title {
+  min-width: calc(4em + 30rpx);
+}

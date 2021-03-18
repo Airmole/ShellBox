@@ -1,12 +1,6 @@
 /**login.wxss**/
 @import "../../colorui/icon.wxss";
-.container {
-  background: #7acfa6;
-  align-items: stretch;
-  padding: 0;
-  height: 100%;
-  overflow: hidden;
-}
+
 .content-login{
   flex: 1;
   display: flex;

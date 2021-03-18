@@ -7,6 +7,24 @@ Page({
     StatusBar: app.globalData.StatusBar,
     CustomBar: app.globalData.CustomBar,
     weekArray: ["sunday", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday"],
+    searchType: '02',
+    radioItems: [{
+      name: '书名',
+      value: '02',
+      checked: true
+    },
+    {
+      name: '作者',
+      value: '03'
+    }, {
+      name: '主题',
+      value: '04'
+    },
+    {
+      name: '出版社',
+      value: '09'
+    }],
+    keyword: '',
     isLoading: true,
     hasLogin: false,
     isTeacher: false,
@@ -19,7 +37,7 @@ Page({
   onLoad: function () {
     this.inital();
   },
-  onShow: function() {
+  onShow: function () {
     this.inital();
   },
   inital: function () {
@@ -41,7 +59,7 @@ Page({
     } else {
       var edusysUserInfoCache = wx.getStorageSync('edusysUserInfo')
       try {
-        if(edusysUserInfo.uid.length>0){
+        if (edusysUserInfo.uid.length > 0) {
           app.globalData.hasEdusysStorage = true;
           hasLogin = true;
         }
@@ -87,7 +105,7 @@ Page({
           }
         }
       }
-      if(nextCourseArray.length == 0){
+      if (nextCourseArray.length == 0) {
         todayCourseCard = true;
       }
     }
@@ -115,13 +133,58 @@ Page({
   hideTodayCourseCard: function () {
     this.setData({ todayCourseCard: false });
   },
-  goLogin: function() {
+  goLogin: function () {
     wx.navigateTo({
       url: '../index/login',
     })
   },
   learnMore: function () {
     wx.navigateTo({ url: '../school/aboutus' });
+  },
+  radioChange: function (e) {
+    this.setData({
+      searchType: e.detail.value
+    })
+    var radioItems = this.data.radioItems;
+    for (var i = 0, len = radioItems.length; i < len; ++i) {
+      radioItems[i].checked = radioItems[i].value == e.detail.value;
+    }
+    this.setData({
+      radioItems: radioItems,
+    });
+  },
+  keywordInput: function (e) {
+    this.setData({
+      keyword: e.detail.value
+    });
+  },
+  searchBook: function () {
+    const searchType = this.data.searchType;
+    const keyword = this.data.keyword;
+    // console.log(searchType, keyword);
+    if(keyword.length == 0){
+      wx.showToast({ title: '请输入检索关键字', icon: 'none' });
+      return;
+    }
+    wx.showLoading({ title: '在找了在找了...' });
+    wx.request({
+      url: `${app.globalData.domain}/book/search`,
+      data: {type: searchType, keyword: keyword},
+      method: 'GET',
+      success: function (res) {
+        wx.hideLoading({});
+        if (res.data.total == '图书馆系统无响应') {
+          wx.showToast({ title: '图书馆OPAC系统无响应', icon: 'none' });
+        } else if (res.data.total == 0) {
+          wx.showToast({ title: '本馆暂无此书', icon: 'none' });
+        } else {
+          wx.navigateTo({
+            url: `../books/index?type=${searchType}&keyword=${keyword}`,
+          })
+        }
+      }
+    })
+
   },
   onShareAppMessage: function (res) {
     return {

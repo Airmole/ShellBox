@@ -1,20 +1,34 @@
 <cu-custom bgColor="bg-wegreen">
   <view slot="content">贝壳小盒子</view>
 </cu-custom>
+<view class="padding-lr-sm bg-white margin shadow radius padding-bottom">
+  <view class="solid-bottom padding-top">
+    <text class="cuIcon-titles text-green"></text>馆藏图书检索
+  </view>
+  <view class="cu-bar bg-white search">
+    <view class="search-form round">
+      <text class="cuIcon-search"></text>
+      <input type="text" placeholder="输入要检索的图书关键词" confirm-type="search" bindinput="keywordInput"
+        bindconfirm="searchBook"></input>
+    </view>
+  </view>
+  <radio-group class="block" bindchange="radioChange">
+    <view class="grid col-5 text-center margin-top-sm align-center">
+      <view class="text-sm" wx:for="{{radioItems}}">
+        <radio value="{{item.value}}" checked="{{item.checked}}"></radio>{{item.name}}
+      </view>
+      <view><button class="cu-btn round bg-green shadow" bindtap="searchBook">搜索</button></view>
+    </view>
+  </radio-group>
+</view>
+
+
 <view class="remind-box" wx:if="{{isLoading}}">
   <image class="remind-img" src="/images/loading.gif"></image>
 </view>
 <view wx:if="{{!isLoading}}">
 
   <block wx:if="{{hasLogin}}">
-
-    <view class="padding-lr bg-white margin shadow radius">
-      <view class="solid-bottom padding-top">
-        <text class="cuIcon-titles text-green"></text>Q: laji小盒子，怎么越优化功能越少了？
-      </view>
-      <view class="padding">A：<text>别急嘛，给点时间，慢工出细活，原有的功能最终会一个不少的重新回归，争取全体返校后所有功能正常使用不受影响... </text><text
-          class="text-blue" bindtap="learnMore">了解更多</text> </view>
-    </view>
 
     <!-- 下节课卡片 -->
     <block wx:if="{{nextCourseArray.courseName}}">

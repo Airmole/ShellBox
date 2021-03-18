@@ -1,0 +1,23 @@
+<!--pages/books/detail.wxml-->
+<cu-custom bgColor="bg-cyan" isCustom="{{true}}">
+  <view slot="content">{{title}}</view>
+</cu-custom>
+<view class="cu-card article"  wx:for='{{jsonStr}}' wx:key='LibraryStorage'>
+  <view class="cu-item shadow">
+    <view class="title">
+      <view class="text-cut">{{title}}</view>
+    </view>
+    <view class="content">
+      <view class="desc">
+        <view class="text-content">
+          <text>索书号：{{item[0]}}\r\n</text>
+          <text>条码号：{{item[1]}}\r\n</text>
+          <text>馆藏地点：{{item[3]}}\r\n</text>
+        </view>
+        <view>
+          <view class="cu-tag bg-red light sm round">状态：{{item[4]}}</view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

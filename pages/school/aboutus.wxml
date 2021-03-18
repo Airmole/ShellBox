@@ -17,7 +17,7 @@
         <view class="version radius">
           <view class="version-title">
             <text class="title-name"> <text class="cuIcon-titles text-wegreen"></text> 贝壳小盒子</text>
-            <view class="cu-tag line-wegreen">公测 3.0.1</view>
+            <view class="cu-tag line-wegreen">公测 3.0.2</view>
           </view>
           <view class="weui-cell__ft">
             <view bindtap="checkUpdate" class="cu-tag bg-wegreen"><text class="cuIcon-down"></text> 检测更新</view>

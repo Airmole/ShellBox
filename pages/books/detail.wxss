@@ -1,0 +1,4 @@
+/* pages/books/detail.wxss */
+page{
+  background: var(--cyan);
+}

@@ -13,8 +13,9 @@
     "miniprogram": {
       "list": [
         {
-          "name": "pages/course/my",
-          "pathName": "pages/course/my",
+          "name": "pages/books/bind",
+          "pathName": "pages/books/bind",
+          "query": "",
           "scene": null
         }
       ]
