@@ -56,14 +56,14 @@ Page({
       url: '../school/calendar',
       login: false,
     }, {
-    //   id: 'mybooks',
-    //   icon: 'tushuguan',
-    //   teacher: true,
-    //   student: true,
-    //   name: '我的借阅',
-    //   url: '',
-    //   login: true,
-    // }, {
+      id: 'mybooks',
+      icon: 'tushuguan',
+      teacher: true,
+      student: true,
+      name: '我的借阅',
+      url: './../books/bind',
+      login: true,
+    }, {
     //   id: 'scanBookCode',
     //   icon: 'dushuma',
     //   teacher: true,
