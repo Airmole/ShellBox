@@ -2817,6 +2817,10 @@ scroll-view.cu-steps .cu-item {
 	flex-basis: 20%;
 }
 
+.basis-xxs {
+	flex-basis: 30%;
+}
+
 .basis-sm {
 	flex-basis: 40%;
 }
@@ -2827,6 +2831,10 @@ scroll-view.cu-steps .cu-item {
 
 .basis-lg {
 	flex-basis: 60%;
+}
+
+.basis-llg {
+	flex-basis: 70%;
 }
 
 .basis-xl {

@@ -10,13 +10,56 @@ Page({
     vcode_focus: false,
     renew_status: false,
     renewNeed: '',
-    renewBoxTop: 100
+    renewBoxTop: 100,
+    showPasswordModal: false
   },
   onLoad: function(para) {
     const opacLogin = app.globalData.opacLogin;
     console.log(opacLogin)
     this.getData(opacLogin);
+  },
+  hidePasswordModal: function () {
+    this.setData({ showPasswordModal: false });
+  },
+  changePasswordAction: function (e) {
+    var that = this;
+    const newPassword = e.detail.value.newPassword;
+    const recheckPassword = e.detail.value.recheckPassword;
+    if (newPassword.length < 8 || recheckPassword.length < 8) {
+      wx.showToast({ title: '新密码不得少于八位', icon: 'none' });
+      return;
+    }
 
+    if (newPassword.length > 20 || recheckPassword.length > 20) {
+      wx.showToast({ title: '新密码不得多于20位', icon: 'none' });
+      return;
+    }
+
+    if (newPassword != recheckPassword){
+      wx.showToast({ title: '两次密码不一样啊，再试试？', icon: 'none' });
+      return;
+    }
+
+    const name = this.data.jsonStr.readerInfo.name;
+    const cookie = this.data.jsonStr.input.cookie;
+
+    wx.request({
+      url:  `${app.globalData.domain}/book/login/password`,
+      method: "POST",
+      data: { name: name, password: newPassword, cookie: cookie },
+      success: function(res) {
+        if (res.data.code == 200 && res.data.desc == 'success') {
+          wx.showToast({ title: res.data.data, icon: 'none' });
+          wx.removeStorageSync('opacPassword');
+          that.setData({ showPasswordModal: false});
+          // 1秒后跳转重新登录
+          setTimeout(function () { wx.redirectTo({ url: './bind' }) }, 1000);
+        } else {
+          wx.showToast({ title: res.data.data, icon: 'none' });
+          return;
+        }
+      }
+    })
   },
   jyHistory: function() {
     var that = this;
@@ -41,9 +84,7 @@ Page({
         token: that.data.jsonStr.input.token,
       },
       success: function(res) {
-        that.setData({
-          remind: false,
-        })
+        that.setData({ remind: false });
         // console.log(res.data);
         //账号密码错误以下功能实现密码错误Toast
         if (res.data.code == 401) {
@@ -64,6 +105,10 @@ Page({
           wx.redirectTo({
             url: '/pages/opac/bind',
           })
+        }else if (res.data.code == 403) {
+          // 使用初始化密码登录，需要修改才能查询到历史借阅图书
+          wx.showToast({ title: res.data.desc, image: 'nonw', duration: 3000 });
+          that.setData({ showPasswordModal: true });
         } else if (res.data.code == '200') {
           wx.hideToast()
           that.setData({
@@ -71,7 +116,7 @@ Page({
           })
         } else {
           wx.showToast({
-            title: '暂时无法查询',
+            title: res.data.desc,
             icon: 'none',
             duration: 3000
           });
@@ -85,6 +130,7 @@ Page({
       url: `${app.globalData.domain}/book/login/index`,
       method: "POST",
       data: {
+        uid:  app.globalData.edusysUserInfo.uid,
         username: para.uid,
         password: para.pwd,
         cookie: para.cookie,

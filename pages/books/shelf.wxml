@@ -1,0 +1,33 @@
+<!--pages/books/index.wxml-->
+<cu-custom bgColor="bg-cyan" isCustom="{{true}}">
+  <view slot="content">书架 - {{title}} </view>
+</cu-custom>
+<view class="remind-box" wx:if="{{isLoading}}">
+  <image class="remind-img" src="/images/loading.gif"></image>
+</view>
+<view class="page" wx:else>
+  <view class="padding bg-cyan">
+    <view class="cu-bar bg-cyan">
+      <view class="action">
+        <text class="cuIcon-titles text-white"></text>
+        <text class="text-xl text-bold">【{{title}}】书架图书</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="cu-list menu sm-border card-menu margin-top margin-bottom">
+    <navigator url="./detail?code={{item.marcNo}}" class="cu-item arrow" wx:for='{{shelf}}' wx:key='shelf'>
+      <view class="content padding-tb-sm">
+        <view><text user-select="true">{{item.data[0].value}}. {{item.data[1].value}}</text></view>
+        <view class="text-gray text-sm">
+          <text decode="true" user-select="true"><text class="cuIcon-activity text-cyan"></text>{{item.data[2].value}} | {{item.data[3].value}} | {{item.data[4].value}} \n <text class="cuIcon-tag text-cyan"></text>索书号：<text
+              class="text-cyan">{{item.data[5].title}}：{{item.data[5].value}}</text>
+          </text>
+        </view>
+      </view>
+      <view class="action">
+      </view>
+    </navigator>
+  </view>
+
+</view>

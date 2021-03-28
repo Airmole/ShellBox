@@ -9,7 +9,20 @@ Page({
     isLoading: true,
     screenHeight: '900',
     colorArr: ['red','orange','yellow','olive','green','cyan','blue','purple','mauve','pink','brown','grey','gray'],
-    jsonContent: ''
+    jsonContent: '',
+    gradeArray: [{
+      title: '大一',
+      value: 'freshmanWork'
+    },{
+      title: '大二',
+      value: 'sophomoreWork'
+    },{
+      title: '大三',
+      value: 'juniorWork'
+    },{
+      title: '大四',
+      value: 'seniorWork'
+    }]
   },
 
   /**

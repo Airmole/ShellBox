@@ -1,4 +1,6 @@
 /* pages/books/detail.wxss */
+@import "../index/index.wxss";
+
 page{
   background: var(--cyan);
 }

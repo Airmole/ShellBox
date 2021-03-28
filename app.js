@@ -2,7 +2,6 @@
 App({
   globalData: {
     domain: 'https://shellbox.airmole.cn/api',
-    // domain: 'http://shellbox.cn/api',
     _amap_key: '66a87160f8db2a9a76431c954b4f52a5',
     openid: '',
     userInfo: {},
@@ -11,15 +10,21 @@ App({
   },
   onLaunch: function () {
     let launchInfo = wx.getLaunchOptionsSync();
+    const accountInfo = wx.getAccountInfoSync();
+    if (accountInfo.miniProgram.envVersion == 'release') {
+      this.globalData.domain = 'https://shellbox.airmole.cn/api';
+    } else {
+      this.globalData.domain = 'https://dev.shellbox.airmole.cn/api';
+    }
     if(launchInfo.scene != 1145){
       this.getUserOpenId();
       this.appUpdate();
     }
-      this.clearOldVersionStorage();
-      this.checkHasEdusysStorage();
-      this.getStorageEdusysUserInfo();
-      this.getUserInfoFromStorage()
-      this.getSystemStatusBarInfo();
+    this.clearOldVersionStorage();
+    this.checkHasEdusysStorage();
+    this.getStorageEdusysUserInfo();
+    this.getUserInfoFromStorage()
+    this.getSystemStatusBarInfo();
   },
   clearOldVersionStorage: function () {
     var newBetaInital = wx.getStorageSync('newBetaInital');

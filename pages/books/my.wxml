@@ -59,12 +59,13 @@
         <block wx:for="{{jsonStr.reading}}" wx:key="name" wx:for-item="itemName">
           <view class="book-wraper">
             <view class="book-name">
-              <navigator url="./detail?marc={{itemName.marcNO}}&title={{itemName.bookName}}">
+              <navigator url="./detail?code={{itemName.marcNO}}">
                 <view class="bookeNameTxt">
                   <image class="book-img" src="/images/BookTag.png"></image>{{itemName.bookName}}
                 </view>
               </navigator>
-              <button class="weui-btn mini-btn xujie-btn" size="mini" bindtap="renewBook" data-barcode="{{itemName.barcodeNO}}" data-checkcode="{{itemName.checkCode}}">续借</button>
+              <button class="weui-btn mini-btn xujie-btn" size="mini" bindtap="renewBook"
+                data-barcode="{{itemName.barcodeNO}}" data-checkcode="{{itemName.checkCode}}">续借</button>
             </view>
             <view class="book-date">
               <view>
@@ -88,7 +89,7 @@
       <view wx:else class="book-list">
         <text class="current-type" id="historyRecord">历史借阅记录</text>
         <block wx:for="{{historyList.data}}" wx:key="name" wx:for-item="itemName">
-          <navigator url="../bookSearch/bookInfo/bookDetail?marc_no={{itemName.marcNO}}&title={{itemName.bookName}}">
+          <navigator url="./detail?code={{itemName.marcNO}}">
             <view class="book-wraper">
               <view class="book-name">
                 <view class="historyBookeNameTxt">
@@ -112,7 +113,7 @@
     </block>
   </block>
 
-
+  <!-- 图书续借验证码模态框 -->
   <view class="help" id="renew" wx:if="{{renew_status}}">
     <view class="box" style="top:{{renewBoxTop-400}}px;">
       <view class="box-hd">
@@ -123,7 +124,8 @@
         <form class="login-form" bindsubmit="renewBookAction">
           <view class="input-group {{vcode_focus ? 'active' : ''}}">
             <text class="input-label">验证码</text>
-            <input id='vcode' name='vcode' type='text' cursor-spacing="30" bindfocus="inputFocus" bindblur="inputBlur" />
+            <input id='vcode' name='vcode' type='text' cursor-spacing="30" bindfocus="inputFocus"
+              bindblur="inputBlur" />
             <view class="weui-cell__ft">
               <image class="weui-vcode-img" src="{{vcodeURL}}" style="width: 90px;height:25px;"></image>
             </view>
@@ -133,6 +135,37 @@
           </view>
         </form>
       </view>
+    </view>
+  </view>
+
+  <!-- 修改密码 -->
+  <view class="cu-modal {{showPasswordModal?'show':''}}">
+    <view class="cu-dialog">
+      <form bindsubmit="changePasswordAction">
+        <view class="cu-bar bg-white justify-end">
+          <view class="content">修改初始密码</view>
+          <view class="action" bindtap="hidePasswordModal">
+            <text class="cuIcon-close text-red"></text>
+          </view>
+        </view>
+        <view class="padding-xl">
+          <view class="cu-form-group">
+            <view class="title">新密码</view>
+            <input id='newPassword' name='newPassword' maxlength="20" confirm-type="next" placeholder="修改新密码"></input>
+          </view>
+          <view class="cu-form-group">
+            <view class="title">确认新密码</view>
+            <input id='recheckPassword' name='recheckPassword' maxlength="20" confirm-type="done"
+              placeholder="再输一遍，怕你输错了"></input>
+          </view>
+        </view>
+        <view class="cu-bar bg-white justify-end">
+          <view class="action">
+            <button class="cu-btn line-green text-green" bindtap="hidePasswordModal">取消</button>
+            <button class="cu-btn bg-green margin-left" formType="submit">修改</button>
+          </view>
+        </view>
+      </form>
     </view>
   </view>
 

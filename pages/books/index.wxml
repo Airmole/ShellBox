@@ -19,14 +19,15 @@
   </view>
 
   <view class="cu-list menu sm-border card-menu margin-top margin-bottom">
-    <navigator url="./detail?marc={{item.marcRecNo}}&title={{item.title}}" class="cu-item arrow" wx:for='{{searchResult.content}}' wx:key='searchResultList'>
+    <navigator url="./detail?code={{item.marcRecNo}}" class="cu-item arrow" wx:for='{{searchResult.content}}' wx:key='searchResultList'>
       <view class="content padding-tb-sm">
         <view><text user-select="true">{{item.title}}</text></view>
         <view class="text-gray text-sm">
-          <text user-select="true">{{item.author}}</text></view>
+          <text decode="true" user-select="true"><text class="cuIcon-people text-cyan"></text>{{item.author}} \n <text class="cuIcon-barcode text-cyan"></text>索书号：<text class="text-cyan">{{item.callNo}}</text>
+          </text>
+        </view>
       </view>
       <view class="action">
-        <text class="text-lg" user-select="true">{{item.callNo}}</text>
       </view>
     </navigator>
   </view>

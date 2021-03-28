@@ -5,6 +5,7 @@
     "pages/index/feature",
     "pages/books/index",
     "pages/books/detail",
+    "pages/books/shelf",
     "pages/books/bind",
     "pages/books/my",
     "pages/course/my",

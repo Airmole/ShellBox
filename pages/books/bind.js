@@ -64,6 +64,7 @@ Page({
         url: `${app.globalData.domain}/book/login/index`,
         method: "POST",
         data: {
+          uid: app.globalData.edusysUserInfo.uid,
           username: uid,
           password: pwd,
           cookie: that.data.PreInfo.cookie,

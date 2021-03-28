@@ -5,7 +5,7 @@
 <view class="remind-box bg-black" wx:if="{{isLoading}}" style="height:{{screenHeight}}px;">
   <image class="remind-img" src="/images/loading.gif"></image>
 </view>
-<view class='bg-black padding-bottom-xl' style="height:{{screenHeight}}px;" wx:else>
+<view class='bg-black padding-bottom-xl' wx:else>
 
   <view class="padding bg-black">
     <view class="cu-bar bg-black">
@@ -28,40 +28,56 @@
   </view>
 
   <!-- 开学第一周 -->
-  <calendar-item
-    wx:if="{{jsonContent.gap2StartClass > 0 && jsonContent.gap2StartClass <= 30}}"
-    bgcolor="cyan"
-    value="{{jsonContent.gap2StartClass}}天"
-    title="正式开课"
-    subtitle="{{jsonContent.startClassDate}}"
-  ></calendar-item>
+  <calendar-item wx:if="{{jsonContent.gap2StartClass > 0 && jsonContent.gap2StartClass <= 30}}" bgcolor="cyan"
+    value="{{jsonContent.gap2StartClass}}天" title="正式开课" subtitle="{{jsonContent.startClassDate}}"></calendar-item>
+
+  <view bindtap="showPic" class="cu-list menu sm-border card-menu margin-bottom" wx:if="{{jsonContent.teachWeek != 'N/A'}}">
+    <view class="cu-item">
+      <view class="content">
+        <text class="cuIcon-title text-white"></text>
+        <text class="text-white">本周（第{{jsonContent.teachWeek}}周）校历安排</text>
+      </view>
+    </view>
+    <view class="cu-item padding-lr-xl" wx:for="{{gradeArray}}">
+      <view class="content padding-lr"><text class="text-white text-bold">{{item.title}}</text></view>
+      <view class="action padding-lr"><text class="text-white text-df">{{jsonContent.thisWeekWork[item.value]}}</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 广告位 -->
+  <view class="padding radius">
+    <ad unit-id="adunit-62f52651dd5f4ff6"></ad>
+  </view>
+  <!-- 广告位结束 -->
+
+  <view bindtap="showPic" class="cu-list menu sm-border card-menu margin-tb" wx:if="{{jsonContent.teachWeek != 'N/A'}}">
+    <view class="cu-item">
+      <view class="content">
+        <text class="cuIcon-title text-white"></text>
+        <text class="text-white">下周（第{{jsonContent.teachWeek+1}}周）校历安排</text>
+      </view>
+    </view>
+    <view class="cu-item padding-lr-xl" wx:for="{{gradeArray}}">
+      <view class="content padding-lr"><text class="text-white text-bold">{{item.title}}</text></view>
+      <view class="action padding-lr"><text class="text-white text-df">{{jsonContent.nextWeekWork[item.value]}}</text>
+      </view>
+    </view>
+  </view>
 
   <block wx:for="{{jsonContent.nextAffair}}" wx:key="jjr" wx:index="index">
-    <calendar-item
-      wx:if="{{item.gapDays > 0}}"
-      bgcolor="{{colorArr[index]}}"
-      value="{{item.gapDays}}天"
-      title="{{item.title}}"
-      subtitle="{{item.subtitle}}"
-    ></calendar-item>
+    <calendar-item wx:if="{{item.gapDays > 0}}" bgcolor="{{colorArr[index]}}" value="{{item.gapDays}}天"
+      title="{{item.title}}" subtitle="{{item.subtitle}}"></calendar-item>
   </block>
 
   <!-- 考试周 -->
-  <calendar-item
-    bgcolor="cyan"
-    value="{{jsonContent.gap2ExamWeek}}天"
-    title="考试周"
-    subtitle="{{jsonContent.examWeekDate}}"
-  ></calendar-item>
+  <calendar-item bgcolor="cyan" value="{{jsonContent.gap2ExamWeek}}天" title="考试周"
+    subtitle="{{jsonContent.examWeekDate}}"></calendar-item>
 
   <!-- 寒暑假 -->
-  <calendar-item
-    wx:if="{{jsonContent.gap2StartClass > 0 && jsonContent.gap2StartClass <= 30}}"
-    bgcolor="blue"
-    value="{{jsonContent.gap2Vaction}}天"
-    title="放{{jsonContent.month<8?'暑':'寒'}}假"
-    subtitle="{{jsonContent.vactionDate}}"
-  ></calendar-item>
+  <calendar-item wx:if="{{jsonContent.gap2StartClass > 0 && jsonContent.gap2StartClass <= 30}}" bgcolor="blue"
+    value="{{jsonContent.gap2Vaction}}天" title="放{{jsonContent.month<8?'暑':'寒'}}假"
+    subtitle="{{jsonContent.vactionDate}}"></calendar-item>
 
   <view class="cu-bar btn-group bg-black padding-xl">
     <button open-type="share" class="cu-btn bg-green shadow-blur redius padding-bottom-xl">

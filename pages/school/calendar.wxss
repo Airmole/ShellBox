@@ -1,7 +1,19 @@
 /* pages/school/calendar.wxss */
-page{
+page {
   background-color: #333333;
 }
+
+.cu-list.menu>.cu-item {
+  position: relative;
+  display: flex;
+  padding: 0 30rpx;
+  min-height: 100rpx;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--cyan);
+  color: var(--white);
+}
+
 .remind-box {
   flex: 1;
   display: flex;
@@ -34,4 +46,3 @@ page{
 .item-height{
   height: 200rpx;
 }
-

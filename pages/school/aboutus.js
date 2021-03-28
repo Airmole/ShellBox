@@ -7,6 +7,7 @@ Page({
   data: {
     width: '100%',
     height: '',
+    version: '',
     QGroupModal: false,
     weappCodeImage: 'https://upload-images.jianshu.io/upload_images/4697920-90f7baa960c88b89.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240',
     coder: [{
@@ -38,7 +39,10 @@ Page({
    */
   onLoad: function (options) {
     var that = this;
+    const accountInfo = wx.getAccountInfoSync();
+
     that.setData({
+      version: accountInfo.miniProgram.version,
       width: wx.getSystemInfoSync().windowWidth * 0.9 + 'px',
       height: wx.getSystemInfoSync().windowWidth * 0.9 * 0.5625 + 'px'
     })

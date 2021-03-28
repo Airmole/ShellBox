@@ -1,0 +1,4 @@
+/* pages/books/shelf.wxss */
+page {
+  background: var(--cyan);
+}

@@ -1,23 +1,120 @@
-<!--pages/books/detail.wxml-->
 <cu-custom bgColor="bg-cyan" isCustom="{{true}}">
   <view slot="content">{{title}}</view>
 </cu-custom>
-<view class="cu-card article"  wx:for='{{jsonStr}}' wx:key='LibraryStorage'>
-  <view class="cu-item shadow">
-    <view class="title">
-      <view class="text-cut">{{title}}</view>
+
+<view class="page" wx:if="{{!isLoading}}">
+
+  <!-- 图书信息 -->
+  <view class="cu-list menu sm-border card-menu margin-top">
+    <view class="cu-item">
+      <view class="action">
+        <text class="cuIcon-title text-cyan"></text> 图书信息
+      </view>
+      <view class="action">
+        <text class="cuIcon-attentionfill line-cyan">{{jsonStr.viewedSum}}次</text>
+      </view>
     </view>
-    <view class="content">
-      <view class="desc">
-        <view class="text-content">
-          <text>索书号：{{item[0]}}\r\n</text>
-          <text>条码号：{{item[1]}}\r\n</text>
-          <text>馆藏地点：{{item[3]}}\r\n</text>
-        </view>
-        <view>
-          <view class="cu-tag bg-red light sm round">状态：{{item[4]}}</view>
+    <view class="cu-item" wx:for="{{jsonStr.bookInfo}}" wx:key="info">
+      <view class="content" style="min-width:220rpx;">
+        <text class="text-grey">{{item.name}}</text>
+      </view>
+      <view class="action">
+        <text class="text-grey text-sm text-left">{{item.value}}</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 馆藏借阅信息 -->
+  <view class="cu-list menu sm-border card-menu margin-top margin-bottom">
+    <view class="cu-item">
+      <view class="action">
+        <text class="cuIcon-title text-cyan"></text> 馆藏信息(共{{jsonStr.collection.length}}本)
+      </view>
+      <view class="action">
+        <button class="cu-btn bg-cyan shadow" open-type="share"><text class="cuIcon-share"></text>分享
+        </button>
+      </view>
+    </view>
+    <view class="cu-item" wx:for="{{jsonStr.collection}}" wx:key="collection">
+      <view class="content padding-sm" style="color: #8B99A3;">
+        <view class="flex padding-tb-xs" wx:for="{{item}}" wx:for-item="row" wx:key="row">
+          <block wx:if="{{row.title == '书刊状态'}}">
+            <view class="basis-xxs"><text>{{row.title}}: </text></view>
+            <view class="cu-capsule radius">
+              <view class="cu-tag line-{{row.value=='可借'?'cyan':'red'}}">
+                <text class="cuIcon-{{row.value=='可借'?'check':'close'}}"></text>
+              </view>
+              <view class="cu-tag bg-{{row.value=='可借'?'cyan':'red'}}">
+                {{row.value}}
+              </view>
+            </view>
+          </block>
+          <block wx:elif="{{row.title == '馆藏地' || row.title == '还书位置'}}">
+            <view class="basis-xxs"><text>{{row.title}}: </text></view>
+            <view class="cu-capsule radius" data-place="{{row.value}}" bindtap="goLibrary">
+              <view class="cu-tag line-grey">
+                <text class="cuIcon-locationfill"></text>
+              </view>
+              <view class="cu-tag bg-grey">
+                {{row.value}}
+              </view>
+            </view>
+          </block>
+          <block wx:elif="{{row.title == '索书号'}}">
+            <view class="basis-xxs"><text>{{row.title}}: </text></view>
+            <view class="cu-capsule radius">
+              <view class="cu-tag line-grey">
+                <text class="cuIcon-tag"></text>
+              </view>
+              <view class="cu-tag bg-grey">
+                {{row.value}}
+              </view>
+            </view>
+          </block>
+          <block wx:else>
+            <view class="basis-xxs"><text>{{row.title}}: </text></view>
+            <view class="fbasis-llg">{{row.value}}</view>
+          </block>
         </view>
       </view>
     </view>
   </view>
+
+  <!-- 相关书架图书 -->
+  <view class="cu-list menu sm-border card-menu margin-tb" wx:if="{{jsonStr.relatedShelf.length > 0}}">
+    <view class="cu-item">
+      <view class="action">
+        <text class="cuIcon-title text-cyan"></text> 相关书架
+      </view>
+    </view>
+    <navigator url="./shelf?id={{item.id}}&title={{item.name}}" class="cu-item arrow" wx:for="{{jsonStr.relatedShelf}}"
+      wx:key="shelf">
+      <view class="content">
+        <text class="cuIcon-goodsfavor text-cyan"></text>
+        <text class="text-grey">{{item.name}}</text>
+      </view>
+      <view class="action">
+        <text class="text-grey text-sm">{{item.sum}}册图书</text>
+      </view>
+    </navigator>
+  </view>
+
+  <!-- 同名作者的其他书籍 -->
+  <view class="cu-list menu sm-border card-menu margin-tb" wx:if="{{jsonStr.sameAuthor.length > 0}}">
+    <view class="cu-item">
+      <view class="action">
+        <text class="cuIcon-title text-cyan"></text> 同名作者其他著作
+      </view>
+    </view>
+    <navigator class="cu-item arrow" wx:for="{{jsonStr.sameAuthor}}" wx:for-item="sameAuthor"
+      url="./detail?code={{sameAuthor.marcNo}}" wx:key="author">
+      <view class="content padding-tb-sm text-cut">
+        <view>
+          <text class="cuIcon-read text-blue margin-right-xs"></text>{{sameAuthor.data[0].value}}</view>
+        <view class="text-gray text-sm">{{sameAuthor.data[1].value}} | {{sameAuthor.data[2].value}}</view>
+      </view>
+      <view class="action">{{sameAuthor.data[3].value}}</view>
+    </navigator>
+  </view>
+
 </view>

@@ -14,7 +14,7 @@
   </view>
   <radio-group class="block" bindchange="radioChange">
     <view class="grid col-5 text-center margin-top-sm align-center">
-      <view class="text-sm" wx:for="{{radioItems}}">
+      <view class="text-sm" wx:for="{{radioItems}}" wx:key="radio">
         <radio value="{{item.value}}" checked="{{item.checked}}"></radio>{{item.name}}
       </view>
       <view><button class="cu-btn round bg-green shadow" bindtap="searchBook">搜索</button></view>
@@ -114,7 +114,7 @@
     <!-- 登录了，但没查过课表没缓存 -->
     <block wx:if="{{!hasCourseCache}}">
       <navigator url="../course/my">
-        <view class="remind-box margin-xl bg-white">
+        <view class="remind-box margin-xl bg-white radius" style="padding-bottom: 50rpx;">
           <image class="remind-img" src="/images/nothing.png"></image>
           <text class="remind-text text-xl">您刚登陆吧？来查一次课表吧</text>
           <view class="margin-tb-sm text-center">

@@ -2,46 +2,63 @@
 var app = getApp();
 Page({
   data: {
-    marc_no: "",
-    ISBN: "",
+    isLoading: '加载中',
+    code: "",
+    codeType: '',
     jsonStr: "",
     doubanStr: '',
     title: ''
   },
   onLoad: function(options) {
-    console.log(options);
-    wx.showLoading({ title: "loading" });
-    var that = this;
-    this.setData({
-      marc_no: options.marc,
-      title: options.title
+    wx.showLoading({ title: "鸽鸽，等等我" });
+    let codeType = options.codeType ? options.codeType : 'marc';
+    this.setData({ code: options.code, codeType: codeType});
+    if(codeType == 'marc') {
+      this.getBookDetailByMarc(options.code);
+    }
+    if(codeType == 'isbn') {
+      this.getBookDetailByIsbn(options.code);
+    }
+
+    wx.showShareMenu({
+      withShareTicket: true,
+      menus: ['shareAppMessage', 'shareTimeline']
     })
+  },
+  getBookDetailByMarc: function(marc) {
+    var _this = this;
     wx.request({
-      url: `${app.globalData.domain}/book/marc/${options.marc}`,
+      url: `${app.globalData.domain}/book/marc/${marc}`,
       success: function(res) {
-        that.setData({
-          jsonStr: res.data,
-        })
+        _this.setData({jsonStr: res.data, title: res.data.bookInfo[0].value, isLoading: false});
         wx.hideLoading({});
       }
     });
   },
-  goLibrary: function(ep) {
-    console.log(ep.currentTarget.dataset.place);
+  getBookDetailByIsbn: function(isbn) {
+    var _this = this;
+    wx.request({
+      url: `${app.globalData.domain}/book/isbn/${isbn}`,
+      success: function(res) {
+        _this.setData({jsonStr: res.data, title: res.data.bookInfo[0].value, isLoading: false});
+        wx.hideLoading({});
+      }
+    });
+  },
+  goLibrary: function(e) {
+    console.log(e.currentTarget.dataset.place);
     var placeArr = ["理工馆", "社科馆"];
     var markerIdArr = [5, 4];
-    var result = placeArr.indexOf(ep.currentTarget.dataset.place.substr(0, 3));
+    var result = placeArr.indexOf(e.currentTarget.dataset.place.substr(0, 3));
     console.log(result);
     wx.navigateTo({
       url: '../traffic/navi?markerId=' + markerIdArr[result],
     })
   },
   onShareAppMessage: function(res) {
-    console.log(this.options.marc_no)
     return {
-      title: '《' + this.data.doubanStr.title + '》 - 贝壳小盒子',
-      path: 'pages/books/detail?marc_no=' + this.options.marc_no,
-      imageUrl: this.data.doubanStr.images.large
+      title: '《' + this.data.jsonStr.bookInfo[0].value + '》 - 贝壳小盒子',
+      path: `pages/books/detail?code=${this.data.code}&codeType=${this.data.codeType}`
     }
   },
 });
