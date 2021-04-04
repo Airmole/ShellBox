@@ -499,12 +499,19 @@ Page({
     startTimeStr = util.formatDate(d) + ` ${startTimeStr}`;
 
     var _this = this;
-    wx.requestSubscribeMessage({
-      tmplIds: [tmplIds],
+    wx.showModal({
+      title: '注意',
+      content: '受微信小程序官方限制，每次订阅消息仅能下发一条消息提醒，因此只能每次订阅每节课程提醒',
+      showCancel: false,
       success (res) {
-        if(res[tmplIds]=='accept'){
-          _this.sendSubMessage(courseName, place,teacher,startTimeStr, description,setNoticeStart,openid,tmplIds,isTeacher,isTeacher);
-        }
+        wx.requestSubscribeMessage({
+          tmplIds: [tmplIds],
+          success (res) {
+            if(res[tmplIds]=='accept'){
+              _this.sendSubMessage(courseName, place,teacher,startTimeStr, description,setNoticeStart,openid,tmplIds,isTeacher,isTeacher);
+            }
+          }
+        })
       }
     })
   },

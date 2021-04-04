@@ -96,9 +96,13 @@
         <view class="text-lg text-center text-black">京津新城 ←_→ 天津市区</view>
         <view class="margin-top-sm text-Abc text-black">
           <view class="text-df">乘车地点：学院西门</view>
-          <view class="text-df">票价：全程￥15元(按距离分￥5/￥10/￥15,仅收现金)</view>
-          <view class="text-df">京津新城至白庙站： 5:10~17:00，约每30分钟一班</view>
-          <view class="text-df">白庙站至京津新城： 7:30~19:00，约每30分钟一班</view>
+          <view class="text-df">票价：全程￥15元(按距离分￥5/￥10/￥15)</view>
+          <view class="text-df">京津新城至白庙：5:10~17:00,约30分/班
+            <view bindtap="busSchedule" data-busline="school2city" class="cu-tag line-blue">时刻表</view>
+          </view>
+          <view class="text-df">白庙至京津新城：7:30~19:00,约30分/班
+            <view bindtap="busSchedule" data-busline="city2school" class="cu-tag line-blue">时刻表</view>
+          </view>
           <view class="text-df margin-top-xs">提示：资料来源于网络搜集整理，仅供参考</view>
         </view>
       </view>
@@ -138,7 +142,13 @@
         <view class="text-lg text-center text-black">学院 ←_→ 宝坻 (公交：宝13路)</view>
         <view class="margin-top-sm text-Abc text-black">
           <view class="text-df">运行时间：6:30~17:30</view>
-          <view class="text-df">票价：￥2~￥6元(仅收现金)</view>
+          <view class="text-df">学院至宝坻方向：
+            <view bindtap="busSchedule" data-busline="school2baodi" class="cu-tag line-blue">发车时刻表</view>
+          </view>
+          <view class="text-df">宝坻至学院方向：
+            <view bindtap="busSchedule" data-busline="baodi2school" class="cu-tag line-blue">发车时刻表</view>
+          </view>
+          <view class="text-df">票价：￥2~￥6元</view>
           <view class="text-df margin-top-xs">提示：资料来源于网络搜集整理，仅供参考</view>
         </view>
       </view>

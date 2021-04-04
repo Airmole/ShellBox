@@ -64,14 +64,14 @@ Page({
       url: './../books/bind',
       login: true,
     }, {
-    //   id: 'scanBookCode',
-    //   icon: 'dushuma',
-    //   teacher: true,
-    //   student: true,
-    //   name: '扫码查书',
-    //   url: '',
-    //   login: true,
-    // }, {
+      id: 'scanBookCode',
+      icon: 'dushuma',
+      teacher: true,
+      student: true,
+      name: '扫码查书',
+      url: '',
+      login: false,
+    }, {
       id: 'score',
       icon: 'chengji',
       teacher: false,
@@ -206,6 +206,11 @@ Page({
       return;
     }
 
+    if(id == 'scanBookCode'){
+      this.scanBookCode();
+      return;
+    }
+
     if(id == 'teacherBus'){
       wx.navigateToMiniProgram({ appId: 'wx183616af30e5723d' });
       return;
@@ -221,6 +226,21 @@ Page({
   goLogin: function (e) {
     wx.navigateTo({
       url: './login',
+    })
+  },
+  scanBookCode: function () {
+    wx.scanCode({
+      success: (res) => {
+        if (res.errMsg !== 'scanCode:ok') {
+          wx.showToast({ title: res.errMsg, icon: 'none'})
+          return;
+        }
+        if (res.scanType !== 'EAN_13') {
+          wx.showToast({ title: '这不是图书ISBN码', icon: 'none'})
+          return;
+        }
+        wx.navigateTo({ url: `../books/detail?code=${res.result}&codeType=isbn` })
+      }
     })
   },
   showQQGroupCode: function () {

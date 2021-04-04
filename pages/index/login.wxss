@@ -156,7 +156,7 @@ form {
 .login-help {
   display: flex;
   align-items: center;
-  justify-content: flex-end;
+  justify-content: space-between;
   padding: 0 30rpx;
   font-size: 10pt;
   color: #bbb;

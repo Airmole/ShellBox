@@ -3,7 +3,7 @@ page {
   background-color: #333333;
 }
 
-.cu-list.menu>.cu-item {
+.calendar-item {
   position: relative;
   display: flex;
   padding: 0 30rpx;

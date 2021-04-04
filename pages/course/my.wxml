@@ -72,9 +72,9 @@
                         <view class="kb-card {{wid%2==0?'mg-8':'mg-12'}}" wx:for="{{lessons[day]}}" wx:key="wid"
                             wx:for-index="wid" wx:for-item="widItem">
                             <!-- 循环重叠课 -->
-                            <block wx:if="{{(widItem.length<5&&widItem.length>1)?false:true}}">
+                            <block wx:if="{{(widItem.length<6&&widItem.length>1)?false:true}}">
                                 <view bindtap="showDetail"
-                                    class="mg-8 kb-card-content {{widItem.length<5&&widItem.length>1?'k-sec':''}} {{classColors[widItem.courseName.length%3]}}"
+                                    class="mg-8 kb-card-content {{widItem.length<6&&widItem.length>1?'k-sec':''}} {{classColors[widItem.courseName.length%3]}}"
                                     data-day="{{day}}" data-color="{{classColors[widItem.courseName.length%3]}}"
                                     data-wid="{{wid}}" wx:if="{{widItem.courseName.length>0}}">
                                     <text class="kb-card-place-words">{{widItem.place}}</text>
@@ -159,7 +159,7 @@
             <block wx:else>
                 <view class="kb-info-title">
                     <block>
-                        <text class="kb-info-week">星期{{_days[targetDayIndex]}}</text>
+                        <text class="kb-info-week">星期{{_days[targetDayIndex==-1?6:targetDayIndex]}}</text>
                         <text class="kb-lesson-time"></text>
                         <view class="margin-right-sm cu-tag bg-white radius" bindtap='subscribleMessage'>订阅消息</view>
                         <view class="margin-right-sm cu-tag bg-white radius" bindtap='addCalendarNotice'>日历提醒</view>
@@ -219,7 +219,7 @@
             </view>
             <view class="kb-info-card-swipers" wx:else>
                 <view class="kb-info-swiper-mask-left" data-target="targetI" data-direction="left"
-                    bindtap="swiperChangeBtn">
+                    bindtap="swiperChangeBtn" wx:if="{{targetI != 0}}">
                     <text class="cuIcon-roundleftfill-copy"></text>
                 </view>
                 <swiper circular="{{true}}" indicator-dots="true" current="{{targetI}}" bindchange="infoCardChange"

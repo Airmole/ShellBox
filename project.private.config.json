@@ -11,14 +11,7 @@
       "list": []
     },
     "miniprogram": {
-      "list": [
-        {
-          "name": "pages/books/detail",
-          "pathName": "pages/books/detail",
-          "query": "code=6f6f62567a58674a37632b59576a6d735476686c6e413d3d",
-          "scene": null
-        }
-      ]
+      "list": []
     }
   }
 }

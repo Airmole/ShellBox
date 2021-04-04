@@ -32,13 +32,13 @@
     value="{{jsonContent.gap2StartClass}}天" title="正式开课" subtitle="{{jsonContent.startClassDate}}"></calendar-item>
 
   <view bindtap="showPic" class="cu-list menu sm-border card-menu margin-bottom" wx:if="{{jsonContent.teachWeek != 'N/A'}}">
-    <view class="cu-item">
+    <view class="calendar-item">
       <view class="content">
         <text class="cuIcon-title text-white"></text>
         <text class="text-white">本周（第{{jsonContent.teachWeek}}周）校历安排</text>
       </view>
     </view>
-    <view class="cu-item padding-lr-xl" wx:for="{{gradeArray}}">
+    <view class="calendar-item padding-lr-xl" wx:for="{{gradeArray}}" wx:key="vk">
       <view class="content padding-lr"><text class="text-white text-bold">{{item.title}}</text></view>
       <view class="action padding-lr"><text class="text-white text-df">{{jsonContent.thisWeekWork[item.value]}}</text>
       </view>
@@ -52,13 +52,13 @@
   <!-- 广告位结束 -->
 
   <view bindtap="showPic" class="cu-list menu sm-border card-menu margin-tb" wx:if="{{jsonContent.teachWeek != 'N/A'}}">
-    <view class="cu-item">
+    <view class="calendar-item">
       <view class="content">
         <text class="cuIcon-title text-white"></text>
         <text class="text-white">下周（第{{jsonContent.teachWeek+1}}周）校历安排</text>
       </view>
     </view>
-    <view class="cu-item padding-lr-xl" wx:for="{{gradeArray}}">
+    <view class="calendar-item padding-lr-xl" wx:for="{{gradeArray}}" wx:key="vk">
       <view class="content padding-lr"><text class="text-white text-bold">{{item.title}}</text></view>
       <view class="action padding-lr"><text class="text-white text-df">{{jsonContent.nextWeekWork[item.value]}}</text>
       </view>

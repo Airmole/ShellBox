@@ -30,9 +30,12 @@
             <image src="{{vcodeUrl}}" alt="教务关闭" style="width:90px;height:25px;" bindtap="getCookie" />
           </view> -->
           <view class="login-help">
-            <text class="line-blue light" bindtap="showResetModal">重置密码</text>
-            <text class="line-blue light" bindtap="showHelp"> | 帮助</text>
-            <text class="cuIcon-questionfill line-blue light"></text>
+            <view class="text-blue" bindtap="showHelp">老师亦可通过教务账号密码登录</view>
+            <view>
+              <text class="line-blue light" bindtap="showResetModal">重置密码</text> | 
+              <text class="line-blue light" bindtap="showHelp">帮助</text>
+              <text class="cuIcon-questionfill line-blue light"></text>
+            </view>
           </view>
         </form>
         <view class="confirm-btn" bindtap="bind">

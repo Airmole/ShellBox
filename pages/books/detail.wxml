@@ -14,7 +14,7 @@
         <text class="cuIcon-attentionfill line-cyan">{{jsonStr.viewedSum}}次</text>
       </view>
     </view>
-    <view class="cu-item" wx:for="{{jsonStr.bookInfo}}" wx:key="info">
+    <view class="cu-item" wx:for="{{jsonStr.bookInfo}}" wx:key="info" wx:if="{{item.value.length>0}}">
       <view class="content" style="min-width:220rpx;">
         <text class="text-grey">{{item.name}}</text>
       </view>
@@ -72,8 +72,10 @@
             </view>
           </block>
           <block wx:else>
-            <view class="basis-xxs"><text>{{row.title}}: </text></view>
-            <view class="fbasis-llg">{{row.value}}</view>
+            <block wx:if="{{row.value.length>0}}">
+              <view class="basis-xxs"><text>{{row.title}}: </text></view>
+              <view class="fbasis-llg">{{row.value}}</view>
+            </block>
           </block>
         </view>
       </view>
@@ -115,6 +117,29 @@
       </view>
       <view class="action">{{sameAuthor.data[3].value}}</view>
     </navigator>
+  </view>
+
+  <!-- 其他相关资源 -->
+  <view class="cu-list menu sm-border card-menu margin-tb" wx:if="{{title.length > 0}}">
+    <view class="cu-item">
+      <view class="action">
+        <text class="cuIcon-title text-cyan"></text> 其他相关资源
+      </view>
+    </view>
+    <view class="cu-item arrow" bindtap="go2Douban">
+      <view class="content">
+        <image src="https://www.douban.com/favicon.ico" class="png radius" mode="aspectFit"></image>
+        <text class="text-black">豆瓣评分</text>
+      </view>
+      <view class="action">查看热评</view>
+    </view>
+    <view class="cu-item arrow" bindtap="go2Dangdang">
+      <view class="content">
+        <image src="http://www.dangdang.com/favicon.ico" class="png radius" mode="aspectFit"></image>
+        <text class="text-black">当当图书</text>
+      </view>
+      <view class="action">前往购买</view>
+    </view>
   </view>
 
 </view>
