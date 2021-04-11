@@ -17,7 +17,15 @@ Page({
     // cookie: '',
     // vcodeUrl: '',
     idcard: '',
-    angle: 0
+    angle: 0,
+    canIUseGetUserProfile: false
+  },
+  onLoad: function (){
+    if (wx.getUserProfile) {
+      this.setData({
+        canIUseGetUserProfile: true
+      })
+    }
   },
   onReady: function(){
     try {
@@ -55,23 +63,32 @@ Page({
     var _this = this;
     wx.getUserProfile({
       lang: 'zh_CN',
-      desc: '需要获取您的信息用来展示排行榜',
+      desc: '需要获取信息用来生成成绩海报',
       success: function(res){
         // console.log('userInfo：', res.userInfo)
-        wx.setStorage({
-          data: res.userInfo,
-          key: 'userInfo',
-        })
+        wx.setStorage({data: res.userInfo, key: 'userInfo'});
         app.globalData.userInfo = res.userInfo
         _this.login(res.userInfo);
       },
-      fail: function(){
+      fail: function(e){
+        console.log(e)
         wx.showToast({
           title: '未授权将无法使用',
           icon: 'none'
         })
       }
     })
+  },
+  getUserInfo: function (e){
+    if(!this.vaildForm()){
+      return
+    }
+    this.setData({
+      userInfo: e.detail.userInfo,
+    })
+    wx.setStorage({data: e.detail.userInfo, key: 'userInfo'});
+    app.globalData.userInfo = e.detail.userInfo
+    this.login(e.detail.userInfo);
   },
   vaildForm: function () {
     var uid = this.data.userid;

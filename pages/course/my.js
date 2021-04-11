@@ -83,8 +83,13 @@ Page({
     const d = new Date();
     var today = d.getDay();
     today = this.data.weekArray[today];
+    const courseCache = wx.getStorageSync('myCourse');
+    let hasCourseCache = Object.keys(courseCache).length == 7 ? true : false;
+    let _this = this;
     this.setData({
-      today: today
+      today: today,
+      lessons: hasCourseCache ? courseCache : [],
+      remind: hasCourseCache ? '' : _this.data.remind
     })
     return false;
   },
@@ -260,6 +265,7 @@ Page({
           // console.log(res.data)
           wx.setStorage({ data: res.data.course, key: 'myCourse' });
           _this.setData({myCourseJson: res.data, lessons: res.data.course, remind: ''})
+          wx.showToast({ title: '已自动更新最新课表', icon: 'none' });
         } else {
           _this.setData({remind: res.data.message})
           if(res.statusCode==403){

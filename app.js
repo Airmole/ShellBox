@@ -15,6 +15,7 @@ App({
       this.globalData.domain = 'https://shellbox.airmole.cn/api';
     } else {
       this.globalData.domain = 'https://dev.shellbox.airmole.cn/api';
+      // this.globalData.domain = 'http://shellbox.cn/api';
     }
     if(launchInfo.scene != 1145){
       this.getUserOpenId();

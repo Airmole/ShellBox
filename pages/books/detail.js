@@ -11,7 +11,7 @@ Page({
     isbn: ''
   },
   onLoad: function(options) {
-    wx.showLoading({ title: "鸽鸽，等等我" });
+    wx.showLoading({ title: "等我加载一下~" });
     let codeType = options.codeType ? options.codeType : 'marc';
     this.setData({ code: options.code, codeType: codeType});
     if(codeType == 'marc') {
@@ -37,7 +37,7 @@ Page({
           isbn: _this.getIsbnFromBookInfo(res.data.bookInfo),
           isLoading: false
         });
-        wx.hideLoading({});
+        wx.hideLoading();
       }
     });
   },
@@ -47,7 +47,7 @@ Page({
       url: `${app.globalData.domain}/book/isbn/${isbn}`,
       success: function(res) {
         _this.setData({jsonStr: res.data, title: res.data.bookInfo[0].value, isLoading: false});
-        wx.hideLoading({});
+        wx.hideLoading();
       }
     });
   },
@@ -64,23 +64,27 @@ Page({
   getIsbnFromBookInfo: function(bookInfo) {
     let isbn = '';
     let pattern = /((978[\--– ])?[0-9][0-9\--– ]{10}[\--– ][0-9xX])|((978)?[0-9]{9}[0-9Xx])/;
-    bookInfo.forEach(element => {
+    for (let index = 0; index < bookInfo.length; index++) {
+      const element = bookInfo[index];
       if (element.name.indexOf('ISBN') >= 0) {
         let isbnMatched = pattern.exec(element.value);
-        isbn = isbnMatched[1] ? isbnMatched[1] : isbnMatched[0];
+        isbn = isbnMatched == null ? element.value : isbnMatched[1];
+        break;
       }
-    });
+    }
     return isbn;
   },
   getTitleFromBookInfo: function(bookInfo) {
     let title = '';
     let pattern = /(.*?)\//;
-    bookInfo.forEach(element => {
+    for (let index = 0; index < bookInfo.length; index++) {
+      const element = bookInfo[index];
       if (element.name.indexOf('题名') >= 0) {
-        let isbnMatched = pattern.exec(element.value);
-        title = isbnMatched[1] ? isbnMatched[1] : isbnMatched[0];
+        let titleMatched = pattern.exec(element.value);
+        title = titleMatched == null ? element.value : titleMatched[1];
+        break;
       }
-    });
+    }
     return title;
   },
   go2Douban: function() {
@@ -108,9 +112,15 @@ Page({
     })
   },
   onShareAppMessage: function(res) {
+    let code = this.data.code;
+    let codeType = this.data.codeType;
+    if (this.data.isbn.length >= 13) {
+      code = this.data.isbn;
+      codeType = 'isbn';
+    }
     return {
       title: '《' + this.data.title + '》 - 贝壳小盒子',
-      path: `pages/books/detail?code=${this.data.code}&codeType=${this.data.codeType}`
+      path: `pages/books/detail?code=${code}&codeType=${codeType}`
     }
   },
 });

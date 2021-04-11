@@ -23,20 +23,24 @@ Page({
    */
   onLoad: function(options) {
     // console.log(options);
+    this.loadAds();
+    this.inital();
+    this.getScoreData();
+  },
+  inital: function () {
     const device = wx.getSystemInfoSync();
     // console.log(device.screenHeight);
-    this.setData({screenHeight: device.screenHeight});
-    this.getScoreData();
-    if (wx.createInterstitialAd) {
-      interstitialAd = wx.createInterstitialAd({ adUnitId: 'adunit-5a3621a7eb4da121' });
-      if (interstitialAd) {
-        interstitialAd.show().catch((err) => {
-          console.error(err)
-        })
-      }
+    const scoreCache = wx.getStorageSync('myScore');
+    let hasScoreCache = Object.keys(scoreCache).length > 0 ? true : false;
+    this.setData({
+      screenHeight: device.screenHeight,
+      jsonContent: hasScoreCache ? scoreCache : '',
+      isLoading: hasScoreCache ? false : true
+    });
+    if(hasScoreCache){
+      this.charts();
     }
-    
-    
+    return false;
   },
   /**
    * 查询成绩
@@ -52,7 +56,9 @@ Page({
       success: function(res) {
         if (res.statusCode == 200) {
           _this.setData({ isLoading: false, jsonContent: res.data });
+          wx.setStorageSync('myScore', res.data);
           _this.charts();
+          wx.showToast({ title: '成绩已自动更新为最新', icon: 'none' });
         } else {
           wx.showToast({ title: res.data.message, icon: 'none' });
         }
@@ -494,6 +500,17 @@ Page({
         urls: [tempFilePath],
       })
       that.eventSave();
+    }
+  },
+  // 创建加载插屏广告
+  loadAds: function () {
+    if (wx.createInterstitialAd) {
+      interstitialAd = wx.createInterstitialAd({ adUnitId: 'adunit-5a3621a7eb4da121' });
+      if (interstitialAd) {
+        interstitialAd.show().catch((err) => {
+          console.error(err)
+        })
+      }
     }
   }
 })

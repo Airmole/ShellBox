@@ -24,8 +24,9 @@
           </view>
         </view>
 
-        <view class="padding">
 
+        <view class="margin-bottom-sm"><official-account></official-account></view>
+        <view class="padding">
           <view class="desc-title">
             <text class="cuIcon-titles text-wegreen"></text>更新说明
           </view>

@@ -1,6 +1,7 @@
 <cu-custom bgColor="bg-wegreen">
   <view slot="content">贝壳小盒子</view>
 </cu-custom>
+<view class="margin"><official-account class="radius"></official-account></view>
 <view class="padding-lr-sm bg-white margin shadow radius padding-bottom">
   <view class="solid-bottom padding-top">
     <text class="cuIcon-titles text-green"></text>馆藏图书检索
