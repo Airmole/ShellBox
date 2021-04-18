@@ -141,7 +141,7 @@ Page({
         city: userInfo.city,
         language: userInfo.language
       },
-      timeout: 6000,
+      timeout: app.globalData.requestTimeout,
       method: 'POST',
       success: function(res){
         // console.log('eduSysProfile：', res.data)

@@ -1,0 +1,2 @@
+/* pages/books/overdue/index.wxss */
+@import "../../school/cert.wxss";

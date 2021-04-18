@@ -40,7 +40,7 @@
     "minifyWXSS": true
   },
   "compileType": "miniprogram",
-  "libVersion": "2.10.4",
+  "libVersion": "2.15.0",
   "appid": "wxf0ba93e3faff4eda",
   "projectname": "shellbox-weapp",
   "debugOptions": {

@@ -28,7 +28,7 @@ Page({
     wx.request({
       url: `${app.globalData.domain}/edu/stulist/${code}`,
       method: "GET",
-      timeout: 6000,
+      timeout: app.globalData.requestTimeout,
       success: function(res){
         _this.setData({ students: res.data, isLoading: false });
       }

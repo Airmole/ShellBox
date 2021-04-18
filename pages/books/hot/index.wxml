@@ -1,0 +1,75 @@
+<!--pages/books/hot/index.wxml-->
+<cu-custom bgColor="bg-cyan" isCustom="{{true}}">
+  <view slot="content">{{title}}</view>
+</cu-custom>
+
+<view class="remind-box" wx:if="{{isLoading}}" style="height:{{screenHeight}}px;">
+  <image class="remind-img" src="/images/loading.gif"></image>
+</view>
+<view class='padding-bottom-xl' wx:else>
+
+  <!-- 图书排序依据 -->
+  <scroll-view scroll-x class="bg-cyan nav">
+    <view class="flex text-center">
+      <view class="cu-item flex-sub {{item.value==orderby?'text-white cur':''}}" wx:for="{{orderbyList}}" wx:key="orderby" bindtap="orderbyChanged" data-index="{{index}}">{{item.title}}</view>
+    </view>
+  </scroll-view>
+
+  <!-- 图书排序分类 -->
+  <view class="padding-sm flex flex-wrap">
+    <view class="padding-xs" wx:for="{{typeList}}" wx:key="type">
+      <view bindtap="typeChanged" data-index="{{index}}"
+        class="{{item.value == type ? 'bg-white' : 'line-white'}} cu-tag light radius">{{item.value}} {{item.title}}</view>
+    </view>
+  </view>
+
+  <!-- 热门图书列表 -->
+  <view class="cu-list menu sm-border card-menu margin-top margin-bottom">
+    <navigator url="../detail?code={{item.marcNo}}" class="cu-item arrow" wx:for='{{booklist}}' wx:key='list'>
+      <block wx:if="{{orderby == 'lend'}}">
+        <view class="content padding-tb-sm text-cut">
+          <view><text user-select="true">{{item.data[0].value}}.{{item.data[1].value}}</text></view>
+          <view class="text-gray text-sm">
+            <text decode="true" user-select="true"><text class="cuIcon-people text-cyan"></text>{{item.data[2].value}} | {{item.data[3].value}} \n <text class="cuIcon-barcode text-cyan"></text>{{item.data[4].title}}:<text
+                class="text-cyan">{{item.data[4].value}}</text> | <text class="text-cyan">{{item.data[5].value}}</text>册
+            </text>
+          </view>
+        </view>
+        <view class="action">
+          <text class="text-gray">{{item.data[6].title}}:<text class="text-cyan">{{item.data[6].value}}</text> \n
+            {{item.data[7].title}}:<text class="text-cyan">{{item.data[7].value}}</text></text>
+        </view>
+      </block>
+      <block wx:if="{{orderby == 'score'}}">
+        <view class="content padding-tb-sm text-cut">
+          <view><text user-select="true">{{item.data[0].value}}.{{item.data[1].value}}</text></view>
+          <view class="text-gray text-sm">
+            <text decode="true" user-select="true"><text class="cuIcon-people text-cyan"></text>{{item.data[2].value}} | {{item.data[3].value}} \n <text class="cuIcon-barcode text-cyan"></text>{{item.data[4].title}}:<text
+                class="text-cyan">{{item.data[4].value}}</text>
+            </text>
+          </view>
+        </view>
+        <view class="action">
+          <text class="text-gray">
+            <block wx:for="{{[1,2,3,4,5]}}" wx:for-item="starItem" wx:key="star"><text class="{{starItem <= item.data[5].value?'text-red':'text-gray'}} cuIcon-favorfill lg"></text></block>
+            {{item.data[6].title}}:{{item.data[6].value}}</text>
+        </view>
+      </block>
+      <block wx:if="{{orderby == 'shelf' || orderby == 'book'}}">
+        <view class="content padding-tb-sm text-cut">
+          <view><text user-select="true">{{item.data[0].value}}.{{item.data[1].value}}</text></view>
+          <view class="text-gray text-sm">
+            <text decode="true" user-select="true"><text class="cuIcon-people text-cyan"></text>{{item.data[2].value}} | {{item.data[3].value}} \n <text class="cuIcon-barcode text-cyan"></text>{{item.data[4].title}}:<text
+                class="text-cyan">{{item.data[4].value}}</text>
+            </text>
+          </view>
+        </view>
+        <view class="action">
+          <text wx:if="{{orderby == 'shelf'}}" class="text-gray"><text class="text-cyan">{{item.data[5].value}}</text>收藏</text>
+          <text wx:if="{{orderby == 'book'}}" class="text-gray"><text class="text-cyan">{{item.data[5].value}}</text>浏览</text>
+        </view>
+      </block>
+    </navigator>
+  </view>
+
+</view>

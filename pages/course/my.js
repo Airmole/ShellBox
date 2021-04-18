@@ -260,6 +260,7 @@ Page({
       url: `${domain}/edu/course`,
       data: {uid: uid, pwd: password},
       method: 'POST',
+      timeout: app.globalData.requestTimeout,
       success: function(res){
         if(res.statusCode == 200){
           // console.log(res.data)

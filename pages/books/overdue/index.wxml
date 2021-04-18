@@ -1,0 +1,82 @@
+<!--pages/books/overdue/index.wxml-->
+<cu-custom bgColor="bg-cyan" isCustom="{{true}}">
+  <view slot="content">{{title}}</view>
+</cu-custom>
+
+<view class="remind-box" wx:if="{{isLoading}}" style="height:{{screenHeight}}px;">
+  <image class="remind-img" src="/images/loading.gif"></image>
+</view>
+<view class='padding-bottom-xl' wx:else>
+
+  <!-- 超期情况类型 -->
+  <scroll-view scroll-x class="bg-cyan nav">
+    <view class="flex text-center">
+      <view class="cu-item flex-sub {{item.value==type?'text-white cur':''}}" wx:for="{{typeList}}" wx:key="type"
+        bindtap="typeChanged" data-index="{{index}}">{{item.title}}</view>
+    </view>
+  </scroll-view>
+
+  <view class="cu-bar bg-white solid-bottom margin-lr-sm margin-top-sm radius-top">
+    <view class="action">
+      <text class="cuIcon-title text-cyan "></text> 检索我的借阅超期信息
+    </view>
+  </view>
+  <view class="cu-form-group margin-lr-sm">
+    <view class="title">证件号</view>
+    <input placeholder="请输入图书馆借阅证件号" type="number" bindinput="searchInput" value="{{uid}}" confirm-type="search"></input>
+  </view>
+  <view class="flex cu-form-group margin-lr-sm justify-end radius-bottom">
+    <button bindtap="search" class="cu-btn bg-green round shadow">查找</button>
+  </view>
+
+  <block wx:if="{{myFine != ''}}">
+    <view class="cu-bar bg-white solid-bottom margin-lr-sm margin-top-sm radius-top">
+      <view class="action">
+        <text class="cuIcon-title text-cyan "></text> 查找结果
+      </view>
+    </view>
+    <view class="text-center bg-white margin-lr-sm radius-bottom">
+        <view class="solid-bottom text-lg padding">
+          <text class="text-black">您有<text class="text-red">{{myFine.overdueCount}}</text>条超期图书记录 \n <text class="text-red">{{myFine.fineCount}}</text>条欠款记录，共<text class="text-price text-red">{{myFine.fineSum}}</text>元\n</text>
+        </view>
+      <view class="padding">您所查找的证件号：{{myFine.opacid}}</view>
+    </view>
+  </block>
+
+  <view class="bg-cyan">
+    <view class="cu-bar bg-cyan">
+      <view class="action">
+        <text class="cuIcon-titles text-white"></text>
+        <text wx:if="{{type == 'bulletin'}}" class="text-xl text-bold">书已经超期，请及时归还</text>
+        <text wx:if="{{type == 'debt'}}" class="text-xl text-bold">有超期欠款未缴纳</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 列表 -->
+  <view class="cu-list menu-avatar margin-sm radius">
+    <view class="cu-item" wx:for="{{datalist.data}}" wx:key="list" wx:if="{{item[0].value.length > 0}}">
+      <view class="cu-avatar lg round bg-cyan">
+        <text class="avatar-text">{{item[1].value}}</text>
+      </view>
+      <view class="content" style="width: 100%;">
+        <view class="text-grey">{{item[1].value}}</view>
+        <view class="text-gray text-sm flex">
+          <text class="text-cut">{{item[0].title}}：{{item[0].value}} | {{item[2].value}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 分页器 -->
+  <view class="flex margin-right-sm justify-end">
+    <button bindtap="lastPage" wx:if="{{datalist.pagination.current > 1}}"
+      class="cu-btn bg-black round shadow">上一页</button>
+    <view wx:if="{{datalist.pagination.current > 0}}" class="text-black margin-sm">{{datalist.pagination.current}} /
+      {{datalist.pagination.last}}</view>
+    <button bindtap="nextPage"
+      wx:if="{{datalist.pagination.current < datalist.pagination.last && datalist.pagination.current > 0}}"
+      class="cu-btn bg-black round shadow">下一页</button>
+  </view>
+
+</view>

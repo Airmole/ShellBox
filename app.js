@@ -2,7 +2,8 @@
 App({
   globalData: {
     domain: 'https://shellbox.airmole.cn/api',
-    _amap_key: '66a87160f8db2a9a76431c954b4f52a5',
+    _amap_key: '66a87160f8db2a9a76431c954b4f52a5', // 高德导航API秘钥
+    requestTimeout: 10000, // 网络请求最长时间10s
     openid: '',
     userInfo: {},
     edusysUserInfo: {},

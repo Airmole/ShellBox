@@ -93,27 +93,33 @@ Page({
               duration: 3000
             });
             that.getVcode();
-          } else if (res.data.readerInfo.name != "" && res.data.code == '200') {
-            app.globalData.uid = uid;
-            app.globalData.opacLogin = {
-              uid: uid,
-              pwd: pwd,
-              vcode: vcode,
-              cookie: that.data.PreInfo.cookie,
-              token: that.data.PreInfo.token
-            };
-            //设置本地Storage,维持登录态用
-            wx.setStorageSync('opacPassword', pwd);
-            wx.redirectTo({
-              url: '../books/my'
-            })
+          } else if (res.data.code == '200') {
+            if (res.data.readerInfo.name != "") {
+
+              app.globalData.uid = uid;
+              app.globalData.opacLogin = {
+                uid: uid,
+                pwd: pwd,
+                vcode: vcode,
+                cookie: that.data.PreInfo.cookie,
+                token: that.data.PreInfo.token
+              };
+              //设置本地Storage,维持登录态用
+              wx.setStorageSync('opacPassword', pwd);
+              wx.redirectTo({
+                url: '../books/my'
+              })
+            }
           } else {
             wx.showToast({
-              title: '暂时无法登录',
+              title: res.data.message,
               icon: 'none',
               duration: 3000
             });
           }
+        },
+        complete: function() {
+          that.getVcode();
         }
       })
     }

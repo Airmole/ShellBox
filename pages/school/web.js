@@ -49,6 +49,15 @@ Page({
         url: ['http://10.1.254.9']
       }],
       [{
+        title: '入党学习',
+        background: 'https://upload-images.jianshu.io/upload_images/4697920-f62c499468e6137a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/300',
+        url: ['http://10.1.254.27']
+      }, {
+        title: '校园网计费登录',
+        background: 'https://upload-images.jianshu.io/upload_images/4697920-97eed134f1d2846b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/300',
+        url: ['http://172.16.1.3']
+      }],
+      [{
         title: '冰炫(贝壳)云盘',
         background: 'https://upload-images.jianshu.io/upload_images/4697920-fa718891fdd2fc7f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/300',
         url: ['http://10.1.254.11']

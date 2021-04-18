@@ -86,6 +86,26 @@ image {
 	border-radius: 15rpx;
 }
 
+.radius-left {
+	border-bottom-left-radius: 15rpx;
+	border-top-left-radius: 15rpx;
+}
+
+.radius-right {
+	border-bottom-right-radius: 15rpx;
+	border-top-right-radius: 15rpx;
+}
+
+.radius-top {
+	border-top-left-radius: 15rpx;
+	border-top-right-radius: 15rpx;
+}
+
+.radius-bottom {
+	border-bottom-left-radius: 15rpx;
+	border-bottom-right-radius: 15rpx;
+}
+
 /* ==================
           图片
  ==================== */

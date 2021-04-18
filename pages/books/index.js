@@ -17,15 +17,13 @@ Page({
     const searchType = options.type;
     const keyword = options.keyword;
     // console.log(options)
-    this.setData({
-      searchType: searchType,
-      keyword: keyword
-    })
+    this.setData({ searchType: searchType, keyword: keyword })
     wx.showLoading({ title: '在找了在找了...' });
     var _this = this;
     wx.request({
       url: `${app.globalData.domain}/book/search`,
       data: {type: searchType, keyword: keyword},
+      timeout: app.globalData.requestTimeout,
       method: 'GET',
       success: function(res) {
         wx.hideLoading({});
