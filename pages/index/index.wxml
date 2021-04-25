@@ -3,7 +3,7 @@
 </cu-custom>
 <view class="margin"><official-account class="radius"></official-account></view>
 <view class="padding-lr-sm bg-white margin shadow radius padding-bottom">
-  <view class="solid-bottom padding-top">
+  <view class="padding-top">
     <text class="cuIcon-titles text-green"></text>馆藏图书检索
   </view>
   <view class="cu-bar bg-white search">
@@ -23,6 +23,17 @@
   </radio-group>
 </view>
 
+<!-- 教学周日期显示 -->
+<block wx:if="{{calendar != '' && calendar.teachWeek != 'N/A'}}">
+  <navigator url="../school/calendar" class="padding-lr-sm bg-white margin radius padding-bottom" wx:if="{{calendar.teachWeek > 0 && calendar.teachWeek <= 25}}">
+    <view class="padding-top"><text class="cuIcon-titles text-green"></text>第 <text class="text-xxl text-wegreen">{{calendar.teachWeek}}</text> 周 {{calendar.dayOfWeek}}</view>
+  </navigator>
+</block>
+<block wx:else>
+  <navigator url="../school/calendar" class="padding-lr-sm bg-white margin radius padding-bottom" wx:if="{{calendar != ''}}">
+    <view class="padding-top"><text class="cuIcon-titles text-green"></text>{{calendar.month}}月{{calendar.day}}日 {{calendar.dayOfWeek}}</view>
+  </navigator>
+</block>
 
 <view class="remind-box" wx:if="{{isLoading}}">
   <image class="remind-img" src="/images/loading.gif"></image>
@@ -65,7 +76,6 @@
     <!-- 今日全天课程卡片 -->
     <block wx:if="{{todayCourseCard}}">
       <view class="cu-list menu sm-border card-menu margin">
-
         <navigator url="../course/my" class="cu-bar bg-white solid-bottom">
           <view class="action">
             <text class="cuIcon-title text-green"></text>今日课程
@@ -106,10 +116,6 @@
           </view>
         </navigator>
       </view>
-
-
-
-
     </block>
 
     <!-- 登录了，但没查过课表没缓存 -->

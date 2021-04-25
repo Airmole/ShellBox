@@ -46,21 +46,22 @@ Page({
    * 查询成绩
    */
   getScoreData: function() {
-    var _this = this;
-    const uid = app.globalData.edusysUserInfo.uid;
-    const pwd = app.globalData.edusysUserInfo.password;
+    var _this = this
+    const uid = app.globalData.edusysUserInfo.uid
+    const pwd = app.globalData.edusysUserInfo.password
     wx.request({
       url: `${app.globalData.domain}/edu/score`,
       method: "POST",
       data: { uid: uid, pwd: pwd },
       success: function(res) {
         if (res.statusCode == 200) {
-          _this.setData({ isLoading: false, jsonContent: res.data });
-          wx.setStorageSync('myScore', res.data);
+          _this.setData({ isLoading: false, jsonContent: res.data })
+          wx.setStorageSync('myScore', res.data)
           _this.charts();
-          wx.showToast({ title: '成绩已自动更新为最新', icon: 'none' });
+          wx.vibrateShort({ type: 'medium' })
+          wx.showToast({ title: '成绩已自动更新为最新', icon: 'none' })
         } else {
-          wx.showToast({ title: res.data.message, icon: 'none' });
+          wx.showToast({ title: res.data.message, icon: 'none' })
         }
       }
     })

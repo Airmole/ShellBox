@@ -73,7 +73,7 @@ Page({
     if(inital){
       return
     }
-    if(!inital && _this.hasEdysysUserInfo()){
+    if (!inital && _this.hasEdysysUserInfo()) {
       _this.get_kb();
     } else {
       _this.setData({remind: '请重新登录'})
@@ -252,27 +252,27 @@ Page({
     _this.setData(data);
   },
   get_kb: function () {
-    // console.log('edusysUserInfo-->', app.globalData.edusysUserInfo)
-    var uid = app.globalData.edusysUserInfo.uid;
+    var uid = app.globalData.edusysUserInfo.uid
     var password = app.globalData.edusysUserInfo.password
-    var _this = this;
+    var _this = this
     wx.request({
       url: `${domain}/edu/course`,
-      data: {uid: uid, pwd: password},
+      data: { uid: uid, pwd: password },
       method: 'POST',
       timeout: app.globalData.requestTimeout,
       success: function(res){
         if(res.statusCode == 200){
           // console.log(res.data)
-          wx.setStorage({ data: res.data.course, key: 'myCourse' });
+          wx.setStorage({ data: res.data.course, key: 'myCourse' })
           _this.setData({myCourseJson: res.data, lessons: res.data.course, remind: ''})
-          wx.showToast({ title: '已自动更新最新课表', icon: 'none' });
+          wx.showToast({ title: '已自动更新最新课表', icon: 'none' })
+          wx.vibrateShort({ type: 'medium' })
         } else {
           _this.setData({remind: res.data.message})
-          if(res.statusCode==403){
-            wx.clearStorageSync();
-            app.globalData.edusysUserInfo = {};
-            wx.navigateTo({url: '../index/login'})
+          if (res.statusCode == 403) {
+            wx.clearStorageSync()
+            app.globalData.edusysUserInfo = {}
+            wx.navigateTo({ url: '../index/login' })
           }
         }
       }
@@ -283,7 +283,7 @@ Page({
     var placeArr = ["1教", "2教", "3教", "4教", "5教", "6教", "7教", "8教", "9教", "10教", "11教", "12教", "理工馆", "社科馆"];
     var markerIdArr = [12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 5, 4];
     var result = placeArr.indexOf(ep.currentTarget.dataset.place.slice(0, -3));
-    if(result>=0){ wx.navigateTo({ url: '../traffic/navi?markerId=' + markerIdArr[result]}) }
+    if( result >= 0 ) { wx.navigateTo({ url: '../traffic/navi?markerId=' + markerIdArr[result]}) }
   },
   eventGetImage: function (event) {
     var that = this;
@@ -300,6 +300,7 @@ Page({
     wx.saveImageToPhotosAlbum({
       filePath: this.data.shareImage,
       success(res) {
+        wx.vibrateShort({ type: 'medium' })
         wx.showToast({
           title: '图片已存至相册，可发给好友或设为壁纸',
           icon: 'none',

@@ -29,7 +29,8 @@ Page({
       url: `${app.globalData.domain}/edu/stulist/${code}`,
       method: "GET",
       timeout: app.globalData.requestTimeout,
-      success: function(res){
+      success: function(res) {
+        wx.vibrateShort({ type: 'medium' })
         _this.setData({ students: res.data, isLoading: false });
       }
     })

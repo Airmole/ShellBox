@@ -274,19 +274,16 @@ Page({
     this.setData({ QGroupModal: false })
   },
   logout: function (e) {
-    var anmiaton = e.currentTarget.dataset.class;
-    var _this = this;
-    _this.setData({
-      animation: anmiaton
-    })
+    var anmiaton = e.currentTarget.dataset.class
+    var _this = this
+    _this.setData({ animation: anmiaton })
     setTimeout(function() {
       wx.clearStorage({
         success: (res) => {
-          _this.setData({
-            animation: ''
-          });
-          app.globalData.edusysUserInfo = {};
-          app.globalData.hasEdusysStorage = false;
+          _this.setData({ animation: ''});
+          app.globalData.edusysUserInfo = {}
+          app.globalData.hasEdusysStorage = false
+          wx.vibrateShort({ type: 'medium' })
           wx.navigateTo({
             url: './login',
           });

@@ -146,16 +146,12 @@ Page({
       success: function(res){
         // console.log('eduSysProfile：', res.data)
         try {
-          if(res.data.name.length>1){
+          if (res.data.name.length > 1) {
             res.data.password = password
-            wx.setStorage({
-              data: res.data,
-              key: 'edusysUserInfo',
-            })
+            wx.setStorage({ data: res.data, key: 'edusysUserInfo' })
             app.globalData.edusysUserInfo = res.data
-            wx.switchTab({
-              url: './index',
-            })
+            wx.vibrateShort({ type: 'medium' })
+            wx.switchTab({ url: './index' })
           }
         } catch (error) {
           // _this.getCookie();

@@ -8,22 +8,12 @@ Page({
     CustomBar: app.globalData.CustomBar,
     weekArray: ["sunday", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday"],
     searchType: '02',
-    radioItems: [{
-      name: '书名',
-      value: '02',
-      checked: true
-    },
-    {
-      name: '作者',
-      value: '03'
-    }, {
-      name: '主题',
-      value: '04'
-    },
-    {
-      name: '出版社',
-      value: '09'
-    }],
+    radioItems: [
+      { name: '书名', value: '02', checked: true },
+      { name: '作者', value: '03' },
+      { name: '主题', value: '04' },
+      { name: '出版社', value: '09' }
+    ],
     keyword: '',
     isLoading: true,
     hasLogin: false,
@@ -32,10 +22,12 @@ Page({
     hasCourseCache: false,
     todayCourseCard: false,
     lessons: [],
-    nextCourseArray: []
+    nextCourseArray: [],
+    calendar: ''
   },
   onLoad: function () {
     this.inital();
+    this.getCalendar();
   },
   onShow: function () {
     this.inital();
@@ -96,7 +88,6 @@ Page({
         nowMintues = "0" + nowMintues;
       }
       var nowTime = date.getHours() + ':' + nowMintues;
-      // var nowTime = '13:00';
       for (let i = 0; i < todayCourses.length; i++) {
         if (todayCourses[i]['courseName'] != '') {
           if (timeJs.CompareDate(nowTime, todayCourses[i]['startTime'])) {
@@ -128,23 +119,19 @@ Page({
     })
   },
   showTodayCourseCard: function () {
-    this.setData({ todayCourseCard: true });
+    this.setData({ todayCourseCard: true })
   },
   hideTodayCourseCard: function () {
-    this.setData({ todayCourseCard: false });
+    this.setData({ todayCourseCard: false })
   },
   goLogin: function () {
-    wx.navigateTo({
-      url: '../index/login',
-    })
+    wx.navigateTo({ url: '../index/login' })
   },
-  learnMore: function () {
-    wx.navigateTo({ url: '../school/aboutus' });
+  learnMore: function () { 
+    wx.navigateTo({ url: '../school/aboutus' })
   },
   radioChange: function (e) {
-    this.setData({
-      searchType: e.detail.value
-    })
+    this.setData({ searchType: e.detail.value })
     var radioItems = this.data.radioItems;
     for (var i = 0, len = radioItems.length; i < len; ++i) {
       radioItems[i].checked = radioItems[i].value == e.detail.value;
@@ -184,7 +171,17 @@ Page({
         }
       }
     })
-
+  },
+  getCalendar: function () {
+    var _this = this
+    wx.request({
+      url: `${app.globalData.domain}/edu//calendar`,
+      timeout: app.globalData.requestTimeout,
+      success: function (res) {
+        _this.setData({ calendar: res.data })
+        wx.vibrateShort({ type: 'medium' })
+      }
+    })
   },
   onShareAppMessage: function (res) {
     return {

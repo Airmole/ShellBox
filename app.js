@@ -53,7 +53,6 @@ App({
         self.globalData.hasEdusysStorage = false
       }
     } catch (error) {
-      // console.log(error)
       self.globalData.hasEdusysStorage = false
     }
   },
@@ -96,10 +95,7 @@ App({
             url: self.globalData.domain + `/wechat/openid?jscode=${data.code}`,
             success: function (res) {
               // console.log('拉取openid成功', res.data)
-              wx.setStorage({
-                data: res.data,
-                key: 'openid',
-              })
+              wx.setStorage({ data: res.data, key: 'openid' })
               self.globalData.openid = res.data.openid
             },
             fail: function (res) {

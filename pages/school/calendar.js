@@ -40,15 +40,12 @@ Page({
     wx.request({
       url: app.globalData.domain + '/edu/calendar',
       success(res) {
-        console.log(res.data)
-        _this.setData({
-          jsonContent: res.data,
-        })
+        // console.log(res.data)
+        _this.setData({ jsonContent: res.data })
         setTimeout(function () {
-          _this.setData({
-            isLoading: false
-          });
-        }, 800);
+          _this.setData({ isLoading: false })
+          wx.vibrateShort({ type: 'medium' })
+        }, 800)
       }
     })
 

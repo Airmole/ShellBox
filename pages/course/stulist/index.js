@@ -33,12 +33,10 @@ Page({
         try {
           if(res.data.name.length>1){
             res.data.password = pwd
-            wx.setStorage({
-              data: res.data,
-              key: 'edusysUserInfo',
-            })
+            wx.setStorage({ data: res.data, key: 'edusysUserInfo' })
             app.globalData.edusysUserInfo = res.data
-           _this.setData({ courseIndex: res.data.allCourses, isLoading: false });
+            _this.setData({ courseIndex: res.data.allCourses, isLoading: false })
+            wx.vibrateShort({ type: 'medium' })
           }
         } catch (error) {
           console.log(error)

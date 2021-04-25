@@ -61,7 +61,7 @@ Page({
         } else {
           wx.hideLoading();
           wx.showModal({
-            title: '嘿嘿嘿',
+            title: '温馨提醒',
             content: '图书馆貌似没有这本书',
             showCancel: false,
             success() { wx.navigateBack({ delta: 1 }) }

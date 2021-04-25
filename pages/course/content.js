@@ -244,7 +244,7 @@ Page({
       success: function(res){
         if(res.statusCode == 200){
           // console.log(res.data)
-          _this.setData({ title: res.data[0].title, lessons: res.data[0].class, remind: '' });
+          _this.setData({ title: res.data[0].title, lessons: res.data[0].class, remind: '' })
         } else {
           _this.setData({remind: res.data.message})
         }
