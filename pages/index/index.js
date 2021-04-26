@@ -175,7 +175,7 @@ Page({
   getCalendar: function () {
     var _this = this
     wx.request({
-      url: `${app.globalData.domain}/edu//calendar`,
+      url: `${app.globalData.domain}/edu/calendar`,
       timeout: app.globalData.requestTimeout,
       success: function (res) {
         _this.setData({ calendar: res.data })
