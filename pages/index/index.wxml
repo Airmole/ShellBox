@@ -2,7 +2,7 @@
   <view slot="content">贝壳小盒子</view>
 </cu-custom>
 <view class="margin"><official-account class="radius"></official-account></view>
-<view class="padding-lr-sm bg-white margin shadow radius padding-bottom">
+<view class="padding-lr-sm bg-white margin shadow radius padding-bottom" bindtap="goToBookSearchPage">
   <view class="padding-top">
     <text class="cuIcon-titles text-green"></text>馆藏图书检索
   </view>
@@ -13,12 +13,12 @@
         bindconfirm="searchBook"></input>
     </view>
   </view>
-  <radio-group class="block" bindchange="radioChange">
+  <radio-group class="block">
     <view class="grid col-5 text-center margin-top-sm align-center">
       <view class="text-sm" wx:for="{{radioItems}}" wx:key="radio">
         <radio value="{{item.value}}" checked="{{item.checked}}"></radio>{{item.name}}
       </view>
-      <view><button class="cu-btn round bg-green shadow" bindtap="searchBook">搜索</button></view>
+      <view><button class="cu-btn round bg-green shadow">搜索</button></view>
     </view>
   </radio-group>
 </view>
@@ -120,27 +120,21 @@
 
     <!-- 登录了，但没查过课表没缓存 -->
     <block wx:if="{{!hasCourseCache}}">
-      <navigator url="../course/my">
-        <view class="remind-box margin-xl bg-white radius" style="padding-bottom: 50rpx;">
-          <image class="remind-img" src="/images/nothing.png"></image>
-          <text class="remind-text text-xl">您刚登陆吧？来查一次课表吧</text>
-          <view class="margin-tb-sm text-center">
-            <view class="cu-btn round bg-green shadow">查询课表</view>
-          </view>
+      <navigator url="../course/my" class="bg-white margin radius padding-xs">
+        <tips tipsText="您刚登陆吧？来查一次课表吧"></tips>
+        <view class="margin-tb-sm text-center">
+          <view class="cu-btn round bg-green shadow">查询课表</view>
         </view>
       </navigator>
     </block>
 
   </block>
+  <!-- 未登录绑定 -->
   <block wx:else>
-    <view class="remind-box margin-xl">
-      <image class="remind-img" src="/images/nothing.png"></image>
-      <text class="remind-text">您咋还没绑定账号呢？</text>
-      <view class="margin-tb-sm text-center">
-        <button class="cu-btn round bg-green shadow" bindtap="goLogin">绑定登录</button>
-      </view>
+    <tips tipsText="您咋还没绑定账号呢？"></tips>
+    <view class="margin-tb-sm text-center">
+      <button class="cu-btn round bg-green shadow" bindtap="goLogin">绑定登录</button>
     </view>
   </block>
-
 
 </view>

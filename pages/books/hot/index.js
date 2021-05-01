@@ -122,6 +122,7 @@ Page({
       timeout: app.globalData.requestTimeout,
       success: (res) => {
         _this.setData({booklist: res.data, isLoading: false})
+        wx.vibrateShort({ type: 'medium' })
       }
     })
   },

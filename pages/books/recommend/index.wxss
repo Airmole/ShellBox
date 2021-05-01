@@ -1,1 +1,2 @@
 /* pages/books/recommend/index.wxss */
+@import "../../school/cert.wxss";

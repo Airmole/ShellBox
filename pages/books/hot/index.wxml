@@ -72,4 +72,6 @@
     </navigator>
   </view>
 
+  <tips wx:if="{{booklist.length == 0}}" tipsText="空的，没有数据"></tips>
+
 </view>

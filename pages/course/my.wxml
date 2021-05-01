@@ -148,7 +148,7 @@
         <!-- 底部 -->
         <view class="kb-info-ctn {{blur?'kb-info-ctn-open':''}}" catchtouchmove="catchMoveDetail">
             <view class="kb-info-title" wx:if="{{!blur}}">
-                <text class="kb-term" wx:if="{{myCourseJson}}">{{myCourseJson.schoolYear}} 第{{myCourseJson.semester}}学期 {{myCourseJson.dayOfWeek}}</text>
+                <text class="kb-term" wx:if="{{myCourseJson}}">{{myCourseJson.schoolYear}} 第{{myCourseJson.semester}}学期 第{{myCourseJson.teachWeek}}周 {{myCourseJson.dayOfWeek}}</text>
                 <!--更多功能-->
                 <view class="kb-choose-view-box">
                     <view bindtap="drawToPic" class="cu-tag bg-white line-blue radius" data-cid="{{cid}}">存图</view>

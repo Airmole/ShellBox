@@ -1,0 +1,43 @@
+<!--pages/books/search.wxml-->
+<cu-custom bgColor="bg-wegreen" isCustom="{{true}}">
+  <view slot="content">贝壳小盒子 - 图书检索</view>
+</cu-custom>
+
+<view class="padding-lr-sm bg-white margin shadow radius padding-bottom">
+  <view class="padding-top">
+    <text class="cuIcon-titles text-green"></text>馆藏图书检索
+  </view>
+  <view class="cu-bar bg-white search">
+    <view class="search-form round">
+      <text class="cuIcon-search"></text>
+      <input type="text" placeholder="输入要检索的图书关键词" confirm-type="search" bindinput="keywordInput"
+        bindconfirm="searchBook" auto-focus="true"></input>
+    </view>
+  </view>
+  <radio-group class="block" bindchange="radioChange">
+    <view class="grid col-5 text-center margin-top-sm align-center">
+      <view class="text-sm" wx:for="{{radioItems}}" wx:key="radio">
+        <radio value="{{item.value}}" checked="{{item.checked}}"></radio>{{item.name}}
+      </view>
+      <view><button class="cu-btn round bg-green shadow" bindtap="searchBook">搜索</button></view>
+    </view>
+  </radio-group>
+</view>
+
+
+<view class="padding-lr-sm bg-white margin shadow radius padding-bottom" wx:if="{{hotwords.length > 0}}">
+  <view class="padding-tb"><text class="cuIcon-titles text-green"></text>热门检索关键词</view>
+  <view class="bg-white">
+    <navigator url="../books/index?type=02&keyword={{item}}" class="cu-tag round margin-lr margin-tb-xs" wx:for="{{hotwords}}" wx:key="hotkey">{{item}}</navigator>
+  </view>
+</view>
+
+<view class="padding-lr-sm bg-white margin shadow radius padding-bottom" wx:if="{{shelfCatalog.length > 0}}">
+  <view class="padding-tb"><text class="cuIcon-titles text-green"></text>学科图书类别导航</view>
+  <view class="bg-white">
+    <view wx:for="{{shelfCatalog}}" wx:key="catalog">
+      <view class="padding-tb-xs padding-left"><text class="cuIcon-titles text-green"></text>{{item.title}}</view>
+      <navigator url="../books/shelf?shelfType=public&title={{citem.name}}&clc={{citem.clc}}&slc={{citem.slc}}" class="cu-tag line-wegreen margin-xs"  wx:for="{{item.data}}" wx:for-item="citem" wx:key="catalog">{{citem.title}}</navigator>
+    </view>
+  </view>
+</view>

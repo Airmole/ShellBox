@@ -20,7 +20,7 @@
       <view class="content padding-tb-sm">
         <view><text user-select="true">{{item.data[0].value}}. {{item.data[1].value}}</text></view>
         <view class="text-gray text-sm">
-          <text decode="true" user-select="true"><text class="cuIcon-activity text-cyan"></text>{{item.data[2].value}} | {{item.data[3].value}} | {{item.data[4].value}} \n <text class="cuIcon-tag text-cyan"></text>索书号：<text
+          <text decode="true" user-select="true"><text class="cuIcon-activity text-cyan"></text>{{item.data[2].value}} | {{item.data[3].value}} | {{item.data[4].value}} \n <text class="cuIcon-tag text-cyan"></text><text
               class="text-cyan">{{item.data[5].title}}：{{item.data[5].value}}</text>
           </text>
         </view>
@@ -29,5 +29,7 @@
       </view>
     </navigator>
   </view>
+
+  <tips wx:if="{{shelf.length == 0}}" tipsText="这里是空的诶~"></tips>
 
 </view>

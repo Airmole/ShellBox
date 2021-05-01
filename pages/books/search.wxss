@@ -1,0 +1,4 @@
+/* pages/books/search.wxss */
+page {
+  background-color: var(--wegreen);
+}

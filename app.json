@@ -3,6 +3,7 @@
     "pages/index/index",
     "pages/index/login",
     "pages/index/feature",
+    "pages/books/search",
     "pages/books/index",
     "pages/books/detail",
     "pages/books/shelf",

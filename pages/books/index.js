@@ -8,6 +8,7 @@ Page({
     keyword: "",
     searchType: '',
     searchResult: {},
+    isLoading: true
   },
 
   /**
@@ -16,6 +17,10 @@ Page({
   onLoad: function(options) {
     const searchType = options.type;
     const keyword = options.keyword;
+    if (keyword.indexOf('978') >= 0) {
+      wx.redirectTo({ url: `../books/detail?code=${keyword}&codeType=isbn` })
+      return
+    }
     // console.log(options)
     this.setData({ searchType: searchType, keyword: keyword })
     wx.showLoading({ title: '在找了在找了...' });
@@ -26,7 +31,8 @@ Page({
       timeout: app.globalData.requestTimeout,
       method: 'GET',
       success: function(res) {
-        wx.hideLoading({});
+        wx.hideLoading({})
+        _this.setData({ isLoading: '' })
         if (res.data.total > 0) {
           _this.setData({
             searchResult: res.data

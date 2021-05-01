@@ -32,4 +32,6 @@
     </navigator>
   </view>
 
+  <tips wx:if="{{searchResult.content.length == 0}}" tipsText="啊~虾米都没有搜到"></tips>
+
 </view>

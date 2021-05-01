@@ -357,5 +357,11 @@ Page({
     this.setData({
       'help_status': false
     });
+  },
+  showDoc: function () {
+    wx.navigateToMiniProgram({
+      appId: 'wxd45c635d754dbf59',
+      path: 'pages/detail/detail?qqdocurl=https%3A%2F%2Fdocs.qq.com%2Fpdf%2FDVERBQWFEeHRQSnRq&url=https%3A%2F%2Fdocs.qq.com%2Fpdf%2FDVERBQWFEeHRQSnRq&scene=k57fg4fBFfg4IRaWa0VAFfg4hb4ln1'
+    })
   }
 });

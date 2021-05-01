@@ -1,0 +1,5 @@
+<!--pages/index/component/tips.wxml-->
+<view class="remind-box margin-xl">
+  <image class="remind-img" src="/images/nothing.png"></image>
+  <text class="remind-text">{{tipsText}}</text>
+</view>

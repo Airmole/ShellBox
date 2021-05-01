@@ -188,5 +188,10 @@ Page({
       title: '贝壳小盒子',
       path: 'pages/index/index',
     }
+  },
+  goToBookSearchPage: function () {
+    wx.navigateTo({
+      url: '../books/search',
+    })
   }
 })

@@ -60,7 +60,8 @@
             </view>
             <view class="help-q">2、忘记密码？</view>
             <view class="help-a">
-              <text bindtap="showResetModal" style="color:#8E54EC;">点击这里，重置教务系统密码。重置后教务系统密码也同步被修改。</text>
+              <!-- <text bindtap="showResetModal" style="color:#8E54EC;">点击这里，重置教务系统密码。重置后教务系统密码也同步被修改。</text> -->
+              <view>忘记密码请重置找回教务系统密码。找回教务系统密码后使用教务密码登录即可。<text bindtap="showDoc" style="color:#8E54EC;">(找回教务密码文档)</text></view>
             </view>
             <view class="help-q">3、大一新生？暂时还没有学号😥</view>
             <view class="help-a">

@@ -1,2 +1,27 @@
 <!--pages/books/recommend/index.wxml-->
-<text>pages/books/recommend/index.wxml</text>
+<cu-custom bgColor="bg-cyan" isCustom="{{true}}">
+  <view slot="content">{{title}}</view>
+</cu-custom>
+
+<view class="remind-box" wx:if="{{isLoading}}" style="height:{{screenHeight}}px;">
+  <image class="remind-img" src="/images/loading.gif"></image>
+</view>
+<view class='padding-bottom-xl' wx:else>
+
+  <!-- 热门图书列表 -->
+  <view class="cu-list menu sm-border card-menu margin-top margin-bottom radius">
+    <view class="cu-item" wx:for='{{datalist}}' wx:key='list'>
+      <view class="content padding-tb-sm">
+        <view><text user-select="true">{{item.data[0].value}}.《{{item.data[1].value}}》</text></view>
+        <view class="text-gray text-sm">
+          <text decode="true" user-select="true"><text class="cuIcon-people text-cyan"></text>{{item.data[2].value}} | {{item.data[3].value}} \n <text class="cuIcon-barcode text-cyan"></text>{{item.data[4].title}}:<text
+              class="text-cyan">{{item.data[4].value}}</text> | <text class="text-cyan">{{item.data[5].value}}</text>\n <text class="text-gray">{{item.data[6].title}}:<text class="text-cyan" wx:if="{{item.data[6].value.length > 0}}">{{item.data[6].value}}</text><text class="text-cyan" wx:else>暂无</text></text>
+          </text>
+        </view>
+      </view>
+      <view class="action">
+      </view>
+    </view>
+  </view>
+  
+</view>

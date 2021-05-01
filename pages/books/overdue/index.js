@@ -50,6 +50,7 @@ Page({
       timeout: app.globalData.requestTimeout,
       success: (res) => {
         _this.setData({datalist: res.data, isLoading: false})
+        wx.vibrateShort({ type: 'medium' })
       }
     })
   },
@@ -78,7 +79,8 @@ Page({
       url: `${app.globalData.domain}/book/fine/${uid}`,
       timeout: app.globalData.requestTimeout,
       success: (res) => {
-        _this.setData({myFine: res.data});
+        _this.setData({myFine: res.data})
+        wx.vibrateShort({ type: 'medium' })
       }
     })
   },

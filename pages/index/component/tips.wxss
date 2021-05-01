@@ -1,0 +1,19 @@
+/* pages/index/component/tips.wxss */
+/* @import "../../../app.wxss"; */
+
+.remind-box {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.remind-img {
+  width: 250rpx;
+  height: 250rpx;
+  padding-bottom: 25rpx;
+}
+
+.cu-form-group .title {
+  min-width: calc(4em + 30rpx);
+}
