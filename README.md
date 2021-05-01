@@ -36,8 +36,8 @@
     "pages/course/content",          // 班级教师课表详情
     "pages/course/stulist/index",    // 教师课堂学生花名册列表
     "pages/course/stulist/content",  // 教师课堂学生花名册详情
-    "pages/traffic/navi",             // 校园导航
-    "pages/traffic/bus",              // 校园出行
+    "pages/traffic/navi",            // 校园导航
+    "pages/traffic/bus",             // 校园出行
     "pages/score/score",             // 成绩查询
     "pages/school/calendar",         // 校历
     "pages/school/tel",              // 校园通讯录
