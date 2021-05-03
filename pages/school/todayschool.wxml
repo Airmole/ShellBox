@@ -1,0 +1,33 @@
+<!--pages/school/todayschool.wxml-->
+<cu-custom bgColor="bg-cyan" isCustom="{{true}}">
+  <view slot="content">今日校园</view>
+</cu-custom>
+<view class="padding--top-xl margin-top-xl bg-white">
+  <view class="text-center padding-xl margin-xl">
+    <view class="padding-sm" style="font-size: 150px;">
+      <text class="cuIcon-roundcheckfill" style="color:#73F053;"></text>
+    </view>
+    <view class="text-xl"><text style="color:#73F053;" class="text-bold">进校验证通过</text></view>
+  </view>
+</view>
+
+<view class="padding-lr">
+  <view class="content padding-sm" style="color: #8B99A3;">
+    <view class="flex padding-tb-xs">
+      <view class="basis-xxs"><text class="text-lg text-black text-bold">姓名：</text></view>
+      <view><text class="text-lg text-black text-bold">{{userinfo.name}}</text></view>
+    </view>
+    <view class="flex padding-tb-xs">
+      <view class="basis-xxs"><text class="text-lg text-black text-bold">单位/学院：</text></view>
+      <view><text class="text-lg text-black">{{userinfo.college}}</text></view>
+    </view>
+    <view class="flex padding-tb-xs">
+      <view class="basis-xxs"><text class="text-lg text-black text-bold">通行区域：</text></view>
+      <view bindtap="changeArea"><text class="text-lg text-black">{{area}}</text></view>
+    </view>
+    <view class="flex padding-tb-xs">
+      <view class="basis-xxs"><text class="text-lg text-black text-bold">通行时间：</text></view>
+      <view><text class="text-lg text-black">{{timeText}}</text></view>
+    </view>
+  </view>
+</view>

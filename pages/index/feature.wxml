@@ -1,7 +1,7 @@
 <!--pages/index/feature.wxml-->
 <scroll-view scroll-y class="scrollPage">
   <view class="UCenter-bg">
-    <view class="userinfo-avatar shadow-blur">
+    <view class="userinfo-avatar shadow-blur" bindtap="clickAvatar">
       <open-data type="userAvatarUrl"></open-data>
     </view>
     <view class="text-xl line-black">

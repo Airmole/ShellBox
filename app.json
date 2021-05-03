@@ -25,6 +25,7 @@
     "pages/school/cert",
     "pages/school/web",
     "pages/school/aboutus",
+    "pages/school/todayschool",
     "pages/school/xiaoai"
   ],
   "window": {

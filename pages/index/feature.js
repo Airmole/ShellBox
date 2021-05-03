@@ -235,6 +235,11 @@ Page({
       return;
     }
 
+    if(id == 'todayschool'){
+      this.scanTodaySchool();
+      return;
+    }
+
     if(id == 'teacherBus'){
       wx.navigateToMiniProgram({ appId: 'wx183616af30e5723d' });
       return;
@@ -297,4 +302,35 @@ Page({
       path: 'pages/index/feature',
     }
   },
+  clickAvatar: function () {
+    const hasEdusysStorage = this.data.hasEdusysStorage;
+    if (!hasEdusysStorage) {
+      return
+    }
+    console.log(1)
+    let iconList = this.data.iconList
+    iconList.push({
+      id: 'todayschool',
+      icon: 'plane',
+      teacher: false,
+      student: true,
+      name: '今日校园',
+      url: '',
+      login: true,
+    })
+    this.setData({
+      iconList: iconList
+    })
+  },
+  scanTodaySchool: function(){
+    wx.scanCode({
+      success: (res) => {
+        if (res.errMsg !== 'scanCode:ok') {
+          wx.showToast({ title: res.errMsg, icon: 'none'})
+          return;
+        }
+        wx.navigateTo({ url: `../school/todayschool` })
+      }
+    })
+  }
 })
