@@ -3533,6 +3533,11 @@ scroll-view.cu-steps .cu-item {
 	color: var(--white);
 }
 
+.bg-netfee {
+	background-color: #ffcb63;
+	color: var(--white);
+}
+
 .bg-shadeTop {
 	background-image: linear-gradient(rgba(0, 0, 0, 1), rgba(0, 0, 0, 0.01));
 	color: var(--white);

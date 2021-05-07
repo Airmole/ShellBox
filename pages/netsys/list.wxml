@@ -1,0 +1,142 @@
+<!--pages/netsys/list.wxml-->
+<cu-custom bgColor="bg-netfee" isCustom="{{true}}">
+  <view slot="content">{{title}}</view>
+</cu-custom>
+<view class="remind-box" wx:if="{{isLoading}}" style="height:{{screenHeight}}px;">
+  <image class="remind-img" src="/images/loading.gif"></image>
+</view>
+<view wx:else>
+  <view class="result-page margin">
+
+    <block wx:if="{{type=='feebill'}}">
+      <!-- 结算账单查询选择区域 -->
+      <view class="cu-bar bg-white solid-bottom radius-top">
+        <view class="action">
+          <text class="cuIcon-title text-yellow"></text> 查询本人上网费用结算账单
+        </view>
+      </view>
+      <view class="cu-form-group">
+        <view class="title">年份</view>
+        <picker mode="date" value="{{year}}" fields="year" start="{{year-10}}" end="{{year}}" bindchange="yearChange">
+          <view class="picker"> {{year}} </view>
+        </picker>
+      </view>
+      <view class="flex cu-form-group justify-end radius-bottom">
+        <button bindtap="searchFeebill" class="cu-btn bg-yellow round shadow text-white">查找</button>
+      </view>
+      <!-- 结算账单数据汇总区域 -->
+      <view class="result-chargeInfo">
+        <view class="chargeInfo-num chargeInfo-model result-model">
+          <text class="chargeInfo-model-title">基本月租</text>
+          <view class="chargeInfo-model-info">
+            <text class="model-info{{info.summary.basicMonthlyRent.length>6?'-lite':''}}">{{info.summary.basicMonthlyRent}}</text>元
+          </view>
+        </view>
+        <view class="chargeInfo-cost chargeInfo-model result-model radius">
+          <block>
+            <text class="chargeInfo-model-title">时长计费</text>
+            <view class="chargeInfo-model-info">
+              <text class="model-info{{info.summary.fee.length>6?'-lite':''}}">{{info.summary.fee}}</text> 元
+            </view>
+          </block>
+        </view>
+      </view>
+      <view class="result-chargeInfo">
+        <view class="chargeInfo-num chargeInfo-model result-model">
+          <text class="chargeInfo-model-title">使用时长</text>
+          <view class="chargeInfo-model-info">
+            <text class="model-info{{info.summary.usedMinutes.length>6?'-lite':''}}">{{info.summary.usedMinutes}}</text>分钟
+          </view>
+        </view>
+        <view class="chargeInfo-cost chargeInfo-model result-model radius">
+          <block>
+            <text class="chargeInfo-model-title">使用流量</text>
+            <view class="chargeInfo-model-info"><text class="model-info{{info.summary.usedFlow.length>6?'-lite':''}}">{{info.summary.usedFlow}}</text>MB</view>
+          </block>
+        </view>
+      </view>
+    </block>
+    <block wx:if="{{type=='bizlog' || type=='payment'}}">
+      <!-- 业务操作记录查询选择区域 -->
+      <radio-group class="block" bindchange="radioChange">
+        <view class="cu-bar bg-white solid-bottom radius-top">
+          <view wx:if="{{type == 'bizlog'}}" class="action"><text class="cuIcon-title text-yellow"></text> 查询本人业务办理记录</view>
+          <view wx:if="{{type == 'payment'}}" class="action"><text class="cuIcon-title text-yellow"></text> 查询本人交费明细</view>
+        </view>
+        <view class="cu-form-group">
+          <view class="title">查询方式</view>
+          <view wx:for="{{radioItems}}" wx:key="radio">
+            <radio class="yellow" value="{{item.value}}" checked="{{item.checked}}"></radio>{{item.name}}
+          </view>
+        </view>
+        <view class="cu-form-group" wx:if="{{getDataBy == 3}}">
+          <view class="title">月份</view>
+          <picker mode="date" value="{{month}}" fields="month" end="{{month}}" bindchange="monthChange">
+            <view class="picker"> {{month}} </view>
+          </picker>
+        </view>
+        <view class="cu-form-group" wx:if="{{getDataBy == 4}}">
+          <view class="title">开始日期</view>
+          <picker mode="date" value="{{today}}" end="{{today}}" bindchange="startDateChange">
+            <view class="picker"> {{startDate}} </view>
+          </picker>
+        </view>
+        <view class="cu-form-group" wx:if="{{getDataBy == 4}}">
+          <view class="title">结束日期</view>
+          <picker mode="date" value="{{today}}" end="{{today}}" bindchange="endDateChange">
+            <view class="picker"> {{endDate}} </view>
+          </picker>
+        </view>
+        <view class="flex cu-form-group justify-end radius-bottom">
+          <button bindtap="searchLog" class="cu-btn bg-yellow round shadow text-white">查找</button>
+        </view>
+      </radio-group>
+    </block>
+    <block wx:if="{{type=='uselog'}}">
+      <!-- 上网记录查询选择区域 -->
+      <view class="cu-bar bg-white solid-bottom radius-top">
+        <view class="action">
+          <text class="cuIcon-title text-yellow"></text> 查询本人上下网使用详单
+        </view>
+      </view>
+      <view class="cu-form-group" wx:if="{{getDataBy == 4}}">
+        <view class="title">开始日期</view>
+        <picker mode="date" value="{{today}}" end="{{today}}" bindchange="startDateChange">
+          <view class="picker"> {{startDate}} </view>
+        </picker>
+      </view>
+      <view class="cu-form-group" wx:if="{{getDataBy == 4}}">
+        <view class="title">结束日期</view>
+        <picker mode="date" value="{{today}}" end="{{today}}" bindchange="endDateChange">
+          <view class="picker"> {{endDate}} </view>
+        </picker>
+      </view>
+      <view class="flex cu-form-group justify-end radius-bottom">
+        <button bindtap="searchLog" class="cu-btn bg-yellow round shadow text-white">查找</button>
+      </view>
+    </block>
+
+  </view>
+
+  <view wx:if="{{info.data.length > 0}}" class="cu-list menu sm-border card-menu" style="padding-bottom: 100rpx;">
+    <view class="cu-item">
+      <view class="action">
+        <text class="cuIcon-title text-yellow"></text>查询结果<block wx:if="{{info.summary.timePeriod}}"></block>
+      </view>
+      <view class="action">共{{info.data.length}}条</view>
+    </view>
+    <view class="cu-item" wx:for="{{info.data}}" wx:key="list">
+      <view class="content padding-tb" style="color: #8B99A3;">
+        <view class="flex padding-tb-xs" wx:for="{{item}}" wx:for-item="row" wx:key="row">
+          <view class="basis-{{type=='feebill' || type=='uselog'?'df':'xxs'}} word-wrap"><text>{{row.name}}: </text></view>
+          <view class="basis-{{type=='feebill' || type=='uselog'?'df':'llg'}} word-wrap">{{row.value}}</view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view wx:else>
+    <tips tipsText="没有符合条件的数据"></tips>
+  </view>
+
+  <image class="sdf-bg" src="/images/netfare-bg.png"></image>
+</view>

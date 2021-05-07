@@ -7,6 +7,7 @@ App({
     openid: '',
     userInfo: {},
     edusysUserInfo: {},
+    netsysUserInfo: '',
     hasEdusysStorage: false
   },
   onLaunch: function () {

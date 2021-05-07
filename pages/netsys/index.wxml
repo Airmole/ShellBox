@@ -1,0 +1,86 @@
+<!--pages/netsys/index.wxml-->
+<cu-custom bgColor="bg-netfee" isCustom="{{true}}">
+  <view slot="content">网费查询</view>
+</cu-custom>
+<view class="remind-box" wx:if="{{isLoading}}" style="height:{{screenHeight}}px;">
+  <image class="remind-img" src="/images/loading.gif"></image>
+</view>
+<view class='margin' wx:else>
+
+  <view class="result-page">
+    <view class="result-userInfo result-model">
+      <view class="userInfo-dormitory">
+        <text class="dormitory-info">{{info.name}}</text>
+        <view  class="dormitory-resetBtn">{{netid}}</view>
+      </view>
+      <view class="userInfo-basic">
+        <view class="basic-name"><view class="cu-tag line-{{info.status=='停机'?'red':'green'}} radius">{{info.status}}</view> {{info.service}}</view>
+        <view class="cu-tag line-yellow radius" bindtap="unbind">解绑</view>
+      </view>
+    </view>
+
+    <view class="result-chargeInfo">
+      <view class="chargeInfo-num chargeInfo-model result-model">
+        <text class="chargeInfo-model-title">余额</text>
+        <view class="chargeInfo-model-info">
+          <text class="model-info">{{info.leftMoney}}</text>元
+        </view>
+      </view>
+      <view class="chargeInfo-cost chargeInfo-model result-model radius">
+        <block>
+          <text class="chargeInfo-model-title">本月计费</text>
+          <view class="chargeInfo-model-info">
+            <text class="model-info">{{info.monthlyFare}}</text> 元
+          </view>
+        </block>
+      </view>
+    </view>
+    
+    <view class="result-specificInfo result-model">
+      <view class="specificInfo-item">
+        <text class="specificInfo-item-label">本月流量</text>
+        <text class="specificInfo-item-value">{{info.monthlyFlow}}</text>MB
+        <text></text>
+      </view>
+      <view class="specificInfo-item">
+        <text class="specificInfo-item-label">本月在线时长</text>
+        <text class="specificInfo-item-value">{{info.monthlyTime}}</text>分钟
+        <text></text>
+      </view>
+      <view class="specificInfo-item">
+        <text class="specificInfo-item-label">使用宿舍</text>
+        <text class="specificInfo-item-value">{{info.userAddress}}</text>
+      </view>
+    </view>
+
+    <view class="margin-top bg-white cu-list menu radius">
+      <view class="cu-item arrow">
+        <navigator class="content" hover-class="none" url="./list?type=feebill&title=扣费账单">
+          <text class="cuIcon-refund text-orange"></text>
+          <text class="text-grey">扣费账单</text>
+        </navigator>
+      </view>
+      <view class="cu-item arrow">
+        <navigator class="content" hover-class="none" url="./list?type=bizlog&title=业务办理记录">
+          <text class="cuIcon-form text-orange"></text>
+          <text class="text-grey">业务办理记录</text>
+        </navigator>
+      </view>
+      <view class="cu-item arrow">
+        <navigator class="content" hover-class="none" url="./list?type=uselog&title=上网详单">
+          <text class="cuIcon-list text-orange"></text>
+          <text class="text-grey">上网详单</text>
+        </navigator>
+      </view>
+      <view class="cu-item arrow">
+        <navigator class="content" hover-class="none" url="./list?type=payment&title=缴费明细">
+          <text class="cuIcon-moneybag text-orange"></text>
+          <text class="text-grey">缴费明细</text>
+        </navigator>
+      </view>
+    </view>
+
+  </view>
+
+  <image class="sdf-bg" src="/images/netfare-bg.png"></image>
+</view>

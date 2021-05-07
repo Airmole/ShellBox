@@ -13,8 +13,8 @@
     "miniprogram": {
       "list": [
         {
-          "name": "pages/school/todayschool",
-          "pathName": "pages/school/todayschool",
+          "name": "pages/netsys/bind",
+          "pathName": "pages/netsys/bind",
           "query": "",
           "scene": 1047
         }

@@ -1,0 +1,66 @@
+<!--pages/netsys/bind.wxml-->
+<view class="container">
+  <view class="remind-box" wx:if="{{remind}}">
+    <image class="remind-img" src="/images/loading.gif"></image>
+  </view>
+  <block wx:else>
+    <image class="title-login" src="{{bgimg}}"></image>
+    <view class="content-login">
+      <view class="hd" style="transform:rotateZ({{angle}}deg);">
+        <image class="logo" src="/images/schoolLogo.png"></image>
+        <image class="wave" src="/images/wave.png" mode="aspectFill"></image>
+        <image class="wave wave-bg" src="/images/wave.png" mode="aspectFill"></image>
+      </view>
+      <view class="bd">
+        <form class="login-form">
+          <view class="input-group {{netid_focus ? 'active' : ''}}">
+            <text class="input-label">网络帐号</text>
+            <input type="number" cursor-spacing="30" id="netid" maxlength="9" placeholder="校园网登录账号"
+              bindinput="netidInput" bindfocus="inputFocus" bindblur="inputBlur" confirm-type="next" value="{{netid}}"/>
+          </view>
+          <view class="input-group {{passwd_focus ? 'active' : ''}}">
+            <text class="input-label">密码</text>
+            <input password="true" cursor-spacing="30" id="passwd" placeholder="校园网账号上网密码" bindinput="passwdInput"
+              bindfocus="inputFocus" bindblur="inputBlur" confirm-type="next" />
+          </view>
+          <view class="login-help">
+            <view class="text-blue" bindtap="showHelp"></view>
+            <view>
+              <text class="line-blue light" bindtap="showHelp">帮助</text>
+              <text class="cuIcon-questionfill line-blue light"></text>
+            </view>
+          </view>
+        </form>
+        <view class="confirm-btn" bindtap="bind">
+          <text>确认绑定</text>
+        </view>
+      </view>
+
+      <view class="help" id="help" wx:if="{{help_status}}" bindtap="tapHelp">
+        <view class="box">
+          <view class="box-hd">
+            <text class="box-title">帮助</text>
+            <image class="box-close" src="/images/close.png" bindtap="hideHelp"></image>
+          </view>
+          <view class="box-bd">
+            <view class="help-q">1、网络账号和密码是什么？</view>
+            <view class="help-a">
+              <text>网络账号：您在”北京科技大学天津学院智慧校园“公众号注册申请的上网账号，一般为学号。</text>
+              <text>密码：校园网用于连接网络的上网密码。</text>
+            </view>
+            <view class="help-q">2、忘记密码？</view>
+            <view class="help-a">
+              <view>忘记密码请携带身份证和学生证前往3教309网络中心信息化中心办公室重置密码。</view>
+            </view>
+            <view class="help-q">3、还没有开通校园网上网账号？😥</view>
+            <view class="help-a">
+              <text>建议关注”北京科技大学天津学院智慧校园“微信公众号，密切留意关注申请注册开通校园网时间。</text>
+            </view>
+          </view>
+        </view>
+      </view>
+
+    </view>
+  </block>
+
+</view>

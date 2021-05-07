@@ -1,0 +1,11 @@
+/* pages/netsys/list.wxss */
+@import "../school/cert.wxss";
+@import "./index.wxss";
+
+page{
+  background-color: #eee;
+}
+
+.word-wrap {
+  word-wrap:break-word;
+}
