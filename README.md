@@ -4,7 +4,7 @@
 
 [![Star](https://img.shields.io/badge/Star-Airmole-brightgreen.svg)](https://github.com/Airmole/ShellBox/stargazers)
 [![Download](https://img.shields.io/badge/download-.zip-brightgreen.svg)](https://github.com/Airmole/ShellBox/archive/master.zip)
-[![last commit](https://img.shields.io/badge/last%20commit-2021--05--02-green.svg)](https://github.com/Airmole/ShellBox/commits/master)
+[![last commit](https://img.shields.io/badge/last%20commit-2021--05--07-green.svg)](https://github.com/Airmole/ShellBox/commits/master)
 
 
 ## 线上版本体验
@@ -36,6 +36,9 @@
     "pages/course/content",          // 班级教师课表详情
     "pages/course/stulist/index",    // 教师课堂学生花名册列表
     "pages/course/stulist/content",  // 教师课堂学生花名册详情
+    "pages/netsys/bind",             // 校园网账号绑定
+    "pages/netsys/index",            // 网费查询结果界面
+    "pages/netsys/list",             // 网费查询明细
     "pages/traffic/navi",            // 校园导航
     "pages/traffic/bus",             // 校园出行
     "pages/score/score",             // 成绩查询
