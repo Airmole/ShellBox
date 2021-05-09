@@ -1,5 +1,6 @@
 {
   "usingComponents": {
-    "tips": "./component/tips"
+    "tips": "./component/tips",
+    "feecard": "./component/feecard"
   }
 }

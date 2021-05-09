@@ -17,6 +17,8 @@
     "pages/course/content",
     "pages/course/stulist/index",
     "pages/course/stulist/content",
+    "pages/elesys/bind",
+    "pages/elesys/index",
     "pages/netsys/bind",
     "pages/netsys/index",
     "pages/netsys/list",

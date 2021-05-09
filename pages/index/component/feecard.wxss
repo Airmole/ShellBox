@@ -1,0 +1,15 @@
+/* pages/index/component/feecard.wxss */
+@import "../../../colorui/main.wxss";
+@import "../../../colorui/icon.wxss";
+
+.df-value {
+  color: #ffbf92;
+  font-size: 46pt;
+  font-weight: bold;
+  padding: 0 15rpx;
+}
+
+.df-text {
+  color: #acacac;
+  font-size: 13pt;
+}

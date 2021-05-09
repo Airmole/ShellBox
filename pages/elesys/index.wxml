@@ -1,0 +1,61 @@
+<!--pages/elesys/index.wxml-->
+<cu-custom bgColor="bg-netfee" isCustom="{{true}}">
+  <view slot="content">电费查询</view>
+</cu-custom>
+<view class="container" wx:if="{{!isLoading && !errorTips}}">
+  <view class="result-page" style='width:100%;'>
+    <view class="result-userInfo result-model">
+      <view class="userInfo-dormitory">
+        <text class="dormitory-info">{{building}}斋{{room}}寝室</text>
+        <view wx:if="{{isShowUnbind}}" bindtap='changeRoom' class="dormitory-resetBtn">修改寝室</view>
+      </view>
+      <view class="userInfo-basic">
+        <text class="basic-time">截至时间：{{time}}</text>
+      </view>
+    </view>
+    <view class="result-chargeInfo">
+      <view class="chargeInfo-num chargeInfo-model result-model">
+        <text class="chargeInfo-model-title">剩余电量</text>
+        <view class="chargeInfo-model-info">
+          <text class="model-info">{{eleData.balance}}</text>度
+        </view>
+      </view>
+    </view>
+    <view class="result-specificInfo result-model">
+      <view class="specificInfo-item">
+        <text class="specificInfo-item-label">剩余补助电量</text>
+        <text class="specificInfo-item-value">{{eleData.subsidize}}</text>
+        <text>度</text>
+      </view>
+      <view class="specificInfo-item">
+        <text class="specificInfo-item-label">上次充值电费</text>
+        <text class="specificInfo-item-value">{{eleData.lastRecharge}}</text>
+        <text>元</text>
+      </view>
+      <view class="specificInfo-item">
+        <text class="specificInfo-item-label">今日插座用电</text>
+        <text class="specificInfo-item-value">{{eleData.yesterday.eleSocket}}</text>
+        <text>度</text>
+      </view>
+      <view class="specificInfo-item">
+        <text class="specificInfo-item-label">今日空调/风扇用电</text>
+        <text class="specificInfo-item-value">{{eleData.yesterday.airConditer}}</text>
+        <text>度</text>
+      </view>
+    </view>
+    <view class="result-chargeInfo" style='height:200px;'>
+      <view class="chargeInfo-num chargeInfo-model result-model" style='height:200px;'>
+        <canvas canvas-id="lineCanvas" disable-scroll="true" bindtouchstart="touchHandler"
+          style='width:100%;height:200px;'></canvas>
+      </view>
+    </view>
+    <view class="result-chargeInfo margin-bottom-xl padding-bottom-xl">
+      <button open-type="share" class="chargeInfo-num chargeInfo-model result-model chargeInfo-model-info"
+        style='line-height:1;'><text>分享寝室用电信息</text></button>
+    </view>
+    <image class="sdf-bg" src="/images/netfare-bg.png"></image>
+  </view>
+</view>
+<view wx:if="{{errorTips}}">
+  <tips tipsText="{{errorTips}}"></tips>
+</view>

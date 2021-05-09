@@ -1,0 +1,30 @@
+<!--pages/index/component/feecard.wxml-->
+<view class="cu-list menu sm-border card-menu margin" wx:if="{{isShow}}">
+  <view class="cu-bar bg-white solid-bottom">
+    <view class="action">
+      <text class="cuIcon-title text-green"></text>{{title}}
+    </view>
+    <view class="action padding-right"><text class="line-wegreen">{{titleRight}}</text></view>
+  </view>
+  <navigator url="{{bindedUrl}}" class="bg-white" wx:if="{{bindedShow}}">
+    <view class="padding-xs">
+      <view class="flex">
+        <view class="flex-sub padding-sm text-xl">{{bindedAccount}}</view>
+        <view class="flex-twice padding-sm text-gray text-right">{{timeText}}</view>
+      </view>
+      <view class="padding-lr padding-bottom-sm">
+        <view class="text-center">
+          <text class="df-text">{{contentTextLeft}}</text>
+          <text class="df-value">{{contentValue}}</text>
+          <text class="df-text">{{contentTextRight}}</text>
+        </view>
+      </view>
+    </view>
+  </navigator>
+  <navigator url="{{unbindUrl}}" class="bg-white padding-bottom-xs" wx:if="{{unbindShow}}">
+    <tips tipsText="{{unbindTips}}"></tips>
+    <view class="margin-tb-sm text-center">
+      <button class="cu-btn round bg-green shadow">{{unbindButton}}</button>
+    </view>
+  </navigator>
+</view>

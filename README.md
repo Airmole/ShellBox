@@ -36,6 +36,8 @@
     "pages/course/content",          // 班级教师课表详情
     "pages/course/stulist/index",    // 教师课堂学生花名册列表
     "pages/course/stulist/content",  // 教师课堂学生花名册详情
+    "pages/elesys/bind",             // 电费查询寝室绑定
+    "pages/elesys/index",            // 电费信息展示
     "pages/netsys/bind",             // 校园网账号绑定
     "pages/netsys/index",            // 网费查询结果界面
     "pages/netsys/list",             // 网费查询明细

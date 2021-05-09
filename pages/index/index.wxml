@@ -1,10 +1,12 @@
 <cu-custom bgColor="bg-wegreen">
   <view slot="content">贝壳小盒子</view>
 </cu-custom>
+<!-- 关注公众号组件 -->
 <view class="margin"><official-account class="radius"></official-account></view>
+<!-- 图书检索 -->
 <view class="padding-lr-sm bg-white margin shadow radius padding-bottom" bindtap="goToBookSearchPage">
   <view class="padding-top">
-    <text class="cuIcon-titles text-green"></text>馆藏图书检索
+    <text class="cuIcon-title text-green"></text>馆藏图书检索
   </view>
   <view class="cu-bar bg-white search">
     <view class="search-form round">
@@ -26,7 +28,7 @@
 <!-- 教学周日期显示 -->
 <block wx:if="{{calendar != '' && calendar.teachWeek != 'N/A'}}">
   <navigator url="../school/calendar" class="padding-lr-sm bg-white margin radius padding-bottom" wx:if="{{calendar.teachWeek > 0 && calendar.teachWeek <= 25}}">
-    <view class="padding-top"><text class="cuIcon-titles text-green"></text>第 <text class="text-xxl text-wegreen">{{calendar.teachWeek}}</text> 周 {{calendar.dayOfWeek}}</view>
+    <view class="padding-top"><text class="cuIcon-title text-green"></text>第 <text class="text-xxl text-wegreen">{{calendar.teachWeek}}</text> 周 {{calendar.dayOfWeek}}</view>
   </navigator>
 </block>
 <block wx:else>
@@ -38,7 +40,7 @@
 <view class="remind-box" wx:if="{{isLoading}}">
   <image class="remind-img" src="/images/loading.gif"></image>
 </view>
-<view wx:if="{{!isLoading}}">
+<view wx:else>
 
   <block wx:if="{{hasLogin}}">
 
@@ -46,19 +48,13 @@
     <block wx:if="{{nextCourseArray.courseName}}">
       <view class="cu-list menu sm-border card-menu margin">
         <view class="cu-bar bg-white solid-bottom">
-          <view class="action">
-            <text class="cuIcon-title text-green"></text>下节课
-          </view>
-          <view class="action padding-right">
-            <text class="cuIcon-creative line-wegreen"></text>
-          </view>
+          <view class="action"><text class="cuIcon-title text-green"></text>下节课</view>
+          <view class="action padding-right"><text class="cuIcon-creative line-wegreen"></text></view>
         </view>
         <navigator url="../course/my" class="cu-item">
           <view class="content padding-tb-sm text-cut">
             <view class="text-black text-cut">{{nextCourseArray.courseName}}</view>
-            <view class="text-gray text-sm">{{nextCourseArray.teachWeek}} <text
-                class="text-green">{{nextCourseArray.startTime}}</text>上课 ~
-              {{nextCourseArray.endTime}}下课</view>
+            <view class="text-gray text-sm">{{nextCourseArray.teachWeek}} <text class="text-green">{{nextCourseArray.startTime}}</text>上课 ~ {{nextCourseArray.endTime}}下课</view>
           </view>
           <view class="action padding-right">
             <text class="text-xl text-black">{{nextCourseArray.place}}</text>
@@ -84,12 +80,10 @@
             <text class="cuIcon-activity line-wegreen"></text>
           </view>
         </navigator>
-        <navigator url="../course/my" class="cu-item" wx:for="{{todayCourses}}" wx:if="{{item.courseName!=''}}"
-          wx:key="todayCourseKey">
+        <navigator url="../course/my" class="cu-item" wx:for="{{todayCourses}}" wx:if="{{item.courseName!=''}}" wx:key="todayCourseKey">
           <view class="content padding-tb-sm text-cut">
             <view class="text-black text-cut">{{item.courseName}}</view>
-            <view class="text-gray text-sm">{{item.teachWeek}} {{item.startTime}}上课 ~ {{item.endTime}}下课
-            </view>
+            <view class="text-gray text-sm">{{item.teachWeek}} {{item.startTime}}上课 ~ {{item.endTime}}下课</view>
           </view>
           <view class="action padding-right">
             <text class="text-xl text-black">{{item.place}}</text>
@@ -98,6 +92,7 @@
       </view>
     </block>
 
+    <!-- 教师课堂花名册 -->
     <block wx:if="{{isTeacher}}">
       <view class="cu-list menu sm-border card-menu margin-top">
         <view class="cu-bar bg-white solid-bottom">
@@ -108,7 +103,7 @@
             <text class="cuIcon-friend line-wegreen"></text>
           </view>
         </view>
-        <navigator url="../course/stulist/content?course={{item.courseName}}&code={{item.queryCode}}"
+        <navigator url="../course/stulist/content?course={{item.courseName}}&code={{item.queryCode}}" 
           class="cu-item arrow" wx:for="{{edusysUserInfo.allCourses}}" wx:key="courseKey">
           <view class="content padding-tb-sm">
             <view><text class="cuIcon-skin text-orange"></text>{{item.courseName}}</view>
@@ -121,12 +116,55 @@
     <!-- 登录了，但没查过课表没缓存 -->
     <block wx:if="{{!hasCourseCache}}">
       <navigator url="../course/my" class="bg-white margin radius padding-xs">
+        <view class="cu-bar bg-white solid-bottom">
+          <view class="action">
+            <text class="cuIcon-title text-green"></text>课表
+          </view>
+          <view class="action padding-right"><text class="cuIcon-activity line-wegreen"></text></view>
+        </view>
         <tips tipsText="您刚登陆吧？来查一次课表吧"></tips>
         <view class="margin-tb-sm text-center">
           <view class="cu-btn round bg-green shadow">查询课表</view>
         </view>
       </navigator>
     </block>
+
+    <!-- 电费信息 -->
+    <feecard
+      isShow="{{!(hasBindElesys && !elesysData)}}"
+      title="寝室电费"
+      titleRight="⚡️"
+      bindedUrl="../elesys/index?building={{elesysData.building}}&room={{elesysData.room}}"
+      bindedShow="{{elesysData.balance.length > 0}}"
+      bindedAccount="{{elesysData.building}}斋{{elesysData.room}}"
+      timeText="截止:{{elesysData.time}}"
+      contentTextLeft="剩余电量"
+      contentValue="{{elesysData.balance}}"
+      contentTextRight="度"
+      unbindUrl="../elesys/bind"
+      unbindShow="{{!hasBindElesys}}"
+      unbindTips="绑定关联寝室电费信息"
+      unbindButton="绑定寝室"
+    ></feecard>
+
+     <!-- 网费信息 -->
+     <feecard
+      isShow="{{!(hasBindNetsys && !netsysData)}}"
+      title="校园网费用"
+      titleRight="🌐"
+      bindedUrl="../netsys/index"
+      bindedShow="{{netsysData.welcome.length > 0}}"
+      bindedAccount="{{netsysData.netid}}"
+      timeText=""
+      contentTextLeft="网费余额"
+      contentValue="{{netsysData.leftMoney}}"
+      contentTextRight="元"
+      unbindUrl="../netsys/bind"
+      unbindShow="{{!hasBindNetsys}}"
+      unbindTips="绑定关联校园网账号"
+      unbindButton="绑定校园网"
+    ></feecard>
+
 
   </block>
   <!-- 未登录绑定 -->

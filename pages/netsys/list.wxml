@@ -17,7 +17,7 @@
       </view>
       <view class="cu-form-group">
         <view class="title">年份</view>
-        <picker mode="date" value="{{year}}" fields="year" start="{{year-10}}" end="{{year}}" bindchange="yearChange">
+        <picker mode="date" value="{{year}}" fields="year" end="{{year}}" bindchange="yearChange">
           <view class="picker"> {{year}} </view>
         </picker>
       </view>

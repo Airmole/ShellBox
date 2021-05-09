@@ -15,7 +15,7 @@
       </view>
       <view class="userInfo-basic">
         <view class="basic-name"><view class="cu-tag line-{{info.status=='停机'?'red':'green'}} radius">{{info.status}}</view> {{info.service}}</view>
-        <view class="cu-tag line-yellow radius" bindtap="unbind">解绑</view>
+        <view class="cu-tag bg-yellow text-white radius" bindtap="unbind">解绑</view>
       </view>
     </view>
 

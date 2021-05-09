@@ -1,5 +1,4 @@
 /* pages/index/component/tips.wxss */
-/* @import "../../../app.wxss"; */
 
 .remind-box {
   flex: 1;

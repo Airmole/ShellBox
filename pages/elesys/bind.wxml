@@ -1,0 +1,35 @@
+<!--pages/elesys/bind.wxml-->
+<view class="container">
+  <view class="remind-box" wx:if="{{remind}}">
+    <image class="remind-img" src="/images/loading.gif"></image>
+  </view>
+  <block wx:else>
+    <image class="title-login" src="{{bgimg}}"></image>
+    <view class="content-login">
+      <view class="hd" style="transform:rotateZ({{angle}}deg);">
+        <image class="logo" src="/images/schoolLogo.png"></image>
+        <image class="wave" src="/images/wave.png" mode="aspectFill"></image>
+        <image class="wave wave-bg" src="/images/wave.png" mode="aspectFill"></image>
+      </view>
+      <view class="bd">
+        <form class="login-form">
+          <view class="input-group {{building_focus ? 'active' : ''}}">
+            <text class="input-label">寝室楼栋</text>
+              <picker name="building" bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+              <text>{{array[index]}}</text>
+            </picker>
+          </view>
+          <view class="input-group {{room_focus ? 'active' : ''}}">
+            <text class="input-label">寝室号</text>
+            <input name="roomNo" type="number" cursor-spacing="30" value="{{room}}" id="room" placeholder="请输入寝室号，如303" bindinput="roomInput" bindfocus="inputFocus" />
+          </view>
+        </form>
+        <view class="confirm-btn" bindtap="bind">
+          <text>确认绑定</text>
+        </view>
+      </view>
+
+    </view>
+  </block>
+
+</view>

@@ -62,13 +62,14 @@ Page({
   },
   // 获取扣费账单记录 
   getFeebill: function (year = '', cookie) {
+    wx.showLoading({ title: 'loading...' })
     var _this = this
     wx.request({
       url: `${app.globalData.domain}/netsys/feebill`,
       data: { year: year, cookie: cookie },
       timeout: app.globalData.requestTimeout,
       method: 'POST',
-      success: function(res){
+      success: function(res) {
         try {
           console.log(res.data)
           _this.setData({
@@ -83,11 +84,13 @@ Page({
             duration: 5000
           })
         }
+        wx.hideLoading()
       }
     })
   },
   // 获取业务办理操作记录、上网详单、缴费充值记录
   getLogdata: function (type = 4, month = '', startDate = '', endDate = '', cookie = '') {
+    wx.showLoading({ title: 'loading...' })
     var _this = this
     wx.request({
       url: `${app.globalData.domain}/netsys/${this.data.type}`,
@@ -112,6 +115,7 @@ Page({
             duration: 5000
           })
         }
+        wx.hideLoading()
       }
     })
   },

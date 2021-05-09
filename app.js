@@ -8,6 +8,7 @@ App({
     userInfo: {},
     edusysUserInfo: {},
     netsysUserInfo: '',
+    elesysUserInfo: '',
     hasEdusysStorage: false
   },
   onLaunch: function () {

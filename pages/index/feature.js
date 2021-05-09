@@ -81,14 +81,14 @@ Page({
       url: '../score/score',
       login: true,
     }, {
-    //   id: 'electricity',
-    //   icon: 'dianfei',
-    //   teacher: false,
-    //   student: true,
-    //   name: '寝室用电',
-    //   url: '',
-    //   login: true,
-    // }, {
+      id: 'elesys',
+      icon: 'dianfei',
+      teacher: true,
+      student: true,
+      name: '寝室用电',
+      url: '../elesys/bind',
+      login: false,
+    }, {
       id: 'schoolTrans',
       icon: 'daba',
       teacher: true,
