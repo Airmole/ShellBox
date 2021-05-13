@@ -107,30 +107,20 @@ Page({
         title: '请输入教务网密码',
         icon: 'none'
       })
-      return false;
-    // } else if(vcode.length !== 4){
-    //   wx.showToast({
-    //     title: '请输入验证码',
-    //     icon: 'none'
-    //   })
-    //   return false;
+      return false
     }
     return true;
   },
   login: function (userInfo) {
-    var _this = this;
-    _this.setData({remind: '加载中'});
-    var uid = this.data.userid;
-    var password = this.data.passwd;
-    // var cookie = this.data.cookie;
-    // var vcode = this.data.vcode;
+    var _this = this
+    _this.setData({remind: '加载中'})
+    var uid = this.data.userid
+    var password = this.data.passwd
     wx.request({
       url: `${domain}/edu/profile`,
       data:{
         uid: uid,
         pwd: password,
-        // vcode: vcode,
-        // cookie: cookie,
         userFrom: 'wechat',
         openid: app.globalData.openid,
         nickname: userInfo.nickName,

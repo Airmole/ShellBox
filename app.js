@@ -12,51 +12,74 @@ App({
     hasEdusysStorage: false
   },
   onLaunch: function () {
-    let launchInfo = wx.getLaunchOptionsSync();
-    const accountInfo = wx.getAccountInfoSync();
+    let launchInfo = wx.getLaunchOptionsSync()
+    const accountInfo = wx.getAccountInfoSync()
     if (accountInfo.miniProgram.envVersion == 'release') {
-      this.globalData.domain = 'https://shellbox.airmole.cn/api';
+      this.globalData.domain = 'https://shellbox.airmole.cn/api'
     } else {
-      this.globalData.domain = 'https://dev.shellbox.airmole.cn/api';
+      this.globalData.domain = 'https://dev.shellbox.airmole.cn/api'
       // this.globalData.domain = 'http://shellbox.cn/api';
     }
     if(launchInfo.scene != 1145){
       this.getUserOpenId();
-      this.appUpdate();
+      this.appUpdate()
     }
-    this.clearOldVersionStorage();
-    this.checkHasEdusysStorage();
-    this.getStorageEdusysUserInfo();
+    this.checkHasEdusysStorage()
+    this.getStorageEdusysUserInfo()
     this.getUserInfoFromStorage()
-    this.getSystemStatusBarInfo();
-  },
-  clearOldVersionStorage: function () {
-    var newBetaInital = wx.getStorageSync('newBetaInital');
-    if (newBetaInital === 'true') {
-      // console.log('之前老版本的已经删干净了')
-      return true;
-    } else {
-      // console.log('老版本用户，第一次进入新版')
-      wx.clearStorage({
-        success: (res) => {
-          wx.setStorageSync('newBetaInital', 'true');
-          // console.log('老版本数据全部清空成功')
-        },
-      })
-    }
+    this.getSystemStatusBarInfo()
   },
   checkHasEdusysStorage: function () {
-    const edusysStorage = wx.getStorageSync('edusysUserInfo');
-    var self = this;
+    const edusysStorage = wx.getStorageSync('edusysUserInfo')
+    var self = this
     try {
       if (edusysStorage.uid.length > 0) {
         self.globalData.hasEdusysStorage = true
+        self.globalData.edusysUserInfo = self.autoLoginCookie(edusysStorage)
       } else {
         self.globalData.hasEdusysStorage = false
       }
     } catch (error) {
       self.globalData.hasEdusysStorage = false
     }
+  },
+  autoLoginCookie: function (edusysInfo) {
+    var self = this
+    const uid = edusysInfo.uid
+    const pwd = edusysInfo.password
+    const cookie = edusysInfo.cookie ? edusysInfo.cookie : ''
+    const weuserInfo =  wx.getStorageSync('userInfo')
+    wx.request({
+      url: `${self.globalData.domain}/edu/profile`,
+      data:{
+        uid: uid,
+        pwd: pwd,
+        cookie: cookie,
+        userFrom: 'wechat',
+        openid: self.globalData.openid.openid,
+        nickname: weuserInfo.nickName,
+        avatar: weuserInfo.avatarUrl,
+        gender: weuserInfo.gender,
+        country: weuserInfo.country,
+        province: weuserInfo.province,
+        city: weuserInfo.city,
+        language: weuserInfo.language
+      },
+      timeout: self.globalData.requestTimeout,
+      method: 'POST',
+      success: function(res){
+        // console.log('eduSysProfile：', res.data)
+        try {
+          if (res.data.name.length > 1) {
+            res.data.password = pwd
+            wx.setStorage({ data: res.data, key: 'edusysUserInfo' })
+            self.globalData.edusysUserInfo = res.data
+          }
+        } catch (error) {
+          console.log('后台自动静默激活教务cookie失败', error)
+        }
+      }
+    })
   },
   getUserInfoFromStorage: function () {
     var self = this;

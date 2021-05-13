@@ -4,7 +4,7 @@
 
 [![Star](https://img.shields.io/badge/Star-Airmole-brightgreen.svg)](https://github.com/Airmole/ShellBox/stargazers)
 [![Download](https://img.shields.io/badge/download-.zip-brightgreen.svg)](https://github.com/Airmole/ShellBox/archive/master.zip)
-[![last commit](https://img.shields.io/badge/last%20commit-2021--05--07-green.svg)](https://github.com/Airmole/ShellBox/commits/master)
+[![last commit](https://img.shields.io/badge/last%20commit-2021--05--13-green.svg)](https://github.com/Airmole/ShellBox/commits/master)
 
 
 ## 线上版本体验

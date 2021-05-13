@@ -81,11 +81,13 @@ Page({
       data: {type: searchType, keyword: keyword},
       method: 'GET',
       success: function (res) {
-        wx.hideLoading({});
+        wx.hideLoading()
         if (res.data.total == '图书馆系统无响应') {
           wx.showToast({ title: '图书馆OPAC系统无响应', icon: 'none' });
         } else if (res.data.total == 0) {
           wx.showToast({ title: '本馆暂无此书', icon: 'none' });
+        } else if (res.data.code == 500) {
+          wx.showToast({ title: res.data.message, icon: 'none' });
         } else {
           wx.navigateTo({
             url: `../books/index?type=${searchType}&keyword=${keyword}`,

@@ -257,7 +257,7 @@ Page({
     var _this = this
     wx.request({
       url: `${domain}/edu/course`,
-      data: { uid: uid, pwd: password },
+      data: { uid: uid, pwd: password, cookie: app.globalData.edusysUserInfo.cookie },
       method: 'POST',
       timeout: app.globalData.requestTimeout,
       success: function(res){

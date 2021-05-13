@@ -52,7 +52,7 @@ Page({
     wx.request({
       url: `${app.globalData.domain}/edu/score`,
       method: "POST",
-      data: { uid: uid, pwd: pwd },
+      data: { uid: uid, pwd: pwd, cookie: app.globalData.edusysUserInfo.cookie },
       success: function(res) {
         if (res.statusCode == 200) {
           _this.setData({ isLoading: false, jsonContent: res.data })
