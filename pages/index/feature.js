@@ -7,7 +7,6 @@ Page({
     edusysUserInfo: {},
     isTeacher: false,
     QGroupModal: false,
-    clickAvatarCount: 1,
     iconList: [{
       id: 'myCourse',
       icon: 'wodekebiao',
@@ -236,11 +235,6 @@ Page({
       return
     }
 
-    if(id == 'inschool' || id == 'outschool'){
-      this.scanTodaySchool(id);
-      return
-    }
-
     if(id == 'teacherBus'){
       wx.navigateToMiniProgram({ appId: 'wx183616af30e5723d' });
       return
@@ -302,62 +296,5 @@ Page({
       title: '贝壳小盒子',
       path: 'pages/index/feature',
     }
-  },
-  clickAvatar: function () {
-    const hasEdusysStorage = this.data.hasEdusysStorage;
-    if (!hasEdusysStorage) {
-      return
-    }
-    console.log(1)
-    let iconList = this.data.iconList
-    if (JSON.stringify(iconList).indexOf('inschool') > 0 || JSON.stringify(iconList).indexOf('outschool') > 0) {
-      iconList.splice(iconList.findIndex(e => e.id === 'inschool'), 1)
-      iconList.splice(iconList.findIndex(e => e.id === 'outschool'), 1)
-      this.setData({ iconList: iconList })
-      return
-    }
-    let clickAvatarCount = this.data.clickAvatarCount
-    if (clickAvatarCount < 3) {
-      this.setData({clickAvatarCount: clickAvatarCount + 1})
-      return
-    } else {
-      this.setData({clickAvatarCount: 1})
-    }
-    let extra = [{
-      id: 'inschool',
-      icon: 'plane',
-      teacher: false,
-      student: true,
-      name: '入校',
-      url: '',
-      login: true,
-    },{
-      id: 'outschool',
-      icon: 'plane',
-      teacher: false,
-      student: true,
-      name: '出校',
-      url: '',
-      login: true,
-    }]
-    iconList.push(extra[0])
-    iconList.push(extra[1])
-    this.setData({ iconList: iconList })
-  },
-  scanTodaySchool: function(type){
-    wx.scanCode({
-      success: (res) => {
-        if (res.errMsg !== 'scanCode:ok') {
-          wx.showToast({ title: res.errMsg, icon: 'none'})
-          return;
-        }
-        let iconList = this.data.iconList
-        iconList.splice(iconList.findIndex(e => e.id === 'inschool'), 1)
-        iconList.splice(iconList.findIndex(e => e.id === 'outschool'), 1)
-        this.setData({ iconList: iconList })
-
-        wx.navigateTo({ url: `../school/todayschool?type=${type}` })
-      }
-    })
   }
 })

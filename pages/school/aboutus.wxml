@@ -56,7 +56,7 @@
           </view>
 
           <view class="desc-title">
-            <text class="cuIcon-titles text-wegreen"></text>开发贡献
+            <text class="cuIcon-titles text-wegreen"></text> 开发贡献
           </view>
           <view class="flex">
             <view bindtap="goWeibo" data-weibo="{{item.weibo}}" class="flex flex-direction text-center margin-left" wx:for="{{coder}}" wx:key="coderkey">
@@ -74,7 +74,7 @@
           </view>
           <view bindtap='copyID' class="text-blue text-xl">AppID：wxf0ba93e3faff4eda</view>
 
-          <text class="desc-title"> <text class="cuIcon-titles text-wegreen"></text>其他小程序</text>
+          <view class="desc-title"> <text class="cuIcon-titles text-wegreen"></text>其他小程序</view>
           <view class="flex">
             <view bindtap="goOtherApps" class="flex flex-direction text-center margin-left" wx:for="{{otherApps}}"
               wx:key="appsKey" data-appid="{{item.appid}}">
@@ -82,14 +82,27 @@
               </view>
               <view class="text-center text-cut" style="width:60px;">{{item.name}}</view>
             </view>
-          </view>
 
+            <block wx:if="{{showFreedomFunc}}">
+              <view bindtap="fakeInOut" data-type="outschool" class="flex flex-direction text-center margin-left">
+                <view class="text-center cu-avatar lg round avatar-border"><text>out</text>
+                </view>
+                <view class="text-center text-cut" style="width:60px;">out</view>
+              </view>
+              <view bindtap="fakeInOut" data-type="inschool" class="flex flex-direction text-center margin-left">
+                <view class="text-center cu-avatar lg round avatar-border"><text>in</text>
+                </view>
+                <view class="text-center text-cut" style="width:60px;">in</view>
+              </view>
+            </block>
+
+          </view>
         </view>
       </view>
     </view>
 
     <view class="flex margin-top-xl margin-bottom-xl">
-      <button bindtap="showQQGroupCode" class="margin flex-sub cu-btn bg-green lg shadow-blur"><text
+      <button bindtap="showQQGroupCode" bindlongpress="canBeFree" class="margin flex-sub cu-btn bg-green lg shadow-blur"><text
           class="cuIcon-service"></text>联系客服</button>
       <button open-type="share" class="margin flex-sub cu-btn bg-green lg shadow-blur"><text
           class="cuIcon-share"></text>分享</button>
