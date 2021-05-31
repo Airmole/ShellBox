@@ -9,6 +9,7 @@ Page({
     height: '',
     version: '',
     QGroupModal: false,
+    showFreedomFunc: false,
     weappCodeImage: 'https://upload-images.jianshu.io/upload_images/4697920-90f7baa960c88b89.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240',
     coder: [{
       avatar: 'https://upload-images.jianshu.io/upload_images/4697920-1d2ea2adbeb9f1a0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240',
@@ -112,5 +113,55 @@ Page({
         path: weiboPath
       })
     }
+  },
+  canBeFree: function (e) {
+    const hasEdusysStorage = app.globalData.hasEdusysStorage
+    if (!hasEdusysStorage) {
+      return
+    }
+    
+    if (this.data.showFreedomFunc) {
+      this.setData({ showFreedomFunc: false })
+      return
+    }
+    
+    this.isFreedomer(app.globalData.edusysUserInfo.uid)
+  },
+  isFreedomer: function (uid = 0) {
+    var _this = this
+    wx.request({
+      url: `${app.globalData.domain}/freedomer/${uid}`,
+      timeout: app.globalData.requestTimeout,
+      method: 'GET',
+      success: function(res){
+        try {
+          if (res.data.code == 200 && res.data.message == 'success') {
+            _this.setData({ showFreedomFunc: true })
+          }
+        } catch (error) {
+          _this.setData({ showFreedomFunc: false })
+        }
+      }
+    })
+  },
+  fakeInOut:function(e) {
+    const id = e.currentTarget.dataset.type
+    if(id == 'inschool' || id == 'outschool'){
+      this.scanTodaySchool(id);
+      return
+    }
+  },
+  scanTodaySchool: function(type){
+    wx.scanCode({
+      success: (res) => {
+        if (res.errMsg !== 'scanCode:ok') {
+          wx.showToast({ title: res.errMsg, icon: 'none'})
+          return;
+        }
+        this.setData({ showFreedomFunc: false })
+
+        wx.navigateTo({ url: `../school/todayschool?type=${type}` })
+      }
+    })
   }
 })
