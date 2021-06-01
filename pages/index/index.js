@@ -23,9 +23,10 @@ Page({
     nextCourseArray: [],
     calendar: '',
     elesysData: false,
-    hasBindElesys: false,
+    hasBindElesys: true,
     netsysData: false,
-    hasBindNetsys: false
+    hasBindNetsys: false,
+    quanyiModal: false
   },
   onLoad: function () {
     this.inital();
@@ -254,5 +255,8 @@ Page({
   },
   goToBookSearchPage: function () {
     wx.navigateTo({ url: '../books/search' })
-  }
+  },
+  showQuanyiModal: function () {
+    this.setData({ quanyiModal: true })
+  },
 })

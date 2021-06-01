@@ -1,0 +1,2 @@
+/* pages/school/board/index.wxss */
+@import "../cert.wxss";

@@ -1,0 +1,91 @@
+<!--pages/school/board/index.wxml-->
+<cu-custom bgColor="bg-cyan" isCustom="{{true}}">
+  <view slot="content">投诉维权通道</view>
+</cu-custom>
+
+<view class="remind-box bg-cyan" wx:if="{{isLoading}}" style="height:{{screenHeight}}px;">
+  <image class="remind-img" src="/images/loading.gif"></image>
+</view>
+<view class="page margin-bottom" wx:else>
+
+  <!-- 介绍说明 -->
+  <view class="margin radius bg-white padding">
+    <text decode="true">
+    &nbsp;&nbsp;&nbsp;&nbsp;如果您在学校遇到了以下问题，可以向“北科天院权益中心”发起投诉维权：\n</text>
+    <text decode="true">
+      1. 食堂问题：\n &nbsp;&nbsp;&nbsp;&nbsp;外卖，工作人员，饭菜，餐具，桌椅，其他问题；
+      2. 维修问题：
+      &nbsp;&nbsp;&nbsp;&nbsp;宿舍：厕所，床架，书桌（宿舍维修问题需注明几斋几室）;
+      &nbsp;&nbsp;&nbsp;&nbsp;操场:石板，体育设施;
+      &nbsp;&nbsp;&nbsp;&nbsp;教学区域:桌椅，黑板， 媒体设备，门窗;
+      &nbsp;&nbsp;&nbsp;&nbsp;公共区域:图书馆，下水井盖破损，路灯不亮;
+      3. 教学：
+      &nbsp;&nbsp;&nbsp;&nbsp;对任课老师的建议。
+      4.其他问题（您在校园里遇见的其他需要求助相关部门的问题）
+      
+      注：请勿发布无关的话题内容！您的投诉留言将由“北科天院权益中心”相关工作人员回复并跟进解决，其他同学无权回复评论。
+      &nbsp;&nbsp;&nbsp;&nbsp;工作人员会在投诉问题后24-48小时内给您回复，请您在投诉维权后持续关注本维权投诉通道对应投诉内容的相关答复。
+    </text>
+  </view>
+
+  <!-- 发表按钮 -->
+  <view class="margin-lr margin-top-xl margin-bottom">
+    <navigator url="./edit" class="flex radius bg-blue align-center justify-center">
+      <view class="text-xxl text-blod text-white margin-top justify-center shadow-blur" style="height:90rpx;">
+        <text class="cuIcon-safe"></text> 我要投诉维权
+      </view>
+    </navigator>
+  </view>
+
+  <block wx:for="{{datalist.data}}" wx:key="board">
+    <navigator url="./detail?id={{item.id}}" class="cu-card dynamic">
+      <view class="cu-item shadow">
+        <view class="cu-list menu-avatar">
+          <view class="cu-item">
+            <view class="cu-avatar round lg bg-cyan margin-xs"><text class="avatar-text">匿名</text></view>
+            <view class="content flex-sub">
+              <view>匿名用户</view>
+              <view class="text-gray text-sm flex justify-between">{{item.created_at}}</view>
+            </view>
+          </view>
+        </view>
+        <view class="text-content">
+          {{item.content}}
+        </view>
+        <view class="grid flex-sub padding-lr padding-bottom col-3 grid-square">
+          <view class="bg-img" style="background-image:url({{pitem}});" wx:for="{{item.images}}" wx:for-item="pitem"
+            wx:key="pindex" catchtap="previewImage" data-allurl="{{item.images}}" data-url="{{pitem}}">
+          </view>
+        </view>
+        <view class="cu-list menu sm-border">
+          <navigator url="./detail?id={{item.id}}" class="cu-item arrow">
+            <view class="content"><text class="">查看详情</text></view>
+            <view class="action">
+              <button wx:if="{{isAdminer}}" class="cu-btn round bg-red shadow" data-id="{{item.id}}" catchtap="deleteConfirm">
+                <text class="cuIcon-delete"></text> 删除</button>
+            </view>
+          </navigator>
+        </view>
+      </view>
+    </navigator>
+  </block>
+
+<view wx:if="{{datalist.length < 1 || datalist.data.length < 1}}" class="bg-white margin-lr padding radius margin-top-xl">
+  <tips tipsText="这里是空的，还没有人发内容呢~"></tips>
+</view>
+
+
+  <!-- 分页器 -->
+  <view class="flex margin-right-sm justify-end">
+    <button bindtap="lastPage" wx:if="{{datalist.pagination.current > 1}}"
+      class="cu-btn bg-black round shadow">上一页</button>
+    <view wx:if="{{datalist.pagination.current > 0}}" class="text-black margin-sm">{{datalist.pagination.current}} /
+      {{datalist.pagination.last}}</view>
+    <button bindtap="nextPage"
+      wx:if="{{datalist.pagination.current < datalist.pagination.last && datalist.pagination.current > 0}}"
+      class="cu-btn bg-black round shadow">下一页</button>
+  </view>
+
+  <view class="text-center" style="color: #eee;"><text>本功能由"贝壳小盒子"为北科天院权益中心开发\n欢迎更多社团与小盒子合作</text></view>
+
+</view>

@@ -7,6 +7,8 @@ Page({
     edusysUserInfo: {},
     isTeacher: false,
     QGroupModal: false,
+    quanyiModal: false,
+    clickAvatarCount: 1,
     iconList: [{
       id: 'myCourse',
       icon: 'wodekebiao',
@@ -80,14 +82,14 @@ Page({
       url: '../score/score',
       login: true,
     }, {
-      id: 'elesys',
-      icon: 'dianfei',
-      teacher: true,
-      student: true,
-      name: '寝室用电',
-      url: '../elesys/bind',
-      login: false,
-    }, {
+    //   id: 'elesys',
+    //   icon: 'dianfei',
+    //   teacher: true,
+    //   student: true,
+    //   name: '寝室用电',
+    //   url: '../elesys/bind',
+    //   login: false,
+    // }, {
       id: 'schoolTrans',
       icon: 'daba',
       teacher: true,
@@ -270,8 +272,8 @@ Page({
   showQQGroupCode: function () {
     this.setData({ QGroupModal: true })
   },
-  hideQQGroupCode: function () {
-    this.setData({ QGroupModal: false })
+  showQuanyiModal: function () {
+    this.setData({ quanyiModal: true })
   },
   logout: function (e) {
     var anmiaton = e.currentTarget.dataset.class

@@ -1,0 +1,16 @@
+<!--pages/index/component/tips.wxml-->
+<view class="cu-modal {{showModal?'show':''}}">
+  <view class="cu-dialog">
+    <view class="bg-img" bindtap="_previewImage" data-allurl="{{[image]}}" data-url="{{image}}"
+      style="background-image: url('{{image}}');height:{{height}}px;width:{{width}}px">
+      <view class="cu-bar justify-end text-white">
+        <view class="action" catchtap="_hideModal">
+          <text class="cuIcon-close "></text>
+        </view>
+      </view>
+    </view>
+    <view class="cu-bar bg-white">
+      <view class="action margin-0 flex-sub  solid-left" bindtap="_hideModal">{{hideBtnText}}</view>
+    </view>
+  </view>
+</view>

@@ -18,7 +18,7 @@ App({
       this.globalData.domain = 'https://shellbox.airmole.cn/api'
     } else {
       this.globalData.domain = 'https://dev.shellbox.airmole.cn/api'
-      // this.globalData.domain = 'http://shellbox.cn/api';
+      // this.globalData.domain = 'http://shellbox.cn/api'
     }
     if(launchInfo.scene != 1145){
       this.getUserOpenId();
@@ -56,7 +56,7 @@ App({
         pwd: pwd,
         cookie: cookie,
         userFrom: 'wechat',
-        openid: self.globalData.openid.openid,
+        openid: self.globalData.openid,
         nickname: weuserInfo.nickName,
         avatar: weuserInfo.avatarUrl,
         gender: weuserInfo.gender,
@@ -119,7 +119,7 @@ App({
           wx.request({
             url: self.globalData.domain + `/wechat/openid?jscode=${data.code}`,
             success: function (res) {
-              // console.log('拉取openid成功', res.data)
+              console.log('拉取openid成功', res.data)
               wx.setStorage({ data: res.data, key: 'openid' })
               self.globalData.openid = res.data.openid
             },

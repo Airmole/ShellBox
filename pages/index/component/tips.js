@@ -10,6 +10,10 @@ Component({
     tipsText: {
       type: String,
       value: '温馨提示'
+    },
+    showImage: {
+      type: Boolean,
+      value: true
     }
   },
 
