@@ -57,3 +57,13 @@ map,.mapBox{
   margin-bottom: 20rpx;
   box-shadow: 5rpx 5rpx 15rpx #ccc;
 }
+
+.replay-board {
+  width: 32px;
+  height: 28px;
+  margin-top: -2px;
+}
+
+.replay-board-title {
+  margin-top: -22px;
+}

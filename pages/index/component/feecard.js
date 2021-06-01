@@ -63,6 +63,10 @@ Component({
       type: String,
       value: ''
     },
+    unbindTipsShowImage: {
+      type: Boolean,
+      value: true
+    },
   },
 
   /**

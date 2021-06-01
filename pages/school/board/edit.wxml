@@ -1,0 +1,39 @@
+<!--pages/school/board/edit.wxml-->
+<cu-custom bgColor="bg-cyan" isCustom="{{true}}">
+  <view slot="content">投诉维权信息</view>
+</cu-custom>
+<view class="page bg-cyan">
+
+  <!-- 填写表单内容 -->
+  <view class="margin">
+    <view class="cu-form-group margin-top radius-top">
+      <textarea style="color: black;" maxlength="500" bindinput="contentInput" placeholder="投诉维权内容详细说明"></textarea>
+    </view>
+    <view class="cu-bar bg-white">
+      <view class="action">图片(也可以不上传)</view>
+      <view class="action">{{imgList.length}}/4</view>
+    </view>
+    <view class="cu-form-group radius-bottom">
+      <view class="grid col-4 grid-square flex-sub">
+        <view class="bg-img" wx:for="{{imgList}}" wx:for-index="pindex" wx:key="pindex" bindtap="previewImage" data-url="{{imgList[pindex]}}">
+          <image src="{{imgList[pindex]}}" mode='aspectFill'></image>
+          <view class="cu-tag bg-red" catchtap="DelImg" data-index="{{pindex}}">
+            <text class="cuIcon-close"></text>
+          </view>
+        </view>
+        <view class="solids" bindtap="chooseImage" wx:if="{{imgList.length<4}}">
+          <text class="cuIcon-cameraadd"></text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 发布提交按钮 -->
+  <view class="padding flex flex-direction">
+    <button class="cu-btn bg-blue lg round" bindtap="postContent">发布</button>
+  </view>
+
+
+
+
+</view>

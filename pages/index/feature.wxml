@@ -25,10 +25,12 @@
       </view>
       <text>{{item.name}}</text>
     </view>
+    <view bindtap="showQuanyiModal" class="cu-item">
+      <view class="text-center"><image src="https://upload-images.jianshu.io/upload_images/4697920-34dcb56de71f8967.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/64" class="replay-board"/></view>
+      <view class="replay-board-text" style="color: #888;">投诉维权</view>
+    </view>
     <view class="cu-item" bindtap="showQQGroupCode">
-      <view>
-        <text class="cuIcon-community" style="color:#84BD54;font-size:32px;margin-top:5px;"></text>
-      </view>
+      <view><text class="cuIcon-community" style="color:#84BD54;font-size:32px;margin-top:5px;"></text></view>
       <text>使用帮助</text>
     </view>
   </view>
@@ -45,20 +47,22 @@
     </view>
   </view>
 
-  <view class="cu-modal {{QGroupModal?'show':''}}">
-      <view class="cu-dialog">
-        <view class="bg-img"
-          style="background-image: url('https://upload-images.jianshu.io/upload_images/4697920-0dbd4660106ba0ec.png');height:550px;">
-          <view class="cu-bar justify-end text-white">
-            <view class="action" bindtap="hideQQGroupCode">
-              <text class="cuIcon-close "></text>
-            </view>
-          </view>
-        </view>
-        <view class="cu-bar bg-white">
-          <view class="action margin-0 flex-sub  solid-left" bindtap="hideQQGroupCode">知道了，不加Q群</view>
-        </view>
-      </view>
-    </view>
+  <!-- 权益中心二维码模态框 -->
+  <imagemodal
+    hideBtnText="好，知道了"
+    image="https://upload-images.jianshu.io/upload_images/4697920-698445119e6dd3d5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/256"
+    height="{{431}}"
+    width="{{375}}"
+    showModal="{{quanyiModal}}"
+  ></imagemodal>
+  <!-- QQ群二维码模态框 -->
+  <imagemodal
+    hideBtnText="知道了，不加"
+    image="https://upload-images.jianshu.io/upload_images/4697920-0dbd4660106ba0ec.png"
+    height="{{550}}"
+    width="{{375}}"
+    showModal="{{QGroupModal}}"
+  ></imagemodal>
+  
 
 </scroll-view>

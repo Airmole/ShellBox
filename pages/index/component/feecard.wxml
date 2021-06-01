@@ -22,7 +22,7 @@
     </view>
   </navigator>
   <navigator url="{{unbindUrl}}" class="bg-white padding-bottom-xs" wx:if="{{unbindShow}}">
-    <tips tipsText="{{unbindTips}}"></tips>
+    <tips showImage="{{unbindTipsShowImage}}" tipsText="{{unbindTips}}"></tips>
     <view class="margin-tb-sm text-center">
       <button class="cu-btn round bg-green shadow">{{unbindButton}}</button>
     </view>

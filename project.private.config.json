@@ -13,9 +13,9 @@
     "miniprogram": {
       "list": [
         {
-          "name": "elesys",
-          "pathName": "pages/elesys/index",
-          "query": "building==22&zhai=303",
+          "name": "reply-board",
+          "pathName": "pages/school/board/index",
+          "query": "",
           "scene": 1007
         }
       ]

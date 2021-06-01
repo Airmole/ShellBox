@@ -1,6 +1,7 @@
 {
   "usingComponents": {
     "tips": "./component/tips",
-    "feecard": "./component/feecard"
+    "feecard": "./component/feecard",
+    "imagemodal": "./component/imagemodal"
   }
 }
