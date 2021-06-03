@@ -1,0 +1,12 @@
+<!--pages/books/portrait.wxml-->
+<view class="page-body" style="width:{{deviceInfo.screenWidth}}px;height:{{deviceInfo.screenHeight}}px;">
+  <view class="page-section page-section-spacing swiper" style="width:{{deviceInfo.screenWidth}}px;height:{{deviceInfo.screenHeight}}px;">
+    <swiper vertical="true" indicator-dots="{{true}}" style="width:{{deviceInfo.screenWidth}}px;height:{{deviceInfo.screenHeight}}px;">
+      <block wx:for="{{background}}" wx:key="*this">
+        <swiper-item class="{{item}}">
+          <view class="swiper-item {{item}}"></view>
+        </swiper-item>
+      </block>
+    </swiper>
+  </view>
+</view>

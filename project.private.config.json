@@ -13,8 +13,8 @@
     "miniprogram": {
       "list": [
         {
-          "name": "reply-board",
-          "pathName": "pages/school/board/index",
+          "name": "pages/books/portrait",
+          "pathName": "pages/books/portrait",
           "query": "",
           "scene": 1007
         }
