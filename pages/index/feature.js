@@ -139,7 +139,7 @@ Page({
     //   login: false,
     // }, {
       id: 'overdue',
-      icon: 'overdue',
+      icon: 'qiankuanjiesuan',
       teacher: true,
       student: true,
       name: '图书超期',
@@ -176,6 +176,14 @@ Page({
       student: true,
       name: '小爱课表',
       url: '../school/xiaoai',
+      login: false,
+    }, {
+      id: 'portrait',
+      icon: 'biye',
+      teacher: false,
+      student: true,
+      name: '毕业画像',
+      url: '../books/portrait',
       login: false,
     }, {
       id: 'about',

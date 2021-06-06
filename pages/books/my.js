@@ -15,7 +15,7 @@ Page({
   },
   onLoad: function(para) {
     const opacLogin = app.globalData.opacLogin;
-    console.log(opacLogin)
+    console.log(typeof opacLogin)
     this.getData(opacLogin);
   },
   hidePasswordModal: function () {

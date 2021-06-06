@@ -44,6 +44,19 @@
 
   <block wx:if="{{hasLogin}}">
 
+  <!-- 毕业生画像 -->
+  <navigator wx:if="{{isGraduateStu}}" url="../books/portrait" class="cu-list menu sm-border card-menu margin">
+      <view class="cu-bar bg-white solid-bottom">
+        <view class="action">
+          <text class="cuIcon-title text-green"></text>毕业生画像
+        </view>
+        <view class="action padding-right"><text class="line-wegreen">🎓</text></view>
+      </view>
+      <view class="bg-white padding">
+        <image src="https://upload-images.jianshu.io/upload_images/4697920-b2335b9c7ca25bd1.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" mode="widthFix" style="width:100%;height:100%;"></image>
+      </view>
+    </navigator>
+
     <!-- 下节课卡片 -->
     <block wx:if="{{nextCourseArray.courseName}}">
       <view class="cu-list menu sm-border card-menu margin">

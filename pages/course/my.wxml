@@ -72,9 +72,9 @@
                         <view class="kb-card {{wid%2==0?'mg-8':'mg-12'}}" wx:for="{{lessons[day]}}" wx:key="wid"
                             wx:for-index="wid" wx:for-item="widItem">
                             <!-- 循环重叠课 -->
-                            <block wx:if="{{(widItem.length<6&&widItem.length>1)?false:true}}">
+                            <block wx:if="{{(widItem.length<7&&widItem.length>1)?false:true}}">
                                 <view bindtap="showDetail"
-                                    class="mg-8 kb-card-content {{widItem.length<6&&widItem.length>1?'k-sec':''}} {{classColors[widItem.courseName.length%3]}}"
+                                    class="mg-8 kb-card-content {{widItem.length<7&&widItem.length>1?'k-sec':''}} {{classColors[widItem.courseName.length%3]}}"
                                     data-day="{{day}}" data-color="{{classColors[widItem.courseName.length%3]}}"
                                     data-wid="{{wid}}" wx:if="{{widItem.courseName.length>0}}">
                                     <text class="kb-card-place-words">{{widItem.place}}</text>

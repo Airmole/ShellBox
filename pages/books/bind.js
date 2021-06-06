@@ -17,15 +17,18 @@ Page({
     PreInfo: {},
     isLoading: true,
     defaultUid: '',
-    storageOpacPassword:''
+    storageOpacPassword:'',
+    from: 'index'
   },
-  onLoad: function() {
-    var that = this;
+  onLoad: function(options) {
+    var that = this
     var uid = app.globalData.edusysUserInfo.uid;
-    var pwd = wx.getStorageSync('opacPassword');
+    var pwd = wx.getStorageSync('opacPassword')
+    const from = options.from ? options.from : 'index'
     that.setData({
       defaultUid: uid,
-      storageOpacPassword:pwd
+      storageOpacPassword: pwd,
+      from: from
     })
     this.getVcode();
     if (this.checkHasLogin()) {} else {
@@ -48,10 +51,10 @@ Page({
       icon: "loading",
       duration: 10000
     })
-    var that = this;
-    var uid = e.detail.value.username;
-    var pwd = e.detail.value.password;
-    var vcode = e.detail.value.vcode;
+    var that = this
+    var uid = e.detail.value.username
+    var pwd = e.detail.value.password
+    var vcode = e.detail.value.vcode
     if ((uid.length == 0 || pwd.length == 0) || vcode.length != 4) {
       wx.showToast({
         title: '输入有误',
@@ -105,10 +108,12 @@ Page({
                 token: that.data.PreInfo.token
               };
               //设置本地Storage,维持登录态用
-              wx.setStorageSync('opacPassword', pwd);
-              wx.redirectTo({
-                url: '../books/my'
-              })
+              wx.setStorageSync('opacPassword', pwd)
+              if (that.data.from == 'portrait') {
+                wx.redirectTo({ url: '../books/portrait' })
+              } else {
+                wx.redirectTo({ url: '../books/my' })
+              }
             }
           } else {
             wx.showToast({
@@ -117,9 +122,6 @@ Page({
               duration: 3000
             });
           }
-        },
-        complete: function() {
-          that.getVcode();
         }
       })
     }
@@ -228,7 +230,7 @@ Page({
           });
         }
       }
-    });
+    })
   },
   resetPassword: function() {
     this.setData({

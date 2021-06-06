@@ -1,0 +1,8 @@
+{
+  "navigationBarBackgroundColor": "#5C9BDF",
+  "backgroundColor": "#5C9BDF",
+  "navigationBarTitleText": "贝壳小盒子毕业生画像",
+  "enablePullDownRefresh": false,
+  "disableScroll": true,
+  "navigationStyle": "default"
+}
