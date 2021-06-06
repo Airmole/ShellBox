@@ -1,12 +1,210 @@
 <!--pages/books/portrait.wxml-->
-<view class="page-body" style="width:{{deviceInfo.screenWidth}}px;height:{{deviceInfo.screenHeight}}px;">
-  <view class="page-section page-section-spacing swiper" style="width:{{deviceInfo.screenWidth}}px;height:{{deviceInfo.screenHeight}}px;">
-    <swiper vertical="true" indicator-dots="{{true}}" style="width:{{deviceInfo.screenWidth}}px;height:{{deviceInfo.screenHeight}}px;">
-      <block wx:for="{{background}}" wx:key="*this">
-        <swiper-item class="{{item}}">
-          <view class="swiper-item {{item}}"></view>
-        </swiper-item>
-      </block>
+<view class="bg-img padding-tb-xl" style="{{fullscreen}}background-image: url('{{indexBgImage}}');"
+  wx:if="{{!hasLogin}}">
+  <view class="padding-xl text-white" style="margin-top: {{deviceInfo.screenHeight - 300}}px;">
+    <view class="flex padding justify-center flex-direction">
+      <button wx:if="{{!hasNeedData}}" bindtap="startAction" class="cu-btn round bg-purple block shadow lg">授权生成</button>
+      <button wx:else bindtap="startAction" class="cu-btn round bg-purple block shadow lg">开始查看</button>
+    </view>
+  </view>
+</view>
+<view class="page-body" style="{{fullscreen}}" wx:else>
+  <view class="page-section page-section-spacing swiper" style="{{fullscreen}}">
+    <swiper vertical="true" indicator-dots="{{true}}" style="{{fullscreen}}" easing-function="easeInOutCubic" bindchange="swiperChange">
+
+      <!-- 扉页 -->
+      <swiper-item class="flex justify-center align-center" style="background: #5C9BDF">
+        <view class="bg-img flex justify-center align-center"
+          style="background-image: url('{{coverBgImage}}');{{fullscreen}}">
+          <view class="text-xxl"><text>姓名：{{data.edu.profile.name}}\n班级：{{data.edu.profile.class}}\n学号：{{data.edu.profile.uid}}</text></view>
+        </view>
+      </swiper-item>
+
+      <!-- 录取通知书 -->
+      <swiper-item class="flex justify-center align-center" style="background: #5C9BDF">
+        <view class="bg-img flex justify-center align-center"
+          style="background-image: url('{{luquBgImage}}');{{fullscreen}}">
+          <view class="margin flex justify-center align-center flex-wrap">
+            <view class="text-lg padding-sm margin-xs"><text>姓名：{{data.edu.profile.name}}\n学号：{{data.edu.profile.uid}}\n院系：{{data.edu.profile.college}}\n专业：{{data.edu.profile.profession}}</text></view>
+            <view class="text-left padding-sm margin-xs" style="width:{{deviceInfo.screenWidth - 120}}px;"> <text
+                decode="true">{{data.edu.profile.name}} 同学\n &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;经省（直辖市、自治区）招办批准，录取你到我校 {{data.edu.profile.profession}} 专业学习，请持有效证件到我校报到。</text>
+              <view class="padding-sm text-right"><text>\n北京科技大学天津学院\n二零一七年</text></view>
+            </view>
+          </view>
+        </view>
+      </swiper-item>
+
+      <swiper-item class="flex justify-center align-center" style="background: #5C9BDF">
+        <view class="bg-img flex justify-center align-center padding"
+          style="background-image: url('{{fromBgImage}}');{{fullscreen}}">
+          <view class="flex-wrap" style="margin-top:-100px;">
+            <view class="text-center">
+              <text class="text-xl">
+                <text class="text-red">{{data.edu.joinYearText}}年前</text>的秋天 \n
+                你带着满满的行李和梦想 \n
+                来赴贝壳的一场约会 \n
+              </text>
+            </view>
+            <view class="text-center padding margin">
+              <text class="text-xl">
+                <text class="text-red">{{data.edu.profile.joindate}}</text>，来自 <text class="text-red">{{data.edu.profile.homeplace ? data.edu.profile.homeplace : '远方'}}</text>的你 \n
+                加入贝壳田园这个温馨的大家庭！
+              </text>
+            </view>
+          </view>
+        </view>
+      </swiper-item>
+
+      <swiper-item class="flex justify-center align-center" style="background: #5C9BDF">
+        <view class="bg-img flex justify-center align-center padding"
+          style="background-image: url('{{book1BgImage}}');{{fullscreen}}">
+          <view class="flex-wrap" style="margin-top:-120px;">
+            <view class="text-center" wx:if="{{data.opac.maxBorrowedYear.x}}">
+              <text class="text-xl">
+                <text class="text-red">{{data.opac.maxBorrowedYear.x}}年</text>这一年 
+                是你大学期间最勤奋的一年 
+                这一年你借了<text class="text-red">{{data.opac.maxBorrowedYear.y}}</text>本书 
+              </text>
+            </view>
+            <view class="text-center padding margin" wx:if="{{data.opac.maxBorrowedClass.legendText}}">
+              <text class="text-xl">
+                从你的借阅记录习惯来看 
+                你似乎更偏爱<text class="text-red">{{data.opac.maxBorrowedClass.legendText}}</text>图书
+              </text>
+            </view>
+            <view class="text-center padding margin" wx:if="{{!data.opac.firstBorrowed || !data.opac.firstBorrowed}}">
+              <text class="text-xl">\n来学校这么久了\n你居然一本书也没有借阅，\n这河里嘛？\n</text>
+            </view>
+            <view class="text-center padding margin">
+              <text class="text-xl">\n书籍让精神得到慰藉,\n让内心得到充实，\n让灵魂更加强劲！\n</text>
+            </view>
+          </view>
+        </view>
+      </swiper-item>
+
+      <swiper-item class="flex justify-center align-center" style="background: #5C9BDF">
+        <view class="bg-img flex justify-center align-center padding"
+          style="background-image: url('{{book2BgImage}}');{{fullscreen}}">
+          <view class="flex-wrap" style="margin-top:-130px;">
+            <view class="text-center" wx:if="{{data.opac.firstBorrowed}}">
+              <text class="text-xl">
+                <text class="text-red">{{data.opac.firstBorrowed.borrowDate}}</text>这一天 
+                你从 <text class="text-red">{{data.opac.firstBorrowed.bookPlace}}</text> 借阅了一本
+                <text class="text-red">{{data.opac.firstBorrowed.author}}</text> 的<text class="text-red">《{{data.opac.firstBorrowed.bookName}}》</text> 
+                这是你大学借的第一本书
+              </text>
+            </view>
+            <view class="text-center padding margin" wx:if="{{data.opac.lastBorrowed}}">
+              <text class="text-xl">
+                <text class="text-red">{{data.opac.lastBorrowed.borrowDate}}</text>你最后一次 
+                从 <text class="text-red">{{data.opac.lastBorrowed.bookPlace}}</text> 借了一本 
+                <text class="text-red">{{data.opac.lastBorrowed.author}}</text> 的<text class="text-red">《{{data.opac.lastBorrowed.bookName}}》</text> 
+                这大概是你最后一次在学校借书
+              </text>
+            </view>
+            <view class="text-center padding margin" wx:if="{{data.opac.borrowedBooksSum && data.opac.rankPercent}}">
+              <text class="text-xl">大学期间，你累计借阅图书 <text class="text-red">{{data.opac.borrowedBooksSum}}</text> 册次\n 在全校所有读者中排在 <text class="text-red">{{data.opac.rankPercent}}</text>人之前</text>
+            </view>
+          </view>
+        </view>
+      </swiper-item>
+
+      <swiper-item class="flex justify-center align-center" style="background: #5C9BDF">
+        <view class="bg-img flex justify-center align-center padding"
+          style="background-image: url('{{score1BgImage}}');{{fullscreen}}">
+          <view class="flex-wrap" style="margin-top:-150px;">
+            <view class="text-center"  wx:if="{{data.edu.mustStudyBest.time}}">
+              <text class="text-xl">
+                大学四年收获满满 \n
+                你上过 <text class="text-red">{{data.edu.mustStudyCount}}</text>门必修课 
+                其中 <text class="text-red">{{data.edu.mustStudyBest.time}}</text>学期的 
+                <text class="text-red">{{data.edu.mustStudyBest.className}}</text>成绩最好 
+                获得了 <text class="text-red">{{data.edu.mustStudyBest.score}}</text>分的好成绩 
+                拿到了 <text class="text-red">{{data.edu.mustStudyBest.credit}}</text>个学分
+              </text>
+            </view>
+            <view class="text-center" wx:if="{{data.edu.optionalStudyBest.time}}">
+              <text class="text-xl">
+                \n\n <text class="text-red">{{data.edu.optionalStudyCount}}</text>门选修(公选+限选)课 
+                其中 <text class="text-red">{{data.edu.optionalStudyBest.time}}</text>学期的 
+                <text class="text-red">{{data.edu.optionalStudyBest.className}}</text>成绩最好 
+                获得了 <text class="text-red">{{data.edu.optionalStudyBest.score}}</text>分的好成绩 
+                拿到了 <text class="text-red">{{data.edu.optionalStudyBest.credit}}</text>个学分
+              </text>
+            </view>
+          </view>
+        </view>
+      </swiper-item>
+
+      <swiper-item class="flex justify-center align-center" style="background: #5C9BDF">
+        <view class="bg-img flex justify-center align-center padding"
+          style="background-image: url('{{score2BgImage}}');{{fullscreen}}">
+          <view class="flex-wrap" style="margin-top:-180px;">
+            <view class="text-center">
+              <text class="text-xl">
+                你还记得 <text class="text-red">{{data.edu.studyBest.time}}</text>学期 
+                <text class="text-red">{{data.edu.studyBest.className}}</text>这门课程吗? 
+                你用 <text class="text-red">{{data.edu.studyBest.period}}</text> 学时获得了 <text class="text-red">{{data.edu.studyBest.score}}</text>分的好成绩 
+                拿到了 <text class="text-red">{{data.edu.studyBest.credit}}</text>学分,是所有考试成绩里最高的
+              </text>
+            </view>
+            <view class="text-center">
+              <text class="text-xl" wx:if="{{data.edu.gpaBest.semester}}">
+                \n <text class="text-red">{{data.edu.gpaBest.semester}}</text>学期 
+                你的加权平均分成绩最高 达到了 <text class="text-red">{{data.edu.gpaBest.score}}</text>分
+              </text>
+              <text class="text-xl" wx:if="{{data.edu.avgBest.semester}}">
+                \n <text class="text-red">{{data.edu.avgBest.semester}}</text> 学期 
+                你的平均分成绩最高 达到了 <text class="text-red">{{data.edu.avgBest.score}}</text> 分
+              </text>
+              <text class="text-xl">
+                你对未来充满了期待 
+                希望能在贝壳田园努力学习 
+                把握机会 提高自己
+              </text>
+            </view>
+          </view>
+        </view>
+      </swiper-item>
+
+      <!-- 尾页 -->
+      <swiper-item class="flex justify-center align-center" style="background: #5C9BDF">
+        <view class="bg-img flex justify-center align-center padding"
+          style="background-image: url('{{endBgImage}}');{{fullscreen}}">
+          <view class="flex-wrap" style="margin-top:-120px;">
+            <view class="text-center">
+              <text class="text-xl">
+                <text class="text-red">{{data.edu.joinYearText}}年后</text>的今天
+                你告别亲爱的母校
+                带上满满的行李和梦想
+                开启人生新的征程 \n
+                最潇洒的告白
+                是永不回头的向前奔跑
+                贝壳田园有我们回不去的青春
+                校训：明德励学，效实致新
+                将一路追随我们
+                见证更好的自己 \n
+                ----- 贝壳小盒子 -----
+              </text>
+            </view>
+            <view class="margin-top">
+              <button wx:if="{{!sharerid}}" open-type="share" class="cu-btn round bg-purple block shadow lg">分享给朋友们</button>
+              <navigator url="./portrait" wx:else class="cu-btn round bg-purple block shadow lg">查看我的毕业画像</navigator>
+            </view>
+          </view>
+        </view>
+      </swiper-item>
+
     </swiper>
   </view>
+ 
+  <view class="bottom-tips bg-white padding-xs round" style="left: {{(deviceInfo.screenWidth/2)-50}}px;">
+    <block wx:if="{{showTips}}">
+      <text class="text-center"><text class="cuIcon-pullup"></text>向上滑动继续</text>
+    </block>
+    <block wx:else>
+      <text class="text-center"><text class="cuIcon-title"></text>后面等你创造</text>
+    </block>
+  </view>
+
 </view>

@@ -2,3 +2,9 @@
 .swiper-item {
   background-color: black;
 }
+
+.bottom-tips {
+  position: fixed;
+  bottom: 20px;
+  text-align: center;
+}

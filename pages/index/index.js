@@ -13,6 +13,7 @@ Page({
       { name: '出版社', value: '09' }
     ],
     keyword: '',
+    isGraduateStu: false,
     isLoading: true,
     hasLogin: false,
     isTeacher: false,
@@ -45,6 +46,7 @@ Page({
     var todayCourses = [];
     var nextCourseArray = [];
     var myCourse = wx.getStorageSync('myCourse')
+    var isGraduateStu = false
     if (myCourse != '' && Object.keys(myCourse).length > 0) {
       hasCourseCache = true
     }
@@ -55,8 +57,11 @@ Page({
       var edusysUserInfoCache = wx.getStorageSync('edusysUserInfo')
       try {
         if (edusysUserInfo.uid.length > 0) {
-          app.globalData.hasEdusysStorage = true;
-          hasLogin = true;
+          app.globalData.hasEdusysStorage = true
+          hasLogin = true
+          if (edusysUserInfo.uid.indexOf('17') >= 0) {
+            isGraduateStu = true
+          }
         }
       } catch (error) {
         hasLogin = false;
@@ -111,7 +116,8 @@ Page({
       nextCourseArray: nextCourseArray,
       todayCourses: todayCourses,
       todayCourseCard: todayCourseCard,
-      isLoading: false
+      isLoading: false,
+      isGraduateStu: isGraduateStu
     })
 
     // 是否有绑定电费信息？查询电费
