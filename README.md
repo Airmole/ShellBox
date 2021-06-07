@@ -4,16 +4,16 @@
 
 [![Star](https://img.shields.io/badge/Star-Airmole-brightgreen.svg)](https://github.com/Airmole/ShellBox/stargazers)
 [![Download](https://img.shields.io/badge/download-.zip-brightgreen.svg)](https://github.com/Airmole/ShellBox/archive/master.zip)
-[![last commit](https://img.shields.io/badge/last%20commit-2021--05--13-green.svg)](https://github.com/Airmole/ShellBox/commits/master)
+[![last commit](https://img.shields.io/badge/last%20commit-2021--06--07-green.svg)](https://github.com/Airmole/ShellBox/commits/master)
 
 
 ## 线上版本体验
 
-[![miniprogram.th.jpg](http://www.z4a.net/images/2018/05/04/miniprogram.th.jpg)](小程序体验码)
+[![miniprogram.th.jpg](https://upload-images.jianshu.io/upload_images/4697920-978a1204bd86e58c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)](小程序体验码)
 
 
 ## 截图
-[![-1.jpg](https://z4a.net/images/2019/03/16/-1.jpg)](https://z4a.net/image/7NtGdH)
+[![-1.jpg](https://upload-images.jianshu.io/upload_images/4697920-dfebfcf8673fc144.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)](https://z4a.net/image/7NtGdH)
 
 ## 页面路径说明
 
@@ -31,6 +31,7 @@
     "pages/books/overdue/index",     // 图书超期欠款
     "pages/books/recommend/index",   // 图书荐购
     "pages/books/my",                // 我的图书馆
+    "pages/books/portrait",          // 毕业生画像(成绩、借阅记录回忆统计)
     "pages/course/my",               // 我的个人课表
     "pages/course/search",           // 班级、教师课表搜索
     "pages/course/content",          // 班级教师课表详情
