@@ -17,15 +17,18 @@
           <text class="ykt-ye-name">证件号：{{jsonStr.readerInfo.cardNO}}</text>
           <text class="ykt-ye-name">条码号：{{jsonStr.readerInfo.barCodeNO}}</text>
         </view>
-        <view class="ykt-img">
-          <!-- <image src="/images/card-bg.png"></image> -->
-        </view>
+        <view class="ykt-img"></view>
       </view>
       <view class="ykt-card-more">
         <text class="ykt-ye-time"></text>
         <text class="ykt-ye-id">{{jsonStr.readerInfo.expirationDate}}到期</text>
       </view>
     </view>
+
+    <view class="margin radius padding-lr">
+      <image bindtap="export" src="https://upload-images.jianshu.io/upload_images/4697920-562ae6c043da1a43.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" mode="widthFix" style="width:100%;height:100%;"></image>
+    </view>
+
     <view class="user-jy">
       <view class="user-jy-item user-jy-num">
         <text class="user-jy-hd">最多可借</text>
