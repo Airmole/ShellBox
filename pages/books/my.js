@@ -1,5 +1,6 @@
 // pages/books/my.js
-var app = getApp();
+var app = getApp()
+var util = require("../../utils/util")
 Page({
   data: {
     remind: '加载中',
@@ -15,7 +16,6 @@ Page({
   },
   onLoad: function(para) {
     const opacLogin = app.globalData.opacLogin;
-    console.log(typeof opacLogin)
     this.getData(opacLogin);
   },
   hidePasswordModal: function () {
@@ -301,5 +301,30 @@ Page({
         }
       })
     }
+  },
+  export: function () {
+    const cookie = this.data.jsonStr.input.cookie
+    const uid = this.data.jsonStr.input.username
+    const manage = wx.getFileSystemManager()
+    const fileName = util.formatDate(new Date()) + '_' + uid
+    wx.downloadFile({
+      url: `${app.globalData.domain}/book/history/export?uid=${uid}&cookie=${cookie}`,
+      success (res) {
+        var savePath = wx.env.USER_DATA_PATH + "/" + fileName
+        if (res.statusCode == 200) {
+          manage.saveFile({
+            tempFilePath: res.tempFilePath,
+            filePath: savePath+'.xlsx',
+            success:function(res){
+              wx.openDocument({
+                filePath: res.savedFilePath,
+                fileType: 'xlsx',
+                showMenu: true
+              })
+            }
+          })
+        }
+      }
+    })
   }
 });
