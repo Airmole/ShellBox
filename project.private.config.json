@@ -13,8 +13,8 @@
     "miniprogram": {
       "list": [
         {
-          "name": "pages/books/portrait",
-          "pathName": "pages/books/portrait",
+          "name": "pages/school/board/index",
+          "pathName": "pages/school/board/index",
           "query": "",
           "scene": 1007
         }

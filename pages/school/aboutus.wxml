@@ -82,20 +82,6 @@
               </view>
               <view class="text-center text-cut" style="width:60px;">{{item.name}}</view>
             </view>
-
-            <block wx:if="{{showFreedomFunc}}">
-              <view bindtap="fakeInOut" data-type="outschool" class="flex flex-direction text-center margin-left">
-                <view class="text-center cu-avatar lg round avatar-border"><text>out</text>
-                </view>
-                <view class="text-center text-cut" style="width:60px;">out</view>
-              </view>
-              <view bindtap="fakeInOut" data-type="inschool" class="flex flex-direction text-center margin-left">
-                <view class="text-center cu-avatar lg round avatar-border"><text>in</text>
-                </view>
-                <view class="text-center text-cut" style="width:60px;">in</view>
-              </view>
-            </block>
-
           </view>
         </view>
       </view>

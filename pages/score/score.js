@@ -111,7 +111,7 @@ Page({
       console.error('getSystemInfoSync failed!');
     }
     var simulationData = this.createSimulationData();
-    console.log(simulationData)
+    // console.log(simulationData)
     var that = this;
     if (simulationData.categories.length <= 0) {
       that.setData({ showGraphic: false });

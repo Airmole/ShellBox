@@ -13,7 +13,6 @@ Page({
       { name: '出版社', value: '09' }
     ],
     keyword: '',
-    isGraduateStu: false,
     isLoading: true,
     hasLogin: false,
     isTeacher: false,
