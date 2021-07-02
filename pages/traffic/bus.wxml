@@ -23,6 +23,17 @@
 
   <block wx:if="{{activeIndex == 0}}">
     <view class="padding-sm">
+
+      <view class="bg-green light padding radius shadow-blur margin-bottom">
+        <view class="bg-green light padding radius shadow-blur">
+          <view class="text-lg text-center text-black">受疫情影响长期停运,建议考虑其他方式</view>
+          <view class="margin-top-sm text-Abc text-black text-center" bindtap="showBjBusQrcode">
+            <image src="{{guomaoQrcode}}" style="width: 150px;height: 150px;"/>
+            <text>\n国贸大巴运营公众号</text>
+          </view>
+        </view>
+      </view>
+
       <view class="bg-green light padding radius shadow-blur">
         <view class="text-lg text-center text-black">京津新城 ←_→ 北京国贸</view>
         <view class="margin-top-sm text-Abc text-black">

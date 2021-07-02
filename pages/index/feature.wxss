@@ -3,7 +3,6 @@
 @import "../../colorui/animation.wxss";
 
 .UCenter-bg {
-  background-image: url(https://upload-images.jianshu.io/upload_images/4697920-65af0059363fb4b0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240);
   background-size: cover;
   height: 550rpx;
   display: flex;
@@ -66,4 +65,12 @@ map,.mapBox{
 
 .replay-board-title {
   margin-top: -22px;
+}
+
+.nickname {
+  padding: 10rpx;
+  background-color: rgba(243, 243, 243, 0.438);
+  border-radius: 25rpx;
+  color: black;
+  font-weight: 350;
 }

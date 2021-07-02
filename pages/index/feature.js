@@ -9,6 +9,8 @@ Page({
     QGroupModal: false,
     quanyiModal: false,
     clickAvatarCount: 1,
+    backgroundImage: 'https://upload-images.jianshu.io/upload_images/4697920-65af0059363fb4b0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240',
+    canShake: false,
     iconList: [{
       id: 'myCourse',
       icon: 'wodekebiao',
@@ -196,10 +198,24 @@ Page({
     }]
   },
   onLoad: function () {
-    this.inital();
+    this.inital()
+    this.getBackgroundImage()
   },
   onShow: function () {
-    this.inital();
+    this.inital()
+    var _this = this
+    // 手机摇一摇随机更换背景壁纸
+    this.setData({ canShake: true })
+    wx.onAccelerometerChange(function (e) {
+      if (!_this.data.canShake) {
+        return
+      }
+      // console.log(e)
+      if (e.x * e.y > 0.58 ) {
+        wx.vibrateShort({ type: 'heavy' })
+        _this.getBackgroundImage()
+      }
+    })
   },
   inital: function () {
     var edusysUserInfo = wx.getStorageSync('edusysUserInfo');
@@ -226,6 +242,23 @@ Page({
     wx.showShareMenu({
       withShareTicket: true,
       menus: ['shareAppMessage', 'shareTimeline']
+    })
+  },
+  getBackgroundImage: function() {
+    var _this = this
+    wx.request({
+      url: `${app.globalData.domain}/background`,
+      timeout: app.globalData.requestTimeout,
+      method: 'GET',
+      success: function(res){
+        try {
+          if (res.statusCode == 200) {
+            _this.setData({ backgroundImage: res.data.background })
+          }
+        } catch (error) {
+          console.log('获取背景图出错', error)
+        }
+      }
     })
   },
   goToPage: function (e) {
@@ -306,5 +339,11 @@ Page({
       title: '贝壳小盒子',
       path: 'pages/index/feature',
     }
-  }
+  },
+   /**
+   * 生命周期函数--监听页面隐藏
+   */
+  onHide: function () {
+    this.setData({ canShake: false })
+  },
 })

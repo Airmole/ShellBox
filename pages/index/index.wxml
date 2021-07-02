@@ -29,11 +29,13 @@
 <block wx:if="{{calendar != '' && calendar.teachWeek != 'N/A'}}">
   <navigator url="../school/calendar" class="padding-lr-sm bg-white margin radius padding-bottom" wx:if="{{calendar.teachWeek > 0 && calendar.teachWeek <= 25}}">
     <view class="padding-top"><text class="cuIcon-title text-green"></text>第 <text class="text-xxl text-wegreen">{{calendar.teachWeek}}</text> 周 {{calendar.dayOfWeek}}</view>
+    <view class="padding-top praise"><text class="text-black">{{praise}}</text></view>
   </navigator>
 </block>
 <block wx:else>
   <navigator url="../school/calendar" class="padding-lr-sm bg-white margin radius padding-bottom" wx:if="{{calendar != ''}}">
     <view class="padding-top"><text class="cuIcon-titles text-green"></text>{{calendar.month}}月{{calendar.day}}日 {{calendar.dayOfWeek}}</view>
+    <text class="text-black">{{praise}}</text>
   </navigator>
 </block>
 
