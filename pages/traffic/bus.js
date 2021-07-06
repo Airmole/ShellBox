@@ -7,6 +7,7 @@ Page({
     sliderOffset: 0,
     sliderLeft: 0,
     isLoading: true,
+    guomaoQrcode: 'https://upload-images.jianshu.io/upload_images/4697920-f2e9f2fde02b0c09.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240',
     chelaileWeappid: 'wx71d589ea01ce3321',
     bus160: [
       '北京科技大学天津学院西门',
@@ -116,8 +117,9 @@ Page({
     })
   },
   showBjBusQrcode: function () {
+    var qrcode = this.data.guomaoQrcode
     wx.previewImage({
-      urls: ['https://upload-images.jianshu.io/upload_images/4697920-b963b368eec6df87.png'],
+      urls: [qrcode],
     })
   },
   chelaile160: function () {

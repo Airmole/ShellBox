@@ -29,11 +29,13 @@
 <block wx:if="{{calendar != '' && calendar.teachWeek != 'N/A'}}">
   <navigator url="../school/calendar" class="padding-lr-sm bg-white margin radius padding-bottom" wx:if="{{calendar.teachWeek > 0 && calendar.teachWeek <= 25}}">
     <view class="padding-top"><text class="cuIcon-title text-green"></text>第 <text class="text-xxl text-wegreen">{{calendar.teachWeek}}</text> 周 {{calendar.dayOfWeek}}</view>
+    <view class="padding-top praise"><text class="text-black">{{praise}}</text></view>
   </navigator>
 </block>
 <block wx:else>
   <navigator url="../school/calendar" class="padding-lr-sm bg-white margin radius padding-bottom" wx:if="{{calendar != ''}}">
     <view class="padding-top"><text class="cuIcon-titles text-green"></text>{{calendar.month}}月{{calendar.day}}日 {{calendar.dayOfWeek}}</view>
+    <text class="text-black">{{praise}}</text>
   </navigator>
 </block>
 
@@ -43,19 +45,6 @@
 <view wx:else>
 
   <block wx:if="{{hasLogin}}">
-
-  <!-- 毕业生画像 -->
-  <navigator wx:if="{{isGraduateStu}}" url="../books/portrait" class="cu-list menu sm-border card-menu margin">
-      <view class="cu-bar bg-white solid-bottom">
-        <view class="action">
-          <text class="cuIcon-title text-green"></text>毕业生画像
-        </view>
-        <view class="action padding-right"><text class="line-wegreen">🎓</text></view>
-      </view>
-      <view class="bg-white padding">
-        <image src="https://upload-images.jianshu.io/upload_images/4697920-b2335b9c7ca25bd1.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" mode="widthFix" style="width:100%;height:100%;"></image>
-      </view>
-    </navigator>
 
     <!-- 下节课卡片 -->
     <block wx:if="{{nextCourseArray.courseName}}">
@@ -143,7 +132,7 @@
     </block>
 
     <!-- 电费信息 -->
-    <!-- <feecard
+    <feecard
       isShow="{{!(hasBindElesys && !elesysData)}}"
       title="寝室电费"
       titleRight="⚡️"
@@ -158,7 +147,7 @@
       unbindShow="{{!hasBindElesys}}"
       unbindTips="绑定关联寝室电费信息"
       unbindButton="绑定寝室"
-    ></feecard> -->
+    ></feecard>
 
      <!-- 网费信息 -->
      <feecard

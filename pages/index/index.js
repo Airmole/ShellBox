@@ -12,8 +12,9 @@ Page({
       { name: '主题', value: '04' },
       { name: '出版社', value: '09' }
     ],
+    praise: '',
+    canShake: false,
     keyword: '',
-    isGraduateStu: false,
     isLoading: true,
     hasLogin: false,
     isTeacher: false,
@@ -31,10 +32,24 @@ Page({
   },
   onLoad: function () {
     this.inital();
-    this.getCalendar();
+    this.getCalendar()
+    this.getPraise()
   },
   onShow: function () {
-    this.inital();
+    this.inital()
+    var _this = this
+    // 手机摇一摇随机更换夸夸语录
+    this.setData({ canShake: true })
+    wx.onAccelerometerChange(function (e) {
+      if (!_this.data.canShake) {
+        return
+      }
+      // console.log(e)
+      if (e.x * e.y > 0.58 ) {
+        wx.vibrateShort({ type: 'heavy' })
+        _this.getPraise()
+      }
+    })
   },
   inital: function () {
     // console.log(app.globalData)
@@ -128,6 +143,23 @@ Page({
     wx.showShareMenu({
       withShareTicket: true,
       menus: ['shareAppMessage', 'shareTimeline']
+    })
+  },
+  getPraise: function() {
+    var _this = this
+    wx.request({
+      url: `${app.globalData.domain}/praise`,
+      timeout: app.globalData.requestTimeout,
+      method: 'GET',
+      success: function(res){
+        try {
+          if (res.statusCode == 200) {
+            _this.setData({ praise: res.data.praise })
+          }
+        } catch (error) {
+          console.log('获取夸夸语录', error)
+        }
+      }
     })
   },
   getElesysInfo: function () {
@@ -264,5 +296,11 @@ Page({
   },
   showQuanyiModal: function () {
     this.setData({ quanyiModal: true })
+  },
+  /**
+   * 生命周期函数--监听页面隐藏
+   */
+  onHide: function () {
+    this.setData({ canShake: false })
   },
 })

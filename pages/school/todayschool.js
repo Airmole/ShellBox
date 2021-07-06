@@ -12,7 +12,10 @@ Page({
     area: '校内',
     text: '进校验证通过',
     color: '#75F454',
-    pageType: 'inschool'
+    pageType: 'inschool',
+    confirmed: false,
+    inConfirmBtn: 'https://upload-images.jianshu.io/upload_images/4697920-0a8ab41c005732e4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240',
+    outConfirmBtn: 'https://upload-images.jianshu.io/upload_images/4697920-17ce17936d68879c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240'
   },
 
   /**
@@ -43,6 +46,11 @@ Page({
       text = '出校验证通过'
     }
     this.setData({ timeText: timeText, userinfo: userinfo, pageType: options.type, color: color, text: text })
+  },
+  confirm: function () {
+    this.setData({
+      confirmed: true
+    })
   },
   /**
    * 生命周期函数--监听页面初次渲染完成
@@ -83,13 +91,6 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
 
   }
 })

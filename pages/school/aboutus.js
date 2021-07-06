@@ -136,31 +136,11 @@ Page({
       success: function(res){
         try {
           if (res.data.code == 200 && res.data.message == 'success') {
-            _this.setData({ showFreedomFunc: true })
+            wx.navigateTo({ url: './fakeschool' })
           }
         } catch (error) {
           _this.setData({ showFreedomFunc: false })
         }
-      }
-    })
-  },
-  fakeInOut:function(e) {
-    const id = e.currentTarget.dataset.type
-    if(id == 'inschool' || id == 'outschool'){
-      this.scanTodaySchool(id);
-      return
-    }
-  },
-  scanTodaySchool: function(type){
-    wx.scanCode({
-      success: (res) => {
-        if (res.errMsg !== 'scanCode:ok') {
-          wx.showToast({ title: res.errMsg, icon: 'none'})
-          return;
-        }
-        this.setData({ showFreedomFunc: false })
-
-        wx.navigateTo({ url: `../school/todayschool?type=${type}` })
       }
     })
   }
