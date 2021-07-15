@@ -50,7 +50,7 @@ App({
     const cookie = edusysInfo.cookie ? edusysInfo.cookie : ''
     const weuserInfo =  wx.getStorageSync('userInfo')
     wx.request({
-      url: `${self.globalData.domain}/edu/profile`,
+      url: `https://dev.shellbox.airmole.cn/api/edu/profile`,
       data:{
         uid: uid,
         pwd: pwd,

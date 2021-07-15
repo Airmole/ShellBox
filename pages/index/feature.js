@@ -188,6 +188,14 @@ Page({
     //   url: '../books/portrait',
     //   login: false,
     // }, {
+      id: 'bbbug',
+      icon: 'yu',
+      teacher: true,
+      student: true,
+      name: '树洞闲聊',
+      url: '',
+      login: false,
+    }, {
       id: 'about',
       icon: 'plane',
       teacher: true,
@@ -280,6 +288,11 @@ Page({
 
     if(id == 'teacherBus'){
       wx.navigateToMiniProgram({ appId: 'wx183616af30e5723d' });
+      return
+    }
+
+    if(id == 'bbbug'){
+      wx.navigateToMiniProgram({ appId: 'wx0a68e695b54ffb4c', path: 'pages/index/index?room_id=11038' });
       return
     }
 
