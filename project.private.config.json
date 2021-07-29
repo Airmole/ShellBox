@@ -13,8 +13,8 @@
     "miniprogram": {
       "list": [
         {
-          "name": "创建失物招领信息",
-          "pathName": "pages/school/lost/edit",
+          "name": "失物招领信息",
+          "pathName": "pages/school/lost/index",
           "query": "",
           "scene": 1001
         }

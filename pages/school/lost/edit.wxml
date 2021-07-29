@@ -11,9 +11,9 @@
       <radio-group name="type" class="cu-form-group radius-top" bindchange="typeChanged">
         <view class="title">类型</view>
         <view class="matgin-left-xs">
-          <block wx:for="{{types}}" wx:key="type">
-            <radio value="{{item.value}}" class="blue margin-xs" checked="{{item.checked}}"></radio>{{item.label}}
-          </block>
+          <label wx:for="{{types}}" wx:key="type">
+            <radio value="{{item.value}}" class="blue margin-xs" checked="{{item.checked}}"/>{{item.label}}
+          </label>
         </view>
       </radio-group>      
       <!-- 物品类型 -->
@@ -27,7 +27,7 @@
       <view class="cu-form-group" wx:if="{{lostTypeIndex > 0 && lostTypeIndex < 4}}">
         <view class="title">证件号</view>
         <input name="card_number" placeholder="{{lostTypes[lostTypeIndex].label}}证件号" value="{{defaultCardNo}}" type="idcard"></input>
-        <ocr-navigator wx:if="{{lostTypeIndex == 3}}" class="cu-btn bg-white" bindtap="ocrIdcard"><text class="cuIcon-camera text-blue"></text></ocr-navigator>
+        <ocr-navigator wx:if="{{lostTypeIndex == 3 && type == 2}}" class="cu-btn bg-white" bind:onSuccess="ocrIdcard" certificateType="idCard" opposite="{{false}}"><text class="cuIcon-camera text-blue"></text></ocr-navigator>
       </view>
       <!-- 联系方式 -->
       <view class="cu-form-group">
@@ -58,11 +58,11 @@
           </view>
         </view>
       </view>
-      <view wx:if="{{lostTypeIndex == 3}}" class="bg-white padding margin-top text-red radius"><text class="cuIcon-info">为安全起见，身份证号码会加密处理，且仅证件本人可见</text></view>
+      <view wx:if="{{lostTypeIndex == 3}}" class="bg-white padding margin-top text-red radius"><text class="cuIcon-info">为安全起见，身份证号码会加密处理，且仅证件本人可见。如果您有上传身份证照片，请务必记得自己给证件号码打码。</text></view>
     </view>
     <!-- 发布提交按钮 -->
     <view class="padding flex flex-direction">
-      <button class="cu-btn bg-blue lg round" type="primary" formType="submit">发布</button>
+      <button class="cu-btn bg-blue lg round" style="background-color: var(--blue);" type="primary" formType="submit">发布</button>
     </view>
   </form>
 

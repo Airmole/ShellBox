@@ -1,0 +1,2 @@
+/* pages/school/lost/index.wxss */
+@import "../../school/cert.wxss";

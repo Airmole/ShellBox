@@ -113,11 +113,12 @@ Page({
     })
   },
   lostSubmit: function (e) {
-    console.log(e)
+    // console.log(e)
     let para = e.detail.value
     para.uid = this.data.uid
     para.images = this.data.imgList
     para.status = 0
+    // 参数校验
     if (!this.vaildFormData(para)) {
       return
     }
@@ -132,7 +133,7 @@ Page({
           if (res.statusCode == 200 && res.data.code == 200) {
             wx.showToast({ title: '发布成功' })
             // 1秒后跳转上页
-            // setTimeout(function () { wx.navigateBack({ delta: 1 }) }, 1000)
+            setTimeout(function () { wx.navigateBack({ delta: 1 }) }, 1000)
           } else {
             wx.showToast({ title: res.data.message, icon: 'none' })
           }
@@ -200,7 +201,9 @@ Page({
     return true
   },
   // 调用OCR插件识别证件号码
-  ocrIdcard: function () {
+  ocrIdcard: function (e) {
     // 识别证件号码
+    let idcardNo = e.detail.id.text
+    this.setData({ defaultCardNo: idcardNo })
   }
 })
