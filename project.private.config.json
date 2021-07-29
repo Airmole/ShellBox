@@ -13,10 +13,10 @@
     "miniprogram": {
       "list": [
         {
-          "name": "pages/school/board/index",
-          "pathName": "pages/school/board/index",
+          "name": "创建失物招领信息",
+          "pathName": "pages/school/lost/edit",
           "query": "",
-          "scene": 1007
+          "scene": 1001
         }
       ]
     }
