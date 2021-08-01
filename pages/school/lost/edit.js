@@ -6,19 +6,22 @@ Page({
    */
   data: {
     uid: 0,
+    id: false,
     edusysInfo: '',
     defaultCardNo: '',
+    concact: '',
+    desc: '',
+    status: 0,
+    edit: false,
     pindex: null,
     imgList: [],
     type: 1,
     types: [{
       label: '遗失',
-      value: 1,
-      checked: true
+      value: 1
     }, {
       label: '拾获',
-      value: 2,
-      checked: false
+      value: 2
     }],
     lostTypeIndex: 0,
     lostTypes: [{
@@ -48,10 +51,18 @@ Page({
   inital: function (options) {
     const edusysInfo = wx.getStorageSync('edusysUserInfo')
     const uid = edusysInfo.uid ? edusysInfo.uid : 0
+    const id = options.id ? options.id : ''
+    const type = options.type ? options.type : 1
     this.setData({
       uid: uid,
-      edusysInfo: edusysInfo
+      edit: id ? true : false,
+      id: id ? id : 0,
+      edusysInfo: edusysInfo,
+      type: type
     })
+    if (id) {
+      this.getDetailData(id)
+    }
   },
   previewImage: function (e) {
     wx.previewImage({ urls: this.data.imgList, current: e.currentTarget.dataset.url })
@@ -114,17 +125,33 @@ Page({
   },
   lostSubmit: function (e) {
     // console.log(e)
+    const _this = this
     let para = e.detail.value
     para.uid = this.data.uid
     para.images = this.data.imgList
-    para.status = 0
+    para.status = this.data.status
     // 参数校验
     if (!this.vaildFormData(para)) {
       return
     }
 
+    const template1 = para.type == 1 ? 'c3KmaXoAiLXOeostrE62FSt-IzTkHKcxMAuM65A2FUc' : '0Snue4qrfRnqT8BPIetcFqa8C7gFVFMQd7_gM3T0s3s'
+    const template2 = 'GT53lnzlKjztb2oGIO2YPBLB5Lv-onppUdVSmsdiN9U'
+    const templateIds = [template1, template2]
+
+    wx.requestSubscribeMessage({
+      tmplIds: templateIds,
+      complete () {
+        _this.sendLostPostRequest(para)
+      }
+    })
+  },
+  sendLostPostRequest: function (para = {}) {
+    let url = `${app.globalData.domain}/lost`
+    url = this.data.id ? `${url}/${this.data.id}` : url
+  
     wx.request({
-      url: `${app.globalData.domain}/lost`,
+      url: url,
       data: para,
       timeout: app.globalData.requestTimeout,
       method: 'POST',
@@ -132,10 +159,15 @@ Page({
         try {
           if (res.statusCode == 200 && res.data.code == 200) {
             wx.showToast({ title: '发布成功' })
-            // 1秒后跳转上页
+            // 发布成功，1秒后跳转上页
             setTimeout(function () { wx.navigateBack({ delta: 1 }) }, 1000)
           } else {
             wx.showToast({ title: res.data.message, icon: 'none' })
+            if (res.data.code == 403 && res.data.desc == '已存在有相同重复信息') {
+              // 该遗失物品有未认领归还的记录
+              wx.showToast({ title: '好像有找到了，是不是这个？', icon: 'none' })
+              setTimeout(function() { wx.navigateTo({ url: `./detail?id=${res.data.data.id}` }) }, 1000)
+            }
           }
         } catch (error) {
           wx.showToast({ title: res.data.message, icon: 'none' })
@@ -182,12 +214,17 @@ Page({
       return false
     }
     // 物品类型验证
-    if (para.lostType == 0) {
+    if (para.lost_type == 0) {
       wx.showToast({ title: '请选择物品类型', icon: 'none' })
       return false
     }
+    // 其他物品类型必须填写描述说明
+    if (para.lost_type == 4 && para.desc.length == 0) {
+      wx.showToast({ title: '请填写描述说明', icon: 'none' })
+      return false
+    }
     // 验证证件号码
-    if (para.lostType < 4 && para.lostType > 0) {
+    if (para.lost_type < 4 && para.lostType > 0) {
       if (para.card_number.length < 4) {
         wx.showToast({ title: '证件卡号有误', icon: 'none' })
         return false
@@ -205,5 +242,25 @@ Page({
     // 识别证件号码
     let idcardNo = e.detail.id.text
     this.setData({ defaultCardNo: idcardNo })
-  }
+  },
+  getDetailData: function (id) {
+    const _this = this
+    wx.request({
+      url: `${app.globalData.domain}/lost/${id}`,
+      timeout: app.globalData.requestTimeout,
+      success: (res) => {
+        if (res.statusCode == 200 && res.data.code == 200) {
+          _this.setData({
+            type: res.data.data.type,
+            lostTypeIndex: res.data.data.lost_type,
+            defaultCardNo: res.data.data.card_number,
+            concact: res.data.data.concact,
+            desc: res.data.data.desc,
+            imgList: res.data.data.images,
+            status: res.data.data.status
+          })
+        }
+      }
+    })
+  },
 })

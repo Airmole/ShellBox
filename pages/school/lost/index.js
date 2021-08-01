@@ -1,7 +1,6 @@
 // pages/school/lost/index.js
-const app = getApp();
+const app = getApp()
 Page({
-
   /**
    * 页面的初始数据
    */
@@ -45,14 +44,15 @@ Page({
    */
   onLoad: function (options) {
     const type = options.type ? options.type : 1
-    this.inital(type);
-    this.getDatalist(type)
+    const keyword = options.keyword ? options.keyword : ''
+    this.inital(type, keyword);
+    this.getDatalist(type, 1, keyword)
   },
-  inital: function (type) {
-    const device = wx.getSystemInfoSync();
-    const uid = app.globalData.edusysUserInfo.uid;
-    this.setData({ screenHeight: device.screenHeight, type: type, uid: uid });
-    wx.showShareMenu({ withShareTicket: true, menus: ['shareAppMessage', 'shareTimeline'] });
+  inital: function (type, keyword) {
+    const device = wx.getSystemInfoSync()
+    const uid = app.globalData.edusysUserInfo.uid
+    this.setData({ screenHeight: device.screenHeight, type: type, uid: uid, keyword: keyword })
+    wx.showShareMenu({ withShareTicket: true, menus: ['shareAppMessage', 'shareTimeline'] })
   },
   typeChanged: function (e) {
     const type = this.data.types[e.currentTarget.dataset.index].value
@@ -79,40 +79,53 @@ Page({
   },
   // 上一页
   lastPage: function () {
-    const current = this.data.datalist.pagination.current;
-    const targetPage = current > 1 ? Number(current) - 1 : 2;
-    this.getDatalist(this.data.type, targetPage);
+    const current = this.data.datalist.pagination.current
+    const targetPage = current > 1 ? Number(current) - 1 : 2
+    this.getDatalist(this.data.type, targetPage)
   },
   // 下一页
   nextPage: function () {
-    const current = this.data.datalist.pagination.current;
-    const last = this.data.datalist.pagination.last;
-    const targetPage = current < last ? Number(current) + 1 : last;
-    this.getDatalist(this.data.type, targetPage);
+    const current = this.data.datalist.pagination.current
+    const last = this.data.datalist.pagination.last
+    const targetPage = current < last ? Number(current) + 1 : last
+    this.getDatalist(this.data.type, targetPage)
   },
+  // 关键字输入
   searchInput: function (e) {
     const value = e.detail.value
     this.setData({ keyword: value })
   },
+  // 关键字搜索
   search: function () {
     const type = this.data.type
     const keyword = this.data.keyword
     this.getDatalist(type, 1, keyword)
   },
+  // 清空重置关键字搜索
   reset: function () {
     const type = this.data.type
     this.setData({ keyword: '' })
     this.getDatalist(type, 1)
   },
-  // 身份证号码星号占位
+  // 身份证号码星号占位处理
   encryptIdcardNumber : function (e) {
     for (let index = 0; index < e.data.length; index++) {
       const element = e.data[index]
       if (element.lost_type == 3) {
-        e.data[index].idcard_number = element.card_number.substr(0, 6) + '********' + element.card_number.substr(14, 4)
+        e.data[index].idcard_number = element.card_number.substr(0, 4) + '**********' + element.card_number.substr(14, 4)
       }
     }
     return e
+  },
+  create : function () {
+    const uid = this.data.uid
+    // 发布新内容前请先登录
+    if (uid == 0 || uid.length < 1) {
+      wx.showToast({ title: '请先登录', icon: 'none' })
+      setTimeout(function() { wx.redirectTo({ url: '../../index/login' }) }, 1000)
+      return
+    }
+    wx.navigateTo({ url: `./edit?type=${this.data.type}` })
   },
   /**
    * 生命周期函数--监听页面初次渲染完成
@@ -126,7 +139,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    this.getDatalist(this.data.type, 1, this.data.keyword)
   },
 
   /**
@@ -161,6 +174,11 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-
+    const type = this.data.type
+    const keyword = this.data.keyword
+    return {
+      title: '贝壳小盒子 - 失物招领',
+      path: `/pages/school/lost/index?type=${type}&keyword=${keyword}`
+    }
   }
 })

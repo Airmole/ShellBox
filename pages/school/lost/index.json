@@ -1,5 +1,6 @@
 {
   "usingComponents": {
-    "tips": "../../index/component/tips"
+    "tips": "../../index/component/tips",
+    "lostStatus": "./component/lostStatusCapsule"
   }
 }

@@ -11,14 +11,7 @@
       "list": []
     },
     "miniprogram": {
-      "list": [
-        {
-          "name": "失物招领信息",
-          "pathName": "pages/school/lost/index",
-          "query": "",
-          "scene": 1001
-        }
-      ]
+      "list": []
     }
   }
 }

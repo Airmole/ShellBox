@@ -4,7 +4,7 @@
 
 [![Star](https://img.shields.io/badge/Star-Airmole-brightgreen.svg)](https://github.com/Airmole/ShellBox/stargazers)
 [![Download](https://img.shields.io/badge/download-.zip-brightgreen.svg)](https://github.com/Airmole/ShellBox/archive/master.zip)
-[![last commit](https://img.shields.io/badge/last%20commit-2021--06--07-green.svg)](https://github.com/Airmole/ShellBox/commits/master)
+[![last commit](https://img.shields.io/badge/last%20commit-2021--08--01-green.svg)](https://github.com/Airmole/ShellBox/commits/master)
 
 
 ## 线上版本体验
@@ -42,8 +42,8 @@
     "pages/netsys/bind",             // 校园网账号绑定
     "pages/netsys/index",            // 网费查询结果界面
     "pages/netsys/list",             // 网费查询明细
-    "pages/traffic/navi",            // 校园导航
-    "pages/traffic/bus",             // 校园出行
+    "pages/traffic/navi",             // 校园导航
+    "pages/traffic/bus",              // 校园出行
     "pages/score/score",             // 成绩查询
     "pages/school/calendar",         // 校历
     "pages/school/tel",              // 校园通讯录
@@ -51,6 +51,12 @@
     "pages/school/web",              // 校园站点
     "pages/school/aboutus",          // 关于
     "pages/school/xiaoai"            // 小爱课程表
+    "pages/school/board/index",      // 学生权益投诉列表
+    "pages/school/board/edit",       // 权益投诉内容编辑
+    "pages/school/board/detail",     // 权益投诉内容展示
+    "pages/school/lost/edit",        // 失物招领发表编辑
+    "pages/school/lost/index",       // 失物招领列表页面
+    "pages/school/lost/detail"       // 失物招领内容展示
   ],
 ```
 

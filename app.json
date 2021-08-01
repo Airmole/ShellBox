@@ -38,7 +38,8 @@
     "pages/school/board/edit",
     "pages/school/board/detail",
     "pages/school/lost/edit",
-    "pages/school/lost/index"
+    "pages/school/lost/index",
+    "pages/school/lost/detail"
   ],
   "window": {
     "backgroundTextStyle": "light",

@@ -16,88 +16,82 @@
     </view>
   </scroll-view>
 
+  <!-- 物品查找 -->
   <view class="cu-bar bg-white solid-bottom margin-lr margin-top-sm radius-top">
     <view class="action">
-      <text class="cuIcon-title text-cyan "></text> 查找我的证件
+      <text class="cuIcon-title text-cyan "></text> 查找{{type == 1 ? '丢失' : '被拾获'}}物品
     </view>
   </view>
   <view class="cu-form-group margin-lr">
-    <view class="title">证件号</view>
-    <input placeholder="请输入寻找的证件号" type="number" bindinput="searchInput" value="{{keyword}}"
+    <view class="title">物品</view>
+    <input placeholder="卡、证可输入证件号(学号、身份证号)" type="string" bindinput="searchInput" value="{{keyword}}"
       confirm-type="search"></input>
   </view>
-  <view class="flex cu-form-group margin-lr justify-end radius-bottom">
-    <button bindtap="reset" class="cu-btn bg-red round shadow margin-right-sm">清空</button>
-    <button bindtap="search" class="cu-btn bg-blue round shadow margin-right-sm">查找</button>
+  <view class="flex cu-form-group margin-lr radius-bottom">
+    <view class="action"><text class="cuIcon-title text-cyan"></text>也可尝试搜索地点</view>
+    <view class="action">
+      <button bindtap="reset" class="cu-btn bg-red round shadow margin-right-sm">清空</button>
+      <button bindtap="search" class="cu-btn bg-blue round shadow margin-right-sm">查找</button>
+    </view>
   </view>
 
   <!-- 发表按钮 -->
   <view class="margin-lr margin-top-xl margin-bottom">
-    <view class="flex radius bg-blue align-center justify-center">
-      <view class="text-xxl text-blod text-white margin-top justify-center shadow-blur" style="height:90rpx;">
-        <text class="cuIcon-message"></text> 我{{type == 1 ? '丢了东西' : '捡到了东西'}}
+    <view class="flex radius bg-blue align-center justify-center" bindtap="create">
+      <view class="text-xxl text-blod text-white margin-top justify-center shadow-blur"
+        style="height:90rpx;">
+        <text class="cuIcon-message"></text> 我{{type == 1 ? '也丢了东西' : '捡到了东西'}}
       </view>
     </view>
   </view>
 
+  <!-- 标题 -->
+  <view class="title-view"><view class="title">{{type == 1 ? '被遗失的物品' : '被拾获的物品'}}</view></view>
+
   <!-- 列表 -->
-  <block wx:for="{{datalist.data}}" wx:key="lost">
-    <navigator url="" class="cu-card dynamic">
-      <view class="cu-item shadow">
-        <view class="cu-list menu-avatar">
-          <view class="cu-item">
-            <view class="cu-avatar round lg bg-cyan" style="background-image:url({{item.publisher.avatar}});"></view>
-            <view class="content flex-sub">
-              <view>{{item.publisher.nickname}}</view>
-              <view class="text-gray text-sm flex justify-between">{{item.created_at}}</view>
+  <view class="cu-card dynamic">
+    <navigator url="./detail?id={{item.id}}" class="cu-item shadow" wx:for="{{datalist.data}}" wx:key="lost">
+      <view class="cu-list menu-avatar">
+        <view class="cu-item">
+          <view class="cu-avatar round lg bg-cyan" style="background-image:url({{item.publisher.avatar}});"></view>
+          <view class="content flex-sub">
+            <view>{{item.publisher.nickname}}</view>
+            <view class="text-gray text-sm flex justify-between">{{item.created_at}}</view>
+          </view>
+        </view>
+      </view>
+      <view class="text-content">
+        <view class="justify-between flex" wx:if="{{item.lost_type < 4}}">
+          <view>
+            <view class="line-blue cu-tag radius">{{types[item.type - 1].label}}</view>
+            <view class="line-blue cu-tag radius">{{lostTypes[item.lost_type].label}}</view>
+            <view class="line-blue cu-tag radius">证件号：{{item.lost_type == 3 ? item.idcard_number : item.card_number}}
             </view>
           </view>
         </view>
-        <view class="text-content">
-          <view class="justify-between flex" wx:if="{{item.lost_type < 4}}">
-            <view>
-              <view class="line-blue cu-tag radius">{{lostTypes[item.lost_type].label}}</view>
-              <view class="line-blue cu-tag radius">证件号：{{item.lost_type == 3 ? item.idcard_number : item.card_number}}</view>
-            </view>
-          </view>
-          <view class="padding-xs">{{item.desc}}</view>
+        <view class="padding-xs">{{item.desc ? item.desc : ''}}</view>
+      </view>
+      <view class="grid flex-sub padding-lr-xs padding-bottom col-3 grid-square">
+        <view class="bg-img" style="background-image:url({{pitem}});" wx:for="{{item.images}}" wx:for-item="pitem"
+          wx:key="pindex" catchtap="previewImage" data-allurl="{{item.images}}" data-url="{{pitem}}">
         </view>
-        <view class="grid flex-sub padding-lr-xs padding-bottom col-3 grid-square">
-          <view class="bg-img" style="background-image:url({{pitem}});" wx:for="{{item.images}}" wx:for-item="pitem"
-            wx:key="pindex" catchtap="previewImage" data-allurl="{{item.images}}" data-url="{{pitem}}">
+      </view>
+      <view class="cu-list menu sm-border">
+        <view class="cu-item arrow">
+          <view class="content">
+          <lostStatus data="{{item}}"></lostStatus>
           </view>
-        </view>
-        <view class="cu-list menu sm-border">
-          <view class="cu-item arrow">
-            <view class="content">
-              <view wx:if="{{item.status == 0}}" class="cu-capsule radius">
-                <view class="cu-tag bg-{{item.status==2?'blue':'red'}}"><text class="cuIcon-close"></text></view>
-                <view class="cu-tag line-{{item.status==2?'blue':'red'}}">{{type == 1 ? lostStatus[item.status] :
-                  receiveStatus[item.status]}}</view>
-              </view>
-              <view wx:elif="{{item.status == 1}}" class="cu-capsule radius">
-                <view class="cu-tag bg-{{item.status==2?'blue':'red'}}"><text class="cuIcon-time"></text></view>
-                <view class="cu-tag line-{{item.status==2?'blue':'red'}}">{{type == 1 ? lostStatus[item.status] :
-                  receiveStatus[item.status]}}</view>
-              </view>
-              <view wx:else class="cu-capsule radius">
-                <view class="cu-tag bg-{{item.status==2?'blue':'red'}} "><text class="cuIcon-check"></text></view>
-                <view class="cu-tag line-{{item.status==2?'blue':'red'}}">{{type == 1 ? lostStatus[item.status] :
-                  receiveStatus[item.status]}}</view>
-              </view>
-            </view>
-            <view class="action">
-              <button class="cu-btn round bg-red shadow" catchtap="deleteConfirm">
-                <text class="cuIcon-delete"></text> 删除</button>
-            </view>
+          <view class="action">
+            <text>查看详情</text>
           </view>
         </view>
       </view>
     </navigator>
-  </block>
+  </view>
 
-  <view wx:if="{{datalist.length < 1}}" class="bg-white margin-lr padding radius margin-top-xl">
-    <tips tipsText="这里是空的，还没有人发内容呢~"></tips>
+  <!-- 空内容提示 -->
+  <view wx:if="{{datalist.data.length < 1}}" class="bg-white margin-lr padding radius margin-top-xl">
+    <tips tipsText="这里是空的，没有找到你需要的内容~"></tips>
   </view>
 
   <!-- 分页器 -->

@@ -148,6 +148,14 @@ Page({
       url: '../books/overdue/index',
       login: false,
     }, {
+      id: 'lost',
+      icon: 'lost',
+      teacher: true,
+      student: true,
+      name: '失物招领',
+      url: '../school/lost/index',
+      login: false,
+    }, {
       id: 'tel',
       icon: 'tel',
       teacher: true,

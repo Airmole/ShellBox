@@ -12,7 +12,7 @@
         <view class="title">类型</view>
         <view class="matgin-left-xs">
           <label wx:for="{{types}}" wx:key="type">
-            <radio value="{{item.value}}" class="blue margin-xs" checked="{{item.checked}}"/>{{item.label}}
+            <radio value="{{item.value}}" class="blue margin-xs" checked="{{item.value == type}}"/>{{item.label}}
           </label>
         </view>
       </radio-group>      
@@ -32,11 +32,11 @@
       <!-- 联系方式 -->
       <view class="cu-form-group">
         <view class="title">联系方式</view>
-        <input name="concact" placeholder="我的联系方式" type="number"></input>
+        <input name="concact" placeholder="我的联系方式" type="number" value="{{concact}}"></input>
       </view>
       <!-- 详细说明描述 -->
       <view class="cu-form-group">
-        <textarea name="desc" maxlength="256" placeholder="详细描述说明（物品什么样子，大概什么时候丢的，可能丢在了哪里?）"></textarea>
+        <textarea name="desc" maxlength="256" placeholder="详细描述说明（物品什么样子，大概什么时候丢的，可能丢在了哪里?）" value="{{desc}}"></textarea>
       </view>
       <!-- 图片上传 -->
       <view class="cu-bar bg-white">
@@ -62,7 +62,7 @@
     </view>
     <!-- 发布提交按钮 -->
     <view class="padding flex flex-direction">
-      <button class="cu-btn bg-blue lg round" style="background-color: var(--blue);" type="primary" formType="submit">发布</button>
+      <button class="cu-btn bg-blue lg round" style="background-color: var(--blue);" type="primary" formType="submit">{{edit ? '修改' : '发布'}}</button>
     </view>
   </form>
 
