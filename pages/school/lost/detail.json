@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "tips": "../../index/component/tips",
+    "lostStatus": "./component/lostStatusCapsule",
+    "actionBar": "./component/lostActionBar"
+  }
+}

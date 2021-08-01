@@ -1,0 +1,17 @@
+/* pages/school/lost/index.wxss */
+@import "../../school/cert.wxss";
+
+.title-view {
+  padding-left: 180rpx;
+  padding-right: 180rpx;
+  margin: 0rpx 30rpx 0rpx 30rpx;
+  text-align: center;
+}
+
+.title {
+  padding: 10rpx;
+  background-color: rgba(243, 243, 243, 0.438);
+  border-radius: 25rpx;
+  color: black;
+  font-weight: 350;
+}

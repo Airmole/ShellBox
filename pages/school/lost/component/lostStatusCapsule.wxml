@@ -1,0 +1,14 @@
+<!--pages/school/lost/component/lostStatus.wxml-->
+
+<view wx:if="{{data.status == 0}}" class="cu-capsule radius">
+  <view class="cu-tag bg-red"><text class="cuIcon-close"></text></view>
+  <view class="cu-tag line-red">{{data.type == 1 ? lostStatus[data.status] : receiveStatus[data.status]}}</view>
+</view>
+<view wx:elif="{{data.status == 1}}" class="cu-capsule radius">
+  <view class="cu-tag bg-orange"><text class="cuIcon-time"></text></view>
+  <view class="cu-tag line-orange">{{data.type == 1 ? lostStatus[data.status] : receiveStatus[data.status]}}</view>
+</view>
+<view wx:else class="cu-capsule radius">
+  <view class="cu-tag bg-blue"><text class="cuIcon-check"></text></view>
+  <view class="cu-tag line-blue">{{type == 1 ? lostStatus[data.status] : receiveStatus[data.status]}}</view>
+</view>

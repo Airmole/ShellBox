@@ -11,14 +11,7 @@
       "list": []
     },
     "miniprogram": {
-      "list": [
-        {
-          "name": "pages/school/board/index",
-          "pathName": "pages/school/board/index",
-          "query": "",
-          "scene": 1007
-        }
-      ]
+      "list": []
     }
   }
 }

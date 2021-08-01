@@ -50,6 +50,7 @@ App({
     const cookie = edusysInfo.cookie ? edusysInfo.cookie : ''
     const weuserInfo =  wx.getStorageSync('userInfo')
     wx.request({
+      // url: `https://dev.shellbox.airmole.cn/api/edu/profile`,
       url: `${self.globalData.domain}/edu/profile`,
       data:{
         uid: uid,
@@ -78,6 +79,9 @@ App({
         } catch (error) {
           console.log('后台自动静默激活教务cookie失败', error)
         }
+      },
+      fail: function(error){
+        console.log('后台自动静默激活教务cookie失败', error)
       }
     })
   },

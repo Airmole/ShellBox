@@ -36,7 +36,10 @@
     "pages/school/xiaoai",
     "pages/school/board/index",
     "pages/school/board/edit",
-    "pages/school/board/detail"
+    "pages/school/board/detail",
+    "pages/school/lost/edit",
+    "pages/school/lost/index",
+    "pages/school/lost/detail"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -71,6 +74,12 @@
   "permission": {
     "scope.userLocation": {
       "desc": "你的位置信息将用于校园导航定位"
+    }
+  },
+  "plugins": {
+    "ocr-plugin": {
+      "version": "3.0.6",
+      "provider": "wx4418e3e031e551be"
     }
   },
   "sitemapLocation": "sitemap.json"
