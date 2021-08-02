@@ -1,6 +1,6 @@
 <!--pages/index/feature.wxml-->
 <scroll-view scroll-y class="scrollPage">
-  <view class="UCenter-bg" style="background-image: url({{backgroundImage}});">
+  <view class="UCenter-bg" style="background-image: url({{backgroundImage}});" catchlongpress="showBgImage">
     <view class="userinfo-avatar shadow-blur">
       <open-data type="userAvatarUrl"></open-data>
     </view>

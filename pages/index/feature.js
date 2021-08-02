@@ -337,6 +337,12 @@ Page({
   showQuanyiModal: function () {
     this.setData({ quanyiModal: true })
   },
+  showBgImage:function () {
+    const background = this.data.backgroundImage
+    wx.previewImage({
+      urls: [background],
+    })
+  },
   logout: function (e) {
     var anmiaton = e.currentTarget.dataset.class
     var _this = this
