@@ -118,6 +118,10 @@ Page({
   previewImage:function (e) {
     wx.previewImage({ urls: e.currentTarget.dataset.allurl, current: e.currentTarget.dataset.url })
   },
+  callPhone: function (e) {
+    var tel = e.currentTarget.dataset.tel;
+    wx.makePhoneCall({ phoneNumber: tel });
+  },
   /**
    * 用户点击右上角分享
    */

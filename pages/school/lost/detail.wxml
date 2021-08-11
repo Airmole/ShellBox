@@ -50,6 +50,7 @@
     </view>
   </view>
 
+  <!-- 联系方式 -->
   <block wx:if="{{isPublisher || isRecevicer}}">
     <view class="cu-bar bg-white margin-lr radius-top">
       <view class='action'>

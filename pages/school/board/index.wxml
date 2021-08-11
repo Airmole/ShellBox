@@ -42,14 +42,15 @@
       <view class="cu-item shadow">
         <view class="cu-list menu-avatar">
           <view class="cu-item">
-            <view class="cu-avatar round lg bg-cyan"><text class="avatar-text">匿名</text></view>
+            <view class="cu-avatar round lg bg-cyan" style="background-image:url(https://cdn.cardcat.cn/images/05b00e713b1e1cf190210daad49ec63b.png);"></view>
             <view class="content flex-sub">
-              <view>匿名用户</view>
+              <view>{{item.nickname}}</view>
               <view class="text-gray text-sm flex justify-between">{{item.created_at}}</view>
             </view>
           </view>
         </view>
         <view class="text-content">
+          <view class="line-{{item.status == 1 ? 'blue': 'red'}} cu-tag radius">{{item.status == 1 ? '已回复': '待回复'}}</view>
           {{item.content}}
         </view>
         <view class="grid flex-sub padding-lr padding-bottom col-3 grid-square">

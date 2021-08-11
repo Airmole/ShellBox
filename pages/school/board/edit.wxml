@@ -6,9 +6,16 @@
 
   <!-- 填写表单内容 -->
   <view class="margin">
-    <view class="cu-form-group margin-top radius-top">
+    <!-- 联系方式 -->
+    <view class="cu-form-group margin-top radius-top" wx:if="{{!realted}}">
+      <view class="title text-black">联系方式</view>
+      <input name="concact" bindinput="mobileInput" placeholder="放心填写,仅工作人员可见" type="number"></input>
+    </view>
+    <!-- 投诉内容 -->
+    <view class="cu-form-group {{realted ? 'margin-top radius-top' : ''}}">
       <textarea style="color: black;" maxlength="500" bindinput="contentInput" placeholder="投诉维权内容详细说明"></textarea>
     </view>
+    <!-- 图片上传 -->
     <view class="cu-bar bg-white">
       <view class="action">图片(也可以不上传)</view>
       <view class="action">{{imgList.length}}/4</view>

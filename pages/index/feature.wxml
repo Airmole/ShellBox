@@ -22,10 +22,6 @@
       <view class="text-center"><image src="https://upload-images.jianshu.io/upload_images/4697920-34dcb56de71f8967.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/64" class="replay-board"/></view>
       <view class="replay-board-text" style="color: #888;">投诉维权</view>
     </view>
-    <!-- <view class="cu-item" bindtap="showQQGroupCode">
-      <view><text class="cuIcon-community" style="color:#84BD54;font-size:32px;margin-top:5px;"></text></view>
-      <text>使用帮助</text>
-    </view> -->
   </view>
 
   <view class="padding flex flex-direction">
@@ -48,14 +44,5 @@
     width="{{375}}"
     showModal="{{quanyiModal}}"
   ></imagemodal>
-  <!-- QQ群二维码模态框 -->
-  <imagemodal
-    hideBtnText="知道了，不加"
-    image="https://upload-images.jianshu.io/upload_images/4697920-0dbd4660106ba0ec.png"
-    height="{{550}}"
-    width="{{375}}"
-    showModal="{{QGroupModal}}"
-  ></imagemodal>
-  
 
 </scroll-view>
