@@ -144,7 +144,6 @@ Component({
     },
     confirmOwnit: function () {
       // console.log(this.data.concact)
-      const _this = this
       const receiver_id = this.data.uid
       const receiver_concact = this.data.concact
       if (receiver_concact.length < 3) {
@@ -157,9 +156,10 @@ Component({
       const template1 = para.type != 1 ? 'c3KmaXoAiLXOeostrE62FSt-IzTkHKcxMAuM65A2FUc' : '0Snue4qrfRnqT8BPIetcFqa8C7gFVFMQd7_gM3T0s3s'
       const template2 = 'GT53lnzlKjztb2oGIO2YPBLB5Lv-onppUdVSmsdiN9U'
       const templateIds = [template1, template2]
+      var _this = this
       wx.requestSubscribeMessage({
         tmplIds: templateIds,
-        complete () {
+        complete (res) {
           _this.sendLostPostRequest(para)
         }
       })
@@ -212,6 +212,35 @@ Component({
     },
     concactInput: function (e) {
       this.setData({ concact: e.detail.value })
-    }
+    },
+    sendLostPostRequest: function (para = {}) {
+      let url = `${app.globalData.domain}/lost`
+      url = this.data.id ? `${url}/${this.data.id}` : url
+    
+      wx.request({
+        url: url,
+        data: para,
+        timeout: app.globalData.requestTimeout,
+        method: 'POST',
+        success: function (res) {
+          try {
+            if (res.statusCode == 200 && res.data.code == 200) {
+              wx.showToast({ title: '发布成功' })
+              // 发布成功，1秒后跳转上页
+              setTimeout(function () { wx.navigateBack({ delta: 1 }) }, 1000)
+            } else {
+              wx.showToast({ title: res.data.message, icon: 'none' })
+              if (res.data.code == 403 && res.data.desc == '已存在有相同重复信息') {
+                // 该遗失物品有未认领归还的记录
+                wx.showToast({ title: '好像有找到了，是不是这个？', icon: 'none' })
+                setTimeout(function() { wx.navigateTo({ url: `./detail?id=${res.data.data.id}` }) }, 1000)
+              }
+            }
+          } catch (error) {
+            wx.showToast({ title: res.data.message, icon: 'none' })
+          }
+        }
+      })
+    },
   }
 })

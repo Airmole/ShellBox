@@ -11,6 +11,7 @@ Page({
     pindex: null,
     imgList: [],
     content: '',
+    mobile: '',
     realted: ''
   },
 
@@ -38,6 +39,9 @@ Page({
   },
   contentInput: function (e) {
     this.setData({ content: e.detail.value })
+  },
+  mobileInput: function (e) {
+    this.setData({ mobile: e.detail.value })
   },
   previewImage: function (e) {
     wx.previewImage({ urls: this.data.imgList, current: e.currentTarget.dataset.url })
@@ -105,12 +109,18 @@ Page({
     const content = this.data.content
     const images = this.data.imgList
     const realted = this.data.realted
+    const mobile = this.data.mobile
     const data = {
       uid: uid,
       nickname: nickname,
       avatar: avatar,
       content: content,
-      images: images
+      images: images,
+      mobile: mobile
+    }
+    if (mobile.length < 5 && realted == '') {
+      wx.showToast({ title: '请您务必输入正确联系方式,以便工作人员联系你', icon: 'none' })
+      return
     }
     if (realted != '') {
       data.realted = realted
@@ -119,6 +129,20 @@ Page({
       wx.showToast({ title: '你啥都没输入鸭！！！', icon: 'none' })
       return
     }
+    const templateIds = ['el20tge29Hz5-ZLDcKZABYj6BPiPK8eAUb4gumP01PQ']
+    const _this = this
+    if (realted){
+      _this.sendPostRequest(data)
+      return
+    }
+    wx.requestSubscribeMessage({
+      tmplIds: templateIds,
+      complete (res) {
+        _this.sendPostRequest(data)
+      }
+    })
+  },
+  sendPostRequest: function (data) {
     wx.request({
       url: `${app.globalData.domain}/complain`,
       data: data,

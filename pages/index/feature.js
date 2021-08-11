@@ -234,7 +234,15 @@ Page({
     })
   },
   inital: function () {
-    var edusysUserInfo = wx.getStorageSync('edusysUserInfo');
+    var edusysUserInfo = wx.getStorageSync('edusysUserInfo')
+    let iconList = this.data.iconList
+    const accountInfo = wx.getAccountInfoSync()
+    const envVersion = accountInfo.miniProgram.envVersion
+    if (envVersion != 'release') {
+      iconList[16].student = false
+      iconList[16].teacher = false
+    }
+    
     try {
       if(edusysUserInfo.uid.length > 0 && edusysUserInfo.password.length > 0){
         var isTeacher = false;
@@ -242,6 +250,7 @@ Page({
           isTeacher = true
         }
         this.setData({
+          iconList: iconList,
           hasEdusysStorage: true,
           isTeacher: isTeacher,
           edusysUserInfo: edusysUserInfo
@@ -250,6 +259,7 @@ Page({
     } catch (error) {
       // console.log(error)
       this.setData({
+        iconList: iconList,
         hasEdusysStorage: false,
         edusysUserInfo: {}
       })
@@ -331,11 +341,14 @@ Page({
       }
     })
   },
-  showQQGroupCode: function () {
-    this.setData({ QGroupModal: true })
-  },
   showQuanyiModal: function () {
     this.setData({ quanyiModal: true })
+  },
+  showBgImage:function () {
+    const background = this.data.backgroundImage
+    wx.previewImage({
+      urls: [background],
+    })
   },
   logout: function (e) {
     var anmiaton = e.currentTarget.dataset.class
@@ -348,9 +361,7 @@ Page({
           app.globalData.edusysUserInfo = {}
           app.globalData.hasEdusysStorage = false
           wx.vibrateShort({ type: 'medium' })
-          wx.navigateTo({
-            url: './login',
-          });
+          wx.navigateTo({ url: './login' })
         },
       })
     }, 1000);

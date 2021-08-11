@@ -20,7 +20,7 @@
           </view>
         </view>
       </view>
-      <view class="text-content">
+      <view class="text-content" style="max-height: unset;">
         <view class="justify-between flex" wx:if="{{data.lost_type < 4}}">
           <view>
             <view class="line-blue cu-tag radius">{{types[data.type - 1].label}}</view>
@@ -29,7 +29,7 @@
             </view>
           </view>
         </view>
-        <view class="padding-xs">{{data.desc ? data.desc : ''}}</view>
+        <view class="padding-xs" style="overflow-wrap: break-word;">{{data.desc ? data.desc : ''}}</view>
       </view>
       <view class="grid flex-sub padding-lr padding-bottom col-3 grid-square">
         <view class="bg-img" style="background-image:url({{pitem}});" wx:for="{{data.images}}" wx:for-item="pitem"
@@ -50,6 +50,7 @@
     </view>
   </view>
 
+  <!-- 联系方式 -->
   <block wx:if="{{isPublisher || isRecevicer}}">
     <view class="cu-bar bg-white margin-lr radius-top">
       <view class='action'>

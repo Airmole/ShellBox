@@ -125,7 +125,6 @@ Page({
   },
   lostSubmit: function (e) {
     // console.log(e)
-    const _this = this
     let para = e.detail.value
     para.uid = this.data.uid
     para.images = this.data.imgList
@@ -139,9 +138,10 @@ Page({
     const template2 = 'GT53lnzlKjztb2oGIO2YPBLB5Lv-onppUdVSmsdiN9U'
     const templateIds = [template1, template2]
 
+    var _this = this
     wx.requestSubscribeMessage({
       tmplIds: templateIds,
-      complete () {
+      complete (res) {
         _this.sendLostPostRequest(para)
       }
     })

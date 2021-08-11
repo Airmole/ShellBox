@@ -13,14 +13,15 @@
     <view class="cu-item shadow">
       <view class="cu-list menu-avatar">
         <view class="cu-item">
-          <view class="cu-avatar round lg bg-cyan"><text class="avatar-text">匿名</text></view>
+          <view class="cu-avatar round lg bg-cyan" style="background-image:url(https://cdn.cardcat.cn/images/05b00e713b1e1cf190210daad49ec63b.png);"></view>
           <view class="content flex-sub">
-            <view>匿名用户</view>
+            <view>{{data.content.nickname}}</view>
             <view class="text-gray text-sm flex justify-between">{{data.content.created_at}}</view>
           </view>
         </view>
       </view>
       <view class="text-content" style="max-height: unset;">
+        <view class="line-{{data.content.status == 1 ? 'blue': 'red'}} cu-tag radius">{{data.content.status == 1 ? '已回复': '待回复'}}</view>
         {{data.content.content}}
       </view>
       <view class="grid flex-sub padding-lr padding-bottom col-3 grid-square">
@@ -46,6 +47,26 @@
       <navigator url="../../index/login" class="cu-btn round bg-green shadow">登录</navigator>
     </view>
   </view>
+
+  <block wx:if="{{isAdminer}}">
+    <view class="cu-bar bg-white margin-lr margin-top radius-top">
+      <view class='action'>
+        <text class='cuIcon-titles text-cyan'></text> 投诉人联系方式
+      </view>
+      <view class='action'></view>
+    </view>
+    <view class="cu-list menu-avatar no-padding margin-lr radius-bottom">
+      <view class="cu-item">
+        <view class="cu-avatar lg round bg-green" style="background-image:url({{data.content.avatar}});"></view>
+        <view class="content">
+          <view class="text-grey"><text>{{data.content.nickname}}</text> </view>
+          <view class="text-gray text-sm">联系方式：{{data.content.mobile}}</view>
+        </view>
+        <view wx:if="{{data.content.mobile}}" data-tel='{{data.content.mobile}}' bindtap='callPhone' class="action text-xxl margin-right-xl"><text
+            class="cuIcon-phone text-green"></text></view>
+      </view>
+    </view>
+  </block>
 
   <!-- 回复 -->
   <view class="cu-card dynamic no-card margin radius">
