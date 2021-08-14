@@ -1,0 +1,36 @@
+name: MP CI
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [10.x]
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v1
+      with:
+        node-version: ${{ matrix.node-version }}
+
+    - name: Install Dependencies
+      run: npm i
+
+    # 从 secrets.UPLOAD_PRIVATE_KEY 生成私钥文件
+    # see Project/Settings/Secrets
+    - name: Generate private key for upload
+      run: echo "$UPLOAD_PRIVATE_KEY" > private.key
+      env:
+        UPLOAD_PRIVATE_KEY: ${{ secrets.UPLOAD_PRIVATE_KEY }}
+    # 上传代码
+    - name: Upload to WeChat
+      run: npx mp-ci upload ./ --pkp=./private.key --no-test
