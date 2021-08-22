@@ -5,6 +5,7 @@ App({
     _amap_key: '66a87160f8db2a9a76431c954b4f52a5', // 高德导航API秘钥
     requestTimeout: 10000, // 网络请求最长时间10s
     openid: '',
+    session_key: '',
     userInfo: {},
     edusysUserInfo: {},
     netsysUserInfo: '',
@@ -21,7 +22,7 @@ App({
       // this.globalData.domain = 'http://shellbox.cn/api'
     }
     if(launchInfo.scene != 1145){
-      this.getUserOpenId();
+      this.getUserOpenId()
       this.appUpdate()
     }
     this.checkHasEdusysStorage()
@@ -48,6 +49,7 @@ App({
     const uid = edusysInfo.uid
     const pwd = edusysInfo.password
     const cookie = edusysInfo.cookie ? edusysInfo.cookie : ''
+    const openid = wx.getStorageSync('openid')
     const weuserInfo =  wx.getStorageSync('userInfo')
     wx.request({
       // url: `https://dev.shellbox.airmole.cn/api/edu/profile`,
@@ -57,7 +59,7 @@ App({
         pwd: pwd,
         cookie: cookie,
         userFrom: 'wechat',
-        openid: self.globalData.openid,
+        openid: openid.openid,
         nickname: weuserInfo.nickName,
         avatar: weuserInfo.avatarUrl,
         gender: weuserInfo.gender,
@@ -112,31 +114,45 @@ App({
     var self = this
     var storageOpenid = wx.getStorageSync('openid')
     if (storageOpenid.openid) {
-      self.globalData.openid = storageOpenid.openid
-      return
+      wx.checkSession({
+        success () {
+          //session_key 未过期，并且在本生命周期一直有效
+          self.globalData.openid = storageOpenid.openid
+          return
+        },
+        fail () {
+          // session_key 已经失效，需要重新执行登录流程
+          self.wxLoginAndRequest()
+        }
+      })
     }
     if (self.globalData.openid) {
       callback(null, self.globalData.openid)
     } else {
-      wx.login({
-        success: function (data) {
-          wx.request({
-            url: self.globalData.domain + `/wechat/openid?jscode=${data.code}`,
-            success: function (res) {
-              console.log('拉取openid成功', res.data)
-              wx.setStorage({ data: res.data, key: 'openid' })
-              self.globalData.openid = res.data.openid
-            },
-            fail: function (res) {
-              console.log('拉取用户openid失败，将无法正常使用开放接口等服务', res)
-            }
-          })
-        },
-        fail: function (err) {
-          console.log('wx.login 接口调用失败，将无法正常使用开放接口等服务', err)
-        }
-      })
+      this.wxLoginAndRequest()
     }
+  },
+  wxLoginAndRequest: function () {
+    var self = this
+    wx.login({
+      success: function (data) {
+        wx.request({
+          url: self.globalData.domain + `/wechat/openid?jscode=${data.code}`,
+          success: function (res) {
+            console.log('拉取openid成功', res.data)
+            wx.setStorageSync({ data: res.data, key: 'openid' })
+            self.globalData.openid = res.data.openid
+            self.globalData.session_key = res.data.session_key
+          },
+          fail: function (res) {
+            console.log('拉取用户openid失败，将无法正常使用开放接口等服务', res)
+          }
+        })
+      },
+      fail: function (err) {
+        console.log('wx.login 接口调用失败，将无法正常使用开放接口等服务', err)
+      }
+    })
   },
   appUpdate: function (where) {
     const updateManager = wx.getUpdateManager()
