@@ -1,0 +1,17 @@
+/* pages/school/run/index.wxss */
+page {
+  background-color: #6847E7;
+  height: 100%;
+}
+.image-width {
+  width: 100%;
+}
+.icon-size {
+  width: 60rpx;
+  height: 80rpx;
+}
+.userinfo-avatar {
+  border-radius: 50rpx;
+  clip-path: circle(50% at center);
+  box-shadow: 5rpx 5rpx 15rpx #ccc;
+}

@@ -6,7 +6,6 @@ Page({
     hasEdusysStorage: false,
     edusysUserInfo: {},
     isTeacher: false,
-    QGroupModal: false,
     quanyiModal: false,
     clickAvatarCount: 1,
     backgroundImage: 'https://upload-images.jianshu.io/upload_images/4697920-65af0059363fb4b0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240',
@@ -148,6 +147,14 @@ Page({
       url: '../books/overdue/index',
       login: false,
     }, {
+      id: 'steps',
+      icon: 'runsteps',
+      teacher: true,
+      student: true,
+      name: '计步排行',
+      url: '../school/run/index',
+      login: false,
+    },{
       id: 'lost',
       icon: 'lost',
       teacher: true,
@@ -239,8 +246,8 @@ Page({
     const accountInfo = wx.getAccountInfoSync()
     const envVersion = accountInfo.miniProgram.envVersion
     if (envVersion != 'release') {
-      iconList[16].student = false
-      iconList[16].teacher = false
+      iconList[17].student = false
+      iconList[17].teacher = false
     }
     
     try {
