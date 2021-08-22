@@ -132,11 +132,11 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-    const day = this.data.types[this.data.type].value
+    const type = this.data.type
     const text = this.data.types[this.data.type].name
     return {
       title: `贝壳小盒子 - 运动计步${text}排行榜`,
-      path: `/pages/school/run/index?day=${day}`
+      path: `/pages/school/run/index?type=${type}`
     }
   }
 })
