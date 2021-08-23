@@ -30,12 +30,10 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    wx.showLoading()
-    const accountInfo = wx.getAccountInfoSync()
-    const envVersion = accountInfo.miniProgram.envVersion
-    if (envVersion != 'release') {
+    if (app.globalData.env != 'release') {
       wx.switchTab({ url: '../../index/index' })
     }
+    wx.showLoading()
     let type = options.type ? options.type : '0'
     let day = this.data.types[type].value
     this.setData({ type: type })

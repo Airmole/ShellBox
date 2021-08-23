@@ -18,7 +18,7 @@
       </view>
       <text>{{item.name}}</text>
     </view>
-    <view bindtap="showQuanyiModal" class="cu-item">
+    <view bindtap="showQuanyiModal" class="cu-item"  wx:if="{{app.globalData.env == 'release'}}">
       <view class="text-center"><image src="https://upload-images.jianshu.io/upload_images/4697920-34dcb56de71f8967.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/64" class="replay-board"/></view>
       <view class="replay-board-text" style="color: #888;">投诉维权</view>
     </view>
