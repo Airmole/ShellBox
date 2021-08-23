@@ -248,6 +248,8 @@ Page({
     if (envVersion != 'release') {
       iconList[17].student = false
       iconList[17].teacher = false
+      iconList[16].student = false
+      iconList[16].teacher = false
     }
     
     try {
