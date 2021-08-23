@@ -1,5 +1,5 @@
 <!--pages/school/lost/create.wxml-->
-<block wx:if="{{app.globalData.env == 'release'}}">
+<block wx:if="{{env == 'release'}}">
   <cu-custom bgColor="bg-cyan" isCustom="{{true}}">
     <view slot="content">失物招领发布</view>
   </cu-custom>

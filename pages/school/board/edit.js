@@ -5,6 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    env: 'develop',
     uid: 0,
     nickname: '',
     avatar: '',
@@ -19,6 +20,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    this.setData({ env: app.globalData.env })
     if (app.globalData.env != 'release') {
       wx.switchTab({ url: '../../index/index' })
     }

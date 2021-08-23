@@ -1,5 +1,5 @@
 <!--pages/school/run/index.wxml-->
-<block wx:if="{{app.globalData.env == 'release'}}">
+<block wx:if="{{env == 'release'}}">
 <cu-custom bgColor="bg-purple" isCustom="{{true}}">
   <view slot="content">步数排行 - 贝壳小盒子</view>
 </cu-custom>
