@@ -10,11 +10,14 @@ App({
     edusysUserInfo: {},
     netsysUserInfo: '',
     elesysUserInfo: '',
+    env: 'develop',
     hasEdusysStorage: false
   },
   onLaunch: function () {
     let launchInfo = wx.getLaunchOptionsSync()
     const accountInfo = wx.getAccountInfoSync()
+    this.globalData.env = accountInfo.miniProgram.envVersion
+    // this.globalData.env = 'release'
     if (accountInfo.miniProgram.envVersion == 'release') {
       this.globalData.domain = 'https://shellbox.airmole.cn/api'
     } else {

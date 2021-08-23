@@ -1,69 +1,75 @@
 <!--pages/school/lost/create.wxml-->
-<cu-custom bgColor="bg-cyan" isCustom="{{true}}">
-  <view slot="content">失物招领发布</view>
-</cu-custom>
-<view class="page bg-cyan text-black">
+<block wx:if="{{env == 'release'}}">
+  <cu-custom bgColor="bg-cyan" isCustom="{{true}}">
+    <view slot="content">失物招领发布</view>
+  </cu-custom>
+  <view class="page bg-cyan text-black">
 
-  <!-- 填写表单内容 -->
-  <form catchsubmit="lostSubmit">
-    <view class="margin">
-      <!-- 失物招领消息类型 -->
-      <radio-group name="type" class="cu-form-group radius-top" bindchange="typeChanged">
-        <view class="title">类型</view>
-        <view class="matgin-left-xs">
-          <label wx:for="{{types}}" wx:key="type">
-            <radio value="{{item.value}}" class="blue margin-xs" checked="{{item.value == type}}"/>{{item.label}}
-          </label>
+    <!-- 填写表单内容 -->
+    <form catchsubmit="lostSubmit">
+      <view class="margin">
+        <!-- 失物招领消息类型 -->
+        <radio-group name="type" class="cu-form-group radius-top" bindchange="typeChanged">
+          <view class="title">类型</view>
+          <view class="matgin-left-xs">
+            <label wx:for="{{types}}" wx:key="type">
+              <radio value="{{item.value}}" class="blue margin-xs" checked="{{item.value == type}}"/>{{item.label}}
+            </label>
+          </view>
+        </radio-group>      
+        <!-- 物品类型 -->
+        <view class="cu-form-group">
+          <view class="title">物品类型</view>
+          <picker name="lost_type" bindchange="lostTypePickerChange" value="{{lostTypes[lostTypeIndex].value}}" range="{{lostTypes}}" range-key="label">
+            <view class="picker">{{lostTypes[lostTypeIndex].label}}</view>
+          </picker>
         </view>
-      </radio-group>      
-      <!-- 物品类型 -->
-      <view class="cu-form-group">
-        <view class="title">物品类型</view>
-        <picker name="lost_type" bindchange="lostTypePickerChange" value="{{lostTypes[lostTypeIndex].value}}" range="{{lostTypes}}" range-key="label">
-          <view class="picker">{{lostTypes[lostTypeIndex].label}}</view>
-        </picker>
-      </view>
-      <!-- 证件号码 -->
-      <view class="cu-form-group" wx:if="{{lostTypeIndex > 0 && lostTypeIndex < 4}}">
-        <view class="title">证件号</view>
-        <input name="card_number" placeholder="{{lostTypes[lostTypeIndex].label}}证件号" value="{{defaultCardNo}}" type="idcard"></input>
-        <ocr-navigator wx:if="{{lostTypeIndex == 3 && type == 2}}" class="cu-btn bg-white" bind:onSuccess="ocrIdcard" certificateType="idCard" opposite="{{false}}"><text class="cuIcon-camera text-blue"></text></ocr-navigator>
-      </view>
-      <!-- 联系方式 -->
-      <view class="cu-form-group">
-        <view class="title">联系方式</view>
-        <input name="concact" placeholder="我的联系方式" type="number" value="{{concact}}"></input>
-      </view>
-      <!-- 详细说明描述 -->
-      <view class="cu-form-group">
-        <textarea name="desc" maxlength="256" placeholder="详细描述说明（物品什么样子，大概什么时候丢的，可能丢在了哪里?）" value="{{desc}}"></textarea>
-      </view>
-      <!-- 图片上传 -->
-      <view class="cu-bar bg-white">
-        <view class="action">图片(也可以不上传)</view>
-        <view class="action">{{imgList.length}}/4</view>
-      </view>
-      <!-- 已上传图片预览 -->
-      <view class="cu-form-group radius-bottom">
-        <view class="grid col-4 grid-square flex-sub">
-          <view class="bg-img" wx:for="{{imgList}}" wx:for-index="pindex" wx:key="pindex" bindtap="previewImage"
-            data-url="{{imgList[pindex]}}">
-            <image src="{{imgList[pindex]}}" mode='aspectFill'></image>
-            <view class="cu-tag bg-red" catchtap="DelImg" data-index="{{pindex}}">
-              <text class="cuIcon-close"></text>
+        <!-- 证件号码 -->
+        <view class="cu-form-group" wx:if="{{lostTypeIndex > 0 && lostTypeIndex < 4}}">
+          <view class="title">证件号</view>
+          <input name="card_number" placeholder="{{lostTypes[lostTypeIndex].label}}证件号" value="{{defaultCardNo}}" type="idcard"></input>
+          <ocr-navigator wx:if="{{lostTypeIndex == 3 && type == 2}}" class="cu-btn bg-white" bind:onSuccess="ocrIdcard" certificateType="idCard" opposite="{{false}}"><text class="cuIcon-camera text-blue"></text></ocr-navigator>
+        </view>
+        <!-- 联系方式 -->
+        <view class="cu-form-group">
+          <view class="title">联系方式</view>
+          <input name="concact" placeholder="我的联系方式" type="number" value="{{concact}}"></input>
+        </view>
+        <!-- 详细说明描述 -->
+        <view class="cu-form-group">
+          <textarea name="desc" maxlength="256" placeholder="详细描述说明（物品什么样子，大概什么时候丢的，可能丢在了哪里?）" value="{{desc}}"></textarea>
+        </view>
+        <!-- 图片上传 -->
+        <view class="cu-bar bg-white">
+          <view class="action">图片(也可以不上传)</view>
+          <view class="action">{{imgList.length}}/4</view>
+        </view>
+        <!-- 已上传图片预览 -->
+        <view class="cu-form-group radius-bottom">
+          <view class="grid col-4 grid-square flex-sub">
+            <view class="bg-img" wx:for="{{imgList}}" wx:for-index="pindex" wx:key="pindex" bindtap="previewImage"
+              data-url="{{imgList[pindex]}}">
+              <image src="{{imgList[pindex]}}" mode='aspectFill'></image>
+              <view class="cu-tag bg-red" catchtap="DelImg" data-index="{{pindex}}">
+                <text class="cuIcon-close"></text>
+              </view>
+            </view>
+            <view class="solids" bindtap="chooseImage" wx:if="{{imgList.length<4}}">
+              <text class="cuIcon-cameraadd"></text>
             </view>
           </view>
-          <view class="solids" bindtap="chooseImage" wx:if="{{imgList.length<4}}">
-            <text class="cuIcon-cameraadd"></text>
-          </view>
         </view>
+        <view wx:if="{{lostTypeIndex == 3}}" class="bg-white padding margin-top text-red radius"><text class="cuIcon-info">为安全起见，身份证号码会加密处理，且仅证件本人可见。如果您有上传身份证照片，请务必记得自己给证件号码打码。</text></view>
       </view>
-      <view wx:if="{{lostTypeIndex == 3}}" class="bg-white padding margin-top text-red radius"><text class="cuIcon-info">为安全起见，身份证号码会加密处理，且仅证件本人可见。如果您有上传身份证照片，请务必记得自己给证件号码打码。</text></view>
-    </view>
-    <!-- 发布提交按钮 -->
-    <view class="padding flex flex-direction">
-      <button class="cu-btn bg-blue lg round" style="background-color: var(--blue);" type="primary" formType="submit">{{edit ? '修改' : '发布'}}</button>
-    </view>
-  </form>
+      <!-- 发布提交按钮 -->
+      <view class="padding flex flex-direction">
+        <button class="cu-btn bg-blue lg round" style="background-color: var(--blue);" type="primary" formType="submit">{{edit ? '修改' : '发布'}}</button>
+      </view>
+    </form>
 
-</view>
+  </view>
+
+</block>
+<block wx:else>
+  <view class="margin"><tips tipsText="应官方审核要求，此功能已下线"></tips></view>
+</block>

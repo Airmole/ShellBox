@@ -5,6 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    env: 'develop',
     isLoading: true,
     isPublisher: false,
     isRecevicer: false,
@@ -41,11 +42,11 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    const accountInfo = wx.getAccountInfoSync()
-    const envVersion = accountInfo.miniProgram.envVersion
-    if (envVersion != 'release') {
+    this.setData({ env: app.globalData.env })
+    if (app.globalData.env != 'release') {
       wx.switchTab({ url: '../../index/index' })
     }
+    
     this.inital(options)
     wx.showShareMenu({
       withShareTicket: true,

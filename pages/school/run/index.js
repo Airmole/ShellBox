@@ -5,6 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    env: 'develop',
     type: '0',
     fillImage: 'https://gd-filems.dancf.com/mcm79j/mcm79j/51560/9121e0b2-6f93-4300-ae22-07aa750658b91762508.jpg',
     top3icon: [
@@ -30,12 +31,11 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    wx.showLoading()
-    const accountInfo = wx.getAccountInfoSync()
-    const envVersion = accountInfo.miniProgram.envVersion
-    if (envVersion != 'release') {
+    this.setData({ env: app.globalData.env })
+    if (app.globalData.env != 'release') {
       wx.switchTab({ url: '../../index/index' })
     }
+    wx.showLoading()
     let type = options.type ? options.type : '0'
     let day = this.data.types[type].value
     this.setData({ type: type })

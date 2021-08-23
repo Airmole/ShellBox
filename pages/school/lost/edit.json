@@ -1,5 +1,6 @@
 {
   "usingComponents": {
-    "ocr-navigator": "plugin://ocr-plugin/ocr-navigator"
+    "ocr-navigator": "plugin://ocr-plugin/ocr-navigator",
+    "tips": "../../index/component/tips"
   }
 }

@@ -243,9 +243,7 @@ Page({
   inital: function () {
     var edusysUserInfo = wx.getStorageSync('edusysUserInfo')
     let iconList = this.data.iconList
-    const accountInfo = wx.getAccountInfoSync()
-    const envVersion = accountInfo.miniProgram.envVersion
-    if (envVersion != 'release') {
+    if (app.globalData.env != 'release') {
       iconList[17].student = false
       iconList[17].teacher = false
       iconList[16].student = false
