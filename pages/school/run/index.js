@@ -31,6 +31,11 @@ Page({
    */
   onLoad: function (options) {
     wx.showLoading()
+    const accountInfo = wx.getAccountInfoSync()
+    const envVersion = accountInfo.miniProgram.envVersion
+    if (envVersion != 'release') {
+      wx.switchTab({ url: '../../index/index' })
+    }
     let type = options.type ? options.type : '0'
     let day = this.data.types[type].value
     this.setData({ type: type })

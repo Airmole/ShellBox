@@ -47,6 +47,13 @@ Page({
    */
   onLoad: function (options) {
     this.inital(options)
+    const accountInfo = wx.getAccountInfoSync()
+    const envVersion = accountInfo.miniProgram.envVersion
+    if (envVersion != 'release') {
+      wx.switchTab({
+        url: '../../index/index',
+      })
+    }
   },
   inital: function (options) {
     const edusysInfo = wx.getStorageSync('edusysUserInfo')

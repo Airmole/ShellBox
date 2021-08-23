@@ -19,6 +19,11 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    const accountInfo = wx.getAccountInfoSync()
+    const envVersion = accountInfo.miniProgram.envVersion
+    if (envVersion != 'release') {
+      wx.switchTab({ url: '../../index/index' })
+    }
     this.inital(options)
   },
   inital: function (options) {
