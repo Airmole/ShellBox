@@ -1,125 +1,131 @@
 <!--pages/school/board/detail.wxml-->
-<cu-custom bgColor="bg-cyan" isCustom="{{true}}">
-  <view slot="content">投诉维权详情</view>
-</cu-custom>
+<block wx:if="{{env == 'release'}}">
+  <cu-custom bgColor="bg-cyan" isCustom="{{true}}">
+    <view slot="content">投诉维权详情</view>
+  </cu-custom>
 
-<view class="remind-box bg-cyan" wx:if="{{isLoading}}" style="height:{{screenHeight}}px;">
-  <image class="remind-img" src="/images/loading.gif"></image>
-</view>
-<view class="page" wx:else>
-
-  <!-- 原贴 -->
-  <view class="cu-card dynamic">
-    <view class="cu-item shadow">
-      <view class="cu-list menu-avatar">
-        <view class="cu-item">
-          <view class="cu-avatar round lg bg-cyan" style="background-image:url(https://cdn.cardcat.cn/images/05b00e713b1e1cf190210daad49ec63b.png);"></view>
-          <view class="content flex-sub">
-            <view>{{data.content.nickname}}</view>
-            <view class="text-gray text-sm flex justify-between">{{data.content.created_at}}</view>
-          </view>
-        </view>
-      </view>
-      <view class="text-content" style="max-height: unset;">
-        <view class="line-{{data.content.status == 1 ? 'blue': 'red'}} cu-tag radius">{{data.content.status == 1 ? '已回复': '待回复'}}</view>
-        {{data.content.content}}
-      </view>
-      <view class="grid flex-sub padding-lr padding-bottom col-3 grid-square">
-        <view class="bg-img" style="background-image:url({{pitem}});" wx:for="{{data.content.images}}"
-          wx:for-item="pitem" wx:key="pindex" catchtap="previewImage" data-allurl="{{data.content.images}}"
-          data-url="{{pitem}}"></view>
-      </view>
-    </view>
+  <view class="remind-box bg-cyan" wx:if="{{isLoading}}" style="height:{{screenHeight}}px;">
+    <image class="remind-img" src="/images/loading.gif"></image>
   </view>
+  <view class="page" wx:else>
 
-  <!-- 发表回复按钮 -->
-  <view class="margin-lr margin-bottom" wx:if="{{canReplay}}">
-    <navigator url="./edit?id={{id}}" class="flex radius bg-blue align-center justify-center">
-      <view class="text-xxl text-blod text-white margin-top justify-center shadow-blur" style="height:90rpx;">
-        <text class="cuIcon-message"></text> 评论回复
-      </view>
-    </navigator>
-  </view>
-
-  <view wx:if="{{!canReplay}}" class="bg-white margin-lr padding radius">
-    <tips tipsText="仅权益部管理人员可评论回复"></tips>
-    <view wx:if="{{uid == 0}}" class="margin-tb-sm text-center">
-      <navigator url="../../index/login" class="cu-btn round bg-green shadow">登录</navigator>
-    </view>
-  </view>
-
-  <block wx:if="{{isAdminer}}">
-    <view class="cu-bar bg-white margin-lr margin-top radius-top">
-      <view class='action'>
-        <text class='cuIcon-titles text-cyan'></text> 投诉人联系方式
-      </view>
-      <view class='action'></view>
-    </view>
-    <view class="cu-list menu-avatar no-padding margin-lr radius-bottom">
-      <view class="cu-item">
-        <view class="cu-avatar lg round bg-green" style="background-image:url({{data.content.avatar}});"></view>
-        <view class="content">
-          <view class="text-grey"><text>{{data.content.nickname}}</text> </view>
-          <view class="text-gray text-sm">联系方式：{{data.content.mobile}}</view>
-        </view>
-        <view wx:if="{{data.content.mobile}}" data-tel='{{data.content.mobile}}' bindtap='callPhone' class="action text-xxl margin-right-xl"><text
-            class="cuIcon-phone text-green"></text></view>
-      </view>
-    </view>
-  </block>
-
-  <!-- 回复 -->
-  <view class="cu-card dynamic no-card margin radius">
-    <view class="cu-bar bg-white solid-bottom">
-      <view class='action'>
-        <text class='cuIcon-titles text-cyan'></text> 回复
-      </view>
-      <view class='action'></view>
-    </view>
-    <block wx:if="{{data.replay.length > 0}}">
-      <view class="cu-item shadow solid-bottom" wx:for="{{data.replay}}" wx:key="board">
+    <!-- 原贴 -->
+    <view class="cu-card dynamic">
+      <view class="cu-item shadow">
         <view class="cu-list menu-avatar">
           <view class="cu-item">
-            <view class="cu-avatar round lg bg-cyan" style="background-image:url(https://upload-images.jianshu.io/upload_images/4697920-34dcb56de71f8967.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/128);"></view>
+            <view class="cu-avatar round lg bg-cyan" style="background-image:url(https://cdn.cardcat.cn/images/05b00e713b1e1cf190210daad49ec63b.png);"></view>
             <view class="content flex-sub">
-              <view>权益中心工作人员 - {{item.nickname}}</view>
-              <view class="text-gray text-sm flex justify-between">{{item.created_at}}</view>
+              <view>{{data.content.nickname}}</view>
+              <view class="text-gray text-sm flex justify-between">{{data.content.created_at}}</view>
             </view>
           </view>
         </view>
         <view class="text-content" style="max-height: unset;">
-          {{item.content}}
+          <view class="line-{{data.content.status == 1 ? 'blue': 'red'}} cu-tag radius">{{data.content.status == 1 ? '已回复': '待回复'}}</view>
+          {{data.content.content}}
         </view>
         <view class="grid flex-sub padding-lr padding-bottom col-3 grid-square">
-          <view class="bg-img" style="background-image:url({{pitem}});" wx:for="{{item.images}}" wx:for-item="pitem"
-            wx:key="pindex" catchtap="previewImage" data-allurl="{{item.images}}" data-url="{{pitem}}">
-          </view>
+          <view class="bg-img" style="background-image:url({{pitem}});" wx:for="{{data.content.images}}"
+            wx:for-item="pitem" wx:key="pindex" catchtap="previewImage" data-allurl="{{data.content.images}}"
+            data-url="{{pitem}}"></view>
         </view>
-        <view class="cu-list menu sm-border" wx:if="{{isAdminer}}">
-          <view class="cu-item">
-            <view class="content"><text class=""></text></view>
-            <view class="action">
-              <button class="cu-btn round bg-red shadow" data-id="{{item.id}}" catchtap="deleteConfirm">
-                <text class="cuIcon-delete"></text> 删除</button>
+      </view>
+    </view>
+
+    <!-- 发表回复按钮 -->
+    <view class="margin-lr margin-bottom" wx:if="{{canReplay}}">
+      <navigator url="./edit?id={{id}}" class="flex radius bg-blue align-center justify-center">
+        <view class="text-xxl text-blod text-white margin-top justify-center shadow-blur" style="height:90rpx;">
+          <text class="cuIcon-message"></text> 评论回复
+        </view>
+      </navigator>
+    </view>
+
+    <view wx:if="{{!canReplay}}" class="bg-white margin-lr padding radius">
+      <tips tipsText="仅权益部管理人员可评论回复"></tips>
+      <view wx:if="{{uid == 0}}" class="margin-tb-sm text-center">
+        <navigator url="../../index/login" class="cu-btn round bg-green shadow">登录</navigator>
+      </view>
+    </view>
+
+    <block wx:if="{{isAdminer}}">
+      <view class="cu-bar bg-white margin-lr margin-top radius-top">
+        <view class='action'>
+          <text class='cuIcon-titles text-cyan'></text> 投诉人联系方式
+        </view>
+        <view class='action'></view>
+      </view>
+      <view class="cu-list menu-avatar no-padding margin-lr radius-bottom">
+        <view class="cu-item">
+          <view class="cu-avatar lg round bg-green" style="background-image:url({{data.content.avatar}});"></view>
+          <view class="content">
+            <view class="text-grey"><text>{{data.content.nickname}}</text> </view>
+            <view class="text-gray text-sm">联系方式：{{data.content.mobile}}</view>
+          </view>
+          <view wx:if="{{data.content.mobile}}" data-tel='{{data.content.mobile}}' bindtap='callPhone' class="action text-xxl margin-right-xl"><text
+              class="cuIcon-phone text-green"></text></view>
+        </view>
+      </view>
+    </block>
+
+    <!-- 回复 -->
+    <view class="cu-card dynamic no-card margin radius">
+      <view class="cu-bar bg-white solid-bottom">
+        <view class='action'>
+          <text class='cuIcon-titles text-cyan'></text> 回复
+        </view>
+        <view class='action'></view>
+      </view>
+      <block wx:if="{{data.replay.length > 0}}">
+        <view class="cu-item shadow solid-bottom" wx:for="{{data.replay}}" wx:key="board">
+          <view class="cu-list menu-avatar">
+            <view class="cu-item">
+              <view class="cu-avatar round lg bg-cyan" style="background-image:url(https://upload-images.jianshu.io/upload_images/4697920-34dcb56de71f8967.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/128);"></view>
+              <view class="content flex-sub">
+                <view>权益中心工作人员 - {{item.nickname}}</view>
+                <view class="text-gray text-sm flex justify-between">{{item.created_at}}</view>
+              </view>
+            </view>
+          </view>
+          <view class="text-content" style="max-height: unset;">
+            {{item.content}}
+          </view>
+          <view class="grid flex-sub padding-lr padding-bottom col-3 grid-square">
+            <view class="bg-img" style="background-image:url({{pitem}});" wx:for="{{item.images}}" wx:for-item="pitem"
+              wx:key="pindex" catchtap="previewImage" data-allurl="{{item.images}}" data-url="{{pitem}}">
+            </view>
+          </view>
+          <view class="cu-list menu sm-border" wx:if="{{isAdminer}}">
+            <view class="cu-item">
+              <view class="content"><text class=""></text></view>
+              <view class="action">
+                <button class="cu-btn round bg-red shadow" data-id="{{item.id}}" catchtap="deleteConfirm">
+                  <text class="cuIcon-delete"></text> 删除</button>
+              </view>
             </view>
           </view>
         </view>
-      </view>
-    </block>
-    <block wx:else>
-      <view class="bg-white padding">
-        <tips tipsText="这里是空的，还没有人回复呢~"></tips>
-      </view>
-    </block>
+      </block>
+      <block wx:else>
+        <view class="bg-white padding">
+          <tips tipsText="这里是空的，还没有人回复呢~"></tips>
+        </view>
+      </block>
+    </view>
+
+    <!-- 分页器 -->
+    <view class="flex margin-right-sm justify-end">
+      <button bindtap="lastPage" wx:if="{{data.pagination.current > 1}}" class="cu-btn bg-black round shadow">上一页</button>
+      <view wx:if="{{data.pagination.current > 0}}" class="text-black margin-sm">{{data.pagination.current}} /
+        {{data.pagination.last}}</view>
+      <button bindtap="nextPage" wx:if="{{data.pagination.current < data.pagination.last && data.pagination.current > 0}}"
+        class="cu-btn bg-black round shadow">下一页</button>
+    </view>
+
   </view>
 
-  <!-- 分页器 -->
-  <view class="flex margin-right-sm justify-end">
-    <button bindtap="lastPage" wx:if="{{data.pagination.current > 1}}" class="cu-btn bg-black round shadow">上一页</button>
-    <view wx:if="{{data.pagination.current > 0}}" class="text-black margin-sm">{{data.pagination.current}} /
-      {{data.pagination.last}}</view>
-    <button bindtap="nextPage" wx:if="{{data.pagination.current < data.pagination.last && data.pagination.current > 0}}"
-      class="cu-btn bg-black round shadow">下一页</button>
-  </view>
-
-</view>
+</block>
+<block wx:else>
+  <view class="margin"><tips tipsText="应官方审核要求，此功能已下线"></tips></view>
+</block>

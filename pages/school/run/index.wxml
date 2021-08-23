@@ -32,7 +32,7 @@
         <view class="margin-left-sm">
           <view class="cu-avatar round lg" style="background-image:url({{item.wechater?item.wechater.avatar:item.qqer.avatar}});"></view>
         </view>
-        <view class="margin-tb-sm text-cut text-center" style="width: 250rpx;"><text class="text-lg">{{item.wechater ? item.wechater.nickname : item.qqer.nickname}}</text></view>
+        <view class="margin-tb-sm text-cut text-center" style="width: 240rpx;"><text class="text-lg">{{item.wechater ? item.wechater.nickname : item.qqer.nickname}}</text></view>
         <view class="padding-left-xs padding-tb-sm" style="width: 180rpx;">
           <view class="text-right">
             <text>{{item.steps}}</text><text class="text-df">步</text></view>
