@@ -17,9 +17,9 @@
     </scroll-view>
   </view>
 </view>
-<view class="bg-img" style="background-image: url({{fillImage}});">
-  <view class="padding-xl text-black">
-    <view class="padding-sm text-xl" wx:for="{{ranklist}}" wx:key="index">
+<view class="bg-img" style="background-image: url({{fillImage}});" wx:for="{{ranklist}}" wx:key="index">
+  <view class="padding-lr-xl padding-tb-xs text-black">
+    <view class="padding-sm text-xl">
       <view class="flex align-center">
         <view class="number flex align-center justify-center">
           <block wx:if="{{index < 3}}">
