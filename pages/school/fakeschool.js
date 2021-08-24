@@ -7,6 +7,7 @@ Page({
    */
   data: {
     data: {
+      env: 'develop',
       swiper: [
         'https://upload-images.jianshu.io/upload_images/4697920-023fbbb006067b52.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240',
         'https://upload-images.jianshu.io/upload_images/4697920-099d1e496f07c406.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240'
@@ -22,6 +23,10 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    this.setData({ env: app.globalData.env })
+    if (app.globalData.env != 'release') {
+      wx.switchTab({ url: '../index/index' })
+    }
     this.inital()
   },
   inital: function () {
