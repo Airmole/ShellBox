@@ -302,7 +302,8 @@ Page({
     // console.log('target：', hasEdusysStorage);
 
     if(id == 'cet'){
-      wx.navigateToMiniProgram({ appId: 'wx2eec5fb00157a603', path: url });
+      // wx.navigateToMiniProgram({ appId: 'wx2eec5fb00157a603', path: url })
+      this.showCetModal()
       return
     }
 
@@ -385,4 +386,21 @@ Page({
   onHide: function () {
     this.setData({ canShake: false })
   },
+  showCetModal: function() {
+    wx.showModal({
+      title: 'Tips',
+      content: '2021年上半年四、六级成绩于8月26日上午10时开放查询，请复制以下链接浏览器访问查询成绩\r\nhttps://cet.neea.edu.cn/cet\r\n(身份证号可直接查询)',
+      showCancel: true,
+      cancelText: '知道了',
+      confirmText: '复制链接',
+      confirmColor: '#58BD6A',
+      success (res) {
+        if (res.confirm) {
+          wx.setClipboardData({ data: 'https://cet.neea.edu.cn/cet' })
+        } else if (res.cancel) {
+          console.log('用户cancel')
+        }
+      }
+    })
+  }
 })
