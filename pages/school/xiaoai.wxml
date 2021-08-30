@@ -21,6 +21,14 @@
     </view>
   </view>
 
+  <view class="bg-img bg-mask margin-xl radius flex align-center justify-center" style="background-image: url({{cover}});height: 350rpx;" bindtap="go2Bilibili">
+    <view class="padding-xl text-white text-center">
+      <view class="padding-xs text-xsl text-bold text-center">
+        <text class="cuIcon-playfill"></text>
+      </view>演示视频
+    </view>
+  </view>
+
   <!-- 广告位 -->
   <view class='margin'>
     <ad unit-id="adunit-62f52651dd5f4ff6"></ad>
@@ -30,7 +38,8 @@
   <!-- content -->
   <view class="margin">
     <view class="radius light text-center">
-      <image class="radius" wx:for="{{guideImages}}" src="{{item}}" mode="widthFix" bindtap="fullScreenPreview" style="width:100%;" wx:key="imgKey" />
+      <image class="radius" wx:for="{{guideImages}}" src="{{item}}" mode="widthFix" bindtap="fullScreenPreview"
+        style="width:100%;" wx:key="imgKey" />
     </view>
   </view>
 

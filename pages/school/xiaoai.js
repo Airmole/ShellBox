@@ -6,6 +6,7 @@ Page({
    */
   data: {
     isLoading:true,
+    cover: 'https://upload-images.jianshu.io/upload_images/4697920-54d96e5c39485080.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240',
     guideImages:[
       'https://upload-images.jianshu.io/upload_images/4697920-8896aa68cc3ef39f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240',
       'https://upload-images.jianshu.io/upload_images/4697920-006603050147d6e9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240',
@@ -40,7 +41,12 @@ Page({
       urls: allImages,
     })
   },
-
+  go2Bilibili: function () {
+    wx.navigateToMiniProgram({
+      appId: 'wx7564fd5313d24844',
+      path: 'pages/video/video?bvid=BV1CL4y1Y7C5'
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
@@ -92,10 +98,11 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
+    let cover = this.data.cover
     return {
       title: '“贝壳小盒子” - 小爱课程表使用指南',
       path: 'pages/school/xiaoai',
-      imageUrl:'https://upload-images.jianshu.io/upload_images/4697920-54d96e5c39485080.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240'
+      imageUrl: cover
     }
   }
 })

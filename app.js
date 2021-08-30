@@ -55,8 +55,8 @@ App({
     const openid = wx.getStorageSync('openid')
     const weuserInfo =  wx.getStorageSync('userInfo')
     wx.request({
-      // url: `https://dev.shellbox.airmole.cn/api/edu/profile`,
-      url: `${self.globalData.domain}/edu/profile`,
+      url: `https://dev.shellbox.airmole.cn/api/edu/profile`,
+      // url: `${self.globalData.domain}/edu/profile`,
       data:{
         uid: uid,
         pwd: pwd,

@@ -1,6 +1,6 @@
 {
     "name": "shellbox",
-    "version": "3.2.3",
-    "description": "mp-ci发布",
+    "version": "3.2.4",
+    "description": "小爱课表新增演示视频跳转&cookie静默更新负载均衡",
     "author": "Airmole"
   }
