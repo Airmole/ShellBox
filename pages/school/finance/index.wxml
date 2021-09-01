@@ -1,0 +1,18 @@
+<!--pages/school/finance/index.wxml-->
+<!-- 顶部标题栏 -->
+<cu-custom bgColor="bg-cyan" isCustom="{{true}}">
+  <view slot="content">{{tabbar}} </view>
+</cu-custom>
+<!-- 页面内容组件 -->
+<feeRecord    wx:if="{{tabbar == '缴费记录'}}"></feeRecord>
+<orderRecord  wx:if="{{tabbar == '订单记录'}}"></orderRecord>
+<feeBusiness  wx:if="{{tabbar == '缴费业务'}}"></feeBusiness>
+<subsidyInfo  wx:if="{{tabbar == '补助信息'}}"></subsidyInfo>
+<deferApply   wx:if="{{tabbar == '缓交申请'}}"></deferApply>
+<invoiceApply wx:if="{{tabbar == '开票申请'}}"></invoiceApply>
+<!-- 底部tabbar -->
+<view class="cu-bar tabbar margin-bottom-xl foot bg-white">
+  <view class="action {{tabbar==item.name?'text-cyan':'text-gray'}}" wx:for="{{tabbars}}" wx:key="name" bindtap="tabbarChange" data-name="{{item.name}}">
+    <view class="{{item.icon}}"></view> {{item.name}}
+  </view>
+</view>
