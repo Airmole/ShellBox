@@ -1,0 +1,2 @@
+/* pages/school/finance/bind.wxss */
+@import "../../books/bind.wxss";

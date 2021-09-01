@@ -796,6 +796,17 @@ Page({
         content: '37斋',
         display: 'ALWAYS'
       }
+    }, {
+      id: 71,
+      latitude: 39.547254,
+      longitude: 117.399165,
+      iconPath: "/images/nav/jiaoxuelou.png",
+      width: 30,
+      height: 32,
+      callout: {
+        content: '弘艺音乐厅',
+        display: 'ALWAYS'
+      }
     }],
     distance: '',
     cost: '',
