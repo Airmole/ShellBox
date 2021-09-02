@@ -1,4 +1,7 @@
 /* pages/school/finance/component/feeRecord.wxss */
+page {
+  background-color: var(--cyan);
+}
 .cu-list.menu-avatar.comment>.cu-item {
-  padding: 30rpx 30rpx 30rpx 50rpx;
+  padding: 30rpx 30rpx 0rpx 50rpx;
 }

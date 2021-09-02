@@ -11,7 +11,7 @@
 <deferApply   wx:if="{{tabbar == '缓交申请'}}"></deferApply>
 <invoiceApply wx:if="{{tabbar == '开票申请'}}"></invoiceApply>
 <!-- 底部tabbar -->
-<view class="cu-bar tabbar margin-bottom-xl foot bg-white">
+<view class="cu-bar tabbar foot bg-white">
   <view class="action {{tabbar==item.name?'text-cyan':'text-gray'}}" wx:for="{{tabbars}}" wx:key="name" bindtap="tabbarChange" data-name="{{item.name}}">
     <view class="{{item.icon}}"></view> {{item.name}}
   </view>
