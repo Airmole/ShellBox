@@ -67,5 +67,5 @@
   <tips tipsText="这里是空的，什么都没有~"></tips>
 </view>
 <view wx:else class="margin-bottom-xl padding-bottom-xl text-center">
-  <view class="padding-xl margin-bottom-xl"><text class="text-white">到底啦~什么都没有了</text></view>
+  <view class="padding-xl margin-bottom-xl"><text class="text-black">到底啦~什么都没有了</text></view>
 </view>

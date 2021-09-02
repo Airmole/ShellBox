@@ -6,17 +6,17 @@ Page({
    * 页面的初始数据
    */
   data: {
-    tabbar: '缴费记录',
+    tabbar: '订单记录',
     tabbars: [{
       name: '缴费记录',
       icon: 'cuIcon-redpacket'
     }, {
-      name: '订单记录',
-      icon: 'cuIcon-list'
-    }, {
       name: '缴费业务',
       icon: 'cuIcon-moneybag'
     }, {
+      name: '订单记录',
+      icon: 'cuIcon-list'
+    },  {
       name: '补助信息',
       icon: 'cuIcon-refund'
     }, {
