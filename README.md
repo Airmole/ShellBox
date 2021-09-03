@@ -4,7 +4,7 @@
 
 [![Star](https://img.shields.io/badge/Star-Airmole-brightgreen.svg)](https://github.com/Airmole/ShellBox/stargazers)
 [![Download](https://img.shields.io/badge/download-.zip-brightgreen.svg)](https://github.com/Airmole/ShellBox/archive/master.zip)
-[![last commit](https://img.shields.io/badge/last%20commit-2021--08--22-green.svg)](https://github.com/Airmole/ShellBox/commits/master)
+[![last commit](https://img.shields.io/badge/last%20commit-2021--09--04-green.svg)](https://github.com/Airmole/ShellBox/commits/master)
 
 
 ## 线上版本体验
@@ -58,6 +58,8 @@
     "pages/school/lost/index",       // 失物招领列表页面
     "pages/school/lost/detail"       // 失物招领内容展示
     "pages/school/run/index"         // 运动计步排行榜
+    "pages/school/finance/bind"       // 缴费平台账号绑定
+    "pages/school/finance/index"      // 缴费查询界面
   ],
 ```
 

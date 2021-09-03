@@ -1,0 +1,10 @@
+{
+  "usingComponents": {
+    "feeRecord": "./component/feeRecord/feeRecord",
+    "orderRecord": "./component/orderRecord/orderRecord",
+    "feeBusiness": "./component/feeBusiness/feeBusiness",
+    "subsidyInfo": "./component/subsidyInfo/subsidyInfo",
+    "deferApply": "./component/deferApply/deferApply",
+    "invoiceApply": "./component/invoiceApply/invoiceApply"
+  }
+}

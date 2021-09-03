@@ -1,0 +1,8 @@
+{
+  "navigationBarBackgroundColor": "#7acfa6",
+  "backgroundColor": "#7acfa6",
+  "navigationBarTitleText": "绑定财务系统账号",
+  "enablePullDownRefresh": false,
+  "disableScroll": true,
+  "navigationStyle": "default"
+}

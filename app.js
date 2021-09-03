@@ -18,7 +18,7 @@ App({
     const accountInfo = wx.getAccountInfoSync()
     this.globalData.env = accountInfo.miniProgram.envVersion
     // this.globalData.env = 'release'
-    if (accountInfo.miniProgram.envVersion == 'release') {
+    if (this.globalData.env == 'release') {
       this.globalData.domain = 'https://shellbox.airmole.cn/api'
     } else {
       this.globalData.domain = 'https://dev.shellbox.airmole.cn/api'

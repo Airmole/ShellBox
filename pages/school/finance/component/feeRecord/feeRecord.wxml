@@ -1,0 +1,71 @@
+<!--pages/school/finance/component/feeRecord.wxml-->
+<view class="cu-card dynamic radius" wx:for="{{datalist}}" wx:key="list">
+  <view class="cu-item shadow padding margin">
+    <view class="cu-bar bg-white" bindtap="fold" data-index="{{index}}">
+      <view class="action">
+        <text class="cuIcon-titles text-cyan"></text>
+        <text class="text-xl text-bold">{{item.xmmc}}</text>
+      </view>
+      <view class="action">
+        <text class="cuIcon-{{item.unfold?'fold':'unfold'}} text-cyan"></text>
+      </view>
+    </view>
+    <view class="text-content" style="max-height: unset;">
+      <view class="flex">
+        <view class="flex-sub"><text class="text-gray">应收：</text><text class="text-price">{{item.xysje}}</text></view>
+        <view class="flex-sub"><text class="text-gray">实收：</text><text class="text-price">{{item.sjje}}</text></view>
+      </view>
+      <view class="flex">
+        <view class="flex-sub"><text class="text-gray">抵扣金额：</text><text class="text-price">{{item.dkje}}</text></view>
+        <view class="flex-sub"><text class="text-gray">退费金额：</text><text class="text-price">{{item.tfje}}</text></view>
+      </view>
+      <view class="flex">
+        <view class="flex-sub"><text class="text-gray">减免金额：</text><text class="text-price">{{item.jmje}}</text></view>
+        <view class="flex-sub"><text class="text-gray">缴费次数：</text><text class="">{{item.jfcs}}次</text></view>
+      </view>
+    </view>
+    <view style="display:{{item.unfold?'block':'none'}};">
+      <view class="cu-list menu-avatar comment solids-top" wx:for="{{item.children}}" wx:for-index="sindex"
+        wx:for-item="sitem" wx:key="sindex" wx:key="sindex">
+        <view class="cu-item">
+          <view class="content">
+            <view class="text-content" style="display: block;">
+              <view class="text-bold"><text class="cuIcon-title text-cyan"></text>{{sitem.sfnd}}{{sitem.sfqjmc}}</view>
+              <view class="flex">
+                <view class="flex-sub"><text class="text-gray">应收：</text><text class="text-price">{{sitem.xysje}}</text>
+                </view>
+                <view class="flex-sub"><text class="text-gray">实收：</text><text class="text-price">{{sitem.sjje}}</text>
+                </view>
+              </view>
+              <view class="flex">
+                <view class="flex-sub"><text class="text-gray">抵扣金额：</text><text
+                    class="text-price">{{sitem.dkje}}</text></view>
+                <view class="flex-sub"><text class="text-gray">退费金额：</text><text
+                    class="text-price">{{sitem.tfje}}</text></view>
+              </view>
+              <view class="flex">
+                <view class="flex-sub"><text class="text-gray">减免金额：</text><text
+                    class="text-price">{{sitem.jmje}}</text></view>
+                <view class="flex-sub"><text class="text-gray">缴费次数：</text><text class="">{{sitem.jfcs}}次</text></view>
+              </view>
+            </view>
+            <view class="bg-gray padding-sm radius margin-top-sm margin-left-sm text-sm" wx:for="{{sitem.children}}"
+              wx:for-index="ssindex" wx:for-item="ssitem" wx:key="ssindex">
+              <view class="">
+                <view><text class="cuIcon-title text-cyan"></text><text class="text-black">实收金额：</text><text class="text-price text-xl text-cyan">{{ssitem.sjje}}</text>
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+
+<view wx:if="{{datalist.length == 0}}" class="margin-xl padding-xl text-center">
+  <tips tipsText="这里是空的，什么都没有~"></tips>
+</view>
+<view wx:else class="margin-bottom-xl padding-bottom-xl text-center">
+  <view class="padding-xl margin-bottom-xl"><text class="text-black">到底啦~什么都没有了</text></view>
+</view>

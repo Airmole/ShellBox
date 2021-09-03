@@ -187,6 +187,14 @@ Page({
       url: '../school/web',
       login: false,
     }, {
+      id: 'finance',
+      icon: 'finance',
+      teacher: false,
+      student: true,
+      name: '学费查询',
+      url: '../school/finance/bind',
+      login: true,
+    }, {
       id: 'xiaoai',
       icon: 'xiaoai',
       teacher: true,

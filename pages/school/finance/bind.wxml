@@ -1,0 +1,66 @@
+<!--pages/school/finance/bind.wxml-->
+<view class="container">
+  <view class="remind-box" wx:if="{{isLoading}}">
+    <image class="remind-img" src="/images/loading.gif"></image>
+  </view>
+  <block wx:else>
+    <view>
+      <image class="title" src="https://gd-filems.dancf.com/mcm79j/mcm79j/51560/6cac4a24-bd1e-4c38-b69c-7e132085e4a07375186.png"></image>
+      <view class="content">
+        <view class="hd" style="transform:rotateZ({{angle}}deg);">
+          <image class="logo" src="https://gd-filems.dancf.com/mcm79j/mcm79j/51560/9122bc2c-102b-4e54-9ad0-6ede8036e28a7248271.png"></image>
+          <image class="wave" src="/images/wave.png" mode="aspectFill"></image>
+          <image class="wave wave-bg" src="/images/wave.png" mode="aspectFill"></image>
+        </view>
+        <view class="bd">
+          <form class="login-form" bindsubmit="submitInfo">
+            <view class="input-group {{userid_focus ? 'active' : ''}}">
+              <text class="input-label">学号</text>
+              <input name='username' id='username' type="text" cursor-spacing="30" placeholder="新生输入考生号" bindinput='usernameInput' bindfocus="inputFocus" bindblur="inputBlur" value="{{username}}" />
+            </view>
+            <view class="input-group {{passwd_focus ? 'active' : ''}}">
+              <text class="input-label">密码</text>
+              <input name='password' id='password' password="true" cursor-spacing="30" placeholder="“收费平台”系统密码" bindfocus="inputFocus" bindblur="inputBlur" value="{{password}}" />
+            </view>
+            <view class="input-group {{vcode_focus ? 'active' : ''}}">
+              <text class="input-label">验证码</text>
+              <input id='vcode' bindinput='vcodeInput' name='vcode' type='number' cursor-spacing="30" placeholder="输入验证码" bindfocus="inputFocus" bindblur="inputBlur" />
+              <view class="weui-cell__ft">
+                <image class="weui-vcode-img" src="{{cookieInfo.vcode}}" style="width: 90px;height:25px;"></image>
+              </view>
+            </view>
+            <view class="login-help">
+              <view bindtap="showHelp">
+                <text>帮助</text>
+                <image class="login-help-img" src="/images/help.png"></image>
+              </view>
+            </view>
+            <view>
+              <button formType="submit" class="login-btn">确认绑定</button>
+            </view>
+          </form>
+        </view>
+        <view class="help" id="help" wx:if="{{help_status}}" bindtap="tapHelp">
+          <view class="box">
+            <view class="box-hd">
+              <text class="box-title">帮助</text>
+              <image class="box-close" src="/images/close.png" bindtap="hideHelp"></image>
+            </view>
+            <view class="box-bd">
+              <view class="help-q">1、证件号和密码是什么？</view>
+              <view class="help-a">
+                <text>证件号：老生默认证件号为学号，新生没有学号可以试试考生号。已毕业离校学生不可使用</text>
+                <text>密码：默认密码为身份证账号后6位（X大写）</text>
+              </view>
+              <view class="help-q">2、忘记密码？</view>
+              <view class="help-a">
+                <text>忘记密码请携带学生证、身份证等证件前往学院财务处重置“收费平台”密码</text>
+              </view>
+            </view>
+          </view>
+        </view>
+
+      </view>
+    </view>
+  </block>
+</view>
