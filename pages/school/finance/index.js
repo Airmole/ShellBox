@@ -6,7 +6,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    tabbar: '订单记录',
+    tabbar: '缴费记录',
     tabbars: [{
       name: '缴费记录',
       icon: 'cuIcon-redpacket'
@@ -33,10 +33,10 @@ Page({
    */
   onLoad: function (options) {
     let financeInfo = app.globalData.financeInfo
-    // if (!financeInfo) {
-    //   wx.redirectTo({ url: './bind' })
-    //   return
-    // }
+    if (!financeInfo) {
+      wx.redirectTo({ url: './bind' })
+      return
+    }
     console.log('finance收费平台账号登录信息', financeInfo)
   },
 

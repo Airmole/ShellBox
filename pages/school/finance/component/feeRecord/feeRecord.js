@@ -75,7 +75,7 @@ Component({
       datalist[index].unfold = !datalist[index].unfold
       this.setData({ datalist: datalist })
     },
-    getDatalist: function (page = 0, pagesize = 10) {
+    getDatalist: function (page = 0, pagesize = 30) {
       wx.showLoading({ title: '等等，我加载下' })
       const _this = this
       const cookie = app.globalData.financeInfo ? app.globalData.financeInfo.cookie : ''

@@ -14,7 +14,7 @@ Page({
     activePlaceID: -1,
     schoolAddressText: '天津市宝坻区京津新城珠江北环东路1号',
     postcode: '301830',
-    staticMapImage: 'https://upload-images.jianshu.io/upload_images/4697920-7c940ce66efd2704.png',
+    staticMapImage: 'https://gd-filems.dancf.com/mcm79j/mcm79j/51560/c3c64cb7-f63d-46f9-beea-4d2207fdfb567981872.jpg',
     markers: [{
       id: 0,
       latitude: 39.544736,
@@ -805,6 +805,61 @@ Page({
       height: 32,
       callout: {
         content: '弘艺音乐厅',
+        display: 'ALWAYS'
+      }
+    }, {
+      id: 72,
+      latitude: 39.547734,
+      longitude: 117.396874,
+      iconPath: "/images/nav/sushe.png",
+      width: 30,
+      height: 32,
+      callout: {
+        content: '39斋',
+        display: 'ALWAYS'
+      }
+    }, {
+      id: 73,
+      latitude: 39.547614,
+      longitude: 117.396166,
+      iconPath: "/images/nav/sushe.png",
+      width: 30,
+      height: 32,
+      callout: {
+        content: '40斋',
+        display: 'ALWAYS'
+      }
+    }, {
+      id: 74,
+      latitude: 39.547531,
+      longitude: 117.395469,
+      iconPath: "/images/nav/sushe.png",
+      width: 30,
+      height: 32,
+      callout: {
+        content: '41斋',
+        display: 'ALWAYS'
+      }
+    }, {
+      id: 75,
+      latitude: 39.547412,
+      longitude: 117.394782,
+      iconPath: "/images/nav/sushe.png",
+      width: 30,
+      height: 32,
+      callout: {
+        content: '42斋',
+        display: 'ALWAYS'
+      }
+    }, {
+      id: 76,
+      latitude: 39.545699,
+      longitude: 117.400388,
+      iconPath: "/images/nav/others.png",
+      width: 30,
+      height: 32,
+      callout: {
+        content: '鹿鸣园',
         display: 'ALWAYS'
       }
     }],

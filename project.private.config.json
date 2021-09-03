@@ -11,20 +11,7 @@
       "list": []
     },
     "miniprogram": {
-      "list": [
-        {
-          "name": "缴费绑定",
-          "pathName": "pages/school/finance/bind",
-          "query": "",
-          "scene": null
-        },
-        {
-          "name": "pages/school/finance/index",
-          "pathName": "pages/school/finance/index",
-          "query": "",
-          "scene": null
-        }
-      ]
+      "list": []
     }
   }
 }

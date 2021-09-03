@@ -16,6 +16,11 @@ Page({
     password:'',
   },
   onLoad: function(options) {
+    const hasFinanceCookie = app.globalData.financeInfo ? true : false
+    if (hasFinanceCookie) {
+      wx.redirectTo({ url: './index' })
+      return
+    }
     var that = this
     var uid = app.globalData.edusysUserInfo.uid
     let username = uid
@@ -112,6 +117,11 @@ Page({
   },
   usernameInput: function(e) {
     if (e.detail.value.length >= 9) {
+      wx.hideKeyboard()
+    }
+  },
+  vcodeInput: function(e) {
+    if (e.detail.value.length >= 5) {
       wx.hideKeyboard()
     }
   },
