@@ -54,7 +54,7 @@
               </view>
               <view class="help-q">2、忘记密码？</view>
               <view class="help-a">
-                <text>忘记密码请携带学生证、身份证等证件前往学院财务处重置“收费平台”密码</text>
+                <text>登录收费平台网站(http://221.238.213.131:8809),点击“登录”->"领用及找回密码"</text>
               </view>
             </view>
           </view>
