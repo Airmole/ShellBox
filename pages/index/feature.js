@@ -211,14 +211,14 @@ Page({
     //   url: '../books/portrait',
     //   login: false,
     // }, {
-      id: 'bbbug',
-      icon: 'yu',
-      teacher: true,
-      student: true,
-      name: '树洞闲聊',
-      url: '',
-      login: false,
-    }, {
+    //   id: 'bbbug',
+    //   icon: 'yu',
+    //   teacher: true,
+    //   student: true,
+    //   name: '树洞闲聊',
+    //   url: '',
+    //   login: false,
+    // }, {
       id: 'about',
       icon: 'plane',
       teacher: true,
