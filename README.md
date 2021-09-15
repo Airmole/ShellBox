@@ -4,12 +4,17 @@
 
 [![Star](https://img.shields.io/badge/Star-Airmole-brightgreen.svg)](https://github.com/Airmole/ShellBox/stargazers)
 [![Download](https://img.shields.io/badge/download-.zip-brightgreen.svg)](https://github.com/Airmole/ShellBox/archive/master.zip)
-[![last commit](https://img.shields.io/badge/last%20commit-2021--09--04-green.svg)](https://github.com/Airmole/ShellBox/commits/master)
+[![last commit](https://img.shields.io/badge/last%20commit-2021--09--15-green.svg)](https://github.com/Airmole/ShellBox/commits/master)
 
 
 ## 线上版本体验
 
 [![miniprogram.th.jpg](https://upload-images.jianshu.io/upload_images/4697920-978a1204bd86e58c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)](小程序体验码)
+
+- 体验账号：000000000
+
+- 体验密码：test
+> 测试体验账号仅供预览展示效果，且”我的借阅“、"学费查询"、”网费查询“功能不支持使用体验账号。
 
 
 ## 截图
