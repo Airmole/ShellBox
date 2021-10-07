@@ -122,7 +122,7 @@ Page({
     const images = this.data.imgList
     const realted = this.data.realted
     const mobile = this.data.mobile
-    const tag = this.data.tag === null ? '' : this.data.tag
+    const tag = this.data.tag === null ? '0' : this.data.tag
     const data = {
       uid: uid,
       nickname: nickname,
