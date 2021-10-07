@@ -132,7 +132,7 @@ Page({
       images: images,
       mobile: mobile
     }
-    if (tag == '' || tag == null) {
+    if ((tag == '' || tag == null) && realted == '') {
       wx.showToast({ title: '请先选择投诉问题类型', icon: 'none' })
       return
     }
