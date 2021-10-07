@@ -11,6 +11,7 @@ Page({
     canReplay: false,
     uid: '',
     id: '',
+    tags: ['其他', '食堂', '宿舍', '教学楼', '老师'],
     data: []
   },
   /**
@@ -18,9 +19,6 @@ Page({
    */
   onLoad: function (options) {
     this.setData({ env: app.globalData.env })
-    if (app.globalData.env != 'release') {
-      wx.switchTab({ url: '../../index/index' })
-    }
     
     this.inital(options)
     wx.showShareMenu({
@@ -34,9 +32,9 @@ Page({
   inital: function (options) {
     const accountInfo = wx.getAccountInfoSync()
     const envVersion = accountInfo.miniProgram.envVersion
-    if (envVersion != 'release') {
-      wx.switchTab({ url: '../../index/index' })
-    }
+    // if (envVersion != 'release') {
+    //   wx.switchTab({ url: '../../index/index' })
+    // }
     const id = options.id
     const edusysInfo = wx.getStorageSync('edusysUserInfo')
     const uid = edusysInfo != '' && edusysInfo.uid ? edusysInfo.uid : 0
@@ -73,6 +71,34 @@ Page({
           _this.deleteDataItem(id)
         } else if (res.cancel) {
           console.log('用户点击取消')
+        }
+      }
+    })
+  },
+  reply () {
+    const id = this.data.id
+    wx.navigateTo({ url: `./edit?id=${id}` })
+  },
+  update (e) {
+    const id = this.data.id
+    const hot = e.currentTarget.dataset.hot
+    const data = { hot: hot }
+    const _this = this
+    wx.request({
+      url: `${app.globalData.domain}/complain/${id}`,
+      data: data,
+      timeout: app.globalData.requestTimeout,
+      method: 'POST',
+      success: function (res) {
+        try {
+          if (res.statusCode == 200 && res.data.code == 200) {
+            wx.showToast({ title: '操作成功' })
+            _this.getDetailData(_this.data.id, 1)
+          } else {
+            wx.showToast({ title: res.data.message, icon: 'none' })
+          }
+        } catch (error) {
+          wx.showToast({ title: res.data.message, icon: 'none' })
         }
       }
     })

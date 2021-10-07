@@ -1,0 +1,74 @@
+<!--pages/school/board/faq.wxml-->
+<block wx:if="{{env !== 'release'}}">
+  <cu-custom bgColor="bg-cyan" isCustom="{{true}}">
+    <view slot="content">投诉维权 - 常见问题</view>
+  </cu-custom>
+
+  <view class="remind-box bg-cyan" wx:if="{{isLoading}}" style="height:{{screenHeight}}px;">
+    <image class="remind-img" src="/images/loading.gif"></image>
+  </view>
+  <view class="page margin-bottom" wx:else>
+
+    <block wx:for="{{datalist.data}}" wx:key="board">
+      <navigator url="./detail?id={{item.id}}" class="cu-card dynamic">
+        <view class="cu-item shadow">
+          <view class="cu-list menu-avatar">
+            <view class="cu-item">
+              <view class="cu-avatar round lg bg-cyan" style="background-image:url(https://cdn.cardcat.cn/images/05b00e713b1e1cf190210daad49ec63b.png);"></view>
+              <view class="content flex-sub">
+                <view>{{item.tag == 4 ? '匿名' : item.nickname}}</view>
+                <view class="text-gray text-sm flex justify-between">{{item.created_at}}</view>
+              </view>
+            </view>
+          </view>
+          <view class="text-content">
+            <!-- 投诉内容类型标签 -->
+            <view class="line-blue cu-tag radius">{{tags[item.tag]}}</view>
+            <!-- 回复状态胶囊 -->
+            <view class="line-{{item.status == 1 ? 'blue': 'red'}} cu-tag radius">{{item.status == 1 ? '已回复': '待回复'}}</view>
+            {{item.content}}
+          </view>
+          <view class="grid flex-sub padding-lr padding-bottom col-3 grid-square">
+            <view class="bg-img" style="background-image:url({{pitem}});" wx:for="{{item.images}}" wx:for-item="pitem"
+              wx:key="pindex" catchtap="previewImage" data-allurl="{{item.images}}" data-url="{{pitem}}">
+            </view>
+          </view>
+          <view class="cu-list menu sm-border">
+            <view class="cu-item arrow">
+              <view class="content"><text class="">查看详情</text></view>
+              <view class="action">
+              <block wx:if="{{isAdminer}}">
+                <button class="cu-btn round bg-red shadow" data-id="{{item.id}}" catchtap="deleteConfirm">
+                  <text class="cuIcon-delete"></text> 删除</button>
+                  <button class="cu-btn round bg-red shadow margin-left-xs" data-id="{{item.id}}" data-hot="0" catchtap="update">
+                  <text class="cuIcon-pulldown"></text>移除</button>
+              </block>
+              </view>
+            </view>
+          </view>
+        </view>
+      </navigator>
+    </block>
+
+  <view wx:if="{{datalist.length < 1 || datalist.data.length < 1}}" class="bg-white margin-lr padding radius margin-top-xl">
+    <tips tipsText="这里是空的，还没有设置常见问题~"></tips>
+  </view>
+
+
+    <!-- 分页器 -->
+    <view class="flex margin-right-sm justify-end">
+      <button bindtap="lastPage" wx:if="{{datalist.pagination.current > 1}}"
+        class="cu-btn bg-black round shadow">上一页</button>
+      <view wx:if="{{datalist.pagination.current > 0}}" class="text-black margin-sm">{{datalist.pagination.current}} /
+        {{datalist.pagination.last}}</view>
+      <button bindtap="nextPage"
+        wx:if="{{datalist.pagination.current < datalist.pagination.last && datalist.pagination.current > 0}}"
+        class="cu-btn bg-black round shadow">下一页</button>
+    </view>
+
+  </view>
+
+</block>
+<block wx:else>
+  <view class="margin"><tips tipsText="应官方审核要求，此功能已下线"></tips></view>
+</block>
