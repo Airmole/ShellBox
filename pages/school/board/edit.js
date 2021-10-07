@@ -13,7 +13,9 @@ Page({
     imgList: [],
     content: '',
     mobile: '',
-    realted: ''
+    realted: '',
+    tag: null,
+    tags: ['其他', '食堂', '宿舍', '教学楼', '老师']
   },
 
   /**
@@ -21,9 +23,9 @@ Page({
    */
   onLoad: function (options) {
     this.setData({ env: app.globalData.env })
-    if (app.globalData.env != 'release') {
-      wx.switchTab({ url: '../../index/index' })
-    }
+    // if (app.globalData.env != 'release') {
+    //   wx.switchTab({ url: '../../index/index' })
+    // }
     this.inital(options)
   },
   inital: function (options) {
@@ -47,6 +49,11 @@ Page({
   },
   mobileInput: function (e) {
     this.setData({ mobile: e.detail.value })
+  },
+  tagChange(e) {
+    this.setData({
+      tag: e.detail.value
+    })
   },
   previewImage: function (e) {
     wx.previewImage({ urls: this.data.imgList, current: e.currentTarget.dataset.url })
@@ -115,13 +122,19 @@ Page({
     const images = this.data.imgList
     const realted = this.data.realted
     const mobile = this.data.mobile
+    const tag = this.data.tag === null ? '' : this.data.tag
     const data = {
       uid: uid,
       nickname: nickname,
       avatar: avatar,
+      tag: tag,
       content: content,
       images: images,
       mobile: mobile
+    }
+    if (tag == '' || tag == null) {
+      wx.showToast({ title: '请先选择投诉问题类型', icon: 'none' })
+      return
     }
     if (mobile.length < 5 && realted == '') {
       wx.showToast({ title: '请您务必输入正确联系方式,以便工作人员联系你', icon: 'none' })
@@ -142,7 +155,10 @@ Page({
     }
     wx.requestSubscribeMessage({
       tmplIds: templateIds,
-      complete (res) {
+      success (res) {
+        _this.sendPostRequest(data)
+      },
+      fail (res) {
         _this.sendPostRequest(data)
       }
     })

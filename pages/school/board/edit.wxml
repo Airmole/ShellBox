@@ -1,5 +1,5 @@
 <!--pages/school/board/edit.wxml-->
-<block wx:if="{{env == 'release'}}">
+<block wx:if="{{env !== 'release'}}">
 
   <cu-custom bgColor="bg-cyan" isCustom="{{true}}">
     <view slot="content">投诉维权信息</view>
@@ -8,8 +8,16 @@
 
     <!-- 填写表单内容 -->
     <view class="margin">
+    	<view class="cu-form-group margin-top radius-top" wx:if="{{!realted}}">
+        <view class="title text-black">投诉问题类型</view>
+        <picker bindchange="tagChange" value="{{tag}}" range="{{tags}}">
+          <view class="picker text-black">
+            {{tag?tags[tag]:'请选择投诉问题类型'}}
+          </view>
+        </picker>
+      </view>
       <!-- 联系方式 -->
-      <view class="cu-form-group margin-top radius-top" wx:if="{{!realted}}">
+      <view class="cu-form-group" wx:if="{{!realted}}">
         <view class="title text-black">联系方式</view>
         <input name="concact" bindinput="mobileInput" placeholder="放心填写,仅工作人员可见" type="number"></input>
       </view>

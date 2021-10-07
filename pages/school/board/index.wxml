@@ -1,5 +1,5 @@
 <!--pages/school/board/index.wxml-->
-  <block wx:if="{{env == 'release'}}">
+  <block wx:if="{{env !== 'release'}}">
   <cu-custom bgColor="bg-cyan" isCustom="{{true}}">
     <view slot="content">投诉维权通道</view>
   </cu-custom>
@@ -10,23 +10,56 @@
   <view class="page margin-bottom" wx:else>
 
     <!-- 介绍说明 -->
-    <view class="margin radius bg-white padding">
+    <view class="margin radius bg-white padding-lr padding-bottom">
       <text decode="true">
       &nbsp;&nbsp;&nbsp;&nbsp;如果您在学校遇到了以下问题，可以向“北科天院权益中心”发起投诉维权：\n</text>
-      <text decode="true">
-        1. 食堂问题：\n &nbsp;&nbsp;&nbsp;&nbsp;外卖，工作人员，饭菜，餐具，桌椅，其他问题；
-        2. 维修问题：
-        &nbsp;&nbsp;&nbsp;&nbsp;宿舍：厕所，床架，书桌（宿舍维修问题需注明几斋几室）;
-        &nbsp;&nbsp;&nbsp;&nbsp;操场:石板，体育设施;
-        &nbsp;&nbsp;&nbsp;&nbsp;教学区域:桌椅，黑板， 媒体设备，门窗;
-        &nbsp;&nbsp;&nbsp;&nbsp;公共区域:图书馆，下水井盖破损，路灯不亮;
-        3. 教学：
-        &nbsp;&nbsp;&nbsp;&nbsp;对任课老师的建议。
-        4.其他问题（您在校园里遇见的其他需要求助相关部门的问题）
-        
-        注：请勿发布无关的话题内容！您的投诉留言将由“北科天院权益中心”相关工作人员回复并跟进解决，其他同学无权回复评论。
-        &nbsp;&nbsp;&nbsp;&nbsp;工作人员会在投诉问题后24-48小时内给您回复，请您在投诉维权后持续关注本维权投诉通道对应投诉内容的相关答复。
-      </text>
+      <block wx:if="{{!showMoreDesc}}">
+        <text decode="true">1.食堂问题；&nbsp;&nbsp;2.维修问题；&nbsp;&nbsp;3.教学；&nbsp;&nbsp;4.其他；&nbsp;&nbsp;\n</text>
+        <view class="text-center margin-top" bindtap="unfoldDesc">
+          <text class="text-cyan cuIcon-unfold">展开详细说明</text>
+        </view>
+      </block>
+      <block wx:else>
+        <text decode="true">
+          1. 食堂问题：\n &nbsp;&nbsp;&nbsp;&nbsp;外卖，工作人员，饭菜，餐具，桌椅，其他问题；
+          2. 维修问题：
+          &nbsp;&nbsp;&nbsp;&nbsp;宿舍：厕所，床架，书桌（宿舍维修问题需注明几斋几室）;
+          &nbsp;&nbsp;&nbsp;&nbsp;操场:石板，体育设施;
+          &nbsp;&nbsp;&nbsp;&nbsp;教学区域:桌椅，黑板， 媒体设备，门窗;
+          &nbsp;&nbsp;&nbsp;&nbsp;公共区域:图书馆，下水井盖破损，路灯不亮;
+          3. 教学：
+          &nbsp;&nbsp;&nbsp;&nbsp;对任课老师的建议。
+          4.其他问题（您在校园里遇见的其他需要求助相关部门的问题）
+          
+          注：请勿发布无关的话题内容！您的投诉留言将由“北科天院权益中心”相关工作人员回复并跟进解决，其他同学无权回复评论。
+          &nbsp;&nbsp;&nbsp;&nbsp;工作人员会在投诉问题后24-48小时内给您回复，请您在投诉维权后持续关注本维权投诉通道对应投诉内容的相关答复。
+        </text>
+        <view class="text-center margin-top" bindtap="unfoldDesc">
+          <text class="text-cyan cuIcon-fold">收起详细说明</text>
+        </view>
+      </block>
+    </view>
+
+  <!-- 常见问题板块 -->
+    <view class="cu-bar bg-white margin-lr radius-top faq-item" wx:if="{{hotDatalist.data.length > 0}}" bindtap="goFaqPage">
+      <view class='action'>
+        <text class='cuIcon-titles text-cyan'></text> 常见问题
+      </view>
+      <view class='action'></view>
+    </view>
+    <view class="cu-list menu no-padding margin-lr {{hotDatalist.pagination.last > 1 ? '' : 'margin-bottom radius-bottom'}}">
+      <navigator url="./detail?id={{item.id}}" class="faq-item cu-item arrow" wx:for="{{hotDatalist.data}}" wx:key="hot">
+        <view class="content text-cut">
+          <text class="cuIcon-tagfill text-red"></text>
+          <text class="text-grey">{{item.content}}</text>
+        </view>
+        <view class="action">
+          <view class="cu-tag round bg-orange light">{{tags[item.tag]}}</view>
+        </view>
+      </navigator>
+    </view>
+    <view class="radius-bottom text-center bg-white margin-lr padding-bottom-xs" wx:if="{{hotDatalist.pagination.last > 1}}" bindtap="goFaqPage">
+      <text class="text-cyan">更多...</text>
     </view>
 
     <!-- 发表按钮 -->
@@ -38,6 +71,14 @@
       </navigator>
     </view>
 
+    <!-- 类型筛选 -->
+    <view class="padding-lr-sm flex flex-wrap">
+      <view class="padding-xs" wx:for="{{tagList}}" wx:key="tag">
+        <view bindtap="tagChanged" data-index="{{index}}"
+          class="{{item.value == tag ? 'bg-white' : 'line-white'}} cu-tag light radius">{{item.title}}</view>
+      </view>
+    </view>
+
     <block wx:for="{{datalist.data}}" wx:key="board">
       <navigator url="./detail?id={{item.id}}" class="cu-card dynamic">
         <view class="cu-item shadow">
@@ -45,12 +86,15 @@
             <view class="cu-item">
               <view class="cu-avatar round lg bg-cyan" style="background-image:url(https://cdn.cardcat.cn/images/05b00e713b1e1cf190210daad49ec63b.png);"></view>
               <view class="content flex-sub">
-                <view>{{item.nickname}}</view>
+                <view>{{item.tag == 4 ? '匿名' : item.nickname}}</view>
                 <view class="text-gray text-sm flex justify-between">{{item.created_at}}</view>
               </view>
             </view>
           </view>
           <view class="text-content">
+            <!-- 投诉内容类型标签 -->
+            <view class="line-blue cu-tag radius">{{tags[item.tag]}}</view>
+            <!-- 回复状态胶囊 -->
             <view class="line-{{item.status == 1 ? 'blue': 'red'}} cu-tag radius">{{item.status == 1 ? '已回复': '待回复'}}</view>
             {{item.content}}
           </view>

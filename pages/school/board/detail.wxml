@@ -1,5 +1,5 @@
 <!--pages/school/board/detail.wxml-->
-<block wx:if="{{env == 'release'}}">
+<block wx:if="{{env !== 'release'}}">
   <cu-custom bgColor="bg-cyan" isCustom="{{true}}">
     <view slot="content">投诉维权详情</view>
   </cu-custom>
@@ -16,12 +16,15 @@
           <view class="cu-item">
             <view class="cu-avatar round lg bg-cyan" style="background-image:url(https://cdn.cardcat.cn/images/05b00e713b1e1cf190210daad49ec63b.png);"></view>
             <view class="content flex-sub">
-              <view>{{data.content.nickname}}</view>
+              <view>{{data.content.tag == 4 ? '匿名' : data.content.nickname}}</view>
               <view class="text-gray text-sm flex justify-between">{{data.content.created_at}}</view>
             </view>
           </view>
         </view>
         <view class="text-content" style="max-height: unset;">
+          <!-- 投诉内容类型标签 -->
+          <view class="line-blue cu-tag radius">{{tags[data.content.tag]}}</view>
+          <!-- 回复状态胶囊 -->
           <view class="line-{{data.content.status == 1 ? 'blue': 'red'}} cu-tag radius">{{data.content.status == 1 ? '已回复': '待回复'}}</view>
           {{data.content.content}}
         </view>
@@ -33,15 +36,6 @@
       </view>
     </view>
 
-    <!-- 发表回复按钮 -->
-    <view class="margin-lr margin-bottom" wx:if="{{canReplay}}">
-      <navigator url="./edit?id={{id}}" class="flex radius bg-blue align-center justify-center">
-        <view class="text-xxl text-blod text-white margin-top justify-center shadow-blur" style="height:90rpx;">
-          <text class="cuIcon-message"></text> 评论回复
-        </view>
-      </navigator>
-    </view>
-
     <view wx:if="{{!canReplay}}" class="bg-white margin-lr padding radius">
       <tips tipsText="仅权益部管理人员可评论回复"></tips>
       <view wx:if="{{uid == 0}}" class="margin-tb-sm text-center">
@@ -50,13 +44,13 @@
     </view>
 
     <block wx:if="{{isAdminer}}">
-      <view class="cu-bar bg-white margin-lr margin-top radius-top">
+      <view class="cu-bar bg-white margin-lr radius-top">
         <view class='action'>
           <text class='cuIcon-titles text-cyan'></text> 投诉人联系方式
         </view>
         <view class='action'></view>
       </view>
-      <view class="cu-list menu-avatar no-padding margin-lr radius-bottom">
+      <view class="cu-list menu-avatar no-padding margin-lr radius-bottom margin-bottom">
         <view class="cu-item">
           <view class="cu-avatar lg round bg-green" style="background-image:url({{data.content.avatar}});"></view>
           <view class="content">
@@ -68,6 +62,24 @@
         </view>
       </view>
     </block>
+
+    <!-- 发表回复按钮 -->
+    <view class="margin-lr margin-bottom" wx:if="{{canReplay}}">
+      <view class="cu-list grid col-4 radius">
+        <view class="cu-item" bindtap="reply">
+          <view class="cuIcon-message text-blue"></view>
+          <text>评论回复</text>
+        </view>
+        <view class="cu-item" data-hot="1" bindtap="update" wx:if="{{!data.content.hot}}">
+          <view class="cuIcon-pullup text-blue"></view>
+          <text>常见问题</text>
+        </view>
+        <view class="cu-item" data-hot="0" bindtap="update" wx:if="{{data.content.hot}}">
+          <view class="cuIcon-pulldown text-blue"></view>
+          <text>非常见问题</text>
+        </view>
+      </view>
+    </view>
 
     <!-- 回复 -->
     <view class="cu-card dynamic no-card margin radius">

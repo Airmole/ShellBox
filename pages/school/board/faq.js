@@ -1,39 +1,17 @@
-// pages/school/board/index.js
+// pages/school/board/faq.js
 var app = getApp()
 Page({
   /**
    * 页面的初始数据
    */
   data: {
-    showMoreDesc: false,
     env: 'develop',
     isLoading: true,
     isAdminer: false,
     uid: 0,
     qrcode: 'https://upload-images.jianshu.io/upload_images/4697920-289dc2673020bb99.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/512',
     datalist: [],
-    hotDatalist: [],
-    tags: ['其他', '食堂', '宿舍', '教学楼', '老师'],
-    tag: '[0,1,2,3,4]',
-    tagList: [{
-      title: '所有',
-      value: '[0,1,2,3,4]'
-    }, {
-      title: '食堂',
-      value: '[1]'
-    }, {
-      title: '宿舍',
-      value: '[2]'
-    }, {
-      title: '教学楼',
-      value: '[3]'
-    }, {
-      title: '老师',
-      value: '[4]'
-    }, {
-      title: '其他',
-      value: '[0]'
-    }]
+    tags: ['其他', '食堂', '宿舍', '教学楼', '老师']
   },
 
   /**
@@ -55,27 +33,11 @@ Page({
     this.inital()
   },
   inital: function () {
-    this.getDatalist()
     this.getHotDatalist()
     const edusysInfo = wx.getStorageSync('edusysUserInfo')
     const uid = edusysInfo != '' && edusysInfo.uid ? edusysInfo.uid : 0
     this.setData({ uid: uid })
     this.isAdminer(uid)
-  },
-  getDatalist: function (page = 1) {
-    const _this = this
-    wx.request({
-      url: `${app.globalData.domain}/complain`,
-      data: { 
-        page: page,
-        tag: _this.data.tag
-      },
-      timeout: app.globalData.requestTimeout,
-      success: (res) => {
-        _this.setData({ datalist: res.data, isLoading: false })
-        wx.vibrateShort({ type: 'medium' })
-      }
-    })
   },
   getHotDatalist: function (page = 1, hot = [1]) {
     const _this = this
@@ -87,15 +49,9 @@ Page({
       },
       timeout: app.globalData.requestTimeout,
       success: (res) => {
-        _this.setData({ hotDatalist: res.data })
+        _this.setData({ datalist: res.data, isLoading : false })
       }
     })
-  },
-  tagChanged: function (e) {
-    const tag = this.data.tagList[e.currentTarget.dataset.index].value
-    // console.log(type, orderby);
-    this.setData({ tag: tag});
-    this.getDatalist(1, tag);
   },
   isAdminer: function(uid = 0) {
     const _this = this
@@ -148,36 +104,53 @@ Page({
       }
     })
   },
+  update (e) {
+    const id = e.currentTarget.dataset.id
+    const hot = e.currentTarget.dataset.hot
+    const data = { hot: hot }
+    const _this = this
+    wx.request({
+      url: `${app.globalData.domain}/complain/${id}`,
+      data: data,
+      timeout: app.globalData.requestTimeout,
+      method: 'POST',
+      success: function (res) {
+        try {
+          if (res.statusCode == 200 && res.data.code == 200) {
+            wx.showToast({ title: '操作成功' })
+            _this.getHotDatalist()
+          } else {
+            wx.showToast({ title: res.data.message, icon: 'none' })
+          }
+        } catch (error) {
+          wx.showToast({ title: res.data.message, icon: 'none' })
+        }
+      }
+    })
+  },
   previewImage:function (e) {
     wx.previewImage({ urls: e.currentTarget.dataset.allurl, current: e.currentTarget.dataset.url })
-  },
-  unfoldDesc: function () {
-    const showMoreDesc = this.data.showMoreDesc
-    this.setData({ showMoreDesc: !showMoreDesc })
-  },
-  goFaqPage () {
-    wx.navigateTo({ url: './faq'})
   },
   // 上一页
   lastPage: function () {
     const current = this.data.datalist.pagination.current
     const targetPage = current > 1 ? Number(current) - 1 : 2
-    this.getDatalist(targetPage)
+    this.getHotDatalist(targetPage)
   },
   // 下一页
   nextPage: function () {
     const current = this.data.datalist.pagination.current
     const last = this.data.datalist.pagination.last
     const targetPage = current < last ? Number(current) + 1 : last
-    this.getDatalist(targetPage)
+    this.getHotDatalist(targetPage)
   },
   /**
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
     return {
-      title: '“贝壳小盒子” - 投诉维权通道',
-      path: 'pages/school/board/index'
+      title: '“贝壳小盒子” - 投诉维权常见问题',
+      path: 'pages/school/board/faq'
     }
   }
 })
