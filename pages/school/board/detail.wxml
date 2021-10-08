@@ -1,5 +1,5 @@
 <!--pages/school/board/detail.wxml-->
-<block wx:if="{{env !== 'release'}}">
+<block wx:if="{{env == 'release'}}">
   <cu-custom bgColor="bg-cyan" isCustom="{{true}}">
     <view slot="content">投诉维权详情</view>
   </cu-custom>
