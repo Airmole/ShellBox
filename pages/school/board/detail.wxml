@@ -16,7 +16,7 @@
           <view class="cu-item">
             <view class="cu-avatar round lg bg-cyan" style="background-image:url(https://cdn.cardcat.cn/images/05b00e713b1e1cf190210daad49ec63b.png);"></view>
             <view class="content flex-sub">
-              <view>{{data.content.tag == 4 ? '匿名' : data.content.nickname}}</view>
+              <view>{{data.content.id}}</view>
               <view class="text-gray text-sm flex justify-between">{{data.content.created_at}}</view>
             </view>
           </view>
