@@ -71,11 +71,12 @@ Page({
     // console.log('options',options)
     const pageType = options.type;
     const keyword = options.name;
+    const uid = app.globalData.edusysUserInfo.uid ? app.globalData.edusysUserInfo.uid : options.uid
     const inital = this.inital(keyword, pageType);
     if(inital){
       return
     }
-    this.get_kb(keyword, pageType);
+    this.get_kb(keyword, pageType, uid);
   },
   inital: function (keyword,pageType) {
     const d = new Date();
@@ -235,8 +236,7 @@ Page({
     data[dataset.target] = parseInt(_this.data[dataset.target]) + i;
     _this.setData(data);
   },
-  get_kb: function (keyword, pageType) {
-    var uid = app.globalData.edusysUserInfo.uid;
+  get_kb: function (keyword, pageType, uid) {
     var _this = this;
     wx.request({
       url: `${domain}/edu/${pageType}/courseSchedule/content`,

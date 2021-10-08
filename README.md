@@ -4,7 +4,7 @@
 
 [![Star](https://img.shields.io/badge/Star-Airmole-brightgreen.svg)](https://github.com/Airmole/ShellBox/stargazers)
 [![Download](https://img.shields.io/badge/download-.zip-brightgreen.svg)](https://github.com/Airmole/ShellBox/archive/master.zip)
-[![last commit](https://img.shields.io/badge/last%20commit-2021--09--15-green.svg)](https://github.com/Airmole/ShellBox/commits/master)
+[![last commit](https://img.shields.io/badge/last%20commit-2021--10--08-green.svg)](https://github.com/Airmole/ShellBox/commits/master)
 
 
 ## 线上版本体验
@@ -34,7 +34,7 @@
     "pages/books/bind",              // 图书OPAC借阅系统账号绑定
     "pages/books/hot/index",         // 热门图书排行
     "pages/books/overdue/index",     // 图书超期欠款
-    "pages/books/recommend/index",   // 图书荐购
+    "pages/books/recommend/index",   // 图书荐购(待完成)
     "pages/books/my",                // 我的图书馆
     "pages/books/portrait",          // 毕业生画像(成绩、借阅记录回忆统计)
     "pages/course/my",               // 我的个人课表
@@ -57,6 +57,7 @@
     "pages/school/aboutus",          // 关于
     "pages/school/xiaoai"            // 小爱课程表
     "pages/school/board/index",      // 学生权益投诉列表
+    "pages/school/board/faq",        // 学生权益常见问题
     "pages/school/board/edit",       // 权益投诉内容编辑
     "pages/school/board/detail",     // 权益投诉内容展示
     "pages/school/lost/edit",        // 失物招领发表编辑
