@@ -55,7 +55,8 @@ Page({
     myCourseJson: {},
     classColors: ['red', 'green', 'purple', 'yellow','orange','olive','cyan','blue','mauve'],
     painting: {},
-    shareImage: ''
+    shareImage: '',
+    isAndroid: false
   },
   //分享
   // onShareAppMessage: function(){
@@ -78,6 +79,12 @@ Page({
     } else {
       _this.setData({remind: '请重新登录'})
     }
+    // Android 系统显示桌面组件按钮
+    wx,wx.getSystemInfo({
+      success: (result) => {
+        if (result.platform == 'android') { _this.setData({ isAndroid: true }) }
+      }
+    })
   },
   inital: function () {
     const d = new Date();
@@ -540,6 +547,29 @@ Page({
       },
       success: function(res){
         wx.showToast({ title: res.data.message, icon: 'success' });
+      }
+    })
+  },
+  shellboxSchedule: function () {
+    wx.showModal({
+      title: '贝壳课程表',
+      content: '贝壳小盒子现提供安卓桌面插件APP，安装贝壳课程表APP导入课表后可添加到手机桌面小部件',
+      showCancel: true,
+      cancelText: '没兴趣',
+      confirmText: '我试试',
+      success (res) {
+        if (res.confirm) {
+          wx.setClipboardData({
+            data: 'https://gitee.com/airmole/shellbox-schedule-kotlin/attach_files/987384/download/shellbox_schedule_1_0_1.apk'
+          })
+          wx.showToast({
+            title: '已复制到粘贴版,请粘贴到浏览器下载',
+            icon: 'none',
+            duration: 2000
+          });
+        } else if (res.cancel) {
+          console.log('用户点击取消')
+        }
       }
     })
   }
