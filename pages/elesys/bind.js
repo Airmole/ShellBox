@@ -79,7 +79,7 @@ Page({
       return
     }
 
-    var pattern = new RegExp('[1-4][0-4][0-9]', 'g'); //判断用户输入的宿舍号是否大致合适
+    var pattern = new RegExp('[1-9][0-4][0-9]', 'g'); //判断用户输入的宿舍号是否大致合适
     var matchReg = pattern.exec(room);
     if (!matchReg) {
       wx.showToast({ title: '寝室号输入有误', icon: 'none' })
