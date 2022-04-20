@@ -45,7 +45,7 @@
           <view class="box-bd">
             <view class="help-q">1、网络账号和密码是什么？</view>
             <view class="help-a">
-              <text>网络账号：您在”北京科技大学天津学院智慧校园“公众号注册申请的上网账号，一般为学号。</text>
+              <text>网络账号：您在”智慧校园“公众号注册申请的上网账号，一般为学号。</text>
               <text>密码：校园网用于连接网络的上网密码。</text>
             </view>
             <view class="help-q">2、忘记密码？</view>
@@ -54,7 +54,7 @@
             </view>
             <view class="help-q">3、还没有开通校园网上网账号？😥</view>
             <view class="help-a">
-              <text>建议关注”北京科技大学天津学院智慧校园“微信公众号，密切留意关注申请注册开通校园网时间。</text>
+              <text>建议关注微信公众号TJCSmart，密切留意关注申请注册开通校园网时间。</text>
             </view>
           </view>
         </view>

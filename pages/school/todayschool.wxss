@@ -1,4 +1,0 @@
-/* pages/school/todayschool.wxss */
-page {
-  background-color: var(--white);
-}

@@ -27,7 +27,7 @@
       <view class="detail_button" bindtouchstart="goDetail">详情</view>
     </view>
     <view class="text_box" wx:else>
-      <view class="text" bindtap="moveSchool">北京科技大学天津学院
+      <view class="text" bindtap="moveSchool">学校
         <view class="cu-tag bg-blue" bindtap="moveToSchool">前往</view>
       </view>
       <view class="text" bindtap="copyText" data-text="{{schoolAddressText}}">{{schoolAddressText}}(邮编：{{postcode}})</view>

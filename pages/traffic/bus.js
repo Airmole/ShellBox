@@ -10,7 +10,7 @@ Page({
     guomaoQrcode: 'https://upload-images.jianshu.io/upload_images/4697920-f2e9f2fde02b0c09.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240',
     chelaileWeappid: 'wx71d589ea01ce3321',
     bus160: [
-      '北京科技大学天津学院西门',
+      '学院西门',
       '天津财经大学珠江学院',
       '军事交通学院分院东',
       '军事交通学院分院西',
@@ -36,7 +36,7 @@ Page({
     ],
     busBao13: [
       '京津新城',
-      '北京科技大学天津学院西门',
+      '学院西门',
       '天津财经大学珠江学院北门',
       '周良庄',
       '凯旋家园',
