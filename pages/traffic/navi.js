@@ -1020,7 +1020,7 @@ Page({
     const latitude = that.data.markers[that.data.activePlaceID].latitude;
     const longitude = that.data.markers[that.data.activePlaceID].longitude;
     const name = that.data.markers[that.data.activePlaceID].callout.content;
-    wx.openLocation({ latitude, longitude, name, address: '北京科技大学天津学院', scale: 18 })
+    wx.openLocation({ latitude, longitude, name, address: '学校', scale: 18 })
   },
   copyText: function (e) {
     const text = e.currentTarget.dataset.text;

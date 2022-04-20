@@ -59,7 +59,7 @@ Page({
   */
   onShareAppMessage: function (res) {
     return {
-      title: '北京科技大学天津学院校历',
+      title: '校历',
       path: 'pages/school/calendar',
     }
   },

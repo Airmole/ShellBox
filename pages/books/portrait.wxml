@@ -28,7 +28,7 @@
             <view class="text-lg padding-sm margin-xs"><text>姓名：{{data.edu.profile.name}}\n学号：{{data.edu.profile.uid}}\n院系：{{data.edu.profile.college}}\n专业：{{data.edu.profile.profession}}</text></view>
             <view class="text-left padding-sm margin-xs" style="width:{{deviceInfo.screenWidth - 120}}px;"> <text
                 decode="true">{{data.edu.profile.name}} 同学\n &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;经省（直辖市、自治区）招办批准，录取你到我校 {{data.edu.profile.profession}} 专业学习，请持有效证件到我校报到。</text>
-              <view class="padding-sm text-right"><text>\n北京科技大学天津学院\n二零一七年</text></view>
+              <view class="padding-sm text-right"><text>\n贝壳田园\n</text></view>
             </view>
           </view>
         </view>

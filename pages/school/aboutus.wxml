@@ -27,14 +27,9 @@
 
         <view class="margin-bottom-sm"><official-account></official-account></view>
         <view class="padding">
-          <view class="desc-title">
-            <text class="cuIcon-titles text-wegreen"></text>更新说明
-          </view>
-          <view class="desc-content margin-left" style="text-indent:2em;"><text>如您所见，小盒子3.0版本着力于解决万恶恼人的验证码识别问题，并对原有的界面功能增强改进加以润色，限于时间仓促，事务繁琐，3.0新版至今仍是半成品，诸多功能尚未实现，设计交互考虑欠周，请各位同学海涵。同时欢迎有志向一起学习开发小程序的小伙伴们</text><text class="text-blue" bindtap="showQQGroupCode">加入我们</text> ，一同并肩作战贡献力量。</view>
-
           <view class="desc-title"> <text class="cuIcon-titles text-wegreen"></text> 简介</view>
           <view class="desc-content" style='text-indent:2em;'>
-            贝壳小盒子（ShellBox）是一款微信小程序，致力于帮助我们北京科技大学天津学院的师生更方便的查询教务、图书、用电等信息，以及浏览学院校历、拨打各系部电话，并提供校园内地理导航等功能。</view>
+            贝壳小盒子（ShellBox）是一款微信小程序，致力于帮助师生更方便的查询教务、图书、用电等信息，以及浏览学院校历、拨打各系部电话，并提供校园内地理导航等功能。</view>
           <view class="desc-content" style='text-indent:2em;'>贝壳小盒子目前还处于公测阶段，有一系列新的功能正在我们的开发计划中。“你想要的，都在这里！”</view>
           <image bindtap="showAppCode" class="weui-article__img"
             src="https://upload-images.jianshu.io/upload_images/4697920-90f7baa960c88b89.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" mode="widthFix"
@@ -47,8 +42,8 @@
           <view class="desc-content margin-left">
             <text decode="true">
               * 课表、成绩等数据来自教务处官网 \r\n
-              * 图书相关信息来自图书馆官网以及豆瓣 \r\n
-              * 校历、各系部联系电话来自于学院官方网站 \r\n
+              * 图书相关信息来自相关网络 \r\n
+              * 校历、各系部联系电话来自于网络收集 \r\n
               * 用电数据、网费信息来自智慧校园 \r\n
               * 四六级成绩由 “国家政务服务平台” 小程序提供 \r\n
               * 实时公交数据由 “车来了” 小程序提供
@@ -70,7 +65,7 @@
             <text class="cuIcon-titles text-wegreen"></text>关联贝壳小盒子
           </view>
           <view class="desc-content" style='text-indent:2em;'>
-            <text>若您或者您的朋友在运营与本校相关的公众号（学生组织/社团/校园自媒体等），「贝壳小盒子」诚挚地欢迎您的公众号关联我们的小程序，并期待合作！\r\n </text>
+            <text>若您或者您的朋友在运营校园相关的公众号（学生组织/社团/校园自媒体等），「贝壳小盒子」诚挚地欢迎您的公众号关联我们的小程序，并期待合作！\r\n </text>
           </view>
           <view bindtap='copyID' class="text-blue text-xl">AppID：wxf0ba93e3faff4eda</view>
 
