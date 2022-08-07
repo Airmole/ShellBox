@@ -60,6 +60,13 @@ Page({
           _this.charts();
           wx.vibrateShort({ type: 'medium' })
           wx.showToast({ title: '成绩已自动更新为最新', icon: 'none' })
+          if (res.data.toString().indexOf('请评教') > 0) {
+            wx.showModal({
+              title: '请评教',
+              content: '您未完成本次评教，部分成绩无法展示，需要先登录教务系统完成评教后才能正确展示出成绩分数',
+              showCancel: false,
+            })            
+          }
         } else {
           wx.showToast({ title: res.data.message, icon: 'none' })
         }
