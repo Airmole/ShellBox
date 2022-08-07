@@ -5,7 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    calendarImage: 'https://upload-images.jianshu.io/upload_images/4697920-0fd6db06d734ada3.png',
+    calendarImage: 'https://dev-cdn.cardcat.cn/images/d3baeb5da3d48a71ea2aa1aa3cdead65.jpeg',
     isLoading: true,
     screenHeight: '900',
     colorArr: ['red','orange','yellow','olive','green','cyan','blue','purple','mauve','pink','brown','grey','gray'],
