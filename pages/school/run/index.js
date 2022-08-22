@@ -101,13 +101,11 @@ Page({
     let domain = app.globalData.domain
     let url = `${domain}/steps`
 
-    let session_key = app.globalData.session_key
     let userInfo = wx.getStorageSync('edusysUserInfo')
     let uid = userInfo ? userInfo.uid : ''
     let para = {
       uid: uid,
       platform: 'weapp',
-      session_key: session_key,
       data: data,
       iv: iv
     }
