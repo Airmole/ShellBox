@@ -78,9 +78,12 @@
       "desc": "你的位置信息将用于校园导航定位"
     }
   },
+  "requiredPrivateInfos": [
+    "getLocation"
+  ],
   "plugins": {
     "ocr-plugin": {
-      "version": "3.1.2",
+      "version": "3.1.4",
       "provider": "wx4418e3e031e551be"
     }
   },
