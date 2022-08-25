@@ -1,6 +1,6 @@
 {
   "setting": {
-    "urlCheck": true
+    "urlCheck": false
   },
   "condition": {
     "miniprogram": {
