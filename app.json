@@ -83,7 +83,7 @@
   ],
   "plugins": {
     "ocr-plugin": {
-      "version": "3.1.4",
+      "version": "3.1.5",
       "provider": "wx4418e3e031e551be"
     }
   },

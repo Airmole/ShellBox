@@ -112,7 +112,7 @@ Page({
       teacher: true,
       student: true,
       name: '查四六级',
-      url: 'pages/ksxm/cetdc/querypage',
+      url: 'jiaoyubu/pages/business/cet/fillInfo/fillInfo?eid=QG_JY_QGDXYYSLJKSCJ,GSS_CXFW&appid=wxaaa2443936a7c6e0',
       login: false,
     }, {
       id: 'map',
@@ -310,7 +310,7 @@ Page({
     // console.log('target：', hasEdusysStorage);
 
     if(id == 'cet'){
-      wx.navigateToMiniProgram({ appId: 'wxa56afc785454c86b', path: url })
+      wx.navigateToMiniProgram({ appId: 'wx2eec5fb00157a603', path: url })
       return
     }
 
@@ -321,11 +321,6 @@ Page({
 
     if(id == 'teacherBus'){
       wx.navigateToMiniProgram({ appId: 'wx183616af30e5723d' });
-      return
-    }
-
-    if(id == 'bbbug'){
-      wx.navigateToMiniProgram({ appId: 'wx0a68e695b54ffb4c', path: 'pages/index/index?room_id=11038' });
       return
     }
 
