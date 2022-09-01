@@ -17,78 +17,36 @@ Page({
     // cookie: '',
     // vcodeUrl: '',
     idcard: '',
-    angle: 0,
-    canIUseGetUserProfile: false
+    angle: 0
   },
   onLoad: function (){
-    if (wx.getUserProfile) {
-      this.setData({
-        canIUseGetUserProfile: true
-      })
-    }
   },
   onReady: function(){
     try {
-      const edusysUserInfo = wx.getStorageSync('edusysUserInfo');
-      if(edusysUserInfo.name.length > 0){
-        wx.switchTab({
-          url: './index',
-        })
-      }
+      const edusysUserInfo = wx.getStorageSync('edusysUserInfo') || {}
+      if(edusysUserInfo.name.length > 0) wx.switchTab({ url: './index' })
     } catch (error) {
       // this.getCookie();
     }
 
     var _this = this;
     setTimeout(function(){
-      _this.setData({
-        remind: ''
-      });
+      _this.setData({ remind: '' })
     }, 1000);
     wx.onAccelerometerChange(function(res) {
       var angle = -(res.x*30).toFixed(1);
       if(angle>14){ angle=14; }
       else if(angle<-14){ angle=-14; }
       if(_this.data.angle !== angle){
-        _this.setData({
-          angle: angle
-        });
+        _this.setData({ angle: angle });
       }
     });
   },
-  bind: function() {
-    if(!this.vaildForm()){
+  getUserInfo: function (){
+    if(!this.vaildForm()) {
       return
     }
-    var _this = this;
-    wx.getUserProfile({
-      lang: 'zh_CN',
-      desc: '需要获取信息用来生成成绩海报',
-      success: function(res){
-        // console.log('userInfo：', res.userInfo)
-        wx.setStorage({data: res.userInfo, key: 'userInfo'});
-        app.globalData.userInfo = res.userInfo
-        _this.login(res.userInfo);
-      },
-      fail: function(e){
-        console.log(e)
-        wx.showToast({
-          title: '未授权将无法使用',
-          icon: 'none'
-        })
-      }
-    })
-  },
-  getUserInfo: function (e){
-    if(!this.vaildForm()){
-      return
-    }
-    this.setData({
-      userInfo: e.detail.userInfo,
-    })
-    wx.setStorage({data: e.detail.userInfo, key: 'userInfo'});
-    app.globalData.userInfo = e.detail.userInfo
-    this.login(e.detail.userInfo);
+    this.login({});
   },
   vaildForm: function () {
     var uid = this.data.userid;
@@ -123,13 +81,13 @@ Page({
         pwd: password,
         userFrom: 'wechat',
         openid: app.globalData.openid,
-        nickname: userInfo.nickName,
-        avatar: userInfo.avatarUrl,
+        nickname: userInfo.nickName ? userInfo.nickName : '',
+        avatar: userInfo.avatarUrl ? userInfo.avatarUrl: '',
         gender: userInfo.gender ? userInfo.gender : '',
         country: userInfo.country ? userInfo.country : '',
         province: userInfo.province ? userInfo.province : '',
         city: userInfo.city ? userInfo.city : '',
-        language: userInfo.language
+        language: userInfo.language ? userInfo.language : ''
       },
       timeout: app.globalData.requestTimeout,
       method: 'POST',

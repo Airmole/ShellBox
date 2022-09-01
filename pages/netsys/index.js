@@ -23,8 +23,8 @@ Page({
   },
   inital: function () {
     var getDataBy = 'account'
-    const netsysUserInfo = wx.getStorageSync('netsysUserInfo')
-    const edusysUserInfo = wx.getStorageSync('edusysUserInfo')
+    const netsysUserInfo = wx.getStorageSync('netsysUserInfo') || {}
+    const edusysUserInfo = wx.getStorageSync('edusysUserInfo') || {}
     if (netsysUserInfo.netid.length > 0 && edusysUserInfo.uid.length > 0) {
       getDataBy = 'account';
       this.setData({

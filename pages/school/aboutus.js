@@ -125,23 +125,5 @@ Page({
       return
     }
     
-    this.isFreedomer(app.globalData.edusysUserInfo.uid)
-  },
-  isFreedomer: function (uid = 0) {
-    var _this = this
-    wx.request({
-      url: `${app.globalData.domain}/freedomer/${uid}`,
-      timeout: app.globalData.requestTimeout,
-      method: 'GET',
-      success: function(res){
-        try {
-          if (res.data.code == 200 && res.data.message == 'success') {
-            wx.navigateTo({ url: './fakeschool' })
-          }
-        } catch (error) {
-          _this.setData({ showFreedomFunc: false })
-        }
-      }
-    })
   }
 })

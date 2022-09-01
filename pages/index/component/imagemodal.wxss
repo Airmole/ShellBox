@@ -1,3 +1,1 @@
 /* pages/index/component/tips.wxss */
-@import "../../../colorui/main.wxss";
-@import "../../../colorui/icon.wxss";

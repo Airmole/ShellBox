@@ -57,8 +57,8 @@ Page({
   inital: function () {
     this.getDatalist()
     this.getHotDatalist()
-    const edusysInfo = wx.getStorageSync('edusysUserInfo')
-    const uid = edusysInfo != '' && edusysInfo.uid ? edusysInfo.uid : 0
+    const edusysInfo = wx.getStorageSync('edusysUserInfo') || {}
+    const uid = (edusysInfo != '' && edusysInfo.uid) ? edusysInfo.uid : 0
     this.setData({ uid: uid })
     this.isAdminer(uid)
   },

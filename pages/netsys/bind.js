@@ -17,7 +17,7 @@ Page({
   onReady: function(){
     var _this = this;
     try {
-      const netsysUserInfo = wx.getStorageSync('netsysUserInfo')
+      const netsysUserInfo = wx.getStorageSync('netsysUserInfo') || {}
       if(netsysUserInfo.netid.length > 0) {
         wx.redirectTo({ url: './index' })
       }

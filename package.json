@@ -1,6 +1,6 @@
 {
     "name": "shellbox",
-    "version": "3.2.13",
-    "description": "OCR插件升级&四六级跳转国务院小程序",
+    "version": "3.2.14",
+    "description": "优化数据缓存&登录接口适配新版本基础库",
     "author": "Airmole"
   }

@@ -29,12 +29,12 @@ Page({
     this.inital(options)
   },
   inital: function (options) {
-    const weuser = wx.getStorageSync('userInfo')
-    let openid = wx.getStorageSync('openid')
+    let weuser = wx.getStorageSync('userInfo') || {}
+    let openid = wx.getStorageSync('openid') || {}
     openid = openid.openid ? openid.openid : ''
     const nickname = weuser.nickName ? weuser.nickName : openid
     const avatar = weuser.avatarUrl
-    const edusysInfo = wx.getStorageSync('edusysUserInfo')
+    const edusysInfo = wx.getStorageSync('edusysUserInfo') || {}
     const uid = edusysInfo.uid ? edusysInfo.uid : 0
     const realted = options.id ? options.id : ''
     this.setData({
