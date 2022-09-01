@@ -1,7 +1,7 @@
 // pages/index/component/feecard.js
 Component({
   options: {
-    styleIsolation: 'isolated'
+    styleIsolation: 'shared'
   },
   /**
    * 组件的属性列表

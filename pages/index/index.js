@@ -60,7 +60,7 @@ Page({
     var hasCourseCache = false;
     var todayCourses = [];
     var nextCourseArray = [];
-    var myCourse = wx.getStorageSync('myCourse')
+    var myCourse = wx.getStorageSync('myCourse') || {}
     var isGraduateStu = false
     if (myCourse != '' && Object.keys(myCourse).length > 0) {
       hasCourseCache = true
@@ -69,7 +69,6 @@ Page({
     if (app.globalData.hasEdusysStorage === true) {
       hasLogin = true;
     } else {
-      var edusysUserInfoCache = wx.getStorageSync('edusysUserInfo')
       try {
         if (edusysUserInfo.uid.length > 0) {
           app.globalData.hasEdusysStorage = true
@@ -164,7 +163,7 @@ Page({
   },
   getElesysInfo: function () {
     try {
-      const elesysUserInfo = wx.getStorageSync('elesysUserInfo')
+      let elesysUserInfo = wx.getStorageSync('elesysUserInfo') || {}
       app.globalData.elesysUserInfo = elesysUserInfo.building.length > 0 ? elesysUserInfo : ''
       this.getEleData(elesysUserInfo.building, elesysUserInfo.room)
     } catch (error) {
@@ -173,7 +172,7 @@ Page({
   },
   getNetsysInfo: function () {
     try {
-      const netsysUserInfo = wx.getStorageSync('netsysUserInfo')
+      let netsysUserInfo = wx.getStorageSync('netsysUserInfo') || {}
       app.globalData.netsysUserInfo = netsysUserInfo.netid.length > 0 ? netsysUserInfo : ''
       this.getNetData(netsysUserInfo.netid, netsysUserInfo.password, 'account')
     } catch (error) {

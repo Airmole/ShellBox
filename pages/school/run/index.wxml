@@ -56,12 +56,12 @@
     <view class="margin-top-xs">
       <view>
         <view class="userinfo-avatar shadow-blur cu-avatar round lg">
-          <open-data type="userAvatarUrl"></open-data>
+          <image src="{{ defaultAvatar }}"></image>
         </view>
       </view>
     </view>
     <view class="flex flex-direction padding-lr margin-top-sm" style="width: 250rpx;">
-      <view class="text-left"><open-data type="userNickName"></open-data></view>
+      <view class="text-left"><image src="{{ defaultAvatar }}"></image></view>
       <view class="flex align-end text-left">
         <view class="margin-right-sm"><text class="text-xl"> {{personalRank[0].steps}} </text>步</view>
       </view>

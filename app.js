@@ -3,7 +3,7 @@ App({
   globalData: {
     domain: 'https://shellbox.airmole.cn/api',
     _amap_key: '66a87160f8db2a9a76431c954b4f52a5', // 高德导航API秘钥
-    requestTimeout: 10000, // 网络请求最长时间10s
+    requestTimeout: 30000, // 网络请求最长时间30s
     openid: '',
     session_key: '',
     userInfo: {},
@@ -17,7 +17,7 @@ App({
     let launchInfo = wx.getLaunchOptionsSync()
     const accountInfo = wx.getAccountInfoSync()
     this.globalData.env = accountInfo.miniProgram.envVersion
-    this.globalData.env = 'release'
+    // this.globalData.env = 'release'
     if (this.globalData.env == 'release') {
       this.globalData.domain = 'https://shellbox.airmole.cn/api'
     } else {
@@ -34,7 +34,7 @@ App({
     this.getSystemStatusBarInfo()
   },
   checkHasEdusysStorage: function () {
-    const edusysStorage = wx.getStorageSync('edusysUserInfo')
+    const edusysStorage = wx.getStorageSync('edusysUserInfo') || {}
     var self = this
     try {
       if (edusysStorage.uid.length > 0) {
@@ -52,8 +52,8 @@ App({
     const uid = edusysInfo.uid
     const pwd = edusysInfo.password
     const cookie = edusysInfo.cookie ? edusysInfo.cookie : ''
-    const openid = wx.getStorageSync('openid')
-    const weuserInfo =  wx.getStorageSync('userInfo')
+    const openid = wx.getStorageSync('openid') || {}
+    const weuserInfo =  wx.getStorageSync('userInfo') || {}
     wx.request({
       url: `https://dev.shellbox.airmole.cn/api/edu/profile`,
       // url: `${self.globalData.domain}/edu/profile`,
@@ -63,13 +63,13 @@ App({
         cookie: cookie,
         userFrom: 'wechat',
         openid: openid.openid,
-        nickname: weuserInfo.nickName,
-        avatar: weuserInfo.avatarUrl,
-        gender: weuserInfo.gender,
-        country: weuserInfo.country,
-        province: weuserInfo.province,
-        city: weuserInfo.city,
-        language: weuserInfo.language
+        nickname: weuserInfo.nickName ? weuserInfo.nickName : '',
+        avatar: weuserInfo.avatarUrl ? weuserInfo.avatarUrl : '',
+        gender: weuserInfo.gender ? weuserInfo.gender : '',
+        country: weuserInfo.country ? weuserInfo.country : '',
+        province: weuserInfo.province ? weuserInfo.province : '',
+        city: weuserInfo.city ? weuserInfo.city : '',
+        language: weuserInfo.language ? weuserInfo.language : ''
       },
       timeout: self.globalData.requestTimeout,
       method: 'POST',
@@ -92,11 +92,13 @@ App({
   },
   getUserInfoFromStorage: function () {
     var self = this;
-    self.globalData.userInfo = wx.getStorageSync('userInfo');
+    const userInfo = wx.getStorageSync('userInfo') || {}
+    self.globalData.userInfo = userInfo
   },
   getStorageEdusysUserInfo: function () {
     var self = this;
-    self.globalData.edusysUserInfo = wx.getStorageSync('edusysUserInfo');
+    const edusysUserInfo = wx.getStorageSync('edusysUserInfo') || {}
+    self.globalData.edusysUserInfo = edusysUserInfo
   },
   getSystemStatusBarInfo: function () {
     // 获取系统状态栏信息
@@ -115,7 +117,7 @@ App({
   },
   getUserOpenId: function (callback) {
     var self = this
-    var storageOpenid = wx.getStorageSync('openid')
+    var storageOpenid = wx.getStorageSync('openid') || {}
     if (storageOpenid.openid) {
       wx.checkSession({
         success () {
@@ -143,7 +145,7 @@ App({
           url: self.globalData.domain + `/wechat/openid?jscode=${data.code}`,
           success: function (res) {
             console.log('拉取openid成功', res.data)
-            wx.setStorageSync({ data: res.data, key: 'openid' })
+            wx.setStorageSync('openid',  res.data)
             self.globalData.openid = res.data.openid
             self.globalData.session_key = res.data.session_key
           },

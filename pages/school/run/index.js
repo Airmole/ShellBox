@@ -77,7 +77,7 @@ Page({
     })
   },
   getPersonalRank: function (day = 'day') {
-    let userInfo = wx.getStorageSync('edusysUserInfo')
+    const userInfo = wx.getStorageSync('edusysUserInfo') || {}
     let uid = userInfo ? userInfo.uid : ''
     if (!uid) {
       wx.showToast({ title: '未登录只能浏览无法参与排行', icon: 'none' })
@@ -101,7 +101,7 @@ Page({
     let domain = app.globalData.domain
     let url = `${domain}/steps`
 
-    let userInfo = wx.getStorageSync('edusysUserInfo')
+    const userInfo = wx.getStorageSync('edusysUserInfo') || {}
     let uid = userInfo ? userInfo.uid : ''
     let para = {
       uid: uid,

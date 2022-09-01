@@ -19,8 +19,7 @@ Page({
   onReady: function(){
     var _this = this;
     try {
-      const elesysUserInfo = wx.getStorageSync('elesysUserInfo')
-      app.globalData.elesysUserInfo = elesysUserInfo
+      const elesysUserInfo = wx.getStorageSync('elesysUserInfo') || {}
       if(elesysUserInfo.building.length > 0) {
         wx.redirectTo({ url: `./index?building=${elesysUserInfo.building}&room=${elesysUserInfo.room}` })
       }

@@ -58,7 +58,7 @@ Page({
   },
   inital: function (options) {
     const id = options.id
-    const edusysInfo = wx.getStorageSync('edusysUserInfo')
+    const edusysInfo = wx.getStorageSync('edusysUserInfo') || {}
     const uid = edusysInfo != '' && edusysInfo.uid ? edusysInfo.uid : 0
     this.setData({ id: id, uid: uid })
     this.getDetailData(id)

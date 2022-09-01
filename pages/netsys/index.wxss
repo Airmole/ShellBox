@@ -1,4 +1,8 @@
 /* pages/netsys/index.wxss */
+page {
+  padding-bottom: 60rpx;
+}
+
 .container {
   position: relative;
   flex: 1;

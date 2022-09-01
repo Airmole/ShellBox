@@ -23,7 +23,7 @@ Page({
   onLoad: function(options) {
     var that = this
     var uid = app.globalData.edusysUserInfo.uid;
-    var pwd = wx.getStorageSync('opacPassword')
+    var pwd = wx.getStorageSync('opacPassword') || ''
     const from = options.from ? options.from : 'index'
     that.setData({
       defaultUid: uid,
@@ -36,14 +36,13 @@ Page({
     }
   },
   checkHasLogin: function() {
-    var uid = wx.getStorageSync('uid');
-    var pwd = wx.getStorageSync('opacPassword');
+    var uid = wx.getStorageSync('uid') || ''
+    var pwd = wx.getStorageSync('opacPassword') || ''
     if (uid != '' && pwd != '') {
       return true;
     } else {
       return false;
     }
-
   },
   submitInfo: function(e) {
     wx.showToast({

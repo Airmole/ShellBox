@@ -38,10 +38,7 @@
             </view>
           </view>
         </form>
-        <view wx:if="{{canIUseGetUserProfile}}" class="confirm-btn" bindtap="bind">
-          <text>确认绑定</text>
-        </view>
-        <button wx:else class="confirm-btn" open-type="getUserInfo" bindgetuserinfo="getUserInfo">
+        <button class="confirm-btn" bindtap="getUserInfo">
           <text>确认绑定</text>
         </button>
       </view>

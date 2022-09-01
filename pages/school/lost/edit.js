@@ -55,7 +55,7 @@ Page({
     this.inital(options)
   },
   inital: function (options) {
-    const edusysInfo = wx.getStorageSync('edusysUserInfo')
+    let edusysInfo = wx.getStorageSync('edusysUserInfo') || {}
     const uid = edusysInfo.uid ? edusysInfo.uid : 0
     const id = options.id ? options.id : ''
     const type = options.type ? options.type : 1

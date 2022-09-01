@@ -34,7 +34,7 @@ Page({
   },
   inital: function () {
     this.getHotDatalist()
-    const edusysInfo = wx.getStorageSync('edusysUserInfo')
+    let edusysInfo = wx.getStorageSync('edusysUserInfo') || {}
     const uid = edusysInfo != '' && edusysInfo.uid ? edusysInfo.uid : 0
     this.setData({ uid: uid })
     this.isAdminer(uid)

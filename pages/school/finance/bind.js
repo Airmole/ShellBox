@@ -24,7 +24,7 @@ Page({
     var that = this
     var uid = app.globalData.edusysUserInfo.uid
     let username = uid
-    var password = wx.getStorageSync('financePassword')
+    const password = wx.getStorageSync('financePassword') || ''
     password = password ? password : app.globalData.edusysUserInfo.idcard.substr(12)
     that.setData({
       username: username,
@@ -36,8 +36,8 @@ Page({
     }
   },
   checkHasLogin: function() {
-    var username = wx.getStorageSync('uid');
-    var password = wx.getStorageSync('financePassword');
+    var username = wx.getStorageSync('uid') || ''
+    var password = wx.getStorageSync('financePassword') || ''
     if (username != '' && password != '') {
       return true;
     } else {

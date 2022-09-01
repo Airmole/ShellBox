@@ -90,7 +90,7 @@ Page({
     const d = new Date();
     var today = d.getDay();
     today = this.data.weekArray[today];
-    const courseCache = wx.getStorageSync('myCourse');
+    let courseCache = wx.getStorageSync('myCourse') || {}
     let hasCourseCache = Object.keys(courseCache).length == 7 ? true : false;
     let _this = this;
     this.setData({
@@ -103,7 +103,7 @@ Page({
   hasEdysysUserInfo: function () {
     try {
       var isTeacher = false;
-      const edusysUserInfo = wx.getStorageSync('edusysUserInfo');
+      let edusysUserInfo = wx.getStorageSync('edusysUserInfo') || {}
       if(edusysUserInfo.name.length > 0){
         if(edusysUserInfo.uid.length<8){
           isTeacher = true;

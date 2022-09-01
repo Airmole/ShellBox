@@ -30,7 +30,7 @@ Page({
   inital: function () {
     const device = wx.getSystemInfoSync();
     // console.log(device.screenHeight);
-    const scoreCache = wx.getStorageSync('myScore');
+    const scoreCache = wx.getStorageSync('myScore') || {}
     let hasScoreCache = Object.keys(scoreCache).length > 0 ? true : false;
     this.setData({
       screenHeight: device.screenHeight,
@@ -169,9 +169,7 @@ Page({
     })
 
     let userNickName = app.globalData.userInfo.nickName;
-    if (userNickName == '') {
-      userNickName = app.globalData.edusysUserInfo.uid;
-    }
+    if (userNickName == '') userNickName = app.globalData.edusysUserInfo.uid
     let nickName = {
       type: 'text',
       content: userNickName,

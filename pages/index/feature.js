@@ -6,9 +6,9 @@ Page({
     hasEdusysStorage: false,
     edusysUserInfo: {},
     isTeacher: false,
-    quanyiModal: false,
     clickAvatarCount: 1,
     backgroundImage: 'https://upload-images.jianshu.io/upload_images/4697920-65af0059363fb4b0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240',
+    defaultAvatar: 'https://mmbiz.qpic.cn/mmbiz/icTdbqWNOwNRna42FI242Lcia07jQodd2FJGIYQfG0LAJGFxM4FbnQP6yfMxBgJ0F3YRqJCJ1aPAK2dQagdusBZg/0',
     canShake: false,
     iconList: [{
       id: 'myCourse',
@@ -58,14 +58,14 @@ Page({
       name: '校历',
       url: '../school/calendar',
       login: false,
-    }, {
-      id: 'mybooks',
-      icon: 'tushuguan',
-      teacher: true,
-      student: true,
-      name: '我的借阅',
-      url: './../books/bind',
-      login: true,
+    // }, {
+    //   id: 'mybooks',
+    //   icon: 'tushuguan',
+    //   teacher: true,
+    //   student: true,
+    //   name: '我的借阅',
+    //   url: './../books/bind',
+    //   login: true,
     }, {
       id: 'scanBookCode',
       icon: 'dushuma',
@@ -112,7 +112,7 @@ Page({
       teacher: true,
       student: true,
       name: '查四六级',
-      url: 'jiaoyubu/pages/business/cet/fillInfo/fillInfo?eid=QG_JY_QGDXYYSLJKSCJ,GSS_CXFW&appid=wxaaa2443936a7c6e0',
+      url: 'packageResultQuery/pages/cet_his/CET_Result_His_Portal',
       login: false,
     }, {
       id: 'map',
@@ -249,7 +249,7 @@ Page({
     })
   },
   inital: function () {
-    var edusysUserInfo = wx.getStorageSync('edusysUserInfo')
+    var edusysUserInfo = wx.getStorageSync('edusysUserInfo') || {}
     let iconList = this.data.iconList
     if (app.globalData.env != 'release') {
       iconList[17].student = false
@@ -310,7 +310,7 @@ Page({
     // console.log('target：', hasEdusysStorage);
 
     if(id == 'cet'){
-      wx.navigateToMiniProgram({ appId: 'wx2eec5fb00157a603', path: url })
+      wx.navigateToMiniProgram({ appId: 'wxa56afc785454c86b', path: url })
       return
     }
 

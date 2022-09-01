@@ -2,10 +2,10 @@
 <scroll-view scroll-y class="scrollPage">
   <view class="UCenter-bg" style="background-image: url({{backgroundImage}});" catchlongpress="showBgImage">
     <view class="userinfo-avatar shadow-blur">
-      <open-data type="userAvatarUrl"></open-data>
+      <image src="{{ defaultAvatar }}"></image>
     </view>
     <view class="margin-top-sm nickname" wx:if="{{hasEdusysStorage}}">{{edusysUserInfo.uid}}</view>
-    <view class="margin-top-sm nickname" bindtap="goLogin" wx:else><open-data type="userNickName"></open-data>您尚未登录</view>
+    <view class="margin-top-sm nickname" bindtap="goLogin" wx:else><image src="{{ defaultAvatar }}"></image>您尚未登录</view>
     <image src="https://upload-images.jianshu.io/upload_images/4697920-0b3859b5e4ef17ec.gif" mode="scaleToFill"
       class="gif-wave"></image>
   </view>
@@ -35,14 +35,5 @@
         bindtap="goLogin">登录</button>
     </view>
   </view>
-
-  <!-- 权益中心二维码模态框 -->
-  <imagemodal
-    hideBtnText="好，知道了"
-    image="https://upload-images.jianshu.io/upload_images/4697920-698445119e6dd3d5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/256"
-    height="{{431}}"
-    width="{{375}}"
-    showModal="{{quanyiModal}}"
-  ></imagemodal>
 
 </scroll-view>
