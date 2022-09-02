@@ -14,9 +14,9 @@
       <view class="cu-item shadow">
         <view class="cu-list menu-avatar">
           <view class="cu-item">
-            <view class="cu-avatar round lg bg-cyan" style="background-image:url({{data.publisher.avatar}});"></view>
+            <view class="cu-avatar round lg bg-cyan" style="background-image:url({{data.publisher.avatar?data.publisher.avatar:defaultAvatar}});"></view>
             <view class="content flex-sub">
-              <view>{{data.publisher.nickname}}</view>
+              <view>{{data.publisher.nickname || data.uid}}</view>
               <view class="text-gray text-sm flex justify-between">{{data.created_at}}</view>
             </view>
           </view>
@@ -33,8 +33,7 @@
           <view class="padding-xs" style="overflow-wrap: break-word;">{{data.desc ? data.desc : ''}}</view>
         </view>
         <view class="grid flex-sub padding-lr padding-bottom col-3 grid-square">
-          <view class="bg-img" style="background-image:url({{pitem}});" wx:for="{{data.images}}" wx:for-item="pitem"
-            wx:key="pindex" catchtap="previewImage" data-allurl="{{data.images}}" data-url="{{pitem}}"></view>
+          <view class="bg-img" style="background-image:url({{pitem}});" wx:for="{{data.images}}" wx:for-item="pitem" wx:key="pindex" catchtap="previewImage" data-allurl="{{data.images}}" data-url="{{pitem}}"></view>
         </view>
         <!-- 失物状态 -->
         <view class="cu-list menu sm-border">
@@ -61,22 +60,20 @@
       </view>
       <view class="cu-list menu-avatar no-padding margin-lr radius-bottom" wx:if="{{data.status >= 1}}">
         <view class="cu-item" wx:if="{{isPublisher}}">
-          <view class="cu-avatar lg round bg-green" style="background-image:url({{data.receiver.avatar}});"></view>
+          <view class="cu-avatar lg round bg-green" style="background-image:url({{data.receiver.avatar?data.receiver.avatar:defaultAvatar}});"></view>
           <view class="content">
-            <view class="text-grey"><text>{{data.receiver.nickname}}</text> </view>
+            <view class="text-grey"><text>{{data.receiver.nickname || data.receiver.uid}}</text> </view>
             <view class="text-gray text-sm">联系方式：{{data.receiver_concact}}</view>
           </view>
-          <view data-tel='{{data.receiver_concact}}' bindtap='callPhone' class="action text-xxl margin-right-xl"><text
-              class="cuIcon-phone text-green"></text></view>
+          <view data-tel='{{data.receiver_concact}}' bindtap='callPhone' class="action text-xxl margin-right-xl"><text class="cuIcon-phone text-green"></text></view>
         </view>
         <view class="cu-item" wx:if="{{isRecevicer}}">
-          <view class="cu-avatar lg round bg-green" style="background-image:url({{data.publisher.avatar}});"></view>
+          <view class="cu-avatar lg round bg-green" style="background-image:url({{data.publisher.avatar?data.publisher.avatar:defaultAvatar}});"></view>
           <view class="content">
-            <view class="text-grey"><text>{{data.publisher.nickname}}</text></view>
+            <view class="text-grey"><text>{{data.publisher.nickname||data.publisher.uid}}</text></view>
             <view class="text-gray text-sm">联系方式：{{data.concact}}</view>
           </view>
-          <view data-tel='{{data.concact}}' bindtap='callPhone' class="action text-xxl margin-right-xl"><text
-              class="cuIcon-phone text-green"></text></view>
+          <view data-tel='{{data.concact}}' bindtap='callPhone' class="action text-xxl margin-right-xl"><text class="cuIcon-phone text-green"></text></view>
         </view>
       </view>
       <view class="cu-list menu-avatar no-padding margin-lr radius-bottom" wx:else>
@@ -91,8 +88,10 @@
     </view>
 
   </view>
-  
+
 </block>
 <block wx:else>
-  <view class="margin"><tips tipsText="应官方审核要求，此功能已下线"></tips></view>
+  <view class="margin">
+    <tips tipsText="应官方审核要求，此功能已下线"></tips>
+  </view>
 </block>

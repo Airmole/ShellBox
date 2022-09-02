@@ -15,3 +15,7 @@ page {
   clip-path: circle(50% at center);
   box-shadow: 5rpx 5rpx 15rpx #ccc;
 }
+
+.bottom-image {
+  margin-bottom: 150rpx;
+}

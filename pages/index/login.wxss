@@ -285,6 +285,8 @@ page{
   align-items: center;
   justify-content: center;
   padding-bottom: 300rpx;
+  padding-left: 30rpx;
+  padding-right: 30rpx;
 }
 .remind-img {
   width: 250rpx;

@@ -8,41 +8,41 @@ Page({
     backLists: {},
     telLists: {
       'A': [],
-      'B':[
-        { name: '保卫处', tel: '22411900'}
+      'B': [
+        { name: '保卫处', tel: '22411900' }
       ],
       'C': [
-        { name: '材料系', tel: '22410516'},
-        { name: '财务处', tel: '22410769'},
-        { name: '财务处', tel: '22410897'},
-        { name: '城市建设学院', tel: '22410703'}
+        { name: '材料系', tel: '22410516' },
+        { name: '财务处', tel: '22410769' },
+        { name: '财务处', tel: '22410897' },
+        { name: '城市建设学院', tel: '22410703' }
       ],
       'D': [
-        { name: '档案室', tel: '22410779'}
+        { name: '档案室', tel: '22410779' }
       ],
       'E': [],
       'F': [
-        { name: '法律系', tel: '22410391'}
+        { name: '法律系', tel: '22410391' }
       ],
       'G': [
-        { name: '管理学院', tel: '22410705'},
-        { name: '国际合作交流部', tel: '22410389'}
+        { name: '管理学院', tel: '22410705' },
+        { name: '国际合作交流部', tel: '22410389' }
       ],
       'H': [
-        { name: '后勤处', tel: '22410722'},
-        { name: '护理系', tel: '22423905'}
+        { name: '后勤处', tel: '22410722' },
+        { name: '护理系', tel: '22423905' }
       ],
       'I': [],
       'J': [
-        { name: '机械系', tel: '22410508'},
-        { name: '基础部', tel: '22410502'},
-        { name: '基建产业处', tel: '22410976'},
-        { name: '教务处', tel: '22410731'},
-        { name: '教务处', tel: '22410555'},
-        { name: '经济学院', tel: '22410728'}
+        { name: '机械系', tel: '22410508' },
+        { name: '基础部', tel: '22410502' },
+        { name: '基建产业处', tel: '22410976' },
+        { name: '教务处', tel: '22410732' },
+        { name: '教务处', tel: '22410555' },
+        { name: '经济学院', tel: '22410728' }
       ],
       'K': [
-        { name: '科研处', tel: '22410737'}
+        { name: '科研处', tel: '22410737' }
       ],
       'L': [],
       'M': [],
@@ -51,40 +51,39 @@ Page({
       'P': [],
       'Q': [],
       'R': [
-        { name: '人事处', tel: '22410768'},
-        { name: '人事处', tel: '22410077'},
+        { name: '人事处', tel: '22410768' },
+        { name: '人事处', tel: '22410077' },
       ],
       'S': [
-        { name: '思政部', tel: '22410736'}
+        { name: '思政部', tel: '22410736' }
       ],
       'T': [
-        { name: '体育部', tel: '22410422'},
-        { name: '图书馆', tel: '22410526'},
-        { name: '团委', tel: '22410730'}
+        { name: '体育部', tel: '22410422' },
+        { name: '图书馆', tel: '22410526' },
+        { name: '团委', tel: '22410730' }
       ],
       'U': [],
       'V': [],
       'W': [
-        { name: '外语系', tel: '22410523'},
-        { name: '网络中心', tel: '22410719'},
+        { name: '外语系', tel: '22410523' },
       ],
       'X': [
-        { name: '心理咨询中心', tel: '22410981'},
-        { name: '信息学院', tel: '22410704'},
-        { name: '宣传部', tel: '22410352'},
-        { name: '学生工作办公室', tel: '22410298'},
-        { name: '学院报警电话', tel: '22411110'},
-        { name: '学院办公室', tel: '22410800'},
+        { name: '心理咨询中心', tel: '22410981' },
+        { name: '信息学院', tel: '22410704' },
+        { name: '宣传部', tel: '22410352' },
+        { name: '学生工作办公室', tel: '22410298' },
+        { name: '学院报警电话', tel: '22411110' },
+        { name: '学院办公室', tel: '22410800' },
       ],
       'Y': [
-        { name: '艺术系', tel: '22410348'},
+        { name: '艺术系', tel: '22410348' },
       ],
       'Z': [
-        { name: '招办就业处(招生)', tel: '22410960'},
-        { name: '招办就业处(招生)', tel: '22410969'},
-        { name: '招办就业处(就业)', tel: '22412672'},
-        { name: '招办就业处(就业)', tel: '22412901'},
-        { name: '资产管理中心', tel: '22410919'}
+        { name: '招办就业处(招生)', tel: '22410960' },
+        { name: '招办就业处(招生)', tel: '22410969' },
+        { name: '招办就业处(就业)', tel: '22412672' },
+        { name: '招办就业处(就业)', tel: '22412902' },
+        { name: '资产管理中心', tel: '22410919' }
       ]
     }
   },
@@ -103,6 +102,7 @@ Page({
     this.inital();
   },
   inital: function () {
+    this.fetchContactList()
     wx.showShareMenu({
       withShareTicket: true,
       menus: ['shareAppMessage', 'shareTimeline']
@@ -110,12 +110,12 @@ Page({
   },
   onReady() {
     let that = this;
-    wx.createSelectorQuery().select('.indexBar-box').boundingClientRect(function(res) {
+    wx.createSelectorQuery().select('.indexBar-box').boundingClientRect(function (res) {
       that.setData({
         boxTop: res.top
       })
     }).exec();
-    wx.createSelectorQuery().select('.indexes').boundingClientRect(function(res) {
+    wx.createSelectorQuery().select('.indexes').boundingClientRect(function (res) {
       that.setData({
         barTop: res.top
       })
@@ -184,16 +184,16 @@ Page({
     var resultLists = {};
     var hasResult = false;
     var _this = this;
-  
-    if(keyword.length<1){
+
+    if (keyword.length < 1) {
       this.setData({ telLists: _this.data.backLists });
       return;
     }
-    for (let index in telLists){
+    for (let index in telLists) {
       let element = telLists[index];
       resultLists[index] = [];
       element.forEach((ele, ind) => {
-        if(ele.name.indexOf(keyword) != -1 || ele.tel.indexOf(keyword) != -1){
+        if (ele.name.indexOf(keyword) != -1 || ele.tel.indexOf(keyword) != -1) {
           resultLists[index].push(ele);
           hasResult = true;
         }
@@ -206,13 +206,13 @@ Page({
   },
   clearSearch: function () {
     var _this = this;
-    this.setData({ telLists: _this.data.backLists, keyword: ''});
+    this.setData({ telLists: _this.data.backLists, keyword: '' });
   },
   callPhone: function (e) {
     var tel = '022' + e.currentTarget.dataset.tel;
     wx.makePhoneCall({ phoneNumber: tel });
   },
-  copyTel: function(e) {
+  copyTel: function (e) {
     var tel = '022' + e.currentTarget.dataset.tel;
     wx.setClipboardData({
       data: tel
@@ -222,6 +222,30 @@ Page({
       icon: 'none',
       duration: 1000
     });
+  },
+  fetchContactList() {
+    const _this = this
+    wx.request({
+      url: `${app.globalData.domain}/contact`,
+      success(res) {
+        try {
+          if (res.statusCode == 200) {
+            const lists = _this.format2list(res.data)
+            _this.setData({ backLists: lists, telLists: lists })
+          }
+        } catch (error) {
+          _this.setData({ telLists: _this.data.backLists })
+        }
+      }
+    })
+  },
+  format2list(array) {
+    let list = {}
+    array.forEach(element => {
+      if (!list[element.sortname]) list[element.sortname] = []
+      list[element.sortname].push({ name: element.name, tel: element.tel })
+    })
+    return list
   },
   /**
    * 用户点击右上角分享

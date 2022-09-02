@@ -17,50 +17,61 @@ Page({
     // cookie: '',
     // vcodeUrl: '',
     idcard: '',
-    angle: 0
+    angle: 0,
+    percent: 0,
+    costSeconds: 0
   },
-  onLoad: function (){
+  onLoad: function () {
   },
-  onReady: function(){
+  onReady: function () {
     try {
       const edusysUserInfo = wx.getStorageSync('edusysUserInfo') || {}
-      if(edusysUserInfo.name.length > 0) wx.switchTab({ url: './index' })
+      if (edusysUserInfo.name.length > 0) wx.switchTab({ url: './index' })
     } catch (error) {
       // this.getCookie();
     }
 
     var _this = this;
-    setTimeout(function(){
+    setTimeout(function () {
       _this.setData({ remind: '' })
-    }, 1000);
-    wx.onAccelerometerChange(function(res) {
-      var angle = -(res.x*30).toFixed(1);
-      if(angle>14){ angle=14; }
-      else if(angle<-14){ angle=-14; }
-      if(_this.data.angle !== angle){
+    }, 100);
+    wx.onAccelerometerChange(function (res) {
+      var angle = -(res.x * 30).toFixed(1);
+      if (angle > 14) { angle = 14; }
+      else if (angle < -14) { angle = -14; }
+      if (_this.data.angle !== angle) {
         _this.setData({ angle: angle });
       }
     });
   },
-  getUserInfo: function (){
-    if(!this.vaildForm()) {
+  getUserInfo: function () {
+    if (!this.vaildForm()) {
       return
     }
-    this.login({});
+    // 登录进度条
+    const _this = this
+    const interval = 500
+    var progress = setInterval(function () {
+      let costSeconds = _this.data.costSeconds
+      costSeconds = costSeconds + (interval * 2)
+      const percent = (costSeconds / app.globalData.requestTimeout * 100).toFixed(2)
+      if (parseInt(percent) < 90) _this.setData({ costSeconds: costSeconds, percent: percent })
+    }, interval)
+    this.login({}, progress);
   },
   vaildForm: function () {
     var uid = this.data.userid;
     var password = this.data.passwd;
     // var cookie = this.data.cookie;
     // var vcode = this.data.vcode;
-    if(uid.length<1){
+    if (uid.length < 1) {
       wx.showToast({
         title: '请输入教务网账号',
         icon: 'none'
       })
       return false;
     }
-    if(password.length < 1){
+    if (password.length < 1) {
       wx.showToast({
         title: '请输入教务网密码',
         icon: 'none'
@@ -69,37 +80,32 @@ Page({
     }
     return true;
   },
-  login: function (userInfo) {
+  login: function (userInfo, progress) {
     var _this = this
-    _this.setData({remind: '加载中'})
+    _this.setData({ remind: '加载中' })
     var uid = this.data.userid
     var password = this.data.passwd
     wx.request({
       url: `${domain}/edu/profile`,
-      data:{
+      data: {
         uid: uid,
         pwd: password,
         userFrom: 'wechat',
-        openid: app.globalData.openid,
-        nickname: userInfo.nickName ? userInfo.nickName : '',
-        avatar: userInfo.avatarUrl ? userInfo.avatarUrl: '',
-        gender: userInfo.gender ? userInfo.gender : '',
-        country: userInfo.country ? userInfo.country : '',
-        province: userInfo.province ? userInfo.province : '',
-        city: userInfo.city ? userInfo.city : '',
-        language: userInfo.language ? userInfo.language : ''
+        openid: app.globalData.openid
       },
       timeout: app.globalData.requestTimeout,
       method: 'POST',
-      success: function(res){
+      success: function (res) {
         // console.log('eduSysProfile：', res.data)
         try {
           if (res.data.name.length > 1) {
+            _this.setData({ costSeconds: 0, percent: 100 })
+            clearInterval(progress)
             res.data.password = password
             wx.setStorage({ data: res.data, key: 'edusysUserInfo' })
             app.globalData.edusysUserInfo = res.data
             wx.vibrateShort({ type: 'medium' })
-            wx.switchTab({ url: './index' })
+            setTimeout(function () { wx.switchTab({ url: './index' }) }, 1000);
           }
         } catch (error) {
           // _this.getCookie();
@@ -108,13 +114,23 @@ Page({
             icon: 'none',
             duration: 5000
           })
-          _this.setData({remind: ''});
+          _this.setData({ remind: '' });
+        }
+      },
+      fail: function (fail) {
+        if (fail.errMsg == 'request:fail timeout') {
+          wx.showToast({
+            title: '失败了，要不要再试一次？',
+            icon: 'none',
+            duration: 5000
+          })
+          _this.setData({ remind: '' });
         }
       }
     })
   },
   resetPassword: function () {
-    if(!this.vaildResetForm()){
+    if (!this.vaildResetForm()) {
       return
     }
     wx.showLoading({
@@ -132,16 +148,16 @@ Page({
         password: password
       },
       method: 'POST',
-      success: function(res){
+      success: function (res) {
         wx.hideLoading();
         try {
-          if(res.data.code == 200){
+          if (res.data.code == 200) {
             wx.showToast({
               title: res.data.message,
               icon: 'none',
               duration: 5000
             })
-            _this.setData({reset_status: false})
+            _this.setData({ reset_status: false })
           } else {
             wx.showToast({
               title: res.data.message,
@@ -176,37 +192,37 @@ Page({
     const password = this.data.passwd;
     const idcardReg = /(^\d{15}$)|(^\d{18}$)|(^\d{17}(\d|X|x)$)/
 
-    if(uid.length<1){
+    if (uid.length < 1) {
       wx.showToast({
         title: '请输入正确的教务网账号',
         icon: 'none'
       })
       return false;
     }
-    if(idcardReg.test(idcard) == false) {
+    if (idcardReg.test(idcard) == false) {
       wx.showToast({
         title: '身份证号码格式有误',
         icon: 'none'
       })
       return false;
     }
-    if(uid == password){
+    if (uid == password) {
       wx.showToast({
         title: '用户名与密码不可以相同',
         icon: 'none'
       })
       return false;
     }
-    if(password.length < 8){
+    if (password.length < 8) {
       wx.showToast({
         title: '密码长度不得短于8位',
         icon: 'none'
       })
       return false;
     }
-    let hasAlpha= (password.search(/[A-Za-z]/)!=-1) ? 1 : 0;
-	  let hasNumber= (password.search(/[0-9]/)!=-1) ? 1 : 0;
-    if(hasAlpha == 0 || hasNumber == 0){
+    let hasAlpha = (password.search(/[A-Za-z]/) != -1) ? 1 : 0;
+    let hasNumber = (password.search(/[0-9]/) != -1) ? 1 : 0;
+    if (hasAlpha == 0 || hasNumber == 0) {
       wx.showToast({
         title: '密码必需同时包含数字和字母',
         icon: 'none'
@@ -216,7 +232,7 @@ Page({
 
     return true;
   },
-  getCookie: function() {
+  getCookie: function () {
     // 解脱了，不用输入验证码了
     // var _this = this;
     // wx.request({
@@ -230,15 +246,15 @@ Page({
     //   }
     // })
   },
-  useridInput: function(e) {
+  useridInput: function (e) {
     this.setData({
       userid: e.detail.value
     });
-    if(e.detail.value.length >= 9){
+    if (e.detail.value.length >= 9) {
       wx.hideKeyboard();
     }
   },
-  passwdInput: function(e) {
+  passwdInput: function (e) {
     this.setData({
       passwd: e.detail.value
     });
@@ -248,60 +264,60 @@ Page({
   //     vcode: e.detail.value
   //   });
   // },
-  idcardInput: function(e) {
+  idcardInput: function (e) {
     this.setData({
       idcard: e.detail.value
     });
   },
-  inputFocus: function(e){
-    if(e.target.id == 'userid'){
+  inputFocus: function (e) {
+    if (e.target.id == 'userid') {
       this.setData({
         'userid_focus': true
       });
-    }else if(e.target.id == 'passwd'){
+    } else if (e.target.id == 'passwd') {
       this.setData({
         'passwd_focus': true
       });
-    // }else if(e.target.id == 'vcode'){
-    //   this.setData({
-    //     'vcode_focus': true
-    //   });
-    }else if(e.target.id == 'idcard'){
+      // }else if(e.target.id == 'vcode'){
+      //   this.setData({
+      //     'vcode_focus': true
+      //   });
+    } else if (e.target.id == 'idcard') {
       this.setData({
         'idcard_focus': true
       });
     }
   },
-  inputBlur: function(e){
-    if(e.target.id == 'userid'){
+  inputBlur: function (e) {
+    if (e.target.id == 'userid') {
       this.setData({
         'userid_focus': false
       });
-    } else if(e.target.id == 'passwd'){
+    } else if (e.target.id == 'passwd') {
       this.setData({
         'passwd_focus': false
       });
-    // }else if(e.target.id == 'vcode'){
-    //   this.setData({
-    //     'vcode_focus': false
-    //   });
-    } else if(e.target.id == 'idcard'){
+      // }else if(e.target.id == 'vcode'){
+      //   this.setData({
+      //     'vcode_focus': false
+      //   });
+    } else if (e.target.id == 'idcard') {
       this.setData({
         'idcard_focus': false
       });
     }
   },
-  tapHelp: function(e){
-    if(e.target.id == 'help'){
+  tapHelp: function (e) {
+    if (e.target.id == 'help') {
       this.hideHelp();
     }
   },
-  showHelp: function(e){
+  showHelp: function (e) {
     this.setData({
       'help_status': true
     });
   },
-  hideHelp: function(e){
+  hideHelp: function (e) {
     this.setData({
       'help_status': false
     });

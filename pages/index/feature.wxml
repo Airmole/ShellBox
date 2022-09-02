@@ -1,25 +1,29 @@
 <!--pages/index/feature.wxml-->
 <scroll-view scroll-y class="scrollPage">
   <view class="UCenter-bg" style="background-image: url({{backgroundImage}});" catchlongpress="showBgImage">
-    <view class="userinfo-avatar shadow-blur">
-      <image src="{{ defaultAvatar }}"></image>
+    <block wx:if="{{hasEdusysStorage}}">
+      <navigator url="./setting" class="userinfo-avatar shadow-blur">
+        <image src="{{ edusysUserInfo.avatar || defaultAvatar }}"></image>
+      </navigator>
+      <navigator url="./setting" class="margin-top-sm nickname">{{ edusysUserInfo.nickname ? (edusysUserInfo.nickname + ' | ') : '点击授权昵称头像' }} {{ edusysUserInfo.uid}}</navigator>
+    </block>
+    <view class="margin-top-sm nickname" bindtap="goLogin" wx:else>
+      <image src="{{ defaultAvatar }}"></image>您尚未登录
     </view>
-    <view class="margin-top-sm nickname" wx:if="{{hasEdusysStorage}}">{{edusysUserInfo.uid}}</view>
-    <view class="margin-top-sm nickname" bindtap="goLogin" wx:else><image src="{{ defaultAvatar }}"></image>您尚未登录</view>
-    <image src="https://upload-images.jianshu.io/upload_images/4697920-0b3859b5e4ef17ec.gif" mode="scaleToFill"
-      class="gif-wave"></image>
+    <image src="https://upload-images.jianshu.io/upload_images/4697920-0b3859b5e4ef17ec.gif" mode="scaleToFill" class="gif-wave"></image>
   </view>
 
   <view class="cu-list grid col-5 no-border">
-    <view wx:if="{{(isTeacher&&item.teacher)||(!isTeacher&&item.student)}}" class="cu-item" wx:for="{{iconList}}"
-      wx:key="key" id="{{item.id}}" data-url="{{item.url}}" data-login="{{item.login}}" bindtap="goToPage">
+    <view wx:if="{{(isTeacher&&item.teacher)||(!isTeacher&&item.student)}}" class="cu-item" wx:for="{{iconList}}" wx:key="key" id="{{item.id}}" data-url="{{item.url}}" data-login="{{item.login}}" bindtap="goToPage">
       <view>
         <text class="iconfont icon-{{item.icon}}" style="color:#84BD54;font-size:32px;"></text>
       </view>
       <text>{{item.name}}</text>
     </view>
-    <view bindtap="showQuanyiModal" class="cu-item"  wx:if="{{app.globalData.env == 'release'}}">
-      <view class="text-center"><image src="https://upload-images.jianshu.io/upload_images/4697920-34dcb56de71f8967.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/64" class="replay-board"/></view>
+    <view bindtap="showQuanyiModal" class="cu-item" wx:if="{{app.globalData.env == 'release'}}">
+      <view class="text-center">
+        <image src="https://upload-images.jianshu.io/upload_images/4697920-34dcb56de71f8967.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/64" class="replay-board" />
+      </view>
       <view class="replay-board-text" style="color: #888;">投诉维权</view>
     </view>
   </view>
@@ -28,11 +32,8 @@
     <ad unit-id="adunit-62f52651dd5f4ff6"></ad>
     <view class="flex">
       <button open-type="share" class="flex-sub padding-sm margin-sm bg-green cu-btn margin-tb-sm lg round shadow">分享</button>
-      <button wx:if="{{hasEdusysStorage}}"
-        class="flex-sub padding-sm margin-sm bg-red cu-btn margin-tb-sm lg round shadow animation-{{animation=='shake'?'shake':''}}"
-        data-class="shake" bindtap="logout">注销</button>
-      <button wx:else class="flex-sub padding-sm margin-sm bg-green cu-btn margin-tb-sm lg round shadow"
-        bindtap="goLogin">登录</button>
+      <button wx:if="{{hasEdusysStorage}}" class="flex-sub padding-sm margin-sm bg-red cu-btn margin-tb-sm lg round shadow animation-{{animation=='shake'?'shake':''}}" data-class="shake" bindtap="logout">注销</button>
+      <button wx:else class="flex-sub padding-sm margin-sm bg-green cu-btn margin-tb-sm lg round shadow" bindtap="goLogin">登录</button>
     </view>
   </view>
 

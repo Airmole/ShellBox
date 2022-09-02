@@ -7,6 +7,9 @@ Page({
   data: {
     env: 'develop',
     type: '0',
+    defaultAvatar: 'https://mmbiz.qpic.cn/mmbiz/icTdbqWNOwNRna42FI242Lcia07jQodd2FJGIYQfG0LAJGFxM4FbnQP6yfMxBgJ0F3YRqJCJ1aPAK2dQagdusBZg/0',
+    avatar: 'https://mmbiz.qpic.cn/mmbiz/icTdbqWNOwNRna42FI242Lcia07jQodd2FJGIYQfG0LAJGFxM4FbnQP6yfMxBgJ0F3YRqJCJ1aPAK2dQagdusBZg/0',
+    nickname: '',
     fillImage: 'https://gd-filems.dancf.com/mcm79j/mcm79j/51560/9121e0b2-6f93-4300-ae22-07aa750658b91762508.jpg',
     top3icon: [
       'https://gd-filems.dancf.com/mcm79j/mcm79j/51560/0b3e0fbf-4b1f-4fc3-9f23-0ab0f8ca1c581825958.png',
@@ -42,6 +45,10 @@ Page({
     this.inital(day)
   },
   inital: function  (day) {
+    const userInfo = wx.getStorageSync('edusysUserInfo') || {}
+    const avatar = userInfo.avatar ? userInfo.avatar : this.data.avatar
+    const nickname = userInfo.nickname ? userInfo.nickname : userInfo.uid
+    this.setData({ avatar: avatar, nickname: nickname })
     var _this = this
     wx.checkSession({
       success () {
@@ -130,6 +137,9 @@ Page({
     // console.log('切换到', this.data.types[index].name)
     this.setData({ type: e.currentTarget.dataset.id })
     this.getRanklist(day)
+  },
+  updateAvatar () {
+    wx.navigateTo({ url: '../../index/setting' })
   },
   /**
    * 用户点击右上角分享

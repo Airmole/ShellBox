@@ -75,8 +75,9 @@ Page({
   },
   chooseImage: function () {
     var _this = this
-    wx.chooseImage({
+    wx.chooseMedia({
       count: 1,
+      mediaType: ['image'],
       sizeType: ['compressed'],
       sourceType: ['album', 'camera'],
       success: (res) => {
