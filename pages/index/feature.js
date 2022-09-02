@@ -5,6 +5,7 @@ Page({
     CustomBar: app.globalData.CustomBar,
     hasEdusysStorage: false,
     edusysUserInfo: {},
+    userInfo: {},
     isTeacher: false,
     clickAvatarCount: 1,
     backgroundImage: 'https://upload-images.jianshu.io/upload_images/4697920-65af0059363fb4b0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240',
@@ -211,14 +212,6 @@ Page({
     //   url: '../books/portrait',
     //   login: false,
     // }, {
-    //   id: 'bbbug',
-    //   icon: 'yu',
-    //   teacher: true,
-    //   student: true,
-    //   name: '树洞闲聊',
-    //   url: '',
-    //   login: false,
-    // }, {
       id: 'about',
       icon: 'plane',
       teacher: true,
@@ -250,12 +243,13 @@ Page({
   },
   inital: function () {
     var edusysUserInfo = wx.getStorageSync('edusysUserInfo') || {}
+    var userInfo = wx.getStorageSync('userInfo') || {}
     let iconList = this.data.iconList
     if (app.globalData.env != 'release') {
-      iconList[17].student = false
-      iconList[17].teacher = false
       iconList[16].student = false
       iconList[16].teacher = false
+      iconList[15].student = false
+      iconList[15].teacher = false
     }
     
     try {
@@ -268,7 +262,8 @@ Page({
           iconList: iconList,
           hasEdusysStorage: true,
           isTeacher: isTeacher,
-          edusysUserInfo: edusysUserInfo
+          edusysUserInfo: edusysUserInfo,
+          userInfo: userInfo
         })
       }
     } catch (error) {
@@ -276,7 +271,8 @@ Page({
       this.setData({
         iconList: iconList,
         hasEdusysStorage: false,
-        edusysUserInfo: {}
+        edusysUserInfo: {},
+        userInfo: userInfo
       })
     }
     // 允许分享到朋友圈

@@ -1,0 +1,22 @@
+<!--pages/index/setting.wxml-->
+<cu-custom bgColor="bg-wegreen" isCustom="{{true}}">
+  <view slot="content">昵称头像设置</view>
+</cu-custom>
+
+<view class="flex flex-wrap justify-center margin-xl">
+  <view class="avatar text-center shadow-wrap"> <button class="cu-avatar xxl border round bg-white" open-type="chooseAvatar" bind:chooseavatar="onChooseAvatar" style="background-image:url({{avatarUrl}});">
+    </button></view>
+  <view class="text-center margin"><text>点击上方空白头像授权修改</text></view>
+</view>
+<view class="cu-form-group radius margin-xl">
+  <view class="title">昵称</view>
+  <input type="nickname" value="{{nickname}}" placeholder="请输入昵称" bindchange="nicknameChange"></input>
+</view>
+
+<view class="margin-xl bg-white padding radius shadow-wrap">
+  <view><text class="text-left padding-left-xl">受《小程序用户头像昵称获取规则调整公告》通知要求，微信小程序使用用户头像昵称必须经过用户主动授权允许。小盒子调整为默认使用灰色头像，登录学号作为头像，昵称;您可在此页面修改授权。请放心，即使不修改授权也不会影响您任何功能正常使用</text></view>
+</view>
+
+<view class="margin-xl flex flex-direction">
+  <button class="cu-btn bg-wegreen lg" bindtap="save">确认保存</button>
+</view>

@@ -21,7 +21,7 @@
   </view>
   <!-- 广告位结束 -->
 
-  <block wx:if="{{activeIndex == 0}}">
+  <!-- <block wx:if="{{activeIndex == 0}}">
     <view class="padding-sm">
 
       <view class="bg-green light padding radius shadow-blur margin-bottom">
@@ -99,9 +99,9 @@
         <button class="cu-btn bg-green lg" open-type="share" id='BJ'>分享转发给好友</button>
       </view>
     </view>
-  </block>
+  </block> -->
 
-  <block wx:if="{{activeIndex == 1}}">
+  <block wx:if="{{activeIndex == 0}}">
     <view class="padding-sm">
       <view class="bg-green light padding radius shadow-blur">
         <view class="text-lg text-center text-black">京津新城 ←_→ 天津市区</view>
@@ -147,7 +147,7 @@
     </view>
   </block>
 
-  <block wx:if="{{activeIndex == 2}}">
+  <block wx:if="{{activeIndex == 1}}">
     <view class="padding-sm">
       <view class="bg-green light padding radius shadow-blur">
         <view class="text-lg text-center text-black">学院 ←_→ 宝坻 (公交：宝13路)</view>

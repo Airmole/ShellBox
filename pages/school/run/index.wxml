@@ -1,78 +1,82 @@
 <!--pages/school/run/index.wxml-->
 <block wx:if="{{env == 'release'}}">
-<cu-custom bgColor="bg-purple" isCustom="{{true}}">
-  <view slot="content">步数排行 - 贝壳小盒子</view>
-</cu-custom>
+  <cu-custom bgColor="bg-purple" isCustom="{{true}}">
+    <view slot="content">步数排行 - 贝壳小盒子</view>
+  </cu-custom>
 
-<image class="image-width" src="https://gd-filems.dancf.com/mcm79j/mcm79j/51560/789140a2-ae2b-48bc-b679-eac7ae8495871762509.jpg" mode="widthFix"widthFix></image>
+  <image class="image-width" src="https://gd-filems.dancf.com/mcm79j/mcm79j/51560/789140a2-ae2b-48bc-b679-eac7ae8495871762509.jpg" mode="widthFix" widthFix></image>
 
-<view class="bg-img" style="background-image: url({{fillImage}});margin-top: -5px;">
-  <view class="padding-top-xs padding-lr-xl text-black">
-    <scroll-view scroll-x class="bg-white nav">
-      <view class="flex text-center">
-        <view class="cu-item flex-sub {{index==type?'text-purple cur':''}}" wx:for="{{types}}" wx:key="index" bindtap="typeSelect" data-id="{{index}}">
-        {{ item.name }}
-        </view>
-      </view>
-    </scroll-view>
-  </view>
-</view>
-<view class="bg-img" style="background-image: url({{fillImage}});" wx:for="{{ranklist}}" wx:key="index">
-  <view class="padding-lr-xl padding-tb-xs text-black">
-    <view class="padding-sm text-xl">
-      <view class="flex align-center">
-        <view class="number flex align-center justify-center">
-          <block wx:if="{{index < 3}}">
-            <image class="icon-size" src="{{top3icon[index]}}"></image>
-          </block>
-          <block wx:else>
-            <view class="text-center flex align-center justify-center icon-size"><text class="text-black">{{index + 1}}</text></view>
-          </block>
-        </view>
-        <view class="margin-left-sm">
-          <view class="cu-avatar round lg" style="background-image:url({{item.wechater?item.wechater.avatar:item.qqer.avatar}});"></view>
-        </view>
-        <view class="margin-tb-sm text-cut text-center" style="width: 240rpx;"><text class="text-lg">{{item.wechater ? item.wechater.nickname : item.qqer.nickname}}</text></view>
-        <view class="padding-left-xs padding-tb-sm" style="width: 180rpx;">
-          <view class="text-right">
-            <text>{{item.steps}}</text><text class="text-df">步</text></view>
+  <view class="bg-img" style="background-image: url({{fillImage}});margin-top: -5px;">
+    <view class="padding-top-xs padding-lr-xl text-black">
+      <scroll-view scroll-x class="bg-white nav">
+        <view class="flex text-center">
+          <view class="cu-item flex-sub {{index==type?'text-purple cur':''}}" wx:for="{{types}}" wx:key="index" bindtap="typeSelect" data-id="{{index}}">
+            {{ item.name }}
           </view>
+        </view>
+      </scroll-view>
+    </view>
+  </view>
+  <view class="bg-img" style="background-image: url({{fillImage}});" wx:for="{{ranklist}}" wx:key="index">
+    <view class="padding-lr-xl padding-tb-xs text-black">
+      <view class="padding-sm text-xl">
+        <view class="flex align-center">
+          <view class="number flex align-center justify-center">
+            <block wx:if="{{index < 3}}">
+              <image class="icon-size" src="{{top3icon[index]}}"></image>
+            </block>
+            <block wx:else>
+              <view class="text-center flex align-center justify-center icon-size"><text class="text-black">{{index + 1}}</text></view>
+            </block>
+          </view>
+          <view class="margin-left-sm">
+            <view class="cu-avatar round lg" style="background-image:url({{item.wechater&&item.wechater.avatar?item.wechater.avatar:defaultAvatar}});"></view>
+          </view>
+          <view class="margin-tb-sm text-cut text-center" style="width: 240rpx;"><text class="text-lg">{{item.wechater&&item.wechater.nickname ? item.wechater.nickname : item.uid}}</text></view>
+          <view class="padding-left-xs padding-tb-sm" style="width: 180rpx;">
+            <view class="text-right">
+              <text>{{item.steps}}</text><text class="text-df">步</text>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view wx:if="{{ranklist.length < 1}}">
+        <tips tipsText="暂时还没人上榜~"></tips>
       </view>
     </view>
-    <view wx:if="{{ranklist.length < 1}}"><tips tipsText="暂时还没人上榜~"></tips></view>
   </view>
-</view>
 
-<image class="image-width" src="https://gd-filems.dancf.com/mcm79j/mcm79j/51560/7205d009-dc18-4c7f-8573-58500fa4df3e1785978.jpg" mode="widthFix"widthFix></image>
+  <image class="image-width bottom-image" src="https://gd-filems.dancf.com/mcm79j/mcm79j/51560/7205d009-dc18-4c7f-8573-58500fa4df3e1785978.jpg" mode="widthFix" widthFix></image>
 
 
-<view class="cu-bar bg-gradual-pink tabbar border shop foot" wx:if="{{personalRank[0]}}">
-  <view class="">
-    <view class="margin-top-xs margin-left text-sl text-white">
-      {{personalRank[0].ranknum}}
+  <view style="height: 180rpx;" class="cu-bar bg-gradual-pink tabbar radius border shop foot" wx:if="{{personalRank[0]}}">
+    <view class="">
+      <view class="margin-top-xs margin-left text-sl text-white">
+        {{personalRank[0].ranknum}}
+      </view>
     </view>
-  </view>
-  <view class="flex">
-    <view class="margin-top-xs">
-      <view>
-        <view class="userinfo-avatar shadow-blur cu-avatar round lg">
-          <image src="{{ defaultAvatar }}"></image>
+    <view class="flex justify-center">
+      <view class="margin-top-xs">
+        <view>
+          <view class="userinfo-avatar shadow-blur cu-avatar round lg" style="background-image:url({{avatar}});">
+          </view>
+        </view>
+      </view>
+      <view class="flex flex-direction padding-lr-xs margin-top-sm" style="width: 350rpx;">
+        <view class="text-center">{{nickname}} <text wx:if="{{avatar==defaultAvatar}}" class="margin-left-xs" bindtap="updateAvatar">点此更新头像</text> </view>
+        <view class="flex justify-center text-center">
+          <view class="margin-right-sm"><text class="text-xl"> {{personalRank[0].steps}} </text><text>步</text></view>
         </view>
       </view>
     </view>
-    <view class="flex flex-direction padding-lr margin-top-sm" style="width: 250rpx;">
-      <view class="text-left"><image src="{{ defaultAvatar }}"></image></view>
-      <view class="flex align-end text-left">
-        <view class="margin-right-sm"><text class="text-xl"> {{personalRank[0].steps}} </text>步</view>
-      </view>
+    <view class="margin-sm">
+      <button class="cu-btn bg-red round shadow-blur" open-type="share">分享</button>
     </view>
   </view>
-  <view class="margin-sm">
-    <button class="cu-btn bg-red round shadow-blur" open-type="share">分享</button>
-  </view>
-</view>
 
 </block>
 <block wx:else>
-  <view class="margin"><tips tipsText="应官方审核要求，此功能已下线"></tips></view>
+  <view class="margin">
+    <tips tipsText="应官方审核要求，此功能已下线"></tips>
+  </view>
 </block>

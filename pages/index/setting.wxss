@@ -1,0 +1,8 @@
+/* pages/index/setting.wxss */
+page {
+  background: #eee;
+}
+
+.avatar {
+  width: 100%;
+}

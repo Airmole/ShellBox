@@ -1,6 +1,6 @@
 {
     "name": "shellbox",
-    "version": "3.2.14",
-    "description": "优化数据缓存&登录接口适配新版本基础库",
+    "version": "3.3.1",
+    "description": "登录相关优化&头像昵称授权&多余页面删除&通讯录接口获取更新",
     "author": "Airmole"
   }
