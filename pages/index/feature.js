@@ -59,14 +59,14 @@ Page({
       name: '校历',
       url: '../school/calendar',
       login: false,
-    // }, {
-    //   id: 'mybooks',
-    //   icon: 'tushuguan',
-    //   teacher: true,
-    //   student: true,
-    //   name: '我的借阅',
-    //   url: './../books/bind',
-    //   login: true,
+    }, {
+      id: 'mybooks',
+      icon: 'tushuguan',
+      teacher: true,
+      student: true,
+      name: '我的借阅',
+      url: './../books/bind',
+      login: true,
     }, {
       id: 'scanBookCode',
       icon: 'dushuma',
@@ -204,14 +204,14 @@ Page({
       url: '../school/xiaoai',
       login: false,
     }, {
-    //   id: 'portrait',
-    //   icon: 'biye',
-    //   teacher: false,
-    //   student: true,
-    //   name: '毕业画像',
-    //   url: '../books/portrait',
-    //   login: false,
-    // }, {
+      id: 'card',
+      icon: 'card',
+      teacher: false,
+      student: true,
+      name: '一卡通余额',
+      url: '../school/card/bind',
+      login: true,
+    }, {
       id: 'about',
       icon: 'plane',
       teacher: true,
@@ -246,10 +246,10 @@ Page({
     var userInfo = wx.getStorageSync('userInfo') || {}
     let iconList = this.data.iconList
     if (app.globalData.env != 'release') {
+      iconList[17].student = false
+      iconList[17].teacher = false
       iconList[16].student = false
       iconList[16].teacher = false
-      iconList[15].student = false
-      iconList[15].teacher = false
     }
     
     try {
@@ -300,7 +300,7 @@ Page({
   },
   goToPage: function (e) {
     const id = e.currentTarget.id;
-    const url = e.currentTarget.dataset.url;
+    let url = e.currentTarget.dataset.url;
     const needLogin = e.currentTarget.dataset.login;
     const hasEdusysStorage = this.data.hasEdusysStorage;
     // console.log('target：', hasEdusysStorage);
@@ -319,6 +319,8 @@ Page({
       wx.navigateToMiniProgram({ appId: 'wx183616af30e5723d' });
       return
     }
+
+    if (id == 'card') url = `${url}?uid=${this.data.edusysUserInfo.uid}`
 
     if(needLogin && !hasEdusysStorage){
       wx.showToast({ title: '不登录，这个功能没法用哟~', icon: 'none' })

@@ -71,7 +71,7 @@ Page({
       duration: 1000
     })
   },
-  getJYHistory: function() {
+  getJYHistory: function(page = 1) {
     var that = this;
     wx.request({
       url: `${app.globalData.domain}/book/history`,
@@ -82,38 +82,23 @@ Page({
         cookie: that.data.jsonStr.input.cookie,
         vcode: that.data.vcode,
         token: that.data.jsonStr.input.token,
+        sca: that.data.jsonStr.input.sca,
+        page: page
       },
       success: function(res) {
         that.setData({ remind: false });
         // console.log(res.data);
-        //账号密码错误以下功能实现密码错误Toast
-        if (res.data.code == 401) {
-          wx.showToast({
-            title: '账号密码有误',
-            image: '/images/info.png',
-            duration: 3000
-          });
-          wx.redirectTo({
-            url: '/pages/opac/bind',
-          })
-        } else if (res.data.code == 402) {
-          wx.showToast({
-            title: '验证码错误',
-            image: '/images/info.png',
-            duration: 3000
-          });
-          wx.redirectTo({
-            url: '/pages/opac/bind',
-          })
-        }else if (res.data.code == 403) {
-          // 使用初始化密码登录，需要修改才能查询到历史借阅图书
-          wx.showToast({ title: res.data.desc, image: 'nonw', duration: 3000 });
-          that.setData({ showPasswordModal: true });
-        } else if (res.data.code == '200') {
+        if (res.data.code == '200') {
           wx.hideToast()
-          that.setData({
-            historyList: res.data,
-          })
+          if (res.data.input.page == 1) {
+            that.setData({ historyList: res.data })
+          } else {
+            let historyList = that.data.historyList
+            historyList.input = res.data.input
+            historyList.execTime = res.data.execTime
+            historyList.data = that.data.historyList.data.concat(res.data.data)
+            that.setData({ historyList: historyList })
+          }
         } else {
           wx.showToast({
             title: res.data.desc,
@@ -130,12 +115,13 @@ Page({
       url: `${app.globalData.domain}/book/login/index`,
       method: "POST",
       data: {
-        uid:  app.globalData.edusysUserInfo.uid,
+        uid:  app.globalData.edusysUserInfo.uid ? app.globalData.edusysUserInfo.uid : para.uid,
         username: para.uid,
         password: para.pwd,
         cookie: para.cookie,
         vcode: para.vcode,
         token: para.token,
+        sca: para.sca
       },
       success: function(res) {
         that.setData({
@@ -326,5 +312,12 @@ Page({
         }
       }
     })
+  },
+  onReachBottom	() {
+    const currentPage = this.data.historyList.input.page
+    const total = this.data.jsonStr.readerInfo.borrowedBooksSum
+    if (currentPage * 20 >= total) return
+    const page = currentPage + 1
+    this.getJYHistory(page)
   }
 });

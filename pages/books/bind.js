@@ -66,17 +66,16 @@ Page({
         url: `${app.globalData.domain}/book/login/index`,
         method: "POST",
         data: {
-          uid: app.globalData.edusysUserInfo.uid,
+          uid: app.globalData.edusysUserInfo.uid ? app.globalData.edusysUserInfo.uid : uid,
           username: uid,
           password: pwd,
           cookie: that.data.PreInfo.cookie,
           vcode: vcode,
           token: that.data.PreInfo.token,
+          sca: that.data.PreInfo.sca
         },
         success: function(res) {
-          that.setData({
-            jsonStr: res.data,
-          })
+          that.setData({ jsonStr: res.data })
           // console.log(res.data)
           wx.hideToast()
           // console.log(res.data);
@@ -104,7 +103,8 @@ Page({
                 pwd: pwd,
                 vcode: vcode,
                 cookie: that.data.PreInfo.cookie,
-                token: that.data.PreInfo.token
+                token: that.data.PreInfo.token,
+                sca: that.data.PreInfo.sca
               };
               //设置本地Storage,维持登录态用
               wx.setStorageSync('opacPassword', pwd)

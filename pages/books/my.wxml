@@ -17,7 +17,7 @@
           <text class="ykt-ye-name">证件号：{{jsonStr.readerInfo.cardNO}}</text>
           <text class="ykt-ye-name">条码号：{{jsonStr.readerInfo.barCodeNO}}</text>
         </view>
-        <view class="ykt-img"></view>
+        <view class="ykt-img"><image src="/images/card-bg.png" mode="scaleToFill"></image></view>
       </view>
       <view class="ykt-card-more">
         <text class="ykt-ye-time"></text>

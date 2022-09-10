@@ -131,6 +131,24 @@
       </navigator>
     </block>
 
+     <!-- 一卡通余额 -->
+     <feecard
+      isShow="{{!(hasBindEcard && !ecardData)}}"
+      title="一卡通余额"
+      titleRight="💳"
+      bindedUrl="../school/card/index?uid={{edusysUserInfo.uid}}&password={{}}"
+      bindedShow="{{ecardData && ecardData.cardno}}"
+      bindedAccount="卡号:{{ecardData.cardno}}"
+      timeText="截止:{{ecardData.execTime}}"
+      contentTextLeft="余额"
+      contentValue="{{ecardData.amount || ''}}"
+      contentTextRight="元"
+      unbindUrl="../school/card/bind?uid={{edusysUserInfo.uid}}"
+      unbindShow="{{!hasBindEcard}}"
+      unbindTips="绑定关联查询一卡通余额"
+      unbindButton="绑定一卡通"
+    ></feecard>
+
     <!-- 电费信息 -->
     <feecard
       isShow="{{!(hasBindElesys && !elesysData)}}"
@@ -139,7 +157,7 @@
       bindedUrl="../elesys/index?building={{elesysData.building}}&room={{elesysData.room}}"
       bindedShow="{{elesysData.balance.length > 0}}"
       bindedAccount="{{elesysData.building || ''}}斋{{elesysData.room || ''}}"
-      timeText="截止:{{elesysData.time}}"
+      timeText="截止:{{elesysData.execTime || ''}}"
       contentTextLeft="剩余电量"
       contentValue="{{elesysData.balance || ''}}"
       contentTextRight="度"
@@ -156,8 +174,8 @@
       titleRight="🌐"
       bindedUrl="../netsys/index"
       bindedShow="{{netsysData.welcome.length > 0}}"
-      bindedAccount="{{netsysData.netid || ''}}"
-      timeText=""
+      bindedAccount="账号:{{netsysData.netid || ''}}"
+      timeText="截止:{{netsysData.execTime || ''}}"
       contentTextLeft="网费余额"
       contentValue="{{netsysData.leftMoney || ''}}"
       contentTextRight="元"
