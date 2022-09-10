@@ -28,7 +28,8 @@ Page({
     hasBindElesys: true,
     netsysData: false,
     hasBindNetsys: false,
-    quanyiModal: false
+    ecardData: false,
+    hasBindEcard: true
   },
   onLoad: function () {
     this.inital();
@@ -136,6 +137,8 @@ Page({
 
     // 是否有绑定电费信息？查询电费
     this.getElesysInfo()
+    // 是否有绑定一卡通信息？查询一卡通余额
+    this.getEcardInfo()
     // 是否有绑定校园网信息？查询网费余额
     this.getNetsysInfo()
 
@@ -168,6 +171,26 @@ Page({
       this.getEleData(elesysUserInfo.building, elesysUserInfo.room)
     } catch (error) {
       this.setData({ elesysData: false, hasBindElesys: false })
+    }
+  },
+  getEcardInfo: function () {
+    try {
+      var ehallAccount = wx.getStorageSync('ehallAccount') || ''
+      if (!ehallAccount) {
+        const idcard = app.globalData.edusysUserInfo.idcard || ''
+        Object.assign(ehallAccount, {
+          uid: app.globalData.edusysUserInfo.uid,
+          password: idcard.substring(idcard.length - 6)
+        })
+      }
+      if (!ehallAccount) {
+        this.setData({ ecardData: false, hasBindEcard: false })
+        return
+      }
+      console.log('ehallAccount', ehallAccount)
+      this.getEcardData(ehallAccount)
+    } catch (error) {
+      this.setData({ ecardData: false, hasBindEcard: false })
     }
   },
   getNetsysInfo: function () {
@@ -220,6 +243,25 @@ Page({
           }
         } catch (error) {
           _this.setData({ hasBindElesys: true, elesysData: false })
+        }
+      }
+    })
+  },
+  // 获取一卡通余额数据
+  getEcardData: function(ecardAccount) {
+    var _this = this
+    wx.request({
+      url: `${app.globalData.domain}/ehall/card`,
+      data: ecardAccount,
+      timeout: app.globalData.requestTimeout,
+      method: 'GET',
+      success: function(res){
+        try {
+          if (res.data && res.data.cardno) {
+            _this.setData({ hasBindEcard: true, ecardData: res.data })
+          }
+        } catch (error) {
+          _this.setData({ hasBindEcard: true, ecardData: false })
         }
       }
     })
@@ -292,9 +334,6 @@ Page({
   },
   goToBookSearchPage: function () {
     wx.navigateTo({ url: '../books/search' })
-  },
-  showQuanyiModal: function () {
-    this.setData({ quanyiModal: true })
   },
   /**
    * 生命周期函数--监听页面隐藏

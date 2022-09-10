@@ -10,7 +10,7 @@
     <view class="padding-xs">
       <view class="flex">
         <view class="flex-sub padding-sm text-xl">{{bindedAccount}}</view>
-        <view class="flex-twice padding-sm text-gray text-right">{{timeText}}</view>
+        <view class="flex-sub padding-sm text-gray text-right">{{timeText}}</view>
       </view>
       <view class="padding-lr padding-bottom-sm">
         <view class="text-center">

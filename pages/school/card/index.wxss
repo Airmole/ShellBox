@@ -1,0 +1,71 @@
+/* pages/school/card/index.wxss */
+
+/* 今日余额 */
+.ykt-card {
+  display: flex;
+  flex-direction: column;
+  height: 350rpx;
+  margin: 15rpx 50rpx 45rpx;
+  background: #ffcb63;
+  border-radius: 15rpx;
+  box-shadow: 5rpx 5rpx 15rpx #ccc;
+}
+.ykt-black-line {
+  width: 100%;
+  height: 80rpx;
+  margin: 40rpx 0 0;
+  background: #7b7b7b;
+}
+.ykt-content {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.ykt-ye {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding-right: 50rpx;
+  color: #777;
+}
+.ykt-ye-name {
+  font-size: 11pt;
+  line-height: 50rpx;
+  padding-left: 30rpx;
+}
+.ykt-ye-money {
+  text-align: center;
+  font-size: 10pt;
+}
+.ykt-ye-value {
+  font-size: 36pt;
+  font-weight: bold;
+  line-height: 80rpx;
+  padding-right: 25rpx;
+}
+.ykt-img {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 200rpx;
+}
+.ykt-img image {
+  width: 125rpx;
+  height: 125rpx;
+  padding: 20rpx 30rpx;
+}
+.ykt-card-more {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin: 5rpx 25rpx 10rpx 25rpx;
+  line-height: 100%;
+  opacity: .6;
+}
+.ykt-ye-time {
+  font-size: 9pt;
+}
+.ykt-ye-id {
+  font-size: 10pt;
+}
