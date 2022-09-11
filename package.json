@@ -1,6 +1,6 @@
 {
     "name": "shellbox",
-    "version": "3.3.1",
-    "description": "登录相关优化&头像昵称授权&多余页面删除&通讯录接口获取更新",
+    "version": "3.3.2",
+    "description": "新增一卡通余额查询&优化借阅查询版本更新对接",
     "author": "Airmole"
   }
