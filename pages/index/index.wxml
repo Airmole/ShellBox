@@ -133,7 +133,7 @@
 
      <!-- 一卡通余额 -->
      <feecard
-      isShow="{{!(hasBindEcard && !ecardData)}}"
+      isShow="{{hasBindEcard}}"
       title="一卡通余额"
       titleRight="💳"
       bindedUrl="../school/card/index?uid={{edusysUserInfo.uid}}&password={{}}"
