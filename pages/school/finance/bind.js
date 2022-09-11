@@ -83,7 +83,7 @@ Page({
               username: username,
               password: password,
               vcode: vcode,
-              cookie: that.data.cookieInfo.cookie
+              cookie: res.data.cookie
             };
             //设置本地Storage,维持登录态用
             wx.setStorageSync('financePassword', password)
