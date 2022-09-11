@@ -65,7 +65,7 @@
           <text class="text-grey">一卡通卡号</text>
         </view>
         <view class="action">
-          <text class="text-grey text-sm">1972396080</text>
+          <text class="text-grey text-sm">{{ehall.cardno}}</text>
         </view>
       </view>
     </view>
