@@ -9,12 +9,12 @@
 
 ## 线上版本体验
 
-[![miniprogram.th.jpg](https://upload-images.jianshu.io/upload_images/4697920-978a1204bd86e58c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)](小程序体验码)
+<img style="width:30%;" src="https://user-images.githubusercontent.com/20333663/189793371-a3d2f628-7bbe-4849-97cc-0d6e11d3c5a6.png"/>
 
-- 体验账号：000000000
+- 体验账号：000000000（9个0）
 
-- 体验密码：test
-> 测试体验账号仅供预览展示效果，且”我的借阅“、"学费查询"、”网费查询“功能不支持使用体验账号。
+- 体验密码：123456789
+> 测试体验账号仅供预览展示效果，且”我的借阅“、"学费查询"、”网费查询“功能账号密码均相同。
 
 
 ## 截图
@@ -22,52 +22,44 @@
 
 ## 页面路径说明
 
-```
-"pages": [
-    "pages/index/index",             // 首页
-    "pages/index/login",             // 登录
-    "pages/index/feature",           // 功能列表
-    "pages/books/search",            // 图书检索
-    "pages/books/index",             // 图书检索结果列表
-    "pages/books/detail",            // 图书信息详情 
-    "pages/books/shelf",             // 图书书架
-    "pages/books/bind",              // 图书OPAC借阅系统账号绑定
-    "pages/books/hot/index",         // 热门图书排行
-    "pages/books/overdue/index",     // 图书超期欠款
-    "pages/books/recommend/index",   // 图书荐购(待完成)
-    "pages/books/my",                // 我的图书馆
-    "pages/books/portrait",          // 毕业生画像(成绩、借阅记录回忆统计)
-    "pages/course/my",               // 我的个人课表
-    "pages/course/search",           // 班级、教师课表搜索
-    "pages/course/content",          // 班级教师课表详情
-    "pages/course/stulist/index",    // 教师课堂学生花名册列表
-    "pages/course/stulist/content",  // 教师课堂学生花名册详情
-    "pages/elesys/bind",             // 电费查询寝室绑定
-    "pages/elesys/index",            // 电费信息展示
-    "pages/netsys/bind",             // 校园网账号绑定
-    "pages/netsys/index",            // 网费查询结果界面
-    "pages/netsys/list",             // 网费查询明细
-    "pages/traffic/navi",           // 校园导航
-    "pages/traffic/bus",            // 校园出行
-    "pages/score/score",             // 成绩查询
-    "pages/school/calendar",         // 校历
-    "pages/school/tel",              // 校园通讯录
-    "pages/school/cert",             // 考证助手
-    "pages/school/web",              // 校园站点
-    "pages/school/aboutus",          // 关于
-    "pages/school/xiaoai"            // 小爱课程表
-    "pages/school/board/index",      // 学生权益投诉列表
-    "pages/school/board/faq",        // 学生权益常见问题
-    "pages/school/board/edit",       // 权益投诉内容编辑
-    "pages/school/board/detail",     // 权益投诉内容展示
-    "pages/school/lost/edit",        // 失物招领发表编辑
-    "pages/school/lost/index",       // 失物招领列表页面
-    "pages/school/lost/detail"       // 失物招领内容展示
-    "pages/school/run/index"         // 运动计步排行榜
-    "pages/school/finance/bind"       // 缴费平台账号绑定
-    "pages/school/finance/index"      // 缴费查询界面
-  ],
-```
+
+| 页面路径                   | 功能                  |
+| -------------------------- | --------------------- |
+| pages/index/index          | 默认首页              |
+| pages/index/login          | 账号登录              |
+| pages/index/feature        | 功能列表              |
+| pages/books/search         | 图书检索              |
+| pages/books/index          | 图书检索结果列表      |
+| pages/books/detail         | 图书详情              |
+| pages/books/shelf          | 图书书架              |
+| pages/books/bind           | 绑定借阅              |
+| pages/books/hot/index      | 热门图书排行          |
+| pages/books/overdue/index  | 图书超期欠款          |
+| pages/books/my             | 我的图书馆            |
+| pages/course/my            | 个人课表              |
+| pages/course/search        | 班级/教师课表搜索列表 |
+| pages/course/content       | 班级/教师课表内容     |
+| pages/elesys/bind          | 绑定电费寝室          |
+| pages/elesys/index         | 寝室电费信息          |
+| pages/netsys/bind          | 校园网账号绑定        |
+| pages/netsys/index         | 网费查询结果界面      |
+| pages/netsys/list          | 网费查询明细          |
+| pages/traffic/navi         | 校园导航             |
+| pages/traffic/bus          | 校园出行方案          |
+| pages/score/score          | 成绩查询             |
+| pages/school/calendar      | 校历                 |
+| pages/school/tel           | 校园通讯录           |
+| pages/school/cert          | 考证助手             |
+| pages/school/web           | 校园站点             |
+| pages/school/aboutus       | 关于                |
+| pages/school/xiaoai        | 小爱课表             |
+| pages/school/lost/index    | 失物招领             |
+| pages/school/lost/detail   | 失物招领详情         |
+| pages/school/run/index     | 运动计步排行榜       |
+| pages/school/finance/bind  | 缴费平台账号绑定      |
+| pages/school/finance/index | 缴费查询界面         |
+| pages/school/card/index    | 校园一卡通查询界面    |
+| pages/school/card/bind     | 校园一卡通绑定界面    |
 
 ## 参考借鉴
 
