@@ -20,7 +20,14 @@ Page({
 
     let uid = options.uid || ''
     let password = options.password || ''
-    if (uid != '' && password == '') password = idcard.substring(idcard.length - 6)
+    if (uid != '' && password == '') {
+      const pointGrade = 20
+      const grade = uid.substr(0, 2)
+      // 20级之前默认密码身份证号码后六位
+      if (grade < pointGrade &&  uid.indexOf(grade) === 0) password = idcard.substring(idcard.length - 6)
+      // 20级之后默认密码身份证号码后八位
+      if (grade >= pointGrade &&  uid.indexOf(grade) === 0) password = idcard.substring(idcard.length - 8)
+    }
     if (uid != '' && password == '' && ehallAccount && ehallAccount.uid == uid) password = ehallAccount.password
     if (uid == '' && password=='' && ehallAccount && ehallAccount.uid) {
       uid = ehallAccount.uid

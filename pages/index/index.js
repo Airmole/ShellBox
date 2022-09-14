@@ -175,21 +175,22 @@ Page({
   },
   getEcardInfo: function () {
     try {
-      var ehallAccount = wx.getStorageSync('ehallAccount') || ''
-      if (!ehallAccount) {
+      let ehallAccount = wx.getStorageSync('ehallAccount') || {}
+      if (Object.keys(ehallAccount).length === 0) {
+        const uid = app.globalData.edusysUserInfo.uid
+        let password = ''
         const idcard = app.globalData.edusysUserInfo.idcard || ''
-        Object.assign(ehallAccount, {
-          uid: app.globalData.edusysUserInfo.uid,
-          password: idcard.substring(idcard.length - 6)
-        })
+        const pointGrade = 20
+        const grade = uid.substr(0, 2)
+        // 20级之前默认密码身份证号码后六位
+        if (grade < pointGrade &&  uid.indexOf(grade) === 0) password = idcard.substring(idcard.length - 6)
+        // 20级之后默认密码身份证号码后八位
+        if (grade >= pointGrade &&  uid.indexOf(grade) === 0) password = idcard.substring(idcard.length - 8)
+        Object.assign(ehallAccount, { uid: uid, password: password })
       }
-      if (!ehallAccount) {
-        this.setData({ ecardData: false, hasBindEcard: false })
-        return
-      }
-      console.log('ehallAccount', ehallAccount)
       this.getEcardData(ehallAccount)
     } catch (error) {
+      console.log('getEcardInfo', error)
       this.setData({ ecardData: false, hasBindEcard: false })
     }
   },
@@ -259,6 +260,9 @@ Page({
         try {
           if (res.data && res.data.cardno) {
             _this.setData({ hasBindEcard: true, ecardData: res.data })
+            wx.setStorageSync('ehallAccount', ecardAccount)
+          } else {
+            _this.setData({ hasBindEcard: false, ecardData: false })
           }
         } catch (error) {
           _this.setData({ hasBindEcard: true, ecardData: false })

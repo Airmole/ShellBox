@@ -8,19 +8,29 @@
       <navigator url="./setting" class="margin-top-sm nickname">{{ edusysUserInfo.nickname ? (edusysUserInfo.nickname + ' | ') : '点击授权昵称头像' }} {{ edusysUserInfo.uid}}</navigator>
     </block>
     <view class="margin-top-sm nickname text-center" bindtap="goLogin" wx:else>
-      <view><image src="{{ defaultAvatar }}"></image></view><view>您尚未登录</view>
+      <view>
+        <image src="{{ defaultAvatar }}"></image>
+      </view>
+      <view>您尚未登录</view>
     </view>
     <image src="https://upload-images.jianshu.io/upload_images/4697920-0b3859b5e4ef17ec.gif" mode="scaleToFill" class="gif-wave"></image>
   </view>
 
-  <view class="cu-list grid col-5 no-border">
-    <view wx:if="{{(isTeacher&&item.teacher)||(!isTeacher&&item.student)}}" class="cu-item" wx:for="{{iconList}}" wx:key="key" id="{{item.id}}" data-url="{{item.url}}" data-login="{{item.login}}" bindtap="goToPage">
-      <view>
-        <text class="iconfont icon-{{item.icon}}" style="color:#84BD54;font-size:32px;"></text>
+  <block wx:for="{{iconList}}" wx:for-index="key" wx:for-item="value" wx:key="key">
+    <view class="cu-bar bg-white solid-bottom feature-titles">
+      <view class="action text-blod">
+        <text class="cuIcon-title text-wegreen "></text> {{value.title}}
       </view>
-      <text>{{item.name}}</text>
     </view>
-  </view>
+    <view class="cu-list grid col-5 no-border">
+      <view wx:if="{{(isTeacher&&item.teacher)||(!isTeacher&&item.student)}}" class="cu-item" wx:for="{{value.items}}" wx:key="key" id="{{item.id}}" data-url="{{item.url}}" data-login="{{item.login}}" bindtap="goToPage">
+        <view>
+          <text class="iconfont icon-{{item.icon}}" style="color:#84BD54;font-size:32px;"></text>
+        </view>
+        <text>{{item.name}}</text>
+      </view>
+    </view>
+  </block>
 
   <view class="padding flex flex-direction">
     <ad unit-id="adunit-62f52651dd5f4ff6"></ad>

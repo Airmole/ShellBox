@@ -9,7 +9,7 @@
     <view class="padding-xs text-center">
       <image src="{{webImage}}" mode="widthFix"></image>
     </view>
-    <view class="text-center"><text>请输入关联以上系统平台账号密码\r\n默认初始账号为学号</text></view>
+    <view class="text-center"><text>请输入关联以上系统平台账号密码\r\n默认初始账号为学号，大一新生可能暂不支持\r\n19级默认密码身份证号后六位，20,21级末8位</text></view>
   </view>
 
   <view class="margin padding-top">
