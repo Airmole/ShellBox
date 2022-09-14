@@ -1,6 +1,6 @@
 {
     "name": "shellbox",
-    "version": "3.3.2",
-    "description": "新增一卡通余额查询&优化借阅查询版本更新对接",
+    "version": "3.3.3",
+    "description": "优化菜单列表分类展示，更新默认密码文案",
     "author": "Airmole"
   }
