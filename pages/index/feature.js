@@ -274,13 +274,6 @@ Page({
     var edusysUserInfo = wx.getStorageSync('edusysUserInfo') || {}
     var userInfo = wx.getStorageSync('userInfo') || {}
     var iconList = this.data.iconList
-    // 非正式线上环境不启用
-    if (app.globalData.env != 'release') {
-      iconList[3].items[3].student = false
-      iconList[3].items[3].teacher = false
-      iconList[3].items[5].student = false
-      iconList[3].items[5].teacher = false
-    }
 
     try {
       if (edusysUserInfo.uid.length > 0 && edusysUserInfo.password.length > 0) {
@@ -290,14 +283,25 @@ Page({
           isTeacher = true
         }
         // 按老师学生身份筛选过滤功能菜单
-        iconList.forEach((board, index) => {
+        for (let index = 0; index < iconList.length; index++) {
+          const board = iconList[index];
           features.push({ title: board.title, fold: board.fold, items: [] })
-          board.items.forEach(element => {
-            if (isTeacher && !element.teacher) return
-            if (!isTeacher && !element.student) return
-            features[index].items.push(element)
-          })
-        })
+          for (let idx = 0; idx < board.items.length; idx++) {
+            const element = board.items[idx];
+            // 非正式线上环境不启用
+            if (app.globalData.env != 'release') {
+              if (element.id == 'steps' || element.id == 'lost') continue
+            }
+            if (isTeacher && !element.teacher) continue
+            if (element.teacher && element.student) {
+              features[index].items.push(element)
+              continue
+            }
+            if ((!isTeacher && element.student) || (isTeacher && element.teacher)) {
+              features[index].items.push(element)
+            }
+          }
+        }
 
         this.setData({
           iconList: features,
