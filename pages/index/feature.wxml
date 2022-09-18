@@ -26,13 +26,13 @@
       <view class="padding-lr" wx:if="{{value.items.length>5}}" data-index="{{key}}" bindtap="foldChanged"><text class="cuIcon-{{value.fold?'unfold':'fold'}} text-bold text-wegreen"></text></view>
     </view>
     <view class="cu-list grid col-5 no-border">
-      <view class="cu-item" wx:if="{{index<5}}" wx:for="{{value.items}}" wx:key="key" id="{{item.id}}" data-url="{{item.url}}" data-login="{{item.login}}" bindtap="goToPage">
+      <view class="cu-item" wx:if="{{index<5}}" wx:for="{{value.items}}" wx:for-index="index" wx:for-item="item" wx:key="key" id="{{item.id}}" data-url="{{item.url}}" data-login="{{item.login}}" bindtap="goToPage">
         <view>
           <text class="iconfont icon-{{item.icon}}" style="color:#84BD54;font-size:32px;"></text>
         </view>
         <text>{{item.name}}</text>
       </view>
-      <view class="cu-item" wx:if="{{index>=5 && !value.fold}}" wx:for="{{value.items}}" wx:key="key" id="{{item.id}}" data-url="{{item.url}}" data-login="{{item.login}}" bindtap="goToPage">
+      <view class="cu-item" wx:if="{{index>=5 && !value.fold}}" wx:for="{{value.items}}" wx:for-index="index" wx:for-item="item" wx:key="key" id="{{item.id}}" data-url="{{item.url}}" data-login="{{item.login}}" bindtap="goToPage">
         <view>
           <text class="iconfont icon-{{item.icon}}" style="color:#84BD54;font-size:32px;"></text>
         </view>
