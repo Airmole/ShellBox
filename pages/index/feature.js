@@ -14,6 +14,7 @@ Page({
     iconList: [
       {
         title: '课表成绩',
+        fold: false,
         items: [{
           id: 'myCourse',
           icon: 'wodekebiao',
@@ -63,8 +64,10 @@ Page({
           url: 'packageResultQuery/pages/cet_his/CET_Result_His_Portal',
           login: false,
         }]
-      }, {
+      },
+      {
         title: '费用查询',
+        fold: false,
         items: [{
           id: 'elesys',
           icon: 'dianfei',
@@ -98,8 +101,10 @@ Page({
           url: '../school/finance/bind',
           login: true,
         }]
-      }, {
+      },
+      {
         title: '图书馆',
+        fold: true,
         items: [{
           id: 'booksearch',
           icon: 'booksearch',
@@ -152,6 +157,7 @@ Page({
       },
       {
         title: '校园生活',
+        fold: false,
         items: [{
           id: 'calendar',
           icon: 'xiaoli',
@@ -267,9 +273,9 @@ Page({
   inital: function () {
     var edusysUserInfo = wx.getStorageSync('edusysUserInfo') || {}
     var userInfo = wx.getStorageSync('userInfo') || {}
-    let iconList = this.data.iconList
+    var iconList = this.data.iconList
+    // 非正式线上环境不启用
     if (app.globalData.env != 'release') {
-      // 非正式线上环境不启用
       iconList[3].items[3].student = false
       iconList[3].items[3].teacher = false
       iconList[3].items[5].student = false
@@ -278,12 +284,23 @@ Page({
 
     try {
       if (edusysUserInfo.uid.length > 0 && edusysUserInfo.password.length > 0) {
+        var features = []
         var isTeacher = false;
         if (edusysUserInfo.uid.length < 8) {
           isTeacher = true
         }
+        // 按老师学生身份筛选过滤功能菜单
+        iconList.forEach((board, index) => {
+          features.push({ title: board.title, fold: board.fold, items: [] })
+          board.items.forEach(element => {
+            if (isTeacher && !element.teacher) return
+            if (!isTeacher && !element.student) return
+            features[index].items.push(element)
+          })
+        })
+
         this.setData({
-          iconList: iconList,
+          iconList: features,
           hasEdusysStorage: true,
           isTeacher: isTeacher,
           edusysUserInfo: edusysUserInfo,
@@ -291,7 +308,7 @@ Page({
         })
       }
     } catch (error) {
-      // console.log(error)
+      console.log(error)
       this.setData({
         iconList: iconList,
         hasEdusysStorage: false,
@@ -373,8 +390,11 @@ Page({
       }
     })
   },
-  showQuanyiModal: function () {
-    this.setData({ quanyiModal: true })
+  foldChanged (e) {
+    const index = e.currentTarget.dataset.index
+    let iconList = this.data.iconList
+    iconList[index].fold = !iconList[index].fold
+    this.setData({ iconList: iconList })
   },
   showBgImage: function () {
     const background = this.data.backgroundImage

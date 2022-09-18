@@ -1,9 +1,10 @@
 <!--pages/index/feature.wxml-->
 <scroll-view scroll-y class="scrollPage">
+  <!-- 顶部 -->
   <view class="UCenter-bg" style="background-image: url({{backgroundImage}});" catchlongpress="showBgImage">
     <block wx:if="{{hasEdusysStorage}}">
       <navigator url="./setting" class="userinfo-avatar shadow-blur">
-        <image src="{{ edusysUserInfo.avatar || defaultAvatar }}"></image>
+        <image src="{{ userInfo.avatarUrl || edusysUserInfo.avatar || defaultAvatar }}"></image>
       </navigator>
       <navigator url="./setting" class="margin-top-sm nickname">{{ edusysUserInfo.nickname ? (edusysUserInfo.nickname + ' | ') : '点击授权昵称头像' }} {{ edusysUserInfo.uid}}</navigator>
     </block>
@@ -16,14 +17,22 @@
     <image src="https://upload-images.jianshu.io/upload_images/4697920-0b3859b5e4ef17ec.gif" mode="scaleToFill" class="gif-wave"></image>
   </view>
 
+  <!-- 功能菜单 -->
   <block wx:for="{{iconList}}" wx:for-index="key" wx:for-item="value" wx:key="key">
     <view class="cu-bar bg-white solid-bottom feature-titles">
       <view class="action text-blod">
         <text class="cuIcon-title text-wegreen "></text> {{value.title}}
       </view>
+      <view class="padding-lr" wx:if="{{value.items.length>5}}" data-index="{{key}}" bindtap="foldChanged"><text class="cuIcon-{{value.fold?'unfold':'fold'}} text-bold text-wegreen"></text></view>
     </view>
     <view class="cu-list grid col-5 no-border">
-      <view wx:if="{{(isTeacher&&item.teacher)||(!isTeacher&&item.student)}}" class="cu-item" wx:for="{{value.items}}" wx:key="key" id="{{item.id}}" data-url="{{item.url}}" data-login="{{item.login}}" bindtap="goToPage">
+      <view class="cu-item" wx:if="{{index<5}}" wx:for="{{value.items}}" wx:key="key" id="{{item.id}}" data-url="{{item.url}}" data-login="{{item.login}}" bindtap="goToPage">
+        <view>
+          <text class="iconfont icon-{{item.icon}}" style="color:#84BD54;font-size:32px;"></text>
+        </view>
+        <text>{{item.name}}</text>
+      </view>
+      <view class="cu-item" wx:if="{{index>=5 && !value.fold}}" wx:for="{{value.items}}" wx:key="key" id="{{item.id}}" data-url="{{item.url}}" data-login="{{item.login}}" bindtap="goToPage">
         <view>
           <text class="iconfont icon-{{item.icon}}" style="color:#84BD54;font-size:32px;"></text>
         </view>
@@ -33,7 +42,9 @@
   </block>
 
   <view class="padding flex flex-direction">
+    <!-- 广告 -->
     <ad unit-id="adunit-62f52651dd5f4ff6"></ad>
+    <!-- 操作 -->
     <view class="flex">
       <button open-type="share" class="flex-sub padding-sm margin-sm bg-green cu-btn margin-tb-sm lg round shadow">分享</button>
       <button wx:if="{{hasEdusysStorage}}" class="flex-sub padding-sm margin-sm bg-red cu-btn margin-tb-sm lg round shadow animation-{{animation=='shake'?'shake':''}}" data-class="shake" bindtap="logout">注销</button>

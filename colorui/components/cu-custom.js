@@ -41,9 +41,15 @@ Component({
    */
   methods: {
     BackPage() {
-      wx.navigateBack({
-        delta: 1
-      });
+      try {
+        const _this = this
+        wx.navigateBack({
+          delta: 1,
+          fail() { _this.toHome()}
+        });
+      } catch (error) {
+        this.toHome()
+      }
     },
     toHome(){
       wx.reLaunch({
