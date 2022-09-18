@@ -1,6 +1,6 @@
 {
     "name": "shellbox",
-    "version": "3.3.3",
-    "description": "优化菜单列表分类展示，更新默认密码文案",
+    "version": "3.3.4",
+    "description": "优化图书详情界面&首页移除频繁请求一卡通余额",
     "author": "Airmole"
   }

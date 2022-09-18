@@ -27,9 +27,7 @@ Page({
     elesysData: false,
     hasBindElesys: true,
     netsysData: false,
-    hasBindNetsys: false,
-    ecardData: false,
-    hasBindEcard: true
+    hasBindNetsys: false
   },
   onLoad: function () {
     this.inital();
@@ -137,8 +135,6 @@ Page({
 
     // 是否有绑定电费信息？查询电费
     this.getElesysInfo()
-    // 是否有绑定一卡通信息？查询一卡通余额
-    this.getEcardInfo()
     // 是否有绑定校园网信息？查询网费余额
     this.getNetsysInfo()
 
@@ -171,27 +167,6 @@ Page({
       this.getEleData(elesysUserInfo.building, elesysUserInfo.room)
     } catch (error) {
       this.setData({ elesysData: false, hasBindElesys: false })
-    }
-  },
-  getEcardInfo: function () {
-    try {
-      let ehallAccount = wx.getStorageSync('ehallAccount') || {}
-      if (Object.keys(ehallAccount).length === 0) {
-        const uid = app.globalData.edusysUserInfo.uid
-        let password = ''
-        const idcard = app.globalData.edusysUserInfo.idcard || ''
-        const pointGrade = 20
-        const grade = uid.substr(0, 2)
-        // 20级之前默认密码身份证号码后六位
-        if (grade < pointGrade &&  uid.indexOf(grade) === 0) password = idcard.substring(idcard.length - 6)
-        // 20级之后默认密码身份证号码后八位
-        if (grade >= pointGrade &&  uid.indexOf(grade) === 0) password = idcard.substring(idcard.length - 8)
-        Object.assign(ehallAccount, { uid: uid, password: password })
-      }
-      this.getEcardData(ehallAccount)
-    } catch (error) {
-      console.log('getEcardInfo', error)
-      this.setData({ ecardData: false, hasBindEcard: false })
     }
   },
   getNetsysInfo: function () {
@@ -244,28 +219,6 @@ Page({
           }
         } catch (error) {
           _this.setData({ hasBindElesys: true, elesysData: false })
-        }
-      }
-    })
-  },
-  // 获取一卡通余额数据
-  getEcardData: function(ecardAccount) {
-    var _this = this
-    wx.request({
-      url: `${app.globalData.domain}/ehall/card`,
-      data: ecardAccount,
-      timeout: app.globalData.requestTimeout,
-      method: 'GET',
-      success: function(res){
-        try {
-          if (res.data && res.data.cardno) {
-            _this.setData({ hasBindEcard: true, ecardData: res.data })
-            wx.setStorageSync('ehallAccount', ecardAccount)
-          } else {
-            _this.setData({ hasBindEcard: false, ecardData: false })
-          }
-        } catch (error) {
-          _this.setData({ hasBindEcard: true, ecardData: false })
         }
       }
     })

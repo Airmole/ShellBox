@@ -78,6 +78,9 @@
   "permission": {
     "scope.userLocation": {
       "desc": "你的位置信息将用于校园导航定位"
+    },
+    "scope.addPhoneCalendar": {
+      "desc": "用于添加上课日历事件提醒"
     }
   },
   "requiredPrivateInfos": [

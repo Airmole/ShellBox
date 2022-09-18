@@ -4,3 +4,7 @@
 page{
   background: var(--cyan);
 }
+
+.infloor {
+  border: 1px solid #1CBBB4;
+}

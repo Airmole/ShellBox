@@ -55,8 +55,8 @@ App({
     const cookie = edusysInfo.cookie ? edusysInfo.cookie : ''
     const openid = wx.getStorageSync('openid') || { openid: this.globalData.openid }
     wx.request({
-      url: `https://dev.shellbox.airmole.cn/api/edu/profile`,
-      // url: `${self.globalData.domain}/edu/profile`,
+      // url: `https://dev.shellbox.airmole.cn/api/edu/profile`,
+      url: `${self.globalData.domain}/edu/profile`,
       data:{
         uid: uid,
         pwd: pwd,

@@ -7,8 +7,8 @@
       "list": [
         {
           "name": "",
-          "pathName": "pages/school/card/bind",
-          "query": "username=",
+          "pathName": "pages/school/board/index",
+          "query": "",
           "launchMode": "default",
           "scene": null
         }
