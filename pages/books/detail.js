@@ -166,12 +166,15 @@ Page({
       }
     })
     // 馆藏地
-    book.collection.forEach(bookItem => {
+    for (let index = 0; index < book.collection.length; index++) {
+      const bookItem = book.collection[index];
       bookItem.forEach(prop => {
+        console.log('prop', prop.title.indexOf('馆藏地'))
         if (prop.title == '索书号' && prop.value.length > 0) callNo = prop.value
         if (prop.title.indexOf('馆藏地') >= 0) place = prop.value
       })
-    })
+      break
+    }
     const pattern = /^[a-zA-Z]+/
     const matchedCallNoPrefix = pattern.exec(callNo)
     callNoPrefix = matchedCallNoPrefix == null ? '' : matchedCallNoPrefix[0]

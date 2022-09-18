@@ -11,6 +11,13 @@
           "query": "",
           "launchMode": "default",
           "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/books/detail",
+          "query": "code=3932483350564b596d6b564e697a78777831764432673d3d",
+          "launchMode": "default",
+          "scene": null
         }
       ]
     }
