@@ -11,7 +11,7 @@ Page({
     building_focus: false,
     room_focus: false,
     room: '',
-    bgimg: 'https://upload-images.jianshu.io/upload_images/4697920-e8bd1a073b17f6bb.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240',
+    bgimg: 'https://cdn.airmole.cn/static/elefare_bind_title.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240',
     angle: 0
   },
   onLoad: function (){

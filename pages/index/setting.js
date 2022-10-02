@@ -1,9 +1,9 @@
 // pages/index/setting.js
 const app = getApp()
-const defaultAvatar = 'https://mmbiz.qpic.cn/mmbiz/icTdbqWNOwNRna42FI242Lcia07jQodd2FJGIYQfG0LAJGFxM4FbnQP6yfMxBgJ0F3YRqJCJ1aPAK2dQagdusBZg/0'
+const defaultAvatar = 'https://cdn.airmole.cn/static/default_gray_avatar.png'
 Page({
   data: {
-    avatarUrl: 'https://mmbiz.qpic.cn/mmbiz/icTdbqWNOwNRna42FI242Lcia07jQodd2FJGIYQfG0LAJGFxM4FbnQP6yfMxBgJ0F3YRqJCJ1aPAK2dQagdusBZg/0',
+    avatarUrl: 'https://cdn.airmole.cn/static/default_gray_avatar.png',
     nickname: ''
   },
   onLoad () {
@@ -77,8 +77,10 @@ Page({
   },
   uploadAvatar: function (filepath) {
     var _this = this
+    const domain = app.globalData.domain
     wx.uploadFile({
-      url: 'https://dev.shellbox.airmole.cn/api/complain/upload',
+      url: `${domain}/upload`,
+      formData: { category: 'avatar' },
       filePath: filepath,
       name: 'image',
       success(res) {

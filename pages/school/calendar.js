@@ -5,7 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    calendarImage: 'https://dev-cdn.cardcat.cn/images/d3baeb5da3d48a71ea2aa1aa3cdead65.jpeg',
+    calendarImage: 'https://cdn.airmole.cn/image/calendar/2022-2023-1.jpeg',
     isLoading: true,
     screenHeight: '900',
     colorArr: ['red','orange','yellow','olive','green','cyan','blue','purple','mauve','pink','brown','grey','gray'],

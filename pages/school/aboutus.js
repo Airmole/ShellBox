@@ -10,28 +10,24 @@ Page({
     version: '',
     QGroupModal: false,
     showFreedomFunc: false,
-    weappCodeImage: 'https://upload-images.jianshu.io/upload_images/4697920-90f7baa960c88b89.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240',
+    weappCodeImage: 'https://cdn.airmole.cn/static/shellbox_miniprogram_codes.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240',
     coder: [{
-      avatar: 'https://upload-images.jianshu.io/upload_images/4697920-1d2ea2adbeb9f1a0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240',
+      avatar: 'https://cdn.airmole.cn/static/airmole_avatar.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/128',
       nickName: 'Airmole',
       weibo: 'pages/profile/profile?objectUid=2423156830&nickname=Airmole'
     }, {
-      avatar: 'https://upload-images.jianshu.io/upload_images/4697920-379a7f0028d95f80.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240',
+      avatar: 'https://cdn.airmole.cn/static/henbf_avatar.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/128',
       nickName: '很奔放',
       weibo: ''
     }, {
-      avatar: 'https://upload-images.jianshu.io/upload_images/4697920-758790684a3151f1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240',
+      avatar: 'https://cdn.airmole.cn/static/fish_avatar.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/128',
       nickName: '秃头程序媛',
       weibo: ''
     }],
     otherApps: [{
       appid: 'wx183616af30e5723d',
-      icon: 'https://upload-images.jianshu.io/upload_images/4697920-9aec592ef2ac179e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240',
+      icon: 'https://cdn.airmole.cn/static/tjustb_schoolbus_icon.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/128',
       name: '贝壳班车订票'
-    }, {
-      appid: 'wx9551f8196258f706',
-      icon: 'https://upload-images.jianshu.io/upload_images/4697920-352ccd37bcc0c3d1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240',
-      name: '珠江小盒子'
     }]
   },
 

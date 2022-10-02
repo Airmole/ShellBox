@@ -14,7 +14,7 @@
       </view>
       <view>您尚未登录</view>
     </view>
-    <image src="https://upload-images.jianshu.io/upload_images/4697920-0b3859b5e4ef17ec.gif" mode="scaleToFill" class="gif-wave"></image>
+    <image src="https://cdn.airmole.cn/static/water_wave.gif" mode="scaleToFill" class="gif-wave"></image>
   </view>
 
   <!-- 功能菜单 -->

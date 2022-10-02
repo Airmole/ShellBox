@@ -7,14 +7,14 @@ Page({
   data: {
     env: 'develop',
     type: '0',
-    defaultAvatar: 'https://mmbiz.qpic.cn/mmbiz/icTdbqWNOwNRna42FI242Lcia07jQodd2FJGIYQfG0LAJGFxM4FbnQP6yfMxBgJ0F3YRqJCJ1aPAK2dQagdusBZg/0',
-    avatar: 'https://mmbiz.qpic.cn/mmbiz/icTdbqWNOwNRna42FI242Lcia07jQodd2FJGIYQfG0LAJGFxM4FbnQP6yfMxBgJ0F3YRqJCJ1aPAK2dQagdusBZg/0',
+    defaultAvatar: 'https://cdn.airmole.cn/static/default_gray_avatar.png',
+    avatar: 'https://cdn.airmole.cn/static/default_gray_avatar.png',
     nickname: '',
-    fillImage: 'https://gd-filems.dancf.com/mcm79j/mcm79j/51560/9121e0b2-6f93-4300-ae22-07aa750658b91762508.jpg',
+    fillImage: 'https://cdn.airmole.cn/static/werun_fill_image.jpeg',
     top3icon: [
-      'https://gd-filems.dancf.com/mcm79j/mcm79j/51560/0b3e0fbf-4b1f-4fc3-9f23-0ab0f8ca1c581825958.png',
-      'https://gd-filems.dancf.com/mcm79j/mcm79j/51560/fb9fb171-ab5c-4ef1-bdf1-353e9731350c1828424.png',
-      'https://gd-filems.dancf.com/mcm79j/mcm79j/51560/e5746913-9689-47a6-a1d7-a946d55081ec1855413.png'
+      'https://cdn.airmole.cn/static/werun_top1.png',
+      'https://cdn.airmole.cn/static/werun_top2.png',
+      'https://cdn.airmole.cn/static/werun_top3.png'
     ],
     types: [{
       name: '今日排行',

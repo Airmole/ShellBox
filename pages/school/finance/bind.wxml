@@ -5,10 +5,10 @@
   </view>
   <block wx:else>
     <view>
-      <image class="title" src="https://gd-filems.dancf.com/mcm79j/mcm79j/51560/6cac4a24-bd1e-4c38-b69c-7e132085e4a07375186.png"></image>
+      <image class="title" src="https://cdn.airmole.cn/static/finance_bind_title.png"></image>
       <view class="content">
         <view class="hd" style="transform:rotateZ({{angle}}deg);">
-          <image class="logo" src="https://gd-filems.dancf.com/mcm79j/mcm79j/51560/9122bc2c-102b-4e54-9ad0-6ede8036e28a7248271.png"></image>
+          <image class="logo" src="https://cdn.airmole.cn/static/finance_icon.png"></image>
           <image class="wave" src="/images/wave.png" mode="aspectFill"></image>
           <image class="wave wave-bg" src="/images/wave.png" mode="aspectFill"></image>
         </view>
