@@ -1,6 +1,6 @@
 {
     "name": "shellbox",
-    "version": "3.3.4",
-    "description": "优化图书详情界面&首页移除频繁请求一卡通余额",
+    "version": "3.3.5",
+    "description": "图床、图片上传改用七牛云CDN接口",
     "author": "Airmole"
   }
