@@ -8,104 +8,82 @@ Page({
     wan: [
       [{
         title: '学院官网',
-        background: 'https://upload-images.jianshu.io/upload_images/4697920-ca97074d1243fffe.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/300',
+        background: 'https://cdn.airmole.cn/website/school_homepage.png',
         url: ['http://tj.ustb.edu.cn']
       },
       {
         title: '教务系统',
-        background: 'https://upload-images.jianshu.io/upload_images/4697920-787e052d3e7665ef.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/300',
+        background: 'https://cdn.airmole.cn/website/school_edusys.png',
         url: ['http://61.181.145.1:89/jsxsd', 'http://117.131.241.67:89/jsxsd']
       }],
       [{
         title: '财务(学费查询)',
-        background: 'https://upload-images.jianshu.io/upload_images/4697920-d2ab5e318846aa1e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/300',
+        background: 'https://cdn.airmole.cn/website/school_finansys.png',
         url: ['http://221.238.213.131:8809']
       },
       {
         title: '网上大厅',
-        background: 'https://upload-images.jianshu.io/upload_images/4697920-fba4d591bc4e12db.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/300',
+        background: 'https://cdn.airmole.cn/website/school_ehall.png',
         url: ['http://ehall.bkty.top']
       }]
     ],
     lan: [
       [{
         title: '学院官网',
-        background: 'https://upload-images.jianshu.io/upload_images/4697920-ca97074d1243fffe.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/300',
+        background: 'https://cdn.airmole.cn/website/school_homepage.png',
         url: ['http://10.1.254.70']
       },
       {
-        title: '冰炫导航',
-        background: 'https://upload-images.jianshu.io/upload_images/4697920-37a3fb610b009bae.png',
-        url: ['http://10.1.254.10']
-      }],
-      [{
-        title: '冰炫音乐',
-        background: 'https://upload-images.jianshu.io/upload_images/4697920-16b92386ba723bca.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/300',
-        url: ['http://10.1.254.9/music']
-      },
-      {
-        title: '冰炫下载',
-        background: 'https://upload-images.jianshu.io/upload_images/4697920-ea0bdb72837f4913.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/300',
-        url: ['http://10.1.254.9']
-      }],
-      [{
-        title: '入党学习',
-        background: 'https://upload-images.jianshu.io/upload_images/4697920-f62c499468e6137a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/300',
-        url: ['http://10.1.254.27']
-      }, {
-        title: '校园网计费登录',
-        background: 'https://upload-images.jianshu.io/upload_images/4697920-97eed134f1d2846b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/300',
-        url: ['http://172.16.1.3']
-      }],
-      [{
-        title: '冰炫(贝壳)云盘',
-        background: 'https://upload-images.jianshu.io/upload_images/4697920-fa718891fdd2fc7f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/300',
-        url: ['http://10.1.254.11']
-      },
-      {
         title: '网费查询',
-        background: 'https://upload-images.jianshu.io/upload_images/4697920-47af03f6ef28f6cb.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/300',
+        background: 'https://cdn.airmole.cn/website/school_netfare.png',
         url: ['http://10.1.254.112/Self']
       }],
       [{
+        title: '入党学习',
+        background: 'https://cdn.airmole.cn/website/school_joinparty.png',
+        url: ['http://10.1.254.27']
+      }, {
+        title: '校园网计费登录',
+        background: 'https://cdn.airmole.cn/website/school_schoolnet.png',
+        url: ['http://172.16.1.3']
+      }],
+      [{
         title: '教务系统',
-        background: 'https://upload-images.jianshu.io/upload_images/4697920-787e052d3e7665ef.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/300',
+        background: 'https://cdn.airmole.cn/website/school_edusys.png',
         url: ['http://10.1.254.87/jsxsd']
       },
       {
         title: '图书检索',
-        background: 'https://upload-images.jianshu.io/upload_images/4697920-765b32fff4c66960.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/300',
+        background: 'https://cdn.airmole.cn/website/school_opac.png',
         url: ['http://10.1.254.101:82']
       }],
       [{
         title: '图书馆数字资源',
-        background: 'https://upload-images.jianshu.io/upload_images/4697920-232adc10bb7d5e25.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/300',
+        background: 'https://cdn.airmole.cn/website/school_ebook.png',
         url: ['http://10.1.254.107']
       },
       {
         title: '图书馆',
-        background: 'https://upload-images.jianshu.io/upload_images/4697920-0670bb0194353ffa.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/300',
+        background: 'https://cdn.airmole.cn/website/school_library.png',
         url: ['http://10.1.254.101']
       }],
       [{
-        title: 'Git.USTB',
-        background: 'https://upload-images.jianshu.io/upload_images/4697920-b81d3c7a00aa23e4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/300',
-        url: ['http://10.1.254.6']
-      },
-      {
         title: '财务(学费查询)',
-        background: 'https://upload-images.jianshu.io/upload_images/4697920-d2ab5e318846aa1e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/300',
+        background: 'https://cdn.airmole.cn/website/school_finansys.png',
         url: ['http://10.2.254.80:8809']
+      },{
+        title: '财管系统',
+        background: 'https://cdn.airmole.cn/website/school_finansys.png',
+        url: ['http://10.2.254.80']
       }],
       [{
-        title: '财管系统',
-        background: 'https://upload-images.jianshu.io/upload_images/4697920-20a71970611df775.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/300',
-        url: ['http://10.2.254.80']
-      },
-      {
         title: '资产与实验室管理',
-        background: 'https://upload-images.jianshu.io/upload_images/4697920-ff12f7c7774172c2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/300',
+        background: 'https://cdn.airmole.cn/website/school_laboratory.png',
         url: ['http://10.1.254.170']
+      }, {
+        title: '心理咨询中心',
+        background: 'https://cdn.airmole.cn/static/green_girl_background.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/300',
+        url: ['http://10.1.254.51']
       }]
     ]
   },

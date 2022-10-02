@@ -5,7 +5,7 @@
 <view class="remind-box bg-black" wx:if="{{isLoading}}" style="height:{{screenHeight}}px;">
   <image class="remind-img" src="/images/loading.gif"></image>
 </view>
-<view class='bg-black padding-bottom-xl' wx:else>
+<view class='bg-black' wx:else>
 
   <view class="padding bg-black">
     <view class="cu-bar bg-black">
@@ -14,7 +14,7 @@
         <text class="text-xl text-bold">教学校历</text>
       </view>
     </view>
-    <view class="text-left padding">
+    <view class="text-left padding-lr">
       <text> {{jsonContent.schoolYear}}学年 第{{jsonContent.semester}}学期\n </text>
       <view wx:if="{{jsonContent.teachWeek !='N/A'}}">
         <text> {{jsonContent.month}} 月{{jsonContent.day}} 日（第 {{jsonContent.teachWeek}} 周）
@@ -26,6 +26,9 @@
       <view> <text>\r\n受疫情等外部不可抗力因素印象，目前校历为暂行版，学校随时可能更新或根据实际情况变更，本校历仅供参考.</text> </view>
     </view>
   </view>
+
+  <calendar-item bindtap="showPic" bgcolor="cyan" value="📅" title="查看原版校历"
+    subtitle="School Calendar"></calendar-item>
 
   <!-- 开学第一周 -->
   <calendar-item wx:if="{{jsonContent.gap2StartClass > 0 && jsonContent.gap2StartClass <= 30}}" bgcolor="cyan"

@@ -9,7 +9,7 @@ Page({
     title: '失物招领',
     isLoading: '加载中',
     screenHeight: '900',
-    defaultAvatar: 'https://mmbiz.qpic.cn/mmbiz/icTdbqWNOwNRna42FI242Lcia07jQodd2FJGIYQfG0LAJGFxM4FbnQP6yfMxBgJ0F3YRqJCJ1aPAK2dQagdusBZg/0',
+    defaultAvatar: 'https://cdn.airmole.cn/static/default_gray_avatar.png',
     keyword: '',
     type: 1,
     uid: '',

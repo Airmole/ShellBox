@@ -8,8 +8,8 @@ Page({
     userInfo: {},
     isTeacher: false,
     clickAvatarCount: 1,
-    backgroundImage: 'https://upload-images.jianshu.io/upload_images/4697920-65af0059363fb4b0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240',
-    defaultAvatar: 'https://mmbiz.qpic.cn/mmbiz/icTdbqWNOwNRna42FI242Lcia07jQodd2FJGIYQfG0LAJGFxM4FbnQP6yfMxBgJ0F3YRqJCJ1aPAK2dQagdusBZg/0',
+    backgroundImage: 'https://cdn.airmole.cn/static/green_girl_background.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240',
+    defaultAvatar: 'https://cdn.airmole.cn/static/default_gray_avatar.png',
     canShake: false,
     iconList: [
       {

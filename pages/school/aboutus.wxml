@@ -6,7 +6,7 @@
   <view class="header">
     <view class="black-cover">
     </view>
-    <image class="logo" src="https://upload-images.jianshu.io/upload_images/4697920-281236da966f6122.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+    <image class="logo" src="https://cdn.airmole.cn/static/school_about_background.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
     </image>
     <image class="title" src="/images/title.png">
     </image>
@@ -32,7 +32,7 @@
             贝壳小盒子（ShellBox）是一款微信小程序，致力于帮助师生更方便的查询教务、图书、用电等信息，以及浏览学院校历、拨打各系部电话，并提供校园内地理导航等功能。</view>
           <view class="desc-content" style='text-indent:2em;'>贝壳小盒子目前还处于公测阶段，有一系列新的功能正在我们的开发计划中。“你想要的，都在这里！”</view>
           <image bindtap="showAppCode" class="weui-article__img"
-            src="https://upload-images.jianshu.io/upload_images/4697920-90f7baa960c88b89.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" mode="widthFix"
+            src="{{weappCodeImage}}" mode="widthFix"
             style="width:100%;border-radius:25rpx;" />
           <view class="desc-content text-red">*: 微信小程序版本开发维护优先于QQ版本小程序，强烈建议优先使用微信小程序版贝壳小盒子</view>
 
@@ -92,7 +92,7 @@
     <view class="cu-modal {{QGroupModal?'show':''}}">
       <view class="cu-dialog">
         <view class="bg-img"
-          style="background-image: url('https://upload-images.jianshu.io/upload_images/4697920-0dbd4660106ba0ec.png');height:550px;">
+          style="background-image: url('https://cdn.airmole.cn/static/shellbox_qqgroup_qrcode.png');height:550px;">
           <view class="cu-bar justify-end text-white">
             <view class="action" bindtap="hideModal">
               <text class="cuIcon-close "></text>

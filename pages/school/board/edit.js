@@ -95,8 +95,10 @@ Page({
   },
   uploadImage: function (filepath) {
     var _this = this
+    const domain = app.globalData.domain
     wx.uploadFile({
-      url: 'https://dev.shellbox.airmole.cn/api/complain/upload',
+      url: `${domain}/upload`,
+      formData: { category: 'complain' },
       filePath: filepath,
       name: 'image',
       success(res) {

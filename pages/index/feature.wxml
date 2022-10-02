@@ -6,7 +6,7 @@
       <navigator url="./setting" class="userinfo-avatar shadow-blur">
         <image src="{{ userInfo.avatarUrl || edusysUserInfo.avatar || defaultAvatar }}"></image>
       </navigator>
-      <navigator url="./setting" class="margin-top-sm nickname">{{ edusysUserInfo.nickname ? (edusysUserInfo.nickname + ' | ') : '点击授权昵称头像' }} {{ edusysUserInfo.uid}}</navigator>
+      <navigator url="./setting" class="margin-top-sm nickname">{{ userInfo.nickname ? (userInfo.nickname + ' | ') : '点击授权昵称头像' }} {{ edusysUserInfo.uid}}</navigator>
     </block>
     <view class="margin-top-sm nickname text-center" bindtap="goLogin" wx:else>
       <view>
@@ -14,7 +14,7 @@
       </view>
       <view>您尚未登录</view>
     </view>
-    <image src="https://upload-images.jianshu.io/upload_images/4697920-0b3859b5e4ef17ec.gif" mode="scaleToFill" class="gif-wave"></image>
+    <image src="https://cdn.airmole.cn/static/water_wave.gif" mode="scaleToFill" class="gif-wave"></image>
   </view>
 
   <!-- 功能菜单 -->
