@@ -55,10 +55,13 @@ Page({
       method: 'POST',
       success: function(res){
         if (res.statusCode == 200 && res.data.code == 200) {
-          const userInfo = {
+          let userInfo = wx.getStorageSync('userInfo') || {}
+          Object.assign(userInfo, {
             avatarUrl: avatarUrl,
+            avatar: avatarUrl,
+            nickname: nickName,
             nickName: nickName
-          }
+          })
           wx.setStorageSync('userInfo', userInfo)
           wx.navigateBack({ delta: 1 })
         }
