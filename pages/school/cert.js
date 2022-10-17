@@ -80,19 +80,16 @@ Page({
           subtitle: '官网',
           url: 'http://kzp.mof.gov.cn/index.jsp'
         }, {
-          subtitle: '报名',
-          url: 'http://kjbm.mof.gov.cn/index-sf_cg.jsp'
-        }, {
           subtitle: '成绩查询',
           url: 'http://kzp.mof.gov.cn/cjcx/cjcx.jsp'
         }]
       },
       {
-        title: '普通话水平测试(天津)',
+        title: '普通话水平测试',
         hookId: 'cltt',
         content: [{
           subtitle: '报名',
-          url: 'http://tj.cltt.org/Web/SignUpOnLine/Default.aspx'
+          url: 'http://bm.cltt.org/'
         }]
       },
       {
@@ -104,26 +101,6 @@ Page({
         }, {
           subtitle: '报名',
           url: 'https://bm.ruankao.org.cn/sign/welcome'
-        }, {
-          subtitle: '准考证',
-          url: 'https://bm.ruankao.org.cn/shortCut/searchCard'
-        }, {
-          subtitle: '成绩查询',
-          url: 'https://query.ruankao.org.cn/score'
-        }]
-      },
-      {
-        title: '导游资格考试',
-        hookId: 'daoyou',
-        content: [{
-          subtitle: '官网',
-          url: 'https://c-dy.exam-sp.com/'
-        }, {
-          subtitle: '报名',
-          url: 'https://c-dy.exam-sp.com/#/default/examReg/chooseBatch'
-        }, {
-          subtitle: '准考证',
-          url: 'https://c-dy.exam-sp.com/#/default/print'
         }]
       },
       {
@@ -132,15 +109,6 @@ Page({
         content: [{
           subtitle: '官网',
           url: 'https://www.sac.net.cn/cyry/kspt/kstz/'
-        }, {
-          subtitle: '报名',
-          url: 'https://www.sac.net.cn/cyry/kspt/ksbm/'
-        }, {
-          subtitle: '准考证',
-          url: 'https://www.sac.net.cn/cyry/kspt/zkzdy/'
-        }, {
-          subtitle: '成绩',
-          url: 'https://www.sac.net.cn/cyry/kspt/kscjcx/'
         }]
       },
       {
@@ -148,13 +116,16 @@ Page({
         hookId: 'jijin',
         content: [{
           subtitle: '报名',
-          url: 'http://baoming.amac.org.cn:10080/JJKSreg/page.htm'
+          url: 'https://www.amac.org.cn/'
         }]
       },
       {
         title: '银行从业资格考试',
         hookId: 'bank',
         content: [{
+          subtitle: '官网',
+          url: 'https://www.china-cba.net/Index/lists/catid/31.html'
+        },{
           subtitle: '报名',
           url: 'http://cj.ccbp.org.cn/apply/'
         }]
@@ -163,9 +134,6 @@ Page({
         title: '期货从业资格考试',
         hookId: 'qihuo',
         content: [{
-          subtitle: '官网',
-          url: 'http://cfa.ata.net.cn/Portal/'
-        }, {
           subtitle: '报名',
           url: 'http://cfa.ata.net.cn/site/#/default/login'
         }]
@@ -175,13 +143,10 @@ Page({
         hookId: 'cpa',
         content: [{
           subtitle: '官网',
-          url: 'http://cpaexam.cicpa.org.cn/default.shtml'
+          url: 'https://www.cicpa.org.cn/'
         }, {
           subtitle: '报名',
-          url: 'http://cpaexam.cicpa.org.cn/login'
-        }, {
-          subtitle: '成绩查询',
-          url: 'http://cpaexam.cicpa.org.cn/scorequeryhis'
+          url: 'https://www.cicpa.org.cn/ztzl1/exam/'
         }]
       },
       {
@@ -189,7 +154,7 @@ Page({
         hookId: 'laywer',
         content: [{
           subtitle: '官网',
-          url: 'http://sfks.bjsf.gov.cn/jeplatform/websitebj/index.jsp'
+          url: 'http://www.moj.gov.cn/jgsz/jgszzsdw/zsdwgjsfkszx/'
         }]
       },
       {

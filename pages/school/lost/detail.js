@@ -6,7 +6,7 @@ Page({
    */
   data: {
     env: 'develop',
-    defaultAvatar: 'https://cdn.airmole.cn/static/default_gray_avatar.png',
+    defaultAvatar: app.globalData.defaultGrayAvatar,
     isLoading: true,
     isPublisher: false,
     isRecevicer: false,

@@ -9,7 +9,7 @@ Page({
     isLoading: true,
     isAdminer: false,
     uid: 0,
-    qrcode: 'https://cdn.airmole.cn/static/quanyi_qrcode.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/512',
+    qrcode: 'https://upload-images.jianshu.io/upload_images/4697920-03629fe77465b1b5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/512',
     datalist: [],
     tags: ['其他', '食堂', '宿舍', '教学楼', '老师']
   },

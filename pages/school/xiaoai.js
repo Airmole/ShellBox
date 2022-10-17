@@ -6,18 +6,18 @@ Page({
    */
   data: {
     isLoading:true,
-    cover: 'https://cdn.airmole.cn/static/xiaoai/cover.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240',
+    cover: 'https://upload-images.jianshu.io/upload_images/4697920-fc4ca94341465a0c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240',
     guideImages:[
-      'https://cdn.airmole.cn/static/xiaoai/step1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240',
-      'https://cdn.airmole.cn/static/xiaoai/step2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240',
-      'https://cdn.airmole.cn/static/xiaoai/step3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240',
-      'https://cdn.airmole.cn/static/xiaoai/step4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240',
-      'https://cdn.airmole.cn/static/xiaoai/step5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240',
-      'https://cdn.airmole.cn/static/xiaoai/step6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240',
-      'https://cdn.airmole.cn/static/xiaoai/step7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240',
-      'https://cdn.airmole.cn/static/xiaoai/step8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240',
-      'https://cdn.airmole.cn/static/xiaoai/step9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240',
-      'https://cdn.airmole.cn/static/xiaoai/step10.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240'
+      'https://upload-images.jianshu.io/upload_images/4697920-160801a94ef0039a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240',
+      'https://upload-images.jianshu.io/upload_images/4697920-67c3f6650998eee6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240',
+      'https://upload-images.jianshu.io/upload_images/4697920-19c2e81ae14d4e15.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240',
+      'https://upload-images.jianshu.io/upload_images/4697920-3e034cf229e93284.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240',
+      'https://upload-images.jianshu.io/upload_images/4697920-50e80fc9566bab30.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240',
+      'https://upload-images.jianshu.io/upload_images/4697920-43ddace2b43ddf58.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240',
+      'https://upload-images.jianshu.io/upload_images/4697920-f9d98473ae6ead5e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240',
+      'https://upload-images.jianshu.io/upload_images/4697920-f1418ec9f834aef0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240',
+      'https://upload-images.jianshu.io/upload_images/4697920-3705a1e3879ce130.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240',
+      'https://upload-images.jianshu.io/upload_images/4697920-43945b1dc3e74a4e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240'
     ]
   },
 

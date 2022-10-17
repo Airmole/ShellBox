@@ -9,7 +9,7 @@ Page({
     passwd_focus: false,
     netid: '',
     passwd: '',
-    bgimg: 'https://cdn.airmole.cn/static/netsys_bind_title.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240',
+    bgimg: 'https://upload-images.jianshu.io/upload_images/4697920-61be38713bbefa8c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240',
     angle: 0
   },
   onLoad: function (){

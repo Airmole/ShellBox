@@ -42,8 +42,6 @@
           wx:key="contentKey">
           <view class="desc-title">{{subItem.subtitle}}：</view>
           <view class="desc-content" data-url="{{subItem.url}}" bindtap="copyUrl"> - {{subItem.url}}</view>
-          <view wx:if="{{subItem.url=='http://cet.neea.edu.cn/cet/'}}" class="desc-content" data-url="{{subItem.url}}"
-            bindtap="goToOtherWeapp"> - 直接前往查询</view>
         </view>
       </view>
     </block>

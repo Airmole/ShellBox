@@ -6,7 +6,7 @@
   <view class="header">
     <view class="black-cover">
     </view>
-    <image class="logo" src="https://cdn.airmole.cn/static/school_about_background.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+    <image class="logo" src="https://upload-images.jianshu.io/upload_images/4697920-377a329782f5ea1f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
     </image>
     <image class="title" src="/images/title.png">
     </image>
@@ -92,7 +92,7 @@
     <view class="cu-modal {{QGroupModal?'show':''}}">
       <view class="cu-dialog">
         <view class="bg-img"
-          style="background-image: url('https://cdn.airmole.cn/static/shellbox_qqgroup_qrcode.png');height:550px;">
+          style="background-image: url('https://upload-images.jianshu.io/upload_images/4697920-d843326d24a640da.png');height:550px;">
           <view class="cu-bar justify-end text-white">
             <view class="action" bindtap="hideModal">
               <text class="cuIcon-close "></text>

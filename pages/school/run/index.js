@@ -7,14 +7,14 @@ Page({
   data: {
     env: 'develop',
     type: '0',
-    defaultAvatar: 'https://cdn.airmole.cn/static/default_gray_avatar.png',
-    avatar: 'https://cdn.airmole.cn/static/default_gray_avatar.png',
+    defaultAvatar: app.globalData.defaultGrayAvatar,
+    avatar: app.globalData.defaultGrayAvatar,
     nickname: '',
-    fillImage: 'https://cdn.airmole.cn/static/werun_fill_image.jpeg',
+    fillImage: 'https://upload-images.jianshu.io/upload_images/4697920-646f99ca82fdc62b.jpeg',
     top3icon: [
-      'https://cdn.airmole.cn/static/werun_top1.png',
-      'https://cdn.airmole.cn/static/werun_top2.png',
-      'https://cdn.airmole.cn/static/werun_top3.png'
+      'https://upload-images.jianshu.io/upload_images/4697920-afd8b750ea3b5c32.png',
+      'https://upload-images.jianshu.io/upload_images/4697920-0b0376bfe0c8af85.png',
+      'https://upload-images.jianshu.io/upload_images/4697920-2fbab52779447beb.png'
     ],
     types: [{
       name: '今日排行',

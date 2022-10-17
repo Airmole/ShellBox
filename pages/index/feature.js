@@ -8,8 +8,8 @@ Page({
     userInfo: {},
     isTeacher: false,
     clickAvatarCount: 1,
-    backgroundImage: 'https://cdn.airmole.cn/static/green_girl_background.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240',
-    defaultAvatar: 'https://cdn.airmole.cn/static/default_gray_avatar.png',
+    backgroundImage: 'https://upload-images.jianshu.io/upload_images/4697920-48dab9eddafb6ce3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240',
+    defaultAvatar: app.globalData.defaultGrayAvatar,
     canShake: false,
     iconList: [
       {

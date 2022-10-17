@@ -14,7 +14,7 @@
   height: 100px;
   opacity: 0.9;
   margin: 100rpx 0 30rpx;
-  background-image: url('https://cdn.airmole.cn/static/teachers_icon.png');
+  background-image: url('https://upload-images.jianshu.io/upload_images/4697920-84d9dc09f1d008ad.png');
 }
 
 .home .search-input {
@@ -374,13 +374,13 @@ button::after {
 }
 
 .ul-li-kb {
-  background: url('https://cdn.airmole.cn/static/table_icon.png') no-repeat;
+  background: url('https://upload-images.jianshu.io/upload_images/4697920-d983b3e897acc619.png') no-repeat;
   background-size: 30rpx 30rpx;
   background-position: 0 50%;
 }
 
 .ul-li-ks {
-  background: url('https://cdn.airmole.cn/static/pen_icon.png') no-repeat;
+  background: url('https://upload-images.jianshu.io/upload_images/4697920-289fecabc0b70761.png') no-repeat;
   background-size: 30rpx 30rpx;
   background-position: 0 50%;
 }

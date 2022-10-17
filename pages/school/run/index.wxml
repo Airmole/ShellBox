@@ -4,7 +4,7 @@
     <view slot="content">步数排行 - 贝壳小盒子</view>
   </cu-custom>
 
-  <image class="image-width" src="https://cdn.airmole.cn/static/werun_rank_top.jpeg" mode="widthFix" widthFix></image>
+  <image class="image-width" src="https://upload-images.jianshu.io/upload_images/4697920-a166bb5d0420fef4.jpeg" mode="widthFix" widthFix></image>
 
   <view class="bg-img" style="background-image: url({{fillImage}});margin-top: -5px;">
     <view class="padding-top-xs padding-lr-xl text-black">
@@ -46,7 +46,7 @@
     </view>
   </view>
 
-  <image class="image-width bottom-image" src="https://cdn.airmole.cn/static/werun_rank_foot.jpeg" mode="widthFix" widthFix></image>
+  <image class="image-width bottom-image" src="https://upload-images.jianshu.io/upload_images/4697920-a75573126934d7d2.jpeg" mode="widthFix" widthFix></image>
 
 
   <view style="height: 180rpx;" class="cu-bar bg-gradual-pink tabbar radius border shop foot" wx:if="{{personalRank[0]}}">
