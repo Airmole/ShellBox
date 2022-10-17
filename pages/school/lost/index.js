@@ -9,7 +9,7 @@ Page({
     title: '失物招领',
     isLoading: '加载中',
     screenHeight: '900',
-    defaultAvatar: 'https://cdn.airmole.cn/static/default_gray_avatar.png',
+    defaultAvatar: app.globalData.defaultGrayAvatar,
     keyword: '',
     type: 1,
     uid: '',

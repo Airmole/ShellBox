@@ -84,7 +84,7 @@
         <view class="cu-item shadow">
           <view class="cu-list menu-avatar">
             <view class="cu-item">
-              <view class="cu-avatar round lg bg-cyan" style="background-image:url(https://cdn.airmole.cn/static/quanyi_avatar.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/128);"></view>
+              <view class="cu-avatar round lg bg-cyan" style="background-image:url(https://upload-images.jianshu.io/upload_images/4697920-5a559d389ef75773.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/128);"></view>
               <view class="content flex-sub">
                 <view>{{item.id}}</view>
                 <view class="text-gray text-sm flex justify-between">{{item.created_at}}</view>

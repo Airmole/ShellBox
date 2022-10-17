@@ -6,7 +6,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    webImage: 'https://cdn.airmole.cn/static/ehall_tips.png',
+    webImage: 'https://upload-images.jianshu.io/upload_images/4697920-b9667ae84f3059d7.png',
     uid: '',
     password: ''
   },

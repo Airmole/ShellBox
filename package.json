@@ -1,6 +1,6 @@
 {
     "name": "shellbox",
-    "version": "3.3.5",
-    "description": "图床、图片上传改用七牛云CDN接口",
+    "version": "3.3.6",
+    "description": "取消使用七牛云，太贵了用不起&修复成绩单分享绘图",
     "author": "Airmole"
   }

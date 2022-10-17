@@ -14,7 +14,7 @@ Page({
     activePlaceID: -1,
     schoolAddressText: '天津市宝坻区京津新城珠江北环东路1号',
     postcode: '301830',
-    staticMapImage: 'https://cdn.airmole.cn/image/tjustb_map.jpeg',
+    staticMapImage: 'https://upload-images.jianshu.io/upload_images/4697920-d484de3e9d949dab.jpeg',
     markers: [{
       id: 0,
       latitude: 39.544736,

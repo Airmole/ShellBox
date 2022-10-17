@@ -168,7 +168,7 @@ Page({
       mask: true
     })
 
-    let userNickName = app.globalData.userInfo.nickName;
+    let userNickName = app.globalData.edusysUserInfo.nickname;
     if (userNickName == '') userNickName = app.globalData.edusysUserInfo.uid
     let nickName = {
       type: 'text',
@@ -210,14 +210,14 @@ Page({
     var whitePaperHeight = (midNum * 20) + 35;
     var pushArr = [{
       type: 'image',
-      url: 'https://upload-images.jianshu.io/upload_images/4697920-b926d6f7b128a808.png',
+      url: 'https://store2018.muapp.cn/images/4697920-b926d6f7b128a808.png',
       top: 0,
       left: 0,
       width: 600,
       height: 390
     }, {
       type: 'image',
-      url: 'https://upload-images.jianshu.io/upload_images/4697920-d0909159d03389c5.png',
+      url: 'https://store2018.muapp.cn/images/4697920-d0909159d03389c5.png',
       top: 390 + whitePaperHeight,
       left: 0,
       width: 600,
@@ -346,12 +346,12 @@ Page({
     pushArr = pushArr.concat(makeupFullPicArr);
 
     var topX = 400;
-    var leftY = 20;
+    var leftY = 30;
     for (let i = 0; i < midNum; i++) {
       topX = topX + 20;
       let tempNo = {
         type: 'text',
-        content: newArr[i].SerialNo ? newArr[i].SerialNo : '',
+        content: newArr[i].SerialNo + '',
         fontSize: 14,
         color: '#000',
         textAlign: 'left',

@@ -4,6 +4,7 @@ App({
     domain: 'https://shellbox.airmole.cn/api',
     _amap_key: '66a87160f8db2a9a76431c954b4f52a5', // 高德导航API秘钥
     requestTimeout: 120 * 1000, // 网络请求最长时间120s
+    defaultGrayAvatar: 'https://mmbiz.qpic.cn/mmbiz/icTdbqWNOwNRna42FI242Lcia07jQodd2FJGIYQfG0LAJGFxM4FbnQP6yfMxBgJ0F3YRqJCJ1aPAK2dQagdusBZg/0',
     openid: '',
     session_key: '',
     userInfo: {},

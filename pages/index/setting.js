@@ -1,9 +1,8 @@
 // pages/index/setting.js
 const app = getApp()
-const defaultAvatar = 'https://cdn.airmole.cn/static/default_gray_avatar.png'
 Page({
   data: {
-    avatarUrl: 'https://cdn.airmole.cn/static/default_gray_avatar.png',
+    avatarUrl: app.globalData.defaultGrayAvatar,
     nickname: ''
   },
   onLoad () {
@@ -25,7 +24,7 @@ Page({
       timeout: app.globalData.requestTimeout,
       success: function(res){
         if (res.statusCode == 200 && res.data.code == 200) {
-          const avatarUrl = res.data.data.avatar ? res.data.data.avatar : defaultAvatar
+          const avatarUrl = res.data.data.avatar ? res.data.data.avatar : app.globalData.defaultGrayAvatar
           const nickName = res.data.data.nickname ? res.data.data.nickname : uid
           _this.setData({ avatarUrl: avatarUrl, nickname: nickName })
           let userInfo = { avatarUrl: avatarUrl, nickName: nickName }

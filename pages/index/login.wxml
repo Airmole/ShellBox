@@ -1,7 +1,7 @@
 <!--login.wxml-->
 <view class="container">
   <view class="remind-box" wx:if="{{remind}}">
-    <image class="remind-img" src="https://cdn.airmole.cn/static/bluecat_loading.gif?imageMogr2/auto-orient/strip"></image>
+    <image class="remind-img" src="https://upload-images.jianshu.io/upload_images/4697920-3401f7949a9e8b5c.gif?imageMogr2/auto-orient/strip"></image>
     <view class="text-white text-xl">正在登录，请耐心等候...</view>
     <view class="cu-progress bg-white round margin-top">
       <view class="bg-green" style="width:{{remind?(percent+'%'):''}};">{{percent}}%</view>
