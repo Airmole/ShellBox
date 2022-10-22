@@ -32,9 +32,9 @@ Page({
   inital: function (options) {
     const accountInfo = wx.getAccountInfoSync()
     const envVersion = accountInfo.miniProgram.envVersion
-    // if (envVersion != 'release') {
-    //   wx.switchTab({ url: '../../index/index' })
-    // }
+    if (envVersion != 'release') {
+      wx.switchTab({ url: '../../index/index' })
+    }
     const id = options.id
     const edusysInfo = wx.getStorageSync('edusysUserInfo') || {}
     const uid = edusysInfo != '' && edusysInfo.uid ? edusysInfo.uid : 0
