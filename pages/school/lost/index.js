@@ -38,7 +38,8 @@ Page({
     }],
     lostStatus: ['无人拾获' ,'有人拾获', '已找回'],
     receiveStatus: ['无人认领' ,'有人认领', '已归还'],
-    datalist: []
+    datalist: [],
+    backpage: ''
   },
 
   /**
@@ -46,9 +47,9 @@ Page({
    */
   onLoad: function (options) {
     this.setData({ env: app.globalData.env })
-    if (app.globalData.env != 'release') {
-      wx.switchTab({ url: '../../index/index' })
-    }
+    // if (app.globalData.env != 'release') {
+    //   wx.switchTab({ url: '../../index/index' })
+    // }
     const type = options.type ? options.type : 1
     const keyword = options.keyword ? options.keyword : ''
     this.inital(type, keyword);
@@ -145,7 +146,11 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    this.getDatalist(this.data.type, 1, this.data.keyword)
+    let pages = getCurrentPages()
+    let currPage = pages[pages.length - 1]
+    console.log('currPage.data.backpage', currPage.data.backpage)
+    const page = currPage.data.backpage ? currPage.data.backpage : '1'
+    this.getDatalist(this.data.type, page, this.data.keyword)
   },
 
   /**

@@ -11,6 +11,7 @@ Page({
     canReplay: false,
     uid: '',
     id: '',
+    backpage: '',
     tags: ['其他', '食堂', '宿舍', '教学楼', '老师'],
     data: []
   },
@@ -19,7 +20,6 @@ Page({
    */
   onLoad: function (options) {
     this.setData({ env: app.globalData.env })
-    
     this.inital(options)
     wx.showShareMenu({
       withShareTicket: true,
@@ -32,12 +32,16 @@ Page({
   inital: function (options) {
     const accountInfo = wx.getAccountInfoSync()
     const envVersion = accountInfo.miniProgram.envVersion
-    if (envVersion != 'release') {
-      wx.switchTab({ url: '../../index/index' })
-    }
+    // if (envVersion != 'release') {
+    //   wx.switchTab({ url: '../../index/index' })
+    // }
     const id = options.id
     const edusysInfo = wx.getStorageSync('edusysUserInfo') || {}
     const uid = edusysInfo != '' && edusysInfo.uid ? edusysInfo.uid : 0
+    const backpage = options.backpage ? options.backpage : 1
+    let pages = getCurrentPages()
+    let prevPage = pages[pages.length - 2]
+    prevPage.setData({ backpage: backpage })
     this.setData({ id: id })
     this.getDetailData(id, 1)
     console.log(typeof app.globalData.isBoardAdminer, app.globalData.isBoardAdminer)
@@ -60,13 +64,28 @@ Page({
       }
     })
   },
-  deleteConfirm: function(e) {
+  reditConfirm: function (e) {
+    const id = e.currentTarget.dataset.id
+    const _this = this
+    wx.showModal({
+      title: '注意',
+      content: '真的要重新编辑此回复？',
+      success(res) {
+        if (res.confirm) {
+          wx.navigateTo({ url: `./edit?reditid=${id}` })
+        } else if (res.cancel) {
+          console.log('用户点击取消')
+        }
+      }
+    })
+  },
+  deleteConfirm: function (e) {
     const id = e.currentTarget.dataset.id
     const _this = this
     wx.showModal({
       title: '真的要删除？',
       content: '确认删除嘛？将会删除本条回复评论且无法恢复！',
-      success (res) {
+      success(res) {
         if (res.confirm) {
           _this.deleteDataItem(id)
         } else if (res.cancel) {
@@ -75,30 +94,41 @@ Page({
       }
     })
   },
-  reply () {
+  reply() {
     const id = this.data.id
     wx.navigateTo({ url: `./edit?id=${id}` })
   },
-  update (e) {
+  update(e) {
     const id = this.data.id
-    const hot = e.currentTarget.dataset.hot
-    const data = { hot: hot }
+    const hot = e.currentTarget.dataset.hot ? e.currentTarget.dataset.hot : this.data.data.content.hot
+    const resolve_status = e.currentTarget.dataset.resolve ? e.currentTarget.dataset.resolve : this.data.data.content.resolve_status
+    const data = { hot: hot, resolve_status: resolve_status }
     const _this = this
-    wx.request({
-      url: `${app.globalData.domain}/complain/${id}`,
-      data: data,
-      timeout: app.globalData.requestTimeout,
-      method: 'POST',
-      success: function (res) {
-        try {
-          if (res.statusCode == 200 && res.data.code == 200) {
-            wx.showToast({ title: '操作成功' })
-            _this.getDetailData(_this.data.id, 1)
-          } else {
-            wx.showToast({ title: res.data.message, icon: 'none' })
-          }
-        } catch (error) {
-          wx.showToast({ title: res.data.message, icon: 'none' })
+    wx.showModal({
+      title: '注意',
+      content: resolve_status == 1 ? '设置为已解决后将无法重新修改解决状态，确认【已解决】？' : '确定设为【常见问题】嘛？',
+      success(res) {
+        if (res.confirm) {
+          wx.request({
+            url: `${app.globalData.domain}/complain/${id}`,
+            data: data,
+            timeout: app.globalData.requestTimeout,
+            method: 'POST',
+            success: function (res) {
+              try {
+                if (res.statusCode == 200 && res.data.code == 200) {
+                  wx.showToast({ title: '操作成功' })
+                  _this.getDetailData(_this.data.id, 1)
+                } else {
+                  wx.showToast({ title: res.data.message, icon: 'none' })
+                }
+              } catch (error) {
+                wx.showToast({ title: res.data.message, icon: 'none' })
+              }
+            }
+          })
+        } else if (res.cancel) {
+          console.log('取消操作')
         }
       }
     })
@@ -125,7 +155,7 @@ Page({
       }
     })
   },
-  isAdminer: function(uid = 0) {
+  isAdminer: function (uid = 0) {
     const _this = this
     wx.request({
       url: `${app.globalData.domain}/complain/adminer/${uid}`,
@@ -152,7 +182,7 @@ Page({
     const targetPage = current < last ? Number(current) + 1 : last
     this.getDetailData(this.data.id, targetPage)
   },
-  previewImage:function (e) {
+  previewImage: function (e) {
     wx.previewImage({ urls: e.currentTarget.dataset.allurl, current: e.currentTarget.dataset.url })
   },
   callPhone: function (e) {

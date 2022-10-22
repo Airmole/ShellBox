@@ -44,9 +44,9 @@ Page({
    */
   onLoad: function (options) {
     this.setData({ env: app.globalData.env })
-    if (app.globalData.env != 'release') {
-      wx.switchTab({ url: '../../index/index' })
-    }
+    // if (app.globalData.env != 'release') {
+    //   wx.switchTab({ url: '../../index/index' })
+    // }
     
     this.inital(options)
     wx.showShareMenu({
@@ -61,6 +61,10 @@ Page({
     const id = options.id
     const edusysInfo = wx.getStorageSync('edusysUserInfo') || {}
     const uid = edusysInfo != '' && edusysInfo.uid ? edusysInfo.uid : 0
+    const backpage = options.backpage ? options.backpage : 1
+    let pages = getCurrentPages()
+    let prevPage = pages[pages.length - 2]
+    prevPage.setData({ backpage: backpage })
     this.setData({ id: id, uid: uid })
     this.getDetailData(id)
   },

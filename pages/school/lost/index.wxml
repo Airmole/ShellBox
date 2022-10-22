@@ -1,5 +1,5 @@
 <!--pages/school/lost/index.wxml-->
-<block wx:if="{{env == 'release'}}">
+<block wx:if="{{env != 'release'}}">
   <cu-custom bgColor="bg-cyan" isCustom="{{true}}">
     <view slot="content">{{title}}</view>
   </cu-custom>
@@ -51,7 +51,7 @@
 
     <!-- 列表 -->
     <view class="cu-card dynamic">
-      <navigator url="./detail?id={{item.id}}" class="cu-item shadow" wx:for="{{datalist.data}}" wx:key="lost">
+      <navigator url="./detail?id={{item.id}}&backpage={{datalist.pagination.current}}" class="cu-item shadow" wx:for="{{datalist.data}}" wx:key="lost">
         <view class="cu-list menu-avatar">
           <view class="cu-item">
             <view class="cu-avatar round lg bg-cyan" style="background-image:url({{item.publisher.avatar?item.publisher.avatar:defaultAvatar}});"></view>

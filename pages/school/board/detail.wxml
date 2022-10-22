@@ -1,5 +1,5 @@
 <!--pages/school/board/detail.wxml-->
-<block wx:if="{{env == 'release'}}">
+<block wx:if="{{env != 'release'}}">
   <cu-custom bgColor="bg-cyan" isCustom="{{true}}">
     <view slot="content">投诉维权详情</view>
   </cu-custom>
@@ -26,6 +26,15 @@
           <view class="line-blue cu-tag radius">{{tags[data.content.tag]}}</view>
           <!-- 回复状态胶囊 -->
           <view class="line-{{data.content.status == 1 ? 'blue': 'red'}} cu-tag radius">{{data.content.status == 1 ? '已回复': '待回复'}}</view>
+          <!-- 解决状态胶囊 -->
+          <view class="line-{{data.content.resolve_status == 1 ? 'blue': 'red'}} cu-tag radius">{{data.content.resolve_status == 1 ? '已解决': '解决中'}}</view>
+          <!-- 位置 -->
+          <block wx:if="{{data.content.place_building || data.content.place_room}}">
+            <view class="cu-capsule margin-lr-sm">
+              <view class="cu-tag bg-blue"><text>{{data.content.place_building}}</text></view>
+              <view class="cu-tag line-blue">{{data.content.place_room}}</view>
+            </view>
+          </block>
           {{data.content.content}}
         </view>
         <view class="grid flex-sub padding-lr padding-bottom col-3 grid-square">
@@ -54,7 +63,7 @@
         <view class="cu-item">
           <view class="cu-avatar lg round bg-green" style="background-image:url({{data.content.avatar}});"></view>
           <view class="content">
-            <view class="text-grey"><text>{{data.content.nickname}}</text> </view>
+            <view class="text-grey text-cut"><text>{{data.content.nickname}}</text> </view>
             <view class="text-gray text-sm">联系方式：{{data.content.mobile}}</view>
           </view>
           <view wx:if="{{data.content.mobile}}" data-tel='{{data.content.mobile}}' bindtap='callPhone' class="action text-xxl margin-right-xl"><text
@@ -77,6 +86,10 @@
         <view class="cu-item" data-hot="0" bindtap="update" wx:if="{{data.content.hot}}">
           <view class="cuIcon-pulldown text-blue"></view>
           <text>非常见问题</text>
+        </view>
+        <view class="cu-item" data-resolve="1" bindtap="update" wx:if="{{!data.content.resolve_status}}">
+          <view class="cuIcon-roundcheck text-blue"></view>
+          <text>已解决</text>
         </view>
       </view>
     </view>
@@ -112,6 +125,8 @@
             <view class="cu-item">
               <view class="content"><text class=""></text></view>
               <view class="action">
+                <button class="cu-btn round bg-blue shadow margin-lr-xs" data-id="{{item.id}}" catchtap="reditConfirm">
+                  <text class="cuIcon-edit"></text> 编辑</button>
                 <button class="cu-btn round bg-red shadow" data-id="{{item.id}}" catchtap="deleteConfirm">
                   <text class="cuIcon-delete"></text> 删除</button>
               </view>
