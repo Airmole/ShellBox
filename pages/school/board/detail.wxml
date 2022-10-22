@@ -35,7 +35,7 @@
               <view class="cu-tag line-blue">{{data.content.place_room}}</view>
             </view>
           </block>
-          {{data.content.content}}
+          <view>{{data.content.content}}</view>
         </view>
         <view class="grid flex-sub padding-lr padding-bottom col-3 grid-square">
           <view class="bg-img" style="background-image:url({{pitem}});" wx:for="{{data.content.images}}"
