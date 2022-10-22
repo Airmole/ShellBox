@@ -44,9 +44,9 @@ Page({
    */
   onLoad: function (options) {
     this.setData({ env: app.globalData.env })
-    // if (app.globalData.env != 'release') {
-    //   wx.switchTab({ url: '../../index/index' })
-    // }
+    if (app.globalData.env != 'release') {
+      wx.switchTab({ url: '../../index/index' })
+    }
     
     this.inital(options)
     wx.showShareMenu({

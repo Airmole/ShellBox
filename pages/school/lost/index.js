@@ -47,9 +47,9 @@ Page({
    */
   onLoad: function (options) {
     this.setData({ env: app.globalData.env })
-    // if (app.globalData.env != 'release') {
-    //   wx.switchTab({ url: '../../index/index' })
-    // }
+    if (app.globalData.env != 'release') {
+      wx.switchTab({ url: '../../index/index' })
+    }
     const type = options.type ? options.type : 1
     const keyword = options.keyword ? options.keyword : ''
     this.inital(type, keyword);
