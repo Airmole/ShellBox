@@ -33,7 +33,8 @@ Page({
     }, {
       title: '其他',
       value: '[0]'
-    }]
+    }],
+    backpage: '1'
   },
 
   /**
@@ -41,9 +42,9 @@ Page({
    */
   onLoad: function (options) {
     this.setData({ env: app.globalData.env })
-    if (app.globalData.env != 'release') {
-      wx.switchTab({ url: '../../index/index' })
-    }
+    // if (app.globalData.env != 'release') {
+    //   wx.switchTab({ url: '../../index/index' })
+    // }
     
     this.inital()
     wx.showShareMenu({
@@ -52,10 +53,13 @@ Page({
     })
   },
   onShow: function () {
-    this.inital()
+    let pages = getCurrentPages()
+    let currPage = pages[pages.length - 1]
+    const page = currPage.data.backpage ? currPage.data.backpage : '1'
+    this.inital(page)
   },
-  inital: function () {
-    this.getDatalist()
+  inital: function (page = 1) {
+    this.getDatalist(page)
     this.getHotDatalist()
     const edusysInfo = wx.getStorageSync('edusysUserInfo') || {}
     const uid = (edusysInfo != '' && edusysInfo.uid) ? edusysInfo.uid : 0
