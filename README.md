@@ -2,6 +2,7 @@
 
 贝壳小盒子 微信小程序
 
+[![OSCS Status](https://www.oscs1024.com/platform/badge/Airmole/ShellBox.svg?size=small)](https://www.oscs1024.com/project/Airmole/ShellBox?ref=badge_small)
 [![Star](https://img.shields.io/badge/Star-Airmole-brightgreen.svg)](https://github.com/Airmole/ShellBox/stargazers)
 [![Download](https://img.shields.io/badge/download-.zip-brightgreen.svg)](https://github.com/Airmole/ShellBox/archive/master.zip)
 [![last commit](https://img.shields.io/badge/last%20commit-2021--10--08-green.svg)](https://github.com/Airmole/ShellBox/commits/master)
