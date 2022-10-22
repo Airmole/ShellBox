@@ -98,7 +98,7 @@
             <view class="line-{{item.status == 1 ? 'blue': 'red'}} cu-tag radius">{{item.status == 1 ? '已回复': '待回复'}}</view>
             <!-- 解决状态胶囊 -->
             <view class="line-{{item.resolve_status == 1 ? 'blue': 'red'}} cu-tag radius">{{item.resolve_status == 1 ? '已解决': '解决中'}}</view>
-            {{item.content}}
+            <view>{{item.content}}</view>
           </view>
           <view class="grid flex-sub padding-lr padding-bottom col-3 grid-square">
             <view class="bg-img" style="background-image:url({{pitem}});" wx:for="{{item.images}}" wx:for-item="pitem"
