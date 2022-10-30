@@ -52,6 +52,18 @@
           <input name="place_room" bindinput="roomInput" placeholder=" 填写教室号" type="text" style="padding-left: 20rpx;"></input>
         </view>
       </block>
+      <!-- 图书馆 -->
+      <block wx:if="{{tag==5 && !realted && !reditid}}">
+        <view class="cu-form-group">
+          <view class="title text-black">图书馆</view>
+          <picker bindchange="libraryChange" value="{{library}}" range="{{libraries}}">
+            <view class="picker text-black" style="text-align: center;">
+              {{library?libraries[library]:'点击选择图书馆'}}
+            </view>
+          </picker>
+          <input name="place_room" bindinput="roomInput" placeholder=" 填写具体位置" type="text" style="padding-left: 20rpx;"></input>
+        </view>
+      </block>
       <!-- 联系方式 -->
       <view class="cu-form-group" wx:if="{{!realted && !reditid}}">
         <view class="title text-black">联系方式</view>

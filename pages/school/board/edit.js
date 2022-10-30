@@ -16,9 +16,11 @@ Page({
     realted: '',
     reditid: '',
     tag: null,
-    tags: ['其他', '食堂', '宿舍', '教学楼', '老师'],
+    tags: ['其他', '食堂', '宿舍', '教学楼', '老师', '图书馆'],
     canteen: null,
     canteens: ['一食堂', '二食堂', '三食堂'],
+    library: null,
+    libraries: ['理工图书馆', '社科图书馆'],
     teachBuilding: null,
     teachBuildings: [],
     dormitory: null,
@@ -84,6 +86,11 @@ Page({
   canteenChange(e) {
     this.setData({
       canteen: e.detail.value
+    })
+  },
+  libraryChange(e) {
+    this.setData({
+      library: e.detail.value
     })
   },
   dormitoryChange(e) {
@@ -184,6 +191,7 @@ Page({
     if (tag == 1) place_building = this.data.canteen === null ? '' : this.data.canteens[this.data.canteen]
     if (tag == 2) place_building = this.data.dormitory === null ? '' : this.data.dormitories[this.data.dormitory]
     if (tag == 3) place_building = this.data.teachBuilding === null ? '' : this.data.teachBuildings[this.data.teachBuilding]
+    if (tag == 5) place_building = this.data.library === null ? '' : this.data.libraries[this.data.library]
     const data = {
       uid: uid,
       nickname: nickname,

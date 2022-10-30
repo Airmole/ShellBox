@@ -43,7 +43,8 @@
     "pages/school/finance/bind",
     "pages/school/finance/index",
     "pages/school/card/index",
-    "pages/school/card/bind"
+    "pages/school/card/bind",
+    "pages/webview/webview"
   ],
   "window": {
     "backgroundTextStyle": "light",
