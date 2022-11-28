@@ -30,8 +30,7 @@ Page({
     this.getDetailData(this.data.id, 1)
   },
   inital: function (options) {
-    const accountInfo = wx.getAccountInfoSync()
-    const envVersion = accountInfo.miniProgram.envVersion
+    const envVersion = app.globalData.env
     if (envVersion != 'release') {
       wx.switchTab({ url: '../../index/index' })
     }
@@ -41,7 +40,7 @@ Page({
     const backpage = options.backpage ? options.backpage : 1
     let pages = getCurrentPages()
     let prevPage = pages[pages.length - 2]
-    prevPage.setData({ backpage: backpage })
+    if (prevPage) prevPage.setData({ backpage: backpage })
     this.setData({ id: id })
     this.getDetailData(id, 1)
     console.log(typeof app.globalData.isBoardAdminer, app.globalData.isBoardAdminer)

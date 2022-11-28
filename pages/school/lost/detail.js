@@ -64,7 +64,7 @@ Page({
     const backpage = options.backpage ? options.backpage : 1
     let pages = getCurrentPages()
     let prevPage = pages[pages.length - 2]
-    prevPage.setData({ backpage: backpage })
+    if (prevPage) prevPage.setData({ backpage: backpage })
     this.setData({ id: id, uid: uid })
     this.getDetailData(id)
   },
