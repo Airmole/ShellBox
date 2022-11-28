@@ -17,7 +17,7 @@
       </view>
       <view class="cu-form-group">
         <view class="title">年份</view>
-        <picker mode="date" value="{{year}}" fields="year" end="{{year}}" bindchange="yearChange">
+        <picker mode="date" value="{{year}}" fields="year" bindchange="yearChange">
           <view class="picker"> {{year}} </view>
         </picker>
       </view>
@@ -71,7 +71,7 @@
         </view>
         <view class="cu-form-group" wx:if="{{getDataBy == 3}}">
           <view class="title">月份</view>
-          <picker mode="date" value="{{month}}" fields="month" end="{{month}}" bindchange="monthChange">
+          <picker mode="date" value="{{month}}" fields="month" bindchange="monthChange">
             <view class="picker"> {{month}} </view>
           </picker>
         </view>
