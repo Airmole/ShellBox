@@ -44,7 +44,8 @@
     "pages/school/finance/index",
     "pages/school/card/index",
     "pages/school/card/bind",
-    "pages/webview/webview"
+    "pages/webview/webview",
+    "pages/webview/redpacket"
   ],
   "window": {
     "backgroundTextStyle": "light",
