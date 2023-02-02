@@ -16,14 +16,13 @@ Page({
     console.log('红包封面领取链接地址：', url)
     if (url === '') wx.reLaunch({ url: '/pages/index/index' })
     this.setData({ url: url })
-    wx.showRedPackage({ url: url })
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady() {
-    wx.showRedPackage({ url: this.data.url })
+  
   },
 
   /**
