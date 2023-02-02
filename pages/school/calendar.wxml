@@ -23,7 +23,7 @@
       <view wx:else>
         <text> {{jsonContent.month}}月{{jsonContent.day}}日（假期）{{jsonContent.dayOfWeek}} </text>
       </view>
-      <view> <text>\r\n受疫情等外部不可抗力因素印象，目前校历为暂行版，学校随时可能更新或根据实际情况变更，本校历仅供参考.</text> </view>
+      <view> <text>\r\n受各种因素影响，校历为暂行版或更新不及时，学校随时可能更新或根据实际情况变更，本校历仅供参考.</text> </view>
     </view>
   </view>
 
