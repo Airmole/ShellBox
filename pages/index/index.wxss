@@ -19,3 +19,8 @@
 .praise {
   text-indent: 1em;
 }
+
+.school-ads {
+  position: relative;
+  top: 0;
+}

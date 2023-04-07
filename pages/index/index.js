@@ -27,7 +27,8 @@ Page({
     elesysData: false,
     hasBindElesys: true,
     netsysData: false,
-    hasBindNetsys: false
+    hasBindNetsys: false,
+    showAds: true
   },
   onLoad: function () {
     this.inital();
@@ -291,6 +292,10 @@ Page({
   },
   goToBookSearchPage: function () {
     wx.navigateTo({ url: '../books/search' })
+  },
+  adsVisible () {
+    const showAds = !this.data.showAds
+    this.setData({ showAds: showAds })
   },
   /**
    * 生命周期函数--监听页面隐藏
