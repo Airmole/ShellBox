@@ -39,6 +39,14 @@
   </navigator>
 </block>
 
+<view wx:if="{{showAds}}" class="padding-lr-xs bg-white margin radius padding-bottom-xs text-center">
+  <view class="padding-top-xs flex justify-between school-ads">
+    <view style="z-index: 2;">广告</view>
+    <view><text bindtap="adsVisible" class="cuIcon-close text-black text-xxl"></text></view>
+  </view>
+  <image style="margin-top: -30rpx;" src="https://upload-images.jianshu.io/upload_images/4697920-3824b35bd1a85edb.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" mode="widthFix"/>
+</view>
+
 <view class="remind-box" wx:if="{{isLoading}}">
   <image class="remind-img" src="/images/loading.gif"></image>
 </view>

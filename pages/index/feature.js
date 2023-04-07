@@ -276,7 +276,7 @@ Page({
     var iconList = this.data.iconList
 
     try {
-      if (edusysUserInfo.uid.length > 0 && edusysUserInfo.password.length > 0) {
+      if (edusysUserInfo.uid && edusysUserInfo.uid.length > 0 && edusysUserInfo.password.length > 0) {
         var features = []
         var isTeacher = false;
         if (edusysUserInfo.uid.length < 8) {
