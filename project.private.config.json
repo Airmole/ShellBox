@@ -6,9 +6,9 @@
     "miniprogram": {
       "list": [
         {
-          "name": "redpacket",
-          "pathName": "pages/webview/redpacket",
-          "query": "url=https%3A%2F%2Fsupport.weixin.qq.com%2Fcgi-bin%2Fmmsupport-bin%2Fshowredpacket%3Freceiveuri%3DbZA4ovMnfkJ",
+          "name": "movie",
+          "pathName": "pages/school/movie",
+          "query": "date=2023-04-09",
           "launchMode": "default",
           "scene": null
         }
