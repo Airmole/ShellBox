@@ -138,6 +138,14 @@ Page({
           url: '../books/hot/index',
           login: false,
         }, {
+          id: 'movie',
+          icon: 'movie',
+          teacher: true,
+          student: true,
+          name: '音像放映',
+          url: '../school/movie',
+          login: false,
+        }, {
           //   id: 'recommendBook',
           //   icon: 'tuijian',
           //   teacher: true,

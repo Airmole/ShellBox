@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "calendar": "/utils/calendar/index",
+    "tips": "../index/component/tips"
+  }
+}

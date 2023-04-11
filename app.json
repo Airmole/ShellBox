@@ -45,7 +45,8 @@
     "pages/school/card/index",
     "pages/school/card/bind",
     "pages/webview/webview",
-    "pages/webview/redpacket"
+    "pages/webview/redpacket",
+    "pages/school/movie"
   ],
   "window": {
     "backgroundTextStyle": "light",
