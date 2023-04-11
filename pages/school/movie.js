@@ -96,9 +96,14 @@ const conf = {
     const index = e.currentTarget.dataset.index
     const movie = this.data.movieList[index]
     const endTime = new Date(movie.play_at).getTime() + 1000 * 60 * 150
+  
+    const nowTimestamp = new Date().getTime()
+    const playTimestamp = new Date(movie.play_at).getTime()
+    if (nowTimestamp > playTimestamp) return
+
     wx.addPhoneCalendar({
       title: `电影【${movie.name}】`,
-      startTime: new Date(movie.play_at).getTime(),
+      startTime: new Date(movie.play_at).getTime().toString().slice(0, -3),
       description: `电影《${movie.name}》即将开始放映`,
       location: '社科馆202音像室',
       endTime: endTime.toString().slice(0, -3),
@@ -117,7 +122,19 @@ const conf = {
       appId: 'wx2f9b06c1de1ccfca',
       path: `pages/subject/subject?id=${movie.douban_id}&type=movie`
     })
+  },
+    /**
+  * 用户点击右上角分享
+  */
+ onShareAppMessage: function (res) {
+  let title = `${this.data.checkedDate}社科音像室影片`;
+  if (this.data.movieList.length > 0) title = `${title}《${this.data.movieList[0].name}》`
+  return {
+    title: title,
+    path: 'pages/school/movie?date=' + this.data.checkedDate,
+    imageUrl: this.data.movieList.length > 0 ? this.data.movieList[0].poster : null
   }
+},
 }
 
 Page(conf)

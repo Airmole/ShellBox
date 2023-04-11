@@ -130,5 +130,5 @@
 }
 
 .icon-movie:before {
-  content: "\e70d;";
+  content: "\e70d";
 }

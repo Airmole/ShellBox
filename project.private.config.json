@@ -8,7 +8,7 @@
         {
           "name": "movie",
           "pathName": "pages/school/movie",
-          "query": "date=2023-04-12",
+          "query": "date=2023-04-09",
           "launchMode": "default",
           "scene": null
         }

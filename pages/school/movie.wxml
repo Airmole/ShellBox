@@ -15,26 +15,24 @@
     <text class="cuIcon-title text-green"></text>当天放映
   </view>
   <view class="cu-list menu" wx:if="{{movieList.length > 0}}">
-    <view class="cu-item padding-tb" wx:for="{{movieList}}" wx:key="index" bindtap="goDouban" data-index="{{index}}">
-      <view>
+    <view class="cu-item padding-tb radius" wx:for="{{movieList}}" wx:key="index" bindtap="goDouban" data-index="{{index}}">
+      <view class="padding-xs">
         <image catchtap="showPoster" data-url="{{item.poster}}" style="width: 180rpx;" src="{{item.poster}}?imageMogr2/auto-orient/strip%7CimageView2/2/w/128" mode="widthFix" />
       </view>
-      <view class="padding-lr">
-        <view class="text-xl text-cut"><text class="cuIcon-videofill text-red margin-right-xs"></text><text class="text-bold">{{item.name}}</text><text class="text-gray" wx:if="{{item.year}}">（{{item.year}}）</text>
+      <view class="padding-lr-xs flex flex-wrap">
+        <view class="padding-bottom-sm solid-bottom text-xl text-cut"><text class="cuIcon-videofill text-red margin-right-xs"></text><text class="text-bold">{{item.name}}</text><text class="text-gray" wx:if="{{item.year}}">（{{item.year}}）</text>
         </view>
-        <view class="margin-tb-xs">
-          <text catchtap="setRemind" data-index="{{index}}" class="cuIcon-remind text-orange margin-right-xs"></text><text class="text-df">{{ item.play_at }}</text>
+        <view class="margin-tb-xs" catchtap="setRemind" data-index="{{index}}">
+          <text class="cuIcon-remind text-orange margin-right-xs"></text><text class="text-df">{{ item.play_at }}</text>
         </view>
-        <view class="margin-tb-xs" catchtap="goLibraryCinema">
+        <view class="margin-bottom-xs" catchtap="goLibraryCinema">
           <text class="cuIcon-locationfill text-blue margin-right-xs"></text><text class="text-df">社科图书馆音像室(202)</text>
         </view>
-        <view class="margin-tb-xs">
+        <view class="margin-bottom-xs">
           <view class="cu-tag line-blue">{{item.duration}}</view>
           <view class="cu-tag line-blue">{{item.genre}}</view>
         </view>
-        <view class="margin-tb-xs">
-          <text>{{item.actor}}</text>
-        </view>
+        <view class="margin-bottom-xs">{{item.actor}}</view>
       </view>
     </view>
   </view>
