@@ -1,6 +1,6 @@
 {
     "name": "shellbox",
-    "version": "3.4.0",
-    "description": "社科馆音像室放映安排日历",
+    "version": "3.4.1",
+    "description": "修复音像室反映页面分享时标题日期错误的问题",
     "author": "Airmole"
   }
