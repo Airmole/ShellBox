@@ -44,7 +44,9 @@ const conf = {
   },
   afterTapDate(e) {
     console.log('afterTapDate', e)
-    this.getMoviesByDay(`${e.detail.year}-${e.detail.month}-${e.detail.date}`)
+    const date = `${e.detail.year}-${e.detail.month}-${e.detail.date}`
+    this.setData({ checkedDate: date })
+    this.getMoviesByDay(date)
   },
   getMovieDaysByMonth(month = '') {
     const _this = this
