@@ -1,6 +1,6 @@
 {
     "name": "shellbox",
-    "version": "3.4.1",
-    "description": "修复音像室反映页面分享时标题日期错误的问题",
+    "version": "3.4.2",
+    "description": "电费查询追加17斋绑定选项",
     "author": "Airmole"
   }
