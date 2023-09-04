@@ -1,6 +1,6 @@
 {
     "name": "shellbox",
-    "version": "3.4.4",
-    "description": "电费查询绑定功能接入支持1,2,37斋宿舍楼",
+    "version": "3.4.5",
+    "description": "用户隐私保护指引授权提示&我的借阅功能系统不可用提示优化",
     "author": "Airmole"
   }
