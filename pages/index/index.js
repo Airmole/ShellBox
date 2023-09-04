@@ -292,6 +292,12 @@ Page({
   goToBookSearchPage: function () {
     wx.navigateTo({ url: '../books/search' })
   },
+  agree(e){
+    console.log("用户同意隐私授权, 接下来可以调用隐私协议中声明的隐私接口")
+  },
+  disagree(e){
+    console.log("用户拒绝隐私授权, 未同意过的隐私协议中的接口将不能调用")
+  },
   /**
    * 生命周期函数--监听页面隐藏
    */

@@ -2,6 +2,7 @@
   "usingComponents": {
     "tips": "./component/tips",
     "feecard": "./component/feecard",
-    "imagemodal": "./component/imagemodal"
+    "imagemodal": "./component/imagemodal",
+    "privacy": "./component/privacyPopup/privacyPopup"
   }
 }

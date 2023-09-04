@@ -18,7 +18,8 @@ Page({
     isLoading: true,
     defaultUid: '',
     storageOpacPassword:'',
-    from: 'index'
+    from: 'index',
+    opacClosed: false,
   },
   onLoad: function(options) {
     var that = this
@@ -222,6 +223,7 @@ Page({
           PreInfo: res.data,
         })
         if (res.data.code == 500) {
+          that.setData({ opacClosed: true })
           wx.showToast({
             title: '图书馆系统异常',
             icon: 'none',

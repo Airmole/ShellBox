@@ -1,0 +1,21 @@
+<!--pages/index/component/privacyPopup/privacyPopup.wxml-->
+<view class="cu-modal bottom-modal {{innerShow?'show':''}}">
+  <view class="cu-dialog" catchtap>
+    <view class="cu-bar bg-white">
+      <view class="action"></view>
+      <view class="action text-black">用户隐私保护提示</view>
+      <view class="action"></view>
+    </view>
+    <view class="padding-sm text-left">
+      <view class="padding">
+        <view class="margin-bottom-xs">首先，感谢您使用微信小程序《贝壳小盒子》，应微信团队官方《关于小程序隐私保护指引设置的公告》要求，在您使用本小程序之前请您务必授权同意本小程序相关的</view>
+        <view bind:tap="openPrivacyContract" class="text-blue text-lg">{{contractName}}</view>
+        <view class="margin-top-xs">当您点击同意并开始时用产品服务时，即表示你已理解并同息该条款内容，该条款将对您产生法律约束力。如您拒绝，将无法正常使用本小程序部分功能，包括不限于：正常显示微信头像昵称，保存成绩分享图，添加上课日程到手机，参与运动榜单排行等功能。</view>
+        <view class="flex justify-around padding-top">
+          <view class="margin-lr"><button bindtap="handleDisagree" class="cu-btn bg-red round lg">拒绝授权<text class="cuIcon-close"></text></button></view>
+          <view class="margin-lr"><button open-type="agreePrivacyAuthorization" bindagreeprivacyauthorization="handleAgree" class="cu-btn bg-green round lg">同意授权<text class="cuIcon-check"></text></button></view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

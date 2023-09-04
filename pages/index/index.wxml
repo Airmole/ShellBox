@@ -1,6 +1,8 @@
 <cu-custom bgColor="bg-wegreen">
   <view slot="content">贝壳小盒子</view>
 </cu-custom>
+<!-- 隐私协议授权 -->
+<privacy bind:agree="agree" bind:disagree="disagree"></privacy>
 <!-- 关注公众号组件 -->
 <view class="margin"><official-account class="radius"></official-account></view>
 <!-- 图书检索 -->

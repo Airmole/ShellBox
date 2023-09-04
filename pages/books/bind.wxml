@@ -36,7 +36,7 @@
               </view>
             </view>
             <view>
-              <button formType="submit" class="login-btn">确认绑定</button>
+              <button formType="submit" disabled="{{opacClosed}}" class="login-btn">{{opacClosed ? 'OPAC系统异常，暂无法使用':'确认登录'}}</button>
             </view>
           </form>
         </view>
