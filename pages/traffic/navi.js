@@ -14,7 +14,7 @@ Page({
     activePlaceID: -1,
     schoolAddressText: '天津市宝坻区京津新城珠江北环东路1号',
     postcode: '301830',
-    staticMapImage: 'https://upload-images.jianshu.io/upload_images/4697920-d484de3e9d949dab.jpeg',
+    staticMapImage: 'https://upload-images.jianshu.io/upload_images/4697920-8ab5e49dabd814ec.png',
     markers: [{
       id: 0,
       latitude: 39.544736,
@@ -138,13 +138,13 @@ Page({
       }
     }, {
       id: 11,
-      latitude: 39.543706,
-      longitude: 117.392583,
+      latitude: 39.546894,
+      longitude: 117.399626,
       iconPath: "/images/nav/xingzheng.png",
       width: 30,
       height: 32,
       callout: {
-        content: '行政楼',
+        content: '办公楼',
         display: 'ALWAYS'
       }
     }, {
@@ -479,8 +479,8 @@ Page({
       }
     }, {
       id: 42,
-      latitude: 39.543835,
-      longitude: 117.39556,
+      latitude: 39.545394,
+      longitude: 117.392733,
       iconPath: "/images/nav/sushe.png",
       width: 30,
       height: 32,
@@ -490,8 +490,8 @@ Page({
       }
     }, {
       id: 43,
-      latitude: 39.544186,
-      longitude: 117.395501,
+      latitude: 39.54575,
+      longitude: 117.392647,
       iconPath: "/images/nav/sushe.png",
       width: 30,
       height: 32,
@@ -501,8 +501,8 @@ Page({
       }
     }, {
       id: 44,
-      latitude: 39.544649,
-      longitude: 117.395533,
+      latitude: 39.546106,
+      longitude: 117.392577,
       iconPath: "/images/nav/sushe.png",
       width: 30,
       height: 32,
@@ -512,8 +512,8 @@ Page({
       }
     }, {
       id: 45,
-      latitude: 39.54503,
-      longitude: 117.395458,
+      latitude: 39.546457,
+      longitude: 117.392513,
       iconPath: "/images/nav/sushe.png",
       width: 30,
       height: 32,
@@ -523,8 +523,8 @@ Page({
       }
     }, {
       id: 46,
-      latitude: 39.545415,
-      longitude: 117.395377,
+      latitude: 39.546792,
+      longitude: 117.392416,
       iconPath: "/images/nav/sushe.png",
       width: 30,
       height: 32,
@@ -534,8 +534,8 @@ Page({
       }
     }, {
       id: 47,
-      latitude: 39.545762,
-      longitude: 117.395115,
+      latitude: 39.545481,
+      longitude: 117.393457,
       iconPath: "/images/nav/sushe.png",
       width: 30,
       height: 32,
@@ -545,8 +545,8 @@ Page({
       }
     }, {
       id: 48,
-      latitude: 39.546366,
-      longitude: 117.395066,
+      latitude: 39.545845,
+      longitude: 117.393366,
       iconPath: "/images/nav/sushe.png",
       width: 30,
       height: 32,
@@ -556,8 +556,8 @@ Page({
       }
     }, {
       id: 49,
-      latitude: 39.546809,
-      longitude: 117.395098,
+      latitude: 39.546246,
+      longitude: 117.393301,
       iconPath: "/images/nav/sushe.png",
       width: 30,
       height: 32,
@@ -567,8 +567,8 @@ Page({
       }
     }, {
       id: 50,
-      latitude: 39.547156,
-      longitude: 117.394991,
+      latitude: 39.546552,
+      longitude: 117.393216,
       iconPath: "/images/nav/sushe.png",
       width: 30,
       height: 32,
@@ -578,8 +578,8 @@ Page({
       }
     }, {
       id: 51,
-      latitude: 39.543992,
-      longitude: 117.396273,
+      latitude: 39.546904,
+      longitude: 117.393151,
       iconPath: "/images/nav/sushe.png",
       width: 30,
       height: 32,
@@ -589,8 +589,8 @@ Page({
       }
     }, {
       id: 52,
-      latitude: 39.544294,
-      longitude: 117.396161,
+      latitude: 39.546279,
+      longitude: 117.394036,
       iconPath: "/images/nav/sushe.png",
       width: 30,
       height: 32,
@@ -600,8 +600,8 @@ Page({
       }
     }, {
       id: 53,
-      latitude: 39.54472,
-      longitude: 117.396043,
+      latitude: 39.546652,
+      longitude: 117.39395,
       iconPath: "/images/nav/sushe.png",
       width: 30,
       height: 32,
@@ -611,8 +611,8 @@ Page({
       }
     }, {
       id: 54,
-      latitude: 39.546465,
-      longitude: 117.395731,
+      latitude: 39.546983,
+      longitude: 117.393865,
       iconPath: "/images/nav/sushe.png",
       width: 30,
       height: 32,
@@ -622,8 +622,8 @@ Page({
       }
     }, {
       id: 55,
-      latitude: 39.546846,
-      longitude: 117.395683,
+      latitude: 39.543835,
+      longitude: 117.39556,
       iconPath: "/images/nav/sushe.png",
       width: 30,
       height: 32,
@@ -633,8 +633,8 @@ Page({
       }
     }, {
       id: 56,
-      latitude: 39.547235,
-      longitude: 117.395538,
+      latitude: 39.544186,
+      longitude: 117.395501,
       iconPath: "/images/nav/sushe.png",
       width: 30,
       height: 32,
@@ -644,8 +644,8 @@ Page({
       }
     }, {
       id: 57,
-      latitude: 39.547342,
-      longitude: 117.396289,
+      latitude: 39.544649,
+      longitude: 117.395533,
       iconPath: "/images/nav/sushe.png",
       width: 30,
       height: 32,
@@ -655,8 +655,8 @@ Page({
       }
     }, {
       id: 58,
-      latitude: 39.546457,
-      longitude: 117.392513,
+      latitude: 39.54503,
+      longitude: 117.395458,
       iconPath: "/images/nav/sushe.png",
       width: 30,
       height: 32,
@@ -666,8 +666,8 @@ Page({
       }
     }, {
       id: 59,
-      latitude: 39.546106,
-      longitude: 117.392577,
+      latitude: 39.545415,
+      longitude: 117.395377,
       iconPath: "/images/nav/sushe.png",
       width: 30,
       height: 32,
@@ -677,8 +677,8 @@ Page({
       }
     }, {
       id: 60,
-      latitude: 39.54575,
-      longitude: 117.392647,
+      latitude: 39.545762,
+      longitude: 117.395115,
       iconPath: "/images/nav/sushe.png",
       width: 30,
       height: 32,
@@ -688,8 +688,8 @@ Page({
       }
     }, {
       id: 61,
-      latitude: 39.545394,
-      longitude: 117.392733,
+      latitude: 39.546366,
+      longitude: 117.395066,
       iconPath: "/images/nav/sushe.png",
       width: 30,
       height: 32,
@@ -699,8 +699,8 @@ Page({
       }
     }, {
       id: 62,
-      latitude: 39.545481,
-      longitude: 117.393457,
+      latitude: 39.546809,
+      longitude: 117.395098,
       iconPath: "/images/nav/sushe.png",
       width: 30,
       height: 32,
@@ -710,8 +710,8 @@ Page({
       }
     }, {
       id: 63,
-      latitude: 39.545845,
-      longitude: 117.393366,
+      latitude: 39.547156,
+      longitude: 117.394991,
       iconPath: "/images/nav/sushe.png",
       width: 30,
       height: 32,
@@ -721,8 +721,8 @@ Page({
       }
     }, {
       id: 64,
-      latitude: 39.546246,
-      longitude: 117.393301,
+      latitude: 39.543992,
+      longitude: 117.396273,
       iconPath: "/images/nav/sushe.png",
       width: 30,
       height: 32,
@@ -732,8 +732,8 @@ Page({
       }
     }, {
       id: 65,
-      latitude: 39.546552,
-      longitude: 117.393216,
+      latitude: 39.544294,
+      longitude: 117.396161,
       iconPath: "/images/nav/sushe.png",
       width: 30,
       height: 32,
@@ -743,8 +743,8 @@ Page({
       }
     }, {
       id: 66,
-      latitude: 39.546904,
-      longitude: 117.393151,
+      latitude: 39.54472,
+      longitude: 117.396043,
       iconPath: "/images/nav/sushe.png",
       width: 30,
       height: 32,
@@ -754,8 +754,8 @@ Page({
       }
     }, {
       id: 67,
-      latitude: 39.546279,
-      longitude: 117.394036,
+      latitude: 39.546465,
+      longitude: 117.395731,
       iconPath: "/images/nav/sushe.png",
       width: 30,
       height: 32,
@@ -765,8 +765,8 @@ Page({
       }
     }, {
       id: 68,
-      latitude: 39.546652,
-      longitude: 117.39395,
+      latitude: 39.546846,
+      longitude: 117.395683,
       iconPath: "/images/nav/sushe.png",
       width: 30,
       height: 32,
@@ -776,8 +776,8 @@ Page({
       }
     }, {
       id: 69,
-      latitude: 39.546983,
-      longitude: 117.393865,
+      latitude: 39.547235,
+      longitude: 117.395538,
       iconPath: "/images/nav/sushe.png",
       width: 30,
       height: 32,
@@ -787,8 +787,8 @@ Page({
       }
     }, {
       id: 70,
-      latitude: 39.546792,
-      longitude: 117.392416,
+      latitude: 39.547342,
+      longitude: 117.396289,
       iconPath: "/images/nav/sushe.png",
       width: 30,
       height: 32,
@@ -798,6 +798,17 @@ Page({
       }
     }, {
       id: 71,
+      latitude: 39.547354,
+      longitude: 117.397008,
+      iconPath: "/images/nav/sushe.png",
+      width: 30,
+      height: 32,
+      callout: {
+        content: '38斋',
+        display: 'ALWAYS'
+      }
+    }, {
+      id: 72,
       latitude: 39.547254,
       longitude: 117.399165,
       iconPath: "/images/nav/jiaoxuelou.png",
@@ -808,7 +819,7 @@ Page({
         display: 'ALWAYS'
       }
     }, {
-      id: 72,
+      id: 73,
       latitude: 39.547734,
       longitude: 117.396874,
       iconPath: "/images/nav/sushe.png",
@@ -819,7 +830,7 @@ Page({
         display: 'ALWAYS'
       }
     }, {
-      id: 73,
+      id: 74,
       latitude: 39.547614,
       longitude: 117.396166,
       iconPath: "/images/nav/sushe.png",
@@ -830,7 +841,7 @@ Page({
         display: 'ALWAYS'
       }
     }, {
-      id: 74,
+      id: 75,
       latitude: 39.547531,
       longitude: 117.395469,
       iconPath: "/images/nav/sushe.png",
@@ -841,7 +852,7 @@ Page({
         display: 'ALWAYS'
       }
     }, {
-      id: 75,
+      id: 76,
       latitude: 39.547412,
       longitude: 117.394782,
       iconPath: "/images/nav/sushe.png",
@@ -852,7 +863,7 @@ Page({
         display: 'ALWAYS'
       }
     }, {
-      id: 76,
+      id: 77,
       latitude: 39.545699,
       longitude: 117.400388,
       iconPath: "/images/nav/others.png",
@@ -875,17 +886,17 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function(e) {
+  onLoad: function (e) {
     console.log(e)
     var _this = this
     _this.inital();
-    if (e.markerId !== '' && Object.keys(e).length !== 0) { 
+    if (e.markerId !== '' && Object.keys(e).length !== 0) {
       const para = { detail: e };
       _this.makertap(para);
     }
     wx.getLocation({
       type: 'gcj02', // 默认为 wgs84 返回 gps 坐标，gcj02 返回可用于 wx.openLocation 的坐标  
-      success: function(res) {
+      success: function (res) {
         _this.setData({
           userLongitude: res.longitude,
           userLatitude: res.latitude
@@ -900,18 +911,18 @@ Page({
       menus: ['shareAppMessage', 'shareTimeline']
     })
   },
-  onReady: function() {
+  onReady: function () {
     var that = this;
-    setTimeout(function() { that.setData({ isLoading: false }); }, 800);
+    setTimeout(function () { that.setData({ isLoading: false }); }, 800);
   },
-  makertap: function(e) {
+  makertap: function (e) {
     // console.log(e)
     var id = e.detail.markerId;
     var that = this;
     var markers = that.data.markers;
     wx.getLocation({
       type: 'gcj02', // 默认为 wgs84 返回 gps 坐标，gcj02 返回可用于 wx.openLocation 的坐标  
-      success: function(res) {
+      success: function (res) {
         that.setData({
           userLongitude: res.longitude,
           userLatitude: res.latitude
@@ -927,7 +938,7 @@ Page({
     })
 
   },
-  planPolyline: function(origin, destination) {
+  planPolyline: function (origin, destination) {
     var that = this;
     var id = that.data.activePlaceID;
     //规划步行路线
@@ -935,7 +946,7 @@ Page({
     myAmapFun.getWalkingRoute({
       origin: origin,
       destination: destination,
-      success: function(data) {
+      success: function (data) {
         var points = [];
         if (data.paths && data.paths[0] && data.paths[0].steps) {
           var steps = data.paths[0].steps;
@@ -969,8 +980,8 @@ Page({
         }
         var markers = that.data.markers;
         var points = that.data.polyline[0].points;
-        //暂时一共70个坐标点
-        markers[71] = {
+        // 一共78个坐标点
+        markers[79] = {
           id: 71,
           latitude: points[0].latitude,
           longitude: points[0].longitude,
@@ -978,7 +989,7 @@ Page({
           width: 23,
           height: 33
         };
-        markers[72] = {
+        markers[80] = {
           id: 72,
           latitude: points[points.length - 1].latitude,
           longitude: points[points.length - 1].longitude,
@@ -991,11 +1002,11 @@ Page({
       },
     })
   },
-  myLocation: function() {
+  myLocation: function () {
     var _this = this
     wx.getLocation({
       type: 'gcj02', // 默认为 wgs84 返回 gps 坐标，gcj02 返回可用于 wx.openLocation 的坐标  
-      success: function(res) {
+      success: function (res) {
         _this.setData({
           userLongitude: res.longitude,
           userLatitude: res.latitude
@@ -1003,19 +1014,19 @@ Page({
       }
     })
   },
-  moveToSchool: function() {
+  moveToSchool: function () {
     //视图返回学校
     var _this = this;
     _this.setData({ userLongitude: 117.396018, userLatitude: 39.545546 });
   },
-  showStaticMapImage: function() {
+  showStaticMapImage: function () {
     var _this = this;
     wx.previewImage({
       current: _this.data.staticMapImage,
-      urls: [ _this.data.staticMapImage ]
+      urls: [_this.data.staticMapImage]
     })
   },
-  goDetail: function() {
+  goDetail: function () {
     var that = this;
     const latitude = that.data.markers[that.data.activePlaceID].latitude;
     const longitude = that.data.markers[that.data.activePlaceID].longitude;
