@@ -191,14 +191,14 @@ Page({
           url: '',
           login: true,
         }, {
-          id: 'lost',
-          icon: 'lost',
-          teacher: true,
-          student: true,
-          name: '失物招领',
-          url: '../school/lost/index',
-          login: false,
-        }, {
+        //   id: 'lost',
+        //   icon: 'lost',
+        //   teacher: true,
+        //   student: true,
+        //   name: '失物招领',
+        //   url: '../school/lost/index',
+        //   login: false,
+        // }, {
           id: 'map',
           icon: 'tubiao_ditu',
           teacher: true,
