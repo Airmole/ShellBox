@@ -21,9 +21,6 @@ Page({
         }, {
           subtitle: '成绩查询',
           url: 'http://cet.neea.edu.cn/cet/'
-        }, {
-          subtitle: '准考证',
-          url: 'http://cet-bm.neea.cn/Home/QueryTestTicket'
         }]
       }, {
         title: '计算机等级考试(计算机二级)(NCRE)',
