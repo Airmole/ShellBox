@@ -26,7 +26,7 @@
           <text class="cuIcon-remind text-orange margin-right-xs"></text><text class="text-df">{{ item.play_at }}</text>
         </view>
         <view class="margin-bottom-xs" catchtap="goLibraryCinema">
-          <text class="cuIcon-locationfill text-blue margin-right-xs"></text><text class="text-df">社科图书馆音像室(202)</text>
+          <text class="cuIcon-locationfill text-blue margin-right-xs"></text><text class="text-df">社科图书馆音像室(201)</text>
         </view>
         <view class="margin-bottom-xs">
           <view class="cu-tag line-blue">{{item.duration}}</view>
