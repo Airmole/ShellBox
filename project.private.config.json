@@ -1,20 +1,25 @@
 {
   "setting": {
-    "urlCheck": false
+    "urlCheck": false,
+    "compileHotReLoad": true
   },
   "condition": {
     "miniprogram": {
       "list": [
         {
-          "name": "movie",
-          "pathName": "pages/school/movie",
+          "name": "pages/index/index",
+          "pathName": "pages/index/index",
           "query": "",
           "launchMode": "default",
-          "scene": null
+          "scene": 1035,
+          "referrerInfo": {
+            "appId": "wxf0ba93e3faff4eda"
+          }
         }
       ]
     }
   },
   "description": "项目私有配置文件。此文件中的内容将覆盖 project.config.json 中的相同字段。项目的改动优先同步到此文件中。详见文档：https://developers.weixin.qq.com/miniprogram/dev/devtools/projectconfig.html",
-  "libVersion": "2.33.0"
+  "libVersion": "2.33.0",
+  "projectname": "shellbox-weapp"
 }

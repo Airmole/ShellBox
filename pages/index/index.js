@@ -4,6 +4,7 @@ var app = getApp()
 var timeUtil = require('../../utils/util.js')
 Page({
   data: {
+    showOffLineModal: false,
     weekArray: ["sunday", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday"],
     searchType: '02',
     radioItems: [

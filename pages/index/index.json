@@ -3,6 +3,7 @@
     "tips": "./component/tips",
     "feecard": "./component/feecard",
     "imagemodal": "./component/imagemodal",
-    "privacy": "./component/privacyPopup/privacyPopup"
+    "privacy": "./component/privacyPopup/privacyPopup",
+    "offlinemodal": "./component/offlineModal/offlineModal"
   }
 }

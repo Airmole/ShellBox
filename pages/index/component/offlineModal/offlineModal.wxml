@@ -1,0 +1,16 @@
+<!--pages/index/component/privacyPopup/privacyPopup.wxml-->
+<view class="cu-modal {{innerShow?'show':''}}">
+  <view class="cu-dialog">
+    <view class="cu-bar bg-white justify-end">
+      <view class="content">公告</view>
+    </view>
+    <view class="padding-xl text-left">
+      <rich-text nodes="{{innerContent}}" space="emsp"/>
+    </view>
+    <view class="cu-bar bg-white justify-end">
+      <view class="action">
+        <button class="cu-btn bg-green margin-left" bindtap="goYooHob">{{innerButton}}</button>
+      </view>
+    </view>
+  </view>
+</view>
