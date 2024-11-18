@@ -14,7 +14,7 @@
 
 <img style="width:30%;" src="https://user-images.githubusercontent.com/20333663/189793371-a3d2f628-7bbe-4849-97cc-0d6e11d3c5a6.png"/>
 
-> 此版本已不再维护，线上最新版本使用 uniapp 重新开发，见项目 [shellbox-uniapp](https://github.com/Airmole/ShellBox/edit/master/README.md) 
+> 此版本已不再维护，线上最新版本使用 uniapp 重新开发，见项目 [shellbox-uniapp](https://github.com/Airmole/shellbox-uniapp) 
 
 ## 截图
 [![-1.jpg](https://upload-images.jianshu.io/upload_images/4697920-dfebfcf8673fc144.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)](https://z4a.net/image/7NtGdH)
