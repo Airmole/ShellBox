@@ -7,16 +7,14 @@
 [![Download](https://img.shields.io/badge/download-.zip-brightgreen.svg)](https://github.com/Airmole/ShellBox/archive/master.zip)
 [![last commit](https://img.shields.io/badge/last%20commit-2021--10--08-green.svg)](https://github.com/Airmole/ShellBox/commits/master)
 
+**！！！此版本接口服务已不再维护，仅供界面样式&交互操作作为参考代码！！**
+
 
 ## 线上版本体验
 
 <img style="width:30%;" src="https://user-images.githubusercontent.com/20333663/189793371-a3d2f628-7bbe-4849-97cc-0d6e11d3c5a6.png"/>
 
-- 体验账号：000000000（9个0）
-
-- 体验密码：123456789
-> 测试体验账号仅供预览展示效果，且”我的借阅“、"学费查询"、”网费查询“功能账号密码均相同。
-
+> 此版本已不再维护，线上最新版本使用 uniapp 重新开发，见项目 [shellbox-uniapp](https://github.com/Airmole/ShellBox/edit/master/README.md) 
 
 ## 截图
 [![-1.jpg](https://upload-images.jianshu.io/upload_images/4697920-dfebfcf8673fc144.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)](https://z4a.net/image/7NtGdH)
