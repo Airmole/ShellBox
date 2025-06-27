@@ -79,6 +79,5 @@
 
 ## 赞助感谢
 
-本项目的 CDN 加速和安全保护由腾讯 EdgeOne 赞助
-[最佳亚洲 CDN、Edge 和安全解决方案 - 腾讯 EdgeOne](https://edgeone.ai/?from=github)
+[本项目的 CDN 加速和安全保护由腾讯 EdgeOne 赞助，最佳亚洲 CDN、Edge 和安全解决方案 - 腾讯 EdgeOne](https://edgeone.ai/?from=github)
 [![image](https://github.com/user-attachments/assets/4ee88232-7947-40b8-91f2-b069c1f21b51)](https://edgeone.ai/?from=github)
